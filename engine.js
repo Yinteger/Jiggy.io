@@ -76,6 +76,9 @@ zen.engine.prototype.setRenderingEngine = function (renderingEngine) {
 	this.renderingEngine = renderingEngine;
 
 	//Start the new Rendering engine, pass in View Port, etc...
+	this.renderingEngine.setViewPort(this.viewPort);
+	this.renderingEngine.startRendering();
+
 };
 
 zen.engine.prototype.setSoundEngine = function (soundEngine) {
@@ -88,10 +91,11 @@ zen.engine.prototype.setPhysicEngine = function (physicEngine) {
 
 zen.engine.prototype._init = function () {
 	//Create the ViewPort
+	this.viewPort = new zen.ViewPort();
 
 	//If Engine is ready, notify our callback
 	if (this.onInit) {
-		this.onInit()
+		this.onInit(this.viewPort.getCanvas())
 	} else {
 		console.warn('No onInit specified for Zengine. How will you know when to start using it?!');
 	}
@@ -104,7 +108,12 @@ zen.engine.prototype._loadDependencies = function () {
 	//DEVELOPMENT CODE ONLY
 	var basync = new Basync();
 
+	//Base Package
+	basync.addDependency('zen.ViewPort', zen.ENGINE_DIR + 'ViewPort');
+
 	//ENGINES PACkAGE
+	basync.addDependency('zen.engines.RenderingEngine', zen.ENGINE_DIR + "engines/RenderingEngine");
+	basync.addDependency('zen.engines.TwoDRenderingEngine', zen.ENGINE_DIR + "engines/2DRenderingEngine", ['zen.engines.RenderingEngine']);
 
 	//ENTITIES PACKAGE
 	basync.addDependency('zen.entities.EntityModel', zen.ENGINE_DIR + 'entities/EntityModel', [
