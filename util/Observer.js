@@ -12,9 +12,6 @@ zen.extends(null, zen.util.Observer, {
 	 *
 	 *	Adds a handler to the observer.
 	 *	Does not allow duplicate handlers.
-	 *	
-	 *	//TODO, check function comparison to see if two different functions
-	 *	that does thes same thing is considered equal or not.
 	 * 
 	 * @param {String} eventName 
 	 * @param {Function} handler   

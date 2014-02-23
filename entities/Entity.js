@@ -67,7 +67,29 @@ zen.extends(null, zen.entities.Entity, {
 	 * @return {String}
 	 */
 	getID : function() {
-		return this.model.getAttribute('id');
+		return this.model.getID();
+	},
+
+	/**
+	 * public setType
+	 *
+	 *	Sets the type of this entity.
+	 * 
+	 * @param {String} type 
+	 */
+	setType : function(type) {
+		this.model.setType(type);
+	},
+
+	/**
+	 * public getType
+	 *
+	 *	Gets the type of this entity.
+	 * 
+	 * @return {String} 
+	 */
+	getType : function() {
+		return this.model.getType();
 	},
 
 	/**
@@ -229,7 +251,7 @@ zen.extends(null, zen.entities.Entity, {
 			},
 
 			hasPrevious : function() {
-				var child = self.getChildAt(i - 1);
+				var child = self.getChildAt(i);
 				return !(child === undefined || child === null);
 			},
 
@@ -266,7 +288,7 @@ zen.extends(null, zen.entities.Entity, {
 	 * @return {Integer}
 	 */
 	getX : function() {
-		return this.model.getAttribute(x);
+		return this.model.getAttribute('x');
 	},
 
 	/**
@@ -323,13 +345,13 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param {Integer} z 
 	 */
 	setLocation : function(x, y, z) {
-		if (x !== null || x !== undefined) {
-			this.setZ(z);
+		if (x !== null && x !== undefined) {
+			this.setX(x);
 		}
-		if (y !== null || y !== undefined) {
+		if (y !== null && y !== undefined) {
 			this.setY(y);
 		}
-		if (z !== null || z !== undefined) {
+		if (z !== null && z !== undefined) {
 			this.setZ(z);
 		}
 	},
@@ -407,10 +429,10 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param {Integer} height 
 	 */
 	setSize : function(width, height) {
-		if (width !== null || width !== undefined) {
+		if (width !== null && width !== undefined) {
 			this.setWidth(width);
 		}
-		if (height !== null || height !== undefined) {
+		if (height !== null && height !== undefined) {
 			this.setHeight(height);
 		}
 	},

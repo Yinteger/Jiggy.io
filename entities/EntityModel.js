@@ -69,6 +69,18 @@ zen.extends(null, zen.entities.EntityModel, {
 	},
 
 	/**
+	 * public getAttribute
+	 *
+	 *	Returns an attribute value from given key.
+	 * 
+	 * @param  {String} key 
+	 * @return {Mixed}     
+	 */
+	getAttribute : function(key) {
+		return this.attributes[key];
+	},
+
+	/**
 	 * public hasAttribute
 	 *
 	 * 	Checks to see if the key exists.
