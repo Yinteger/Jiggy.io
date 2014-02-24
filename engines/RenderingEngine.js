@@ -39,7 +39,7 @@ zen.engines.RenderingEngine.prototype.startRendering = function () {
 	if (this._viewPort) {
 		var self = this;
 		this.rendering = true;
-		this._render();
+		this._requestFrame();
 	} else {
 		console.warn('Unable to begin rendering, no view port assigned to rendering engine.');
 	}
@@ -72,7 +72,7 @@ zen.engines.RenderingEngine.prototype._requestFrame = function () {
  * @return void
  */
 zen.engines.RenderingEngine.prototype.stopRendering = function () {
-	window.cancelRequestAnimationFrame(this.animationFrameID);
+	window.cancelAnimationFrame(this.animationFrameID);
 	this.animationFrameID = null;
 	this.rendering = false;
 };
@@ -90,11 +90,17 @@ zen.engines.RenderingEngine.prototype._render = function () {
 
 	//Clear Canvas
 	this._viewPort.clear();
-
-	//Request Animation Frame for next frame
-	this._requestFrame();
 };
 
+/**
+ * _calculateFPS 
+ *
+ * Calculates the Frames Per Second by adding to a counter and resetting it each new second
+ * since this method will be called after each render.
+ *
+ * @param none
+ * @return void
+ */
 zen.engines.RenderingEngine.prototype._calculateFPS = function () {
 	var date = new Date(); //Get current Date/Time
 
@@ -124,6 +130,8 @@ zen.engines.RenderingEngine.prototype._calculateFPS = function () {
  * @return void
  */
 zen.engines.RenderingEngine.prototype._postRender = function () {
+	//TODO: Call PostProcessors here
+
 	if (this.showFPS) {
 		//Calculate the FPS
 		this._calculateFPS();
@@ -136,4 +144,7 @@ zen.engines.RenderingEngine.prototype._postRender = function () {
 		ctx.font="20px Georgia";
 		ctx.fillText(this.fps + " FPS",20,25);
 	}
+
+	//Start request for next frame
+	this._requestFrame();
 };
