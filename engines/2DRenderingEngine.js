@@ -6,6 +6,7 @@
  */
 
 zen.engines.TwoDRenderingEngine = function () {
+	zen.engines.RenderingEngine.call(this);
 	this.balls = [];
 };
 
@@ -20,10 +21,10 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 		var radius = 10;
 		context.beginPath();
 		context.arc(ball.x, ball.y, radius, 0, 2 * Math.PI, false);
-		context.fillStyle = 'green';
+		context.fillStyle = ball.color;
 		context.fill();
 		context.lineWidth = 5;
-		context.strokeStyle = '#003300';
+		context.strokeStyle = 'black';
 		context.stroke();	}
 };
 
