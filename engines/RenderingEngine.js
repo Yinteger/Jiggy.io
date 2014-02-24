@@ -99,17 +99,16 @@ zen.engines.RenderingEngine.prototype._calculateFPS = function () {
 	var date = new Date(); //Get current Date/Time
 
 	if (this.lastRender) { //If we have a store Date/Time from last rendering
-		var fps = Math.floor(1000 / (date.getTime() - this.lastRender.getTime())); //Calculate the FPS based on the MS difference
 
 		if (this.lastRender.getSeconds() != date.getSeconds()) { //This is a new second, calculate the average FPS for the last second and display it
 			var avg = 0;
 			for (var i in this.frames) {
 				avg += this.frames[i];
 			}
-			this.fps = Math.ceil(avg / this.frames.length);
-			this.frames = [];
+			this.fps = this.frames;
+			this.frames = 1;
 		} else { //It's the same second as last render, just add the FPS to an array so we can calculate the Average later
-			this.frames.push(fps);
+			this.frames += 1;
 		}
 	}
 
