@@ -106,7 +106,7 @@ zen.engines.RenderingEngine.prototype._calculateFPS = function () {
 			for (var i in this.frames) {
 				avg += this.frames[i];
 			}
-			this.fps = Math.floor(avg / this.frames.length);
+			this.fps = Math.ceil(avg / this.frames.length);
 			this.frames = [];
 		} else { //It's the same second as last render, just add the FPS to an array so we can calculate the Average later
 			this.frames.push(fps);
