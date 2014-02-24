@@ -138,8 +138,10 @@ zen.engines.RenderingEngine.prototype._postRender = function () {
 
 		//Draw the FPS on the screen
 		var ctx = this._viewPort.context;
+		ctx.globalAlpha=0.5;
 		ctx.fillStyle = 'black';
 		ctx.fillRect(0,0,100,35);
+		ctx.globalAlpha=1;
 		ctx.fillStyle = 'white';
 		ctx.font="20px Georgia";
 		ctx.fillText(this.fps + " FPS",20,25);
