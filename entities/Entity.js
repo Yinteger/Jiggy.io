@@ -18,8 +18,9 @@ zen.entities.Entity = function(model) {
 		useDefaults = true;
 	}
 	
+	//TODO figure out how to decide what EntityView class we should use...
+	this.view = new zen.entities.EntityView2D();
 	this.setModel(model);
-	this.view = new zen.entities.EntityView(model);
 	
 	this.children = new Array();
 	this.parent;
@@ -45,7 +46,13 @@ zen.extends(null, zen.entities.Entity, {
 		if (!model) {
 			throw new Error('undefined/null EntityModel');
 		}
+		var view = this.getView();
+		var oldModel = this.getModel();
+		if (oldModel) {
+			view.deattachListener(oldModel);
+		}
 		this.model = model;
+		view.attachListener(model);
 	},
 
 	/**
@@ -256,8 +263,9 @@ zen.extends(null, zen.entities.Entity, {
 			},
 
 			previous : function() {
+				var v = self.getChildAt(i);
 				i--;
-				return self.getChildAt(i);
+				return v;
 			}
 		};
 	},

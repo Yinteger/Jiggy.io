@@ -12,8 +12,10 @@ zen.entities.EntityModel = function() {
 	this.observer = new zen.util.Observer(this);
 };
 
-zen.entities.EntityModel.ATTR_CHANGE = 'ATTR_CHANGE';
-zen.entities.EntityModel.ATTR_DELETE = 'ATTR_DELETE';
+zen.entities.EntityModel.static = {
+	ATTR_CHANGE : 'ATTR_CHANGE',
+	ATTR_DELETE : 'ATTR_DELETE'
+};
 
 zen.extends(null, zen.entities.EntityModel, {
 	/**
@@ -61,7 +63,7 @@ zen.extends(null, zen.entities.EntityModel, {
 	setAttribute : function(key, value) {
 		var oldValue = this.getAttribute(key);
 		this.attributes[key] = value;
-		this._fireEvent(zen.entities.EntityModel.ATTR_CHANGE, {
+		this._fireEvent(zen.entities.EntityModel.static.ATTR_CHANGE, {
 			attribute : key,
 			oldValue : oldValue,
 			value : value
@@ -109,7 +111,7 @@ zen.extends(null, zen.entities.EntityModel, {
 	removeAttribute : function(key) {
 		var value = this.getAttribute(key);
 		delete this.attributes[key];
-		this._fireEvent(zen.entities.EntityModel.ATTR_DELETE, {
+		this._fireEvent(zen.entities.EntityModel.static.ATTR_DELETE, {
 			attribute : key,
 			value : value
 		});
@@ -163,5 +165,61 @@ zen.extends(null, zen.entities.EntityModel, {
 	 */
 	_fireEvent : function(event, data) {
 		this.observer.fireEvent(event, data);
-	}
+	},
+
+	iterator : function() {
+		var keys = Object.keys(this.attributes);
+		var i = -1;
+		var self = this;
+		return {
+			hasNext : function() {
+				return self.hasAttribute(keys[i + 1]);/*{
+					key: keys[i + 1],
+					value: self.hasAttribute(keys[i + 1])
+				};*/
+			},
+
+			next : function() {
+				i++;
+				return {
+					key : keys[i],
+					value : self.getAttribute(keys[i])
+				};
+			},
+
+			hasPrevious : function() {
+				return self.hasAttribute(keys[i]);/*{
+					key : keys[i],
+					value : self.hasAttribute(keys[i])
+				};*/
+			},
+
+			previous : function() {
+				var v = this.getAttribute(keys[i]);
+				var k = keys[i];
+				i--;
+				return {
+					key : k,
+					value : v
+				};
+			}
+		};
+	},
+
+	sync : function(listener) {
+		var evt = zen.entities.EntityModel.static.ATTR_CHANGE;
+		var iter = this.iterator();
+		var item;
+		while (iter.hasNext()) {
+			item = iter.next();
+			listener.notify(evt, {
+				attribute 	: item.key,
+				value 		: item.value
+			});
+			/*this._fireEvent(evt, {
+				attribute : item.key,
+				value : item.value
+			});*/
+		}
+	},
 });
