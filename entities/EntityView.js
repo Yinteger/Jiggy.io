@@ -53,7 +53,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private _clear
+	 * protected _clear
 	 *
 	 *	Clears the pixel data array.
 	 * 
@@ -64,7 +64,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private _setColor
+	 * protected _setColor
 	 *
 	 *	Sets the entity fill color.
 	 *
@@ -81,7 +81,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private _getColor
+	 * protected _getColor
 	 *
 	 *	Gets the current color data used to create pixels.
 	 * 
@@ -92,7 +92,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private abstract _setVisible
+	 * protected abstract _setVisible
 	 *
 	 *	Concrete class MUST implement this method.
 	 *
@@ -108,7 +108,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private _isVisible
+	 * protected _isVisible
 	 *
 	 * Returns whether this EntityView is considered visible.
 	 * 
@@ -119,7 +119,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private abstract _setWidth
+	 * protected abstract _setWidth
 	 *
 	 *	Sets the width of the entity view.
 	 *
@@ -134,7 +134,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private _getWidth
+	 * protected _getWidth
 	 *
 	 *	Gets the width of the view.
 	 * 
@@ -145,7 +145,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private abstract _setHeight
+	 * protected abstract _setHeight
 	 *
 	 *	Sets the height of the entity view.
 	 *
@@ -160,7 +160,7 @@ zen.extends(null, zen.entities.EntityView, {
 	},
 
 	/**
-	 * private _getHeight
+	 * protected _getHeight
 	 *
 	 * Gets the height of the view
 	 * 
@@ -195,11 +195,20 @@ zen.extends(null, zen.entities.EntityView, {
 			case 'height':
 				this._setHeight(data.value);
 				break;
+			case 'color':
+				var c = data.value;
+				this._setColor(
+					c[zen.entities.EntityView.static.R], 
+					c[zen.entities.EntityView.static.G], 
+					c[zen.entities.EntityView.static.B], 
+					c[zen.entities.EntityView.static.A]
+				);
+				break;
 		}
 	},
 
 	/**
-	 * private _createPixel
+	 * protected _createPixel
 	 *
 	 *	Creates a pixel array in the RGBA format.
 	 *	[ R , G , B , A ]

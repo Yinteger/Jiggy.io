@@ -1,11 +1,24 @@
-
+/**
+ * public class EntityView2D
+ *
+ *	A concrete class that holds a 2D visual representation of an Entity.
+ * 
+ */
 zen.entities.EntityView2D = function() {
 	zen.entities.EntityView.call(this);
 };
 
 zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
+	/**
+	 * public notify
+	 *
+	 *	Notifies this EntityView of any data changes.
+	 * 
+	 * @param  {String} evt  
+	 * @param  {Object} data 
+	 * @return {void}      
+	 */
 	notify : function(evt, data) {
-		console.warn(evt, data);
 		switch(data.attribute) {
 			default:
 				zen.entities.EntityView.prototype.notify.call(this, evt, data);
@@ -13,6 +26,13 @@ zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
 		}
 	},
 
+	/**
+	 * protected _setVisible
+	 *
+	 *	If true, sets all pixels transparent, otherwise set back to its original color value
+	 * 
+	 * @param {Boolean} state 
+	 */
 	_setVisible : function(state) {
 		this._visible = state;
 		var color = this._getColor();
@@ -28,6 +48,13 @@ zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
 		this._changeAllPixels(pixel);
 	},
 
+	/**
+	 * private _getCurrentColor
+	 *
+	 *	Gets the current displayed color.
+	 * 
+	 * @return {Array(Of Integer)} 
+	 */
 	_getCurrentColor : function() {
 		var color = this._getColor();
 		if (!this._isVisible()) {
@@ -36,6 +63,13 @@ zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
 		return color;
 	},
 
+	/**
+	 * protected _setColor
+	 * @param {Integer} r 
+	 * @param {Integer} g 
+	 * @param {Integer} b 
+	 * @param {Integer} a 
+	 */
 	_setColor : function(r,g,b,a) {
 		var pixel = this._createPixel(r,g,b,a);
 		this._color = pixel.slice(0); //a copy
@@ -47,6 +81,13 @@ zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
 		this._changeAllPixels(pixel);
 	},
 
+	/**
+	 * protected _setHeight
+	 *
+	 *	Sets the Height
+	 * 
+	 * @param {Integer} value
+	 */
 	_setHeight : function(value) {
 		var row;
 		var pixel = this._getCurrentColor();
@@ -64,6 +105,13 @@ zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
 		}
 	},
 
+	/**
+	 * protected _setWidth
+	 *
+	 *	Sets the width.
+	 * 
+	 * @param {Integer} value 
+	 */
 	_setWidth : function(value) {
 		var row, col;
 		var pixel = this._getCurrentColor();
@@ -83,13 +131,20 @@ zen.extends(zen.entities.EntityView, zen.entities.EntityView2D, {
 		}
 	},
 
+	/**
+	 * private _changeAllPixels
+	 *
+	 *	Changes all pixels to the given pixel.
+	 * 
+	 * @param  {Array(Of Integer)} pixel 
+	 * @return {void}       
+	 */
 	_changeAllPixels : function(pixel) {
 		var row, col;
 		var p;
 		for (var i = 0, len = this._pixelData.length; i < len; i++) {
 			row = this._pixelData[i];
 			for (var j = 0, jlen = row.length; j < jlen; j++) {
-				console.warn(row[j]);
 				row[j] = pixel.slice();
 			}
 		}

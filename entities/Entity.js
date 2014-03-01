@@ -25,6 +25,8 @@ zen.entities.Entity = function(model) {
 	this.children = new Array();
 	this.parent;
 
+	this.modified = false;
+
 	if (useDefaults) {
 		this._setDefaults();
 	}
@@ -50,9 +52,11 @@ zen.extends(null, zen.entities.Entity, {
 		var oldModel = this.getModel();
 		if (oldModel) {
 			view.deattachListener(oldModel);
+			oldModel.removeListener(this);
 		}
 		this.model = model;
 		view.attachListener(model);
+		model.addListener(this);
 	},
 
 	/**
@@ -64,6 +68,46 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	getModel : function() {
 		return this.model;
+	},
+
+	/**
+	 * public notify
+	 *
+	 *	Notifies for when the model changes.
+	 * 
+	 * @param  {String} event 
+	 * @param  {Object} data  
+	 * @return {void}       
+	 */
+	notify : function(event, data) {
+		this.setModified(true);
+	},
+
+	/**
+	 * public setModified
+	 *
+	 *	Sets whether this Entity has been modified since the last render
+	 *	frame.
+	 * 
+	 * @param {Boolean} state
+	 */
+	setModified : function(state) {
+		this.modified = state;
+		var p = this;
+		while (p = p.getParent()) {
+			p.setModified(state);
+		}
+	},
+
+	/**
+	 * public isModified
+	 *
+	 *	Indicates whether this Entity has been modified since the last render frame.
+	 * 
+	 * @return {Boolean}
+	 */
+	isModified : function() {
+		return this.modified;
 	},
 
 	/**
@@ -485,6 +529,37 @@ zen.extends(null, zen.entities.Entity, {
 	},
 
 	/**
+	 * public setColor
+	 *
+	 *	Sets the color of this entity.
+	 * 
+	 * @param {Integer} r 
+	 * @param {Integer} g 
+	 * @param {Integer} b 
+	 * @param {Integer} a 
+	 */
+	setColor : function(r,g,b,a) {
+		this.model.setAttribute('color', [r, g, b, a]);
+	},
+
+	/**
+	 * public getColor
+	 *
+	 *	Gets the color of this entity.
+	 *
+	 * 	[0] = R
+	 * 	[1] = G
+	 * 	[2] = B
+	 * 	[3] = A
+	 * 
+	 * @return {Array(Of Integer)} 
+	 */
+	getColor : function() {
+		var data = this.model.getAttribute('color');
+		return [data.r, data.g, data.b, data.r];
+	},
+
+	/**
 	 * private _setDefaults
 	 *
 	 *	Sets the default attributes for this entity.
@@ -495,5 +570,6 @@ zen.extends(null, zen.entities.Entity, {
 		this.setLocation(0, 0, 0);
 		this.setSize(0, 0);
 		this.setVisible(true);
+		this.setColor(0,0,0,0);
 	}
 });
