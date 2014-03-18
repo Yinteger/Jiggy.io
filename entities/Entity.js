@@ -80,7 +80,7 @@ zen.extends(null, zen.entities.Entity, {
 	 * @return {void}       
 	 */
 	notify : function(event, data) {
-		this.setModified(true);
+		// this.setModified(true);
 	},
 
 	/**
@@ -481,6 +481,7 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param {Integer} height 
 	 */
 	setSize : function(width, height) {
+		this.setModified(true);
 		if (width !== null && width !== undefined) {
 			this.setWidth(width);
 		}

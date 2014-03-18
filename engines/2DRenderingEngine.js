@@ -24,7 +24,8 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 	//Loop through entities and render them
 	//TODO: Once Camera is Ready, get Entities from Camera and don't store them in the engine
 	for (var i = 0; i < this.balls.length; i ++) {
-		if (!this.cache[this.balls[i].getID()]) {
+		if (this.balls[i].isModified() || !this.cache[this.balls[i].getID()]) {
+			this.balls[i].setModified(false);
 			var ball = context.createImageData(this.balls[i].getWidth(), this.balls[i].getHeight());
 			for (var x in this.balls[i].view._pixelData) {
 				for (var y in this.balls[i].view._pixelData[x]) {
@@ -54,3 +55,7 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 zen.engines.TwoDRenderingEngine.prototype.addBall = function (ball) {
 	this.balls.push(ball);
 };
+
+zen.engines.TwoDRenderingEngine.prototype.removeBall = function (ball) {
+	this.balls.splice(this.balls.indexOf(ball), 1);
+}
