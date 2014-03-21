@@ -61,6 +61,10 @@ zen.engine = function (onInit) {
 	//Variable to hold the Viewport, aka the Canvas
 	this.viewPort = null;
 
+	//Variable to hold the Pre-render Viewport for various
+	//Objects to use to prerender objects
+	this.prerenderViewPort = null;
+
 	//onInit is called once the Engine is initialized
 	this.onInit = onInit;
 
@@ -77,6 +81,7 @@ zen.engine.prototype.setRenderingEngine = function (renderingEngine) {
 
 	//Start the new Rendering engine, pass in View Port, etc...
 	this.renderingEngine.setViewPort(this.viewPort);
+	this.renderingEngine.setPrerenderViewPort(this.prerenderViewPort);
 	this.renderingEngine.startRendering();
 
 };
@@ -92,6 +97,7 @@ zen.engine.prototype.setPhysicEngine = function (physicEngine) {
 zen.engine.prototype._init = function () {
 	//Create the ViewPort
 	this.viewPort = new zen.ViewPort();
+	this.prerenderViewPort = new zen.ViewPort();
 
 	//If Engine is ready, notify our callback
 	if (this.onInit) {

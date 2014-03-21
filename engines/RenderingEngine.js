@@ -7,6 +7,7 @@
 
  zen.engines.RenderingEngine = function () {
  	this._viewPort = null;
+ 	this._prerenderViewPort = null;
  	this.animationFrameID;
  	this.rendering = false;
  	this.fps = 0;
@@ -14,6 +15,18 @@
  	this.showFPS = true;
  	this.lastRender; //Variable that stores a Date of the last Render
  };
+
+/**
+ * addCamera 
+ *
+ * Adds a Camera to Render each Render Loop
+ *
+ * @param none
+ * @return void
+ */
+zen.engines.RenderingEngine.prototype.addCamera = function (camera) {
+
+},
 
 /**
  * setViewPort 
@@ -25,6 +38,10 @@
  */
 zen.engines.RenderingEngine.prototype.setViewPort = function (viewPort) {
 	this._viewPort = viewPort;
+};
+
+zen.engines.RenderingEngine.prototype.setPrerenderViewPort = function (viewPort) {
+	this._prerenderViewPort = viewPort;
 };
 
 /**

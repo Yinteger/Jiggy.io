@@ -56,3 +56,17 @@ zen.ViewPort.prototype.setSize = function (width, height) {
 zen.ViewPort.prototype.clear = function () {
 	this.context.clearRect(0, 0, this.width, this.height);
 };
+
+/**
+ * getImage 
+ *
+ * Gets a Image Object representing what the ViewPort currently looks like
+ *
+ * @param none
+ * @return Image
+ */
+zen.ViewPort.prototype.getImage = function () {
+	var image = new Image();
+	image.src = this.canvas.toDataURL("image/png");
+	return image;
+};

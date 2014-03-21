@@ -37,10 +37,21 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 				}
 
 			}
-			this.cache[this.balls[i].getID()] = ball;
+			// this.cache[this.balls[i].getID()] = ball;
 		}
 
-		context.putImageData(this.cache[this.balls[i].getID()], this.balls[i].getX(), this.balls[i].getY())
+		// context.putImageData(this.cache[this.balls[i].getID()], 
+		// 	this.balls[i].getX(), this.balls[i].getY());
+		if (!this.cache[this.balls[i].getID()]) {
+			this._prerenderViewPort.setSize(this.balls[i].getWidth(), this.balls[i].getHeight());
+			this._prerenderViewPort.context.putImageData(ball, 
+				0, 0);
+			var entityImage = this._prerenderViewPort.getImage();
+			this.cache[this.balls[i].getID()] = entityImage;
+		} else {
+			var entityImage = this.cache[this.balls[i].getID()];
+		}
+		this._viewPort.context.drawImage(entityImage, this.balls[i].getX(), this.balls[i].getY());
 	}
 };
 
