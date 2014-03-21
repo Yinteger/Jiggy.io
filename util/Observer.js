@@ -69,7 +69,13 @@ zen.extends(null, zen.util.Observer, {
 	 */
 	addListener : function(listener) {
 		if (!this.isListener(listener)) {
-			this.listeners.push(listener);
+			if (listener.notify) {
+				this.listeners.push(listener);
+			} else {
+				console.warn('Attempting to use Classical Listening with a Listener without a notify method.')
+			}
+		} else {
+			console.warn('Attempting to listen when already listening');
 		}
 	},
 

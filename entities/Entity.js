@@ -13,7 +13,10 @@
  */
 zen.entities.Entity = function(model) {
 	var useDefaults = false;
+
+	//Check to see if a model was passed in
 	if (!model) {
+		//No model was passed in, so create the default model for an Entity
 		model = new zen.entities.EntityModel();
 		useDefaults = true;
 	}
@@ -22,10 +25,10 @@ zen.entities.Entity = function(model) {
 	this.view = new zen.entities.EntityView2D();
 	this.setModel(model);
 	
-	this.children = new Array();
-	this.parent;
-
-	this.modified = false;
+	this.children = new Array(); //Array to store all the children entities
+	this.parent = null; //Parent is the entity that contains this one
+	this.modified = false; //Whether or not this Entity has been modified
+	this._observer = null;  //Observer Utility Object for other objects to listen to this entity
 
 	if (useDefaults) {
 		this._setDefaults();
@@ -558,6 +561,38 @@ zen.extends(null, zen.entities.Entity, {
 	getColor : function() {
 		var data = this.model.getAttribute('color');
 		return [data.r, data.g, data.b, data.r];
+	},
+
+	/**
+	 * public addListener 
+	 *
+	 * Adds a listener to this Entity that gets
+	 * notified of things and stuff and yah
+	 * Listener must have a notify method
+	 *
+	 * @param Object
+	 * @return void
+	 */
+	addListener : function (listener) {
+		if (!this.observer) {
+			this.observer = new zen.util.Observer(this);
+		}
+
+		this.observer.addListener(listener);
+	},
+
+	/**
+	 * removeListener 
+	 *
+	 * Removes a Listener from Listening to this awesome Entity
+	 *
+	 * @param Object
+	 * @return void
+	 */
+	removeListener : function (listener) {
+		if (this.observer) {
+			this.observer.removeListener(listener);
+		}
 	},
 
 	/**

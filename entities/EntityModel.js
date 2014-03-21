@@ -9,7 +9,7 @@ zen.entities.EntityModel = function() {
 	this.attributes = {};
 	this.id = zen.generateID();
 	this.type = 'generic';
-	this.notifierKeys = [];
+	this.notifierKeys = ['width', 'height',  'color'];
 	this.observer = new zen.util.Observer(this);
 };
 
