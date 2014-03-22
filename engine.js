@@ -125,6 +125,7 @@ zen.engine.prototype._loadDependencies = function () {
 	basync.addDependency('zen.engines.RenderingEngine', zen.ENGINE_DIR + "engines/RenderingEngine");
 	basync.addDependency('zen.engines.TwoDRenderingEngine', zen.ENGINE_DIR + "engines/2DRenderingEngine", ['zen.engines.RenderingEngine']);
 	basync.addDependency('zen.engines.LogicEngine', zen.ENGINE_DIR + "engines/LogicEngine");
+	basync.addDependency('zen.engines.GroupLogicEngine', zen.ENGINE_DIR + "engines/GroupLogicEngine");
 
 	//ENTITIES PACKAGE
 	basync.addDependency('zen.entities.EntityModel', zen.ENGINE_DIR + 'entities/EntityModel', [
