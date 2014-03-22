@@ -24,36 +24,77 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 	//Loop through entities and render them
 	//TODO: Once Camera is Ready, get Entities from Camera and don't store them in the engine
 	for (var i = 0; i < this.balls.length; i ++) {
-		if (this.balls[i].isModified() || !this.cache[this.balls[i].getID()]) {
-			this.balls[i].setModified(false);
-			var ball = context.createImageData(this.balls[i].getWidth(), this.balls[i].getHeight());
-			for (var x in this.balls[i].view._pixelData) {
-				for (var y in this.balls[i].view._pixelData[x]) {
-					var index = (y * (this.balls[i].getWidth() * 4)) + (x * 4);
-					ball.data[index] = this.balls[i].view._pixelData[x][y][0];
-					ball.data[index + 1] = this.balls[i].view._pixelData[x][y][1];
-					ball.data[index + 2] = this.balls[i].view._pixelData[x][y][2];
-					ball.data[index + 3] = 255; //Temp: Set the Alpha to 255 to prevent Transparencty
-				}
-
-			}
-			// this.cache[this.balls[i].getID()] = ball;
-		}
-
-		// context.putImageData(this.cache[this.balls[i].getID()], 
-		// 	this.balls[i].getX(), this.balls[i].getY());
-		if (!this.cache[this.balls[i].getID()]) {
-			this._prerenderViewPort.setSize(this.balls[i].getWidth(), this.balls[i].getHeight());
-			this._prerenderViewPort.context.putImageData(ball, 
-				0, 0);
-			var entityImage = this._prerenderViewPort.getImage();
-			this.cache[this.balls[i].getID()] = entityImage;
-		} else {
-			var entityImage = this.cache[this.balls[i].getID()];
-		}
-		this._viewPort.context.drawImage(entityImage, this.balls[i].getX(), this.balls[i].getY());
+		this._viewPort.context.drawImage(this.prerenderEntity(this.balls[i]), this.balls[i].getX(), this.balls[i].getY());
 	}
 };
+
+
+/**
+ * prerenderEntity 
+ *
+ * Prerenders the Entity creating a Image object representing it.  
+ * This method recursively calls itself with each entities children
+ *
+ * @param Entity, Entity, Entity, Entity, Entity
+ * @return void
+ */
+zen.engines.TwoDRenderingEngine.prototype.prerenderEntity = function (entity) {
+	//Now begin prerendering of this entity by rendering it
+	if (entity.isModified() || !this.cache[entity.getID()]) {
+		//First loop through children and prerender them so they are ready us to prerender
+		var childIterator = entity.iterator();
+
+		while (childIterator.hasNext()) {
+			var child = childIterator.next();
+			if (child.isModified()) {
+				this.prerenderEntity(child);
+			}
+		};
+
+		//Set the Entity isModified to False so we don't re-create the pre-render next time
+		entity.setModified(false);
+
+		//Create a ImageData Object from the PixelData Array
+		var imageData = this._prerenderViewPort.context.createImageData(entity.getWidth(), entity.getHeight());
+
+		//Loop through each Pixel in the Pixel Data
+		//TODO: Update EntitityViews to use ImageData Objects so this step won't be neccassary anymore
+		for (var x in entity.view._pixelData) {
+			for (var y in entity.view._pixelData[x]) {
+				var index = (y * (entity.getWidth() * 4)) + (x * 4);
+				imageData.data[index] = entity.view._pixelData[x][y][0];
+				imageData.data[index + 1] = entity.view._pixelData[x][y][1];
+				imageData.data[index + 2] = entity.view._pixelData[x][y][2];
+				imageData.data[index + 3] = 255; //Temp: Set the Alpha to 255 to prevent Transparencty
+			}
+		}
+
+		//Put the Entity in the Prerender View Port
+		this._prerenderViewPort.setSize(entity.getWidth(), entity.getHeight());
+		this._prerenderViewPort.context.putImageData(imageData, 
+			0, 0);
+
+		//Now put in all the children into the Prerender View Port
+		var child2Iterator = entity.iterator();
+		while (child2Iterator.hasNext()) {
+			var child = child2Iterator.next();
+			this._prerenderViewPort.context.drawImage(this.cache[child.getID()], 
+				child.getX(), child.getY());
+		};
+
+		//Grab a Image representation of the Entity from the Pre-render view port
+		var entityImage = this._prerenderViewPort.getImage();
+
+		//Add the Entity Image to the Cache
+		this.cache[entity.getID()] = entityImage;
+
+		//Return the newly created Image 
+		return entityImage;
+	} else {
+		//Return the cached copy
+		return this.cache[entity.getID()];
+	}
+},
 
 /**
  * addBall 
