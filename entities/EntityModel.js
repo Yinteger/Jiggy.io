@@ -9,7 +9,6 @@ zen.entities.EntityModel = function() {
 	this.attributes = {};
 	this.id = zen.generateID();
 	this.type = 'generic';
-	this.notifierKeys = ['width', 'height',  'color'];
 	this.observer = new zen.util.Observer(this);
 };
 
@@ -41,30 +40,6 @@ zen.extends(null, zen.entities.EntityModel, {
 		this.type = type;
 	},
 
-	addNotifierKey : function(key) {
-		if (this.notifierKeys.indexOf(key) === -1) {
-			this.notifierKeys.push(key);
-		}
-	},
-
-	removeNotifierKey : function(key) {
-		if (this.notifierKeys.indexOf(key) > -1) {
-			this.notifierKeys.splice(this.notifierKeys.indexOf(key), 1);
-		}
-	},
-
-	setNotifierKeys : function(keys) {
-		this.notifierKeys = keys;
-	},
-
-	clearNotifierKeys : function() {
-		this.notifierKeys = [];
-	},
-
-	isNotifierKey : function(key) {
-		return (this.notifierKeys.indexOf(key) > -1);
-	},
-
 	/**
 	 * public getType
 	 *
@@ -88,14 +63,12 @@ zen.extends(null, zen.entities.EntityModel, {
 	setAttribute : function(key, value) {
 		var oldValue = this.getAttribute(key);
 		this.attributes[key] = value;
-		if (this.isNotifierKey(key)) {
-			this._fireEvent(zen.entities.EntityModel.static.ATTR_CHANGE, {
-				attribute : key,
-				oldValue : oldValue,
-				value : value
-			});
-		}
-	},
+		this._fireEvent(zen.entities.EntityModel.static.ATTR_CHANGE, {
+			attribute : key,
+			oldValue : oldValue,
+			value : value
+		});
+},
 
 	/**
 	 * public getAttribute

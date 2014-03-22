@@ -29,6 +29,8 @@ zen.entities.Entity = function(model) {
 	this.parent = null; //Parent is the entity that contains this one
 	this.modified = false; //Whether or not this Entity has been modified
 	this._observer = null;  //Observer Utility Object for other objects to listen to this entity
+	this.notifierKeys = ['width', 'height',  'color']; //Model attributes in which we should change isModified for
+	this.parentNotifierKeys = ['x', 'y']; //Array of attributes to flag the parent as modified, anything in notifierKeys will do so by default, this list is for keys that don't mark this entity as isMOdified but should mark the parents
 
 	if (useDefaults) {
 		this._setDefaults();
@@ -83,7 +85,11 @@ zen.extends(null, zen.entities.Entity, {
 	 * @return {void}       
 	 */
 	notify : function(event, data) {
-		// this.setModified(true);
+		if (this.notifierKeys.indexOf(data.attribute) > -1) {
+			this.setModified(true);
+		} else if (this.getParent() && this.parentNotifierKeys.indexOf(data.attribute) > -1) {
+			this.getParent().setModified(true);
+		}
 	},
 
 	/**
@@ -96,9 +102,8 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	setModified : function(state) {
 		this.modified = state;
-		var p = this;
-		while (p = p.getParent()) {
-			p.setModified(state);
+		if (this.getParent()) {
+			this.getParent().setModified(state);
 		}
 	},
 
