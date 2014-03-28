@@ -4,7 +4,7 @@ zen.assets.JSONLoader = function() {
 };
 
 zen.extends(zen.assets.AssetLoader, zen.assets.JSONLoader, {
-	load : function(asset) {
+	/*load : function(asset) {
 		asset.setState(zen.assets.Asset.LOADING);
 		var self = this;
 		var request = new XMLHttpRequest();
@@ -23,5 +23,8 @@ zen.extends(zen.assets.AssetLoader, zen.assets.JSONLoader, {
 			}
 			request.send();
 		};
+	}*/
+	_onSuccess : function(asset, data) {
+		asset.setData(JSON.stringify(data));
 	}
 });
