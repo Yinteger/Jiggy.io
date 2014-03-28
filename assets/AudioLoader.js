@@ -7,12 +7,13 @@ zen.extends(zen.assets.AssetLoader, zen.assets.AudioLoader, {
 	load : function(asset) {
 		asset.setState(zen.assets.Asset.LOADING);
 		var audio = new Audio();
-		audio.onload = function() {
+		audio.setAttribute('preload', 'auto');
+		audio.addEventListener('canplaythrough', function() {
 			asset.setData(audio);
-		};
-		audio.onerror = function() {
+		});
+		audio.addEventListener('error', function() {
 			asset.onError();
-		};
+		});
 		audio.src = asset.getSource();
 	}
 });
