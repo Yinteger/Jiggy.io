@@ -58,6 +58,7 @@ zen.engine = function (onInit) {
 	this.renderingEngine = null;
 	this.soundEngine = null;
 	this.physicEngine = null;
+	this.assetFactory = null;
 
 	//Variable to hold the Viewport, aka the Canvas
 	this.viewPort = null;
@@ -99,7 +100,14 @@ zen.engine.prototype.setLogicEngine = function (logicEngine) {
 	this.logicEngine = logicEngine;
 },
 
+zen.engine.prototype.setAssetFactory = function(assetFactory) {
+	this.assetFactory = assetFactory;
+},
+
 zen.engine.prototype._init = function () {
+	//Setup the default AssetFactory
+	this.setAssetFactory(zen.assets.AssetFactory.getSingleton());
+
 	//Create the ViewPort
 	this.viewPort = new zen.ViewPort();
 	this.prerenderViewPort = new zen.ViewPort();
