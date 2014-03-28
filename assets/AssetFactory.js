@@ -7,6 +7,9 @@
  */
 zen.assets.AssetFactory = function() {
 	this.assetLoader = new zen.assets.AssetLoader();
+	this.audioLoader = new zen.assets.AudioLoader();
+	this.jsonLoader = new zen.assets.JSONLoader();
+	this.imageLoader = new zen.assets.ImageLoader();
 };
 
 /**
@@ -54,16 +57,16 @@ zen.extends(null, zen.assets.AssetFactory, {
 				throw 'AssetFactory.build(): Unknown Asset Type';
 				break;
 			case types.RAW:
-				asset.setLoadStrategy(new zen.assets.AssetLoader());
+				asset.setLoadStrategy(this.assetLoader);
 				break;
 			case types.IMAGE:
-				asset.setLoadStrategy(new zen.assets.ImageLoader());
+				asset.setLoadStrategy(this.imageLoader);
 				break;
 			case types.AUDIO:
-
+				asset.setLoadStrategy(this.audioLoader);
 				break;
 			case types.JSON:
-
+				asset.setLoadStrategy(this.jsonLoader);
 				break;
 		}
 		return asset;

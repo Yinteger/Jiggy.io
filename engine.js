@@ -131,10 +131,10 @@ zen.engine.prototype._loadDependencies = function () {
 	basync.addDependency('zen.assets.ImageLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
 		'zen.assets.AssetLoader',
 	]);
-	basync.addDependency('zen.assets.AudioLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
+	basync.addDependency('zen.assets.AudioLoader', zen.ENGINE_DIR + 'assets/AudioLoader', [
 		'zen.assets.AssetLoader',
 	]);
-	basync.addDependency('zen.assets.JSONLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
+	basync.addDependency('zen.assets.JSONLoader', zen.ENGINE_DIR + 'assets/JSONLoader', [
 		'zen.assets.AssetLoader',
 	]);
 
