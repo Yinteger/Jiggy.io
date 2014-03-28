@@ -95,6 +95,10 @@ zen.engine.prototype.setPhysicEngine = function (physicEngine) {
 
 };
 
+zen.engine.prototype.setLogicEngine = function (logicEngine) {
+	this.logicEngine = logicEngine;
+},
+
 zen.engine.prototype._init = function () {
 	//Create the ViewPort
 	this.viewPort = new zen.ViewPort();
@@ -141,6 +145,8 @@ zen.engine.prototype._loadDependencies = function () {
 	//ENGINES PACkAGE
 	basync.addDependency('zen.engines.RenderingEngine', zen.ENGINE_DIR + "engines/RenderingEngine");
 	basync.addDependency('zen.engines.TwoDRenderingEngine', zen.ENGINE_DIR + "engines/2DRenderingEngine", ['zen.engines.RenderingEngine']);
+	basync.addDependency('zen.engines.LogicEngine', zen.ENGINE_DIR + "engines/LogicEngine");
+	basync.addDependency('zen.engines.GroupLogicEngine', zen.ENGINE_DIR + "engines/GroupLogicEngine");
 
 	//ENTITIES PACKAGE
 	basync.addDependency('zen.entities.EntityModel', zen.ENGINE_DIR + 'entities/EntityModel', [
