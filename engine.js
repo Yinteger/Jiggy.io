@@ -1,5 +1,6 @@
 //Create top level packages
 var zen = {
+	assets  : {},
 	engines : {},
 	entities: {},
 	util 	: {},
@@ -116,6 +117,26 @@ zen.engine.prototype._loadDependencies = function () {
 
 	//Base Package
 	basync.addDependency('zen.ViewPort', zen.ENGINE_DIR + 'ViewPort');
+
+	//ASSETS PACKAGE
+	basync.addDependency('zen.assets.AssetFactory', zen.ENGINE_DIR + 'assets/AssetFactory', [
+		'zen.assets.Asset',
+		'zen.assets.AssetLoader',
+		'zen.assets.ImageLoader',
+		'zen.assets.AudioLoader',
+		'zen.assets.JSONLoader'
+	]);
+	basync.addDependency('zen.assets.Asset', zen.ENGINE_DIR + 'assets/Asset');
+	basync.addDependency('zen.assets.AssetLoader', zen.ENGINE_DIR + 'assets/AssetLoader');
+	basync.addDependency('zen.assets.ImageLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
+		'zen.assets.AssetLoader',
+	]);
+	basync.addDependency('zen.assets.AudioLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
+		'zen.assets.AssetLoader',
+	]);
+	basync.addDependency('zen.assets.JSONLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
+		'zen.assets.AssetLoader',
+	]);
 
 	//ENGINES PACkAGE
 	basync.addDependency('zen.engines.RenderingEngine', zen.ENGINE_DIR + "engines/RenderingEngine");
