@@ -25,6 +25,6 @@ zen.extends(zen.assets.AssetLoader, zen.assets.JSONLoader, {
 		};
 	}*/
 	_onSuccess : function(asset, data) {
-		asset.setData(JSON.stringify(data));
+		asset.setData(JSON.parse(data));
 	}
 });
