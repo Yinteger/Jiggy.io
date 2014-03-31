@@ -17,14 +17,15 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 *
 	 *	Adds an audio asset to this audio engine.
 	 * 	
-	 * @param {String} name  User Friendly  name
-	 * @param {zen.assets.Asset} audio 
+	 * @param {String} name  		User Friendly  name
+	 * @param {Integer} channels 	Optional
+	 * @param {zen.assets.Asset} 	audio 
 	 */
-	addAudio : function(name, audio) {
+	addAudio : function(name, audio, channels) {
 		if (audio.getType() !== zen.assets.AssetFactory.TYPES.AUDIO) {
 			throw 'AudioEngine.addAudio: Invalid Asset Type.';
 		}
-		this._setAudio(name, audio);
+		this._setAudio(name, audio, channels);
 	},
 
 	/**
@@ -55,6 +56,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 			this._stopAudio(audio);
 		}
 		delete this.audioMap[name];
+		delete this.channels[name];
 	},
 
 	/**
@@ -83,6 +85,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 		var audio = this._getAudio(name);
 		if (audio) {
 			this._playAudio(audio);
+			audio.setAttribute('playing', true);
 		}
 	},
 
@@ -98,6 +101,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 		var audio = this._getAudio(name);
 		if (audio) {
 			this._pauseAudio(audio);
+			audio.setAttribute('playing', false);
 		}
 	},
 
@@ -113,6 +117,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 		var audio = this._getAudio(name);
 		if (audio) {
 			this._stopAudio(audio);
+			audio.setAttribute('playing', false);
 		}
 	},
 
@@ -263,13 +268,29 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 * 
 	 * @param {String} name  User friendly reference
 	 * @param {zen.assets.Asset} audio 
+	 * @param {Integer} channels 
 	 */
-	_setAudio : function(name, audio) {
+	_setAudio : function(name, audio, channels) {
 		if (!audio) {
 			this.removeAudio(name);
 		}
 		else {
-			this.audioMap[name] = audio;
+			var channelArr = [{
+				asset 	:audio,
+				playing : false
+			}];
+			if (channels > 1) {
+				var clone;
+				for (var i = 1; i < channels; i++) {
+					clone = zen.app.assetFactory.clone(audio);
+					channelArr.push({
+						asset : clone,
+						playing : false
+					});
+				}
+			}
+			this.audioMap[name] = channelArr;
+			this._registerListeners(channelArr);
 		}
 	},
 
@@ -293,9 +314,24 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 * @param  {String} name User friendly reference
 	 * @return {zen.assets.Asset}   
 	 */
-	_getAudio : function(name) {
+	_getAudio : function(name, justGiveChannel1) {
 		if (this.audioMap[name]) {
-			return this.audioMap[name];
+			var channels = this.audioMap[name];
+			if (justGiveChannel1) {
+				return channels[0].asset;
+			}
+			else {
+				var channel;
+				for (var i = 0, len = channels.length; i < len; i++) {
+					channel = channels[i];
+					if (!channel.getAttribute('playing')) {
+						return channel.asset;
+					}
+				}
+			}
+			//If we reach here, then all channels are already in use..
+			//just return the main channel.
+			return channels[0].asset;
 		}
 		else {
 			this._warnMissingAudio(name);
@@ -313,6 +349,55 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 */
 	_getData : function(audio) {
 		return audio.getData();
+	},
+
+	/**
+	 * protected _attachStartEvent
+	 *
+	 * 	Attaches the start event on an asset.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @return {void}       
+	 */
+	_attachStartEvent : function(asset) {
+		if (!asset.getAttribute('startEvent')) {
+			this._registerStartEvent(asset);
+			asset.setAttribute('startEvent', true);
+		}
+	},
+
+	/**
+	 * protected _attachEndEvent
+	 *
+	 *	Attaches the end event on an asset.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @return {void}       
+	 */
+	_attachEndEvent : function(asset) {
+		if (!asset.getAttribute('endEvent')) {
+			this._registerEndEvent(asset);
+			asset.setAttribute('endEvent', true);
+		}
+	},
+
+	/**
+	 * protected _registerEvents
+	 *
+	 *	Attaches all mandatory events on each channel.
+	 * 
+	 * @param  {Array(Of zen.assets.Asset)} channelArray 
+	 * @return {void}              
+	 */
+	_registerEvents : function(channelArray) {
+		var channel;
+		var asset;
+		for (var i = 0, len = channelArray.length; i < len; i++) {
+			channel = channelArray[i];
+			asset = channel.asset;
+			this._attachStartEvent(asset);
+			this._attachEndEvent(asset);
+		}
 	},
 
 	/**
@@ -470,5 +555,33 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 */
 	_getVolume : function(audio) {
 		throw 'AudioEngine._getVolume is abstract!';
+	},
+
+	/**
+	 * protected abstract _registerStartEvent
+	 *
+	 *	The logic for registering a callback mechanism for when audio
+	 *	begins playing. This callback should set tehe playing attribute
+	 *	on the asset to true.
+	 * 
+	 * @param  {zen.assets.Asset} audio 
+	 * @return {void}       
+	 */
+	_registerStartEvent : function(audio) {
+		throw 'AudioEngine._registerStartEvent is abstract!';
+	},
+
+	/**
+	 * protected abstract _registerEndEvent
+	 *
+	 *	The logic for registering a callback mechanism for when audio
+	 *	stops playing. This callback should reset the playing attribute 
+	 *	on the asset to false.
+	 * 
+	 * @param  {zen.assets.Asset} audio
+	 * @return {void}       
+	 */
+	_registerEndEvent : function(audio) {
+		throw 'AudioEngine._registerEndEvent is abstract!';
 	}
 });

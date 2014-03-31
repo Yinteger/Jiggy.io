@@ -27,6 +27,13 @@ zen.extends(zen.assets.AssetLoader, zen.assets.AudioLoader, {
 		audio.addEventListener('error', function() {
 			asset.onError();
 		});
+		this._assignEvents(audio);
 		audio.src = asset.getSource();
+	},
+
+	_assignEvents : function(audio) {
+		audio.addEventListener('ended', function() {
+			audio.currentTime = 0;
+		});
 	}
 });

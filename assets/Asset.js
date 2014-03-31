@@ -11,6 +11,7 @@ zen.assets.Asset = function(type, url) {
 	this.loadStrategy = null;
 	this.data = null;
 	this.setSource(url);
+	this.attributes = {};
 };
 
 /**
@@ -86,8 +87,6 @@ zen.extends(null, zen.assets.Asset, {
 	 * public setData
 	 *
 	 * 	Sets the data for this asset.
-	 *
-	 * 	To be used interally only.
 	 * 
 	 * @param {Mixed} data 
 	 */
@@ -153,6 +152,27 @@ zen.extends(null, zen.assets.Asset, {
 	 */
 	isReady : function() {
 		return (this.getState() === zen.assets.Asset.LOADED);
+	},
+
+	setAttribute : function(key, value) {
+		this.attributes[key] = value;
+	},
+
+	getAttribute : function(key) {
+		return this.attributes[key];
+	},
+
+	isAttribute : function(key) {
+		if (this.attributes[key]) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+
+	removeAttribute : function(key) {
+		delete this.attributes[key];
 	},
 
 	/**

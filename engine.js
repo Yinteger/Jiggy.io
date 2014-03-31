@@ -6,6 +6,8 @@ var zen = {
 	entities: {},
 	util 	: {},
 
+	app 	: null,
+
 	ENGINE_DIR : '/popcorn-engine/',
 	FRAMEWORK_DIR : '/popcorn-framework/',
 
@@ -50,6 +52,8 @@ var zen = {
 
 //Initialize the Game Engine (Singleton)
 zen.engine = function (onInit) {
+	zen.app = this;
+	
 	//Hash table of Cameras for the game
 	this.cameras = {
 

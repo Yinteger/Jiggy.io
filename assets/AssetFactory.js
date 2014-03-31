@@ -70,5 +70,11 @@ zen.extends(null, zen.assets.AssetFactory, {
 				break;
 		}
 		return asset;
+	},
+
+	clone : function(asset) {
+		var clone = new zen.assets.Asset(asset.getType(), asset.getSource());
+		clone.setData(asset.getData());
+		return clone;
 	}
 });

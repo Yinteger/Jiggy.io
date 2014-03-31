@@ -114,5 +114,20 @@ zen.extends(zen.audio.AudioEngine, zen.audio.HTML5AudioEngine, {
 	_getVolume : function(audio) {
 		var data = this._getData(audio);
 		return data.volume;
+	},
+
+	_registerStartEvent : function(audio) {
+		var data = audio.getData();
+		data.addEventListener('playing', function(e) {
+			console.warn('playing event');
+			audio.setAttribute('playing', true);
+		});
+	},
+
+	_registerEndEvent : function(audio) {
+		var data = audio.getData();
+		data.addEventListener('ended', function(e) {
+			audio.setAttribute('playing', false);
+		});
 	}
 });
