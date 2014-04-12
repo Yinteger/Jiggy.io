@@ -56,7 +56,6 @@ zen.extends(null, zen.audio.AudioEngine, {
 			this._stopAudio(audio);
 		}
 		delete this.audioMap[name];
-		delete this.channels[name];
 	},
 
 	/**
@@ -275,22 +274,17 @@ zen.extends(null, zen.audio.AudioEngine, {
 			this.removeAudio(name);
 		}
 		else {
-			var channelArr = [{
-				asset 	:audio,
-				playing : false
-			}];
+			var channelArr = [audio];
 			if (channels > 1) {
 				var clone;
 				for (var i = 1; i < channels; i++) {
-					clone = zen.app.assetFactory.clone(audio);
-					channelArr.push({
-						asset : clone,
-						playing : false
-					});
+					clone = zen.app.assetFactory.build(audio.getType(), audio.getSource());
+					//clone = zen.app.assetFactory.clone(audio);
+					channelArr.push(clone);
 				}
 			}
 			this.audioMap[name] = channelArr;
-			this._registerListeners(channelArr);
+			this._registerEvents(channelArr);
 		}
 	},
 
@@ -318,20 +312,24 @@ zen.extends(null, zen.audio.AudioEngine, {
 		if (this.audioMap[name]) {
 			var channels = this.audioMap[name];
 			if (justGiveChannel1) {
-				return channels[0].asset;
+				return channels[0];
 			}
 			else {
 				var channel;
+				var asset;
 				for (var i = 0, len = channels.length; i < len; i++) {
 					channel = channels[i];
+					//console.warn('channel ' + i + ' playing :', channel.getAttribute('playing'));
 					if (!channel.getAttribute('playing')) {
-						return channel.asset;
+						//console.warn('returning channel ' + i);
+						return channel;
 					}
 				}
 			}
 			//If we reach here, then all channels are already in use..
 			//just return the main channel.
-			return channels[0].asset;
+			console.warn('ALL CHANNELS IN USE!');
+			return channels[0];
 		}
 		else {
 			this._warnMissingAudio(name);
@@ -391,12 +389,10 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 */
 	_registerEvents : function(channelArray) {
 		var channel;
-		var asset;
 		for (var i = 0, len = channelArray.length; i < len; i++) {
 			channel = channelArray[i];
-			asset = channel.asset;
-			this._attachStartEvent(asset);
-			this._attachEndEvent(asset);
+			this._attachStartEvent(channel);
+			this._attachEndEvent(channel);
 		}
 	},
 

@@ -7,6 +7,7 @@
  * @param {String} url  Location path.
  */
 zen.assets.Asset = function(type, url) {
+	this.id = zen.generateID();
 	this.type = type;
 	this.loadStrategy = null;
 	this.data = null;
@@ -92,7 +93,7 @@ zen.extends(null, zen.assets.Asset, {
 	 */
 	setData : function(data) {
 		this.data = data;
-		this.setState(zen.assets.Asset.LOADED);
+		//this.setState(zen.assets.Asset.LOADED);
 		this.onDataChange(this.data);
 	},
 
@@ -129,6 +130,10 @@ zen.extends(null, zen.assets.Asset, {
 		this.loadStrategy = loadStrategy;
 	},
 
+	getLoadStrategy : function() {
+		return this.loadStrategy;
+	},
+
 	/**
 	 * public load
 	 *
@@ -142,6 +147,12 @@ zen.extends(null, zen.assets.Asset, {
 	load : function() {
 		this.loadStrategy.load(this);
 	},
+
+	/*
+	clone : function() {
+		var clone = new zen.asset.Asset(this.getType(), this.getSource());
+		clone.setLoadStrategy(this.loadStrategy);	
+	},*/
 
 	/**
 	 * public isReady
