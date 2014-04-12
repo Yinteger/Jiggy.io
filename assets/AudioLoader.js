@@ -25,15 +25,16 @@ zen.extends(zen.assets.AssetLoader, zen.assets.AudioLoader, {
 		audio.src = asset.getSource();
 	},
 
-	clone : function(asset, clone) {
-		var audio = asset.getData();
-		if (audio) {
-			var cloneAudio = audio.cloneNode();
-			clone.setData(cloneAudio);
-			this._assignEvents(clone, cloneAudio);
-		}
-	},
-
+	/**
+	 * private _assignEvents
+	 *
+	 *	Initializes all event hooks required to handle
+	 *	audio assets.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @param  {HTMLDomElement} audio 
+	 * @return {void}       
+	 */
 	_assignEvents : function(asset, audio) {
 		var canPlay = function() {
 			asset.setData(audio);

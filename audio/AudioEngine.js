@@ -319,16 +319,13 @@ zen.extends(null, zen.audio.AudioEngine, {
 				var asset;
 				for (var i = 0, len = channels.length; i < len; i++) {
 					channel = channels[i];
-					//console.warn('channel ' + i + ' playing :', channel.getAttribute('playing'));
 					if (!channel.getAttribute('playing')) {
-						//console.warn('returning channel ' + i);
 						return channel;
 					}
 				}
 			}
 			//If we reach here, then all channels are already in use..
 			//just return the main channel.
-			console.warn('ALL CHANNELS IN USE!');
 			return channels[0];
 		}
 		else {

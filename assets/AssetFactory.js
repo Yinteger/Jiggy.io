@@ -100,8 +100,26 @@ zen.extends(null, zen.assets.AssetFactory, {
 		return asset;
 	},
 
+	/**
+	 * protected _configureRawAsset
+	 *
+	 *	Sets up specific asset details for Raw type assets.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @param  {String} url   
+	 * @return {void}       
+	 */
 	_configureRawAsset : function(asset, url) {},
 
+	/**
+	 * protected _configureImageAsset
+	 *
+	 *	Sets up specific asset details for Image type assets.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @param  {String} url   
+	 * @return {void}       
+	 */
 	_configureImageAsset : function(asset, url) {
 		var img = document.createElement('img');
 		img.addEventListener('load', function() {
@@ -110,6 +128,15 @@ zen.extends(null, zen.assets.AssetFactory, {
 		asset.setData(img);
 	},
 	
+	/**
+	 * protected _configureAudioAsset
+	 *
+	 *	Sets up specific asset details for Audio type assets.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @param  {String} url   
+	 * @return {void}       
+	 */
 	_configureAudioAsset : function(asset, url) {
 		var audio = document.createElement('audio');
 		audio.addEventListener('canplaythrough', function() {
@@ -118,8 +145,25 @@ zen.extends(null, zen.assets.AssetFactory, {
 		asset.setData(audio);
 	},
 
+	/**
+	 * protected _configureJSONAsset
+	 *
+	 *	Sets up specific asset details for JSON type assets.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @param  {String} url   
+	 * @return {void}       
+	 */
 	_configureJSONAsset : function(asset, url) {},
 
+	/**
+	 * protected _clone
+	 *
+	 *	Clones a given asset.
+	 * 
+	 * @param  {zen.assets.Asset} asset 
+	 * @return {void}       
+	 */
 	_clone : function(asset) {
 		var type = asset.getType();
 		var clone = new zen.assets.Asset(type, asset.getSource());
@@ -127,6 +171,17 @@ zen.extends(null, zen.assets.AssetFactory, {
 		return clone;
 	},
 
+	/**
+	 * protected _cloneAssetData
+	 *
+	 *	Can be overridden, but subclasses should always call this as a super
+	 *	method. Provides implementation to cloning each specific type of asset.
+	 * 
+	 * @param  {zen.assets.Asset} clone The clone
+	 * @param  {zen.assets.Asset} asset The original
+	 * @param  {Enumeration} type  
+	 * @return {void}       
+	 */
 	_cloneAssetData : function(clone, asset, type) {
 		var data = null;
 		switch(type) {
@@ -134,20 +189,31 @@ zen.extends(null, zen.assets.AssetFactory, {
 				data = asset.getData();
 				break;
 			case zen.assets.AssetFactory.TYPES.IMAGE:
-				var adata = asset.getData();
-				if (adata) {
-					data = adata.cloneNode(true);
-				}
+				data = this._cloneNode(asset.getData());
 				break;
 			case zen.assets.AssetFactory.TYPES.AUDIO:
-				var adata = asset.getData();
-				if (adata) {
-					data = adata.cloneNode(true);
-				}
+				data = this._cloneNode(asset.getData());
 				break;
 		}
 
 		clone.setLoadStrategy(asset.getLoadStrategy());
 		clone.setData(data);
+	},
+
+	/**
+	 * protected _cloneNode
+	 *
+	 *	Clones a node style asset.
+	 * 
+	 * @param  {HTMLDomElement} node 
+	 * @return {HTMLDomElement}      a clone
+	 */
+	_cloneNode : function(node) {
+		if (node) {
+			return node.cloneNode(true);
+		}
+		else {
+			return null;
+		}
 	}
 });

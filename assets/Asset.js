@@ -130,6 +130,13 @@ zen.extends(null, zen.assets.Asset, {
 		this.loadStrategy = loadStrategy;
 	},
 
+	/**
+	 * public getLoadStrategy
+	 *
+	 *	Gets the strategy class used for loading.
+	 * 
+	 * @return {zen.assets.AssetLoader} 
+	 */
 	getLoadStrategy : function() {
 		return this.loadStrategy;
 	},
@@ -148,12 +155,6 @@ zen.extends(null, zen.assets.Asset, {
 		this.loadStrategy.load(this);
 	},
 
-	/*
-	clone : function() {
-		var clone = new zen.asset.Asset(this.getType(), this.getSource());
-		clone.setLoadStrategy(this.loadStrategy);	
-	},*/
-
 	/**
 	 * public isReady
 	 *
@@ -165,14 +166,38 @@ zen.extends(null, zen.assets.Asset, {
 		return (this.getState() === zen.assets.Asset.LOADED);
 	},
 
+	/**
+	 * public setAttribute
+	 *
+	 *	Sets data details for this asset.
+	 * 
+	 * @param {String} key   
+	 * @param {Object} value 
+	 */
 	setAttribute : function(key, value) {
 		this.attributes[key] = value;
 	},
 
+	/**
+	 * public getAttribute
+	 *
+	 *	Gets data details from this asset.
+	 * 
+	 * @param  {String} key 
+	 * @return {Object}     
+	 */
 	getAttribute : function(key) {
 		return this.attributes[key];
 	},
 
+	/**
+	 * public isAttribute
+	 *
+	 *	Checks for existance of a data detail on this asset.
+	 * 
+	 * @param  {String}  key 
+	 * @return {Boolean}     
+	 */
 	isAttribute : function(key) {
 		if (this.attributes[key]) {
 			return true;
@@ -182,6 +207,14 @@ zen.extends(null, zen.assets.Asset, {
 		}
 	},
 
+	/**
+	 * public removeAttribute
+	 *
+	 *	Removes a data attribute from this asset.
+	 * 
+	 * @param  {String} key 
+	 * @return {void}     
+	 */
 	removeAttribute : function(key) {
 		delete this.attributes[key];
 	},
