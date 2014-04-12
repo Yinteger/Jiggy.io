@@ -49,6 +49,10 @@ zen.extends(null, zen.assets.AssetLoader, {
 		}
 	},
 
+	clone : function(asset, clone) {
+		clone.setData(asset.getData());
+	},
+
 	/**
 	 * protected _validateURL
 	 *

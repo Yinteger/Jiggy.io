@@ -1,9 +1,12 @@
 //Create top level packages
 var zen = {
 	assets  : {},
+	audio 	: {},
 	engines : {},
 	entities: {},
 	util 	: {},
+
+	app 	: null,
 
 	ENGINE_DIR : '/popcorn-engine/',
 	FRAMEWORK_DIR : '/popcorn-framework/',
@@ -49,6 +52,8 @@ var zen = {
 
 //Initialize the Game Engine (Singleton)
 zen.engine = function (onInit) {
+	zen.app = this;
+	
 	//Hash table of Cameras for the game
 	this.cameras = {
 
@@ -56,8 +61,10 @@ zen.engine = function (onInit) {
 
 	//Different sub engines this engine will use
 	this.renderingEngine = null;
-	this.soundEngine = null;
+	this.audioEngine = null;
 	this.physicEngine = null;
+
+	//Factories
 	this.assetFactory = null;
 
 	//Variable to hold the Viewport, aka the Canvas
@@ -88,8 +95,8 @@ zen.engine.prototype.setRenderingEngine = function (renderingEngine) {
 
 };
 
-zen.engine.prototype.setSoundEngine = function (soundEngine) {
-	this.soundEngine = soundEngine;
+zen.engine.prototype.setAudioEngine = function (audioEngine) {
+	this.audioEngine = audioEngine;
 };
 
 zen.engine.prototype.setPhysicEngine = function (physicEngine) {
@@ -107,6 +114,8 @@ zen.engine.prototype.setAssetFactory = function(assetFactory) {
 zen.engine.prototype._init = function () {
 	//Setup the default AssetFactory
 	this.setAssetFactory(zen.assets.AssetFactory.getSingleton());
+
+	this.setAudioEngine(new zen.audio.HTML5AudioEngine());
 
 	//Create the ViewPort
 	this.viewPort = new zen.ViewPort();
@@ -148,6 +157,14 @@ zen.engine.prototype._loadDependencies = function () {
 	]);
 	basync.addDependency('zen.assets.JSONLoader', zen.ENGINE_DIR + 'assets/JSONLoader', [
 		'zen.assets.AssetLoader',
+	]);
+
+	//AUDIO PACKAGE
+	basync.addDependency('zen.audio.AudioEngine', zen.ENGINE_DIR + 'audio/AudioEngine', [
+		'zen.assets.AssetFactory'
+	]);
+	basync.addDependency('zen.audio.HTML5AudioEngine', zen.ENGINE_DIR + 'audio/HTML5AudioEngine', [
+		'zen.audio.AudioEngine'
 	]);
 
 	//ENGINES PACkAGE

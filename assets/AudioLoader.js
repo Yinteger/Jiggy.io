@@ -19,14 +19,36 @@ zen.extends(zen.assets.AssetLoader, zen.assets.AudioLoader, {
 	 */
 	load : function(asset) {
 		asset.setState(zen.assets.Asset.LOADING);
-		var audio = new Audio();
+		var audio = asset.getData();
 		audio.setAttribute('preload', 'auto');
-		audio.addEventListener('canplaythrough', function() {
+		this._assignEvents(asset, audio);
+		audio.src = asset.getSource();
+	},
+
+	clone : function(asset, clone) {
+		var audio = asset.getData();
+		if (audio) {
+			var cloneAudio = audio.cloneNode();
+			clone.setData(cloneAudio);
+			this._assignEvents(clone, cloneAudio);
+		}
+	},
+
+	_assignEvents : function(asset, audio) {
+		var canPlay = function() {
 			asset.setData(audio);
-		});
+			audio.removeEventListener('canplaythrough', canPlay);
+		};
+		audio.addEventListener('canplaythrough', canPlay);
 		audio.addEventListener('error', function() {
 			asset.onError();
 		});
-		audio.src = asset.getSource();
+		audio.addEventListener('playing', function() {
+			asset.setAttribute('playing', true);
+		});
+		audio.addEventListener('ended', function() {
+			audio.currentTime = 0;
+			asset.setAttribute('playing', false);
+		});
 	}
 });

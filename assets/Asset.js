@@ -7,10 +7,12 @@
  * @param {String} url  Location path.
  */
 zen.assets.Asset = function(type, url) {
+	this.id = zen.generateID();
 	this.type = type;
 	this.loadStrategy = null;
 	this.data = null;
 	this.setSource(url);
+	this.attributes = {};
 };
 
 /**
@@ -86,14 +88,12 @@ zen.extends(null, zen.assets.Asset, {
 	 * public setData
 	 *
 	 * 	Sets the data for this asset.
-	 *
-	 * 	To be used interally only.
 	 * 
 	 * @param {Mixed} data 
 	 */
 	setData : function(data) {
 		this.data = data;
-		this.setState(zen.assets.Asset.LOADED);
+		//this.setState(zen.assets.Asset.LOADED);
 		this.onDataChange(this.data);
 	},
 
@@ -130,6 +130,10 @@ zen.extends(null, zen.assets.Asset, {
 		this.loadStrategy = loadStrategy;
 	},
 
+	getLoadStrategy : function() {
+		return this.loadStrategy;
+	},
+
 	/**
 	 * public load
 	 *
@@ -144,6 +148,12 @@ zen.extends(null, zen.assets.Asset, {
 		this.loadStrategy.load(this);
 	},
 
+	/*
+	clone : function() {
+		var clone = new zen.asset.Asset(this.getType(), this.getSource());
+		clone.setLoadStrategy(this.loadStrategy);	
+	},*/
+
 	/**
 	 * public isReady
 	 *
@@ -153,6 +163,27 @@ zen.extends(null, zen.assets.Asset, {
 	 */
 	isReady : function() {
 		return (this.getState() === zen.assets.Asset.LOADED);
+	},
+
+	setAttribute : function(key, value) {
+		this.attributes[key] = value;
+	},
+
+	getAttribute : function(key) {
+		return this.attributes[key];
+	},
+
+	isAttribute : function(key) {
+		if (this.attributes[key]) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+
+	removeAttribute : function(key) {
+		delete this.attributes[key];
 	},
 
 	/**

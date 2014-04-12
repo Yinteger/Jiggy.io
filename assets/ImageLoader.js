@@ -19,7 +19,7 @@ zen.extends(zen.assets.AssetLoader, zen.assets.ImageLoader, {
 	 */
 	load : function(asset) {
 		asset.setState(zen.assets.Asset.LOADING);
-		var image = new Image();
+		var image = asset.getData();
 		image.onload = function() {
 			asset.setData(image);
 		};

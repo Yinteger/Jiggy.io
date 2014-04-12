@@ -10,6 +10,7 @@ zen.assets.AssetFactory = function() {
 	this.audioLoader = new zen.assets.AudioLoader();
 	this.jsonLoader = new zen.assets.JSONLoader();
 	this.imageLoader = new zen.assets.ImageLoader();
+	this.cache = {};
 };
 
 /**
@@ -51,24 +52,102 @@ zen.extends(null, zen.assets.AssetFactory, {
 	 */
 	build : function(type, url) {
 		var types = zen.assets.AssetFactory.TYPES;
-		var asset = new zen.assets.Asset(type, url);
+
+		var isValidType = false;
+		for (var i in types) {
+			if (types[i] === type) {
+				isValidType = true;
+				break;
+			}
+		}
+		if (!isValidType) {
+			throw 'AssetFactory.build(): Unknown Asset Type.';
+		}
+
+		var asset;
+		var cache = this.cache[url];
+		if (cache) {
+			asset = this._clone(cache);
+		}
+		else {
+			asset = new zen.assets.Asset(type, url);
+		}
+
+		if (!cache) {
+			switch(type) {
+				default:
+					break;
+				case types.RAW:
+					asset.setLoadStrategy(this.assetLoader);
+					this._configureRawAsset(asset, url);
+					break;
+				case types.IMAGE:
+					asset.setLoadStrategy(this.imageLoader);
+					this._configureImageAsset(asset, url);
+					break;
+				case types.AUDIO:
+					asset.setLoadStrategy(this.audioLoader);
+					this._configureAudioAsset(asset, url);
+					break;
+				case types.JSON:
+					asset.setLoadStrategy(this.jsonLoader);
+					this._configureJSONAsset(asset, url);
+					break;
+			}
+			this.cache[url] = asset;
+		}
+
+		return asset;
+	},
+
+	_configureRawAsset : function(asset, url) {},
+
+	_configureImageAsset : function(asset, url) {
+		var img = document.createElement('img');
+		img.addEventListener('load', function() {
+			asset.setState(zen.assets.Asset.LOADED);
+		});
+		asset.setData(img);
+	},
+	
+	_configureAudioAsset : function(asset, url) {
+		var audio = document.createElement('audio');
+		audio.addEventListener('canplaythrough', function() {
+			asset.setState(zen.assets.Asset.LOADED);
+		});
+		asset.setData(audio);
+	},
+
+	_configureJSONAsset : function(asset, url) {},
+
+	_clone : function(asset) {
+		var type = asset.getType();
+		var clone = new zen.assets.Asset(type, asset.getSource());
+		this._cloneAssetData(clone, asset, type);
+		return clone;
+	},
+
+	_cloneAssetData : function(clone, asset, type) {
+		var data = null;
 		switch(type) {
 			default:
-				throw 'AssetFactory.build(): Unknown Asset Type';
+				data = asset.getData();
 				break;
-			case types.RAW:
-				asset.setLoadStrategy(this.assetLoader);
+			case zen.assets.AssetFactory.TYPES.IMAGE:
+				var adata = asset.getData();
+				if (adata) {
+					data = adata.cloneNode(true);
+				}
 				break;
-			case types.IMAGE:
-				asset.setLoadStrategy(this.imageLoader);
-				break;
-			case types.AUDIO:
-				asset.setLoadStrategy(this.audioLoader);
-				break;
-			case types.JSON:
-				asset.setLoadStrategy(this.jsonLoader);
+			case zen.assets.AssetFactory.TYPES.AUDIO:
+				var adata = asset.getData();
+				if (adata) {
+					data = adata.cloneNode(true);
+				}
 				break;
 		}
-		return asset;
+
+		clone.setLoadStrategy(asset.getLoadStrategy());
+		clone.setData(data);
 	}
 });
