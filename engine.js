@@ -33,20 +33,30 @@ var zen = {
 	 * @param  {Function} baseClass  Optional base constructor. Pass null if there is no base class.
 	 * @param  {Function} subClass   The constructor
 	 * @param  {Object} properties	 The definition of the Class. 
+	 * @param  {Object} staticProperties Optional. Defines a list of 
+	 *                                   variables or functions that 
+	 *                                   should be statically available
+	 *                                   on the sub class.
 	 * @return {void}            
 	 */
-	extends: function(baseClass, subClass, properties) {
+	extends: function(baseClass, subClass, properties, staticProperties) {
 		if (baseClass) {
-	   		subClass.prototype = Object.create(baseClass.prototype);
-	  	}
+			subClass.prototype = Object.create(baseClass.prototype);
+		}
 
-	  	subClass.prototype.constructor = subClass;
+		subClass.prototype.constructor = subClass;
 
-	  	if (properties) {
-	   		for (var i in properties) {
-	   		 	subClass.prototype[i] = properties[i];
-	   		}
-	  	}
+		if (properties) {
+			for (var i in properties) {
+				subClass.prototype[i] = properties[i];
+			}
+		}
+
+		if (staticProperties) {
+			for (var i in staticProperties) {
+				subClass[i] = staticProperties[i];
+			}
+		}
 	}
 };
 
