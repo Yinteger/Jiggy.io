@@ -306,6 +306,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 *	Gets an audio asset from the audio hash map.
 	 * 
 	 * @param  {String} name User friendly reference
+	 * @param  {Boolean} justGiveChannel1 If true, does NOT search for an available channel
 	 * @return {zen.assets.Asset}   
 	 */
 	_getAudio : function(name, justGiveChannel1) {

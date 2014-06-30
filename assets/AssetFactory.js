@@ -8,7 +8,7 @@
 zen.assets.AssetFactory = function() {
 	this.assetLoader = new zen.assets.AssetLoader();
 	this.audioLoader = new zen.assets.AudioLoader();
-	this.jsonLoader = new zen.assets.JSONLoader();
+	this.jsonLoader  = new zen.assets.JSONLoader();
 	this.imageLoader = new zen.assets.ImageLoader();
 	this.cache = {};
 };

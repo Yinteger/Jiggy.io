@@ -587,7 +587,7 @@ zen.extends(null, zen.entities.Entity, {
 	},
 
 	/**
-	 * removeListener 
+	 * public removeListener 
 	 *
 	 * Removes a Listener from Listening to this awesome Entity
 	 *
