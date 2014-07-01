@@ -29,7 +29,7 @@ zen.entities.Entity = function(model) {
 	this.parent = null; //Parent is the entity that contains this one
 	this.modified = false; //Whether or not this Entity has been modified
 	this._observer = null;  //Observer Utility Object for other objects to listen to this entity
-	this.notifierKeys = ['width', 'height',  'color']; //Model attributes in which we should change isModified for
+	this.notifierKeys = ['width', 'height',  'color', 'texture', 'textures']; //Model attributes in which we should change isModified for
 	this.parentNotifierKeys = ['x', 'y']; //Array of attributes to flag the parent as modified, anything in notifierKeys will do so by default, this list is for keys that don't mark this entity as isMOdified but should mark the parents
 
 	if (useDefaults) {
@@ -395,6 +395,14 @@ zen.extends(null, zen.entities.Entity, {
 		return this.model.getAttribute('z');
 	},
 
+	getX2 : function () {
+		return this.getX() + this.getWidth();
+	},
+
+	getY2 : function () {
+		return this.getY() + this.getHeight();
+	},
+
 	/**
 	 * public setLocation
 	 *
@@ -614,6 +622,7 @@ zen.extends(null, zen.entities.Entity, {
 		}
 
 		this.model.addTexture(name, asset);
+		this.setModified(true);
 	},
 
 	/**

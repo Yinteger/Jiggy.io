@@ -7,7 +7,7 @@
 
 zen.engines.TwoDRenderingEngine = function () {
 	zen.engines.RenderingEngine.call(this);
-	this.balls = [];
+
 	//The cache is a collection of imageData Objects for each Entity that has been created
 	//from previous renders.  We store the imageData so we don't need to re-create it each render
 	// unless the entity has changed in some way.;
@@ -23,9 +23,26 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 
 	//Loop through entities and render them
 	//TODO: Once Camera is Ready, get Entities from Camera and don't store them in the engine
-	for (var i = 0; i < this.balls.length; i ++) {
-		this._viewPort.context.drawImage(this.prerenderEntity(this.balls[i]), this.balls[i].getX(), this.balls[i].getY());
+	// for (var i = 0; i < this.balls.length; i ++) {
+	// 	this._viewPort.context.drawImage(this.prerenderEntity(this.balls[i]), this.balls[i].getX(), this.balls[i].getY());
+	// }
+	// 
+	//Loop through the Cameras & Render them
+	//TODO: Render Cameras in proper order
+	for (var i in this.cameras) {
+		var camera = this.cameras[i].camera;
+		var cameraMeta = this.cameras[i];
+		var scene = camera.getScene();
+
+		this._cameraPrerenderViewPort.setSize(camera.getFOV().w, camera.getFOV().h);
+		this._cameraPrerenderViewPort.clear();
+
+		this._cameraPrerenderViewPort.context.drawImage(this.prerenderEntity(scene), (0 - camera.getViewPoint().y), (0 - camera.getViewPoint().x));
+
+		this._viewPort.context.drawImage(this._cameraPrerenderViewPort.getImage(), cameraMeta.x, cameraMeta.y, cameraMeta.width, cameraMeta.height);
 	}
+
+	//Loop through the Static Entities & Render them
 };
 
 
@@ -54,25 +71,25 @@ zen.engines.TwoDRenderingEngine.prototype.prerenderEntity = function (entity) {
 		//Set the Entity isModified to False so we don't re-create the pre-render next time
 		entity.setModified(false);
 
-		//Create a ImageData Object from the PixelData Array
-		var imageData = this._prerenderViewPort.context.createImageData(entity.getWidth(), entity.getHeight());
+		var foundTexture = false;
 
-		//Loop through each Pixel in the Pixel Data
-		//TODO: Update EntitityViews to use ImageData Objects so this step won't be neccassary anymore
-		for (var x in entity.view._pixelData) {
-			for (var y in entity.view._pixelData[x]) {
-				var index = (y * (entity.getWidth() * 4)) + (x * 4);
-				imageData.data[index] = entity.view._pixelData[x][y][0];
-				imageData.data[index + 1] = entity.view._pixelData[x][y][1];
-				imageData.data[index + 2] = entity.view._pixelData[x][y][2];
-				imageData.data[index + 3] = 255; //Temp: Set the Alpha to 255 to prevent Transparencty
-			}
+		//Create a ImageData Object from the PixelData Array
+		if (entity.collectTextures().length > 0) {
+			var imageData = entity.collectTextures()[0].getData();
+			foundTexture = true;
+		} else {
+			var imageData = this._prerenderViewPort.context.createImageData(entity.getWidth(), entity.getHeight());			
 		}
 
 		//Put the Entity in the Prerender View Port
 		this._prerenderViewPort.setSize(entity.getWidth(), entity.getHeight());
-		this._prerenderViewPort.context.putImageData(imageData, 
-			0, 0);
+		if (foundTexture) {
+			this._prerenderViewPort.context.drawImage(imageData, 
+				0, 0);
+		} else {
+			this._prerenderViewPort.context.putImageData(imageData, 
+				0, 0);
+		}
 
 		//Now put in all the children into the Prerender View Port
 		var child2Iterator = entity.iterator();

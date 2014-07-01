@@ -6,27 +6,74 @@
  */
 
  zen.engines.RenderingEngine = function () {
+ 	//The Viewport to Render into
  	this._viewPort = null;
- 	this._prerenderViewPort = null;
+
+
+
+ 	//The ViewPort to Prerender Entities into
+ 	this._prerenderViewPort = new zen.ViewPort();
+
+ 	//The ViewPort to Prerender Cameras Views into
+ 	this._cameraPrerenderViewPort = new zen.ViewPort();
+
+ 	//The ID of the current animation frame
  	this.animationFrameID;
+
+ 	//Whether or not the engine is currently rendering
  	this.rendering = false;
+
+ 	//The current FPS the Engine is able to render in
  	this.fps = 0;
+
+ 	//Array used to help calculate the FPS
  	this.frames = [];
+
+ 	//Whether or not to render the FPS into the ViewPort
  	this.showFPS = true;
- 	this.lastRender; //Variable that stores a Date of the last Render
+
+	//Variable that stores a Date of the last Render, to help calculate the FPS
+ 	this.lastRender;
+
+ 	//The Engine renders two things, views from Cameras and Static entities
+ 	//Static entities are always rendered above the cameras
+
+ 	//Cameras
+ 	this.cameras = {};
+ 	this.cameraOrder = [];
+
+ 	//Static Entities
+ 	this.staticEntities = [];
+ 	this.staticEntityOrder = [];
  };
 
 /**
  * addCamera 
  *
- * Adds a Camera to Render each Render Loop
+ * Adds a Camera to Render each Render Loop, as a specific location in the Viewport, and in specific
+ * dimensions in the view port
  *
- * @param none
+ * @param name, Identifier for this Camera
+ * @param {Camera} [Camera] [The Camera Object]
+ * @param {Number} [x] [The X location of where the camera should be rendered in the viewport]
+ * @param {Number} [y] [The Y Location of where the camera should be rendered in the viewport]
+ * @param {Number} [width] [The width of the ViewPort this camera should be rendered in]
+ * @param {Number} [height] [The height of the ViewPort this camera should be rendered in]
  * @return void
  */
-zen.engines.RenderingEngine.prototype.addCamera = function (camera) {
-
+zen.engines.RenderingEngine.prototype.addCamera = function (name, camera, x, y, width, height) {
+	this.cameras[name] = {'camera': camera, 'x': x, 'y': y, 'width': width, 'height': height};
 },
+
+/**
+ * Removes a camera from being rendered in the ViewPort
+ * 
+ * @param  {[String]} name [Whicher Camera to remove]
+ * @return {[type]}      [description]
+ */
+zen.engines.RenderingEngine.prototype.removeCamera = function (name) {
+	delete this.camera[name];
+};
 
 /**
  * setViewPort 
