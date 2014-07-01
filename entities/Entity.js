@@ -655,6 +655,17 @@ zen.extends(null, zen.entities.Entity, {
 	},
 
 	/**
+	 * public collectTextures
+	 *
+	 *	Gets all the textures in this entity.
+	 * 
+	 * @return {Array(Of zen.assets.Asset)} 
+	 */
+	collectTextures : function() {
+		return this.model.collectTextures();
+	},
+
+	/**
 	 * private _setDefaults
 	 *
 	 *	Sets the default attributes for this entity.
