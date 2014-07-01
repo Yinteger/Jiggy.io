@@ -1,6 +1,8 @@
 /**
  * public class EntityView2D
  *
+ * @deprecated Pixel arrays are going away...
+ *
  *	A concrete class that holds a 2D visual representation of an Entity.
  * 
  */

@@ -9,12 +9,15 @@ zen.entities.EntityModel = function() {
 	this.attributes = {};
 	this.id = zen.generateID();
 	this.type = 'generic';
+	this.textureMap = {};
 	this.observer = new zen.util.Observer(this);
 };
 
 zen.entities.EntityModel.static = {
 	ATTR_CHANGE : 'ATTR_CHANGE',
-	ATTR_DELETE : 'ATTR_DELETE'
+	ATTR_DELETE : 'ATTR_DELETE',
+	TEXTURE_CHANGE : 'TEXTURE_CHANGE',
+	TEXTURE_DELETE : 'TEXTURE_DELETE'
 };
 
 zen.extends(null, zen.entities.EntityModel, {
@@ -68,7 +71,7 @@ zen.extends(null, zen.entities.EntityModel, {
 			oldValue : oldValue,
 			value : value
 		});
-},
+	},
 
 	/**
 	 * public getAttribute
@@ -169,6 +172,14 @@ zen.extends(null, zen.entities.EntityModel, {
 		this.observer.fireEvent(event, data);
 	},
 
+	/**
+	 * public iterator
+	 *
+	 *	Creates an iterator to iterate through all
+	 *	generic attribute properties.
+	 * 
+	 * @return {Iterator} 
+	 */
 	iterator : function() {
 		var keys = Object.keys(this.attributes);
 		var i = -1;
@@ -208,6 +219,95 @@ zen.extends(null, zen.entities.EntityModel, {
 		};
 	},
 
+	/**
+	 * public addTexture
+	 *
+	 *	Adds the texture asset to the model.
+	 *
+	 * Fires a TEXTURE_CHANGE event.
+	 * 
+	 * @param {String} name  
+	 * @param {zen.assets.Asset} asset 
+	 */
+	addTexture : function(name, asset) {
+		this.textureMap[name] = asset;
+		this._fireEvent(zen.entities.EntityModel.static.TEXTURE_CHANGE, {
+			attribute : 'texture',
+			name : name,
+			value : asset
+		});
+	},
+
+	/**
+	 * public hasTexture
+	 *
+	 *	Checks to see if a given texture by name is in the model.
+	 * 
+	 * @param  {String}  name 
+	 * @return {Boolean}      
+	 */
+	hasTexture : function(name) {
+		var v = this.textureMap[name];
+		return !(v === undefined || v === null);
+	},
+
+	/**
+	 * public getTexture
+	 *
+	 *	Retrieves a texture asset from the model.
+	 * 
+	 * @param  {String} name 
+	 * @return {zen.assets.Asset}      
+	 */
+	getTexture : function(name) {
+		return this.textureMap[name];
+	},
+
+	/**
+	 * public removeTexture
+	 *
+	 *	Deletes an texture asset by the given name from the model.
+	 *	And fires a TEXTURE_DELETE event.
+	 * 
+	 * @param  {String} name 
+	 * @return {void}      
+	 */
+	removeTexture : function(name) {
+		var asset = this.getTexture(name);
+		delete this.textureMap[name];
+		if (asset) {
+			this._fireEvent(zen.entities.EntityModel.static.TEXTURE_DELETE, {
+				attribute : 'texture',
+				name : name,
+				value : asset
+			});
+		}
+	},
+
+	/**
+	 * public collectTextures
+	 *
+	 *	Gathers all the textures assets into an array.
+	 * 
+	 * @return {Array(Of zen.assets.Asset)} 
+	 */
+	collectTextures : function() {
+		var arr = [];
+		var keys = Object.keys(this.textureMap);
+		for (var i = 0, len = keys.length; i < len; i++) {
+			arr.push(this.getTexutre(keys[i]));
+		}
+		return arr;
+	},
+
+	/**
+	 * public sync
+	 *
+	 *	Syncs the given listener with this model.
+	 * 
+	 * @param  {Object} listener Must have a notify observer method.
+	 * @return {void}          
+	 */
 	sync : function(listener) {
 		var evt = zen.entities.EntityModel.static.ATTR_CHANGE;
 		var iter = this.iterator();
@@ -218,10 +318,10 @@ zen.extends(null, zen.entities.EntityModel, {
 				attribute 	: item.key,
 				value 		: item.value
 			});
-			/*this._fireEvent(evt, {
-				attribute : item.key,
-				value : item.value
-			});*/
 		}
+		listener.notify(evt, {
+			attribute 	: 'textures',
+			value 		: this.collectTextures()
+		});
 	},
 });

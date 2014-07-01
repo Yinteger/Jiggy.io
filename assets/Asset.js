@@ -15,21 +15,6 @@ zen.assets.Asset = function(type, url) {
 	this.attributes = {};
 };
 
-/**
- * public static Enumeration
- * NOT_LOADED 		The state where an asset is not available to be used,
- * 					and the loading process has not started for this asset.
- * 					
- * LOADING 			The state where an asset is not available to be used,
- * 					but it is in the loading process.
- *
- * LOADED 			The state where this asset is ready and available to be
- * 					used.
- */
-zen.assets.Asset.NOT_LOADED = 0;
-zen.assets.Asset.LOADING = 1;
-zen.assets.Asset.LOADED = 2;
-
 zen.extends(null, zen.assets.Asset, {
 	/**
 	 * public setSource
@@ -251,4 +236,9 @@ zen.extends(null, zen.assets.Asset, {
 	 * @return {void}       
 	 */
 	onError : function(error) {}
+},
+{
+	NOT_LOADED 		: 0,
+	LOADING 		: 1,
+	LOADED 			: 2
 });

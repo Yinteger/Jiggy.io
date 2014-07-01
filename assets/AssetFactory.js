@@ -14,16 +14,6 @@ zen.assets.AssetFactory = function() {
 };
 
 /**
- * static public TYPES enumeration
- */
-zen.assets.AssetFactory.TYPES = {
-	RAW 		: 1,
-	IMAGE		: 2,
-	AUDIO		: 3,
-	JSON		: 4
-};
-
-/**
  * public static getSingleton
  *
  *	Gets the singleton instance of AssetFactory.
@@ -215,5 +205,13 @@ zen.extends(null, zen.assets.AssetFactory, {
 		else {
 			return null;
 		}
+	}
+},
+{
+	TYPES : {
+		RAW 		: 1,
+		IMAGE 		: 2,
+		AUDIO 		: 3,
+		JSON 		: 4
 	}
 });

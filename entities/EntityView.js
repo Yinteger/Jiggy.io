@@ -4,23 +4,14 @@
  *	The view representation of an Entity. Generates a collection of pixel data based
  *	on the data in the given model.
  *
- * EntityView is an abstract base class. 
- *
  * EntityView should only be used by the Entity class. 
  */
 zen.entities.EntityView = function() {
-	this._pixelData = [];
+	//this._pixelData = [];
 	this._visible = true;
-	this._color = this._createPixel(0, 0, 0, 0);
-	this._height = 0;
-	this._width = 0;
-};
-
-zen.entities.EntityView.static = {
-	R : 0,
-	G : 1,
-	B : 2,
-	A : 3
+	//this._color = this._createPixel(0, 0, 0, 0);
+	//this._height = 0;
+	//this._width = 0;
 };
 
 zen.extends(null, zen.entities.EntityView, {
@@ -55,16 +46,20 @@ zen.extends(null, zen.entities.EntityView, {
 	/**
 	 * protected _clear
 	 *
+	 * @deprecated Pixel arrays are going away...
+	 *
 	 *	Clears the pixel data array.
 	 * 
 	 * @return {void} 
 	 */
-	_clear : function() {
+	/*_clear : function() {
 		this._pixelData = [];
-	},
+	},*/
 
 	/**
 	 * protected _setColor
+	 *
+	 * @deprecated Pixel arrays are going away...
 	 *
 	 *	Sets the entity fill color.
 	 *
@@ -76,23 +71,25 @@ zen.extends(null, zen.entities.EntityView, {
 	 * @param {Integer} b
 	 * @param {Integer} a  
 	 */
-	_setColor : function(r,g,b,a) {
+	/*_setColor : function(r,g,b,a) {
 		throw new Error('zen.entities.EntityView._setColor is abstract.');
-	},
+	},*/
 
 	/**
 	 * protected _getColor
-	 *
+	 * 
+	 * @deprecated Pixel arrays are going away...
+	 * 
 	 *	Gets the current color data used to create pixels.
 	 * 
 	 * @return {Array(Of Integer)} [ R , G , B , A ] format.
 	 */
-	_getColor : function() {
+	/*_getColor : function() {
 		return this._color;
-	},
+	},*/
 
 	/**
-	 * protected abstract _setVisible
+	 * protected _setVisible
 	 *
 	 *	Concrete class MUST implement this method.
 	 *
@@ -104,7 +101,8 @@ zen.extends(null, zen.entities.EntityView, {
 	 * @return {void}
 	 */
 	_setVisible : function(state) {
-		throw new Error('zen.entities.EntityView._setVisible is abstract.');
+		this._visible = state;
+		//throw new Error('zen.entities.EntityView._setVisible is abstract.');
 	},
 
 	/**
@@ -121,6 +119,8 @@ zen.extends(null, zen.entities.EntityView, {
 	/**
 	 * protected abstract _setWidth
 	 *
+	 * @deprecated Pixel arrays are going away...
+	 *
 	 *	Sets the width of the entity view.
 	 *
 	 * Concrete class MUST implement this method.
@@ -129,23 +129,27 @@ zen.extends(null, zen.entities.EntityView, {
 	 * @param {Integer} value
 	 * @return {void} 
 	 */
-	_setWidth : function(value) {
+	/*_setWidth : function(value) {
 		throw new Error('zen.entities.EntityView._setWidth is abstract.');
-	},
+	},*/
 
 	/**
 	 * protected _getWidth
+	 *
+	 * @deprecated Pixel arrays are going away...
 	 *
 	 *	Gets the width of the view.
 	 * 
 	 * @return {Integer} 
 	 */
-	_getWidth : function() {
+	/*_getWidth : function() {
 		return this._width;
-	},
+	},*/
 
 	/**
 	 * protected abstract _setHeight
+	 *
+	 * @deprecated Pixel arrays are going away...
 	 *
 	 *	Sets the height of the entity view.
 	 *
@@ -155,20 +159,22 @@ zen.extends(null, zen.entities.EntityView, {
 	 * @param {Integer} value
 	 * @return {void} 
 	 */
-	_setHeight : function(height) {
+	/*_setHeight : function(height) {
 		throw new Error('zen.entities.EntityView._setHeight is abstract.');
-	},
+	},*/
 
 	/**
 	 * protected _getHeight
+	 *
+	 * @deprecated Pixel arrays are going away...
 	 *
 	 * Gets the height of the view
 	 * 
 	 * @return {Integer} 
 	 */
-	_getHeight : function() {
+	/*_getHeight : function() {
 		return this._height;
-	},
+	},*/
 
 	/**
 	 * public overridable notify
@@ -185,7 +191,7 @@ zen.extends(null, zen.entities.EntityView, {
 			case 'visible':
 				this._setVisible(data.value);
 				break;
-			case 'x':
+			/*case 'x':
 				break;
 			case 'y':
 				break;
@@ -203,13 +209,14 @@ zen.extends(null, zen.entities.EntityView, {
 					c[zen.entities.EntityView.static.B], 
 					c[zen.entities.EntityView.static.A]
 				);
-				break;
+				break;*/
 		}
 	},
 
 	/**
 	 * protected _createPixel
-	 *
+	 *  @deprecated Pixel Arrays are going away.
+	 *  
 	 *	Creates a pixel array in the RGBA format.
 	 *	[ R , G , B , A ]
 	 * 
@@ -219,10 +226,10 @@ zen.extends(null, zen.entities.EntityView, {
 	 * @param  {Integer} a 0-100
 	 * @return {Array(Of Integer)}   
 	 */
-	_createPixel : function(r,g,b,a) {
+	/*_createPixel : function(r,g,b,a) {
 		if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 || a < 0 || a > 100) {
 			throw new Error('Invalid RGBA Pixel Data.');
 		}
 		return [r,g,b,a];
-	}
+	}*/
 });

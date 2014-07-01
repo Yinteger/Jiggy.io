@@ -22,7 +22,7 @@ zen.entities.Entity = function(model) {
 	}
 	
 	//TODO figure out how to decide what EntityView class we should use...
-	this.view = new zen.entities.EntityView2D();
+	this.view = new zen.entities.EntityView();
 	this.setModel(model);
 	
 	this.children = new Array(); //Array to store all the children entities
@@ -598,6 +598,60 @@ zen.extends(null, zen.entities.Entity, {
 		if (this.observer) {
 			this.observer.removeListener(listener);
 		}
+	},
+
+	/**
+	 * public addTexture
+	 *
+	 *	Adds a texture asset to the model.
+	 * 
+	 * @param {String} name  Unique name for the texture for future reference.
+	 * @param {zen.assets.Asset} asset Must be type zen.assets.AssetFactory.TYPES.IMAGE
+	 */
+	addTexture : function(name, asset) {
+		if (!asset.getType() !== zen.assets.AssetFactory.TYPES.IMAGE) {
+			throw new Error('Texture asset must be of type IMAGE.');
+		}
+
+		this.model.addTexture(name, asset);
+	},
+
+	/**
+	 * public hasTexture
+	 *
+	 *	Checks to see if a texture asset with the given name exists.
+	 * 
+	 * @param  {String}  name 
+	 * @return {Boolean}      
+	 */
+	hasTexture : function(name) {
+		return this.model.hasTexture(name);
+	},
+
+	/**
+	 * public getTexture
+	 *
+	 *	Gets a texture asset by the given name.
+	 * 
+	 * @param  {String} name 
+	 * @return {zen.assets.Asset}      
+	 */
+	getTexture : function(name) {
+		if (this.hasTexture(name)) {
+			return this.model.getTexture(name);
+		}
+	},
+
+	/**
+	 * public removeTexture
+	 *
+	 *	Removes a texture asset.
+	 * 
+	 * @param  {String} name 
+	 * @return {void}      
+	 */
+	removeTexture : function(name) {
+		this.model.removeTexture(name);
 	},
 
 	/**
