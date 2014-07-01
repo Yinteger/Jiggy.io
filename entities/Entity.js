@@ -609,7 +609,7 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param {zen.assets.Asset} asset Must be type zen.assets.AssetFactory.TYPES.IMAGE
 	 */
 	addTexture : function(name, asset) {
-		if (!asset.getType() !== zen.assets.AssetFactory.TYPES.IMAGE) {
+		if (asset.getType() !== zen.assets.AssetFactory.TYPES.IMAGE) {
 			throw new Error('Texture asset must be of type IMAGE.');
 		}
 
