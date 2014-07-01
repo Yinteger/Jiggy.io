@@ -295,7 +295,7 @@ zen.extends(null, zen.entities.EntityModel, {
 		var arr = [];
 		var keys = Object.keys(this.textureMap);
 		for (var i = 0, len = keys.length; i < len; i++) {
-			arr.push(this.getTexutre(keys[i]));
+			arr.push(this.getTexture(keys[i]));
 		}
 		return arr;
 	},
