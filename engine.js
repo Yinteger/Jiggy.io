@@ -2,6 +2,7 @@
 var zen = {
 	assets  : {},
 	audio 	: {},
+	data 	: {},
 	engines : {},
 	entities: {},
 	util 	: {},
@@ -169,6 +170,11 @@ zen.engine.prototype._loadDependencies = function () {
 	]);
 	basync.addDependency('zen.audio.HTML5AudioEngine', zen.ENGINE_DIR + 'audio/HTML5AudioEngine', [
 		'zen.audio.AudioEngine'
+	]);
+
+	//DATA PACKAGE
+	basync.addDependency('zen.data.DataManager', zen.ENGINE_DIR + 'data/DataManager', [
+		'zen.util.Observer'
 	]);
 
 	//ENGINES PACkAGE
