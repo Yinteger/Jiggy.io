@@ -69,4 +69,5 @@ zen.ViewPort.prototype.getImage = function () {
 	var image = new Image();
 	image.src = this.canvas.toDataURL("image/png");
 	return image;
+	// return this.context.getImageData(0, 0, this.width, this.height);
 };

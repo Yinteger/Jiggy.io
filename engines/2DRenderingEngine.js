@@ -21,30 +21,159 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 
 	zen.engines.RenderingEngine.prototype._render.call(this);
 
-	//Loop through entities and render them
-	//TODO: Once Camera is Ready, get Entities from Camera and don't store them in the engine
-	// for (var i = 0; i < this.balls.length; i ++) {
-	// 	this._viewPort.context.drawImage(this.prerenderEntity(this.balls[i]), this.balls[i].getX(), this.balls[i].getY());
-	// }
-	// 
-	//Loop through the Cameras & Render them
 	//TODO: Render Cameras in proper order
 	for (var i in this.cameras) {
-		var camera = this.cameras[i].camera;
-		var cameraMeta = this.cameras[i];
-		var scene = camera.getScene();
+		// var camera = this.cameras[i].camera;
+		// var cameraMeta = this.cameras[i];
+		// var scene = camera.getScene();
 
-		this._cameraPrerenderViewPort.setSize(camera.getFOV().w, camera.getFOV().h);
-		this._cameraPrerenderViewPort.clear();
+		// this._cameraPrerenderViewPort.setSize(camera.getFOV().w, camera.getFOV().h);
+		// this._cameraPrerenderViewPort.clear();
 
-		this._cameraPrerenderViewPort.context.drawImage(this.prerenderEntity(scene), (0 - camera.getViewPoint().y), (0 - camera.getViewPoint().x));
+		// this._cameraPrerenderViewPort.context.drawImage(this.prerenderEntity(scene), (0 - camera.getViewPoint().y), (0 - camera.getViewPoint().x));
 
-		this._viewPort.context.drawImage(this._cameraPrerenderViewPort.getImage(), cameraMeta.x, cameraMeta.y, cameraMeta.width, cameraMeta.height);
+		// this._viewPort.context.drawImage(this., cameraMeta.x, cameraMeta.y, cameraMeta.width, cameraMeta.height);
+		this._renderCamera(this.cameras[i])
 	}
 
 	//Loop through the Static Entities & Render them
 };
 
+zen.engines.TwoDRenderingEngine.prototype._renderCamera = function (camera) {
+	var scene = camera.getScene();
+	var context = this._viewPort.context;
+
+	//For Debugging purposes.. Draw a rect where each camera should be
+	context.beginPath();
+	context.rect(camera.viewpoint.x, camera.viewpoint.y, camera.fov.w, camera.fov.h);
+	context.lineWidth = 7;
+	context.strokeStyle = 'red';
+	context.stroke();
+
+	context.beginPath();
+	context.rect(camera.renderOrigin.x, camera.renderOrigin.y, camera.renderDimensions.w, camera.renderDimensions.h);
+	context.lineWidth = 7;
+	context.fillStyle = 'black';
+	context.fill();
+	context.strokeStyle = 'green';
+	context.stroke();
+
+	this._renderEntity(scene, camera);		
+};
+
+//Renders an entity into the canvas based on the camera it's visible in
+zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, camera) {
+	//Render this
+	
+	//First, make sure it's in the camera...  Don't want to waste our time on things that are not..
+
+	var collidesYAxis = false;
+	var collidesXAxis = false;
+
+	var cameraBounds = {
+		x: camera.getViewPoint().x,
+		y: camera.getViewPoint().y,
+		x2: camera.getViewPoint().x + camera.getFOV().w,
+		y2: camera.getViewPoint().y + camera.getFOV().h
+	};
+
+	var entityBounds = {
+		x: entity.getX(),
+		y: entity.getY(),
+		x2: entity.getX2(),
+		y2: entity.getY2()
+	};
+
+    if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
+        || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
+        collidesXAxis = true;
+    }
+
+    if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
+        || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
+         collidesYAxis = true;
+     }
+
+	//We'll check to see if the entity collides in the cameras x and y axis, if both, it's visible.
+	if (!collidesYAxis || !collidesXAxis) {
+		// console.log("Found an entity outside the cameras view, ignoring!", entity);
+		//Not visible in the camera, do not continue rendering this entity or it's children
+		return false;
+	}
+
+	if (entity.collectTextures().length > 0) {
+	
+		//Next, we figure out what parts of it are in the camera, so we can clip it if need be
+		//TODO: Grab the Cached version of it if available, 
+		var imageData = entity.collectTextures()[0].getData();
+
+		var entityToImageYModifier = imageData.height / entity.getHeight();
+		var entityToImageXModifier = imageData.width / entity.getWidth();
+
+		//Check for Left Clip
+		var leftClip = 0;
+		if (entity.getX() < camera.getViewPoint().x) {
+			leftClip = camera.getViewPoint().x - entity.getX();
+		}
+		// console.log("Left Clip", leftClip);
+
+		//Check for Right Clip
+		var rightClip = 0;
+		if (entity.getX2() > (camera.getViewPoint().x + camera.getFOV().w)) {
+			rightClip = entity.getX2() - (camera.getViewPoint().x + camera.getFOV().w);
+		}
+		// console.log("Right Clip", rightClip);
+
+		//Check for Top Clip
+		var topClip = 0;
+		if (entity.getY() < camera.getViewPoint().y) {
+			topClip = camera.getViewPoint().y - entity.getY();
+		}
+		// console.log("Top Clip", topClip);
+
+
+		//Check for Bottom Clip
+		var bottomClip = 0;
+		if (entity.getY2() > (camera.getViewPoint().y + camera.getFOV().h)) {
+			bottomClip = entity.getY2() - (camera.getViewPoint().y + camera.getFOV().h);
+		}
+		// console.log("Bottom Clip", bottomClip);
+
+		//Now we figure out how to skew the rendering, since the render dimensions of the camera may not match it's fov
+		var xModifier = camera.getFOV().w / camera.renderDimensions.w;
+		var yModifier = camera.getFOV().h / camera.renderDimensions.h;
+
+		var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
+		var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+
+		var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
+		var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
+
+		var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
+		if (cameraRelativeY < 0) {
+			cameraRelativeY = 0;
+		}
+
+		var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
+		if (cameraRelativeX < 0) {
+			cameraRelativeX = 0;
+		}
+
+		// console.warn("Camera Relative Y", cameraRelativeY);
+		// console.log('Clipping Height to: ' + clippedHeight);
+		// console.log('Clipping Width to: ' + clippedWidth);
+		// console.log('XModifier', xModifier);
+		// console.log('YModifier', yModifier);
+		//Rendering time!  What a work out
+
+		this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, camera.renderOrigin.x + cameraRelativeX, camera.renderOrigin.y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier)
+	}
+
+	//TODO: Only navigate if isModified
+	for (var i in entity.children) {
+		this._renderEntity(entity.children[i], camera);
+	}
+},
 
 /**
  * prerenderEntity 
@@ -60,6 +189,8 @@ zen.engines.TwoDRenderingEngine.prototype.prerenderEntity = function (entity) {
 	if (entity.isModified() || !this.cache[entity.getID()]) {
 		//First loop through children and prerender them so they are ready us to prerender
 		var childIterator = entity.iterator();
+
+		// console.warn(entity);
 
 		while (childIterator.hasNext()) {
 			var child = childIterator.next();
@@ -111,20 +242,4 @@ zen.engines.TwoDRenderingEngine.prototype.prerenderEntity = function (entity) {
 		//Return the cached copy
 		return this.cache[entity.getID()];
 	}
-},
-
-/**
- * addBall 
- *
- * Hacked testing code for engine until we have Cameras and Entities
- *
- * @param none
- * @return void
- */
-zen.engines.TwoDRenderingEngine.prototype.addBall = function (ball) {
-	this.balls.push(ball);
 };
-
-zen.engines.TwoDRenderingEngine.prototype.removeBall = function (ball) {
-	this.balls.splice(this.balls.indexOf(ball), 1);
-}
