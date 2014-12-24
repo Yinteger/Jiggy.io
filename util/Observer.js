@@ -1,4 +1,4 @@
-
+//Minor issue but this class shouldn't be called Observer since it's not an Observer.  It's a support class FOR observers, which are the objects or methods passed into the methods in this class.
 zen.util.Observer = function(source) {
 	this.source = source;
 	this.listeners = new Array();
@@ -34,7 +34,7 @@ zen.extends(null, zen.util.Observer, {
 	 * @param  {Function}  handler   
 	 * @return {Boolean}           
 	 */
-	hasHander : function(eventName, handler) {
+	hasHandler : function(eventName, handler) {
 		if (!this.handlers[eventName]) {
 			return false;
 		}

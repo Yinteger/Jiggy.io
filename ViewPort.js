@@ -11,6 +11,9 @@ zen.ViewPort = function () {
 	this.resizable = false;
 	this.width = 0;
 	this.height = 0;
+	this.autoSize = false; //Auto sizes View
+	this.autoSizeTimer; //Timer to check to see if parent size has changed
+	this.observer = new zen.util.Observer();
 };
 
 /**
@@ -43,6 +46,64 @@ zen.ViewPort.prototype.setSize = function (width, height) {
 	//Update the Canvas dimensions
 	this.canvas.setAttribute('width', this.width + "px");
 	this.canvas.setAttribute('height', this.height + "px");
+
+	this.observer.fireEvent('resize', {
+		newSize: new zen.data.Dimension(width, height)
+	});
+};
+
+/**
+ * setAutoSize 
+ *
+ * Sets the ViewPort to automatically resize to the parents dimensions
+ * And watches for when the parents dimensions change, to resize itself.
+ *
+ * @param state, boolean, to auto size or not.
+ * @return void
+ */
+zen.ViewPort.prototype.getSize = function () {
+	return new zen.data.Dimension(this.canvas.offsetWidth, this.canvas.offsetHeight);
+};
+
+/**
+ * setAutoSize 
+ *
+ * Sets the ViewPort to automatically resize to the parents dimensions
+ * And watches for when the parents dimensions change, to resize itself.
+ *
+ * @param state, boolean, to auto size or not.
+ * @return void
+ */
+zen.ViewPort.prototype.setAutoSize = function (state) {
+	var self = this;
+
+	if (this.autoSizeTimer) {
+		clearInterval(this.autoSizeTimer);
+	}
+
+	if (state) {
+		this.autoSizeTimer = setInterval(function () {
+			self._checkForParentSizeChange();
+		}, 100);
+	}
+};
+
+zen.ViewPort.prototype._checkForParentSizeChange = function (state) {
+	if (this.canvas.parentNode) {
+		var size = this.getSize();
+		var parent_size = new zen.data.Dimension(this.canvas.parentNode.offsetWidth, this.canvas.parentNode.offsetHeight);
+		if (size.width != parent_size.width || size.height != parent_size.height) {
+			this.setSize(parent_size.width, parent_size.height);
+		}
+	}
+};
+
+zen.ViewPort.prototype.addEventListener = function (event, func) {
+	this.observer.addHandler(event, func);
+};
+
+zen.ViewPort.prototype.removeEventListener = function (event, func) {
+	this.observer.addHandler(event, func);
 };
 
 /**

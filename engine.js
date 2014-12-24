@@ -17,6 +17,7 @@ var zen = {
 	/**
 	 * public generateID
 	 *
+	 * 	TODO: Move this into a Utilities class or package or something..
 	 *	Generates a GUID (Global Unique IDentifier)
 	 * 
 	 * @return {String} 
@@ -31,7 +32,7 @@ var zen = {
 	/**
 	 * public extends
 	 *
-	 *	Used to create class definitions.
+	 *	Used to create class definitions. TODO: Move this somewheres else...
 	 * 
 	 * @param  {Function} baseClass  Optional base constructor. Pass null if there is no base class.
 	 * @param  {Function} subClass   The constructor
@@ -183,6 +184,7 @@ zen.engine.prototype._loadDependencies = function () {
 	basync.addDependency('zen.data.DataManager', zen.ENGINE_DIR + 'data/DataManager', [
 		'zen.util.Observer'
 	]);
+	basync.addDependency('zen.data.Dimension', zen.ENGINE_DIR + 'data/Dimension');
 
 	//ENGINES PACkAGE
 	basync.addDependency('zen.engines.RenderingEngine', zen.ENGINE_DIR + "engines/RenderingEngine");
