@@ -351,6 +351,20 @@ zen.extends(null, zen.entities.Entity, {
 		return this.model.getAttribute('x');
 	},
 
+	getAbsoluteX : function () {
+		var entity = this;
+		var x = 0;
+		while (entity) {
+			x += entity.getX();
+			entity = entity.getParent();
+		}
+		return x;
+	},
+
+	getAbsoluteX2 : function () {
+		return this.getAbsoluteX() + this.getWidth();
+	},
+
 	/**
 	 * public setY
 	 *
@@ -360,6 +374,20 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	setY : function(y) {
 		this.model.setAttribute('y', y);
+	},
+
+	getAbsoluteY : function () {
+		var entity = this;
+		var y = 0;
+		while (entity) {
+			y += entity.getY();
+			entity = entity.getParent();
+		}
+		return y;
+	},
+
+	getAbsoluteY2 : function () {
+		return this.getAbsoluteY() + this.getHeight();
 	},
 
 	/**

@@ -78,10 +78,10 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 	};
 
 	var entityBounds = {
-		x: entity.getX(),
-		y: entity.getY(),
-		x2: entity.getX2(),
-		y2: entity.getY2()
+		x: entity.getAbsoluteX(),
+		y: entity.getAbsoluteY(),
+		x2: entity.getAbsoluteX2(),
+		y2: entity.getAbsoluteY2()
 	};
 
     if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
@@ -112,30 +112,30 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 
 		//Check for Left Clip
 		var leftClip = 0;
-		if (entity.getX() < camera.getViewPoint().x) {
-			leftClip = camera.getViewPoint().x - entity.getX();
+		if (entity.getAbsoluteX() < camera.getViewPoint().x) {
+			leftClip = camera.getViewPoint().x - entity.getAbsoluteX();
 		}
 		// console.log("Left Clip", leftClip);
 
 		//Check for Right Clip
 		var rightClip = 0;
-		if (entity.getX2() > (camera.getViewPoint().x + camera.getFOV().w)) {
-			rightClip = entity.getX2() - (camera.getViewPoint().x + camera.getFOV().w);
+		if (entity.getAbsoluteX2() > (camera.getViewPoint().x + camera.getFOV().w)) {
+			rightClip = entity.getAbsoluteX2() - (camera.getViewPoint().x + camera.getFOV().w);
 		}
 		// console.log("Right Clip", rightClip);
 
 		//Check for Top Clip
 		var topClip = 0;
-		if (entity.getY() < camera.getViewPoint().y) {
-			topClip = camera.getViewPoint().y - entity.getY();
+		if (entity.getAbsoluteY() < camera.getViewPoint().y) {
+			topClip = camera.getViewPoint().y - entity.getAbsoluteY();
 		}
 		// console.log("Top Clip", topClip);
 
 
 		//Check for Bottom Clip
 		var bottomClip = 0;
-		if (entity.getY2() > (camera.getViewPoint().y + camera.getFOV().h)) {
-			bottomClip = entity.getY2() - (camera.getViewPoint().y + camera.getFOV().h);
+		if (entity.getAbsoluteY2() > (camera.getViewPoint().y + camera.getFOV().h)) {
+			bottomClip = entity.getAbsoluteY2() - (camera.getViewPoint().y + camera.getFOV().h);
 		}
 		// console.log("Bottom Clip", bottomClip);
 
