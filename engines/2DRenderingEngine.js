@@ -101,15 +101,9 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 		return false;
 	}
 
-	if (entity.collectTextures().length > 0) {
+	// if (entity.collectTextures().length > 0) {
 	
 		//Next, we figure out what parts of it are in the camera, so we can clip it if need be
-		//TODO: Grab the Cached version of it if available, 
-		var imageData = entity.collectTextures()[0].getData();
-
-		var entityToImageYModifier = imageData.height / entity.getHeight();
-		var entityToImageXModifier = imageData.width / entity.getWidth();
-
 		//Check for Left Clip
 		var leftClip = 0;
 		if (entity.getAbsoluteX() < camera.getViewPoint().x) {
@@ -143,12 +137,6 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 		var xModifier = camera.getFOV().w / camera.renderDimensions.w;
 		var yModifier = camera.getFOV().h / camera.renderDimensions.h;
 
-		var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
-		var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-
-		var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-		var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
-
 		var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
 		if (cameraRelativeY < 0) {
 			cameraRelativeY = 0;
@@ -159,14 +147,32 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 			cameraRelativeX = 0;
 		}
 
+		var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
+		var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
+
 		// console.warn("Camera Relative Y", cameraRelativeY);
 		// console.log('Clipping Height to: ' + clippedHeight);
 		// console.log('Clipping Width to: ' + clippedWidth);
 		// console.log('XModifier', xModifier);
 		// console.log('YModifier', yModifier);
 		//Rendering time!  What a work out
+	if (entity.collectTextures().length > 0) {
+		//TODO: Grab the Cached version of it if available, 
+		var imageData = entity.collectTextures()[0].getData();
+
+		var entityToImageYModifier = imageData.height / entity.getHeight();
+		var entityToImageXModifier = imageData.width / entity.getWidth();
+
+		var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+
+		var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
 
 		this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, camera.renderOrigin.x + cameraRelativeX, camera.renderOrigin.y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier)
+	} else {
+		//Draw a rect in its place...
+		var color = entity.getColor();
+		this._viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+		this._viewPort.context.fillRect(camera.renderOrigin.x + cameraRelativeX, camera.renderOrigin.y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier);
 	}
 
 	//TODO: Only navigate if isModified

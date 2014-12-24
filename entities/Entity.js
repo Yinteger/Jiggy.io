@@ -584,7 +584,7 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param {Integer} a 
 	 */
 	setColor : function(r,g,b,a) {
-		this.model.setAttribute('color', [r, g, b, a]);
+		this.model.setAttribute('color', {r: r, g: g, b:b, a:a});
 	},
 
 	/**
@@ -601,7 +601,8 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	getColor : function() {
 		var data = this.model.getAttribute('color');
-		return [data.r, data.g, data.b, data.r];
+		// return [data.r, data.g, data.b, data.r];
+		return data;
 	},
 
 	/**
