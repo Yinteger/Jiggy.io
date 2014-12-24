@@ -15,7 +15,7 @@
  	this._prerenderViewPort = new zen.ViewPort();
 
  	//The ViewPort to Prerender Cameras Views into
- 	this._cameraPrerenderViewPort = new zen.ViewPort();
+ 	// this._cameraPrerenderViewPort = new zen.ViewPort();
 
  	//The ID of the current animation frame
  	this.animationFrameID;
@@ -39,8 +39,7 @@
  	//Static entities are always rendered above the cameras
 
  	//Cameras
- 	this.cameras = {};
- 	this.cameraOrder = [];
+ 	this.cameras = [];
 
  	//Static Entities
  	this.staticEntities = [];
@@ -61,9 +60,9 @@
  * @param {Number} [height] [The height of the ViewPort this camera should be rendered in]
  * @return void
  */
-zen.engines.RenderingEngine.prototype.addCamera = function (name, camera, x, y, width, height) {
-	this.cameras[name] = {'camera': camera, 'x': x, 'y': y, 'width': width, 'height': height};
-},
+zen.engines.RenderingEngine.prototype.addCamera = function (camera) {
+	this.cameras.push(camera);
+};
 
 /**
  * Removes a camera from being rendered in the ViewPort

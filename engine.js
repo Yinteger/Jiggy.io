@@ -5,6 +5,8 @@ var zen = {
 	data 	: {},
 	engines : {},
 	entities: {},
+	events  : {},
+	inputs  : {},
 	util 	: {},
 
 	app 	: null,
@@ -74,6 +76,7 @@ zen.engine = function (onInit) {
 	this.renderingEngine = null;
 	this.audioEngine = null;
 	this.physicEngine = null;
+	this.InputManager = null;
 
 	//Factories
 	this.assetFactory = null;
@@ -115,6 +118,10 @@ zen.engine.prototype.setLogicEngine = function (logicEngine) {
 
 zen.engine.prototype.setAssetFactory = function(assetFactory) {
 	this.assetFactory = assetFactory;
+},
+
+zen.engine.prototype.setInputManager = function(inputManager) {
+	this.inputManager = inputManager;
 },
 
 zen.engine.prototype._init = function () {
@@ -195,6 +202,25 @@ zen.engine.prototype._loadDependencies = function () {
 	basync.addDependency('zen.entities.EntityView2D', zen.ENGINE_DIR + 'entities/EntityView2D', [
 		'zen.entities.EntityView'
 	]);
+
+	//EVENTS PACKAGE
+	
+	//INPUTS PACKAGE
+	basync.addDependency('zen.inputs.Controller', zen.ENGINE_DIR + 'inputs/Controller');
+	basync.addDependency('zen.inputs.InputManager', zen.ENGINE_DIR + 'inputs/InputManager', [
+		'zen.inputs.ControllerFactory'
+	]);
+	basync.addDependency('zen.inputs.ControllerFactory', zen.ENGINE_DIR + 'inputs/ControllerFactory', [
+		'zen.inputs.KeyboardController',
+		'zen.inputs.MouseController'
+	]);
+	basync.addDependency('zen.inputs.KeyboardController', zen.ENGINE_DIR + 'inputs/KeyboardController', [
+		'zen.inputs.Controller'
+	]);
+	basync.addDependency('zen.inputs.MouseController', zen.ENGINE_DIR + 'inputs/MouseController', [
+		'zen.inputs.Controller'
+	]);
+
 	//UTIL PACkAGE
 	basync.addDependency('zen.util.Observer', zen.ENGINE_DIR + 'util/Observer');
 	basync.addDependency('zen.util.Camera', zen.ENGINE_DIR + "util/Camera");

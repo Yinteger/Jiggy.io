@@ -1,18 +1,40 @@
 
 /**
- * Camera Classes is used to define a specific location of an Entity(Our Scene) for rendering
+ * Camera Classes is used to define a specific location of an Entity(Our Scene) for rendering.
+ *
+ * How it works:  The camera has a Scene, a View Point, and a Field of View.
+ * The Scene is a top-level entity the Camera looks at.
+ * The ViewPoint is the origin coordinates from where the camera begins to look at (x1, y1)
+ * The Field of View is the dimensions from the ViewPoint the Camera can see (x2, y2)
+ * 
+ * The Camera does not handle any rendering, it is simply a data object for the rendering engine to use
+ * for rendering.  The rendering engine will look at each of it's cameras, and render them into the canvas
+ * at a specific coordinates and dimensions. 
+ *
+ * So what you can do is set the Camera to see 1000px, but at the rendering level, it may render the view of the camera at 500px, thus you have 'zoomed out'.  Or the Camera can see 500px
+ * but rendered at 1000px, thus a zoomed in view.  
  */
-zen.util.Camera = function() {
-	this.scene = null;
-	this.viewpoint = {
+zen.util.Camera = function(scene, viewPoint, fov, renderOrigin, renderDimensions) {
+	this.scene = scene;
+	this.viewpoint = viewPoint || {
 		x: 0,
 		y: 0
 	};
 
-	this.fov = {
+	this.fov = fov || {
 		w: 100,
 		h: 100
 	};
+
+	this.renderOrigin = renderOrigin || {
+		x: 0,
+		y: 0
+	};
+
+	this.renderDimensions = renderDimensions || {
+		w: 100,
+		h: 100
+	}
 };
 
 zen.extends(null, zen.util.Camera, {
