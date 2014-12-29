@@ -87,6 +87,7 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
          collidesYAxis = true;
      }
 
+
 	//We'll check to see if the entity collides in the cameras x and y axis, if both, it's visible.
 	if (!collidesYAxis || !collidesXAxis) {
 		// console.log("Found an entity outside the cameras view, ignoring!", entity);
@@ -185,7 +186,7 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 	}
 
 	//TODO: Only navigate if isModified
-	for (var i in entity.children) {
+	for (var i in entity.children) { //TODO : Update this to not loop through all children, just ones in the visible regions of this entity (Efficency)
 		this._renderEntity(entity.children[i], camera);
 	}
 },

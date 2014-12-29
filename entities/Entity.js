@@ -26,9 +26,15 @@ zen.entities.Entity = function(model) {
 	this.setModel(model);
 	
 	this.children = new Array(); //Array to store all the children entities
+
+	//Region Management
 	this.regions = new Array(); //Array of generated 'regions' of children to make children searching more efficient, by splitting them up into regions by position & dimensions
-	this.regionDimension;
-	this.regionList = {};
+	this.regionDimension; //The dimensions of the regions for this Entity
+	this.regionList = {}; //Mapping of Children to Region(s) so we don't have to search
+
+	//Layer Management
+	this.layers = [[]]; //Layers for rendering so children can be rendering in proper order
+	this.layerList = {}; //Mapping of Children to Layers so we don't have to search
 
 	this.parent = null; //Parent is the entity that contains this one
 	this.modified = false; //Whether or not this Entity has been modified
@@ -295,7 +301,7 @@ zen.extends(null, zen.entities.Entity, {
 	},
 
 	/**
-	 * public iterator
+	 * public iterator DEPRECATED - use getChildren()
 	 *
 	 *	Creates a child node iterator for this entity.
 	 * 
@@ -332,6 +338,142 @@ zen.extends(null, zen.entities.Entity, {
 			}
 		};
 	},
+	/**
+	 * public getChildren
+	 *
+	 *	Returns an Iterator of Children.  Can pass
+	 *	in a set of coordinates to get children in a specific
+	 *	region of coordinates relative to the entity (0,0 is top left of this entity).
+	 *	If only the starTCoordinate is specified, looks up children who intersect with that point.
+	 *	If both arguements are passed in, looks for children who intersect with the rect the coords create.
+	 *	If neither are provided, just returns an iterator of all children.
+	 *
+	 * Not recursive, only checks it's own children
+	 *
+	 *
+	 * @param {zen.data.Coordinate} startCoordinate, optional, The Starting coordinate to loop for children.  Passing only 
+	 * this param in will look for children that intersect with this coordinate.
+	 * @param { zen.data.Coordinate} endCoordinate, optional, The End coordinate to loop for children.  Passing in this param
+	 * creates a region to look for children instead of just a specific point
+	 * @return Iterator
+	 */
+	getChildren : function (startCoordinate, endCoordinate) {
+		if (startCoordinate && endCoordinate) { //Area Lookup
+			var startRegion = this._coordinateToRegion(startCoordinate);
+			var endRegion = this._coordinateToRegion(endCoordinate);
+
+			//Loop through all regions in the coordinates and collect the children
+			var children = [];
+
+			for (var x = startRegion.x; x <= endRegion.x; x ++) {
+				for (var y = startRegion.y; y <= endRegion.y; y ++) {
+					childen = children.concat(this._getChildrenInRegion(new zen.data.Coordinate(x, y)));
+				}
+			}
+
+			return new zen.util.Iterator(children);
+		} else if (startCoordinate) { //Point Lookup
+			var region = this._coordinateToRegion(startCoordinate);
+
+			//Loop through and determine who intersects with the point
+			var children = [];
+
+			var childrenIterator = new zen.util.Iterator(this._getChildrenInRegion(new zen.data.Coordinate(region.x, region.y)));
+			while(childrenIterator.hasNext()) {
+				var child = childrenIterator.next();
+				var childCoordinate = child.getCoordinate();
+				var childOuterCoordinate = child.getOuterCoordinate();
+
+				if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
+					&& childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+					//Intersects with the startCoordinate
+					children.push(child);
+				}
+			}
+
+			return new zen.util.Iterator(children);
+		} else { //All Lookup
+			return new zen.util.Iterator(this.children);
+		}
+	},
+
+	/**
+	 * public findChildrenAt
+	 *
+	 * Finds all Children and grandchildren who intersect with the coordate relative to this entity
+	 *
+	 * @param {Coordinate} [coordinate] [Coordinate relative to this entity to loop from]
+	 * @return Array[Entity]
+	 */
+	findChildrenAt : function (coordinate) {
+		var children = [];
+
+		//Find the Region the coordinates belond to
+		var region = this._coordinateToRegion(coordinate);
+		var regionChildren = this._getChildrenInRegion(new zen.data.Coordinate(region.x, region.y));
+		var childrenIterator = new zen.util.Iterator(regionChildren);
+
+		//Loop through all children in that region to see if they intersect
+		while(childrenIterator.hasNext() && !child) {
+			var iterChild = childrenIterator.next();
+			var childCoordinate = iterChild.getCoordinate();
+			var childOuterCoordinate = iterChild.getOuterCoordinate();
+
+			if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
+				&& childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+				//Intersects with the startCoordinate
+				children.push(iterChild);
+
+				//See if we can get a deeper child...
+				var deeperChildren = iterChild.findChildAt(new zen.data.Coordinate(coordinate.x - childCoordinate.x, coordinate.y - childCoordinate.y));
+				if (deeperChildren) {
+					children = children.concat(deeperChildren);
+				}
+			}
+		}
+		
+		return children;
+	},
+
+	/**
+	 * public findTopChildAt
+	 *
+	 * Tries to find the deepest child at the top most layer at this coordinates.
+	 * TODO: Update this to support Layers once we have layers...
+	 *
+	 * @param {Coordinate} [coordinate] [Coordinate relative to this entity to loop from]
+	 * @return Entity
+	 */
+	findTopChildAt : function (coordinate) {
+		var child = false;
+
+		//Find the Region the coordinates belond to
+		var region = this._coordinateToRegion(coordinate);
+		var regionChildren = this._getChildrenInRegion(new zen.data.Coordinate(region.x, region.y));
+		var childrenIterator = new zen.util.Iterator(regionChildren);
+		childrenIterator.setToEnd();
+
+		//Loop through all children in that region to see if they intersect
+		while(childrenIterator.hasPrev() && !child) {
+			var iterChild = childrenIterator.prev();
+			var childCoordinate = iterChild.getCoordinate();
+			var childOuterCoordinate = iterChild.getOuterCoordinate();
+
+			if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
+				&& childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+				//Intersects with the startCoordinate
+				child = iterChild;
+
+				//See if we can get a deeper child...
+				var deeperChild = iterChild.findTopChildAt(new zen.data.Coordinate(coordinate.x - childCoordinate.x, coordinate.y - childCoordinate.y));
+				if (deeperChild) {
+					child = deeperChild;
+				}
+			}
+		}
+		
+		return child;
+	},
 
 	//GEOMETRY
 	
@@ -339,7 +481,14 @@ zen.extends(null, zen.entities.Entity, {
 			ALL COORDINATES ARE RELATIVE TO THE ENTITIES DIRECT
 			PARENT.
 	 */
-	
+	getCoordinate : function () {
+		return new zen.data.Coordinate(this.getX(), this.getY());
+	},
+
+	getOuterCoordinate : function () {
+		return new zen.data.Coordinate(this.getX2(), this.getY2());
+	},
+
 	/**
 	 * public setX
 	 *
@@ -800,6 +949,10 @@ zen.extends(null, zen.entities.Entity, {
 				}
 			}
 		}
+	},
+
+	_getChildrenInRegion : function (regionCoordinate) {
+		return this.regions[regionCoordinate.x][regionCoordinate.y];
 	},
 
 	_removeChildFromRegions : function (child) {
