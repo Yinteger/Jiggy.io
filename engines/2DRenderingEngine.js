@@ -7,6 +7,8 @@
 
 zen.engines.TwoDRenderingEngine = function () {
 	zen.engines.RenderingEngine.call(this);
+	this.debugRegions = false;
+	this.debugCamera = false;;
 
 	//The cache is a collection of imageData Objects for each Entity that has been created
 	//from previous renders.  We store the imageData so we don't need to re-create it each render
@@ -23,16 +25,6 @@ zen.engines.TwoDRenderingEngine.prototype._render = function () {
 
 	//TODO: Render Cameras in proper order
 	for (var i in this.cameras) {
-		// var camera = this.cameras[i].camera;
-		// var cameraMeta = this.cameras[i];
-		// var scene = camera.getScene();
-
-		// this._cameraPrerenderViewPort.setSize(camera.getFOV().w, camera.getFOV().h);
-		// this._cameraPrerenderViewPort.clear();
-
-		// this._cameraPrerenderViewPort.context.drawImage(this.prerenderEntity(scene), (0 - camera.getViewPoint().y), (0 - camera.getViewPoint().x));
-
-		// this._viewPort.context.drawImage(this., cameraMeta.x, cameraMeta.y, cameraMeta.width, cameraMeta.height);
 		this._renderCamera(this.cameras[i])
 	}
 
@@ -43,20 +35,22 @@ zen.engines.TwoDRenderingEngine.prototype._renderCamera = function (camera) {
 	var scene = camera.getScene();
 	var context = this._viewPort.context;
 
-	//For Debugging purposes.. Draw a rect where each camera should be
-	context.beginPath();
-	context.rect(camera.getViewPoint().x, camera.getViewPoint().y, camera.getFOV().width, camera.getFOV().height);
-	context.lineWidth = 7;
-	context.strokeStyle = 'red';
-	context.stroke();
+	if (this.debugCamera) {
+		//For Debugging purposes.. Draw a rect where each camera should be
+		context.beginPath();
+		context.rect(camera.getViewPoint().x, camera.getViewPoint().y, camera.getFOV().width, camera.getFOV().height);
+		context.lineWidth = 7;
+		context.strokeStyle = 'red';
+		context.stroke();
 
-	context.beginPath();
-	context.rect(camera.getRenderOrigin().x, camera.getRenderOrigin().y, camera.getRenderDimension().width, camera.getRenderDimension().height);
-	context.lineWidth = 7;
-	context.fillStyle = 'black';
-	context.fill();
-	context.strokeStyle = 'green';
-	context.stroke();
+		context.beginPath();
+		context.rect(camera.getRenderOrigin().x, camera.getRenderOrigin().y, camera.getRenderDimension().width, camera.getRenderDimension().height);
+		context.lineWidth = 7;
+		context.fillStyle = 'black';
+		context.fill();
+		context.strokeStyle = 'green';
+		context.stroke();
+	}
 
 	this._renderEntity(scene, camera);		
 };
@@ -64,7 +58,6 @@ zen.engines.TwoDRenderingEngine.prototype._renderCamera = function (camera) {
 //Renders an entity into the canvas based on the camera it's visible in
 zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, camera) {
 	//Render this
-	
 	//First, make sure it's in the camera...  Don't want to waste our time on things that are not..
 
 	var collidesYAxis = false;
@@ -103,59 +96,80 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 
 	// if (entity.collectTextures().length > 0) {
 	
-		//Next, we figure out what parts of it are in the camera, so we can clip it if need be
-		//Check for Left Clip
-		var leftClip = 0;
-		if (entity.getAbsoluteX() < camera.getViewPoint().x) {
-			leftClip = camera.getViewPoint().x - entity.getAbsoluteX();
+	//Next, we figure out what parts of it are in the camera, so we can clip it if need be
+	//Check for Left Clip
+	var leftClip = 0;
+	if (entity.getAbsoluteX() < camera.getViewPoint().x) {
+		leftClip = camera.getViewPoint().x - entity.getAbsoluteX();
+	}
+	// console.log("Left Clip", leftClip);
+
+	//Check for Right Clip
+	var rightClip = 0;
+	if (entity.getAbsoluteX2() > (camera.getViewPoint().x + camera.getFOV().width)) {
+		rightClip = entity.getAbsoluteX2() - (camera.getViewPoint().x + camera.getFOV().width);
+	}
+	// console.log("Right Clip", rightClip);
+
+	//Check for Top Clip
+	var topClip = 0;
+	if (entity.getAbsoluteY() < camera.getViewPoint().y) {
+		topClip = camera.getViewPoint().y - entity.getAbsoluteY();
+	}
+	// console.log("Top Clip", topClip);
+
+
+	//Check for Bottom Clip
+	var bottomClip = 0;
+	if (entity.getAbsoluteY2() > (camera.getViewPoint().y + camera.getFOV().height)) {
+		bottomClip = entity.getAbsoluteY2() - (camera.getViewPoint().y + camera.getFOV().height);
+	}
+	// console.log("Bottom Clip", bottomClip);
+
+	//Now we figure out how to skew the rendering, since the render dimensions of the camera may not match it's fov
+	var xModifier = camera.getFOV().width / camera.getRenderDimension().width;
+	var yModifier = camera.getFOV().height / camera.getRenderDimension().height;
+
+	var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
+	if (cameraRelativeY < 0) {
+		cameraRelativeY = 0;
+	}
+
+	var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
+	if (cameraRelativeX < 0) {
+		cameraRelativeX = 0;
+	}
+
+	var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
+	var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
+
+	// console.warn("Camera Relative Y", cameraRelativeY);
+	// console.log('Clipping Height to: ' + clippedHeight);
+	// console.log('Clipping Width to: ' + clippedWidth);
+	// console.log('XModifier', xModifier);
+	// console.log('YModifier', yModifier);
+	//Rendering time!  What a work out
+	if (entity.getColor()){
+		//Draw a rect in its place...
+		var color = entity.getColor();
+		this._viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+		this._viewPort.context.fillRect(camera.getRenderOrigin().x + cameraRelativeX, camera.getRenderOrigin().y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier);
+	}
+
+	//Debug Flag
+	if (this.debugRegions) {
+		for (var x in entity.regions) {
+			for (var y in entity.regions[x]) {
+				if (entity.regions[x][y].length > 0) { 
+					// this._viewPort.context.fillStyle = "rgb(" + Math.floor((Math.random() * 255) + 1) + "," + Math.floor((Math.random() * 255) + 1) + "," + Math.floor((Math.random() * 255) + 1) + ")";
+					this._viewPort.context.strokeStyle = "red";
+					this._viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * x, entity.getAbsoluteY() + entity.regionDimension.height * y, entity.regionDimension.width, entity.regionDimension.height);
+				}
+			}
 		}
-		// console.log("Left Clip", leftClip);
+		// Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)
+	}
 
-		//Check for Right Clip
-		var rightClip = 0;
-		if (entity.getAbsoluteX2() > (camera.getViewPoint().x + camera.getFOV().width)) {
-			rightClip = entity.getAbsoluteX2() - (camera.getViewPoint().x + camera.getFOV().width);
-		}
-		// console.log("Right Clip", rightClip);
-
-		//Check for Top Clip
-		var topClip = 0;
-		if (entity.getAbsoluteY() < camera.getViewPoint().y) {
-			topClip = camera.getViewPoint().y - entity.getAbsoluteY();
-		}
-		// console.log("Top Clip", topClip);
-
-
-		//Check for Bottom Clip
-		var bottomClip = 0;
-		if (entity.getAbsoluteY2() > (camera.getViewPoint().y + camera.getFOV().height)) {
-			bottomClip = entity.getAbsoluteY2() - (camera.getViewPoint().y + camera.getFOV().height);
-		}
-		// console.log("Bottom Clip", bottomClip);
-
-		//Now we figure out how to skew the rendering, since the render dimensions of the camera may not match it's fov
-		var xModifier = camera.getFOV().width / camera.getRenderDimension().width;
-		var yModifier = camera.getFOV().height / camera.getRenderDimension().height;
-
-		var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
-		if (cameraRelativeY < 0) {
-			cameraRelativeY = 0;
-		}
-
-		var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
-		if (cameraRelativeX < 0) {
-			cameraRelativeX = 0;
-		}
-
-		var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
-		var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-
-		// console.warn("Camera Relative Y", cameraRelativeY);
-		// console.log('Clipping Height to: ' + clippedHeight);
-		// console.log('Clipping Width to: ' + clippedWidth);
-		// console.log('XModifier', xModifier);
-		// console.log('YModifier', yModifier);
-		//Rendering time!  What a work out
 	if (entity.collectTextures().length > 0) {
 		//TODO: Grab the Cached version of it if available, 
 		var imageData = entity.collectTextures()[0].getData();
@@ -168,11 +182,6 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 		var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
 
 		this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, camera.getRenderOrigin().x + cameraRelativeX, camera.getRenderOrigin().y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier)
-	} else {
-		//Draw a rect in its place...
-		var color = entity.getColor();
-		this._viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-		this._viewPort.context.fillRect(camera.getRenderOrigin().x + cameraRelativeX, camera.getRenderOrigin().y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier);
 	}
 
 	//TODO: Only navigate if isModified

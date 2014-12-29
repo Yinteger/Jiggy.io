@@ -26,6 +26,10 @@ zen.entities.Entity = function(model) {
 	this.setModel(model);
 	
 	this.children = new Array(); //Array to store all the children entities
+	this.regions = new Array(); //Array of generated 'regions' of children to make children searching more efficient, by splitting them up into regions by position & dimensions
+	this.regionDimension;
+	this.regionList = {};
+
 	this.parent = null; //Parent is the entity that contains this one
 	this.modified = false; //Whether or not this Entity has been modified
 	this._observer = null;  //Observer Utility Object for other objects to listen to this entity
@@ -179,6 +183,9 @@ zen.extends(null, zen.entities.Entity, {
 		}
 		this.children.push(child);
 		child.setParent(this);
+
+		//Region Management
+		this._putChildInRegion(child);
 	},
 
 	/**
@@ -194,6 +201,10 @@ zen.extends(null, zen.entities.Entity, {
 			var idx = this.indexOf(child);
 			this.children.splice(idx, 1);
 		}
+
+		//Region Management
+		this._removeChildFromRegions(child);
+		delete this.regionList[child.getID()];
 	},
 
 	/**
@@ -338,6 +349,9 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	setX : function(x) {
 		this.model.setAttribute('x', x);
+		if (this.parent) {
+			this.parent._updateChildsRegion(this);
+		}
 	},
 
 	/**
@@ -374,6 +388,9 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	setY : function(y) {
 		this.model.setAttribute('y', y);
+		if (this.parent) {
+			// this.parent._updateChildsRegion(this); //Commented out until setX & SetY are combined or something...
+		}
 	},
 
 	getAbsoluteY : function () {
@@ -480,6 +497,7 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	setHeight : function(height) {
 		this.model.setAttribute('height', height);
+		this._generateRegions();
 	},
 
 	/**
@@ -502,6 +520,7 @@ zen.extends(null, zen.entities.Entity, {
 	 */
 	setWidth : function(width) {
 		this.model.setAttribute('width', width);
+		this._generateRegions();
 	},
 
 	/**
@@ -714,6 +733,89 @@ zen.extends(null, zen.entities.Entity, {
 		this.setLocation(0, 0, 0);
 		this.setSize(0, 0);
 		this.setVisible(true);
-		this.setColor(0,0,0,0);
+		// this.setColor(0,0,0,0);
+	},
+
+	/**
+	 * private _generateRegions
+	 *
+	 *	Genetates regions of children to make searches more efficient
+	 * 
+	 * @return {void} 
+	 */
+	_generateRegions : function () {
+		this.regions = new Array(); //Start fresh
+		this.regionList = {};
+
+		//Generate a 10 by 10 grid of regions
+		var regionWidth = this.getWidth() / 10;
+		var regionHeight = this.getHeight() / 10;
+
+		this.regionDimension = new zen.data.Dimension(regionWidth, regionHeight);
+
+		//Generate the Arrays
+		for (var x = 0; x < 10; x ++) {
+			this.regions[x] = new Array();
+			for (var y = 0; y < 10; y ++) {
+				this.regions[x][y] = new Array();
+			}
+		}
+
+		//Populate Arrays
+		var childrenIterator = this.iterator();
+		while (childrenIterator.hasNext()) {
+			this._putChildInRegion(childrenIterator.next());
+		}
+	},
+
+	_putChildInRegion : function (child) {
+		// console.log("Generating start region");
+		var startRegion = this._coordinateToRegion(new zen.data.Coordinate(child.getX(), child.getY()));
+		// console.log("Generator end region");
+		var endRegion = this._coordinateToRegion(new zen.data.Coordinate(child.getX2(), child.getY2()));
+
+		this.regionList[child.getID()] = [];
+
+		//Compare both Regions and add the entity to those regions, and all in between
+		for (var x = startRegion.x; x <= endRegion.x; x ++) {
+			if (this.regions[x]) { //Overflow protection
+				for (var y = startRegion.y; y <= endRegion.y; y ++) {
+					if (this.regions[x][y]) { //Overflow Protection
+						this.regions[x][y].push(child);
+						this.regionList[child.getID()].push(new zen.data.Coordinate(x, y));
+					}
+				}
+			}
+		}
+	},
+
+	_removeChildFromRegions : function (child) {
+		//Clear Child out of existing regions
+		if (this.regionList[child.getID()])  {
+			for (var i in this.regionList[child.getID()]) {
+				var coord = this.regionList[child.getID()][i];
+				this.regions[coord.x][coord.y].splice(this.regions[coord.x][coord.y].indexOf(child), 1);
+			}
+		}
+	},
+
+	_updateChildsRegion : function (child) {
+		this._removeChildFromRegions(child);
+
+		//Add it back into new regions
+		this._putChildInRegion(child);
+	},
+
+	_coordinateToRegion : function (coordinate) {
+		// console.log('Coordinate To Region', coordinate);
+		// console.log('Region Dimension', this.regionDimension);
+		var x = Math.floor(coordinate.x / this.regionDimension.width);
+		var y = Math.floor(coordinate.y / this.regionDimension.height);
+		// console.log('Region Coordinates', new zen.data.Coordinate(x, y));
+		return new zen.data.Coordinate(x, y);
 	}
+
+
+
+
 });
