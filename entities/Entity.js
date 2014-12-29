@@ -747,16 +747,29 @@ zen.extends(null, zen.entities.Entity, {
 		this.regions = new Array(); //Start fresh
 		this.regionList = {};
 
-		//Generate a 10 by 10 grid of regions
-		var regionWidth = this.getWidth() / 10;
-		var regionHeight = this.getHeight() / 10;
+		//Pref we want 100 by 100 region, try to aim as close to it as we can
+		if (this.getWidth() <= 100) {
+			var regionWidth = this.getWidth() / 2;
+		} else {
+			var regionWidth = 50;
+
+		}
+
+		if (this.getHeight() <= 100) {
+			var regionHeight = this.getHeight() / 2;
+		} else {
+			var regionHeight = 50;
+		}
 
 		this.regionDimension = new zen.data.Dimension(regionWidth, regionHeight);
 
 		//Generate the Arrays
-		for (var x = 0; x < 10; x ++) {
+		var xCount = Math.ceil(this.getWidth() / regionWidth);
+		var yCount = Math.ceil(this.getHeight() / regionHeight);
+
+		for (var x = 0; x < xCount; x ++) {
 			this.regions[x] = new Array();
-			for (var y = 0; y < 10; y ++) {
+			for (var y = 0; y < yCount; y ++) {
 				this.regions[x][y] = new Array();
 			}
 		}
