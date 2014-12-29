@@ -45,13 +45,13 @@ zen.engines.TwoDRenderingEngine.prototype._renderCamera = function (camera) {
 
 	//For Debugging purposes.. Draw a rect where each camera should be
 	context.beginPath();
-	context.rect(camera.viewpoint.x, camera.viewpoint.y, camera.fov.w, camera.fov.h);
+	context.rect(camera.getViewPoint().x, camera.getViewPoint().y, camera.getFOV().width, camera.getFOV().height);
 	context.lineWidth = 7;
 	context.strokeStyle = 'red';
 	context.stroke();
 
 	context.beginPath();
-	context.rect(camera.renderOrigin.x, camera.renderOrigin.y, camera.renderDimensions.w, camera.renderDimensions.h);
+	context.rect(camera.getRenderOrigin().x, camera.getRenderOrigin().y, camera.getRenderDimension().width, camera.getRenderDimension().height);
 	context.lineWidth = 7;
 	context.fillStyle = 'black';
 	context.fill();
@@ -73,8 +73,8 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 	var cameraBounds = {
 		x: camera.getViewPoint().x,
 		y: camera.getViewPoint().y,
-		x2: camera.getViewPoint().x + camera.getFOV().w,
-		y2: camera.getViewPoint().y + camera.getFOV().h
+		x2: camera.getViewPoint().x + camera.getFOV().width,
+		y2: camera.getViewPoint().y + camera.getFOV().height
 	};
 
 	var entityBounds = {
@@ -113,8 +113,8 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 
 		//Check for Right Clip
 		var rightClip = 0;
-		if (entity.getAbsoluteX2() > (camera.getViewPoint().x + camera.getFOV().w)) {
-			rightClip = entity.getAbsoluteX2() - (camera.getViewPoint().x + camera.getFOV().w);
+		if (entity.getAbsoluteX2() > (camera.getViewPoint().x + camera.getFOV().width)) {
+			rightClip = entity.getAbsoluteX2() - (camera.getViewPoint().x + camera.getFOV().width);
 		}
 		// console.log("Right Clip", rightClip);
 
@@ -128,14 +128,14 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 
 		//Check for Bottom Clip
 		var bottomClip = 0;
-		if (entity.getAbsoluteY2() > (camera.getViewPoint().y + camera.getFOV().h)) {
-			bottomClip = entity.getAbsoluteY2() - (camera.getViewPoint().y + camera.getFOV().h);
+		if (entity.getAbsoluteY2() > (camera.getViewPoint().y + camera.getFOV().height)) {
+			bottomClip = entity.getAbsoluteY2() - (camera.getViewPoint().y + camera.getFOV().height);
 		}
 		// console.log("Bottom Clip", bottomClip);
 
 		//Now we figure out how to skew the rendering, since the render dimensions of the camera may not match it's fov
-		var xModifier = camera.getFOV().w / camera.renderDimensions.w;
-		var yModifier = camera.getFOV().h / camera.renderDimensions.h;
+		var xModifier = camera.getFOV().width / camera.getRenderDimension().width;
+		var yModifier = camera.getFOV().height / camera.getRenderDimension().height;
 
 		var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
 		if (cameraRelativeY < 0) {
@@ -167,12 +167,12 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 
 		var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
 
-		this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, camera.renderOrigin.x + cameraRelativeX, camera.renderOrigin.y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier)
+		this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, camera.getRenderOrigin().x + cameraRelativeX, camera.getRenderOrigin().y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier)
 	} else {
 		//Draw a rect in its place...
 		var color = entity.getColor();
 		this._viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-		this._viewPort.context.fillRect(camera.renderOrigin.x + cameraRelativeX, camera.renderOrigin.y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier);
+		this._viewPort.context.fillRect(camera.getRenderOrigin().x + cameraRelativeX, camera.getRenderOrigin().y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier);
 	}
 
 	//TODO: Only navigate if isModified

@@ -185,6 +185,7 @@ zen.engine.prototype._loadDependencies = function () {
 		'zen.util.Observer'
 	]);
 	basync.addDependency('zen.data.Dimension', zen.ENGINE_DIR + 'data/Dimension');
+	basync.addDependency('zen.data.Coordinate', zen.ENGINE_DIR + 'data/Coordinate');
 
 	//ENGINES PACkAGE
 	basync.addDependency('zen.engines.RenderingEngine', zen.ENGINE_DIR + "engines/RenderingEngine");
@@ -226,6 +227,7 @@ zen.engine.prototype._loadDependencies = function () {
 	//UTIL PACkAGE
 	basync.addDependency('zen.util.Observer', zen.ENGINE_DIR + 'util/Observer');
 	basync.addDependency('zen.util.Camera', zen.ENGINE_DIR + "util/Camera");
+	basync.addDependency('zen.util.Iterator', zen.ENGINE_DIR + "util/Iterator");
 
 	basync.onReady(function() {
 		self._init();

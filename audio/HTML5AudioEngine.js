@@ -18,7 +18,7 @@ zen.extends(zen.audio.AudioEngine, zen.audio.HTML5AudioEngine, {
 		this.backgroundAudios.push(audio);
 	},
 
-	addSoundEFfect : function(name, audio) {
+	addSoundEffect : function(name, audio) {
 		this.addAudio(name, audio);
 		this.soundEffects.push(audio);
 	},

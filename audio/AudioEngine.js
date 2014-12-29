@@ -6,6 +6,8 @@
  *
  * 	This class is abstract and must be subclassed, with
  * 	an implementation to the abstract methods.
+ *
+ * TODO: Make a way to mute/unmute All Audio
  */
 zen.audio.AudioEngine = function() {
 	this.audioMap = {};
