@@ -401,33 +401,83 @@ zen.extends(null, zen.entities.Entity, {
 	 * public findChildrenAt
 	 *
 	 * Finds all Children and grandchildren who intersect with the coordate relative to this entity
+	 * If two coordinates are passed, find anything intersecting the rectangle
 	 *
-	 * @param {Coordinate} [coordinate] [Coordinate relative to this entity to loop from]
+	 * @param {Coordinate} [start] [Coordinate relative to this entity to loop from]
 	 * @return Array[Entity]
 	 */
-	findChildrenAt : function (coordinate) {
+	findChildren : function (startCoordinate, endCoordinate) {
 		var children = [];
 
-		//Find the Region the coordinates belond to
-		var region = this._coordinateToRegion(coordinate);
-		var regionChildren = this._getChildrenInRegion(new zen.data.Coordinate(region.x, region.y));
-		var childrenIterator = new zen.util.Iterator(regionChildren);
+		if (this.children.length > 0) {
+			//Find the Region the coordinates belond to
+			if (startCoordinate && !endCoordinate) {
+				var region = this._coordinateToRegion(startCoordinate);
+				var regionChildren = this._getChildrenInRegion(new zen.data.Coordinate(region.x, region.y));
+				if (regionChildren.length > 0) {
+					var childrenIterator = new zen.util.Iterator(regionChildren);
+					// var childrenIterator = new zen.util.Iterator(this.children);
 
-		//Loop through all children in that region to see if they intersect
-		while(childrenIterator.hasNext() && !child) {
-			var iterChild = childrenIterator.next();
-			var childCoordinate = iterChild.getCoordinate();
-			var childOuterCoordinate = iterChild.getOuterCoordinate();
+					//Loop through all children in that region to see if they intersect
+					while(childrenIterator.hasNext()) {
+						var iterChild = childrenIterator.next();
+						var childCoordinate = iterChild.getCoordinate();
+						var childOuterCoordinate = iterChild.getOuterCoordinate();
 
-			if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
-				&& childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
-				//Intersects with the startCoordinate
-				children.push(iterChild);
+						if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
+							&& childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+							//Intersects with the startCoordinate
+							children.push(iterChild);
 
-				//See if we can get a deeper child...
-				var deeperChildren = iterChild.findChildAt(new zen.data.Coordinate(coordinate.x - childCoordinate.x, coordinate.y - childCoordinate.y));
-				if (deeperChildren) {
-					children = children.concat(deeperChildren);
+							//See if we can get a deeper child...
+							var deeperChildren = iterChild.findChildren(new zen.data.Coordinate(startCoordinate.x - childCoordinate.x, startCoordinate.y - childCoordinate.y));
+							if (deeperChildren) {
+								children = children.concat(deeperChildren);
+							}
+						}
+					}
+				}
+			} else if (startCoordinate && endCoordinate) {
+				var startRegion = this._coordinateToRegion(startCoordinate);
+				var endRegion = this._coordinateToRegion(endCoordinate);
+				var childrenVisited = [];
+				//Loop through the regions
+				for (var x = startRegion.x; x <= endRegion.x; x ++) {
+					for (var y = startRegion.y; y <= endRegion.y; y ++) {
+						var regionChildren = this._getChildrenInRegion(new zen.data.Coordinate(x, y));
+
+						for (var regionChildI in regionChildren) {
+							var regionChild = regionChildren[regionChildI];
+
+							if (childrenVisited.indexOf(regionChild) === -1) {
+								childrenVisited.push(regionChild);
+								var childCoordinate = regionChild.getCoordinate();
+								var childOuterCoordinate = regionChild.getOuterCoordinate();
+
+								var xCollission = false;
+								var yCollision = false;
+
+								if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
+								    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+								    xCollission = true;
+								}
+
+								if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
+								    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+								     yCollision = true;
+								 }
+
+								if (xCollission && yCollision) {
+								    children.push(regionChild);	
+
+								    var deeperChildren = regionChild.findChildren(new zen.data.Coordinate(startCoordinate.x - childCoordinate.x, startCoordinate.y - childCoordinate.y), new zen.data.Coordinate(endCoordinate.x - childOuterCoordinate.x, endCoordinate.y - childOuterCoordinate.y))
+									if (deeperChildren) {
+										children = children.concat(deeperChildren);
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 		}
@@ -952,7 +1002,11 @@ zen.extends(null, zen.entities.Entity, {
 	},
 
 	_getChildrenInRegion : function (regionCoordinate) {
-		return this.regions[regionCoordinate.x][regionCoordinate.y];
+		if (this.regions[regionCoordinate.x] && this.regions[regionCoordinate.x][regionCoordinate.y]) {
+			return this.regions[regionCoordinate.x][regionCoordinate.y];
+		} else {
+			return [];
+		}
 	},
 
 	_removeChildFromRegions : function (child) {

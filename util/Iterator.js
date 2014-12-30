@@ -7,6 +7,7 @@
 zen.util.Iterator = function(array) {
 	this.array = array;
 	this.index = -1;
+	this.length = array.length;
 };
 
 zen.extends(null, zen.util.Iterator, {

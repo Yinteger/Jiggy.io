@@ -82,6 +82,7 @@ zen.ViewPort.prototype.setAutoSize = function (state) {
 	}
 
 	if (state) {
+		self._checkForParentSizeChange();
 		this.autoSizeTimer = setInterval(function () {
 			self._checkForParentSizeChange();
 		}, 100);
