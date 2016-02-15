@@ -9,7 +9,7 @@ zen.entities.EntityModel = function() {
 	this.attributes = {};
 	this.id = zen.generateID();
 	this.type = 'generic';
-	this.textureMap = {};
+	this.texture;
 	this.observer = new zen.util.Observer(this);
 };
 
@@ -229,8 +229,8 @@ zen.extends(null, zen.entities.EntityModel, {
 	 * @param {String} name  
 	 * @param {zen.assets.Asset} asset 
 	 */
-	addTexture : function(name, asset) {
-		this.textureMap[name] = asset;
+	setTexture : function(asset) {
+		this.texture = asset;
 		this._fireEvent(zen.entities.EntityModel.static.TEXTURE_CHANGE, {
 			attribute : 'texture',
 			name : name,
@@ -246,9 +246,8 @@ zen.extends(null, zen.entities.EntityModel, {
 	 * @param  {String}  name 
 	 * @return {Boolean}      
 	 */
-	hasTexture : function(name) {
-		var v = this.textureMap[name];
-		return !(v === undefined || v === null);
+	hasTexture : function() {
+		return this.texture != undefined;
 	},
 
 	/**
@@ -259,8 +258,8 @@ zen.extends(null, zen.entities.EntityModel, {
 	 * @param  {String} name 
 	 * @return {zen.assets.Asset}      
 	 */
-	getTexture : function(name) {
-		return this.textureMap[name];
+	getTexture : function() {
+		return this.texture;
 	},
 
 	/**
@@ -272,16 +271,14 @@ zen.extends(null, zen.entities.EntityModel, {
 	 * @param  {String} name 
 	 * @return {void}      
 	 */
-	removeTexture : function(name) {
-		var asset = this.getTexture(name);
-		delete this.textureMap[name];
-		if (asset) {
-			this._fireEvent(zen.entities.EntityModel.static.TEXTURE_DELETE, {
-				attribute : 'texture',
-				name : name,
-				value : asset
-			});
-		}
+	removeTexture : function() {
+		var asset = this.getTexture();
+	this.texture = undefined;
+		this._fireEvent(zen.entities.EntityModel.static.TEXTURE_DELETE, {
+			attribute : 'texture',
+			name : name,
+			value : asset
+		});
 	},
 
 	/**
@@ -291,14 +288,14 @@ zen.extends(null, zen.entities.EntityModel, {
 	 * 
 	 * @return {Array(Of zen.assets.Asset)} 
 	 */
-	collectTextures : function() {
-		var arr = [];
-		var keys = Object.keys(this.textureMap);
-		for (var i = 0, len = keys.length; i < len; i++) {
-			arr.push(this.getTexture(keys[i]));
-		}
-		return arr;
-	},
+	// collectTextures : function() {
+	// 	var arr = [];
+	// 	var keys = Object.keys(this.textureMap);
+	// 	for (var i = 0, len = keys.length; i < len; i++) {
+	// 		arr.push(this.getTexture(keys[i]));
+	// 	}
+	// 	return arr;
+	// },
 
 	/**
 	 * public sync
@@ -319,9 +316,9 @@ zen.extends(null, zen.entities.EntityModel, {
 				value 		: item.value
 			});
 		}
-		listener.notify(evt, {
-			attribute 	: 'textures',
-			value 		: this.collectTextures()
-		});
+		// listener.notify(evt, {
+		// 	attribute 	: 'textures',
+		// 	value 		: this.collectTextures()
+		// });
 	},
 });

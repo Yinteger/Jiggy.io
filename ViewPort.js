@@ -29,6 +29,10 @@ zen.ViewPort.prototype.getCanvas = function () {
 	return this.canvas;
 };
 
+zen.ViewPort.prototype.setScale = function (w, h) {
+	this.context.scale(w, h);
+};
+
 /**
  * setSize 
  *
@@ -117,6 +121,15 @@ zen.ViewPort.prototype.removeEventListener = function (event, func) {
  */
 zen.ViewPort.prototype.clear = function () {
 	this.context.clearRect(0, 0, this.width, this.height);
+};
+
+zen.ViewPort.prototype.drawImage = function (img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
+	this.context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
+};
+
+zen.ViewPort.prototype.setHidden = function () {
+	this.canvas.style.position = "absolute";
+	this.canvas.style.left = '110001px';
 };
 
 /**

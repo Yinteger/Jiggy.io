@@ -161,6 +161,8 @@ zen.engine.prototype._loadDependencies = function () {
 		'zen.assets.JSONLoader'
 	]);
 	basync.addDependency('zen.assets.Asset', zen.ENGINE_DIR + 'assets/Asset');
+	basync.addDependency('zen.assets.Spritesheet', zen.ENGINE_DIR + 'assets/Spritesheet');
+	basync.addDependency('zen.assets.Animation', zen.ENGINE_DIR + 'assets/Animation');
 	basync.addDependency('zen.assets.AssetLoader', zen.ENGINE_DIR + 'assets/AssetLoader');
 	basync.addDependency('zen.assets.ImageLoader', zen.ENGINE_DIR + 'assets/ImageLoader', [
 		'zen.assets.AssetLoader',

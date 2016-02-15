@@ -171,9 +171,9 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 		// Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)
 	}
 
-	if (entity.collectTextures().length > 0) {
+	if (entity.hasTexture()) {
 		//TODO: Grab the Cached version of it if available, 
-		var imageData = entity.collectTextures()[0].getData();
+		var imageData = entity.getTexture().getData();
 
 		var entityToImageYModifier = imageData.height / entity.getHeight();
 		var entityToImageXModifier = imageData.width / entity.getWidth();
@@ -189,7 +189,7 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 	for (var i in entity.children) { //TODO : Update this to not loop through all children, just ones in the visible regions of this entity (Efficency)
 		this._renderEntity(entity.children[i], camera);
 	}
-},
+};
 
 /**
  * prerenderEntity 
@@ -200,62 +200,62 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
  * @param Entity, Entity, Entity, Entity, Entity
  * @return void
  */
-zen.engines.TwoDRenderingEngine.prototype.prerenderEntity = function (entity) {
-	//Now begin prerendering of this entity by rendering it
-	if (entity.isModified() || !this.cache[entity.getID()]) {
-		//First loop through children and prerender them so they are ready us to prerender
-		var childIterator = entity.iterator();
+// zen.engines.TwoDRenderingEngine.prototype.prerenderEntity = function (entity) {
+// 	//Now begin prerendering of this entity by rendering it
+// 	if (entity.isModified() || !this.cache[entity.getID()]) {
+// 		//First loop through children and prerender them so they are ready us to prerender
+// 		var childIterator = entity.iterator();
 
-		// console.warn(entity);
+// 		// console.warn(entity);
 
-		while (childIterator.hasNext()) {
-			var child = childIterator.next();
-			if (child.isModified()) {
-				this.prerenderEntity(child);
-			}
-		};
+// 		while (childIterator.hasNext()) {
+// 			var child = childIterator.next();
+// 			if (child.isModified()) {
+// 				this.prerenderEntity(child);
+// 			}
+// 		};
 
-		//Set the Entity isModified to False so we don't re-create the pre-render next time
-		entity.setModified(false);
+// 		//Set the Entity isModified to False so we don't re-create the pre-render next time
+// 		entity.setModified(false);
 
-		var foundTexture = false;
+// 		var foundTexture = false;
 
-		//Create a ImageData Object from the PixelData Array
-		if (entity.collectTextures().length > 0) {
-			var imageData = entity.collectTextures()[0].getData();
-			foundTexture = true;
-		} else {
-			var imageData = this._prerenderViewPort.context.createImageData(entity.getWidth(), entity.getHeight());			
-		}
+// 		//Create a ImageData Object from the PixelData Array
+// 		if (entity.collectTextures().length > 0) {
+// 			var imageData = entity.collectTextures()[0].getData();
+// 			foundTexture = true;
+// 		} else {
+// 			var imageData = this._prerenderViewPort.context.createImageData(entity.getWidth(), entity.getHeight());			
+// 		}
 
-		//Put the Entity in the Prerender View Port
-		this._prerenderViewPort.setSize(entity.getWidth(), entity.getHeight());
-		if (foundTexture) {
-			this._prerenderViewPort.context.drawImage(imageData, 
-				0, 0);
-		} else {
-			this._prerenderViewPort.context.putImageData(imageData, 
-				0, 0);
-		}
+// 		//Put the Entity in the Prerender View Port
+// 		this._prerenderViewPort.setSize(entity.getWidth(), entity.getHeight());
+// 		if (foundTexture) {
+// 			this._prerenderViewPort.context.drawImage(imageData, 
+// 				0, 0);
+// 		} else {
+// 			this._prerenderViewPort.context.putImageData(imageData, 
+// 				0, 0);
+// 		}
 
-		//Now put in all the children into the Prerender View Port
-		var child2Iterator = entity.iterator();
-		while (child2Iterator.hasNext()) {
-			var child = child2Iterator.next();
-			this._prerenderViewPort.context.drawImage(this.cache[child.getID()], 
-				child.getX(), child.getY());
-		};
+// 		//Now put in all the children into the Prerender View Port
+// 		var child2Iterator = entity.iterator();
+// 		while (child2Iterator.hasNext()) {
+// 			var child = child2Iterator.next();
+// 			this._prerenderViewPort.context.drawImage(this.cache[child.getID()], 
+// 				child.getX(), child.getY());
+// 		};
 
-		//Grab a Image representation of the Entity from the Pre-render view port
-		var entityImage = this._prerenderViewPort.getImage();
+// 		//Grab a Image representation of the Entity from the Pre-render view port
+// 		var entityImage = this._prerenderViewPort.getImage();
 
-		//Add the Entity Image to the Cache
-		this.cache[entity.getID()] = entityImage;
+// 		//Add the Entity Image to the Cache
+// 		this.cache[entity.getID()] = entityImage;
 
-		//Return the newly created Image 
-		return entityImage;
-	} else {
-		//Return the cached copy
-		return this.cache[entity.getID()];
-	}
-};
+// 		//Return the newly created Image 
+// 		return entityImage;
+// 	} else {
+// 		//Return the cached copy
+// 		return this.cache[entity.getID()];
+// 	}
+// };

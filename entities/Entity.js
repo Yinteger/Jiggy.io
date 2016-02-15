@@ -863,12 +863,12 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param {String} name  Unique name for the texture for future reference.
 	 * @param {zen.assets.Asset} asset Must be type zen.assets.AssetFactory.TYPES.IMAGE
 	 */
-	addTexture : function(name, asset) {
+	setTexture : function(asset) {
 		if (asset.getType() !== zen.assets.AssetFactory.TYPES.IMAGE) {
 			throw new Error('Texture asset must be of type IMAGE.');
 		}
 
-		this.model.addTexture(name, asset);
+		this.model.setTexture(asset);
 		this.setModified(true);
 	},
 
@@ -880,8 +880,8 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param  {String}  name 
 	 * @return {Boolean}      
 	 */
-	hasTexture : function(name) {
-		return this.model.hasTexture(name);
+	hasTexture : function() {
+		return this.model.hasTexture();
 	},
 
 	/**
@@ -892,9 +892,9 @@ zen.extends(null, zen.entities.Entity, {
 	 * @param  {String} name 
 	 * @return {zen.assets.Asset}      
 	 */
-	getTexture : function(name) {
-		if (this.hasTexture(name)) {
-			return this.model.getTexture(name);
+	getTexture : function() {
+		if (this.hasTexture()) {
+			return this.model.getTexture();
 		}
 	},
 
@@ -917,9 +917,9 @@ zen.extends(null, zen.entities.Entity, {
 	 * 
 	 * @return {Array(Of zen.assets.Asset)} 
 	 */
-	collectTextures : function() {
-		return this.model.collectTextures();
-	},
+	// collectTextures : function() {
+	// 	return this.model.collectTextures();
+	// },
 
 	/**
 	 * private _setDefaults
