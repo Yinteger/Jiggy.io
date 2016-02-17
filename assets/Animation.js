@@ -40,11 +40,31 @@ zen.extends(null, zen.assets.Animation, {
 	_loadStep : function (stepIndex) {
 		var self = this;
 		var step = this.animationDefinition[stepIndex];
-		console.log(stepIndex);
 		var sprite = this.spritesheet.getSprite(step.sprite_id);
 		this.entity.setTexture(sprite);
 		this.entity.setWidth(sprite.getData().width);
 		this.entity.setHeight(sprite.getData().height);
+
+		var offset = 0;
+
+		if (step['move-x'] || (this._direction === "reverse" && this.animationDefinition[stepIndex + 1]['move-x'])) {
+			if (this._direction === "reverse" && this.animationDefinition[stepIndex + 1]['move-x']) {
+				offset =  0 - this.animationDefinition[stepIndex + 1]['move-x'];
+				this.entity.setX(this.entity.getX() - this.animationDefinition[stepIndex + 1]['move-x']);
+			} else {
+				offset =  0 + step['move-x'];
+				this.entity.setX(this.entity.getX() + step['move-x']);
+			}
+		}
+
+		if (step['move-y'] || (this._direction === "reverse" && this.animationDefinition[stepIndex + 1]['move-y'])) {
+			if (this._direction === "reverse" && this.animationDefinition[stepIndex + 1]['move-y']) {
+				this.entity.setY(this.entity.getY() - this.animationDefinition[stepIndex + 1]['move-y']);
+			} else {
+				this.entity.setY(this.entity.getY() + step['move-y']);
+			}
+		}
+		console.log(stepIndex, this._direction, offset);
 
 		var nextStepIndex;
 
@@ -67,7 +87,7 @@ zen.extends(null, zen.assets.Animation, {
 					self._direction = "forward";
 					self._loadStep(stepIndex + 1);
 				}
-			});
+			}, step.delay);
 		} else if (this._loop) {
 			this.timeout = setTimeout(function () {
 				self._loadStep(0)

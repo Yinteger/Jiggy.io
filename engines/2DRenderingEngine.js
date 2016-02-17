@@ -185,6 +185,7 @@ zen.engines.TwoDRenderingEngine.prototype._renderEntity = function (entity, came
 		this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, camera.getRenderOrigin().x + cameraRelativeX, camera.getRenderOrigin().y + cameraRelativeY, clippedEntityWidth / xModifier, clippedEntityHeight / yModifier)
 	}
 
+	//TODO: Update this to render entities top-down
 	//TODO: Only navigate if isModified
 	for (var i in entity.children) { //TODO : Update this to not loop through all children, just ones in the visible regions of this entity (Efficency)
 		this._renderEntity(entity.children[i], camera);

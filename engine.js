@@ -204,6 +204,9 @@ zen.engine.prototype._loadDependencies = function () {
 		'zen.entities.EntityView'
 	]);
 	basync.addDependency('zen.entities.EntityView', zen.ENGINE_DIR + 'entities/EntityView');
+	basync.addDependency('zen.entities.GridMap', zen.ENGINE_DIR + 'entities/GridMap', [
+		'zen.entities.Entity'
+	]);
 	basync.addDependency('zen.entities.EntityView2D', zen.ENGINE_DIR + 'entities/EntityView2D', [
 		'zen.entities.EntityView'
 	]);

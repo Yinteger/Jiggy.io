@@ -988,16 +988,20 @@ zen.extends(null, zen.entities.Entity, {
 
 		this.regionList[child.getID()] = [];
 
-		//Compare both Regions and add the entity to those regions, and all in between
-		for (var x = startRegion.x; x <= endRegion.x; x ++) {
-			if (this.regions[x]) { //Overflow protection
-				for (var y = startRegion.y; y <= endRegion.y; y ++) {
-					if (this.regions[x][y]) { //Overflow Protection
-						this.regions[x][y].push(child);
-						this.regionList[child.getID()].push(new zen.data.Coordinate(x, y));
+		if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
+			//Compare both Regions and add the entity to those regions, and all in between
+			for (var x = startRegion.x; x <= endRegion.x; x ++) {
+				if (this.regions[x]) { //Overflow protection
+					for (var y = startRegion.y; y <= endRegion.y; y ++) {
+						if (this.regions[x][y]) { //Overflow Protection
+							this.regions[x][y].push(child);
+							this.regionList[child.getID()].push(new zen.data.Coordinate(x, y));
+						}
 					}
 				}
 			}
+		} else {
+			console.warn("Unable to put child into region - Out of Bounds", child);
 		}
 	},
 
