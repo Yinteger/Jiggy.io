@@ -127,6 +127,26 @@ zen.ViewPort.prototype.drawImage = function (img, clip_x, clip_y, clip_width, cl
 	this.context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
 };
 
+zen.ViewPort.prototype.setFont = function (font) {
+	this.context.font = font;
+};
+
+zen.ViewPort.prototype.setColor = function (color) {
+	this.context.fillStyle = color;
+};
+
+zen.ViewPort.prototype.measureText = function (text) {
+	return this.context.measureText(text);
+};
+
+zen.ViewPort.prototype.setTextBaseline = function (baseline) {
+	this.context.textBaseline = baseline;
+};
+
+zen.ViewPort.prototype.drawText = function (text, x, y, maxWidth) {
+	this.context.fillText(text, x, y, maxWidth);
+};
+
 zen.ViewPort.prototype.setHidden = function () {
 	this.canvas.style.position = "absolute";
 	this.canvas.style.left = '110001px';

@@ -72,8 +72,10 @@ zen.engines.GroupLogicEngine.prototype.resumeLogic = function (id) {
  * @return void
  */
 zen.engines.GroupLogicEngine.prototype.removeLogic = function (id) {
-	this._removeFromInterval(id);
-	delete this.logicCalls[id];
+	if (this.logicCalls[id]) {
+		this._removeFromInterval(id);
+		delete this.logicCalls[id];
+	}
 };
 
 // /**

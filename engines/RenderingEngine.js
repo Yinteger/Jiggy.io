@@ -42,9 +42,12 @@
  	this.cameras = [];
 
  	//Static Entities
- 	this.staticEntities = [];
- 	this.staticEntityOrder = [];
+ 	this.HUDEntity = null;
  };
+
+zen.engines.RenderingEngine.prototype.setHUDEntity = function (entity) {
+	this.HUDEntity = entity;
+};
 
 /**
  * addCamera 
