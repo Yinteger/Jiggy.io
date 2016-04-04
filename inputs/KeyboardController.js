@@ -33,6 +33,7 @@ zen.extends(zen.inputs.Controller, zen.inputs.KeyboardController, {
 		window.addEventListener('keyup', this._keyUpHandler);
 	},
 
+
 	_onKeyDown : function(e) {
 		e.preventDefault();
 		this._fireEvent('keydown', this._getEventDetail(e));
@@ -44,6 +45,7 @@ zen.extends(zen.inputs.Controller, zen.inputs.KeyboardController, {
 	},
 
 	_getEventDetail : function(e) {
+		console.log(e);
 		return  {
 			keyCode : e.keyCode,
 			altKey : e.altKey,

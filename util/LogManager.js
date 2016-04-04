@@ -34,7 +34,7 @@ zen.extends(null, zen.util.LogManager, {
 					console.info.apply(console, args);
 					break;
 				case zen.util.LogManager.WARNING:
-					console.warning.apply(console, args);
+					console.warn.apply(console, args);
 					break;
 				case zen.util.LogManager.ERROR:
 					console.error.apply(console, args);

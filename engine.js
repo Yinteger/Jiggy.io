@@ -87,8 +87,10 @@ zen.engine = function (onInit) {
 	this.renderingEngine = null;
 	this.audioEngine = null;
 	this.physicEngine = null;
-	this.inputManager = null;
+
+	//Managers
 	this.logManager = null;
+	this.eventManager = null;
 
 	//Factories
 	this.assetFactory = null;
@@ -132,12 +134,16 @@ zen.engine.prototype.setAssetFactory = function(assetFactory) {
 	this.assetFactory = assetFactory;
 },
 
-zen.engine.prototype.setInputManager = function(inputManager) {
-	this.inputManager = inputManager;
-},
-
 zen.engine.prototype.setLogManager = function(logManager) {
 	this.logManager = logManager;
+},
+
+zen.engine.prototype.setEventManager = function(eventManager) {
+	this.eventManager = eventManager;
+},
+
+zen.engine.prototype.getEventManager = function() {
+	return this.eventManager;
 },
 
 zen.engine.prototype.getLogManager = function() {
@@ -146,11 +152,13 @@ zen.engine.prototype.getLogManager = function() {
 
 zen.engine.prototype._init = function () {
 	this.setLogManager(zen.util.LogManager.getSingleton());
-	
+
 	//Setup the default AssetFactory
 	this.setAssetFactory(zen.assets.AssetFactory.getSingleton());
 
 	this.setAudioEngine(new zen.audio.HTML5AudioEngine());
+
+	this.setEventManager(zen.events.EventManager.getSingleton());
 
 	//Create the ViewPort
 	this.viewPort = new zen.ViewPort();
@@ -235,8 +243,14 @@ zen.engine.prototype._loadDependencies = function () {
 	]);
 
 	//EVENTS PACKAGE
+	basync.addDependency('zen.events.EventManager', zen.ENGINE_DIR + "events/EventManager", [
+		'zen.util.Observer',
+		'zen.inputs.InputManager'
+	]);
 	
 	//INPUTS PACKAGE
+	basync.addDependency('zen.inputs.KeyCode', zen.ENGINE_DIR + 'inputs/KeyCode');
+	basync.addDependency('zen.inputs.MouseButtonCode', zen.ENGINE_DIR + 'inputs/MouseButtonCode');
 	basync.addDependency('zen.inputs.Controller', zen.ENGINE_DIR + 'inputs/Controller');
 	basync.addDependency('zen.inputs.InputManager', zen.ENGINE_DIR + 'inputs/InputManager', [
 		'zen.inputs.ControllerFactory'

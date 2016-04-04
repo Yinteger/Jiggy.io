@@ -6,21 +6,15 @@
  * the input manager.
  */
 
-zen.inputs.Controller = function(inputManager) {
-	this._observer = new zen.util.Observer(inputManager);
-	if (inputManager) {
-		this.addListener(inputManager);
-	}
-
+zen.inputs.Controller = function() {
+	this._observer = new zen.util.Observer(this);
 	this._attachEvents();
 };
 
 zen.extends(null, zen.inputs.Controller, {
 	_observer : null,
 
-	destroy : function() {
-
-	},
+	destroy : function() {},
 
 	addListener : function(listener) {
 		this._observer.addListener(listener);
@@ -35,6 +29,7 @@ zen.extends(null, zen.inputs.Controller, {
 	},
 
 	_fireEvent : function(event, data) {
+		data.controller = this;
 		this._observer.fireEvent(event, data);
 	},
 

@@ -21,13 +21,13 @@ zen.extends(null, zen.inputs.ControllerFactory, {
 				throw new Error('Controller type: ' + controllerType + ' is not supported.');
 				break;
 			case zen.inputs.ControllerFactory.MOUSE:
-				return new zen.inputs.MouseController(zen.inputs.InputManager.getSingleton());
+				return new zen.inputs.MouseController();
 				break;
 			case zen.inputs.ControllerFactory.KEYBOARD:
-				return new zen.inputs.KeyboardController(zen.inputs.InputManager.getSingleton());
+				return new zen.inputs.KeyboardController();
 				break;
 			case zen.inputs.ControllerFactory.JOYSTICK:
-				return new zen.inputs.JoyStickController(zen.inputs.InputManager.getSingleton());
+				return new zen.inputs.JoyStickController();
 				break;
 		}
 	}
