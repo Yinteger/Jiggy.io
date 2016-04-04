@@ -11,6 +11,7 @@ zen.inputs.InputManager = function() {
 
 	zen.inputs.InputManager.prototype._instance = this;
 
+	this._observer = new zen.util.Observer(this);
 	this._controllers = {};
 	this._factory = this._createControllerFactory();	
 };
@@ -22,6 +23,7 @@ zen.extends(null, zen.inputs.InputManager, {
 
 	createController : function(controllerName, controllerType) {
 		this._controllers[controllerName] = this._factory.create(controllerType);
+		console.log('Controller "' + controllerName + '" attached as ' + controllerType);
 	},
 
 	removeController : function(controllerName) {
@@ -46,6 +48,33 @@ zen.extends(null, zen.inputs.InputManager, {
 		}
 
 		return this._controllers[controllerName];
+	},
+
+	addControllerListener : function(controllerName, listener) {
+		if (!this.hasController(controllerName)) {
+			return;
+		}
+
+		var controller = this.getController(controllerName);
+		controller.addListener(listener);
+	},
+
+	isControllerListener : function(controllerName, listener) {
+		if (!this.hasController(controllerName)) {
+			return;
+		}
+
+		var controller = this.getController(controllerName);
+		return controller.isListener(listener);
+	},
+
+	removeControllerListener : function(controllerName, listener) {
+		if (!this.hasController(controllerName)) {
+			return;
+		}
+
+		var controller = this.getController(controllerName);
+		controller.removeListener(listener);
 	},
 
 	notify : function(evt, data) {

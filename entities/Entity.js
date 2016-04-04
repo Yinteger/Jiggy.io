@@ -338,6 +338,7 @@ zen.extends(null, zen.entities.Entity, {
 			}
 		};
 	},
+	
 	/**
 	 * public getChildren
 	 *
