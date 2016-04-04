@@ -299,7 +299,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 * @return {void}      
 	 */
 	_warnMissingAudio : function(name) {
-		console.warn('Audio ' + name + ' is missing from Audio Engine.');
+		zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	},
 
 	/**

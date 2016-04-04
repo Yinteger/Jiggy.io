@@ -64,7 +64,7 @@ zen.extends(null, zen.assets.Animation, {
 				this.entity.setY(this.entity.getY() + step['move-y']);
 			}
 		}
-		console.log(stepIndex, this._direction, offset);
+		zen.util.LogManager.getSingleton().log(zen.util.LogManager.INFO, stepIndex, this._direction, offset);
 
 		var nextStepIndex;
 

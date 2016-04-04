@@ -11,8 +11,18 @@ var zen = {
 
 	app 	: null,
 
+	_debugMode : false,
+
 	ENGINE_DIR : '/popcorn-engine/',
 	FRAMEWORK_DIR : '/popcorn-framework/',
+
+	setDebugMode : function(flag) {
+		zen._debugMode = !!flag;
+	},
+
+	isDebugMode : function() {
+		return zen._debugMode;
+	},
 
 	/**
 	 * public generateID
@@ -77,7 +87,8 @@ zen.engine = function (onInit) {
 	this.renderingEngine = null;
 	this.audioEngine = null;
 	this.physicEngine = null;
-	this.InputManager = null;
+	this.inputManager = null;
+	this.logManager = null;
 
 	//Factories
 	this.assetFactory = null;
@@ -125,6 +136,10 @@ zen.engine.prototype.setInputManager = function(inputManager) {
 	this.inputManager = inputManager;
 },
 
+zen.engine.prototype.setLogManager = function(logManager) {
+	this.logManager = logManager;
+},
+
 zen.engine.prototype._init = function () {
 	//Setup the default AssetFactory
 	this.setAssetFactory(zen.assets.AssetFactory.getSingleton());
@@ -136,9 +151,10 @@ zen.engine.prototype._init = function () {
 
 	//If Engine is ready, notify our callback
 	if (this.onInit) {
+		zen.util.LogManager.getSingleton().log(zen.util.LogManager.INFO, 'Engine has started.');
 		this.onInit(this.viewPort.getCanvas())
 	} else {
-		console.warn('No onInit specified for Zengine. How will you know when to start using it?!');
+		zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
 	}
 };
 
@@ -234,6 +250,7 @@ zen.engine.prototype._loadDependencies = function () {
 	basync.addDependency('zen.util.Observer', zen.ENGINE_DIR + 'util/Observer');
 	basync.addDependency('zen.util.Camera', zen.ENGINE_DIR + "util/Camera");
 	basync.addDependency('zen.util.Iterator', zen.ENGINE_DIR + "util/Iterator");
+	basync.addDependency('zen.util.LogManager', zen.ENGINE_DIR + 'util/LogManager');
 
 	basync.onReady(function() {
 		self._init();

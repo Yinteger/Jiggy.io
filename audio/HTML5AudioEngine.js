@@ -127,7 +127,6 @@ zen.extends(zen.audio.AudioEngine, zen.audio.HTML5AudioEngine, {
 		var data = audio.getData();
 		data.addEventListener('ended', function(e) {
 			audio.setAttribute('playing', false);
-			//console.warn('ending', audio.id);
 		});
 	}
 });

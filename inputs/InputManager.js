@@ -23,7 +23,7 @@ zen.extends(null, zen.inputs.InputManager, {
 
 	createController : function(controllerName, controllerType) {
 		this._controllers[controllerName] = this._factory.create(controllerType);
-		console.log('Controller "' + controllerName + '" attached as ' + controllerType);
+		zen.util.LogManager.getSingleton().log(zen.util.LogManager.INFO, 'Controller "' + controllerName + '" attached as ' + controllerType);
 	},
 
 	removeController : function(controllerName) {
@@ -78,7 +78,7 @@ zen.extends(null, zen.inputs.InputManager, {
 	},
 
 	notify : function(evt, data) {
-		console.log(evt, data, String.fromCharCode(data.keyCode));
+		zen.util.LogManager.getSingleton().log(zen.util.LogManager.DEBUG, evt, data, String.fromCharCode(data.keyCode));
 	},
 
 	_createControllerFactory : function() {
