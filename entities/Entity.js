@@ -338,7 +338,7 @@ zen.extends(null, zen.entities.Entity, {
 			}
 		};
 	},
-	
+
 	/**
 	 * public getChildren
 	 *
@@ -1002,7 +1002,7 @@ zen.extends(null, zen.entities.Entity, {
 				}
 			}
 		} else {
-			zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, "Unable to put child into region - Out of Bounds", child);
+			zen.app.getLogManager().log(zen.util.LogManager.WARNING, "Unable to put child into region - Out of Bounds", child);
 		}
 	},
 

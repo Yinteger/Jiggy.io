@@ -140,7 +140,13 @@ zen.engine.prototype.setLogManager = function(logManager) {
 	this.logManager = logManager;
 },
 
+zen.engine.prototype.getLogManager = function() {
+	return this.logManager;
+},
+
 zen.engine.prototype._init = function () {
+	this.setLogManager(zen.util.LogManager.getSingleton());
+	
 	//Setup the default AssetFactory
 	this.setAssetFactory(zen.assets.AssetFactory.getSingleton());
 
@@ -151,10 +157,10 @@ zen.engine.prototype._init = function () {
 
 	//If Engine is ready, notify our callback
 	if (this.onInit) {
-		zen.util.LogManager.getSingleton().log(zen.util.LogManager.INFO, 'Engine has started.');
+		this.getLogManager().log(zen.util.LogManager.INFO, 'Engine has started.');
 		this.onInit(this.viewPort.getCanvas())
 	} else {
-		zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
+		this.getLogManager().log(zen.util.LogManager.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
 	}
 };
 

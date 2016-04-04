@@ -11,9 +11,14 @@
  */
 zen.audio.AudioEngine = function() {
 	this.audioMap = {};
+	this._logManager = zen.app.getLogManager();
 };
 
 zen.extends(null, zen.audio.AudioEngine, {
+	setLogManager : function(logManager) {
+		this._logManager = logManager;
+	},
+
 	/**
 	 * public addAudio
 	 *
@@ -299,7 +304,7 @@ zen.extends(null, zen.audio.AudioEngine, {
 	 * @return {void}      
 	 */
 	_warnMissingAudio : function(name) {
-		zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+		this._logManager.log(zen.util.LogManager.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	},
 
 	/**

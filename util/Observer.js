@@ -72,10 +72,10 @@ zen.extends(null, zen.util.Observer, {
 			if (listener.notify) {
 				this.listeners.push(listener);
 			} else {
-				zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, 'Attempting to use Classical Listening with a Listener without a notify method.');
+				zen.app.getLogManager().log(zen.util.LogManager.WARNING, 'Attempting to use Classical Listening with a Listener without a notify method.');
 			}
 		} else {
-			zen.util.LogManager.getSingleton().log(zen.util.LogManager.WARNING, 'Attempting to listen when already listening');
+			zen.app.getLogManager().log(zen.util.LogManager.WARNING, 'Attempting to listen when already listening');
 		}
 	},
 
