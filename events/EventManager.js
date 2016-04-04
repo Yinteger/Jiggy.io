@@ -63,26 +63,11 @@ zen.extends(null, zen.events.EventManager, {
 	},
 
 	notify : function(event, data) {
-		switch(event) {
-			case 'keydown':
-				event = 'down';
-				break;
-			case 'keyup':
-				event = 'up';
-				break;
-			case 'keypress':
-				event = 'press';
-				break;
-		}
 		zen.app.getLogManager().log(zen.util.LogManager.DEBUG, event, data.keyCode, String.fromCharCode(data.keyCode));
 		this._observer.fireEvent(data.controller + '-' + event, data);
 	}
 }, 
 {
-	BUTTON_PRESS : 'press',
-	BUTTON_DOWN	 : 'down',
-	BUTTON_UP	 : 'up',
-
 	getSingleton : function() {
 		if (!zen.events.EventManager.prototype._instance) {
 			new zen.events.EventManager();

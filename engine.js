@@ -249,6 +249,7 @@ zen.engine.prototype._loadDependencies = function () {
 	]);
 	
 	//INPUTS PACKAGE
+	basync.addDependency('zen.inputs.InputEvents', zen.ENGINE_DIR + 'inputs/InputEvents');
 	basync.addDependency('zen.inputs.KeyCode', zen.ENGINE_DIR + 'inputs/KeyCode');
 	basync.addDependency('zen.inputs.MouseButtonCode', zen.ENGINE_DIR + 'inputs/MouseButtonCode');
 	basync.addDependency('zen.inputs.Controller', zen.ENGINE_DIR + 'inputs/Controller');
@@ -260,10 +261,12 @@ zen.engine.prototype._loadDependencies = function () {
 		'zen.inputs.MouseController'
 	]);
 	basync.addDependency('zen.inputs.KeyboardController', zen.ENGINE_DIR + 'inputs/KeyboardController', [
-		'zen.inputs.Controller'
+		'zen.inputs.Controller',
+		'zen.inputs.InputEvents'
 	]);
 	basync.addDependency('zen.inputs.MouseController', zen.ENGINE_DIR + 'inputs/MouseController', [
-		'zen.inputs.Controller'
+		'zen.inputs.Controller',
+		'zen.inputs.InputEvents'
 	]);
 
 	//UTIL PACkAGE

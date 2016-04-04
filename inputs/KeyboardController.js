@@ -1,6 +1,6 @@
 
-zen.inputs.KeyboardController = function(inputManager) {
-	zen.inputs.Controller.call(this, inputManager);
+zen.inputs.KeyboardController = function() {
+	zen.inputs.Controller.call(this);
 	this._keyCodes = [];
 	this._eventDetails = {
 		keyCodes : [],
@@ -58,15 +58,15 @@ zen.extends(zen.inputs.Controller, zen.inputs.KeyboardController, {
 	},
 
 	_onKeyPress : function() {
-		this._fireEvent('keypress', this._eventDetails);
+		this._fireEvent(zen.inputs.InputEvents.BUTTON_PRESS, this._eventDetails);
 	},
 
 	_onKeyDown : function() {
-		this._fireEvent('keydown', this._eventDetails);
+		this._fireEvent(zen.inputs.InputEvents.BUTTON_DOWN, this._eventDetails);
 	},
 
 	_onKeyUp : function() {
-		this._fireEvent('keyup', this._eventDetails);
+		this._fireEvent(zen.inputs.InputEvents.BUTTON_UP, this._eventDetails);
 	},
 
 	_updateEventDetail : function(e) {
