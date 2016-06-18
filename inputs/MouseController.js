@@ -23,6 +23,8 @@ zen.inputs.MouseController = function() {
 		buttons : [],
 		button : null
 	};
+	this._x = -1;
+	this._y = -1;
 };
 
 zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
@@ -32,6 +34,8 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 	_contextMenuHandler : null,
 	_wheelHandler : null,
 	_eventDetails : null,
+	_x : null,
+	_y : null
 
 	destroy : function() {
 		if (this._mouseDownHandler) {
@@ -59,26 +63,23 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 	_attachEvents : function() {
 		var self = this;
 
-		var x, y;
+		// var x, y;
 
-		var _fireEvent = function() {
-			if (self._eventDetails.buttons.length > 0) {
-				self._onMouseDown();
-			}
-			if (self._eventDetails.x !== x || self._eventDetails.y !== y) {
-				x = self._eventDetails.x;
-				y = self._eventDetails.y;
-				self._onMouseMove();
-			}
-			window.requestAnimationFrame(_fireEvent);
-		};
+		// var _fireEvent = function() {
+		// 	if (self._eventDetails.x !== x || self._eventDetails.y !== y) {
+		// 		x = self._eventDetails.x;
+		// 		y = self._eventDetails.y;
+		// 		self._onMouseMove();
+		// 	}
+		// 	window.requestAnimationFrame(_fireEvent);
+		// };
 
-		window.requestAnimationFrame(_fireEvent);
+		// window.requestAnimationFrame(_fireEvent);
 
 		this._mouseDownHandler = function(e) {
 			if (self._eventDetails.buttons.indexOf(e.button) === -1) {
 				self._updateEventDetail(e);
-				self._onMousePress();
+				self._onMouseDown();
 			}
 		};
 		
@@ -88,10 +89,12 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 		};
 		
 		this._mouseMoveHandler = function(e) {
-			// if (self._eventDetails.x !== e.x || self._eventDetails.y !== e.y) {
-				self._updateEventDetail(e);
-				// self._onMouseMove();
-			// }
+			self._updateEventDetail(e);
+			if (self._eventDetails.x !== self._x || self._eventDetails.y !+= self._y) {
+				self._x = self._eventDetails.x;
+				self._y = self._eventDetails.y;
+				self._onMouseMove();
+			}
 		};
 		
 		this._contextMenuHandler = function(e) {
@@ -109,10 +112,6 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 		document.body.addEventListener('mousedown', this._mouseDownHandler);
 		document.body.addEventListener('mouseup', this._mouseUpHandler);
 		document.body.addEventListener('mousemove', this._mouseMoveHandler);
-	},
-
-	_onMousePress : function() {
-		this._fireEvent(zen.inputs.InputEvents.BUTTON_PRESS, this._eventDetails);
 	},
 
 	_onMouseDown : function() {

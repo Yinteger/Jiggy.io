@@ -29,21 +29,11 @@ zen.extends(zen.inputs.Controller, zen.inputs.KeyboardController, {
 	_attachEvents : function() {
 		var self = this;
 
-		//TODO: make this better
-		var _fireEvent = function() {
-			if (self._eventDetails.keyCodes.length > 0) {
-				self._onKeyDown(self._eventDetails)
-			}
-			window.requestAnimationFrame(_fireEvent);
-		};
-
-		window.requestAnimationFrame(_fireEvent);
-
 		this._keyDownHandler = function(e) {
 			e.preventDefault();
 			if (self._eventDetails.keyCodes.indexOf(e.keyCode) === -1) {
 				self._updateEventDetail(e);
-				self._onKeyPress();
+				self._onKeyDown();
 			}
 		};
 
@@ -55,10 +45,6 @@ zen.extends(zen.inputs.Controller, zen.inputs.KeyboardController, {
 
 		window.addEventListener('keydown', this._keyDownHandler);
 		window.addEventListener('keyup', this._keyUpHandler);
-	},
-
-	_onKeyPress : function() {
-		this._fireEvent(zen.inputs.InputEvents.BUTTON_PRESS, this._eventDetails);
 	},
 
 	_onKeyDown : function() {

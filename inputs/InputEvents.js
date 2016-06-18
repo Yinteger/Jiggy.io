@@ -3,7 +3,6 @@ zen.inputs.InputEvents = function() {
 };
 
 zen.extends(null, zen.inputs.InputEvents, {}, {
-	BUTTON_PRESS 	: 'buttonpress',
 	BUTTON_DOWN		: 'buttondown',
 	BUTTON_UP 		: 'buttonup',
 	POINTER_MOVE 	: 'pointermove',
