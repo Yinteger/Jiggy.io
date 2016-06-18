@@ -104,8 +104,8 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 			self._onMouseWheel();
 		};
 
-		document.body.addEventListener('contextmenu', this._contextMenuHandler);
 		window.addEventListener('wheel', this._wheelHandler);
+		document.body.addEventListener('contextmenu', this._contextMenuHandler);
 		document.body.addEventListener('mousedown', this._mouseDownHandler);
 		document.body.addEventListener('mouseup', this._mouseUpHandler);
 		document.body.addEventListener('mousemove', this._mouseMoveHandler);

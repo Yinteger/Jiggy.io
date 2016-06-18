@@ -26,16 +26,16 @@ zen.extends(null, zen.inputs.ControllerFactory, {
 			case zen.inputs.ControllerFactory.KEYBOARD:
 				return new zen.inputs.KeyboardController();
 				break;
-			case zen.inputs.ControllerFactory.JOYSTICK:
-				return new zen.inputs.JoyStickController();
-				break;
+			// case zen.inputs.ControllerFactory.JOYSTICK:
+			// 	return new zen.inputs.JoyStickController();
+			// 	break;
 		}
 	}
 }, 
 {
 	MOUSE 		: 'mouse',
 	KEYBOARD 	: 'keyboard',
-	JOYSTICK 	: 'joystick',
+	// JOYSTICK 	: 'joystick',
 	//XBOX360 	: 'xbox',
 	//PLAYSTATION3: 'playstation',
 
