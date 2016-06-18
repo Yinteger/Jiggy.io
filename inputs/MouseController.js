@@ -35,7 +35,7 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 	_wheelHandler : null,
 	_eventDetails : null,
 	_x : null,
-	_y : null
+	_y : null,
 
 	destroy : function() {
 		if (this._mouseDownHandler) {
@@ -90,7 +90,7 @@ zen.extends(zen.inputs.Controller, zen.inputs.MouseController, {
 		
 		this._mouseMoveHandler = function(e) {
 			self._updateEventDetail(e);
-			if (self._eventDetails.x !== self._x || self._eventDetails.y !+= self._y) {
+			if (self._eventDetails.x !== self._x || self._eventDetails.y !== self._y) {
 				self._x = self._eventDetails.x;
 				self._y = self._eventDetails.y;
 				self._onMouseMove();
