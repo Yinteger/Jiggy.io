@@ -7,7 +7,7 @@ interface LogicCall {
 
 interface Interval {
 	methods: {(): void; }[];
-	interval_id: number;
+	interval_id: any;
 }
 
 export default class GroupLogicEngine extends LogicEngine {
