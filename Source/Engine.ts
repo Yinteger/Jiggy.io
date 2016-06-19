@@ -9,6 +9,7 @@ import {LogManager, SeverityEnum} from "./Utils/LogManager";
 //Typescript Testing Imports
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
 import GroupLogicEngine from "./Engines/GroupLogicEngine";
+import {ControllerFactory} from './Inputs/ControllerFactory';
 //End//
 
 export default class Engine {

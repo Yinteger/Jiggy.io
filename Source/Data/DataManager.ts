@@ -32,10 +32,6 @@ export interface DataEventDetail {
 export class DataManager extends EventEmitter {
 	private static _instance: DataManager;
 
-	public static DATA_SET: string = 'data_set';
-	public static DATA_REMOVE: string = 'data_remove';
-	public static DATA_ERROR: string = 'data_error';
-
 	constructor() {
 		super();
 
@@ -52,8 +48,8 @@ export class DataManager extends EventEmitter {
 		return DataManager._instance;
 	}
 
-	private _fireEvent(event: string, data: DataEventDetail): void {
-		this.emit(event, data);
+	private _fireEvent(event: DataEvent, data: DataEventDetail): void {
+		this.emit(event.toString(), data);
 	}
 
 	/**
@@ -67,7 +63,7 @@ export class DataManager extends EventEmitter {
 	 */
 	public setData(path: string, value: string): void {
 		window.localStorage.setItem(path, value);
-		this._fireEvent(DataManager.DATA_SET, {
+		this._fireEvent(DataEvent.DATA_SET, {
 			path : path,
 			value: value
 		});
@@ -109,7 +105,7 @@ export class DataManager extends EventEmitter {
 	public removeData(path: string): void {
 		var data: string = this.getData(path);
 		window.localStorage.removeItem(path);
-		this._fireEvent(DataManager.DATA_REMOVE, {
+		this._fireEvent(DataEvent.DATA_REMOVE, {
 			path : path,
 			value : data
 		});
