@@ -8,18 +8,18 @@ import EntityView from "./EntityView";
 
 export default class Entity extends Events.EventEmitter {
 	public view : EntityView;
-	private _model : EntityModel;
-	private _children : Entity[];
+	protected _model : EntityModel;
+	protected _children : Entity[];
 	private _regions : Entity[][][];
 	private _regionDimension : Dimension;
 	private _regionList : {[key: string]: Coordinate[]};
-	private _parent : Entity;
+	protected _parent : Entity;
 	private _modified : boolean;
 	private _notifierKeys : string[];
 	private _parentNotifierKeys : string[];
 	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
 
-	constructor (model : EntityModel) {
+	constructor (model? : EntityModel) {
 		super();
 		var useDefaults :  boolean = false;
 
