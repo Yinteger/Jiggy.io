@@ -86,11 +86,57 @@
 	    ViewPort.prototype.setScale = function (dimension) {
 	        this.context.scale(dimension.width, dimension.height);
 	    };
-	    ViewPort.prototype.setSize = function (dimension) {
-	        this._dimension = dimension;
-	        this.canvas.setAttribute('width', dimension.width + "px");
-	        this.canvas.setAttribute('height', dimension.height + "px");
-	        this.emit('resize', dimension);
+	    Object.defineProperty(ViewPort.prototype, "size", {
+	        get: function () {
+	            return { width: this.canvas.offsetWidth, height: this.canvas.offsetHeight };
+	        },
+	        set: function (dimension) {
+	            this._dimension = dimension;
+	            this.canvas.setAttribute('width', dimension.width + "px");
+	            this.canvas.setAttribute('height', dimension.height + "px");
+	            this.emit('resize', dimension);
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
+	    ViewPort.prototype.clear = function () {
+	        this.context.clearRect(0, 0, this._dimension.width, this._dimension.height);
+	    };
+	    ViewPort.prototype.drawImage = function (img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
+	        this.context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
+	    };
+	    ViewPort.prototype.setFont = function (font) {
+	        this.context.font = font;
+	    };
+	    ViewPort.prototype.setColor = function (color) {
+	        this.context.fillStyle = color;
+	    };
+	    ViewPort.prototype.measureText = function (text) {
+	        return this.context.measureText(text);
+	    };
+	    ViewPort.prototype.setTextBaseline = function (baseline) {
+	        this.context.textBaseline = baseline;
+	    };
+	    ViewPort.prototype.drawText = function (text, x, y, maxWidth) {
+	        this.context.fillText(text, x, y, maxWidth);
+	    };
+	    ViewPort.prototype.setHidden = function () {
+	        this.canvas.style.position = "absolute";
+	        this.canvas.style.left = '110001px';
+	    };
+	    ViewPort.prototype.getImage = function () {
+	        var image = new HTMLImageElement();
+	        image.src = this.canvas.toDataURL("image/png");
+	        return image;
+	    };
+	    ViewPort.prototype._checkForParentSizeChange = function (state) {
+	        if (this.canvas.parentNode) {
+	            var size = this.size;
+	            var parent_size = { width: this.canvas.parentNode.offsetWidth, height: this.canvas.parentNode.offsetHeight };
+	            if (size.width != parent_size.width || size.height != parent_size.height) {
+	                this.size = { width: parent_size.width, height: parent_size.height };
+	            }
+	        }
 	    };
 	    return ViewPort;
 	}(Events.EventEmitter));
