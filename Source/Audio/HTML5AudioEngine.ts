@@ -119,14 +119,14 @@ export default class HTML5AudioEngine extends AudioEngine {
 	}
 
 	protected _registerStartEvent(audio: Asset): void {
-		var data = audio.getData();
+		var data: HTMLAudioElement = <HTMLAudioElement>audio.getData();
 		data.addEventListener('playing', function(e: Event) {
 			audio.setAttribute('playing', true);
 		});
 	}
 
 	protected _registerEndEvent(audio: Asset): void {
-		var data = audio.getData();
+		var data: HTMLAudioElement = <HTMLAudioElement>audio.getData();
 		data.addEventListener('ended', function(e: Event) {
 			audio.setAttribute('playing', false);
 		});

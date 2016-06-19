@@ -1,11 +1,13 @@
 import ViewPort from "./Utils/ViewPort";
 import Camera from "./Utils/Camera";
+import {AudioEngine} from './Audio/AudioEngine';
+import HTML5AudioEngine from "./Audio/HTML5AudioEngine";
+import {AssetFactory} from './Assets/AssetFactory';
 import RenderingEngine from "./Engines/RenderingEngine";
 
 //Typescript Testing Imports
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
 import GroupLogicEngine from "./Engines/GroupLogicEngine";
-import {AudioEngine} from "./Audio/AudioEngine";
 //End//
 
 export default class Engine {
@@ -22,7 +24,7 @@ export default class Engine {
 		this.logManager = LogManager;
 
 		//Setup the default AssetFactory
-		this.assetFactory = AssetFactory;
+		this.assetFactory = AssetFactory.getSingleton();
 
 		this.audioEngine = new HTML5AudioEngine();
 
