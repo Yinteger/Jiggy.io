@@ -1,5 +1,6 @@
 import ViewPort from "./Utils/ViewPort";
 import Camera from "../Utils/Camera";
+import RenderingEngine from "./Engines/RenderingEngine";
 
 //Typescript Testing Imports
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
@@ -35,5 +36,9 @@ export default class Engine {
 		} else {
 			this.logManager.log(LogManager.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
 		}
+	}
+
+	public onInit (canvas : HTMLCanvasElement) : void {
+
 	}
 }

@@ -1,4 +1,5 @@
 import ViewPort from "../Utils/ViewPort";
+import Entity from "../Entities/Entity";
 
 export default class RenderingEngine {
 	protected _viewPort : ViewPort;

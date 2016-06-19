@@ -1,5 +1,8 @@
 import RenderingEngine from "./RenderingEngine";
 import Camera from "../Utils/Camera";
+import Entity from "../Entities/Entity";
+import Iterator from "../Utils/Iterator";
+
 
 export default class TwoDRenderingEngine extends RenderingEngine {
 	public debugRegions : boolean;
@@ -132,8 +135,8 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 				cameraRelativeX = 0;
 			}
 
-			var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
-			var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
+			var clippedEntityHeight = (entity.height - topClip - bottomClip);
+			var clippedEntityWidth = (entity.width - rightClip - leftClip);
 
 			var x = camera.getRenderOrigin().x + cameraRelativeX;
 			var y = camera.getRenderOrigin().y + cameraRelativeY;
@@ -141,9 +144,9 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 			var h = clippedEntityHeight / yModifier;
 
 			//Rendering time!  What a work out
-			if (entity.getColor()){
+			if (entity.color){
 				//Draw a rect in its place...
-				var color = entity.getColor();
+				var color = entity.color;
 				this._viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
 				this._viewPort.context.fillRect(x, y, w, h);
 			}
@@ -162,12 +165,12 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 				// Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)
 			}
 
-			if (entity.hasTexture()) {
+			if (entity.texture) {
 				//TODO: Grab the Cached version of it if available, 
-				var imageData = entity.getTexture().getData();
+				var imageData = entity.texture.getData();
 
-				var entityToImageYModifier = imageData.height / entity.getHeight();
-				var entityToImageXModifier = imageData.width / entity.getWidth();
+				var entityToImageYModifier = imageData.height / entity.height;
+				var entityToImageXModifier = imageData.width / entity.width;
 
 				var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
 
@@ -177,18 +180,18 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 			}
 
 		} else {
-			var x = entity.getX();
-			var y = entity.getY();
-			var w = entity.getWidth();
-			var h = entity.getHeight();
+			var x = entity.x;
+			var y = entity.y;
+			var w = entity.width;
+			var h = entity.height;
 
 
-			if (entity.hasTexture()) {
+			if (entity.texture) {
 				//TODO: Grab the Cached version of it if available, 
-				var imageData = entity.getTexture().getData();
+				var imageData = entity.texture.getData();
 
-				var entityToImageYModifier = imageData.height / entity.getHeight();
-				var entityToImageXModifier = imageData.width / entity.getWidth();
+				var entityToImageYModifier = imageData.height / entity.height;
+				var entityToImageXModifier = imageData.width / entity.width;
 
 				var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
 
@@ -201,10 +204,13 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 
 		//TODO: Update this to render entities top-down
 		//TODO: Only navigate if isModified
-		for (var i in entity.children) { //TODO : Update this to not loop through all children, just ones in the visible regions of this entity (Efficency)
-			this._renderEntity(entity.children[i], camera);
+		var children = entity.getChildren();
+		// for (var i in entity.children) { //TODO : Update this to not loop through all children, just ones in the visible regions of this entity (Efficency)
+		// 	this._renderEntity(entity.children[i], camera);
+		// }
+		while (children.hasNext()) {
+			this._renderEntity(children.next(), camera);
 		}
-
 		return true;
 	}
 
