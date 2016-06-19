@@ -1,5 +1,5 @@
-import * as LogManager from '../Util/LogManager';
-import * as Asset from '../Assets/Asset';
+import LogManager from '../Util/LogManager';
+import Asset from '../Assets/Asset';
 
 interface AudioMap {
 	[key: string]: Asset
@@ -30,7 +30,7 @@ export abstract class AudioEngine {
 	 * @param {Integer} channels 	Optional
 	 * @param {zen.assets.Asset} 	audio 
 	 */
-	public addAudio(name: string, audio: Asset, channels?: Number): void {
+	public addAudio(name: string, audio: Asset, channels?: number): void {
 		if (audio.getType() !== zen.assets.AssetFactory.TYPES.AUDIO) {
 			throw 'AudioEngine.addAudio: Invalid Asset Type.';
 		}
@@ -269,6 +269,8 @@ export abstract class AudioEngine {
 		var audio: Asset = this._getAudio(name);
 		if (audio) {
 			return this._getVolume(audio);
+		} else {
+			return 0;
 		}
 	}
 
@@ -310,7 +312,7 @@ export abstract class AudioEngine {
 	 * @return {void}      
 	 */
 	protected _warnMissingAudio(name: string): void {
-		this._logManager.log(zen.util.LogManager.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+		this.logManager.log(zen.util.LogManager.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	}
 
 	/**

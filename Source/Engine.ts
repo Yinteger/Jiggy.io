@@ -4,6 +4,8 @@ import Camera from "../Utils/Camera";
 //Typescript Testing Imports
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
 import GroupLogicEngine from "./Engines/GroupLogicEngine";
+import {AudioEngine} from "./Audio/AudioEngine";
+//End//
 
 export default class Engine {
 	public renderingEngine : RenderingEngine;

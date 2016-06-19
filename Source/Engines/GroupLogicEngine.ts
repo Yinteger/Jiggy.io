@@ -1,4 +1,4 @@
-import LogicEngine from "./LogicEngine";
+import {LogicEngine} from "./LogicEngine";
 
 interface LogicCall {
 	method: {(): void;};
