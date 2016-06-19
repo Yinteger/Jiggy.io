@@ -5,8 +5,8 @@ export default class ViewPort extends Events.EventEmitter {
 	public canvas : HTMLCanvasElement;
 	public context : CanvasRenderingContext2D;
 	public resizable : boolean;
-	public autoSize : boolean;
-	private _autoSizeTimer : number;
+	private _autoSize : boolean;
+	private _autoSizeTimer : any;
 	private _dimension : Dimension;
 
 	constructor () {
@@ -20,6 +20,23 @@ export default class ViewPort extends Events.EventEmitter {
 
 	public setScale (dimension : Dimension) : void {
 		this.context.scale(dimension.width, dimension.height);
+	}
+
+	set autoSize (state: boolean) {
+		if (this._autoSizeTimer) {
+			clearInterval(this._autoSizeTimer);
+		}
+
+		if (state) {
+			this._checkForParentSizeChange();
+			this._autoSizeTimer = setInterval(() => {
+				this._checkForParentSizeChange();
+			}, 100);
+		}
+	}
+
+	get autoSize () : boolean {
+		return this._autoSize;
 	}
 
 	get size () : Dimension {
@@ -71,13 +88,13 @@ export default class ViewPort extends Events.EventEmitter {
 	}
  
 	public getImage () : HTMLImageElement {
-		var image = new HTMLImageElement();
+		var image =  <HTMLImageElement> document.createElement('img');
 		image.src = this.canvas.toDataURL("image/png");
 		return image;
 		// return this.context.getImageData(0, 0, this.width, this.height);
 	}
 
-	private _checkForParentSizeChange ( state: boolean ) : void {
+	private _checkForParentSizeChange ( ) : void {
 		if (this.canvas.parentNode) {
 			var size = this.size;
 			var parent = <HTMLElement> this.canvas.parentNode;

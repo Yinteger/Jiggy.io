@@ -42,7 +42,7 @@ export default class Entity extends Events.EventEmitter {
 		}
 		
 		//TODO figure out how to decide what EntityView class we should use...
-		this.view = new EntityView();
+		this.view = new EntityView(model);
 		this.model = model;
 		
 		this._children = new Array(); //Array to store all the children entities
@@ -74,6 +74,10 @@ export default class Entity extends Events.EventEmitter {
 		return this._parent;
 	}
 
+	set parent (parent : Entity) {
+		this._parent = parent;
+	}
+
 	get regions () {
 		return this._regions;
 	}
@@ -99,12 +103,12 @@ export default class Entity extends Events.EventEmitter {
 		var oldModel = this.model;
 
 		if (oldModel) {
-			view.deattachListener(oldModel);
+			// view.deattachListener(oldModel);
 			oldModel.removeListener(ModelEventTypes.ATTR_CHANGE.toString(), this._modelCB);
 		}
 
 		this._model = model;
-		view.attachListener(model);
+		// view.attachListener(model);
 		model.on(ModelEventTypes.ATTR_CHANGE.toString(),  this._modelCB);
 	}
 

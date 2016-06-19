@@ -11,7 +11,7 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 	protected _render () : void {
 		super._render();
 
-		var context = this._viewPort.context;
+		var context = this.viewPort.context;
 
 		//TODO: Render Cameras in proper order
 		for (var i in this._cameras) {
@@ -19,14 +19,14 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 		}
 
 		//Render HUD Entity
-		if (this._HUDEntity) {
-			this._renderEntity(this._HUDEntity, null);
+		if (this.HUDEntity) {
+			this._renderEntity(this.HUDEntity, null);
 		}
 	}
 
 	private _renderCamera (camera : Camera) : void {
 		var scene = camera.scene;
-		var context = this._viewPort.context;
+		var context = this.viewPort.context;
 
 		if (this.debugCamera) {
 			//For Debugging purposes.. Draw a rect where each camera should be
@@ -147,8 +147,8 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 			if (entity.color){
 				//Draw a rect in its place...
 				var color = entity.color;
-				this._viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-				this._viewPort.context.fillRect(x, y, w, h);
+				this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+				this.viewPort.context.fillRect(x, y, w, h);
 			}
 
 			//Debug Flag
@@ -157,8 +157,8 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 					for (var y_i in entity.regions[x]) {
 						if (entity.regions[x_i][y_i].length > 0) { 
 							// this._viewPort.context.fillStyle = "rgb(" + Math.floor((Math.random() * 255) + 1) + "," + Math.floor((Math.random() * 255) + 1) + "," + Math.floor((Math.random() * 255) + 1) + ")";
-							this._viewPort.context.strokeStyle = "red";
-							this._viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * parseInt(x_i), entity.getAbsoluteY() + entity.regionDimension.height * parseInt(y_i), entity.regionDimension.width, entity.regionDimension.height);
+							this.viewPort.context.strokeStyle = "red";
+							this.viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * parseInt(x_i), entity.getAbsoluteY() + entity.regionDimension.height * parseInt(y_i), entity.regionDimension.width, entity.regionDimension.height);
 						}
 					}
 				}
@@ -176,7 +176,7 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 
 				var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
 
-				this._viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h)
+				this.viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier , topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h)
 			}
 
 		} else {
@@ -197,7 +197,7 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 
 				var clippedImageWidth =  clippedEntityWidth * entityToImageXModifier;
 
-				this._viewPort.context.drawImage(imageData, x, y, w, h)
+				this.viewPort.context.drawImage(imageData, x, y, w, h)
 			}
 		}
 

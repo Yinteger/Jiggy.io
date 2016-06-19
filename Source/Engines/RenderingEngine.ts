@@ -4,11 +4,11 @@ import Camera from "../Utils/Camera";
 
 
 export default class RenderingEngine {
-	protected _viewPort : ViewPort;
+	public viewPort : ViewPort;
 	protected _prerenderViewPort : ViewPort;
 	protected _rendering  : boolean;
 	protected _fps : number;
-	protected _HUDEntity : Entity;
+	public HUDEntity : Entity;
 	protected _cameras : Camera[];
 	private _animationFrameID : number;
 	private _frames : number;
@@ -33,7 +33,7 @@ export default class RenderingEngine {
 	}
 
 	public startRendering () : boolean {
-		if (this._viewPort) {
+		if (this.viewPort) {
 			var self = this;
 			this._rendering = true;
 			this._requestFrame();
@@ -60,7 +60,7 @@ export default class RenderingEngine {
 	}
 
 	protected _render () : void {
-		this._viewPort.clear();
+		this.viewPort.clear();
 	}
 
 	private _calculateFPS () : void {
@@ -92,7 +92,7 @@ export default class RenderingEngine {
 			this._calculateFPS();
 
 			//Draw the FPS on the screen
-			var ctx = this._viewPort.context;
+			var ctx = this.viewPort.context;
 			ctx.globalAlpha=0.5;
 			ctx.fillStyle = 'black';
 			ctx.fillRect(0,0,100,35);

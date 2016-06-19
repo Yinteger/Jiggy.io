@@ -21,11 +21,11 @@ export class Animation {
 		this.loop = true;
 		this.timeout = false;
 		this.reverseLoop = false;
-		this.animating = false;
+		this._animating = false;
 		this._animation_index = -1;
 	}
 
-	get animating () {
+	public isAnimating () : boolean {
 		return this._animating;
 	}
 
@@ -40,7 +40,7 @@ export class Animation {
 	public stop () : void {
 		clearTimeout(this.timeout);
 		this.timeout = false;
-		this.animating = false;
+		this._animating = false;
 	}
 
 	private _loadStep (stepIndex: number) : void {
@@ -69,7 +69,7 @@ export class Animation {
 				this._entity.y = (this._entity.y + step.moveY);
 			}
 		}
-		LogManager.getInstance().log(SeverityEnum.INFO, stepIndex + this._direction + offset);
+		// LogManager.getInstance().log(SeverityEnum.INFO, stepIndex + this._direction + offset);
 
 		var nextStepIndex : number;
 
