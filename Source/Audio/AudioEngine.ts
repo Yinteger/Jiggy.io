@@ -1,9 +1,11 @@
 import LogManager from '../Util/LogManager';
-import Asset from '../Assets/Asset';
-import AssetFactory from '../Assets/AssetFactory';
+import {Asset} from '../Assets/Asset';
+import {AssetFactory, AssetType} from '../Assets/AssetFactory';
+
+var assetFactory: AssetFactory = AssetFactory.getSingleton();
 
 interface AudioMap {
-	[key: string]: Asset
+	[key: string]: Asset[]
 }
 
 /**
@@ -29,10 +31,10 @@ export abstract class AudioEngine {
 	 * 	
 	 * @param {String} name  		User Friendly  name
 	 * @param {Integer} channels 	Optional
-	 * @param {zen.assets.Asset} 	audio 
+	 * @param {Asset} 	audio 
 	 */
 	public addAudio(name: string, audio: Asset, channels?: number): void {
-		if (audio.getType() !== AssetFactory.TYPES.AUDIO) {
+		if (audio.getType() !== AssetType.AUDIO) {
 			throw 'AudioEngine.addAudio: Invalid Asset Type.';
 		}
 		this._setAudio(name, audio, channels);
@@ -282,7 +284,7 @@ export abstract class AudioEngine {
 	 *	If audio is null, then the key is deleted.
 	 * 
 	 * @param {String} name  User friendly reference
-	 * @param {zen.assets.Asset} audio 
+	 * @param {Asset} audio 
 	 * @param {Integer} channels 
 	 */
 	protected _setAudio(name: string, audio: Asset, channels: number): void {
@@ -290,12 +292,11 @@ export abstract class AudioEngine {
 			this.removeAudio(name);
 		}
 		else {
-			var channelArr: [Asset] = [audio];
+			var channelArr: Asset[] = [audio];
 			if (channels > 1) {
 				var clone: Asset;
 				for (var i = 1; i < channels; i++) {
-					clone = zen.app.assetFactory.build(audio.getType(), audio.getSource());
-					//clone = zen.app.assetFactory.clone(audio);
+					clone = assetFactory.build(audio.getType(), audio.getSource());
 					channelArr.push(clone);
 				}
 			}
@@ -323,11 +324,11 @@ export abstract class AudioEngine {
 	 * 
 	 * @param  {String} name User friendly reference
 	 * @param  {Boolean} justGiveChannel1 If true, does NOT search for an available channel
-	 * @return {zen.assets.Asset}   
+	 * @return {Asset}   
 	 */
 	protected _getAudio(name: string, justGiveChannel1?: boolean): Asset {
 		if (this._audioMap[name]) {
-			var channels: [Asset] = this._audioMap[name];
+			var channels: Asset[] = this._audioMap[name];
 			if (justGiveChannel1) {
 				return channels[0];
 			}
@@ -356,7 +357,7 @@ export abstract class AudioEngine {
 	 *
 	 *	Gets the asset's data.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {Object}       
 	 */
 	protected _getData(audio: Asset): Object /* TODO, Fix return type */ {
@@ -368,7 +369,7 @@ export abstract class AudioEngine {
 	 *
 	 * 	Attaches the start event on an asset.
 	 * 
-	 * @param  {zen.assets.Asset} asset 
+	 * @param  {Asset} asset 
 	 * @return {void}       
 	 */
 	protected _attachStartEvent(asset: Asset): void {
@@ -383,7 +384,7 @@ export abstract class AudioEngine {
 	 *
 	 *	Attaches the end event on an asset.
 	 * 
-	 * @param  {zen.assets.Asset} asset 
+	 * @param  {Asset} asset 
 	 * @return {void}       
 	 */
 	protected _attachEndEvent(asset: Asset): void {
@@ -398,10 +399,10 @@ export abstract class AudioEngine {
 	 *
 	 *	Attaches all mandatory events on each channel.
 	 * 
-	 * @param  {Array(Of zen.assets.Asset)} channelArray 
+	 * @param  {Array(Of Asset)} channelArray 
 	 * @return {void}              
 	 */
-	protected _registerEvents(channelArray: [Asset]): void {
+	protected _registerEvents(channelArray: Asset[]): void {
 		var channel: Asset;
 		for (var i = 0, len = channelArray.length; i < len; i++) {
 			channel = channelArray[i];
@@ -415,7 +416,7 @@ export abstract class AudioEngine {
 	 *
 	 *	The logic to play audio. Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {void}       
 	 */
 	protected abstract _playAudio(audio: Asset): void;
@@ -425,7 +426,7 @@ export abstract class AudioEngine {
 	 *
 	 *	The logic to pause audio. Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {void}       
 	 */
 	protected abstract _pauseAudio(audio: Asset): void;
@@ -435,7 +436,7 @@ export abstract class AudioEngine {
 	 *
 	 *	The logic to stop audio. Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {void}       
 	 */
 	protected abstract _stopAudio(audio: Asset): void;
@@ -447,7 +448,7 @@ export abstract class AudioEngine {
 	 *	Return true, if audio is looping.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset}  audio 
+	 * @param  {Asset}  audio 
 	 * @return {Boolean}       
 	 */
 	protected abstract _isAudioLooping(audio: Asset): boolean;
@@ -458,7 +459,7 @@ export abstract class AudioEngine {
 	 *	The logic to enable audio looping.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @param  {Boolean} state 
 	 * @return {void}       
 	 */
@@ -471,7 +472,7 @@ export abstract class AudioEngine {
 	 *	Returns true if audio is muted.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset}  audio 
+	 * @param  {Asset}  audio 
 	 * @return {Boolean}       
 	 */
 	protected abstract _isAudioMuted(audio: Asset): boolean;
@@ -482,7 +483,7 @@ export abstract class AudioEngine {
 	 *	The logic to mute audio.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @param  {Boolean} state 
 	 * @return {void}       
 	 */
@@ -494,7 +495,7 @@ export abstract class AudioEngine {
 	 *	The logic to get the total duration of an audio asset.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {Float}       
 	 */
 	protected abstract _getAudioDuration(audio: Asset): number;
@@ -505,7 +506,7 @@ export abstract class AudioEngine {
 	 *	The logic to set the current time played of an audio asset.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param {zen.assets.Asset} audio   
+	 * @param {Asset} audio   
 	 * @param {Float} seconds 
 	 */
 	protected abstract _setTimeCursor(audio: Asset, seconds: number): void;
@@ -517,7 +518,7 @@ export abstract class AudioEngine {
 	 *	in seconds.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {Float}       
 	 */
 	protected abstract _getTimeCursor(audio: Asset): number;
@@ -528,7 +529,7 @@ export abstract class AudioEngine {
 	 *	The logic to set the volume of an audio asset.
 	 *	Must be implemented by subclasses.
 	 * 
-	 * @param {zen.assets.Asset} audio  
+	 * @param {Asset} audio  
 	 * @param {Float} volume 
 	 */
 	protected abstract _setVolume(audio: Asset, volume: number): void;
@@ -538,7 +539,7 @@ export abstract class AudioEngine {
 	 *
 	 *	The logic to get the volume of an audio asset.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {Float}       
 	 */
 	protected abstract _getVolume(audio: Asset): number;
@@ -550,7 +551,7 @@ export abstract class AudioEngine {
 	 *	begins playing. This callback should set tehe playing attribute
 	 *	on the asset to true.
 	 * 
-	 * @param  {zen.assets.Asset} audio 
+	 * @param  {Asset} audio 
 	 * @return {void}       
 	 */
 	protected abstract _registerStartEvent(audio: Asset): void;
@@ -562,7 +563,7 @@ export abstract class AudioEngine {
 	 *	stops playing. This callback should reset the playing attribute 
 	 *	on the asset to false.
 	 * 
-	 * @param  {zen.assets.Asset} audio
+	 * @param  {Asset} audio
 	 * @return {void}       
 	 */
 	protected abstract _registerEndEvent(audio: Asset): void;
