@@ -10,7 +10,7 @@ interface Interval {
 	interval_id: NodeJS.Timer;
 }
 
-export default class GroupLogicEngine implements LogicEngine {
+export default class GroupLogicEngine extends LogicEngine {
 	private _logicCalls : {[key: string]: LogicCall};
 	private _intervals : {[key: string]: Interval};
 	private _intervalID : string;
