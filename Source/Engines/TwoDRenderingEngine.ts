@@ -25,19 +25,19 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 	}
 
 	private _renderCamera (camera : Camera) : void {
-		var scene = camera.getScene();
+		var scene = camera.scene;
 		var context = this._viewPort.context;
 
 		if (this.debugCamera) {
 			//For Debugging purposes.. Draw a rect where each camera should be
 			context.beginPath();
-			context.rect(camera.getViewPoint().x, camera.getViewPoint().y, camera.getFOV().width, camera.getFOV().height);
+			context.rect(camera.viewPoint.x, camera.viewPoint.y, camera.fov.width, camera.fov.height);
 			context.lineWidth = 7;
 			context.strokeStyle = 'red';
 			context.stroke();
 
 			context.beginPath();
-			context.rect(camera.getRenderOrigin().x, camera.getRenderOrigin().y, camera.getRenderDimension().width, camera.getRenderDimension().height);
+			context.rect(camera.renderOrigin.x, camera.renderOrigin.y, camera.renderDimension.width, camera.renderDimension.height);
 			context.lineWidth = 7;
 			context.fillStyle = 'black';
 			context.fill();
@@ -58,10 +58,10 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 			var collidesXAxis = false;
 
 			var cameraBounds = {
-				x: camera.getViewPoint().x,
-				y: camera.getViewPoint().y,
-				x2: camera.getViewPoint().x + camera.getFOV().width,
-				y2: camera.getViewPoint().y + camera.getFOV().height
+				x: camera.viewPoint.x,
+				y: camera.viewPoint.y,
+				x2: camera.viewPoint.x + camera.fov.width,
+				y2: camera.viewPoint.y + camera.fov.height
 			};
 
 			var entityBounds = {
@@ -94,36 +94,36 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 			//Next, we figure out what parts of it are in the camera, so we can clip it if need be
 			//Check for Left Clip
 			var leftClip = 0;
-			if (entity.getAbsoluteX() < camera.getViewPoint().x) {
-				leftClip = camera.getViewPoint().x - entity.getAbsoluteX();
+			if (entity.getAbsoluteX() < camera.viewPoint.x) {
+				leftClip = camera.viewPoint.x - entity.getAbsoluteX();
 			}
 			// console.log("Left Clip", leftClip);
 
 			//Check for Right Clip
 			var rightClip = 0;
-			if (entity.getAbsoluteX2() > (camera.getViewPoint().x + camera.getFOV().width)) {
-				rightClip = entity.getAbsoluteX2() - (camera.getViewPoint().x + camera.getFOV().width);
+			if (entity.getAbsoluteX2() > (camera.viewPoint.x + camera.fov.width)) {
+				rightClip = entity.getAbsoluteX2() - (camera.viewPoint.x + camera.fov.width);
 			}
 			// console.log("Right Clip", rightClip);
 
 			//Check for Top Clip
 			var topClip = 0;
-			if (entity.getAbsoluteY() < camera.getViewPoint().y) {
-				topClip = camera.getViewPoint().y - entity.getAbsoluteY();
+			if (entity.getAbsoluteY() < camera.viewPoint.y) {
+				topClip = camera.viewPoint.y - entity.getAbsoluteY();
 			}
 			// console.log("Top Clip", topClip);
 
 
 			//Check for Bottom Clip
 			var bottomClip = 0;
-			if (entity.getAbsoluteY2() > (camera.getViewPoint().y + camera.getFOV().height)) {
-				bottomClip = entity.getAbsoluteY2() - (camera.getViewPoint().y + camera.getFOV().height);
+			if (entity.getAbsoluteY2() > (camera.viewPoint.y + camera.fov.height)) {
+				bottomClip = entity.getAbsoluteY2() - (camera.viewPoint.y + camera.fov.height);
 			}
 			// console.log("Bottom Clip", bottomClip);
 
 			//Now we figure out how to skew the rendering, since the render dimensions of the camera may not match it's fov
-			var xModifier = camera.getFOV().width / camera.getRenderDimension().width;
-			var yModifier = camera.getFOV().height / camera.getRenderDimension().height;
+			var xModifier = camera.fov.width / camera.renderDimension.width;
+			var yModifier = camera.fov.height / camera.renderDimension.height;
 
 			var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
 			if (cameraRelativeY < 0) {
@@ -138,8 +138,8 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 			var clippedEntityHeight = (entity.height - topClip - bottomClip);
 			var clippedEntityWidth = (entity.width - rightClip - leftClip);
 
-			var x = camera.getRenderOrigin().x + cameraRelativeX;
-			var y = camera.getRenderOrigin().y + cameraRelativeY;
+			var x = camera.renderOrigin.x + cameraRelativeX;
+			var y = camera.renderOrigin.y + cameraRelativeY;
 			var w = clippedEntityWidth / xModifier;
 			var h = clippedEntityHeight / yModifier;
 
@@ -153,12 +153,12 @@ export default class TwoDRenderingEngine extends RenderingEngine {
 
 			//Debug Flag
 			if (this.debugRegions) {
-				for (var x in entity.regions) {
-					for (var y in entity.regions[x]) {
-						if (entity.regions[x][y].length > 0) { 
+				for (var x_i in entity.regions) {
+					for (var y_i in entity.regions[x]) {
+						if (entity.regions[x_i][y_i].length > 0) { 
 							// this._viewPort.context.fillStyle = "rgb(" + Math.floor((Math.random() * 255) + 1) + "," + Math.floor((Math.random() * 255) + 1) + "," + Math.floor((Math.random() * 255) + 1) + ")";
 							this._viewPort.context.strokeStyle = "red";
-							this._viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * x, entity.getAbsoluteY() + entity.regionDimension.height * y, entity.regionDimension.width, entity.regionDimension.height);
+							this._viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * parseInt(x_i), entity.getAbsoluteY() + entity.regionDimension.height * parseInt(y_i), entity.regionDimension.width, entity.regionDimension.height);
 						}
 					}
 				}

@@ -1,5 +1,5 @@
 import ViewPort from "./Utils/ViewPort";
-import Camera from "../Utils/Camera";
+import Camera from "./Utils/Camera";
 import RenderingEngine from "./Engines/RenderingEngine";
 
 //Typescript Testing Imports

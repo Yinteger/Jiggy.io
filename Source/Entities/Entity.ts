@@ -370,14 +370,14 @@ export default class Entity extends Events.EventEmitter {
 				}
 			}
 
-			return new zen.util.Iterator(children);
+			return new Iterator(children);
 		} else if (startCoordinate) { //Point Lookup
 			var region = this._coordinateToRegion(startCoordinate);
 
 			//Loop through and determine who intersects with the point
 			var children : Entity[] = [];
 
-			var childrenIterator = new zen.util.Iterator(this._getChildrenInRegion({x: region.x, y: region.y}));
+			var childrenIterator = new Iterator(this._getChildrenInRegion({x: region.x, y: region.y}));
 			while(childrenIterator.hasNext()) {
 				var child = childrenIterator.next();
 				var childCoordinate = child.getCoordinate();
