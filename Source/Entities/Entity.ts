@@ -3,6 +3,8 @@ import {Dimension} from "../Interfaces/Dimension";
 import {Coordinate} from "../Interfaces/Coordinate";
 import {Color} from "../Interfaces/Color";
 import Iterator from "../Utils/Iterator";
+import EntityModel from "./EntityModel";
+import EntityView from "./EntityView";
 
 export default class Entity extends Events.EventEmitter {
 	public view : EntityView;
