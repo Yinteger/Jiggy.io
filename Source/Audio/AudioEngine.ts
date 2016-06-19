@@ -1,4 +1,4 @@
-import LogManager from '../Util/LogManager';
+import {LogManager, SeverityEnum} from "../Utils/LogManager";
 import {Asset} from '../Assets/Asset';
 import {AssetFactory, AssetType} from '../Assets/AssetFactory';
 
@@ -314,7 +314,7 @@ export abstract class AudioEngine {
 	 * @return {void}      
 	 */
 	protected _warnMissingAudio(name: string): void {
-		this.logManager.log(LogManager.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+		this.logManager.log(SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	}
 
 	/**

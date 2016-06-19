@@ -4,6 +4,7 @@ import {AudioEngine} from './Audio/AudioEngine';
 import HTML5AudioEngine from "./Audio/HTML5AudioEngine";
 import {AssetFactory} from './Assets/AssetFactory';
 import RenderingEngine from "./Engines/RenderingEngine";
+import {LogManager, SeverityEnum} from "./Utils/LogManager";
 
 //Typescript Testing Imports
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
@@ -21,7 +22,7 @@ export default class Engine {
 	constructor () {
 		this.debugMode = false;
 
-		this.logManager = LogManager;
+		this.logManager = LogManager.getInstance();
 
 		//Setup the default AssetFactory
 		this.assetFactory = AssetFactory.getSingleton();
@@ -33,10 +34,10 @@ export default class Engine {
 
 		//If Engine is ready, notify our callback
 		if (this.onInit) {
-			this.logManager.log(LogManager.INFO, 'Engine has started.');
+			this.logManager.log(SeverityEnum.INFO, 'Engine has started.');
 			this.onInit(this.viewPort.canvas)
 		} else {
-			this.logManager.log(LogManager.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
+			this.logManager.log(SeverityEnum.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
 		}
 	}
 

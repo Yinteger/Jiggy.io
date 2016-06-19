@@ -3,7 +3,7 @@ import Iterator from "../Utils/Iterator";
 
 
 
-export enum ModelEventTypes {
+export const enum ModelEventTypes {
 	ATTR_CHANGE = 1,
 	ATTR_DELETE = 2,
 	TEXTURE_CHANGE = 3,
@@ -32,7 +32,7 @@ interface TextureChangeEvent {
 	value: Asset
 }
 
-export default class EntityModel extends Events.EventEmitter {
+export class EntityModel extends Events.EventEmitter {
 	private _attributes : {[key: string]: any};
 	private _id : string;
 	public type : string;
@@ -44,7 +44,7 @@ export default class EntityModel extends Events.EventEmitter {
 
 	set texture (texture: Asset) {
 		this._texture = asset;
-		this.emit(ModelEventTypes.TEXTURE_CHANGE, {
+		this.emit(ModelEventTypes.TEXTURE_CHANGE.toString(), {
 			attribute : 'texture',
 			name : name,
 			value : asset
@@ -58,7 +58,7 @@ export default class EntityModel extends Events.EventEmitter {
 	public setAttribute (key : string, value : any) : void {
 		var oldValue = this.getAttribute(key);
 		this._attributes[key] = value;
-		this.emit(ModelEventTypes.ATTR_CHANGE, {
+		this.emit(ModelEventTypes.ATTR_CHANGE.toString(), {
 			attribute : key,
 			oldValue : oldValue,
 			value : value
@@ -68,12 +68,12 @@ export default class EntityModel extends Events.EventEmitter {
 	public removeAttribute(key: string) : void {
 		var value = this.getAttribute(key);
 		delete this._attributes[key];
-		if (this._isNotifierKey(key)) {
-			this.emit(ModelEventTypes.ATTR_DELETE, {
+		// if (this._isNotifierKey(key)) {
+			this.emit(ModelEventTypes.ATTR_DELETE.toString(), {
 				attribute : key,
 				value : value
 			});
-		}
+		// }
 	}
 
 	public getAttribute (key : string) : any {
@@ -89,21 +89,21 @@ export default class EntityModel extends Events.EventEmitter {
 		}
 	}
 
-	public iterator () : Iterator {
-		return new Iterator(this._attributes);
-	}
+	// public iterator () : Iterator {
+	// 	// return new Iterator(this._attributes);
+	// }
 
 	public sync (listener : any) : void {
-		var evt = ModelEventTypes.ATTR_CHANGE;
-		var iter = this.iterator();
-		var item;
-		while (iter.hasNext()) {
-			item = iter.next();
-			listener.notify(evt, {
-				attribute 	: item.key,
-				value 		: item.value
-			});
-		}
+		// var evt = ModelEventTypes.ATTR_CHANGE.toString();
+		// var iter = this.iterator();
+		// var item : any;
+		// while (iter.hasNext()) {
+		// 	item = iter.next();
+		// 	listener.notify(evt, {
+		// 		attribute 	: item.key,
+		// 		value 		: item.value
+		// 	});
+		// }
 		// listener.notify(evt, {
 		// 	attribute 	: 'textures',
 		// 	value 		: this.collectTextures()

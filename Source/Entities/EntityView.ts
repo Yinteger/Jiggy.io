@@ -1,21 +1,23 @@
 import * as Events from 'events';
-import EntityModel from "./EntityModel";
+import {EntityModel, ModelEventTypes} from "./EntityModel";
 
 export default class EntityView extends Events.EventEmitter {
 	public visible : boolean;
+	private _notifyCallback : {(attribute: string, value: any) : void};
 
 	constructor () {
 		super();
 		this.visible = true;
+		this._notifyCallback = (attribute: string, value: any) => {this.notify(attribute, value)}
 	}
 
 	public attachListener (model : EntityModel) : void {
-		model.on(ModelEventTypes.ATTR_CHANGE, (attribute: string, value: any) => {this.notify(attribute, value)});
-		model.sync(this);	
+		model.on(ModelEventTypes.ATTR_CHANGE.toString(), this._notifyCallback);
+		// model.sync(this);	
 	}
 
 	public deattachListener (model : EntityModel) : void {
-		model.removeListener(this);
+		model.removeListener(ModelEventTypes.ATTR_CHANGE.toString(), this._notifyCallback);
 		// this._clear();
 	}
 

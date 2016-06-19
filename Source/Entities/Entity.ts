@@ -3,7 +3,7 @@ import {Dimension} from "../Interfaces/Dimension";
 import {Coordinate} from "../Interfaces/Coordinate";
 import {Color} from "../Interfaces/Color";
 import Iterator from "../Utils/Iterator";
-import EntityModel from "./EntityModel";
+import {EntityModel, ModelEventTypes} from "./EntityModel";
 import EntityView from "./EntityView";
 
 export default class Entity extends Events.EventEmitter {
@@ -17,6 +17,7 @@ export default class Entity extends Events.EventEmitter {
 	private _modified : boolean;
 	private _notifierKeys : string[];
 	private _parentNotifierKeys : string[];
+	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
 
 	constructor (model : EntityModel) {
 		super();
@@ -49,13 +50,21 @@ export default class Entity extends Events.EventEmitter {
 		this._notifierKeys = ['width', 'height',  'color', 'texture', 'textures']; //Model attributes in which we should change isModified for
 		this._parentNotifierKeys = ['x', 'y']; //Array of attributes to flag the parent as modified, anything in notifierKeys will do so by default, this list is for keys that don't mark this entity as isMOdified but should mark the parents
 
+		this._modelCB = (attribute: string, value: any, oldValue: any) => {
+			if (this._notifierKeys.indexOf(attribute) > -1) {
+				this._setModified(true);
+			} else if (this._parent && this._parentNotifierKeys.indexOf(attribute) > -1) {
+				this._parent._setModified(true);
+			}
+		}
+
 		if (useDefaults) {
 			this._setDefaults();
 		}
 	}
 
 	get ID () {
-		return this.model.id;
+		return this.model.ID;
 	}
 
 	get parent () {
@@ -88,12 +97,12 @@ export default class Entity extends Events.EventEmitter {
 
 		if (oldModel) {
 			view.deattachListener(oldModel);
-			oldModel.removeListener(this);
+			oldModel.removeListener(ModelEventTypes.ATTR_CHANGE.toString(), this._modelCB);
 		}
 
 		this.model = model;
 		view.attachListener(model);
-		model.addListener(this);
+		model.on(ModelEventTypes.ATTR_CHANGE.toString(),  this._modelCB);
 	}
 
 	get height () : number {
@@ -149,7 +158,7 @@ export default class Entity extends Events.EventEmitter {
 	}
 
 	set z (z: number) {
-		this.model.setAttribute('z');
+		this.model.setAttribute('z', z);
 	}
 
 	get visible () : boolean {
@@ -167,7 +176,7 @@ export default class Entity extends Events.EventEmitter {
 	}
 
 	get texture () : Asset {
-		return this.model.getTexture();
+		return this.model.texture;
 	}
 
 	set texture (asset  : Asset) {
@@ -175,26 +184,10 @@ export default class Entity extends Events.EventEmitter {
 			throw new Error('Texture asset must be of type IMAGE.');
 		}
 
-		this.model.setTexture(asset);
+		this.model.texture = asset;
 		this._setModified(true);
 	}
 
-	/**
-	 * public notify
-	 *
-	 *	Notifies for when the model changes.
-	 * 
-	 * @param  {String} event 
-	 * @param  {Object} data  
-	 * @return {void}       
-	 */
-	public notify (event : any, data : any) : void {
-		if (this._notifierKeys.indexOf(data.attribute) > -1) {
-			this._setModified(true);
-		} else if (this._parent && this._parentNotifierKeys.indexOf(data.attribute) > -1) {
-			this._parent._setModified(true);
-		}
-	}
 
 	/**
 	 * public isModified
