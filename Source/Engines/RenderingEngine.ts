@@ -15,6 +15,15 @@ export default class RenderingEngine {
 	private _lastRender : Date;
 	private _showFPS : boolean;
 
+	constructor () {
+		this._prerenderViewPort = new ViewPort();
+		this._rendering = false;
+		this._fps = 0;
+		this._frames = 0;
+		this._showFPS = true;
+		this._cameras = [];
+	}
+
 	public addCamera (camera : Camera) : void {
 		this._cameras.push(camera);
 	}

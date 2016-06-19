@@ -107,7 +107,7 @@ export class Asset {
 	 * 
 	 * @return {Mixed} 
 	 */
-	public getData(): Object {
+	public getData(): any {
 		return this._data;
 	}
 

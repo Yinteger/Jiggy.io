@@ -5,6 +5,9 @@ import {Color} from "../Interfaces/Color";
 import Iterator from "../Utils/Iterator";
 import {EntityModel, ModelEventTypes} from "./EntityModel";
 import EntityView from "./EntityView";
+import {Asset} from "../Assets/Asset";
+import {AssetType} from "../Assets/AssetFactory";
+
 
 export default class Entity extends Events.EventEmitter {
 	public view : EntityView;
@@ -23,6 +26,14 @@ export default class Entity extends Events.EventEmitter {
 		super();
 		var useDefaults :  boolean = false;
 
+		this._modelCB = (attribute: string, value: any, oldValue: any) => {
+			if (this._notifierKeys.indexOf(attribute) > -1) {
+				this._setModified(true);
+			} else if (this._parent && this._parentNotifierKeys.indexOf(attribute) > -1) {
+				this._parent._setModified(true);
+			}
+		}
+		
 		//Check to see if a model was passed in
 		if (!model) {
 			//No model was passed in, so create the default model for an Entity
@@ -50,21 +61,13 @@ export default class Entity extends Events.EventEmitter {
 		this._notifierKeys = ['width', 'height',  'color', 'texture', 'textures']; //Model attributes in which we should change isModified for
 		this._parentNotifierKeys = ['x', 'y']; //Array of attributes to flag the parent as modified, anything in notifierKeys will do so by default, this list is for keys that don't mark this entity as isMOdified but should mark the parents
 
-		this._modelCB = (attribute: string, value: any, oldValue: any) => {
-			if (this._notifierKeys.indexOf(attribute) > -1) {
-				this._setModified(true);
-			} else if (this._parent && this._parentNotifierKeys.indexOf(attribute) > -1) {
-				this._parent._setModified(true);
-			}
-		}
-
 		if (useDefaults) {
 			this._setDefaults();
 		}
 	}
 
 	get ID () {
-		return this.model.ID;
+		return this._model.ID;
 	}
 
 	get parent () {
@@ -80,11 +83,11 @@ export default class Entity extends Events.EventEmitter {
 	}
 
 	get type () {
-		return this.model.type;
+		return this._model.type;
 	}
 
 	set type (type: string) {
-		this.model.type = type;
+		this._model.type = type;
 	}
 
 	get model ()   : EntityModel {
@@ -100,7 +103,7 @@ export default class Entity extends Events.EventEmitter {
 			oldModel.removeListener(ModelEventTypes.ATTR_CHANGE.toString(), this._modelCB);
 		}
 
-		this.model = model;
+		this._model = model;
 		view.attachListener(model);
 		model.on(ModelEventTypes.ATTR_CHANGE.toString(),  this._modelCB);
 	}
@@ -180,7 +183,7 @@ export default class Entity extends Events.EventEmitter {
 	}
 
 	set texture (asset  : Asset) {
-		if (asset.getType() !== zen.assets.AssetFactory.TYPES.IMAGE) {
+		if (asset.getType() !== AssetType.IMAGE) {
 			throw new Error('Texture asset must be of type IMAGE.');
 		}
 

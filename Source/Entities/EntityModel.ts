@@ -1,6 +1,6 @@
 import * as Events from 'events';
 import Iterator from "../Utils/Iterator";
-
+import {Asset} from "../Assets/Asset";
 
 
 export const enum ModelEventTypes {
@@ -38,11 +38,18 @@ export class EntityModel extends Events.EventEmitter {
 	public type : string;
 	private _texture : Asset;
 
+	constructor () {
+		super();
+		this._attributes = {};
+		this._id = "POOP";
+		this.type = 'generic';
+	}
+
 	get ID () : string {
 		return this._id;
 	}
 
-	set texture (texture: Asset) {
+	set texture (asset: Asset) {
 		this._texture = asset;
 		this.emit(ModelEventTypes.TEXTURE_CHANGE.toString(), {
 			attribute : 'texture',
