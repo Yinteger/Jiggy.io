@@ -4,3 +4,4 @@ typings
 Output
 ._*
 .DS_*
+*.orig
