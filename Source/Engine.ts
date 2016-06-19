@@ -3,11 +3,11 @@ import Camera from "./Utils/Camera";
 import {AudioEngine} from './Audio/AudioEngine';
 import HTML5AudioEngine from "./Audio/HTML5AudioEngine";
 import {AssetFactory} from './Assets/AssetFactory';
+import RenderingEngine from "./Engines/RenderingEngine";
 
 //Typescript Testing Imports
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
 import GroupLogicEngine from "./Engines/GroupLogicEngine";
-
 //End//
 
 export default class Engine {
@@ -38,5 +38,9 @@ export default class Engine {
 		} else {
 			this.logManager.log(LogManager.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
 		}
+	}
+
+	public onInit (canvas : HTMLCanvasElement) : void {
+
 	}
 }
