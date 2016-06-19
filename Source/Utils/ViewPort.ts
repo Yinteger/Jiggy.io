@@ -9,6 +9,15 @@ export default class ViewPort extends Events.EventEmitter {
 	private _autoSizeTimer : number;
 	private _dimension : Dimension;
 
+	constructor () {
+		super();
+		this.canvas = document.createElement('canvas');
+		this.context = this.canvas.getContext('2d');
+		this.resizable = false;
+		this._dimension = {width: 0, height: 0};
+		this.autoSize = false; //Auto sizes View
+	}
+
 	public setScale (dimension : Dimension) : void {
 		this.context.scale(dimension.width, dimension.height);
 	}

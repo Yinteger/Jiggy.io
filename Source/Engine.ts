@@ -10,9 +10,12 @@ import {LogManager, SeverityEnum} from "./Utils/LogManager";
 import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
 import GroupLogicEngine from "./Engines/GroupLogicEngine";
 import {ControllerFactory} from './Inputs/ControllerFactory';
+import GridMap from "./Entities/GridMap";
+import Entity from "./Entities/Entity";
+import {Animation} from "./Assets/Animation";
 //End//
 
-export default class Engine {
+class Engine {
 	public renderingEngine : RenderingEngine;
 	public audioEngine : AudioEngine;
 	public logManager : LogManager;
@@ -46,3 +49,15 @@ export default class Engine {
 
 	}
 }
+
+declare var window.PopcornEngine : Engine;
+window.PopcornEngine = new Engine();
+
+declare var window.PopcornTwoDEngine : TwoDRenderingEngine;
+window.PopcornTwoDEngine = new TwoDRenderingEngine();
+
+declare var window.PopcornEntity : Entity;
+window.PopcornEntity = Entity;
+
+declare var window.PopcornCamera : Camera;
+window.PopcornCamera = Camera;

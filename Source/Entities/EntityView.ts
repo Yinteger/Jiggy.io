@@ -8,7 +8,7 @@ export default class EntityView extends Events.EventEmitter {
 	constructor () {
 		super();
 		this.visible = true;
-		this._notifyCallback = (attribute: string, value: any) => {this.notify(attribute, value)}
+		this._notifyCallback = (data: any) => {this.notify(data)}
 	}
 
 	public attachListener (model : EntityModel) : void {
@@ -21,7 +21,7 @@ export default class EntityView extends Events.EventEmitter {
 		// this._clear();
 	}
 
-	public notify (event: string, data: any) : void {
+	public notify (data: any) : void {
 		switch(data.attribute) {
 			case 'visible':
 				this.visible = data.value;

@@ -27,7 +27,7 @@ export class Asset {
 	 * @param {zen.assets.AssetFactory.TYPES} type Enumeration
 	 * @param {String} url  Location path.
 	 */
-	constructor(type: AssetType, url: string) {
+	constructor(type: AssetType, url?: string) {
 		this._id = IDGenerator.getSingleton().generate();
 		this._type = type;
 		this._data = null;
@@ -107,7 +107,7 @@ export class Asset {
 	 * 
 	 * @return {Mixed} 
 	 */
-	public getData(): Object {
+	public getData(): any {
 		return this._data;
 	}
 
