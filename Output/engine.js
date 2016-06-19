@@ -132,7 +132,8 @@
 	    ViewPort.prototype._checkForParentSizeChange = function (state) {
 	        if (this.canvas.parentNode) {
 	            var size = this.size;
-	            var parent_size = { width: this.canvas.parentNode.offsetWidth, height: this.canvas.parentNode.offsetHeight };
+	            var parent = this.canvas.parentNode;
+	            var parent_size = { width: parent.offsetWidth, height: parent.offsetHeight };
 	            if (size.width != parent_size.width || size.height != parent_size.height) {
 	                this.size = { width: parent_size.width, height: parent_size.height };
 	            }
