@@ -1,10 +1,9 @@
-import RenderingEngine from "./RenderingEngine";
-import Camera from "../Utils/Camera";
-import Entity from "../Entities/Entity";
-import Iterator from "../Utils/Iterator";
+import {RenderingEngine} from "./";
+import {Camera} from "../Utils/Camera";
+import {Entity} from "../Entities/Entity";
+import {Iterator} from "../Utils/Iterator";
 
-
-export default class TwoDRenderingEngine extends RenderingEngine {
+export class TwoDRenderingEngine extends RenderingEngine {
 	public debugRegions : boolean;
 	public debugCamera : boolean;
 

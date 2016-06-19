@@ -1,16 +1,9 @@
-import ViewPort from "../Utils/ViewPort";
-import {Asset} from "../Assets/Asset";
-import {AssetType} from "../Assets/AssetFactory";
-
-export interface SpritesheetDefinition {
-	x: number;
-	y: number;
-	height: number;
-	width: number;
-	flipX?: boolean;
-	flipY?: boolean;
-}
-
+import {ViewPort} from "../Utils/ViewPort";
+import {
+	Asset,
+	AssetType,
+	SpritesheetDefinition
+} from './';
 
 export class Spritesheet {
 	private _spritesheetAsset : Asset;

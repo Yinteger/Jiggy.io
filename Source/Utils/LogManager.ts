@@ -1,9 +1,4 @@
-export enum SeverityEnum {
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR
-}
+import { SeverityEnum } from './';
 
 export class LogManager {
 	private _logLevel : SeverityEnum;

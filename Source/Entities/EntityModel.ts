@@ -1,36 +1,12 @@
 import * as Events from 'events';
-import Iterator from "../Utils/Iterator";
+import {Iterator} from "../Utils/Iterator";
 import {Asset} from "../Assets/Asset";
-
-
-export const enum ModelEventTypes {
-	ATTR_CHANGE = 1,
-	ATTR_DELETE = 2,
-	TEXTURE_CHANGE = 3,
-	TEXTURE_DELETE = 4
-}
-
-export interface AttrChangeEvent {
-	attribute : string,
-	oldValue : any,
-	value : any
-}
-
-interface shortAttrChangeEvent {
-	attribute : string,
-	value : any
-}
-
-interface AttrDeleteEvent {
-	attribute : string,
-	value : any
-}
-
-interface TextureChangeEvent {
-	attribute: string,
-	name: string,
-	value: Asset
-}
+import {
+	ModelEventTypes,
+	ShortAttrChangeEvent,
+	TextureChangeEvent,
+	AttrDeleteEvent
+} from './';
 
 export class EntityModel extends Events.EventEmitter {
 	private _attributes : {[key: string]: any};

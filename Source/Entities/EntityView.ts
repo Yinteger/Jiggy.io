@@ -1,8 +1,12 @@
 import * as Events from 'events';
-import {EntityModel, ModelEventTypes, AttrChangeEvent} from "./EntityModel";
 import {Listener} from "../Utils/Listener";
+import {
+	EntityModel,
+	ModelEventTypes,
+	AttrChangeEvent
+} from './';
 
-export default class EntityView extends Events.EventEmitter {
+export class EntityView extends Events.EventEmitter {
 	public visible : boolean;
 	// private _notifyCallback : {(attribute: string, value: any) : void};
 	private _bindedFuncs :  {[key: string] : (event: Event) => void};
@@ -44,4 +48,6 @@ export default class EntityView extends Events.EventEmitter {
 		this._model.removeListener(ModelEventTypes.ATTR_CHANGE.toString(), this._bindedFuncs[ModelEventTypes.ATTR_CHANGE.toString()]);
 		// this._clear();
 	}
+
+	public notify(evt: any, data: any): void {}
 }

@@ -1,7 +1,7 @@
 import * as Events from 'events';
 import {Dimension} from "../Interfaces/Dimension";
 
-export default class ViewPort extends Events.EventEmitter {
+export class ViewPort extends Events.EventEmitter {
 	public canvas : HTMLCanvasElement;
 	public context : CanvasRenderingContext2D;
 	public resizable : boolean;

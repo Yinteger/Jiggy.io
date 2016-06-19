@@ -1,9 +1,10 @@
-import Entity from "./Entity";
-import {Dimension} from "../Interfaces/Dimension";
-import {Coordinate} from "../Interfaces/Coordinate";
+import {Entity} from "./Entity";
+import {
+	Dimension,
+	Coordinate
+} from '../Interfaces';
 
-
-export default class GridMap extends Entity {
+export class GridMap extends Entity {
 	public tileSize : Dimension;
 	public tileCount : Coordinate;
 	private _tiles : Entity[][];

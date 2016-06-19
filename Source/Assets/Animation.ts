@@ -1,5 +1,8 @@
-import {LogManager, SeverityEnum} from "../Utils/LogManager";
-import Entity from "../Entities/Entity";
+import {
+	LogManager,
+	SeverityEnum
+} from '../Utils';
+import {Entity} from "../Entities/Entity";
 import {Spritesheet} from "./Spritesheet";
 
 export class Animation {

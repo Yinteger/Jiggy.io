@@ -1,12 +1,9 @@
-import {AssetType} from './AssetFactory';
-import AssetLoader from './AssetLoader';
-import IDGenerator from '../Utils/IDGenerator';
-
-export enum AssetState {
-	NOT_LOADED,
-	LOADING,
-	LOADED
-}
+import {IDGenerator} from '../Utils/IDGenerator';
+import {
+	AssetState,
+	AssetType,
+	AssetLoader
+} from './';
 
 export class Asset {
 	private _id: string;

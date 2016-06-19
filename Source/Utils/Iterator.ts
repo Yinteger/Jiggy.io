@@ -1,4 +1,4 @@
-export default class Iterator {
+export class Iterator {
 	private _array : any[];
 	private _index : number;
 	private _length : number;

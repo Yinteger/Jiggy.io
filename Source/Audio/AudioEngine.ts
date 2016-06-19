@@ -1,6 +1,12 @@
-import {LogManager, SeverityEnum} from "../Utils/LogManager";
-import {Asset} from '../Assets/Asset';
-import {AssetFactory, AssetType} from '../Assets/AssetFactory';
+import {
+	LogManager,
+	SeverityEnum
+} from '../Utils';
+import {
+	Asset,
+	AssetFactory,
+	AssetType
+} from '../Assets';
 
 var assetFactory: AssetFactory = AssetFactory.getSingleton();
 

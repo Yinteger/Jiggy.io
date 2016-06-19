@@ -1,15 +1,12 @@
-import AssetLoader from './AssetLoader';
-import AudioLoader from './AudioLoader';
-import JSONLoader  from './JSONLoader';
-import ImageLoader from './ImageLoader';
-import {Asset, AssetState} from './Asset';
-
-export enum AssetType {
-	RAW,
-	IMAGE,
-	AUDIO,
-	JSON
-}
+import {
+	AssetLoader,
+	AudioLoader,
+	ImageLoader,
+	JSONLoader,
+	Asset,
+	AssetState,
+	AssetType
+} from './';
 
 interface AssetCache {
 	[url: string]: Asset;

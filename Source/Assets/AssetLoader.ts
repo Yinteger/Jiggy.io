@@ -1,6 +1,9 @@
-import {Asset, AssetState} from './Asset';
+import {
+	Asset,
+	AssetState
+} from './';
 
-export default class AssetLoader {
+export class AssetLoader {
 
 	constructor() {}
 
