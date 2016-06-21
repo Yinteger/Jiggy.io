@@ -10,7 +10,7 @@ export const enum ModelEventTypes {
 	TEXTURE_DELETE = 4
 }
 
-interface AttrChangeEvent {
+export interface AttrChangeEvent {
 	attribute : string,
 	oldValue : any,
 	value : any

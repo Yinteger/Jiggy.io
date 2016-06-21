@@ -2,7 +2,7 @@ import ViewPort from "./Utils/ViewPort";
 import Camera from "./Utils/Camera";
 import {AudioEngine} from './Audio/AudioEngine';
 import HTML5AudioEngine from "./Audio/HTML5AudioEngine";
-import {AssetFactory} from './Assets/AssetFactory';
+import {AssetFactory, AssetType} from './Assets/AssetFactory';
 import RenderingEngine from "./Engines/RenderingEngine";
 import {LogManager, SeverityEnum} from "./Utils/LogManager";
 
@@ -12,10 +12,12 @@ import GroupLogicEngine from "./Engines/GroupLogicEngine";
 import GridMap from "./Entities/GridMap";
 import Entity from "./Entities/Entity";
 import {Animation} from "./Assets/Animation";
+import {AssetState} from "./Assets/Asset";
+import {Spritesheet} from "./Assets/Spritesheet";
 //End//
 
 class Engine {
-	public renderingEngine : RenderingEngine;
+	private _renderingEngine : RenderingEngine;
 	public audioEngine : AudioEngine;
 	public logManager : LogManager;
 	public assetFactory : AssetFactory;
@@ -44,8 +46,20 @@ class Engine {
 		}
 	}
 
-	public onInit (canvas : HTMLCanvasElement) : void {
+	set renderingEngine (renderingEngine : RenderingEngine) : void {
+		if (this.renderingEngine) {
+			//Stop the old rendering engine
+		}
 
+		this._renderingEngine = renderingEngine;
+
+		//Start the new Rendering engine, pass in View Port, etc...
+		this._renderingEngine.viewPort = this.viewPort;
+		this._renderingEngine.startRendering();
+	}
+
+	get renderingEngine () : RenderingEngine {
+		return this._renderingEngine;
 	}
 }
 
@@ -60,3 +74,18 @@ window.PopcornEntity = Entity;
 
 declare var window.PopcornCamera : Camera;
 window.PopcornCamera = Camera;
+
+declare var window.PopcornAssetFactory : AssetFactory;
+window.PopcornAssetFactory = AssetFactory.getSingleton();
+
+declare var window.PopcornAssetFactoryEnum : AssetType;
+window.PopcornAssetFactoryEnum = AssetType;
+
+declare var window.PopcornAssetState : AssetState;
+window.PopcornAssetState = AssetState;
+
+declare var window.PopcornSpritesheet : Spritesheet;
+window.PopcornSpritesheet = Spritesheet;
+
+declare var window.PopcornAnimation : Animation;
+window.PopcornAnimation = Animation;
