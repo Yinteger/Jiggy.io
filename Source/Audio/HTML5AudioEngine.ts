@@ -1,7 +1,7 @@
-import {AudioEngine} from './AudioEngine';
-import {Asset} from '../Assets/Asset';
+import {AudioEngine} from './';
+import {Asset} from '../Assets';
 
-export default class HTML5AudioEngine extends AudioEngine {
+export class HTML5AudioEngine extends AudioEngine {
 	private _backgroundAudios: Asset[];
 	private _soundEffects: Asset[];
 	private _backgroundVolume: number;

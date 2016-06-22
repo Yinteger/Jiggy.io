@@ -1,7 +1,9 @@
-import AssetLoader from './AssetLoader';
-import {Asset} from './Asset';
+import {
+	Asset,
+	AssetLoader
+} from './';
 
-export default class JSONLoader extends AssetLoader {
+export class JSONLoader extends AssetLoader {
 	constructor() {
 		super();
 	}

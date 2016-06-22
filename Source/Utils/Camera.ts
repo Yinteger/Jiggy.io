@@ -1,8 +1,10 @@
-import Entity from "../Entities/Entity";
-import {Coordinate} from "../Interfaces/Coordinate";
-import {Dimension} from "../Interfaces/Dimension";
+import {Entity} from "../Entities/Entity";
+import {
+	Coordinate,
+	Dimension
+} from '../Interfaces';
 
-export default class Camera {
+export class Camera {
 	public scene : Entity;
 	public viewPoint : Coordinate;
 	public fov : Dimension;

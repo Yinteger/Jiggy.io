@@ -1,20 +1,41 @@
-import ViewPort from "./Utils/ViewPort";
-import Camera from "./Utils/Camera";
-import {AudioEngine} from './Audio/AudioEngine';
-import HTML5AudioEngine from "./Audio/HTML5AudioEngine";
-import {AssetFactory, AssetType} from './Assets/AssetFactory';
-import RenderingEngine from "./Engines/RenderingEngine";
-import {LogManager, SeverityEnum} from "./Utils/LogManager";
+import {
+	ViewPort,
+	Camera,
+	LogManager,
+	SeverityEnum
+} from './Utils';
+
+import {
+	AudioEngine,
+	HTML5AudioEngine
+} from './Audio';
+
+import {
+	AssetFactory,
+	AssetType,
+	AssetState
+} from './Assets';
+
+import {
+	RenderingEngine,
+	GroupLogicEngine,
+	TwoDRenderingEngine
+} from './Engines';
 
 //Typescript Testing Imports
-import TwoDRenderingEngine from "./Engines/TwoDRenderingEngine";
-import GroupLogicEngine from "./Engines/GroupLogicEngine";
-import {ControllerFactory} from './Inputs/ControllerFactory';
-import GridMap from "./Entities/GridMap";
-import Entity from "./Entities/Entity";
-import {Animation} from "./Assets/Animation";
-import {AssetState} from "./Assets/Asset";
-import {Spritesheet} from "./Assets/Spritesheet";
+import {
+	GridMap,
+	Entity
+} from './Entities';
+
+import {
+	ControllerFactory
+} from './Inputs';
+
+import {
+	Animation,
+	Spritesheet
+} from './Assets';
 //End//
 
 export default class Engine {

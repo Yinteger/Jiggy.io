@@ -1,15 +1,22 @@
 import * as Events from 'events';
-import {Dimension} from "../Interfaces/Dimension";
-import {Coordinate} from "../Interfaces/Coordinate";
-import {Color} from "../Interfaces/Color";
-import Iterator from "../Utils/Iterator";
-import {EntityModel, ModelEventTypes} from "./EntityModel";
-import EntityView from "./EntityView";
-import {Asset} from "../Assets/Asset";
-import {AssetType} from "../Assets/AssetFactory";
+import {
+	Dimension,
+	Coordinate,
+	Color
+} from '../Interfaces';
+import {
+	Asset,
+	AssetType
+} from '../Assets';
+import {
+	EntityModel,
+	ModelEventTypes,
+	EntityView
+} from './';
 
+import {Iterator} from "../Utils/Iterator";
 
-export default class Entity extends Events.EventEmitter {
+export class Entity extends Events.EventEmitter {
 	public view : EntityView;
 	protected _model : EntityModel;
 	protected _children : Entity[];

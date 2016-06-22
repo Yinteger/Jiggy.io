@@ -5,7 +5,7 @@ import {
 	ControllerType
 } from './';
 
-export default class InputManager extends EventEmitter {
+export class InputManager extends EventEmitter {
 	private static _instance: InputManager;
 	private _controllers: {[name: string]: Controller};
 	private _factory: ControllerFactory;

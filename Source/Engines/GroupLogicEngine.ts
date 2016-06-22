@@ -1,4 +1,4 @@
-import {LogicEngine} from "./LogicEngine";
+import {LogicEngine} from "./";
 
 interface LogicCall {
 	method: {(): void;};
@@ -10,7 +10,7 @@ interface Interval {
 	interval_id: any;
 }
 
-export default class GroupLogicEngine extends LogicEngine {
+export class GroupLogicEngine extends LogicEngine {
 	private _logicCalls : {[key: string]: LogicCall};
 	private _intervals : {[key: string]: Interval};
 	private _intervalID : string;

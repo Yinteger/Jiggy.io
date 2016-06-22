@@ -1,7 +1,10 @@
-import AssetLoader from './AssetLoader';
-import {Asset, AssetState} from './Asset';
+import {
+	Asset,
+	AssetLoader,
+	AssetState
+} from './';
 
-export default class ImageLoader extends AssetLoader {
+export class ImageLoader extends AssetLoader {
 	constructor() {
 		super();
 	}

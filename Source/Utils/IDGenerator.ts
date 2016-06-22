@@ -1,5 +1,5 @@
 
-export default class IDGenerator {
+export class IDGenerator {
 	private static _instance: IDGenerator;
 
 	constructor() {

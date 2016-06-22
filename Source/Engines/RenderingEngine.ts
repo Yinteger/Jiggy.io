@@ -1,9 +1,8 @@
-import ViewPort from "../Utils/ViewPort";
-import Entity from "../Entities/Entity";
-import Camera from "../Utils/Camera";
+import {ViewPort} from "../Utils/ViewPort";
+import {Entity} from "../Entities/Entity";
+import {Camera} from "../Utils/Camera";
 
-
-export default class RenderingEngine {
+export class RenderingEngine {
 	public viewPort : ViewPort;
 	protected _prerenderViewPort : ViewPort;
 	protected _rendering  : boolean;

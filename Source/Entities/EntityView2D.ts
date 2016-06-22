@@ -1,6 +1,6 @@
-import EntityView from "./EntityView";
+import {EntityView} from "./EntityView";
 
-export default class EntityView2D extends EntityView {
+export class EntityView2D extends EntityView {
 
 	set visible (state : boolean) {
 		this._visible = state;
@@ -29,7 +29,7 @@ export default class EntityView2D extends EntityView {
 	public notify (evt: any, data: any) : void {
 		switch(data.attribute) {
 			default:
-				super().notify(evt, data);
+				super.notify(evt, data);
 				break;
 		}
 	}
