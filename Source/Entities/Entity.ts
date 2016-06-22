@@ -28,6 +28,7 @@ export class Entity extends Events.EventEmitter {
 	private _notifierKeys : string[];
 	private _parentNotifierKeys : string[];
 	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
+	public collisionable : boolean;
 
 	constructor (model? : EntityModel) {
 		super();
@@ -59,6 +60,7 @@ export class Entity extends Events.EventEmitter {
 		this._regionDimension; //The dimensions of the regions for this Entity
 		this._regionList = {}; //Mapping of Children to Region(s) so we don't have to search
 
+		this.collisionable = false;
 		//Layer Management
 		// this.layers = [[]]; //Layers for rendering so children can be rendering in proper order
 		// this.layerList = {}; //Mapping of Children to Layers so we don't have to search
@@ -405,7 +407,7 @@ export class Entity extends Events.EventEmitter {
 		}
 	 }
 
-	 public findChildren (startCoordinate : Coordinate, endCoordinate : Coordinate) : Entity[] {
+	 public findChildren (startCoordinate? : Coordinate, endCoordinate? : Coordinate) : Entity[] {
 		var children : Entity[] = [];
 
 		if (this._children.length > 0) {

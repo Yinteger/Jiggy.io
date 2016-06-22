@@ -54,7 +54,9 @@
 	var Engines_1 = __webpack_require__(25);
 	var Audio_1 = __webpack_require__(10);
 	var Entities_1 = __webpack_require__(30);
+	var Utils_1 = __webpack_require__(2);
 	var Assets_1 = __webpack_require__(12);
+	var Character_1 = __webpack_require__(36);
 	var PalletDemo = (function (_super) {
 	    __extends(PalletDemo, _super);
 	    function PalletDemo() {
@@ -62,24 +64,25 @@
 	        this.viewPort.size = ({ width: 500, height: 500 });
 	        this.renderingEngine = new Engines_1.TwoDRenderingEngine();
 	        this.audioEngine = new Audio_1.HTML5AudioEngine();
+	        this.logicEngine = new Engines_1.GroupLogicEngine();
 	        this.renderingEngine.HUDEntity = (this._createLoadingScreen());
 	        this._loadResources();
 	    }
 	    PalletDemo.prototype._createLoadingScreen = function () {
 	        var textAssetBuilder = new Assets_1.TextAssetBuilder();
 	        var hud = new Entities_1.Entity();
-	        hud.width = this.viewPort.size.width;
-	        hud.height = this.viewPort.size.height;
+	        hud.width = 500;
+	        hud.height = 500;
 	        var loadingText = new Entities_1.Entity();
 	        loadingText.width = 165;
 	        loadingText.height = 50;
-	        loadingText.x = (this.viewPort.size.width / 2) - 100;
-	        loadingText.y = (this.viewPort.size.height / 2) - 25;
+	        loadingText.x = (500 / 2) - 100;
+	        loadingText.y = (500 / 2) - 25;
 	        hud.addChild(loadingText);
-	        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "red");
-	        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "red");
-	        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "red");
-	        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "red");
+	        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "black");
+	        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
+	        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
+	        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
 	        var loadingAnim = new Assets_1.Animation(loadingText, [
 	            { 'asset': loading0, 'delay': 250 },
 	            { 'asset': loading1, 'delay': 250 },
@@ -104,15 +107,182 @@
 	            var tile = layer1Iterator.next();
 	            tile.texture = (this._mapSpritesheet.getSprite('grass'));
 	        }
+	        layer3.getTile({ x: 10, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_11');
+	        layer3.getTile({ x: 11, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_12');
+	        layer3.getTile({ x: 12, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_13');
+	        layer2.getTile({ x: 10, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_21');
+	        layer2.getTile({ x: 11, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_22');
+	        layer2.getTile({ x: 12, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_23');
+	        layer2.getTile({ x: 10, y: 11 }).collisionable = true;
+	        layer2.getTile({ x: 11, y: 11 }).collisionable = true;
+	        layer2.getTile({ x: 12, y: 11 }).collisionable = true;
+	        layer2.getTile({ x: 10, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_31');
+	        layer2.getTile({ x: 11, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_32');
+	        layer2.getTile({ x: 12, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_33');
+	        layer2.getTile({ x: 10, y: 12 }).collisionable = true;
+	        layer2.getTile({ x: 11, y: 12 }).collisionable = true;
+	        layer2.getTile({ x: 12, y: 12 }).collisionable = true;
+	        layer2.getTile({ x: 10, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_41');
+	        layer2.getTile({ x: 11, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_42');
+	        layer2.getTile({ x: 12, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_43');
+	        layer2.getTile({ x: 10, y: 13 }).collisionable = true;
+	        layer2.getTile({ x: 11, y: 13 }).collisionable = true;
+	        layer2.getTile({ x: 12, y: 13 }).collisionable = true;
 	        return mapContainer;
 	    };
 	    PalletDemo.prototype._loadResources = function () {
 	        this._loadMapSpritesheet();
+	        this._loadBackgroundMusic();
+	        this._loadCharacterSpritesheet();
+	    };
+	    PalletDemo.prototype._resourceLoaded = function () {
+	        var _this = this;
+	        if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
+	            console.log("Resources all loaded");
+	            setTimeout(function () {
+	                delete _this.renderingEngine.HUDEntity;
+	                var map = _this._createMainMap();
+	                var camera = new Utils_1.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
+	                _this.renderingEngine.addCamera(camera);
+	                _this.player = new Character_1.default(_this._characterSpritesheet);
+	                _this.player.texture = _this._characterSpritesheet.getSprite("player_down");
+	                var layer = map.getChildAt(1);
+	                var tile = layer.getTile({ x: 5, y: 5 });
+	                layer.addChild(_this.player);
+	                _this.player.tileX = 5;
+	                _this.player.tileY = 5;
+	                _this.player.x = tile.x;
+	                _this.player.y = tile.y - _this.player.height - tile.height;
+	            }, 1000);
+	        }
 	    };
 	    PalletDemo.prototype._loadMapSpritesheet = function () {
+	        var _this = this;
+	        var map_asset = Assets_1.AssetFactory.getSingleton().build(Assets_1.AssetType.IMAGE, 'Resources/61816.png');
+	        map_asset.onStateChange = function (state) {
+	            if (state === Assets_1.AssetState.LOADED) {
+	                _this._mapSpritesheet = new Assets_1.Spritesheet(map_asset, {
+	                    "grass": {
+	                        x: 16,
+	                        y: 0,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_11": {
+	                        x: 0,
+	                        y: 16,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_12": {
+	                        x: 16,
+	                        y: 16,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_13": {
+	                        x: 32,
+	                        y: 16,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_21": {
+	                        x: 0,
+	                        y: 32,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_22": {
+	                        x: 16,
+	                        y: 32,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_23": {
+	                        x: 32,
+	                        y: 32,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_31": {
+	                        x: 0,
+	                        y: 48,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_32": {
+	                        x: 16,
+	                        y: 48,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_33": {
+	                        x: 32,
+	                        y: 48,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_41": {
+	                        x: 0,
+	                        y: 64,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_42": {
+	                        x: 16,
+	                        y: 64,
+	                        width: 16,
+	                        height: 16
+	                    },
+	                    "house_1_roof_43": {
+	                        x: 32,
+	                        y: 64,
+	                        width: 16,
+	                        height: 16
+	                    } });
+	                _this._resourceLoaded();
+	            }
+	        };
+	        map_asset.load();
+	    };
+	    PalletDemo.prototype._loadCharacterSpritesheet = function () {
+	        var _this = this;
+	        var character_spritesheet = Assets_1.AssetFactory.getSingleton().build(Assets_1.AssetType.IMAGE, 'Resources/3698.png');
+	        character_spritesheet.onStateChange = function (state) {
+	            if (state === Assets_1.AssetState.LOADED) {
+	                _this._characterSpritesheet = new Assets_1.Spritesheet(character_spritesheet, {
+	                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
+	                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
+	                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
+	                    "player_left": { x: 36, y: 10, width: 14, height: 20 },
+	                    "player_left_step1": { x: 81, y: 10, width: 14, height: 20 },
+	                    "player_left_step2": { x: 95, y: 10, width: 14, height: 20 },
+	                    "player_right": { x: 36, y: 10, width: 14, height: 20, "flipX": true },
+	                    "player_right_step1": { x: 81, y: 10, width: 14, height: 20, "flipX": true },
+	                    "player_right_step2": { x: 95, y: 10, width: 14, height: 20, "flipX": true },
+	                    "player_down": { x: 6, y: 10, width: 14, height: 20 },
+	                    "player_down_step1": { x: 51, y: 10, width: 14, height: 20 },
+	                    "player_down_step2": { x: 51, y: 10, width: 14, height: 20, "flipX": true }
+	                });
+	                _this._resourceLoaded();
+	            }
+	        };
+	        character_spritesheet.load();
+	    };
+	    PalletDemo.prototype._loadBackgroundMusic = function () {
+	        var _this = this;
+	        var bg_music = Assets_1.AssetFactory.getSingleton().build(Assets_1.AssetType.AUDIO, 'Resources/music.mp3');
+	        bg_music.onStateChange = function (state) {
+	            if (state === Assets_1.AssetState.LOADED) {
+	                _this._bgMusic = bg_music;
+	                _this._resourceLoaded();
+	            }
+	        };
+	        bg_music.load();
 	    };
 	    return PalletDemo;
 	}(Engine_1.default));
+	window._PalletDemo = new PalletDemo();
 
 
 /***/ },
@@ -125,6 +295,10 @@
 	var Assets_1 = __webpack_require__(12);
 	var Engine = (function () {
 	    function Engine() {
+	        if (Engine._instance) {
+	            throw new Error('Engine is a singleton');
+	        }
+	        Engine._instance = this;
 	        this.debugMode = false;
 	        this.logManager = Utils_1.LogManager.getInstance();
 	        this.assetFactory = Assets_1.AssetFactory.getSingleton();
@@ -132,6 +306,12 @@
 	        this.viewPort = new Utils_1.ViewPort();
 	        this.logManager.log(Utils_1.SeverityEnum.INFO, 'Engine has started.');
 	    }
+	    Engine.getSingleton = function () {
+	        if (!Engine._instance) {
+	            new Engine();
+	        }
+	        return Engine._instance;
+	    };
 	    Object.defineProperty(Engine.prototype, "renderingEngine", {
 	        get: function () {
 	            return this._renderingEngine;
@@ -275,29 +455,29 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var _1 = __webpack_require__(2);
+	var SeverityEnum_1 = __webpack_require__(7);
 	var LogManager = (function () {
 	    function LogManager() {
 	        if (LogManager._instance) {
 	            throw new Error("Error: Instantiation failed: Use getInstance() instead of new.");
 	        }
 	        LogManager._instance = this;
-	        this._logLevel = _1.SeverityEnum.WARNING | _1.SeverityEnum.ERROR;
-	        this._logLevel = this._logLevel | _1.SeverityEnum.DEBUG | _1.SeverityEnum.INFO;
+	        this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
+	        this._logLevel = this._logLevel | SeverityEnum_1.SeverityEnum.DEBUG | SeverityEnum_1.SeverityEnum.INFO;
 	    }
 	    LogManager.prototype.log = function (severity, message) {
 	        if (this.getLogLevel() & severity) {
 	            switch (severity) {
-	                case _1.SeverityEnum.DEBUG:
+	                case SeverityEnum_1.SeverityEnum.DEBUG:
 	                    console.debug(message);
 	                    break;
-	                case _1.SeverityEnum.INFO:
+	                case SeverityEnum_1.SeverityEnum.INFO:
 	                    console.info(message);
 	                    break;
-	                case _1.SeverityEnum.WARNING:
+	                case SeverityEnum_1.SeverityEnum.WARNING:
 	                    console.warn(message);
 	                    break;
-	                case _1.SeverityEnum.ERROR:
+	                case SeverityEnum_1.SeverityEnum.ERROR:
 	                    console.error(message);
 	                    break;
 	            }
@@ -1667,7 +1847,10 @@
 	var GroupLogicEngine = (function (_super) {
 	    __extends(GroupLogicEngine, _super);
 	    function GroupLogicEngine() {
-	        _super.apply(this, arguments);
+	        _super.call(this);
+	        this._logicCalls = {};
+	        this._intervals = {};
+	        this._interval = 10;
 	    }
 	    GroupLogicEngine.prototype.addLogic = function (id, logicMethod, interval) {
 	        this._logicCalls[id] = {
@@ -2017,6 +2200,7 @@
 	        this._regions = [];
 	        this._regionDimension;
 	        this._regionList = {};
+	        this.collisionable = false;
 	        this._parent = null;
 	        this._modified = false;
 	        this._notifierKeys = ['width', 'height', 'color', 'texture', 'textures'];
@@ -2673,6 +2857,168 @@
 	    return GridMap;
 	}(Entity_1.Entity));
 	exports.GridMap = GridMap;
+
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Entities_1 = __webpack_require__(30);
+	var Assets_1 = __webpack_require__(12);
+	var Engine_1 = __webpack_require__(1);
+	var Character = (function (_super) {
+	    __extends(Character, _super);
+	    function Character(character_spritesheet) {
+	        _super.call(this);
+	        this.width = 14;
+	        this.height = 21;
+	        this._characterSpritesheet = character_spritesheet;
+	        this._upAnim = new Assets_1.Animation(this, [
+	            { "asset": character_spritesheet.getSprite('player_up_step1'), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_up_step2"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 }]);
+	        this._downAnim = new Assets_1.Animation(this, [
+	            { "asset": character_spritesheet.getSprite("player_down_step1"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_down_step2"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 }]);
+	        this._leftAnim = new Assets_1.Animation(this, [
+	            { "asset": character_spritesheet.getSprite("player_left_step2"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_left_step1"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 }]);
+	        this._rightAnim = new Assets_1.Animation(this, [
+	            { "asset": character_spritesheet.getSprite("player_right_step2"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_right_step1"), "delay": 250 },
+	            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 }]);
+	    }
+	    Character.prototype._move = function (coordinates) {
+	        var _this = this;
+	        Engine_1.default.getSingleton().logicEngine.removeLogic(this.ID + "_endmove");
+	        var collision = false;
+	        var updatedCoordinates = false;
+	        var x = coordinates.x;
+	        var y = coordinates.y;
+	        var potCollisions = this.parent.findChildren({ x: x + 1, y: y + 16 });
+	        for (var i in potCollisions) {
+	            if (potCollisions[i] != this && potCollisions[i].collisionable) {
+	                collision = true;
+	            }
+	        }
+	        if (!collision) {
+	            Engine_1.default.getSingleton().logicEngine.addLogic(this.ID + "_move", function () {
+	                if (_this.x != x) {
+	                    if (_this.x > x) {
+	                        _this.x = (_this.x - 2);
+	                        if (!updatedCoordinates) {
+	                            _this.tileX -= 1;
+	                            updatedCoordinates = true;
+	                        }
+	                    }
+	                    else {
+	                        _this.x = (_this.x + 2);
+	                        if (!updatedCoordinates) {
+	                            _this.tileX += 1;
+	                            updatedCoordinates = true;
+	                        }
+	                    }
+	                }
+	                if (_this.y != y) {
+	                    if (_this.y > y) {
+	                        _this.y = (_this.y - 2);
+	                        if (!updatedCoordinates) {
+	                            _this.tileY -= 1;
+	                            updatedCoordinates = true;
+	                        }
+	                    }
+	                    else {
+	                        _this.y = (_this.y) + 2;
+	                        if (!updatedCoordinates) {
+	                            _this.tileY += 1;
+	                            updatedCoordinates = true;
+	                        }
+	                    }
+	                }
+	                ;
+	                if (_this.x == x && _this.y == y || collision) {
+	                    Engine_1.default.getSingleton().logicEngine.removeLogic(_this.ID + "_move");
+	                    _this.moving = false;
+	                    Engine_1.default.getSingleton().logicEngine.addLogic(_this.ID + "_endmove", function () {
+	                        _this._activeAnim.stop();
+	                        delete _this._activeAnim;
+	                        _this.texture = _this._endTexture;
+	                        Engine_1.default.getSingleton().logicEngine.removeLogic(_this.ID + "_endmove");
+	                    }, 50);
+	                }
+	            }, 50);
+	        }
+	        else {
+	            this.moving = false;
+	            this._activeAnim.stop();
+	            delete this._activeAnim;
+	            this.texture = (this._endTexture);
+	        }
+	    };
+	    Character.prototype.moveLeft = function () {
+	        if (!this.moving) {
+	            if (this._activeAnim && this._activeAnim != this._leftAnim) {
+	                this._activeAnim.stop();
+	            }
+	            this._endTexture = this._characterSpritesheet.getSprite("player_left");
+	            this._leftAnim.start();
+	            this._activeAnim = this._leftAnim;
+	            this.moving = true;
+	            this._move({ x: this.x - 16, y: this.y });
+	        }
+	    };
+	    Character.prototype.moveUp = function () {
+	        if (!this.moving) {
+	            if (this._activeAnim && this._activeAnim != this._upAnim) {
+	                this._activeAnim.stop();
+	            }
+	            this._endTexture = this._characterSpritesheet.getSprite("player_up");
+	            this._upAnim.start();
+	            this._activeAnim = this._upAnim;
+	            this.moving = true;
+	            this._move({ x: this.x, y: this.y - 16 });
+	        }
+	    };
+	    Character.prototype.moveRight = function () {
+	        if (!this.moving) {
+	            if (this._activeAnim && this._activeAnim != this._rightAnim) {
+	                this._activeAnim.stop();
+	            }
+	            this._endTexture = this._characterSpritesheet.getSprite("player_right");
+	            this._rightAnim.start();
+	            this._activeAnim = this._rightAnim;
+	            this.moving = true;
+	            this._move({ x: this.x + 16, y: this.y });
+	        }
+	    };
+	    Character.prototype.moveDown = function () {
+	        if (!this.moving) {
+	            if (this._activeAnim && this._activeAnim != this._downAnim) {
+	                this._activeAnim.stop();
+	            }
+	            this._endTexture = this._characterSpritesheet.getSprite("player_down");
+	            this._downAnim.start();
+	            this._activeAnim = this._downAnim;
+	            this.moving = true;
+	            this._move({ x: this.x, y: this.y + 16 });
+	        }
+	    };
+	    return Character;
+	}(Entities_1.Entity));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Character;
 
 
 /***/ }
