@@ -1,4 +1,4 @@
-import { SeverityEnum } from './';
+import { SeverityEnum } from './SeverityEnum';
 
 export class LogManager {
 	private _logLevel : SeverityEnum;
