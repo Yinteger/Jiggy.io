@@ -1,15 +1,15 @@
 import * as Events from 'events';
-import {EntityModel, ModelEventTypes, AttrChangeEvent} from "./EntityModel";
+import {EntityModel, ModelEventTypes, AttrChangeEvent} from "./";
 
-export default class EntityView extends Events.EventEmitter {
-	public visible : boolean;
+export class EntityView extends Events.EventEmitter {
+	protected _visible : boolean;
 	// private _notifyCallback : {(attribute: string, value: any) : void};
-	private _bindedFuncs :  {[key: string] : (event: Event) => void};
-	private _model : EntityModel;
+	protected _bindedFuncs :  {[key: string] : (event: Event) => void};
+	protected _model : EntityModel;
 
 	constructor (model: EntityModel) {
 		super();
-		this.visible = true;
+		this._visible = true;
 		this._model = model;
 		this._bindedFuncs = {};
 
@@ -17,6 +17,14 @@ export default class EntityView extends Events.EventEmitter {
 		this._attachEvents();
 
 
+	}
+
+	set visible (visible: boolean) {
+		this._visible = visible;
+	}
+
+	get visible () {
+		return this._visible;
 	}
 
 	set model (model: EntityModel) {

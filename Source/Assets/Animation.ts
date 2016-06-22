@@ -4,22 +4,21 @@ import {
 } from '../Utils';
 import {Entity} from "../Entities/Entity";
 import {Spritesheet} from "./Spritesheet";
+import {Asset} from "../Assets";
 
 export class Animation {
 	public loop : boolean;
 	public reverseLoop : boolean;
 
 	private _entity : Entity;
-	private _spritesheet : Spritesheet;
 	private _animationDefinition : AnimationFrame[];
 	private _direction : string;
 	private _animating : boolean;
 	private _animation_index : number;
 	private timeout: any;
 
-	constructor (entity: Entity, spritesheet: Spritesheet, animationDefinitions: AnimationFrame[]) {
+	constructor (entity: Entity, animationDefinitions: AnimationFrame[]) {
 		this._entity = entity; //Entity to do the animation
-		this._spritesheet = spritesheet; //The spritesheet for the animation
 		this._animationDefinition = animationDefinitions; //Definitions for animations
 		this.loop = true;
 		this.timeout = false;
@@ -48,7 +47,7 @@ export class Animation {
 
 	private _loadStep (stepIndex: number) : void {
 		var step = this._animationDefinition[stepIndex];
-		var sprite = this._spritesheet.getSprite(step.sprite_id);
+		var sprite = step.asset;
 		this._entity.texture = sprite;
 		this._entity.width = sprite.getData().width;
 		this._entity.height = sprite.getData().height;
@@ -108,7 +107,7 @@ export class Animation {
 }
 
 export interface AnimationFrame {
-	sprite_id: string;
+	asset: Asset;
 	delay:  number;
 	moveX? : number;
 	moveY?: number;

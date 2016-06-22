@@ -7,6 +7,7 @@ export {AssetLoader} from './AssetLoader';
 export {AudioLoader} from './AudioLoader';
 export {ImageLoader} from './ImageLoader';
 export {JSONLoader} from './JSONLoader';
+export {TextAssetBuilder} from "./TextAssetBuilder";
 
 export {Spritesheet} from './Spritesheet';
 export {SpritesheetDefinition} from './SpritesheetDefinition';
