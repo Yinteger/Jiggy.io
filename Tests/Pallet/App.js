@@ -157,22 +157,36 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Camera_1 = __webpack_require__(3);
-	exports.Camera = Camera_1.Camera;
-	var IDGenerator_1 = __webpack_require__(4);
-	exports.IDGenerator = IDGenerator_1.IDGenerator;
-	var Iterator_1 = __webpack_require__(5);
-	exports.Iterator = Iterator_1.Iterator;
-	var LogManager_1 = __webpack_require__(6);
-	exports.LogManager = LogManager_1.LogManager;
-	var SeverityEnum_1 = __webpack_require__(7);
+	var SeverityEnum_1 = __webpack_require__(3);
 	exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+	var Camera_1 = __webpack_require__(4);
+	exports.Camera = Camera_1.Camera;
+	var IDGenerator_1 = __webpack_require__(5);
+	exports.IDGenerator = IDGenerator_1.IDGenerator;
+	var Iterator_1 = __webpack_require__(6);
+	exports.Iterator = Iterator_1.Iterator;
+	var LogManager_1 = __webpack_require__(7);
+	exports.LogManager = LogManager_1.LogManager;
 	var ViewPort_1 = __webpack_require__(8);
 	exports.ViewPort = ViewPort_1.ViewPort;
 
 
 /***/ },
 /* 3 */
+/***/ function(module, exports) {
+
+	"use strict";
+	(function (SeverityEnum) {
+	    SeverityEnum[SeverityEnum["DEBUG"] = 0] = "DEBUG";
+	    SeverityEnum[SeverityEnum["INFO"] = 1] = "INFO";
+	    SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
+	    SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
+	})(exports.SeverityEnum || (exports.SeverityEnum = {}));
+	var SeverityEnum = exports.SeverityEnum;
+
+
+/***/ },
+/* 4 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -190,7 +204,7 @@
 
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -219,7 +233,7 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -271,7 +285,7 @@
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -317,20 +331,6 @@
 	    return LogManager;
 	}());
 	exports.LogManager = LogManager;
-
-
-/***/ },
-/* 7 */
-/***/ function(module, exports) {
-
-	"use strict";
-	(function (SeverityEnum) {
-	    SeverityEnum[SeverityEnum["DEBUG"] = 0] = "DEBUG";
-	    SeverityEnum[SeverityEnum["INFO"] = 1] = "INFO";
-	    SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
-	    SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
-	})(exports.SeverityEnum || (exports.SeverityEnum = {}));
-	var SeverityEnum = exports.SeverityEnum;
 
 
 /***/ },
@@ -970,7 +970,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var IDGenerator_1 = __webpack_require__(4);
+	var IDGenerator_1 = __webpack_require__(5);
 	var _1 = __webpack_require__(12);
 	var Asset = (function () {
 	    function Asset(type, url) {
@@ -1992,7 +1992,7 @@
 	var Events = __webpack_require__(9);
 	var Assets_1 = __webpack_require__(12);
 	var _1 = __webpack_require__(30);
-	var Iterator_1 = __webpack_require__(5);
+	var Iterator_1 = __webpack_require__(6);
 	var Entity = (function (_super) {
 	    __extends(Entity, _super);
 	    function Entity(model) {
