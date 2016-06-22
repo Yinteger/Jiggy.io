@@ -70,8 +70,10 @@ export class Asset {
 	 * @param {zen.assets.Asset Enumeration} state 
 	 */
 	public setState(state: AssetState): void {
-		this._state = state;
-		this.onStateChange(this._state);
+		if (this._state !== state) {
+			this._state = state;
+			this.onStateChange(this._state);
+		}
 	}
 
 	/**
