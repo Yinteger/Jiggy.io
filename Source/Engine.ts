@@ -17,7 +17,7 @@ import {AssetState} from "./Assets/Asset";
 import {Spritesheet} from "./Assets/Spritesheet";
 //End//
 
-class Engine {
+export default class Engine {
 	private _renderingEngine : RenderingEngine;
 	public audioEngine : AudioEngine;
 	public logManager : LogManager;
@@ -38,16 +38,10 @@ class Engine {
 		//Create the ViewPort
 		this.viewPort = new ViewPort();
 
-		//If Engine is ready, notify our callback
-		if (this.onInit) {
-			this.logManager.log(SeverityEnum.INFO, 'Engine has started.');
-			this.onInit(this.viewPort.canvas)
-		} else {
-			this.logManager.log(SeverityEnum.WARNING, 'No onInit specified for Zengine. How will you know when to start using it?!');
-		}
+		this.logManager.log(SeverityEnum.INFO, 'Engine has started.');
 	}
 
-	set renderingEngine (renderingEngine : RenderingEngine) : void {
+	set renderingEngine (renderingEngine : RenderingEngine) {
 		if (this.renderingEngine) {
 			//Stop the old rendering engine
 		}
@@ -63,30 +57,3 @@ class Engine {
 		return this._renderingEngine;
 	}
 }
-
-declare var window.PopcornEngine : Engine;
-window.PopcornEngine = new Engine();
-
-declare var window.PopcornTwoDEngine : TwoDRenderingEngine;
-window.PopcornTwoDEngine = new TwoDRenderingEngine();
-
-declare var window.PopcornEntity : Entity;
-window.PopcornEntity = Entity;
-
-declare var window.PopcornCamera : Camera;
-window.PopcornCamera = Camera;
-
-declare var window.PopcornAssetFactory : AssetFactory;
-window.PopcornAssetFactory = AssetFactory.getSingleton();
-
-declare var window.PopcornAssetFactoryEnum : AssetType;
-window.PopcornAssetFactoryEnum = AssetType;
-
-declare var window.PopcornAssetState : AssetState;
-window.PopcornAssetState = AssetState;
-
-declare var window.PopcornSpritesheet : Spritesheet;
-window.PopcornSpritesheet = Spritesheet;
-
-declare var window.PopcornAnimation : Animation;
-window.PopcornAnimation = Animation;

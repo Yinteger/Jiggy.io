@@ -1,6 +1,5 @@
 import * as Events from 'events';
 import {EntityModel, ModelEventTypes, AttrChangeEvent} from "./EntityModel";
-import {Listener} from "../Utils/Listener";
 
 export default class EntityView extends Events.EventEmitter {
 	public visible : boolean;
