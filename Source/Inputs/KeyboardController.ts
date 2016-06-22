@@ -3,7 +3,8 @@ import {
 	ControllerEventDetail,
 	InputEvent,
 	KeyCode,
-	KeyboardEventDetail
+	KeyboardEventDetail,
+	InputManager
 } from './';
 
 export class KeyboardController extends Controller {
@@ -42,7 +43,9 @@ export class KeyboardController extends Controller {
 	}
 
 	protected _attachEvents(): void {
-		window.addEventListener('keydown', this._keyDownHandler);
+		this._keyUpHandler = this._keyUpHandler.bind(this);
+		this._keyDownHandler = this._keyDownHandler.bind(this);
+		window.document.addEventListener('keydown', this._keyDownHandler);
 		window.addEventListener('keyup', this._keyUpHandler);
 	}
 
@@ -69,5 +72,14 @@ export class KeyboardController extends Controller {
 				this._eventDetail.keyCodes.splice(this._eventDetail.keyCodes.indexOf(e.keyCode), 1);
 			}
 		}
+	}
+
+	public initialize(inputManager: InputManager): void {
+		this.on(InputEvent.BUTTON_DOWN.toString(), (data: KeyboardEventDetail) => {
+			inputManager.onInputReceived(this, InputEvent.BUTTON_DOWN, data);
+		});
+		this.on(InputEvent.BUTTON_UP.toString(), (data: KeyboardEventDetail) => {
+			inputManager.onInputReceived(this, InputEvent.BUTTON_UP, data);
+		});
 	}
 }

@@ -3,6 +3,7 @@ import {TwoDRenderingEngine, GroupLogicEngine} from "../../Source/Engines";
 import {HTML5AudioEngine} from "../../Source/Audio";
 import {Entity, GridMap} from "../../Source/Entities";
 import {Iterator, Camera} from "../../Source/Utils";
+import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../Source/Inputs';
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../Source/Assets";
 import Character from "./Character";
 
@@ -152,6 +153,53 @@ class PalletDemo extends Engine {
 
 				//Enable Input
 				//Add Inputs to move Character around
+
+				var direction: string = null;
+				this.logicEngine.addLogic('moveLogic', () => {
+					switch(direction) {
+						case 'left':
+							this.player.moveLeft();
+							break;
+						case 'up':
+							this.player.moveUp();
+							break;
+						case 'down':
+							this.player.moveDown();
+							break;
+						case 'right':
+							this.player.moveRight();
+							break;
+					}
+				}, 1);
+
+				var inputManager: InputManager = InputManager.getSingleton();
+				inputManager.createController('player', ControllerType.KEYBOARD);
+				inputManager.on(InputEvent.BUTTON_DOWN.toString(), (data: KeyboardEventDetail) => {
+					switch(data.keyCode) {
+						case KeyCode.W:
+							direction = 'up';
+							break;
+						case KeyCode.A:
+							direction = 'left';
+							break;
+						case KeyCode.S:
+							direction = 'down';
+							break;
+						case KeyCode.D:
+							direction = 'right';
+							break;
+					}
+				});
+				inputManager.on(InputEvent.BUTTON_UP.toString(), (data: KeyboardEventDetail) => {
+					switch(data.keyCode) {
+						case KeyCode.W:
+						case KeyCode.A:
+						case KeyCode.S:
+						case KeyCode.D:
+							direction = null;
+							break;
+					}
+				});
 			}, 1000);			
 		}
 	}

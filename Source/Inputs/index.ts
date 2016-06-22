@@ -13,3 +13,4 @@ export {KeyboardEventDetail} from './KeyboardEventDetail';
 export {MouseEventDetail} from './MouseEventDetail';
 
 export {ControllerFactory} from './ControllerFactory';
+export {InputManager} from './InputManager';

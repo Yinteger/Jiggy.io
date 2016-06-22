@@ -2,7 +2,9 @@ import {EventEmitter} from 'events';
 import {
 	Controller,
 	ControllerFactory,
-	ControllerType
+	ControllerType,
+	ControllerEventDetail,
+	InputEvent
 } from './';
 
 export class InputManager extends EventEmitter {
@@ -32,7 +34,7 @@ export class InputManager extends EventEmitter {
 	public createController(name: string, type: ControllerType): void {
 		var controller: Controller = this._factory.create(type);
 		this._controllers[name] = controller;
-		// controller.addListener(this);
+		controller.initialize(this);
 	}
 
 	public removeController(name: string): void {
@@ -41,7 +43,6 @@ export class InputManager extends EventEmitter {
 		}
 
 		var controller = this._getController(name);
-		// controller.removeListener(this);
 		controller.destroy();
 
 		delete this._controllers[name];
@@ -70,6 +71,11 @@ export class InputManager extends EventEmitter {
 
 	private _createControllerFactory(): ControllerFactory {
 		return ControllerFactory.getSingleton();
+	}
+
+	public onInputReceived(controller: Controller, inputEvent: InputEvent, data: ControllerEventDetail): void {
+		data.controller = this._getControllerName(controller);
+		this.emit(inputEvent.toString(), data);
 	}
 }
 

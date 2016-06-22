@@ -3,7 +3,8 @@ import {
 	ControllerEventDetail,
 	InputEvent,
 	MouseButton,
-	MouseEventDetail
+	MouseEventDetail,
+	InputManager
 } from './';
 
 /**
@@ -137,5 +138,20 @@ export class MouseController extends Controller {
 				this._eventDetails.buttons.splice(this._eventDetails.buttons.indexOf(mouseButton), 1);
 			}
 		}
+	}
+
+	public initialize(inputManager: InputManager): void {
+		this.on(InputEvent.BUTTON_DOWN.toString(), (data: MouseEventDetail) => {
+			inputManager.onInputReceived(this, InputEvent.BUTTON_DOWN, data);
+		});
+		this.on(InputEvent.BUTTON_UP.toString(), (data: MouseEventDetail) => {
+			inputManager.onInputReceived(this, InputEvent.BUTTON_UP, data);
+		});
+		this.on(InputEvent.POINTER_MOVE.toString(), (data: MouseEventDetail) => {
+			inputManager.onInputReceived(this, InputEvent.POINTER_MOVE, data);
+		});
+		this.on(InputEvent.WHEEL.toString(), (data: MouseEventDetail) => {
+			inputManager.onInputReceived(this, InputEvent.WHEEL, data);
+		});
 	}
 }
