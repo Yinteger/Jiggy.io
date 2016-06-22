@@ -146,8 +146,9 @@ class PalletDemo extends Engine {
 				//Load NPC's
 
 				//Play Background Music
-				// this.audioEngine.addAudio('bg', this._bgMusic);
-				// this.audioEngine.loopAudio('bg', true);
+				this.audioEngine.addAudio('bg', this._bgMusic);
+				this.audioEngine.loopAudio('bg', true);
+				this.audioEngine.playAudio('bg');
 
 				//Enable Input
 				//Add Inputs to move Character around

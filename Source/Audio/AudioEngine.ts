@@ -30,6 +30,11 @@ export abstract class AudioEngine {
 	public logManager: LogManager;
 	private _audioMap: AudioMap;
 
+	constructor() {
+		this._audioMap = {};
+		this.logManager = LogManager.getSingleton();
+	}
+
 	/**
 	 * public addAudio
 	 *

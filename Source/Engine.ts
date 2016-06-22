@@ -27,7 +27,7 @@ export default class Engine {
 
 		this.debugMode = false;
 
-		this.logManager = LogManager.getInstance();
+		this.logManager = LogManager.getSingleton();
 
 		//Setup the default AssetFactory
 		this.assetFactory = AssetFactory.getSingleton();

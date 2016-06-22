@@ -48,7 +48,7 @@ export class LogManager {
 		return this._logLevel;
 	}
 
-	public static getInstance():LogManager {
+	public static getSingleton():LogManager {
 		return LogManager._instance;
 	}
 
