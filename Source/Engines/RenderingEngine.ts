@@ -66,15 +66,14 @@ export class RenderingEngine {
 		var date = new Date(); //Get current Date/Time
 
 		if (this._lastRender) { //If we have a store Date/Time from last rendering
-
 			if (this._lastRender.getSeconds() != date.getSeconds()) { //This is a new second, calculate the average FPS for the last second and display it
 				// var avg : number = 0;
 				// var i : any;
 				// for (i in this._frames) {
 				// 	avg += this._frames[i];
 				// }
-				// this._fps = this._frames;
-				// this._frames = 1;
+				this._fps = this._frames;
+				this._frames = 1;
 			} else { //It's the same second as last render, just add the FPS to an array so we can calculate the Average later
 				this._frames += 1;
 			}
