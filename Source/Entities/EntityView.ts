@@ -37,8 +37,8 @@ export class EntityView extends Events.EventEmitter {
 
 	private _handleAttrChange (e: AttrChangeEvent) : void {
 		//Do stuff
-		console.log(this.visible);
-		this._detachEvents();
+		// console.log(this.visible);
+		// this._detachEvents();
 	}
 
 	private _attachEvents () : void {

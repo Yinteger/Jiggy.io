@@ -52,10 +52,12 @@ export class EntityModel extends Events.EventEmitter {
 		var value = this.getAttribute(key);
 		delete this._attributes[key];
 		// if (this._isNotifierKey(key)) {
-			this.emit(ModelEventTypes.ATTR_DELETE.toString(), {
+			var data : AttrDeleteEvent = {
 				attribute : key,
 				value : value
-			});
+			};
+
+			this.emit(ModelEventTypes.ATTR_DELETE.toString(), data);
 		// }
 	}
 
