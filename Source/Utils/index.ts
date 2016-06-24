@@ -4,3 +4,6 @@ export {IDGenerator} from './IDGenerator';
 export {Iterator} from './Iterator';
 export {LogManager} from './LogManager';
 export {ViewPort} from './ViewPort';
+export {CollisionEmitter} from './CollisionEmitter';
+export {ViewPortEventTypes} from "./ViewPortEventTypes";
+export {DimensionUpdateEvent} from "./DimensionUpdateEvent";

@@ -1,5 +1,6 @@
 import * as Events from 'events';
-import {Dimension} from "../Interfaces/Dimension";
+import {Dimension} from "../Interfaces";
+import {ViewPortEventTypes, DimensionUpdateEvent} from "./";
 
 export class ViewPort extends Events.EventEmitter {
 	public canvas : HTMLCanvasElement;
@@ -98,9 +99,19 @@ export class ViewPort extends Events.EventEmitter {
 		if (this.canvas.parentNode) {
 			var size = this.size;
 			var parent = <HTMLElement> this.canvas.parentNode;
-			var parent_size = {width: parent.offsetWidth, height: parent.offsetHeight};
+			//TODO: Fix an issue with incrementing auto size and remove magic number
+			var parent_size : Dimension = {width: parent.offsetWidth, height: parent.offsetHeight-2};
 			if (size.width != parent_size.width || size.height != parent_size.height) {
-				this.size ={width: parent_size.width, height: parent_size.height};
+				this.size = {width: parent_size.width, height: parent_size.height};
+
+				let eventData : DimensionUpdateEvent = {
+					type: ViewPortEventTypes.DIMENSION_UPDATE.toString(),
+					oldDimensions: size,
+					newDimensions: parent_size,
+					source: this
+				};
+
+				this.emit(ViewPortEventTypes.DIMENSION_UPDATE.toString(), eventData);
 			}
 		}
 	}

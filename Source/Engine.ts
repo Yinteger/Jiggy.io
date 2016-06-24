@@ -7,6 +7,8 @@ import {RenderingEngine,GroupLogicEngine,TwoDRenderingEngine, LogicEngine} from 
 import {GridMap,Entity} from './Entities';
 import {ControllerFactory} from './Inputs';
 import {Animation,Spritesheet} from './Assets';
+import {CollisionEmitter} from './Utils';
+
 //End//
 
 export default class Engine {

@@ -1,18 +1,7 @@
 import * as Events from 'events';
-import {
-	Dimension,
-	Coordinate,
-	Color
-} from '../Interfaces';
-import {
-	Asset,
-	AssetType
-} from '../Assets';
-import {
-	EntityModel,
-	ModelEventTypes,
-	EntityView
-} from './';
+import {Dimension, Coordinate, Color} from '../Interfaces';
+import {Asset, AssetType} from '../Assets';
+import {EntityModel, ModelEventTypes, EntityView, EntityEventTypes, LocationUpdateEvent} from './';
 
 import {Iterator} from "../Utils/Iterator";
 
@@ -144,10 +133,42 @@ export class Entity extends Events.EventEmitter {
 	}
 
 	set x (x : number) {
+		let oldCoordinates = {x: this.x, y: this.y};
 		this.model.setAttribute('x', x);
+		let newCoordinates = {x: this.x, y: this.y};
+
 		if (this.parent) {
 			this.parent._updateChildsRegion(this);
 		}
+
+		let eventData : LocationUpdateEvent = {
+			type: EntityEventTypes.LOCATION_UPDATE.toString(),
+			oldCoordinates,
+			newCoordinates,
+			source: this
+		} 
+
+		this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
+	}
+
+	set coordinate (coordinate: Coordinate) {
+		let oldCoordinates = {x: this.x, y: this.y};
+		this.model.setAttribute('x', coordinate.x);
+		this.model.setAttribute('y', coordinate.y);
+		let newCoordinates = {x: this.x, y: this.y};
+
+		if (this.parent) {
+			this.parent._updateChildsRegion(this);
+		}
+
+		let eventData : LocationUpdateEvent = {
+			type: EntityEventTypes.LOCATION_UPDATE.toString(),
+			oldCoordinates,
+			newCoordinates,
+			source: this
+		} 
+
+		this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
 	}
 
 	get x2 () : number {
@@ -189,6 +210,10 @@ export class Entity extends Events.EventEmitter {
 		var data = this.model.getAttribute('color');
 		// return [data.r, data.g, data.b, data.r];
 		return data;
+	}
+
+	set color (color: Color) {
+		this.model.setAttribute('color', color);
 	}
 
 	get texture () : Asset {

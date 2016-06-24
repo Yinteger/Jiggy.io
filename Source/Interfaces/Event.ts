@@ -1,3 +1,4 @@
 export interface Event {
-	type: number;
+	type: string;
+	source: any;
 }

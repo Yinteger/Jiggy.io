@@ -3,6 +3,9 @@ export {AttrChangeEvent} from './AttrChangeEvent';
 export {AttrDeleteEvent} from './AttrDeleteEvent';
 export {ShortAttrChangeEvent} from './ShortAttrChangeEvent';
 export {TextureChangeEvent} from './TextureChangeEvent';
+export {EntityEventTypes} from './EntityEventTypes';
+export {LocationUpdateEvent} from './LocationUpdateEvent';
+
 
 export {Entity} from './Entity';
 export {EntityModel} from './EntityModel';

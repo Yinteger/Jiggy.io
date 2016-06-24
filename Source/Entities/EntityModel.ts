@@ -1,5 +1,5 @@
 import * as Events from 'events';
-import {Iterator} from "../Utils/Iterator";
+import {Iterator, IDGenerator} from "../Utils";
 import {Asset} from "../Assets/Asset";
 import {
 	ModelEventTypes,
@@ -17,7 +17,7 @@ export class EntityModel extends Events.EventEmitter {
 	constructor () {
 		super();
 		this._attributes = {};
-		this._id = "POOP";
+		this._id = IDGenerator.getSingleton().generate();
 		this.type = 'generic';
 	}
 
@@ -53,8 +53,10 @@ export class EntityModel extends Events.EventEmitter {
 		delete this._attributes[key];
 		// if (this._isNotifierKey(key)) {
 			var data : AttrDeleteEvent = {
+				type: ModelEventTypes.ATTR_DELETE.toString(),
 				attribute : key,
-				value : value
+				value : value,
+				source: this
 			};
 
 			this.emit(ModelEventTypes.ATTR_DELETE.toString(), data);
