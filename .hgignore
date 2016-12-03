@@ -1,0 +1,8 @@
+syntax:glob
+node_modules
+typings
+Output
+._*
+.DS_*
+*.orig
+App.js*
