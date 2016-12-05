@@ -7,10 +7,8 @@ import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} 
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/Assets";
 
 class CollisionDemo extends Engine {
-	private _minWidth : number;
-	private _maxWidth : number;
-	private _minHeight : number;
-	private _maxHeight : number;
+	private _minDimension : number;
+	private _maxDimension : number;
 	private _blocks : Entity[];
 	private _blockConfigs : {[key: string] : {[key: string]: any}};
 	private _container : Entity;
@@ -26,10 +24,8 @@ class CollisionDemo extends Engine {
 		this.logicEngine = new GroupLogicEngine();
 		this._collisionEmitter = new CollisionEmitter();
 
-		this._minWidth = 5;
-		this._maxWidth = 15;
-		this._minHeight = 5;
-		this._maxHeight = 15;
+		this._minDimension = 5;
+		this._maxDimension = 15;
 		this._blocks = [];
 		this._blockConfigs = {};
 
@@ -56,8 +52,9 @@ class CollisionDemo extends Engine {
 		this._blocks.push(block);
 		this._collisionEmitter.addEntity(block);
 
-		block.width = Math.floor((Math.random() * this._maxWidth) + this._minWidth);
-		block.height = Math.floor((Math.random() * this._maxHeight) + this._minHeight);
+		let dimension = (Math.random() * this._maxDimension) + this._minDimension;
+		block.width = dimension;
+		block.height = dimension;
 
 		block.x = Math.floor((Math.random() * this._container.width) + 1);
 		block.y = Math.floor((Math.random() * this._container.height) + 1);
@@ -75,7 +72,7 @@ class CollisionDemo extends Engine {
 		this._blockConfigs[block.ID] = {};
 		this._blockConfigs[block.ID]["x_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "right" : "left";
 		this._blockConfigs[block.ID]["y_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "up" : "down";
-		this._blockConfigs[block.ID]["speed"] = Math.floor((Math.random()*2)+1);
+		this._blockConfigs[block.ID]["speed"] = Math.floor((Math.random()*2)+1) / 1.5;
 
 		this._container.addChild(block);
 	}
@@ -139,14 +136,60 @@ class CollisionDemo extends Engine {
 	private _blockCollision (entity1: Entity, entity2: Entity, event: LocationUpdateEvent) : void {
 		// console.log(entity1, entity2, event);
 
+		// entity1.coordinate = event.oldCoordinates;
 
-		entity1.coordinate = event.oldCoordinates;
+		let leftDif = entity1.x - entity2.x2;
+		if (leftDif < 0) {
+			leftDif = leftDif * -1;
+		}
 
-		this._blockConfigs[entity1.ID]["y_dir"] = this._blockConfigs[entity1.ID]["y_dir"] === "up" ?  "down" : "up";
-		this._blockConfigs[entity1.ID]["x_dir"] = this._blockConfigs[entity1.ID]["x_dir"] === "left" ?  "right" : "left";
-		
-		this._blockConfigs[entity2.ID]["y_dir"] = this._blockConfigs[entity2.ID]["y_dir"] === "up" ?  "down" : "up";
-		this._blockConfigs[entity2.ID]["x_dir"] = this._blockConfigs[entity2.ID]["x_dir"] === "left" ?  "right" : "left";
+		let rightDif = entity1.x2 - entity2.x;
+		if (rightDif < 0) {
+			rightDif = rightDif * -1;
+		}
+
+		let topDif = entity1.y - entity2.y2;
+		if (topDif < 0) {
+			topDif = topDif * -1;
+		}
+
+		let bottomDif = entity1.y2 - entity2.y;
+		if (bottomDif < 0) {
+			bottomDif = bottomDif * -1;
+		}
+
+
+		if (leftDif <= rightDif && leftDif <= topDif && leftDif <= bottomDif) {
+			this._blockConfigs[entity1.ID]["x_dir"] = "right";
+			this._blockConfigs[entity2.ID]["x_dir"] = "left";
+			entity1.x = entity2.x2;
+		}
+
+		if (rightDif <= leftDif && rightDif <= topDif && rightDif <= bottomDif) {
+			this._blockConfigs[entity1.ID]["x_dir"] = "left";
+			this._blockConfigs[entity2.ID]["x_dir"] = "right";
+			entity1.x = (entity2.x - entity1.width);
+		}
+
+		if (topDif <= bottomDif && topDif <= leftDif && topDif <= rightDif) {
+			this._blockConfigs[entity1.ID]["y_dir"] = "down";
+			this._blockConfigs[entity2.ID]["y_dir"] = "up";
+			entity1.y = entity2.y2;
+		}
+
+		if (bottomDif <= topDif && bottomDif <= leftDif && bottomDif <= rightDif) {
+			this._blockConfigs[entity1.ID]["y_dir"] = "up";
+			this._blockConfigs[entity2.ID]["y_dir"] = "down";
+			entity1.y = (entity2.y - entity1.height);
+		}
+
+
+
+		// this._blockConfigs[entity1.ID]["y_dir"] = this._blockConfigs[entity1.ID]["y_dir"] === "up" ?  "down" : "up";
+		// this._blockConfigs[entity1.ID]["x_dir"] = this._blockConfigs[entity1.ID]["x_dir"] === "left" ?  "right" : "left";
+		//
+		// this._blockConfigs[entity2.ID]["y_dir"] = this._blockConfigs[entity2.ID]["y_dir"] === "up" ?  "down" : "up";
+		// this._blockConfigs[entity2.ID]["x_dir"] = this._blockConfigs[entity2.ID]["x_dir"] === "left" ?  "right" : "left";
 
 	}
 

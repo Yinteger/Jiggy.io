@@ -18,6 +18,7 @@ export class Entity extends Events.EventEmitter {
 	private _parentNotifierKeys : string[];
 	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
 	public collisionable : boolean;
+	private _eventEmitted : boolean;
 
 	constructor (model? : EntityModel) {
 		super();
@@ -148,7 +149,11 @@ export class Entity extends Events.EventEmitter {
 			source: this
 		} 
 
-		this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
+		if (!this._eventEmitted) {
+			this._eventEmitted = true;
+			this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
+			this._eventEmitted = false;
+		}
 	}
 
 	set coordinate (coordinate: Coordinate) {
@@ -180,9 +185,25 @@ export class Entity extends Events.EventEmitter {
 	}
 
 	set y (y: number) {
+		let oldCoordinates = {x: this.x, y: this.y};
 		this.model.setAttribute('y', y);
+		let newCoordinates = {x: this.x, y: this.y};
+
 		if (this.parent) {
-			// this.parent._updateChildsRegion(this); //Commented out until setX & SetY are combined or something...
+			this.parent._updateChildsRegion(this);
+		}
+
+		let eventData : LocationUpdateEvent = {
+			type: EntityEventTypes.LOCATION_UPDATE.toString(),
+			oldCoordinates,
+			newCoordinates,
+			source: this
+		}
+
+		if (!this._eventEmitted) {
+			this._eventEmitted = true;
+			this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
+			this._eventEmitted = false;
 		}
 	}
 

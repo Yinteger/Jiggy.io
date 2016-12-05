@@ -23,7 +23,7 @@ export class ViewPort extends Events.EventEmitter {
 		this.context.scale(dimension.width, dimension.height);
 	}
 
-	set autoSize (state: boolean) {
+	public set autoSize (state: boolean) {
 		if (this._autoSizeTimer) {
 			clearInterval(this._autoSizeTimer);
 		}
@@ -36,7 +36,7 @@ export class ViewPort extends Events.EventEmitter {
 		}
 	}
 
-	get autoSize () : boolean {
+	public get autoSize () : boolean {
 		return this._autoSize;
 	}
 
