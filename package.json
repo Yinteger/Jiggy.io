@@ -22,8 +22,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch",
-    "typings": "typings"
+    "gulp": "node_modules/.bin/gulp",
+    "install": "node_modules/.bin/gulp install",
+    "build": "node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",
