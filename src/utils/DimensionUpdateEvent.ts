@@ -1,4 +1,4 @@
-import {Event, Dimension} from "../Interfaces";
+import {Event, Dimension} from "./.";
 
 export interface DimensionUpdateEvent extends Event {
 	oldDimensions: Dimension;

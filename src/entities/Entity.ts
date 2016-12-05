@@ -1,9 +1,9 @@
 import * as Events from 'events';
-import {Dimension, Coordinate, Color} from '../Interfaces';
-import {Asset, AssetType} from '../Assets';
+import {Dimension, Coordinate, Color} from './.';
+import {Asset, AssetType} from './.';
 import {EntityModel, ModelEventTypes, EntityView, EntityEventTypes, LocationUpdateEvent} from './';
 
-import {Iterator} from "../Utils/Iterator";
+import {Iterator} from "../utils/Iterator";
 
 export class Entity extends Events.EventEmitter {
 	public view : EntityView;

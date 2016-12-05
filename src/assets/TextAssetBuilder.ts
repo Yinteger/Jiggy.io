@@ -1,5 +1,5 @@
 import {Asset, AssetType} from "./";
-import {ViewPort} from "../Utils";
+import {ViewPort} from "./.";
 
 export class  TextAssetBuilder {
 	public build (font: string, text: string, maxWidth: number, height: number, color: string) : Asset {

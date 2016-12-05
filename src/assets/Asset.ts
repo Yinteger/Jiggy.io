@@ -1,4 +1,4 @@
-import {IDGenerator} from '../Utils/IDGenerator';
+import {IDGenerator} from '../utils/IDGenerator';
 import {
 	AssetState,
 	AssetType,

@@ -1,4 +1,4 @@
-import {Event} from "../Interfaces";
+import {Event} from "./.";
 
 export interface ShortAttrChangeEvent extends Event {
 	attribute : string,

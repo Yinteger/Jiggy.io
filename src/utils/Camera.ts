@@ -1,8 +1,8 @@
-import {Entity} from "../Entities/Entity";
+import {Entity} from "../entities/Entity";
 import {
 	Coordinate,
 	Dimension
-} from '../Interfaces';
+} from './.';
 
 export class Camera {
 	public scene : Entity;

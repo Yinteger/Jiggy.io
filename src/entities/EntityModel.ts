@@ -1,6 +1,6 @@
 import * as Events from 'events';
-import {Iterator, IDGenerator} from "../Utils";
-import {Asset} from "../Assets/Asset";
+import {Iterator, IDGenerator} from "./.";
+import {Asset} from "../assets/Asset";
 import {
 	ModelEventTypes,
 	ShortAttrChangeEvent,

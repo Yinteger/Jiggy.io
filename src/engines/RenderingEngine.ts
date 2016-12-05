@@ -1,6 +1,6 @@
-import {ViewPort} from "../Utils/ViewPort";
-import {Entity} from "../Entities/Entity";
-import {Camera} from "../Utils/Camera";
+import {ViewPort} from "../utils/ViewPort";
+import {Entity} from "../entities/Entity";
+import {Camera} from "../utils/Camera";
 
 export class RenderingEngine {
 	public viewPort : ViewPort;

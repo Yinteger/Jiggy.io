@@ -1,10 +1,10 @@
 import Engine from "../../src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/Engines";
-import {HTML5AudioEngine} from "../../src/Audio";
-import {Entity, GridMap} from "../../src/Entities";
-import {Iterator, Camera} from "../../src/Utils";
-import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/Inputs';
-import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/Assets";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../.";
+import {HTML5AudioEngine} from "../.";
+import {Entity, GridMap} from "../.";
+import {Iterator, Camera} from "../.";
+import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../.';
+import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../.";
 import Character from "./Character";
 
 class PalletDemo extends Engine {

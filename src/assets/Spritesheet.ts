@@ -1,4 +1,4 @@
-import {ViewPort} from "../Utils/ViewPort";
+import {ViewPort} from "../utils/ViewPort";
 import {
 	Asset,
 	AssetType,

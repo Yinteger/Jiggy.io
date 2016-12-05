@@ -1,10 +1,10 @@
 import {
 	LogManager,
 	SeverityEnum
-} from '../Utils';
-import {Entity} from "../Entities/Entity";
+} from './.';
+import {Entity} from "../entities/Entity";
 import {Spritesheet} from "./Spritesheet";
-import {Asset} from "../Assets";
+import {Asset} from "./";
 
 export class Animation {
 	public loop : boolean;

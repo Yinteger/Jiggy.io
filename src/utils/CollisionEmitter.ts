@@ -1,5 +1,5 @@
-import {Entity, EntityEventTypes, LocationUpdateEvent} from "../Entities";
-import {Event, Coordinate} from "../Interfaces";
+import {Entity, EntityEventTypes, LocationUpdateEvent} from "./.";
+import {Event, Coordinate} from "./.";
 
 export class CollisionEmitter {
 	private _entities : Entity[];

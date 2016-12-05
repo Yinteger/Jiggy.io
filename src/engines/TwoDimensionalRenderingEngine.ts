@@ -1,7 +1,7 @@
 import {RenderingEngine} from "./";
-import {Camera} from "../Utils/Camera";
-import {Entity} from "../Entities/Entity";
-import {Iterator} from "../Utils/Iterator";
+import {Camera} from "../utils/Camera";
+import {Entity} from "../entities/Entity";
+import {Iterator} from "../utils/Iterator";
 
 export class TwoDimensionalRenderingEngine extends RenderingEngine {
 	public debugRegions : boolean;

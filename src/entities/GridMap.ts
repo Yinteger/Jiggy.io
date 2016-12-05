@@ -2,7 +2,7 @@ import {Entity} from "./Entity";
 import {
 	Dimension,
 	Coordinate
-} from '../Interfaces';
+} from './.';
 
 export class GridMap extends Entity {
 	public tileSize : Dimension;

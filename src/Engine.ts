@@ -1,13 +1,13 @@
-import {ViewPort, Camera, LogManager, SeverityEnum} from './Utils';
-import {AudioEngine, HTML5AudioEngine} from './Audio';
-import {AssetFactory,AssetType,	AssetState} from './Assets';
-import {RenderingEngine,GroupLogicEngine,TwoDimensionalRenderingEngine, LogicEngine} from './Engines';
+import {ViewPort, Camera, LogManager, SeverityEnum} from './utils';
+import {AudioEngine, HTML5AudioEngine} from './audio';
+import {AssetFactory,AssetType,	AssetState} from './assets';
+import {RenderingEngine,GroupLogicEngine,TwoDimensionalRenderingEngine, LogicEngine} from './engines';
 
 //Typescript Testing Imports
-import {GridMap,Entity} from './Entities';
-import {ControllerFactory} from './Inputs';
-import {Animation,Spritesheet} from './Assets';
-import {CollisionEmitter} from './Utils';
+import {GridMap,Entity} from './entities';
+import {ControllerFactory} from './inputs';
+import {Animation,Spritesheet} from './assets';
+import {CollisionEmitter} from './utils';
 
 //End//
 

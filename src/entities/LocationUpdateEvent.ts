@@ -1,4 +1,4 @@
-import {Event, Coordinate} from "../Interfaces";
+import {Event, Coordinate} from "./.";
 
 export interface LocationUpdateEvent extends Event {
 	oldCoordinates: Coordinate;
