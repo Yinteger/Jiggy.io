@@ -1,5 +1,5 @@
 import Engine from "../../src/Engine";
-import {TwoDRenderingEngine, GroupLogicEngine} from "../../src/Engines";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/Engines";
 import {HTML5AudioEngine} from "../../src/Audio";
 import {Entity, GridMap} from "../../src/Entities";
 import {Iterator, Camera} from "../../src/Utils";
@@ -16,7 +16,7 @@ class PalletDemo extends Engine {
 	constructor () {
 		super();
 		this.viewPort.size = ({width: 500, height: 500});
-		this.renderingEngine = new TwoDRenderingEngine();
+		this.renderingEngine = new TwoDimensionalRenderingEngine();
 		this.audioEngine = new HTML5AudioEngine();
 		this.logicEngine = new GroupLogicEngine();
 

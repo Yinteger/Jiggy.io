@@ -1,10 +1,8 @@
 import Engine from "../../src/Engine";
-import {TwoDRenderingEngine, GroupLogicEngine} from "../../src/Engines";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/Engines";
 import {HTML5AudioEngine} from "../../src/Audio";
-import {Entity, GridMap, LocationUpdateEvent} from "../../src/Entities";
-import {Iterator, Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/Utils";
-import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/Inputs';
-import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/Assets";
+import {Entity, LocationUpdateEvent} from "../../src/Entities";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/Utils";
 
 class CollisionDemo extends Engine {
 	private _minDimension : number;
@@ -13,13 +11,12 @@ class CollisionDemo extends Engine {
 	private _blockConfigs : {[key: string] : {[key: string]: any}};
 	private _container : Entity;
 	private _collisionEmitter : CollisionEmitter;
-	private _lastCollision : Entity;
 	private _camera : Camera;
 
 	constructor () {
 		super();
 		this.viewPort.autoSize = true;
-		this.renderingEngine = new TwoDRenderingEngine();
+		this.renderingEngine = new TwoDimensionalRenderingEngine();
 		this.audioEngine = new HTML5AudioEngine();
 		this.logicEngine = new GroupLogicEngine();
 		this._collisionEmitter = new CollisionEmitter();
@@ -33,7 +30,7 @@ class CollisionDemo extends Engine {
 		this._container.color = {r: 0, g: 0, b: 0};
 		console.log(this.viewPort.canvas.offsetWidth);
 		this._container.width = 1000;
-		this._container.height = 1000;;
+		this._container.height = 1000;
 
 		this._camera = new Camera(this._container, null, {width: this._container.width, height: this._container.height}, null, {height: this._container.height, width: this._container.width});
 		this.renderingEngine.addCamera(this._camera);
@@ -182,15 +179,6 @@ class CollisionDemo extends Engine {
 			this._blockConfigs[entity2.ID]["y_dir"] = "down";
 			entity1.y = (entity2.y - entity1.height);
 		}
-
-
-
-		// this._blockConfigs[entity1.ID]["y_dir"] = this._blockConfigs[entity1.ID]["y_dir"] === "up" ?  "down" : "up";
-		// this._blockConfigs[entity1.ID]["x_dir"] = this._blockConfigs[entity1.ID]["x_dir"] === "left" ?  "right" : "left";
-		//
-		// this._blockConfigs[entity2.ID]["y_dir"] = this._blockConfigs[entity2.ID]["y_dir"] === "up" ?  "down" : "up";
-		// this._blockConfigs[entity2.ID]["x_dir"] = this._blockConfigs[entity2.ID]["x_dir"] === "left" ?  "right" : "left";
-
 	}
 
 }

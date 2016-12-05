@@ -63,7 +63,7 @@
 	    function PalletDemo() {
 	        _super.call(this);
 	        this.viewPort.size = ({ width: 500, height: 500 });
-	        this.renderingEngine = new Engines_1.TwoDRenderingEngine();
+	        this.renderingEngine = new Engines_1.TwoDimensionalRenderingEngine();
 	        this.audioEngine = new Audio_1.HTML5AudioEngine();
 	        this.logicEngine = new Engines_1.GroupLogicEngine();
 	        this.renderingEngine.HUDEntity = (this._createLoadingScreen());
@@ -1954,8 +1954,8 @@
 	exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
 	var RenderingEngine_1 = __webpack_require__(29);
 	exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-	var TwoDRenderingEngine_1 = __webpack_require__(30);
-	exports.TwoDRenderingEngine = TwoDRenderingEngine_1.TwoDRenderingEngine;
+	var TwoDimensionalRenderingEngine_1 = __webpack_require__(30);
+	exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
 /***/ },
@@ -2143,12 +2143,12 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var _1 = __webpack_require__(26);
-	var TwoDRenderingEngine = (function (_super) {
-	    __extends(TwoDRenderingEngine, _super);
-	    function TwoDRenderingEngine() {
+	var TwoDimensionalRenderingEngine = (function (_super) {
+	    __extends(TwoDimensionalRenderingEngine, _super);
+	    function TwoDimensionalRenderingEngine() {
 	        _super.apply(this, arguments);
 	    }
-	    TwoDRenderingEngine.prototype._render = function () {
+	    TwoDimensionalRenderingEngine.prototype._render = function () {
 	        _super.prototype._render.call(this);
 	        var context = this.viewPort.context;
 	        for (var i in this._cameras) {
@@ -2158,7 +2158,7 @@
 	            this._renderEntity(this.HUDEntity, null);
 	        }
 	    };
-	    TwoDRenderingEngine.prototype._renderCamera = function (camera) {
+	    TwoDimensionalRenderingEngine.prototype._renderCamera = function (camera) {
 	        var scene = camera.scene;
 	        var context = this.viewPort.context;
 	        if (this.debugCamera) {
@@ -2177,7 +2177,7 @@
 	        }
 	        this._renderEntity(scene, camera);
 	    };
-	    TwoDRenderingEngine.prototype._renderEntity = function (entity, camera) {
+	    TwoDimensionalRenderingEngine.prototype._renderEntity = function (entity, camera) {
 	        if (camera) {
 	            var collidesYAxis = false;
 	            var collidesXAxis = false;
@@ -2280,9 +2280,9 @@
 	        }
 	        return true;
 	    };
-	    return TwoDRenderingEngine;
+	    return TwoDimensionalRenderingEngine;
 	}(_1.RenderingEngine));
-	exports.TwoDRenderingEngine = TwoDRenderingEngine;
+	exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ },
@@ -2445,7 +2445,11 @@
 	                newCoordinates: newCoordinates,
 	                source: this
 	            };
-	            this.emit(0 .toString(), eventData);
+	            if (!this._eventEmitted) {
+	                this._eventEmitted = true;
+	                this.emit(0 .toString(), eventData);
+	                this._eventEmitted = false;
+	            }
 	        },
 	        enumerable: true,
 	        configurable: true
@@ -2482,8 +2486,22 @@
 	            return this.model.getAttribute('y');
 	        },
 	        set: function (y) {
+	            var oldCoordinates = { x: this.x, y: this.y };
 	            this.model.setAttribute('y', y);
+	            var newCoordinates = { x: this.x, y: this.y };
 	            if (this.parent) {
+	                this.parent._updateChildsRegion(this);
+	            }
+	            var eventData = {
+	                type: 0 .toString(),
+	                oldCoordinates: oldCoordinates,
+	                newCoordinates: newCoordinates,
+	                source: this
+	            };
+	            if (!this._eventEmitted) {
+	                this._eventEmitted = true;
+	                this.emit(0 .toString(), eventData);
+	                this._eventEmitted = false;
 	            }
 	        },
 	        enumerable: true,

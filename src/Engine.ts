@@ -1,7 +1,7 @@
 import {ViewPort, Camera, LogManager, SeverityEnum} from './Utils';
 import {AudioEngine, HTML5AudioEngine} from './Audio';
 import {AssetFactory,AssetType,	AssetState} from './Assets';
-import {RenderingEngine,GroupLogicEngine,TwoDRenderingEngine, LogicEngine} from './Engines';
+import {RenderingEngine,GroupLogicEngine,TwoDimensionalRenderingEngine, LogicEngine} from './Engines';
 
 //Typescript Testing Imports
 import {GridMap,Entity} from './Entities';
