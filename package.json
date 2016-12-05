@@ -23,8 +23,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "node_modules/.bin/gulp",
-    "install": "node_modules/.bin/gulp install",
-    "build": "node_modules/.bin/gulp build"
+    "install-gulp": "node_modules/.bin/gulp install",
+    "build": "node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",

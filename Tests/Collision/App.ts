@@ -1,10 +1,10 @@
-import Engine from "../../Source/Engine";
-import {TwoDRenderingEngine, GroupLogicEngine} from "../../Source/Engines";
-import {HTML5AudioEngine} from "../../Source/Audio";
-import {Entity, GridMap, LocationUpdateEvent} from "../../Source/Entities";
-import {Iterator, Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../Source/Utils";
-import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../Source/Inputs';
-import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../Source/Assets";
+import Engine from "../../src/Engine";
+import {TwoDRenderingEngine, GroupLogicEngine} from "../../src/Engines";
+import {HTML5AudioEngine} from "../../src/Audio";
+import {Entity, GridMap, LocationUpdateEvent} from "../../src/Entities";
+import {Iterator, Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/Utils";
+import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/Inputs';
+import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/Assets";
 
 class CollisionDemo extends Engine {
 	private _minWidth : number;

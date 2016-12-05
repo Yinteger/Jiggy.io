@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./Output/",
+        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "removeComments": true,
@@ -13,6 +13,6 @@
     },
     "files": [
         "./typings/index.d.ts",
-        "./Source/Engine.ts"
+      "./src/Engine.ts"
     ]
 }
