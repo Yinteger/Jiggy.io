@@ -1,7 +1,7 @@
 module.exports = {
-    entry: "./Source/Engine.ts",
+    entry: "./src/Engine.ts",
     output: {
-        filename: "./Output/engine.js",
+        filename: "./dist/engine.js",
     },
 
     // Enable sourcemaps for debugging webpack's output.

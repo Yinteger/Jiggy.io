@@ -1,5 +1,5 @@
 import {AudioEngine} from './';
-import {Asset} from './.';
+import {Asset} from '../assets/';
 
 export class HTML5AudioEngine extends AudioEngine {
 	private _backgroundAudios: Asset[];

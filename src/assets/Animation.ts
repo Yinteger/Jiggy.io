@@ -1,7 +1,7 @@
 import {
 	LogManager,
 	SeverityEnum
-} from './.';
+} from '../utils/';
 import {Entity} from "../entities/Entity";
 import {Spritesheet} from "./Spritesheet";
 import {Asset} from "./";

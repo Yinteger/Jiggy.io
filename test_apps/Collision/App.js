@@ -51,29 +51,29 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Engine_1 = __webpack_require__(1);
-	var Engines_1 = __webpack_require__(26);
-	var Audio_1 = __webpack_require__(11);
-	var Entities_1 = __webpack_require__(31);
-	var Utils_1 = __webpack_require__(2);
+	var _1 = __webpack_require__(26);
+	var _2 = __webpack_require__(11);
+	var _3 = __webpack_require__(31);
+	var _4 = __webpack_require__(2);
 	var CollisionDemo = (function (_super) {
 	    __extends(CollisionDemo, _super);
 	    function CollisionDemo() {
 	        _super.call(this);
 	        this.viewPort.autoSize = true;
-	        this.renderingEngine = new Engines_1.TwoDimensionalRenderingEngine();
-	        this.audioEngine = new Audio_1.HTML5AudioEngine();
-	        this.logicEngine = new Engines_1.GroupLogicEngine();
-	        this._collisionEmitter = new Utils_1.CollisionEmitter();
+	        this.renderingEngine = new _1.TwoDimensionalRenderingEngine();
+	        this.audioEngine = new _2.HTML5AudioEngine();
+	        this.logicEngine = new _1.GroupLogicEngine();
+	        this._collisionEmitter = new _4.CollisionEmitter();
 	        this._minDimension = 5;
 	        this._maxDimension = 15;
 	        this._blocks = [];
 	        this._blockConfigs = {};
-	        this._container = new Entities_1.Entity();
+	        this._container = new _3.Entity();
 	        this._container.color = { r: 0, g: 0, b: 0 };
 	        console.log(this.viewPort.canvas.offsetWidth);
 	        this._container.width = 1000;
 	        this._container.height = 1000;
-	        this._camera = new Utils_1.Camera(this._container, null, { width: this._container.width, height: this._container.height }, null, { height: this._container.height, width: this._container.width });
+	        this._camera = new _4.Camera(this._container, null, { width: this._container.width, height: this._container.height }, null, { height: this._container.height, width: this._container.width });
 	        this.renderingEngine.addCamera(this._camera);
 	        for (var i = 0; i < 750; i++) {
 	            this._generateBlock();
@@ -83,7 +83,7 @@
 	        this.logicEngine.addLogic("collision", this._moveBlocks.bind(this), 25);
 	    }
 	    CollisionDemo.prototype._generateBlock = function () {
-	        var block = new Entities_1.Entity();
+	        var block = new _3.Entity();
 	        this._blocks.push(block);
 	        this._collisionEmitter.addEntity(block);
 	        var dimension = (Math.random() * this._maxDimension) + this._minDimension;
@@ -200,9 +200,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Utils_1 = __webpack_require__(2);
-	var Audio_1 = __webpack_require__(11);
-	var Assets_1 = __webpack_require__(13);
+	var utils_1 = __webpack_require__(2);
+	var audio_1 = __webpack_require__(11);
+	var assets_1 = __webpack_require__(13);
 	var Engine = (function () {
 	    function Engine() {
 	        if (Engine._instance) {
@@ -210,11 +210,11 @@
 	        }
 	        Engine._instance = this;
 	        this.debugMode = false;
-	        this.logManager = Utils_1.LogManager.getSingleton();
-	        this.assetFactory = Assets_1.AssetFactory.getSingleton();
-	        this.audioEngine = new Audio_1.HTML5AudioEngine();
-	        this.viewPort = new Utils_1.ViewPort();
-	        this.logManager.log(Utils_1.SeverityEnum.INFO, 'Engine has started.');
+	        this.logManager = utils_1.LogManager.getSingleton();
+	        this.assetFactory = assets_1.AssetFactory.getSingleton();
+	        this.audioEngine = new audio_1.HTML5AudioEngine();
+	        this.viewPort = new utils_1.ViewPort();
+	        this.logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
 	    }
 	    Engine.getSingleton = function () {
 	        if (!Engine._instance) {
@@ -929,16 +929,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Utils_1 = __webpack_require__(2);
-	var Assets_1 = __webpack_require__(13);
-	var assetFactory = Assets_1.AssetFactory.getSingleton();
+	var _1 = __webpack_require__(2);
+	var _2 = __webpack_require__(13);
+	var assetFactory = _2.AssetFactory.getSingleton();
 	var AudioEngine = (function () {
 	    function AudioEngine() {
 	        this._audioMap = {};
-	        this.logManager = Utils_1.LogManager.getSingleton();
+	        this.logManager = _1.LogManager.getSingleton();
 	    }
 	    AudioEngine.prototype.addAudio = function (name, audio, channels) {
-	        if (audio.getType() !== Assets_1.AssetType.AUDIO) {
+	        if (audio.getType() !== _2.AssetType.AUDIO) {
 	            throw 'AudioEngine.addAudio: Invalid Asset Type.';
 	        }
 	        this._setAudio(name, audio, channels);
@@ -1060,7 +1060,7 @@
 	        }
 	    };
 	    AudioEngine.prototype._warnMissingAudio = function (name) {
-	        this.logManager.log(Utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+	        this.logManager.log(_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	    };
 	    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
 	        if (this._audioMap[name]) {
@@ -1526,12 +1526,12 @@
 
 	"use strict";
 	var _1 = __webpack_require__(13);
-	var Utils_1 = __webpack_require__(2);
+	var _2 = __webpack_require__(2);
 	var TextAssetBuilder = (function () {
 	    function TextAssetBuilder() {
 	    }
 	    TextAssetBuilder.prototype.build = function (font, text, maxWidth, height, color) {
-	        var textViewPort = new Utils_1.ViewPort();
+	        var textViewPort = new _2.ViewPort();
 	        var textAsset = new _1.Asset(_1.AssetType.IMAGE);
 	        textViewPort.setFont(font);
 	        textViewPort.setColor(color || "green");
@@ -2174,8 +2174,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(9);
-	var Assets_1 = __webpack_require__(13);
-	var _1 = __webpack_require__(31);
+	var _1 = __webpack_require__(13);
+	var _2 = __webpack_require__(31);
 	var Iterator_1 = __webpack_require__(6);
 	var Entity = (function (_super) {
 	    __extends(Entity, _super);
@@ -2192,10 +2192,10 @@
 	            }
 	        };
 	        if (!model) {
-	            model = new _1.EntityModel();
+	            model = new _2.EntityModel();
 	            useDefaults = true;
 	        }
-	        this.view = new _1.EntityView(model);
+	        this.view = new _2.EntityView(model);
 	        this.model = model;
 	        this._children = new Array();
 	        this._regions = [];
@@ -2411,7 +2411,7 @@
 	            return this.model.texture;
 	        },
 	        set: function (asset) {
-	            if (asset.getType() !== Assets_1.AssetType.IMAGE) {
+	            if (asset.getType() !== _1.AssetType.IMAGE) {
 	                throw new Error('Texture asset must be of type IMAGE.');
 	            }
 	            this.model.texture = asset;
@@ -2722,13 +2722,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(9);
-	var Utils_1 = __webpack_require__(2);
+	var _1 = __webpack_require__(2);
 	var EntityModel = (function (_super) {
 	    __extends(EntityModel, _super);
 	    function EntityModel() {
 	        _super.call(this);
 	        this._attributes = {};
-	        this._id = Utils_1.IDGenerator.getSingleton().generate();
+	        this._id = _1.IDGenerator.getSingleton().generate();
 	        this.type = 'generic';
 	    }
 	    Object.defineProperty(EntityModel.prototype, "ID", {

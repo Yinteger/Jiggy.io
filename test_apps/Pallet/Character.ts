@@ -1,6 +1,6 @@
-import {Entity} from "../.";
-import {Animation, Spritesheet, Asset} from "../.";
-import {Coordinate} from "../.";
+import {Entity} from "../../src/entities/";
+import {Animation, Spritesheet, Asset} from "../../src/assets/";
+import {Coordinate} from "../../src/interfaces/";
 import Engine from "../../src/Engine";
 
 export default class Character extends Entity {

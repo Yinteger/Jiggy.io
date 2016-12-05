@@ -1,5 +1,5 @@
 import * as Events from 'events';
-import {Iterator, IDGenerator} from "./.";
+import {Iterator, IDGenerator} from "../utils/";
 import {Asset} from "../assets/Asset";
 import {
 	ModelEventTypes,

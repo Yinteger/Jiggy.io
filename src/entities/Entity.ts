@@ -1,6 +1,6 @@
 import * as Events from 'events';
-import {Dimension, Coordinate, Color} from './.';
-import {Asset, AssetType} from './.';
+import {Dimension, Coordinate, Color} from '../interfaces/';
+import {Asset, AssetType} from '../assets/';
 import {EntityModel, ModelEventTypes, EntityView, EntityEventTypes, LocationUpdateEvent} from './';
 
 import {Iterator} from "../utils/Iterator";

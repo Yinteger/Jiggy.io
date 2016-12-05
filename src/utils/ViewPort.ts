@@ -1,5 +1,5 @@
 import * as Events from 'events';
-import {Dimension} from "./.";
+import {Dimension} from "../interfaces/";
 import {ViewPortEventTypes, DimensionUpdateEvent} from "./";
 
 export class ViewPort extends Events.EventEmitter {

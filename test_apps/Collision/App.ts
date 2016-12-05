@@ -1,8 +1,8 @@
 import Engine from "../../src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../.";
-import {HTML5AudioEngine} from "../.";
-import {Entity, LocationUpdateEvent} from "../.";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../.";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/";
+import {HTML5AudioEngine} from "../../src/audio/";
+import {Entity, LocationUpdateEvent} from "../../src/entities/";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils/";
 
 class CollisionDemo extends Engine {
 	private _minDimension : number;

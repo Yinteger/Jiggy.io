@@ -1,12 +1,12 @@
 import {
 	LogManager,
 	SeverityEnum
-} from './.';
+} from '../utils/';
 import {
 	Asset,
 	AssetFactory,
 	AssetType
-} from './.';
+} from '../assets/';
 
 var assetFactory: AssetFactory = AssetFactory.getSingleton();
 

@@ -45,9 +45,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Utils_1 = __webpack_require__(1);
-	var Audio_1 = __webpack_require__(10);
-	var Assets_1 = __webpack_require__(12);
+	var utils_1 = __webpack_require__(1);
+	var audio_1 = __webpack_require__(10);
+	var assets_1 = __webpack_require__(12);
 	var Engine = (function () {
 	    function Engine() {
 	        if (Engine._instance) {
@@ -55,11 +55,11 @@
 	        }
 	        Engine._instance = this;
 	        this.debugMode = false;
-	        this.logManager = Utils_1.LogManager.getSingleton();
-	        this.assetFactory = Assets_1.AssetFactory.getSingleton();
-	        this.audioEngine = new Audio_1.HTML5AudioEngine();
-	        this.viewPort = new Utils_1.ViewPort();
-	        this.logManager.log(Utils_1.SeverityEnum.INFO, 'Engine has started.');
+	        this.logManager = utils_1.LogManager.getSingleton();
+	        this.assetFactory = assets_1.AssetFactory.getSingleton();
+	        this.audioEngine = new audio_1.HTML5AudioEngine();
+	        this.viewPort = new utils_1.ViewPort();
+	        this.logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
 	    }
 	    Engine.getSingleton = function () {
 	        if (!Engine._instance) {
@@ -774,16 +774,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Utils_1 = __webpack_require__(1);
-	var Assets_1 = __webpack_require__(12);
-	var assetFactory = Assets_1.AssetFactory.getSingleton();
+	var _1 = __webpack_require__(1);
+	var _2 = __webpack_require__(12);
+	var assetFactory = _2.AssetFactory.getSingleton();
 	var AudioEngine = (function () {
 	    function AudioEngine() {
 	        this._audioMap = {};
-	        this.logManager = Utils_1.LogManager.getSingleton();
+	        this.logManager = _1.LogManager.getSingleton();
 	    }
 	    AudioEngine.prototype.addAudio = function (name, audio, channels) {
-	        if (audio.getType() !== Assets_1.AssetType.AUDIO) {
+	        if (audio.getType() !== _2.AssetType.AUDIO) {
 	            throw 'AudioEngine.addAudio: Invalid Asset Type.';
 	        }
 	        this._setAudio(name, audio, channels);
@@ -905,7 +905,7 @@
 	        }
 	    };
 	    AudioEngine.prototype._warnMissingAudio = function (name) {
-	        this.logManager.log(Utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+	        this.logManager.log(_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	    };
 	    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
 	        if (this._audioMap[name]) {
@@ -1371,12 +1371,12 @@
 
 	"use strict";
 	var _1 = __webpack_require__(12);
-	var Utils_1 = __webpack_require__(1);
+	var _2 = __webpack_require__(1);
 	var TextAssetBuilder = (function () {
 	    function TextAssetBuilder() {
 	    }
 	    TextAssetBuilder.prototype.build = function (font, text, maxWidth, height, color) {
-	        var textViewPort = new Utils_1.ViewPort();
+	        var textViewPort = new _2.ViewPort();
 	        var textAsset = new _1.Asset(_1.AssetType.IMAGE);
 	        textViewPort.setFont(font);
 	        textViewPort.setColor(color || "green");

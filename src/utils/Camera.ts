@@ -2,7 +2,7 @@ import {Entity} from "../entities/Entity";
 import {
 	Coordinate,
 	Dimension
-} from './.';
+} from '../interfaces/';
 
 export class Camera {
 	public scene : Entity;

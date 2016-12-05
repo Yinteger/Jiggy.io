@@ -1,5 +1,5 @@
-import { Asset } from './.';
-import {Event} from "./.";
+import { Asset } from '../assets/';
+import {Event} from "../interfaces/";
 
 export interface TextureChangeEvent extends Event {
 	attribute: string,

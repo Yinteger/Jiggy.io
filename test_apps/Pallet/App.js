@@ -51,30 +51,30 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Engine_1 = __webpack_require__(1);
-	var Engines_1 = __webpack_require__(26);
-	var Audio_1 = __webpack_require__(11);
-	var Entities_1 = __webpack_require__(31);
-	var Utils_1 = __webpack_require__(2);
-	var Inputs_1 = __webpack_require__(37);
-	var Assets_1 = __webpack_require__(13);
+	var _1 = __webpack_require__(26);
+	var _2 = __webpack_require__(11);
+	var _3 = __webpack_require__(31);
+	var _4 = __webpack_require__(2);
+	var _5 = __webpack_require__(37);
+	var _6 = __webpack_require__(13);
 	var Character_1 = __webpack_require__(47);
 	var PalletDemo = (function (_super) {
 	    __extends(PalletDemo, _super);
 	    function PalletDemo() {
 	        _super.call(this);
 	        this.viewPort.size = ({ width: 500, height: 500 });
-	        this.renderingEngine = new Engines_1.TwoDimensionalRenderingEngine();
-	        this.audioEngine = new Audio_1.HTML5AudioEngine();
-	        this.logicEngine = new Engines_1.GroupLogicEngine();
+	        this.renderingEngine = new _1.TwoDimensionalRenderingEngine();
+	        this.audioEngine = new _2.HTML5AudioEngine();
+	        this.logicEngine = new _1.GroupLogicEngine();
 	        this.renderingEngine.HUDEntity = (this._createLoadingScreen());
 	        this._loadResources();
 	    }
 	    PalletDemo.prototype._createLoadingScreen = function () {
-	        var textAssetBuilder = new Assets_1.TextAssetBuilder();
-	        var hud = new Entities_1.Entity();
+	        var textAssetBuilder = new _6.TextAssetBuilder();
+	        var hud = new _3.Entity();
 	        hud.width = 500;
 	        hud.height = 500;
-	        var loadingText = new Entities_1.Entity();
+	        var loadingText = new _3.Entity();
 	        loadingText.width = 165;
 	        loadingText.height = 50;
 	        loadingText.x = (500 / 2) - 100;
@@ -84,7 +84,7 @@
 	        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
 	        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
 	        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
-	        var loadingAnim = new Assets_1.Animation(loadingText, [
+	        var loadingAnim = new _6.Animation(loadingText, [
 	            { 'asset': loading0, 'delay': 250 },
 	            { 'asset': loading1, 'delay': 250 },
 	            { 'asset': loading2, 'delay': 250 },
@@ -94,10 +94,10 @@
 	        return hud;
 	    };
 	    PalletDemo.prototype._createMainMap = function () {
-	        var mapContainer = new Entities_1.Entity();
-	        var layer1 = new Entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-	        var layer2 = new Entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-	        var layer3 = new Entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
+	        var mapContainer = new _3.Entity();
+	        var layer1 = new _3.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
+	        var layer2 = new _3.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
+	        var layer3 = new _3.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
 	        mapContainer.width = layer1.width;
 	        mapContainer.height = layer1.height;
 	        mapContainer.addChild(layer1);
@@ -143,7 +143,7 @@
 	            setTimeout(function () {
 	                delete _this.renderingEngine.HUDEntity;
 	                var map = _this._createMainMap();
-	                var camera = new Utils_1.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
+	                var camera = new _4.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
 	                _this.renderingEngine.addCamera(camera);
 	                _this.player = new Character_1.default(_this._characterSpritesheet);
 	                _this.player.texture = _this._characterSpritesheet.getSprite("player_down");
@@ -174,30 +174,30 @@
 	                            break;
 	                    }
 	                }, 1);
-	                var inputManager = Inputs_1.InputManager.getSingleton();
-	                inputManager.createController('player', Inputs_1.ControllerType.KEYBOARD);
-	                inputManager.on(Inputs_1.InputEvent.BUTTON_DOWN.toString(), function (data) {
+	                var inputManager = _5.InputManager.getSingleton();
+	                inputManager.createController('player', _5.ControllerType.KEYBOARD);
+	                inputManager.on(_5.InputEvent.BUTTON_DOWN.toString(), function (data) {
 	                    switch (data.keyCode) {
-	                        case Inputs_1.KeyCode.W:
+	                        case _5.KeyCode.W:
 	                            direction = 'up';
 	                            break;
-	                        case Inputs_1.KeyCode.A:
+	                        case _5.KeyCode.A:
 	                            direction = 'left';
 	                            break;
-	                        case Inputs_1.KeyCode.S:
+	                        case _5.KeyCode.S:
 	                            direction = 'down';
 	                            break;
-	                        case Inputs_1.KeyCode.D:
+	                        case _5.KeyCode.D:
 	                            direction = 'right';
 	                            break;
 	                    }
 	                });
-	                inputManager.on(Inputs_1.InputEvent.BUTTON_UP.toString(), function (data) {
+	                inputManager.on(_5.InputEvent.BUTTON_UP.toString(), function (data) {
 	                    switch (data.keyCode) {
-	                        case Inputs_1.KeyCode.W:
-	                        case Inputs_1.KeyCode.A:
-	                        case Inputs_1.KeyCode.S:
-	                        case Inputs_1.KeyCode.D:
+	                        case _5.KeyCode.W:
+	                        case _5.KeyCode.A:
+	                        case _5.KeyCode.S:
+	                        case _5.KeyCode.D:
 	                            direction = null;
 	                            break;
 	                    }
@@ -207,10 +207,10 @@
 	    };
 	    PalletDemo.prototype._loadMapSpritesheet = function () {
 	        var _this = this;
-	        var map_asset = Assets_1.AssetFactory.getSingleton().build(Assets_1.AssetType.IMAGE, 'Resources/61816.png');
+	        var map_asset = _6.AssetFactory.getSingleton().build(_6.AssetType.IMAGE, 'Resources/61816.png');
 	        map_asset.onStateChange = function (state) {
-	            if (state === Assets_1.AssetState.LOADED) {
-	                _this._mapSpritesheet = new Assets_1.Spritesheet(map_asset, {
+	            if (state === _6.AssetState.LOADED) {
+	                _this._mapSpritesheet = new _6.Spritesheet(map_asset, {
 	                    "grass": {
 	                        x: 16,
 	                        y: 0,
@@ -296,10 +296,10 @@
 	    };
 	    PalletDemo.prototype._loadCharacterSpritesheet = function () {
 	        var _this = this;
-	        var character_spritesheet = Assets_1.AssetFactory.getSingleton().build(Assets_1.AssetType.IMAGE, 'Resources/3698.png');
+	        var character_spritesheet = _6.AssetFactory.getSingleton().build(_6.AssetType.IMAGE, 'Resources/3698.png');
 	        character_spritesheet.onStateChange = function (state) {
-	            if (state === Assets_1.AssetState.LOADED) {
-	                _this._characterSpritesheet = new Assets_1.Spritesheet(character_spritesheet, {
+	            if (state === _6.AssetState.LOADED) {
+	                _this._characterSpritesheet = new _6.Spritesheet(character_spritesheet, {
 	                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
 	                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
 	                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
@@ -320,9 +320,9 @@
 	    };
 	    PalletDemo.prototype._loadBackgroundMusic = function () {
 	        var _this = this;
-	        var bg_music = Assets_1.AssetFactory.getSingleton().build(Assets_1.AssetType.AUDIO, 'Resources/music.mp3');
+	        var bg_music = _6.AssetFactory.getSingleton().build(_6.AssetType.AUDIO, 'Resources/music.mp3');
 	        bg_music.onStateChange = function (state) {
-	            if (state === Assets_1.AssetState.LOADED) {
+	            if (state === _6.AssetState.LOADED) {
 	                _this._bgMusic = bg_music;
 	                _this._resourceLoaded();
 	            }
@@ -339,9 +339,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Utils_1 = __webpack_require__(2);
-	var Audio_1 = __webpack_require__(11);
-	var Assets_1 = __webpack_require__(13);
+	var utils_1 = __webpack_require__(2);
+	var audio_1 = __webpack_require__(11);
+	var assets_1 = __webpack_require__(13);
 	var Engine = (function () {
 	    function Engine() {
 	        if (Engine._instance) {
@@ -349,11 +349,11 @@
 	        }
 	        Engine._instance = this;
 	        this.debugMode = false;
-	        this.logManager = Utils_1.LogManager.getSingleton();
-	        this.assetFactory = Assets_1.AssetFactory.getSingleton();
-	        this.audioEngine = new Audio_1.HTML5AudioEngine();
-	        this.viewPort = new Utils_1.ViewPort();
-	        this.logManager.log(Utils_1.SeverityEnum.INFO, 'Engine has started.');
+	        this.logManager = utils_1.LogManager.getSingleton();
+	        this.assetFactory = assets_1.AssetFactory.getSingleton();
+	        this.audioEngine = new audio_1.HTML5AudioEngine();
+	        this.viewPort = new utils_1.ViewPort();
+	        this.logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
 	    }
 	    Engine.getSingleton = function () {
 	        if (!Engine._instance) {
@@ -1068,16 +1068,16 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Utils_1 = __webpack_require__(2);
-	var Assets_1 = __webpack_require__(13);
-	var assetFactory = Assets_1.AssetFactory.getSingleton();
+	var _1 = __webpack_require__(2);
+	var _2 = __webpack_require__(13);
+	var assetFactory = _2.AssetFactory.getSingleton();
 	var AudioEngine = (function () {
 	    function AudioEngine() {
 	        this._audioMap = {};
-	        this.logManager = Utils_1.LogManager.getSingleton();
+	        this.logManager = _1.LogManager.getSingleton();
 	    }
 	    AudioEngine.prototype.addAudio = function (name, audio, channels) {
-	        if (audio.getType() !== Assets_1.AssetType.AUDIO) {
+	        if (audio.getType() !== _2.AssetType.AUDIO) {
 	            throw 'AudioEngine.addAudio: Invalid Asset Type.';
 	        }
 	        this._setAudio(name, audio, channels);
@@ -1199,7 +1199,7 @@
 	        }
 	    };
 	    AudioEngine.prototype._warnMissingAudio = function (name) {
-	        this.logManager.log(Utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+	        this.logManager.log(_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	    };
 	    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
 	        if (this._audioMap[name]) {
@@ -1665,12 +1665,12 @@
 
 	"use strict";
 	var _1 = __webpack_require__(13);
-	var Utils_1 = __webpack_require__(2);
+	var _2 = __webpack_require__(2);
 	var TextAssetBuilder = (function () {
 	    function TextAssetBuilder() {
 	    }
 	    TextAssetBuilder.prototype.build = function (font, text, maxWidth, height, color) {
-	        var textViewPort = new Utils_1.ViewPort();
+	        var textViewPort = new _2.ViewPort();
 	        var textAsset = new _1.Asset(_1.AssetType.IMAGE);
 	        textViewPort.setFont(font);
 	        textViewPort.setColor(color || "green");
@@ -2313,8 +2313,8 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(9);
-	var Assets_1 = __webpack_require__(13);
-	var _1 = __webpack_require__(31);
+	var _1 = __webpack_require__(13);
+	var _2 = __webpack_require__(31);
 	var Iterator_1 = __webpack_require__(6);
 	var Entity = (function (_super) {
 	    __extends(Entity, _super);
@@ -2331,10 +2331,10 @@
 	            }
 	        };
 	        if (!model) {
-	            model = new _1.EntityModel();
+	            model = new _2.EntityModel();
 	            useDefaults = true;
 	        }
-	        this.view = new _1.EntityView(model);
+	        this.view = new _2.EntityView(model);
 	        this.model = model;
 	        this._children = new Array();
 	        this._regions = [];
@@ -2550,7 +2550,7 @@
 	            return this.model.texture;
 	        },
 	        set: function (asset) {
-	            if (asset.getType() !== Assets_1.AssetType.IMAGE) {
+	            if (asset.getType() !== _1.AssetType.IMAGE) {
 	                throw new Error('Texture asset must be of type IMAGE.');
 	            }
 	            this.model.texture = asset;
@@ -2861,13 +2861,13 @@
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
 	var Events = __webpack_require__(9);
-	var Utils_1 = __webpack_require__(2);
+	var _1 = __webpack_require__(2);
 	var EntityModel = (function (_super) {
 	    __extends(EntityModel, _super);
 	    function EntityModel() {
 	        _super.call(this);
 	        this._attributes = {};
-	        this._id = Utils_1.IDGenerator.getSingleton().generate();
+	        this._id = _1.IDGenerator.getSingleton().generate();
 	        this.type = 'generic';
 	    }
 	    Object.defineProperty(EntityModel.prototype, "ID", {
@@ -3576,8 +3576,8 @@
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var Entities_1 = __webpack_require__(31);
-	var Assets_1 = __webpack_require__(13);
+	var _1 = __webpack_require__(31);
+	var _2 = __webpack_require__(13);
 	var Engine_1 = __webpack_require__(1);
 	var Character = (function (_super) {
 	    __extends(Character, _super);
@@ -3586,22 +3586,22 @@
 	        this.width = 14;
 	        this.height = 21;
 	        this._characterSpritesheet = character_spritesheet;
-	        this._upAnim = new Assets_1.Animation(this, [
+	        this._upAnim = new _2.Animation(this, [
 	            { "asset": character_spritesheet.getSprite('player_up_step1'), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_up_step2"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 }]);
-	        this._downAnim = new Assets_1.Animation(this, [
+	        this._downAnim = new _2.Animation(this, [
 	            { "asset": character_spritesheet.getSprite("player_down_step1"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_down_step2"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 }]);
-	        this._leftAnim = new Assets_1.Animation(this, [
+	        this._leftAnim = new _2.Animation(this, [
 	            { "asset": character_spritesheet.getSprite("player_left_step2"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_left_step1"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 }]);
-	        this._rightAnim = new Assets_1.Animation(this, [
+	        this._rightAnim = new _2.Animation(this, [
 	            { "asset": character_spritesheet.getSprite("player_right_step2"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 },
 	            { "asset": character_spritesheet.getSprite("player_right_step1"), "delay": 250 },
@@ -3723,7 +3723,7 @@
 	        }
 	    };
 	    return Character;
-	}(Entities_1.Entity));
+	}(_1.Entity));
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = Character;
 

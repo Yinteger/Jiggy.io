@@ -1,4 +1,4 @@
-import {Event} from "./.";
+import {Event} from "../interfaces/";
 
 export interface AttrDeleteEvent extends Event  {
 	attribute : string,
