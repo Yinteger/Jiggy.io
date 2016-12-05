@@ -1,15 +1,16 @@
 {
-  "name": "popcorn-engine",
+  "name": "Jiggy.io",
   "version": "0.0.1",
   "description": "",
   "dependencies": {
+
+  },
+  "devDependencies": {
     "compression": "1.6.1",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "webpack": "^1.12.9",
-    "typescript": "1.8.10"
-  },
-  "devDependencies": {
+    "typescript": "1.8.10",
     "gulp": "^3.9.1",
     "gulp-hg": "^1.0.3",
     "gulp-install": "^0.6.0",
@@ -22,13 +23,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",
-    "typings": "typings",
-    "start": "node app.js"
+    "typings": "typings"
   },
   "repository": {
     "type": "git",
-    "url": "git@bitbucket.git:sagetime/helloworld-express.git"
+    "url": "git@github.com:YuniYasha/Jiggy.io.git"
   },
-  "author": "SageTime Inc",
-  "license": "Copyright SageTime Inc"
+  "author": "Kyle Williams <kyle@kylewilliams.io"
 }
