@@ -145,6 +145,18 @@
 	                var map = _this._createMainMap();
 	                var camera = new _4.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
 	                _this.renderingEngine.addCamera(camera);
+	                _this.viewPort.canvas.addEventListener('mousewheel', function (e) {
+	                    var fov = camera.fov;
+	                    var viewPoint = camera.viewPoint;
+	                    if (e.wheelDelta > 0) {
+	                        camera.viewPoint = ({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
+	                        camera.fov = ({ width: fov.width - 10, height: fov.height - 10 });
+	                    }
+	                    else {
+	                        camera.viewPoint = ({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
+	                        camera.fov = ({ width: fov.width + 10, height: fov.height + 10 });
+	                    }
+	                });
 	                _this.player = new Character_1.default(_this._characterSpritesheet);
 	                _this.player.texture = _this._characterSpritesheet.getSprite("player_down");
 	                var layer = map.getChildAt(1);
@@ -154,6 +166,10 @@
 	                _this.player.tileY = 5;
 	                _this.player.x = tile.x;
 	                _this.player.y = tile.y - _this.player.height - tile.height;
+	                _this.player.on(0 .toString(), function () {
+	                    var fov = camera.fov;
+	                    camera.viewPoint = { x: _this.player.x + ((_this.player.width - fov.width) / 2), y: _this.player.y + ((_this.player.height - fov.height) / 2) };
+	                });
 	                _this.audioEngine.addAudio('bg', _this._bgMusic);
 	                _this.audioEngine.loopAudio('bg', true);
 	                _this.audioEngine.playAudio('bg');

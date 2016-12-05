@@ -6,6 +6,7 @@ import {Iterator, Camera} from "../../src/utils/";
 import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/';
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/";
 import Character from "./Character";
+import {EntityEventTypes, LocationUpdateEvent} from "../../src/entities/";
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
@@ -132,8 +133,23 @@ class PalletDemo extends Engine {
 				var camera = new Camera(map, null, {width: 250, height: 250}, null, {width: 500, height: 500});
 				this.renderingEngine.addCamera(camera);
 
-				//Load Character
+				this.viewPort.canvas.addEventListener('mousewheel', function (e: MouseWheelEvent) {
+					// console.warn(e);
+					var fov = camera.fov;
+					var viewPoint = camera.viewPoint;
+					if (e.wheelDelta > 0) {
+						//Mouse wheel went up, zoom in by decreasing FOV
+						camera.viewPoint = ({x: viewPoint.x + 5, y: viewPoint.y + 5});
+						camera.fov = ({width: fov.width - 10, height: fov.height - 10});
+					} else {
+						//Zoom out
+						camera.viewPoint = ({x: viewPoint.x - 5, y: viewPoint.y - 5});
+						camera.fov = ({width: fov.width + 10, height: fov.height + 10});
+					}
+				});
 
+
+				//Load Character
 				this.player = new Character(this._characterSpritesheet);
 				this.player.texture = this._characterSpritesheet.getSprite("player_down");
 				let layer = <GridMap> map.getChildAt(1);	
@@ -143,6 +159,11 @@ class PalletDemo extends Engine {
 				this.player.tileY = 5;
 				this.player.x = tile.x;
 				this.player.y = tile.y - this.player.height - tile.height;
+
+				this.player.on(EntityEventTypes.LOCATION_UPDATE.toString(), () => {
+					var fov = camera.fov;
+					camera.viewPoint = {x: this.player.x + ((this.player.width - fov.width) / 2), y: this.player.y + ((this.player.height - fov.height) / 2)};
+				});
 
 				//Load NPC's
 
