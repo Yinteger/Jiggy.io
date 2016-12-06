@@ -178,6 +178,7 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			}
 
 		} else {
+			//TODO: Split up code so 2d rendering code isn't copied for HUD Entities
 			//No camera, static entities relative to the canvas
 			var x = entity.x;
 			var y = entity.y;
