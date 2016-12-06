@@ -13,6 +13,7 @@ export class RenderingEngine {
 	private _frames : number;
 	private _lastRender : Date;
 	private _showFPS : boolean;
+	public debugCamera : boolean;
 
 	constructor () {
 		this._prerenderViewPort = new ViewPort();

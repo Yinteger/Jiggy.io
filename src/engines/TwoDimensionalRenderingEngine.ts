@@ -5,7 +5,6 @@ import {Iterator} from "../utils/Iterator";
 
 export class TwoDimensionalRenderingEngine extends RenderingEngine {
 	public debugRegions : boolean;
-	public debugCamera : boolean;
 
 	protected _render () : void {
 		super._render();
@@ -185,6 +184,13 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			var w = entity.width;
 			var h = entity.height;
 
+			//Rendering time!
+			if (entity.color){
+				//Draw a rect in its place...
+				var color = entity.color;
+				this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+				this.viewPort.context.fillRect(x, y, w, h);
+			}
 
 			if (entity.texture) {
 				//TODO: Grab the Cached version of it if available, 
