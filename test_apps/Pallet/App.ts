@@ -3,7 +3,8 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines
 import {HTML5AudioEngine} from "../../src/audio/";
 import {Entity, GridMap} from "../../src/entities/";
 import {Iterator, Camera} from "../../src/utils/";
-import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/';
+// import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/';
+import {keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys} from "../../src/inputs/Keyboard";
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/";
 import Character from "./Character";
 import {EntityEventTypes, LocationUpdateEvent} from "../../src/entities/";
@@ -193,34 +194,62 @@ class PalletDemo extends Engine {
 					}
 				}, 1);
 
-				var inputManager: InputManager = InputManager.getSingleton();
-				inputManager.createController('player', ControllerType.KEYBOARD);
-				inputManager.on(InputEvent.BUTTON_DOWN.toString(), (data: KeyboardEventDetail) => {
-					switch(data.keyCode) {
-						case KeyCode.W:
+				keyboard.on(KeyboardEvents.KeyDown.toString(), (e: KeyDown) => {
+					switch(e.key) {
+						case KeyboardKeys.W:
 							direction = 'up';
 							break;
-						case KeyCode.A:
-							direction = 'left';
+						case KeyboardKeys.A:
+							direction = "left";
 							break;
-						case KeyCode.S:
-							direction = 'down';
+						case KeyboardKeys.S:
+							direction = "down"
 							break;
-						case KeyCode.D:
-							direction = 'right';
+						case KeyboardKeys.D:
+							direction = "right";
 							break;
 					}
 				});
-				inputManager.on(InputEvent.BUTTON_UP.toString(), (data: KeyboardEventDetail) => {
-					switch(data.keyCode) {
-						case KeyCode.W:
-						case KeyCode.A:
-						case KeyCode.S:
-						case KeyCode.D:
+
+				keyboard.on(KeyboardEvents.KeyUp.toString(), (e: KeyUp) => {
+					switch(e.key) {
+						case KeyboardKeys.W:
+						case KeyboardKeys.A:
+						case KeyboardKeys.S:
+						case KeyboardKeys.D:
 							direction = null;
 							break;
 					}
 				});
+
+				// var inputManager: InputManager = InputManager.getSingleton();
+				// inputManager.createController('player', ControllerType.KEYBOARD);
+				// inputManager.on(InputEvent.BUTTON_DOWN.toString(), (data: KeyboardEventDetail) => {
+				// 	switch(data.keyCode) {
+				// 		case KeyCode.W:
+				// 			direction = 'up';
+				// 			break;
+				// 		case KeyCode.A:
+				// 			direction = 'left';
+				// 			break;
+				// 		case KeyCode.S:
+				// 			direction = 'down';
+				// 			break;
+				// 		case KeyCode.D:
+				// 			direction = 'right';
+				// 			break;
+				// 	}
+				// });
+				// inputManager.on(InputEvent.BUTTON_UP.toString(), (data: KeyboardEventDetail) => {
+				// 	switch(data.keyCode) {
+				// 		case KeyCode.W:
+				// 		case KeyCode.A:
+				// 		case KeyCode.S:
+				// 		case KeyCode.D:
+				// 			direction = null;
+				// 			break;
+				// 	}
+				// });
 			}, 1000);			
 		}
 	}

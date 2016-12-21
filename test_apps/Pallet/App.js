@@ -55,9 +55,9 @@
 	var _2 = __webpack_require__(11);
 	var _3 = __webpack_require__(31);
 	var _4 = __webpack_require__(2);
-	var _5 = __webpack_require__(37);
-	var _6 = __webpack_require__(13);
-	var Character_1 = __webpack_require__(47);
+	var Keyboard_1 = __webpack_require__(37);
+	var _5 = __webpack_require__(13);
+	var Character_1 = __webpack_require__(39);
 	var PalletDemo = (function (_super) {
 	    __extends(PalletDemo, _super);
 	    function PalletDemo() {
@@ -70,7 +70,7 @@
 	        this._loadResources();
 	    }
 	    PalletDemo.prototype._createLoadingScreen = function () {
-	        var textAssetBuilder = new _6.TextAssetBuilder();
+	        var textAssetBuilder = new _5.TextAssetBuilder();
 	        var hud = new _3.Entity();
 	        hud.width = 500;
 	        hud.height = 500;
@@ -84,7 +84,7 @@
 	        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
 	        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
 	        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
-	        var loadingAnim = new _6.Animation(loadingText, [
+	        var loadingAnim = new _5.Animation(loadingText, [
 	            { 'asset': loading0, 'delay': 250 },
 	            { 'asset': loading1, 'delay': 250 },
 	            { 'asset': loading2, 'delay': 250 },
@@ -190,30 +190,30 @@
 	                            break;
 	                    }
 	                }, 1);
-	                var inputManager = _5.InputManager.getSingleton();
-	                inputManager.createController('player', _5.ControllerType.KEYBOARD);
-	                inputManager.on(_5.InputEvent.BUTTON_DOWN.toString(), function (data) {
-	                    switch (data.keyCode) {
-	                        case _5.KeyCode.W:
+	                Keyboard_1.keyboard.on(1 .toString(), function (e) {
+	                    console.log(e);
+	                    switch (e.key) {
+	                        case Keyboard_1.KeyboardKeys.W:
 	                            direction = 'up';
 	                            break;
-	                        case _5.KeyCode.A:
-	                            direction = 'left';
+	                        case Keyboard_1.KeyboardKeys.A:
+	                            direction = "left";
 	                            break;
-	                        case _5.KeyCode.S:
-	                            direction = 'down';
+	                        case Keyboard_1.KeyboardKeys.S:
+	                            direction = "down";
 	                            break;
-	                        case _5.KeyCode.D:
-	                            direction = 'right';
+	                        case Keyboard_1.KeyboardKeys.D:
+	                            direction = "right";
 	                            break;
 	                    }
 	                });
-	                inputManager.on(_5.InputEvent.BUTTON_UP.toString(), function (data) {
-	                    switch (data.keyCode) {
-	                        case _5.KeyCode.W:
-	                        case _5.KeyCode.A:
-	                        case _5.KeyCode.S:
-	                        case _5.KeyCode.D:
+	                Keyboard_1.keyboard.on(0 .toString(), function (e) {
+	                    console.log(e);
+	                    switch (e.key) {
+	                        case Keyboard_1.KeyboardKeys.W:
+	                        case Keyboard_1.KeyboardKeys.A:
+	                        case Keyboard_1.KeyboardKeys.S:
+	                        case Keyboard_1.KeyboardKeys.D:
 	                            direction = null;
 	                            break;
 	                    }
@@ -223,10 +223,10 @@
 	    };
 	    PalletDemo.prototype._loadMapSpritesheet = function () {
 	        var _this = this;
-	        var map_asset = _6.AssetFactory.getSingleton().build(_6.AssetType.IMAGE, 'Resources/61816.png');
+	        var map_asset = _5.AssetFactory.getSingleton().build(_5.AssetType.IMAGE, 'Resources/61816.png');
 	        map_asset.onStateChange = function (state) {
-	            if (state === _6.AssetState.LOADED) {
-	                _this._mapSpritesheet = new _6.Spritesheet(map_asset, {
+	            if (state === _5.AssetState.LOADED) {
+	                _this._mapSpritesheet = new _5.Spritesheet(map_asset, {
 	                    "grass": {
 	                        x: 16,
 	                        y: 0,
@@ -312,10 +312,10 @@
 	    };
 	    PalletDemo.prototype._loadCharacterSpritesheet = function () {
 	        var _this = this;
-	        var character_spritesheet = _6.AssetFactory.getSingleton().build(_6.AssetType.IMAGE, 'Resources/3698.png');
+	        var character_spritesheet = _5.AssetFactory.getSingleton().build(_5.AssetType.IMAGE, 'Resources/3698.png');
 	        character_spritesheet.onStateChange = function (state) {
-	            if (state === _6.AssetState.LOADED) {
-	                _this._characterSpritesheet = new _6.Spritesheet(character_spritesheet, {
+	            if (state === _5.AssetState.LOADED) {
+	                _this._characterSpritesheet = new _5.Spritesheet(character_spritesheet, {
 	                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
 	                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
 	                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
@@ -336,9 +336,9 @@
 	    };
 	    PalletDemo.prototype._loadBackgroundMusic = function () {
 	        var _this = this;
-	        var bg_music = _6.AssetFactory.getSingleton().build(_6.AssetType.AUDIO, 'Resources/music.mp3');
+	        var bg_music = _5.AssetFactory.getSingleton().build(_5.AssetType.AUDIO, 'Resources/music.mp3');
 	        bg_music.onStateChange = function (state) {
-	            if (state === _6.AssetState.LOADED) {
+	            if (state === _5.AssetState.LOADED) {
 	                _this._bgMusic = bg_music;
 	                _this._resourceLoaded();
 	            }
@@ -2281,6 +2281,11 @@
 	            var y = entity.y;
 	            var w = entity.width;
 	            var h = entity.height;
+	            if (entity.color) {
+	                var color = entity.color;
+	                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+	                this.viewPort.context.fillRect(x, y, w, h);
+	            }
 	            if (entity.texture) {
 	                var imageData = entity.texture.getData();
 	                var entityToImageYModifier = imageData.height / entity.height;
@@ -3072,518 +3077,201 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var ControllerType_1 = __webpack_require__(38);
-	exports.ControllerType = ControllerType_1.ControllerType;
-	var Controller_1 = __webpack_require__(39);
-	exports.Controller = Controller_1.Controller;
-	var MouseController_1 = __webpack_require__(40);
-	exports.MouseController = MouseController_1.MouseController;
-	var KeyboardController_1 = __webpack_require__(41);
-	exports.KeyboardController = KeyboardController_1.KeyboardController;
-	var InputEvent_1 = __webpack_require__(42);
-	exports.InputEvent = InputEvent_1.InputEvent;
-	var KeyCode_1 = __webpack_require__(43);
-	exports.KeyCode = KeyCode_1.KeyCode;
-	var MouseButton_1 = __webpack_require__(44);
-	exports.MouseButton = MouseButton_1.MouseButton;
-	var ControllerFactory_1 = __webpack_require__(45);
-	exports.ControllerFactory = ControllerFactory_1.ControllerFactory;
-	var InputManager_1 = __webpack_require__(46);
-	exports.InputManager = InputManager_1.InputManager;
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var InputDevice_ts_1 = __webpack_require__(38);
+	exports.KeyboardKeys = {
+	    0: 48,
+	    1: 49,
+	    2: 50,
+	    3: 51,
+	    4: 52,
+	    5: 53,
+	    6: 54,
+	    7: 55,
+	    8: 56,
+	    9: 57,
+	    "BREAK": 3,
+	    "BACKSPACE": 8,
+	    "TAB": 9,
+	    "CLEAR": 12,
+	    "ENTER": 13,
+	    "SHIFT": 16,
+	    "CTRL": 17,
+	    "ALT": 18,
+	    "PAUSE": 19,
+	    "CAPSLOCK": 20,
+	    "ESCAPE": 27,
+	    "SPACEBAR": 32,
+	    "PAGEUP": 33,
+	    "PAGEDOWN": 34,
+	    "END": 35,
+	    "HOME": 36,
+	    "LEFTARROW": 37,
+	    "UPARROW": 38,
+	    "RIGHTARROW": 39,
+	    "DOWNARROW": 40,
+	    "SELECT": 41,
+	    "PRINT": 42,
+	    "EXECUTE": 43,
+	    "PRINTSCREEN": 44,
+	    "INSERT": 45,
+	    "DELETE": 46,
+	    "COLON": 58,
+	    "SEMICOLON": 59,
+	    "LESSTHAN": 60,
+	    "EQUALS": 61,
+	    "AMPERSAT": 64,
+	    "A": 65,
+	    "B": 66,
+	    "C": 67,
+	    "D": 68,
+	    "E": 69,
+	    "F": 70,
+	    "G": 71,
+	    "H": 72,
+	    "I": 73,
+	    "J": 74,
+	    "K": 75,
+	    "L": 76,
+	    "M": 77,
+	    "N": 78,
+	    "O": 79,
+	    "P": 80,
+	    "Q": 81,
+	    "R": 82,
+	    "S": 83,
+	    "T": 84,
+	    "U": 85,
+	    "V": 86,
+	    "W": 87,
+	    "X": 88,
+	    "Y": 89,
+	    "Z": 90,
+	    "WINDOWSKEY": 91,
+	    "RIGHTWINDOWSKEY": 92,
+	    "WINDOWSMENU": 93,
+	    "NUM0": 96,
+	    "NUM1": 97,
+	    "NUM2": 98,
+	    "NUM3": 99,
+	    "NUM4": 100,
+	    "NUM5": 101,
+	    "NUM6": 102,
+	    "NUM7": 103,
+	    "NUM8": 104,
+	    "NUM9": 105,
+	    "NUMMULTIPLY": 106,
+	    "NUMADD": 107,
+	    "NUMPERIOUD": 108,
+	    "NUMSUBTRACT": 109,
+	    "DECIMALPOINT": 110,
+	    "NUMDIVIDE": 111,
+	    "F1": 112,
+	    "F2": 113,
+	    "F3": 114,
+	    "F4": 115,
+	    "F5": 116,
+	    "F6": 117,
+	    "F7": 118,
+	    "F8": 119,
+	    "F9": 120,
+	    "F10": 121,
+	    "F11": 122,
+	    "F12": 123,
+	    "F13": 124,
+	    "F14": 125,
+	    "F15": 126,
+	    "F16": 127,
+	    "F17": 128,
+	    "F18": 129,
+	    "F19": 130,
+	    "F20": 131,
+	    "F21": 132,
+	    "F22": 133,
+	    "F23": 134,
+	    "F24": 135,
+	    "NUMLOCK": 144,
+	    "SCROLLLOCK": 145,
+	    "CARET": 160,
+	    "EXCLAMATION": 161,
+	    "POUND": 163,
+	    "MONEYSIGN": 164,
+	};
+	var Keyboard = (function (_super) {
+	    __extends(Keyboard, _super);
+	    function Keyboard() {
+	        var _this = this;
+	        _super.call(this);
+	        this._buttonMap = {};
+	        this._buttonsActive = {};
+	        window.addEventListener("keydown", function (e) {
+	            if (!_this.isButtonActive(e.which)) {
+	                _this._setButtonActive(e.which, true);
+	                _this._setButtonValue(e.which, true);
+	                var event_1 = {
+	                    type: 1 .toString(),
+	                    source: _this,
+	                    key: e.which
+	                };
+	                _this.emit(1 .toString(), event_1);
+	            }
+	        }, true);
+	        window.addEventListener("keyup", function (e) {
+	            _this._setButtonActive(e.which, false);
+	            _this._setButtonValue(e.which, false);
+	            var event = {
+	                type: 0 .toString(),
+	                source: _this,
+	                key: e.which
+	            };
+	            _this.emit(0 .toString(), event);
+	        }, true);
+	    }
+	    Keyboard.prototype._setButtonActive = function (id, active) {
+	        this._buttonsActive[id] = active;
+	    };
+	    Keyboard.prototype.isButtonActive = function (id) {
+	        return this._buttonsActive[id] === true;
+	    };
+	    Keyboard.prototype.getButtonValue = function (id) {
+	        return this._buttonMap[id];
+	    };
+	    Keyboard.prototype._setButtonValue = function (id, value) {
+	        this._buttonMap[id] = value;
+	    };
+	    return Keyboard;
+	}(InputDevice_ts_1.default));
+	exports.keyboard = new Keyboard();
 
 
 /***/ },
 /* 38 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	(function (ControllerType) {
-	    ControllerType[ControllerType["MOUSE"] = 0] = "MOUSE";
-	    ControllerType[ControllerType["KEYBOARD"] = 1] = "KEYBOARD";
-	})(exports.ControllerType || (exports.ControllerType = {}));
-	var ControllerType = exports.ControllerType;
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var Events = __webpack_require__(9);
+	var InputDevice = (function (_super) {
+	    __extends(InputDevice, _super);
+	    function InputDevice() {
+	        _super.apply(this, arguments);
+	    }
+	    return InputDevice;
+	}(Events.EventEmitter));
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = InputDevice;
 
 
 /***/ },
 /* 39 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var events_1 = __webpack_require__(9);
-	var Controller = (function (_super) {
-	    __extends(Controller, _super);
-	    function Controller() {
-	        _super.call(this);
-	        this._attachEvents();
-	    }
-	    Controller.prototype._fireEvent = function (event, data) {
-	        this.emit(event.toString(), data);
-	    };
-	    return Controller;
-	}(events_1.EventEmitter));
-	exports.Controller = Controller;
-
-
-/***/ },
-/* 40 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var _1 = __webpack_require__(37);
-	var MouseController = (function (_super) {
-	    __extends(MouseController, _super);
-	    function MouseController() {
-	        _super.call(this);
-	        this._eventDetails = {
-	            altKey: false,
-	            shiftKey: false,
-	            superKey: false,
-	            x: -1,
-	            y: -1,
-	            buttons: [],
-	            button: null
-	        };
-	        this._x = -1;
-	        this._y = -1;
-	    }
-	    MouseController.prototype.destroy = function () {
-	        document.body.removeEventListener('mousedown', this._mouseDownHandler);
-	        document.body.removeEventListener('mouseup', this._mouseUpHandler);
-	        document.body.removeEventListener('mousemove', this._mouseMoveHandler);
-	        window.removeEventListener('contextmenu', this._contextMenuHandler);
-	        window.removeEventListener('wheel', this._wheelHandler);
-	    };
-	    MouseController.prototype._getMouseButton = function (e) {
-	        switch (e.button) {
-	            case 0:
-	                return _1.MouseButton.BUTTON_LEFT;
-	            case 1:
-	                return _1.MouseButton.BUTTON_MIDDLE;
-	            case 2:
-	                return _1.MouseButton.BUTTON_RIGHT;
-	        }
-	        throw new Error('Unrecognized Mouse Button.');
-	    };
-	    MouseController.prototype._mouseDownHandler = function (e) {
-	        var mouseButton = this._getMouseButton(e);
-	        if (this._eventDetails.buttons.indexOf(mouseButton) === -1) {
-	            this._updateEventDetail(e);
-	            this._onMouseDown();
-	        }
-	    };
-	    MouseController.prototype._mouseUpHandler = function (e) {
-	        this._updateEventDetail(e);
-	        this._onMouseUp();
-	    };
-	    MouseController.prototype._mouseMoveHandler = function (e) {
-	        this._updateEventDetail(e);
-	        if (this._eventDetails.x !== this._x || this._eventDetails.y !== this._y) {
-	            this._x = this._eventDetails.x;
-	            this._y = this._eventDetails.y;
-	            this._onMouseMove();
-	        }
-	    };
-	    MouseController.prototype._contextMenuHandler = function (e) {
-	        e.preventDefault();
-	    };
-	    MouseController.prototype._wheelHandler = function (e) {
-	        e.preventDefault();
-	        this._updateEventDetail(e);
-	        this._onMouseWheel();
-	    };
-	    MouseController.prototype._attachEvents = function () {
-	        window.addEventListener('wheel', this._wheelHandler);
-	        document.body.addEventListener('contextmenu', this._contextMenuHandler);
-	        document.body.addEventListener('mousedown', this._mouseDownHandler);
-	        document.body.addEventListener('mouseup', this._mouseUpHandler);
-	        document.body.addEventListener('mousemove', this._mouseMoveHandler);
-	    };
-	    MouseController.prototype._onMouseDown = function () {
-	        this._fireEvent(_1.InputEvent.BUTTON_DOWN, this._eventDetails);
-	    };
-	    MouseController.prototype._onMouseUp = function () {
-	        this._fireEvent(_1.InputEvent.BUTTON_UP, this._eventDetails);
-	    };
-	    MouseController.prototype._onMouseMove = function () {
-	        this._fireEvent(_1.InputEvent.POINTER_MOVE, this._eventDetails);
-	    };
-	    MouseController.prototype._onMouseWheel = function () {
-	        this._fireEvent(_1.InputEvent.WHEEL, this._eventDetails);
-	    };
-	    MouseController.prototype._updateEventDetail = function (e) {
-	        var mouseButton = this._getMouseButton(e);
-	        this._eventDetails.altKey = e.altKey;
-	        this._eventDetails.shiftKey = e.shiftKey;
-	        this._eventDetails.superKey = e.metaKey;
-	        this._eventDetails.button = e.button;
-	        this._eventDetails.x = e.x;
-	        this._eventDetails.y = e.y;
-	        if (e.type === 'mousedown') {
-	            if (this._eventDetails.buttons.indexOf(mouseButton) === -1) {
-	                this._eventDetails.buttons.push(mouseButton);
-	            }
-	        }
-	        else if (e.type === 'mouseup') {
-	            if (this._eventDetails.buttons.indexOf(mouseButton) > -1) {
-	                this._eventDetails.buttons.splice(this._eventDetails.buttons.indexOf(mouseButton), 1);
-	            }
-	        }
-	    };
-	    MouseController.prototype.initialize = function (inputManager) {
-	        var _this = this;
-	        this.on(_1.InputEvent.BUTTON_DOWN.toString(), function (data) {
-	            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_DOWN, data);
-	        });
-	        this.on(_1.InputEvent.BUTTON_UP.toString(), function (data) {
-	            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_UP, data);
-	        });
-	        this.on(_1.InputEvent.POINTER_MOVE.toString(), function (data) {
-	            inputManager.onInputReceived(_this, _1.InputEvent.POINTER_MOVE, data);
-	        });
-	        this.on(_1.InputEvent.WHEEL.toString(), function (data) {
-	            inputManager.onInputReceived(_this, _1.InputEvent.WHEEL, data);
-	        });
-	    };
-	    return MouseController;
-	}(_1.Controller));
-	exports.MouseController = MouseController;
-
-
-/***/ },
-/* 41 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var _1 = __webpack_require__(37);
-	var KeyboardController = (function (_super) {
-	    __extends(KeyboardController, _super);
-	    function KeyboardController() {
-	        _super.call(this);
-	        this._eventDetail = {
-	            keyCodes: [],
-	            keyCode: null,
-	            altKey: false,
-	            shiftKey: false,
-	            superKey: false
-	        };
-	    }
-	    KeyboardController.prototype.destroy = function () {
-	        window.removeEventListener('keyup', this._keyUpHandler);
-	        window.removeEventListener('keydown', this._keyDownHandler);
-	    };
-	    KeyboardController.prototype._keyDownHandler = function (e) {
-	        e.preventDefault();
-	        if (this._eventDetail.keyCodes.indexOf(e.keyCode) === -1) {
-	            this._updateEventDetail(e);
-	            this._onKeyDown();
-	        }
-	    };
-	    KeyboardController.prototype._keyUpHandler = function (e) {
-	        e.preventDefault();
-	        this._updateEventDetail(e);
-	        this._onKeyUp();
-	    };
-	    KeyboardController.prototype._attachEvents = function () {
-	        this._keyUpHandler = this._keyUpHandler.bind(this);
-	        this._keyDownHandler = this._keyDownHandler.bind(this);
-	        window.document.addEventListener('keydown', this._keyDownHandler);
-	        window.addEventListener('keyup', this._keyUpHandler);
-	    };
-	    KeyboardController.prototype._onKeyDown = function () {
-	        this._fireEvent(_1.InputEvent.BUTTON_DOWN, this._eventDetail);
-	    };
-	    KeyboardController.prototype._onKeyUp = function () {
-	        this._fireEvent(_1.InputEvent.BUTTON_UP, this._eventDetail);
-	    };
-	    KeyboardController.prototype._updateEventDetail = function (e) {
-	        this._eventDetail.altKey = e.altKey;
-	        this._eventDetail.shiftKey = e.shiftKey;
-	        this._eventDetail.superKey = e.metaKey;
-	        this._eventDetail.keyCode = e.keyCode;
-	        if (e.type === 'keydown') {
-	            if (this._eventDetail.keyCodes.indexOf(e.keyCode) === -1) {
-	                this._eventDetail.keyCodes.push(e.keyCode);
-	            }
-	        }
-	        else if (e.type === 'keyup') {
-	            if (this._eventDetail.keyCodes.indexOf(e.keyCode) > -1) {
-	                this._eventDetail.keyCodes.splice(this._eventDetail.keyCodes.indexOf(e.keyCode), 1);
-	            }
-	        }
-	    };
-	    KeyboardController.prototype.initialize = function (inputManager) {
-	        var _this = this;
-	        this.on(_1.InputEvent.BUTTON_DOWN.toString(), function (data) {
-	            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_DOWN, data);
-	        });
-	        this.on(_1.InputEvent.BUTTON_UP.toString(), function (data) {
-	            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_UP, data);
-	        });
-	    };
-	    return KeyboardController;
-	}(_1.Controller));
-	exports.KeyboardController = KeyboardController;
-
-
-/***/ },
-/* 42 */
-/***/ function(module, exports) {
-
-	"use strict";
-	(function (InputEvent) {
-	    InputEvent[InputEvent["BUTTON_DOWN"] = 0] = "BUTTON_DOWN";
-	    InputEvent[InputEvent["BUTTON_UP"] = 1] = "BUTTON_UP";
-	    InputEvent[InputEvent["POINTER_MOVE"] = 2] = "POINTER_MOVE";
-	    InputEvent[InputEvent["WHEEL"] = 3] = "WHEEL";
-	})(exports.InputEvent || (exports.InputEvent = {}));
-	var InputEvent = exports.InputEvent;
-
-
-/***/ },
-/* 43 */
-/***/ function(module, exports) {
-
-	"use strict";
-	(function (KeyCode) {
-	    KeyCode[KeyCode["BACKSPACE"] = 8] = "BACKSPACE";
-	    KeyCode[KeyCode["TAB"] = 9] = "TAB";
-	    KeyCode[KeyCode["NP_5_UNLOCKED"] = 12] = "NP_5_UNLOCKED";
-	    KeyCode[KeyCode["ENTER"] = 13] = "ENTER";
-	    KeyCode[KeyCode["SHIFT"] = 16] = "SHIFT";
-	    KeyCode[KeyCode["CONTROL"] = 17] = "CONTROL";
-	    KeyCode[KeyCode["ALT"] = 18] = "ALT";
-	    KeyCode[KeyCode["PAUSE"] = 19] = "PAUSE";
-	    KeyCode[KeyCode["CAPS_LOCK"] = 20] = "CAPS_LOCK";
-	    KeyCode[KeyCode["ESCAPE"] = 27] = "ESCAPE";
-	    KeyCode[KeyCode["PAGE_UP"] = 33] = "PAGE_UP";
-	    KeyCode[KeyCode["PAGE_DOWN"] = 34] = "PAGE_DOWN";
-	    KeyCode[KeyCode["END"] = 35] = "END";
-	    KeyCode[KeyCode["HOME"] = 36] = "HOME";
-	    KeyCode[KeyCode["LEFT_ARROW"] = 37] = "LEFT_ARROW";
-	    KeyCode[KeyCode["UP_ARROW"] = 38] = "UP_ARROW";
-	    KeyCode[KeyCode["RIGHT_ARROW"] = 39] = "RIGHT_ARROW";
-	    KeyCode[KeyCode["DOWN_ARROW"] = 40] = "DOWN_ARROW";
-	    KeyCode[KeyCode["PRINT_SCREEN"] = 44] = "PRINT_SCREEN";
-	    KeyCode[KeyCode["INSERT"] = 45] = "INSERT";
-	    KeyCode[KeyCode["DELETE"] = 46] = "DELETE";
-	    KeyCode[KeyCode["ZERO"] = 48] = "ZERO";
-	    KeyCode[KeyCode["ONE"] = 49] = "ONE";
-	    KeyCode[KeyCode["TWO"] = 50] = "TWO";
-	    KeyCode[KeyCode["THREE"] = 51] = "THREE";
-	    KeyCode[KeyCode["FOUR"] = 52] = "FOUR";
-	    KeyCode[KeyCode["FIVE"] = 53] = "FIVE";
-	    KeyCode[KeyCode["SIX"] = 54] = "SIX";
-	    KeyCode[KeyCode["SEVEN"] = 55] = "SEVEN";
-	    KeyCode[KeyCode["EIGHT"] = 56] = "EIGHT";
-	    KeyCode[KeyCode["NINE"] = 57] = "NINE";
-	    KeyCode[KeyCode["A"] = 65] = "A";
-	    KeyCode[KeyCode["B"] = 66] = "B";
-	    KeyCode[KeyCode["C"] = 67] = "C";
-	    KeyCode[KeyCode["D"] = 68] = "D";
-	    KeyCode[KeyCode["E"] = 69] = "E";
-	    KeyCode[KeyCode["F"] = 70] = "F";
-	    KeyCode[KeyCode["G"] = 71] = "G";
-	    KeyCode[KeyCode["H"] = 72] = "H";
-	    KeyCode[KeyCode["I"] = 73] = "I";
-	    KeyCode[KeyCode["J"] = 74] = "J";
-	    KeyCode[KeyCode["K"] = 75] = "K";
-	    KeyCode[KeyCode["L"] = 76] = "L";
-	    KeyCode[KeyCode["M"] = 77] = "M";
-	    KeyCode[KeyCode["N"] = 78] = "N";
-	    KeyCode[KeyCode["O"] = 79] = "O";
-	    KeyCode[KeyCode["P"] = 80] = "P";
-	    KeyCode[KeyCode["Q"] = 81] = "Q";
-	    KeyCode[KeyCode["R"] = 82] = "R";
-	    KeyCode[KeyCode["S"] = 83] = "S";
-	    KeyCode[KeyCode["T"] = 84] = "T";
-	    KeyCode[KeyCode["U"] = 85] = "U";
-	    KeyCode[KeyCode["V"] = 86] = "V";
-	    KeyCode[KeyCode["W"] = 87] = "W";
-	    KeyCode[KeyCode["X"] = 88] = "X";
-	    KeyCode[KeyCode["Y"] = 89] = "Y";
-	    KeyCode[KeyCode["Z"] = 90] = "Z";
-	    KeyCode[KeyCode["SUPER"] = 91] = "SUPER";
-	    KeyCode[KeyCode["CONTEXT"] = 93] = "CONTEXT";
-	    KeyCode[KeyCode["NP_0"] = 96] = "NP_0";
-	    KeyCode[KeyCode["NP_1"] = 97] = "NP_1";
-	    KeyCode[KeyCode["NP_2"] = 98] = "NP_2";
-	    KeyCode[KeyCode["NP_3"] = 99] = "NP_3";
-	    KeyCode[KeyCode["NP_4"] = 100] = "NP_4";
-	    KeyCode[KeyCode["NP_5"] = 101] = "NP_5";
-	    KeyCode[KeyCode["NP_6"] = 102] = "NP_6";
-	    KeyCode[KeyCode["NP_7"] = 103] = "NP_7";
-	    KeyCode[KeyCode["NP_8"] = 104] = "NP_8";
-	    KeyCode[KeyCode["NP_9"] = 105] = "NP_9";
-	    KeyCode[KeyCode["NP_ASTERIK"] = 106] = "NP_ASTERIK";
-	    KeyCode[KeyCode["NP_PLUS"] = 107] = "NP_PLUS";
-	    KeyCode[KeyCode["NP_HYPHEN"] = 109] = "NP_HYPHEN";
-	    KeyCode[KeyCode["NP_DOT"] = 110] = "NP_DOT";
-	    KeyCode[KeyCode["NP_SLASH"] = 111] = "NP_SLASH";
-	    KeyCode[KeyCode["F1"] = 112] = "F1";
-	    KeyCode[KeyCode["F2"] = 113] = "F2";
-	    KeyCode[KeyCode["F3"] = 114] = "F3";
-	    KeyCode[KeyCode["F4"] = 115] = "F4";
-	    KeyCode[KeyCode["F5"] = 116] = "F5";
-	    KeyCode[KeyCode["F6"] = 117] = "F6";
-	    KeyCode[KeyCode["F7"] = 118] = "F7";
-	    KeyCode[KeyCode["F8"] = 119] = "F8";
-	    KeyCode[KeyCode["F9"] = 120] = "F9";
-	    KeyCode[KeyCode["F10"] = 121] = "F10";
-	    KeyCode[KeyCode["F11"] = 122] = "F11";
-	    KeyCode[KeyCode["F12"] = 123] = "F12";
-	    KeyCode[KeyCode["NUM_LOCK"] = 144] = "NUM_LOCK";
-	    KeyCode[KeyCode["SCREEN_LOCK"] = 145] = "SCREEN_LOCK";
-	    KeyCode[KeyCode["SEMICOLON"] = 186] = "SEMICOLON";
-	    KeyCode[KeyCode["EQUALS"] = 187] = "EQUALS";
-	    KeyCode[KeyCode["COMMA"] = 188] = "COMMA";
-	    KeyCode[KeyCode["HYPHEN"] = 189] = "HYPHEN";
-	    KeyCode[KeyCode["PERIOD"] = 190] = "PERIOD";
-	    KeyCode[KeyCode["SLASH"] = 191] = "SLASH";
-	    KeyCode[KeyCode["TILDE"] = 192] = "TILDE";
-	    KeyCode[KeyCode["OPEN_SQUARE_BRACKET"] = 219] = "OPEN_SQUARE_BRACKET";
-	    KeyCode[KeyCode["BACKSLASH"] = 220] = "BACKSLASH";
-	    KeyCode[KeyCode["CLOSE_SQUARE_BRACKET"] = 221] = "CLOSE_SQUARE_BRACKET";
-	    KeyCode[KeyCode["APOSTROPHE"] = 222] = "APOSTROPHE";
-	    KeyCode[KeyCode["FUNCTION"] = 255] = "FUNCTION";
-	})(exports.KeyCode || (exports.KeyCode = {}));
-	var KeyCode = exports.KeyCode;
-
-
-/***/ },
-/* 44 */
-/***/ function(module, exports) {
-
-	"use strict";
-	(function (MouseButton) {
-	    MouseButton[MouseButton["BUTTON_LEFT"] = 0] = "BUTTON_LEFT";
-	    MouseButton[MouseButton["BUTTON_MIDDLE"] = 1] = "BUTTON_MIDDLE";
-	    MouseButton[MouseButton["BUTTON_RIGHT"] = 2] = "BUTTON_RIGHT";
-	})(exports.MouseButton || (exports.MouseButton = {}));
-	var MouseButton = exports.MouseButton;
-
-
-/***/ },
-/* 45 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var _1 = __webpack_require__(37);
-	var ControllerFactory = (function () {
-	    function ControllerFactory() {
-	        if (ControllerFactory._instance) {
-	            throw new Error('ControllerFactory is a singleton.');
-	        }
-	        ControllerFactory._instance = this;
-	    }
-	    ControllerFactory.getSingleton = function () {
-	        if (!ControllerFactory._instance) {
-	            new ControllerFactory();
-	        }
-	        return ControllerFactory._instance;
-	    };
-	    ControllerFactory.prototype.create = function (type) {
-	        switch (type) {
-	            default:
-	                throw new Error('Controller Type is not supported.');
-	            case _1.ControllerType.MOUSE:
-	                return new _1.MouseController();
-	            case _1.ControllerType.KEYBOARD:
-	                return new _1.KeyboardController();
-	        }
-	    };
-	    return ControllerFactory;
-	}());
-	exports.ControllerFactory = ControllerFactory;
-
-
-/***/ },
-/* 46 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	var __extends = (this && this.__extends) || function (d, b) {
-	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-	    function __() { this.constructor = d; }
-	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-	};
-	var events_1 = __webpack_require__(9);
-	var _1 = __webpack_require__(37);
-	var InputManager = (function (_super) {
-	    __extends(InputManager, _super);
-	    function InputManager() {
-	        _super.call(this);
-	        if (InputManager._instance) {
-	            throw new Error('InputManager is a singleton');
-	        }
-	        InputManager._instance = this;
-	        this._controllers = {};
-	        this._factory = this._createControllerFactory();
-	    }
-	    InputManager.getSingleton = function () {
-	        if (!InputManager._instance) {
-	            new InputManager();
-	        }
-	        return InputManager._instance;
-	    };
-	    InputManager.prototype.createController = function (name, type) {
-	        var controller = this._factory.create(type);
-	        this._controllers[name] = controller;
-	        controller.initialize(this);
-	    };
-	    InputManager.prototype.removeController = function (name) {
-	        if (!this.hasController(name)) {
-	            return;
-	        }
-	        var controller = this._getController(name);
-	        controller.destroy();
-	        delete this._controllers[name];
-	    };
-	    InputManager.prototype.hasController = function (name) {
-	        return !!(this._controllers[name]);
-	    };
-	    InputManager.prototype._getController = function (name) {
-	        if (!this.hasController(name)) {
-	            return null;
-	        }
-	        return this._controllers[name];
-	    };
-	    InputManager.prototype._getControllerName = function (controller) {
-	        for (var i in this._controllers) {
-	            if (this._controllers[i] === controller) {
-	                return i;
-	            }
-	        }
-	        return null;
-	    };
-	    InputManager.prototype._createControllerFactory = function () {
-	        return _1.ControllerFactory.getSingleton();
-	    };
-	    InputManager.prototype.onInputReceived = function (controller, inputEvent, data) {
-	        data.controller = this._getControllerName(controller);
-	        this.emit(inputEvent.toString(), data);
-	    };
-	    return InputManager;
-	}(events_1.EventEmitter));
-	exports.InputManager = InputManager;
-
-
-/***/ },
-/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
