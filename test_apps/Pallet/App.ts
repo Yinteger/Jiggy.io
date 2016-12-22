@@ -5,6 +5,7 @@ import {Entity, GridMap} from "../../src/entities/";
 import {Iterator, Camera} from "../../src/utils/";
 // import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/';
 import {keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys} from "../../src/inputs/Keyboard";
+import {mouse, MouseEvents, MouseMove, RightButtonDown, RightButtonUp, ScrollWheelMove} from "../../src/inputs/Mouse";
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/";
 import Character from "./Character";
 import {EntityEventTypes, LocationUpdateEvent} from "../../src/entities/";
@@ -134,11 +135,11 @@ class PalletDemo extends Engine {
 				var camera = new Camera(map, null, {width: 250, height: 250}, null, {width: 500, height: 500});
 				this.renderingEngine.addCamera(camera);
 
-				this.viewPort.canvas.addEventListener('mousewheel', function (e: MouseWheelEvent) {
+				mouse.on(MouseEvents.ScrollWheelMove.toString(), (e: ScrollWheelMove) => {
 					// console.warn(e);
 					var fov = camera.fov;
 					var viewPoint = camera.viewPoint;
-					if (e.wheelDelta > 0) {
+					if (e.yDelta > 0) {
 						//Mouse wheel went up, zoom in by decreasing FOV
 						camera.viewPoint = ({x: viewPoint.x + 5, y: viewPoint.y + 5});
 						camera.fov = ({width: fov.width - 10, height: fov.height - 10});
@@ -160,6 +161,28 @@ class PalletDemo extends Engine {
 				this.player.tileY = 5;
 				this.player.x = tile.x;
 				this.player.y = tile.y - this.player.height - tile.height;
+
+				var pokeball = new Entity();
+				pokeball.width = 25;
+				pokeball.height = 25;
+				// layer.addChild(pokeball);
+				var pokeball_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/pokeball.png');
+
+				pokeball_asset.onStateChange = (state : AssetState) => {
+					if (state === AssetState.LOADED) {
+						pokeball.texture = pokeball_asset;
+						this.renderingEngine.HUDEntity = pokeball;
+					}
+				};
+
+				pokeball_asset.load();
+
+
+				mouse.on(MouseEvents.MouseMove.toString(), (e: MouseMove) => {
+					pokeball.x = e.x - this.renderingEngine.viewPort.canvas.offsetLeft - 14;
+					pokeball.y = e.y - this.renderingEngine.viewPort.canvas.offsetTop - 14;
+					// console.log(e);
+				});
 
 				this.player.on(EntityEventTypes.LOCATION_UPDATE.toString(), () => {
 					var fov = camera.fov;

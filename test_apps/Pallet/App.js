@@ -56,8 +56,9 @@
 	var _3 = __webpack_require__(31);
 	var _4 = __webpack_require__(2);
 	var Keyboard_1 = __webpack_require__(37);
+	var Mouse_1 = __webpack_require__(39);
 	var _5 = __webpack_require__(13);
-	var Character_1 = __webpack_require__(39);
+	var Character_1 = __webpack_require__(40);
 	var PalletDemo = (function (_super) {
 	    __extends(PalletDemo, _super);
 	    function PalletDemo() {
@@ -145,10 +146,10 @@
 	                var map = _this._createMainMap();
 	                var camera = new _4.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
 	                _this.renderingEngine.addCamera(camera);
-	                _this.viewPort.canvas.addEventListener('mousewheel', function (e) {
+	                Mouse_1.mouse.on(7 .toString(), function (e) {
 	                    var fov = camera.fov;
 	                    var viewPoint = camera.viewPoint;
-	                    if (e.wheelDelta > 0) {
+	                    if (e.yDelta > 0) {
 	                        camera.viewPoint = ({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
 	                        camera.fov = ({ width: fov.width - 10, height: fov.height - 10 });
 	                    }
@@ -166,6 +167,21 @@
 	                _this.player.tileY = 5;
 	                _this.player.x = tile.x;
 	                _this.player.y = tile.y - _this.player.height - tile.height;
+	                var pokeball = new _3.Entity();
+	                pokeball.width = 25;
+	                pokeball.height = 25;
+	                var pokeball_asset = _5.AssetFactory.getSingleton().build(_5.AssetType.IMAGE, 'Resources/pokeball.png');
+	                pokeball_asset.onStateChange = function (state) {
+	                    if (state === _5.AssetState.LOADED) {
+	                        pokeball.texture = pokeball_asset;
+	                        _this.renderingEngine.HUDEntity = pokeball;
+	                    }
+	                };
+	                pokeball_asset.load();
+	                Mouse_1.mouse.on(4 .toString(), function (e) {
+	                    pokeball.x = e.x - _this.renderingEngine.viewPort.canvas.offsetLeft - 14;
+	                    pokeball.y = e.y - _this.renderingEngine.viewPort.canvas.offsetTop - 14;
+	                });
 	                _this.player.on(0 .toString(), function () {
 	                    var fov = camera.fov;
 	                    camera.viewPoint = { x: _this.player.x + ((_this.player.width - fov.width) / 2), y: _this.player.y + ((_this.player.height - fov.height) / 2) };
@@ -191,7 +207,6 @@
 	                    }
 	                }, 1);
 	                Keyboard_1.keyboard.on(1 .toString(), function (e) {
-	                    console.log(e);
 	                    switch (e.key) {
 	                        case Keyboard_1.KeyboardKeys.W:
 	                            direction = 'up';
@@ -208,7 +223,6 @@
 	                    }
 	                });
 	                Keyboard_1.keyboard.on(0 .toString(), function (e) {
-	                    console.log(e);
 	                    switch (e.key) {
 	                        case Keyboard_1.KeyboardKeys.W:
 	                        case Keyboard_1.KeyboardKeys.A:
@@ -3272,6 +3286,131 @@
 
 /***/ },
 /* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __extends = (this && this.__extends) || function (d, b) {
+	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+	    function __() { this.constructor = d; }
+	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	};
+	var InputDevice_ts_1 = __webpack_require__(38);
+	var Mouse = (function (_super) {
+	    __extends(Mouse, _super);
+	    function Mouse() {
+	        var _this = this;
+	        _super.call(this);
+	        this._leftButtonDown = false;
+	        this._rightButtonDown = false;
+	        this._scrollWheelDown = false;
+	        this._mouseCoords = { x: 0, y: 0 };
+	        window.addEventListener("mousedown", function (e) {
+	            if (e.button === 0) {
+	                _this._leftButtonDown = true;
+	                var event_1 = {
+	                    type: 0 .toString(),
+	                    source: _this,
+	                    x: e.clientX,
+	                    y: e.clientY
+	                };
+	                _this.emit(0 .toString(), event_1);
+	            }
+	            else if (e.button === 1) {
+	                _this._scrollWheelDown = true;
+	                var event_2 = {
+	                    type: 5 .toString(),
+	                    source: _this,
+	                    x: e.clientX,
+	                    y: e.clientY
+	                };
+	                _this.emit(5 .toString(), event_2);
+	            }
+	            else if (e.button === 2) {
+	                _this._rightButtonDown = true;
+	                var event_3 = {
+	                    type: 2 .toString(),
+	                    source: _this,
+	                    x: e.clientX,
+	                    y: e.clientY
+	                };
+	                _this.emit(2 .toString(), event_3);
+	            }
+	        }, true);
+	        window.addEventListener("mouseup", function (e) {
+	            if (e.button === 0) {
+	                _this._leftButtonDown = false;
+	                var event_4 = {
+	                    type: 1 .toString(),
+	                    source: _this,
+	                    x: e.clientX,
+	                    y: e.clientY
+	                };
+	                _this.emit(1 .toString(), event_4);
+	            }
+	            else if (e.button === 1) {
+	                _this._scrollWheelDown = false;
+	                var event_5 = {
+	                    type: 6 .toString(),
+	                    source: _this,
+	                    x: e.clientX,
+	                    y: e.clientY
+	                };
+	                _this.emit(6 .toString(), event_5);
+	            }
+	            else if (e.button === 2) {
+	                _this._rightButtonDown = false;
+	                var event_6 = {
+	                    type: 3 .toString(),
+	                    source: _this,
+	                    x: e.clientX,
+	                    y: e.clientY
+	                };
+	                _this.emit(3 .toString(), event_6);
+	            }
+	        }, true);
+	        window.addEventListener("mousemove", function (e) {
+	            _this._mouseCoords = { x: e.clientX, y: e.clientY };
+	            var event = {
+	                type: 4 .toString(),
+	                source: _this,
+	                x: e.clientX,
+	                y: e.clientY
+	            };
+	            _this.emit(4 .toString(), event);
+	        }, true);
+	        window.addEventListener("wheel", function (e) {
+	            var yDelta = 0;
+	            var xDelta = 0;
+	            if (e.wheelDeltaY > 0) {
+	                yDelta = 1;
+	            }
+	            else if (e.wheelDeltaY < 0) {
+	                yDelta = -1;
+	            }
+	            if (e.wheelDeltaX > 0) {
+	                xDelta = 1;
+	            }
+	            else if (e.wheelDeltaX < 0) {
+	                xDelta = -1;
+	            }
+	            var event = {
+	                type: 7 .toString(),
+	                source: _this,
+	                x: e.clientX,
+	                y: e.clientY,
+	                yDelta: yDelta,
+	                xDelta: xDelta
+	            };
+	            _this.emit(7 .toString(), event);
+	        }, true);
+	    }
+	    return Mouse;
+	}(InputDevice_ts_1.default));
+	exports.mouse = new Mouse();
+
+
+/***/ },
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
