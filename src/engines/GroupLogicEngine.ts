@@ -23,7 +23,7 @@ export class GroupLogicEngine extends LogicEngine {
 		this._interval = 10;
 	}
 
-	public addLogic (id: string, logicMethod : () => {}, interval : number) : void {
+	public addLogic (id: string, logicMethod : () => void, interval : number) : void {
 		this._logicCalls[id] = {
 			'method': logicMethod,
 			'interval': interval

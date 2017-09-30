@@ -183,7 +183,10 @@ class CollisionDemo extends Engine {
 
 }
 
+declare global {
+	interface Window {
+		CollisionDemo: CollisionDemo
+	}
+}
 
-
-declare var window._CollisionDemo : CollisionDemo;
-window._CollisionDemo = new CollisionDemo();
+window.CollisionDemo = new CollisionDemo();
