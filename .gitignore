@@ -40,3 +40,6 @@ typings
 
 #Editors
 .idea
+
+#Visual Studio
+.vs
