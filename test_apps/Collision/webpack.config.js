@@ -1,3 +1,4 @@
+
 module.exports = {
     entry: "./App.ts",
     output: {
@@ -15,9 +16,9 @@ module.exports = {
     module: {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            { test: /\.tsx?$/, loader: "ts-loader" },
-            { test: /\.js$/, loader: "source-map-loader", enforce: "pre" }
-        ],
+            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+            { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
+        ]
     },
 
     // When importing a module whose path matches one of the following, just
@@ -25,5 +26,5 @@ module.exports = {
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
     externals: {
-    },
+    }
 };
