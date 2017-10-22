@@ -183,10 +183,4 @@ class CollisionDemo extends Engine {
 
 }
 
-declare global {
-	interface Window {
-		CollisionDemo: CollisionDemo
-	}
-}
-
-window.CollisionDemo = new CollisionDemo();
+(<any>window).CollisionDemo = new CollisionDemo();
