@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
+        "outDir": "./intermediate/Engine.js",
         "sourceMap": true,
         "noImplicitAny": true,
+        "moduleResolution": "node",
         "removeComments": true,
         "module": "commonjs",
         "target": "es5",
@@ -12,7 +13,6 @@
         "allowUnreachableCode": false
     },
     "files": [
-        "./typings/index.d.ts",
-      "./src/Engine.ts"
+        "./src/Engine.ts"
     ]
 }

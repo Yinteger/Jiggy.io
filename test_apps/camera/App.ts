@@ -1,9 +1,9 @@
 import Engine from "../../src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/";
-import {HTML5AudioEngine} from "../../src/audio/";
-import {Entity, LocationUpdateEvent} from "../../src/entities/";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils/";
-import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets/";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
+import {HTML5AudioEngine} from "../../src/audio";
+import {Entity, LocationUpdateEvent} from "../../src/entities";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils";
+import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];
@@ -205,6 +205,4 @@ class CameraDemo extends Engine {
 }
 
 
-
-declare var window._CameraDemo : CameraDemo;
-window._CameraDemo = new CameraDemo();
+(<any>window)._CameraDemo = new CameraDemo();
