@@ -20,13 +20,7 @@ export class AssetFactory {
 	private _cache: AssetCache;
 	private static _instance: AssetFactory;
 
-	constructor() {
-		if (AssetFactory._instance) {
-			throw new Error('AssetFactory is a singleton. Use AssetFactory.getSingleton()');
-		}
-
-		AssetFactory._instance = this;
-
+	protected constructor() {
 		this._assetLoader = new AssetLoader();
 		this._audioLoader = new AudioLoader();
 		this._imageLoader = new ImageLoader();
@@ -36,7 +30,7 @@ export class AssetFactory {
 
 	public static getSingleton(): AssetFactory {
 		if (!AssetFactory._instance) {
-			new AssetFactory();
+			AssetFactory._instance = new AssetFactory();
 		}
 		return AssetFactory._instance;
 	}

@@ -145,7 +145,4 @@ class RelativeDemo extends Engine {
     }
 }
 
-
-
-declare var window._RelativeDemo : RelativeDemo;
-window._RelativeDemo = new RelativeDemo();
+(<any>window)._RelativeDemo = new RelativeDemo();

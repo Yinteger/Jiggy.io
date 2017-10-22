@@ -7,7 +7,7 @@ export class HTML5AudioEngine extends AudioEngine {
 	private _backgroundVolume: number;
 	private _soundEffectVolume: number;
 
-	constructor() {
+	public constructor() {
 		super();
 		this._backgroundVolume = 1.0;
 		this._soundEffectVolume = 1.0;

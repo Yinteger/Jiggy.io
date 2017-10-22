@@ -5,7 +5,7 @@ import {
 } from './';
 
 export class AudioLoader extends AssetLoader {
-	constructor() {
+	public constructor() {
 		super();
 	}
 

@@ -410,7 +410,4 @@ class PalletDemo extends Engine {
 	}
 }
 
-
-
-declare var window._PalletDemo : PalletDemo;
-window._PalletDemo = new PalletDemo();
+(<any>window)._PalletDemo = new PalletDemo();

@@ -2,12 +2,7 @@
 export class IDGenerator {
 	private static _instance: IDGenerator;
 
-	constructor() {
-		if (IDGenerator._instance) {
-			throw new Error('IDGenerator is a singleton.');
-		}
-		IDGenerator._instance = this;
-	}
+	protected constructor() {}
 
 	public generate(): string {
 		return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -18,7 +13,7 @@ export class IDGenerator {
 
 	public static getSingleton(): IDGenerator {
 		if (!IDGenerator._instance) {
-			new IDGenerator();
+			IDGenerator._instance = new IDGenerator();
 		}
 		return IDGenerator._instance;
 	}

@@ -11,7 +11,7 @@ export class Camera {
 	public renderOrigin : Coordinate;
 	public renderDimension : Dimension;
 
-	constructor (scene : Entity, viewPoint : Coordinate, fov : Dimension, renderOrigin: Coordinate, renderDimension: Dimension) {
+	public constructor (scene : Entity, viewPoint : Coordinate, fov : Dimension, renderOrigin: Coordinate, renderDimension: Dimension) {
 		this.scene = scene;
 
 		this.viewPoint = viewPoint || {x:  0, y: 0};

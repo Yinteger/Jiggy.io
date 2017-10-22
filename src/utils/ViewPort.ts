@@ -10,7 +10,7 @@ export class ViewPort extends Events.EventEmitter {
 	private _autoSizeTimer : any;
 	private _dimension : Dimension;
 
-	constructor () {
+	public constructor () {
 		super();
 		this.canvas = document.createElement('canvas');
 		this.context = this.canvas.getContext('2d');

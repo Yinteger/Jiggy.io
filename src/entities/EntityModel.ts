@@ -14,7 +14,7 @@ export class EntityModel extends Events.EventEmitter {
 	public type : string;
 	private _texture : Asset;
 
-	constructor () {
+	public constructor () {
 		super();
 		this._attributes = {};
 		this._id = IDGenerator.getSingleton().generate();

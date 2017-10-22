@@ -17,7 +17,7 @@ export class Animation {
 	private _animation_index : number;
 	private timeout: any;
 
-	constructor (entity: Entity, animationDefinitions: AnimationFrame[]) {
+	public constructor (entity: Entity, animationDefinitions: AnimationFrame[]) {
 		this._entity = entity; //Entity to do the animation
 		this._animationDefinition = animationDefinitions; //Definitions for animations
 		this.loop = true;

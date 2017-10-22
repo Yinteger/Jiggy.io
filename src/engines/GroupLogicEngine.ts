@@ -16,14 +16,14 @@ export class GroupLogicEngine extends LogicEngine {
 	private _intervalID : string;
 	private _interval : number;
 
-	constructor () {
+	public constructor () {
 		super();
 		this._logicCalls = {};
 		this._intervals = {};
 		this._interval = 10;
 	}
 
-	public addLogic (id: string, logicMethod : () => {}, interval : number) : void {
+	public addLogic (id: string, logicMethod : () => void, interval : number) : void {
 		this._logicCalls[id] = {
 			'method': logicMethod,
 			'interval': interval

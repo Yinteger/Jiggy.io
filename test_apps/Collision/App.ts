@@ -183,7 +183,4 @@ class CollisionDemo extends Engine {
 
 }
 
-
-
-declare var window._CollisionDemo : CollisionDemo;
-window._CollisionDemo = new CollisionDemo();
+(<any>window).CollisionDemo = new CollisionDemo();
