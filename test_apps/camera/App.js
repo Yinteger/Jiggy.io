@@ -583,10 +583,6 @@ var SeverityEnum;
 Object.defineProperty(exports, "__esModule", { value: true });
 var IDGenerator = (function () {
     function IDGenerator() {
-        if (IDGenerator._instance) {
-            throw new Error('IDGenerator is a singleton.');
-        }
-        IDGenerator._instance = this;
     }
     IDGenerator.prototype.generate = function () {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -596,7 +592,7 @@ var IDGenerator = (function () {
     };
     IDGenerator.getSingleton = function () {
         if (!IDGenerator._instance) {
-            new IDGenerator();
+            IDGenerator._instance = new IDGenerator();
         }
         return IDGenerator._instance;
     };
@@ -1554,10 +1550,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(5);
 var LogManager = (function () {
     function LogManager() {
-        if (LogManager._instance) {
-            throw new Error("Error: Instantiation failed: Use getInstance() instead of new.");
-        }
-        LogManager._instance = this;
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
         this._logLevel = this._logLevel | SeverityEnum_1.SeverityEnum.DEBUG | SeverityEnum_1.SeverityEnum.INFO;
     }
@@ -1587,6 +1579,9 @@ var LogManager = (function () {
         return this._logLevel;
     };
     LogManager.getSingleton = function () {
+        if (!LogManager._instance) {
+            LogManager._instance = new LogManager();
+        }
         return LogManager._instance;
     };
     LogManager._instance = new LogManager();
@@ -1979,10 +1974,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(0);
 var AssetFactory = (function () {
     function AssetFactory() {
-        if (AssetFactory._instance) {
-            throw new Error('AssetFactory is a singleton. Use AssetFactory.getSingleton()');
-        }
-        AssetFactory._instance = this;
         this._assetLoader = new _1.AssetLoader();
         this._audioLoader = new _1.AudioLoader();
         this._imageLoader = new _1.ImageLoader();
@@ -1991,7 +1982,7 @@ var AssetFactory = (function () {
     }
     AssetFactory.getSingleton = function () {
         if (!AssetFactory._instance) {
-            new AssetFactory();
+            AssetFactory._instance = new AssetFactory();
         }
         return AssetFactory._instance;
     };

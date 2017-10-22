@@ -5,7 +5,7 @@ import {
 
 export class AssetLoader {
 
-	constructor() {}
+	public constructor() {}
 
 	/**
 	 * public load

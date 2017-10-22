@@ -15,7 +15,7 @@ export class RenderingEngine {
 	private _showFPS : boolean;
 	public debugCamera : boolean;
 
-	constructor () {
+	public constructor () {
 		this._prerenderViewPort = new ViewPort();
 		this._rendering = false;
 		this._fps = 0;

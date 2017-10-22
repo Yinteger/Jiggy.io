@@ -7,7 +7,7 @@ export class EntityView extends Events.EventEmitter {
 	protected _bindedFuncs :  {[key: string] : (event: Event) => void};
 	protected _model : EntityModel;
 
-	constructor (model: EntityModel) {
+	public constructor (model: EntityModel) {
 		super();
 		this._visible = true;
 		this._model = model;

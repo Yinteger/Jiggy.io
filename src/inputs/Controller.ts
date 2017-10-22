@@ -7,7 +7,7 @@ import {
 } from './';
 
 export abstract class Controller extends EventEmitter {
-	constructor() {
+	public constructor() {
 		super();
 		this._attachEvents();
 	}
