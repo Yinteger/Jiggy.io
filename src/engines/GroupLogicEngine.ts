@@ -16,7 +16,7 @@ export class GroupLogicEngine extends LogicEngine {
 	private _intervalID : string;
 	private _interval : number;
 
-	constructor () {
+	public constructor () {
 		super();
 		this._logicCalls = {};
 		this._intervals = {};

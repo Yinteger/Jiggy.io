@@ -3,12 +3,8 @@ import { SeverityEnum } from './SeverityEnum';
 export class LogManager {
 	private _logLevel : SeverityEnum;
 	private static _instance:LogManager = new LogManager();
-	constructor () {
-        if(LogManager._instance){
-            throw new Error("Error: Instantiation failed: Use getInstance() instead of new.");
-        }
-        LogManager._instance = this;
-
+	
+	protected constructor () {
 		this._logLevel = SeverityEnum.WARNING | SeverityEnum.ERROR;
 		// if (zen.isDebugMode()) {
 		this._logLevel = this._logLevel | SeverityEnum.DEBUG | SeverityEnum.INFO;
@@ -49,6 +45,9 @@ export class LogManager {
 	}
 
 	public static getSingleton():LogManager {
+		if (!LogManager._instance) {
+			LogManager._instance = new LogManager();
+		}
 		return LogManager._instance;
 	}
 

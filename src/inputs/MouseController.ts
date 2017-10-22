@@ -26,7 +26,7 @@ export class MouseController extends Controller {
 	private _y: number;
 	private _eventDetails: MouseEventDetail;
 
-	constructor() {
+	public constructor() {
 		super();
 		this._eventDetails = {
 			altKey : false,

@@ -10,7 +10,7 @@ export class Spritesheet {
 	private _spritesheetDefinition : {[key: string] : SpritesheetDefinition};
 	private _spriteCache : {[key: string] : Asset};
 
-	constructor (spritesheetAsset: Asset, spritesheetDefinition: {[key: string] : SpritesheetDefinition}) {
+	public constructor (spritesheetAsset: Asset, spritesheetDefinition: {[key: string] : SpritesheetDefinition}) {
 		this._spritesheetAsset = spritesheetAsset; //The asset for the entire spritesheet
 		this._spritesheetDefinition = spritesheetDefinition; //Definitions for sprites to coordinates
 		this._spriteCache = {}; //A cache of sprites images

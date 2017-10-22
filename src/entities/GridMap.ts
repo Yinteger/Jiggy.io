@@ -9,7 +9,7 @@ export class GridMap extends Entity {
 	public tileCount : Coordinate;
 	private _tiles : Entity[][];
 
-	constructor (tileSize: Dimension, tileCount: Coordinate) {
+	public constructor (tileSize: Dimension, tileCount: Coordinate) {
 		super();
 
 		this.tileSize = tileSize;

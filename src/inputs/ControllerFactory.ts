@@ -9,16 +9,12 @@ import {
 export class ControllerFactory {
 	private static _instance: ControllerFactory;
 
-	constructor() {
-		if (ControllerFactory._instance) {
-			throw new Error('ControllerFactory is a singleton.');
-		}
-		ControllerFactory._instance = this;
+	protected constructor() {
 	}
 
 	public static getSingleton(): ControllerFactory {
 		if (!ControllerFactory._instance) {
-			new ControllerFactory();
+			ControllerFactory._instance = new ControllerFactory();
 		}
 		return ControllerFactory._instance;
 	}

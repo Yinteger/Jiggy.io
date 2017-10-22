@@ -5,7 +5,7 @@ import {
 } from './';
 
 export class ImageLoader extends AssetLoader {
-	constructor() {
+	public constructor() {
 		super();
 	}
 
