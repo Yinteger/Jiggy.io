@@ -4,7 +4,7 @@ import {
 } from './';
 
 export class JSONLoader extends AssetLoader {
-	constructor() {
+	public constructor() {
 		super();
 	}
 

@@ -11,7 +11,7 @@ export class KeyboardController extends Controller {
 	private _keyCodes: KeyCode[];
 	private _eventDetail: KeyboardEventDetail;
 
-	constructor() {
+	public constructor() {
 		super();
 
 		this._eventDetail = {

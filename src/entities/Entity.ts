@@ -20,7 +20,7 @@ export class Entity extends Events.EventEmitter {
 	public collisionable : boolean;
 	private _eventEmitted : boolean;
 
-	constructor (model? : EntityModel) {
+	public constructor (model? : EntityModel) {
 		super();
 		var useDefaults :  boolean = false;
 

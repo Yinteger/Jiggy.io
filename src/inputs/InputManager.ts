@@ -12,12 +12,8 @@ export class InputManager extends EventEmitter {
 	private _controllers: {[name: string]: Controller};
 	private _factory: ControllerFactory;
 
-	constructor() {
+	protected constructor() {
 		super();
-		if (InputManager._instance) {
-			throw new Error('InputManager is a singleton');
-		}
-		InputManager._instance = this;
 
 		this._controllers = {};
 		this._factory = this._createControllerFactory();
@@ -25,7 +21,7 @@ export class InputManager extends EventEmitter {
 
 	public static getSingleton(): InputManager {
 		if (!InputManager._instance) {
-			new InputManager();
+			InputManager._instance = new InputManager();
 		}
 
 		return InputManager._instance;

@@ -2,6 +2,8 @@ import {Asset, AssetType} from "./";
 import {ViewPort} from "../utils/";
 
 export class  TextAssetBuilder {
+	public constructor() {}
+
 	public build (font: string, text: string, maxWidth: number, height: number, color: string) : Asset {
 		var textViewPort : ViewPort = new ViewPort();
 		var textAsset : Asset = new Asset(AssetType.IMAGE);

@@ -7,7 +7,7 @@ export class CollisionEmitter {
 	private _listeners : {(entity1: Entity, entity2: Entity, event: LocationUpdateEvent) : void}[];
 	private _cbs : {[key: string]: {(eventType: string): void}};
 
-	constructor () {
+	public constructor () {
 		this._cbs = {};
 		this._entities = [];
 		this._entitiesListeners = {};
