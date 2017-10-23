@@ -1,4 +1,6 @@
-
+/// <binding ProjectOpened='Watch - Development (Pallet)' />
+var WebpackNotifierPlugin = require('webpack-notifier');
+var path = require("path");
 module.exports = {
     entry: "./App.ts",
     output: {
@@ -15,16 +17,20 @@ module.exports = {
 
     module: {
         rules: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+            { test: /\.tsx?$/, loader: "ts-loader" },
             { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
         ]
     },
-
+    plugins: [
+        new WebpackNotifierPlugin({ alwaysNotify: true, skipFirstNotification: true })
+    ],
+    watchOptions: {
+        poll: true
+    },
     // When importing a module whose path matches one of the following, just
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
     externals: {
-    }
+    },
 };

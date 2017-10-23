@@ -5,7 +5,7 @@ import {RenderingEngine,GroupLogicEngine,TwoDimensionalRenderingEngine, LogicEng
 
 //Typescript Testing Imports
 import {GridMap,Entity} from './entities';
-import {ControllerFactory} from './inputs';
+//import {ControllerFactory} from './inputs';
 import {Animation,Spritesheet} from './assets';
 import {CollisionEmitter} from './utils';
 

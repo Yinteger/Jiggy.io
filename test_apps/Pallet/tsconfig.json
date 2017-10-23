@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "outFile": "./App.js",
         "sourceMap": true,
         "noImplicitAny": true,
         "moduleResolution": "node",

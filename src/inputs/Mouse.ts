@@ -1,48 +1,23 @@
-import InputDevice from "./InputDevice.ts";
+import InputDevice from "./InputDevice";
 import {Event, Coordinate} from "../interfaces";
 
 export const enum MouseEvents {
-    LeftButtonDown,
-    LeftButtonUp,
-    RightButtonDown,
-    RightButtonUp,
-    MouseMove,
-    ScrollWheelDown,
-    ScrollWheelUp,
-    ScrollWheelMove
+    LeftButtonDown = "LEFTBUTTONDOWN",
+    LeftButtonUp = "LEFTBUTTONUP",
+    RightButtonDown = "RIGHTBUTTONDOWN",
+    RightButtonUp = "RIGHTBUTTONUP",
+    MouseMove = "MOUSEMOVE",
+    ScrollWheelDown = "SCROLLWHEELDOWN",
+    ScrollWheelUp = "SCROLLWHEELUP",
+    ScrollWheelMove = "SCROLLWHEELMOVE"
 }
 
-export interface LeftButtonDown extends Event {
+export interface MouseClickEvent extends Event {
     x: number,
     y: number
 }
 
-export interface LeftButtonUp extends Event {
-    x: number,
-    y: number
-}
-
-export interface RightButtonDown extends Event {
-    x: number,
-    y: number
-}
-
-export interface RightButtonUp extends Event {
-    x: number,
-    y: number
-}
-
-export interface MouseMove extends Event {
-    x: number,
-    y: number
-}
-
-export interface ScrollWheelDown extends Event {
-    x: number,
-    y: number
-}
-
-export interface ScrollWheelUp extends Event {
+export interface MouseMoveEvent extends Event {
     x: number,
     y: number
 }
@@ -63,83 +38,87 @@ class Mouse extends InputDevice {
     constructor () {
         super();
 
+        window.addEventListener("contextmenu", (e: MouseEvent) => {
+            e.preventDefault();
+        });
+
         window.addEventListener("mousedown", (e: MouseEvent) => {
             if (e.button === 0) {
                 this._leftButtonDown = true;
-                let event : LeftButtonDown = {
-                    type: MouseEvents.LeftButtonDown.toString(),
+                let event : MouseClickEvent = {
+                    type: MouseEvents.LeftButtonDown,
                     source: this,
                     x: e.clientX,
                     y: e.clientY
 
                 };
-                this.emit(MouseEvents.LeftButtonDown.toString(), event);
+                this.emit(MouseEvents.LeftButtonDown, event);
             } else if (e.button === 1) {
                 this._scrollWheelDown = true;
-                let event : ScrollWheelDown = {
-                    type: MouseEvents.ScrollWheelDown.toString(),
+                let event: MouseClickEvent = {
+                    type: MouseEvents.ScrollWheelDown,
                     source: this,
                     x: e.clientX,
                     y: e.clientY
 
                 };
-                this.emit(MouseEvents.ScrollWheelDown.toString(), event);
+                this.emit(MouseEvents.ScrollWheelDown, event);
             } else if (e.button === 2) {
                 this._rightButtonDown = true;
-                let event : RightButtonDown = {
-                    type: MouseEvents.RightButtonDown.toString(),
+                let event: MouseClickEvent = {
+                    type: MouseEvents.RightButtonDown,
                     source: this,
                     x: e.clientX,
                     y: e.clientY
 
                 };
-                this.emit(MouseEvents.RightButtonDown.toString(), event);
+                this.emit(MouseEvents.RightButtonDown, event);
             }
         }, true);
 
         window.addEventListener("mouseup", (e: MouseEvent) => {
             if (e.button === 0) {
                 this._leftButtonDown = false;
-                let event : LeftButtonUp = {
-                    type: MouseEvents.LeftButtonUp.toString(),
+                let event: MouseClickEvent = {
+                    type: MouseEvents.LeftButtonUp,
                     source: this,
                     x: e.clientX,
                     y: e.clientY
 
                 };
-                this.emit(MouseEvents.LeftButtonUp.toString(), event);
+                this.emit(MouseEvents.LeftButtonUp, event);
             } else if (e.button === 1) {
                 this._scrollWheelDown = false;
-                let event : ScrollWheelUp = {
-                    type: MouseEvents.ScrollWheelUp.toString(),
+                let event: MouseClickEvent = {
+                    type: MouseEvents.ScrollWheelUp,
                     source: this,
                     x: e.clientX,
                     y: e.clientY
 
                 };
-                this.emit(MouseEvents.ScrollWheelUp.toString(), event);
+                this.emit(MouseEvents.ScrollWheelUp, event);
             } else if (e.button === 2) {
                 this._rightButtonDown = false;
-                let event : RightButtonUp = {
-                    type: MouseEvents.RightButtonUp.toString(),
+                let event: MouseClickEvent = {
+                    type: MouseEvents.RightButtonUp,
                     source: this,
                     x: e.clientX,
                     y: e.clientY
 
                 };
-                this.emit(MouseEvents.RightButtonUp.toString(), event);
+                this.emit(MouseEvents.RightButtonUp, event);
             }
         }, true);
 
         window.addEventListener("mousemove", (e: MouseEvent) => {
             this._mouseCoords = {x: e.clientX, y: e.clientY};
-            let event : MouseMove = {
-                type: MouseEvents.MouseMove.toString(),
+            let event: MouseMoveEvent = {
+                type: MouseEvents.MouseMove,
                 source: this,
                 x: e.clientX,
                 y: e.clientY
             };
-            this.emit(MouseEvents.MouseMove.toString(), event);
+            this.emit(MouseEvents.MouseMove, event);
         }, true);
 
         window.addEventListener("wheel", (e: MouseWheelEvent) => {
@@ -168,6 +147,22 @@ class Mouse extends InputDevice {
             };
             this.emit(MouseEvents.ScrollWheelMove.toString(), event);
         }, true);
+    }
+
+    public getCurrentCoordinates(): Coordinate {
+        return this._mouseCoords;
+    }
+
+    public isLeftButtonClicked(): boolean {
+        return this._leftButtonDown;
+    }
+
+    public isMouseWheelClicked(): boolean {
+        return this._scrollWheelDown;
+    }
+
+    public isRightButtonClicked(): boolean {
+        return this._rightButtonDown;
     }
 }
 

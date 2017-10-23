@@ -2,7 +2,9 @@
   "name": "Jiggy.io",
   "version": "0.0.1",
   "description": "",
-  "dependencies": {},
+  "dependencies": {
+    "@types/gamepad": "0.0.28"
+  },
   "devDependencies": {
     "@types/node": "^8.0.46",
     "awesome-typescript-loader": "^3.2.3",

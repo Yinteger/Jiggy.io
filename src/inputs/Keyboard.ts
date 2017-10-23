@@ -1,4 +1,4 @@
-import InputDevice from "./InputDevice.ts";
+import InputDevice from "./InputDevice";
 import {Event} from "../interfaces";
 
 
@@ -123,8 +123,8 @@ export const KeyboardKeys  = {
 }
 //"ù":"165","page backward":"166","page forward":"167","closing paren (AZERTY)":"169","*":"170","~ + * key":"171","minus (firefox), mute/unmute":"173","decrease volume level":"174","increase volume level":"175","next":"176","previous":"177","stop":"178","play/pause":"179","e-mail":"180","mute/unmute (firefox)":"181","decrease volume level (firefox)":"182","increase volume level (firefox)":"183","semi-colon / ñ":"186","equal sign ":"187","comma":"188","dash ":"189","period ":"190","forward slash / ç":"191","grave accent / ñ":"192","?, / or °":"193","numpad period (chrome)":"194","open bracket ":"219","back slash ":"220","close bracket ":"221","single quote ":"222","`":"223","left or right ⌘ key (firefox)":"224","altgr":"225","< /git >":"226","GNOME Compose Key":"230","XF86Forward":"233","XF86Back":"234","toggle touchpad":"255"}
 export const enum KeyboardEvents {
-    KeyUp,
-    KeyDown
+    KeyUp = "KEYUP",
+    KeyDown = "KEYDOWN"
 }
 
 export interface KeyUp extends Event {
@@ -189,4 +189,5 @@ class Keyboard extends InputDevice {
         this._buttonMap[id] = value;
     }
 }
+
 export let keyboard = new Keyboard();
