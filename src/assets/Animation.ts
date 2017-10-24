@@ -111,5 +111,4 @@ export interface AnimationFrame {
 	delay:  number;
 	moveX? : number;
 	moveY?: number;
-
 }

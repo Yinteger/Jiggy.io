@@ -2,7 +2,7 @@
   "name": "@jiggy/engine",
   "version": "0.0.1",
   "description": "",
-  "main" : "./dist/engine.js",
+  "main": "./dist/lib/index.js",
   "dependencies": {
     "@types/node": "^8.0.46"
   },
@@ -11,6 +11,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "dts-bundle": "^0.7.3",
     "source-map-loader": "^0.2.2",
     "ts-loader": "^3.0.5",
     "typedoc": "^0.9.0",
@@ -19,9 +20,11 @@
     "webpack": "^3.8.1",
     "webpack-notifier": "^1.5.0"
   },
+  "types": "./dist/engine.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node_modules/.bin/webpack",
+    "build": "node_modules/.bin/tsc && node bundle_declarations",
+    "pack": "node_modules/.bin/webpack",
     "docs": "node_modules/.bin/typedoc --out docs --mode file --ignoreCompilerErrors --sourcefile-url-prefix \"https://github.com/YuniYasha/Jiggy.io/blob/master/src/\" src"
   },
   "repository": {

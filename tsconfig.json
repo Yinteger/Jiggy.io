@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
-        "outDir": "./intermediate/Engine.js",
+        "outDir": "./dist/lib/",
         "sourceMap": true,
         "noImplicitAny": true,
+        "declaration": true,
         "moduleResolution": "node",
         "removeComments": true,
         "module": "commonjs",
@@ -13,6 +14,6 @@
         "allowUnreachableCode": false
     },
     "files": [
-        "./src/Engine.ts"
+        "./src/index.ts"
     ]
 }

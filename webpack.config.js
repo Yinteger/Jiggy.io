@@ -2,10 +2,10 @@
 var WebpackNotifierPlugin = require('webpack-notifier');
 var path = require("path");
 module.exports = {
-	context: path.join(__dirname + path.sep + "src"),
-    entry: "./Engine.ts",
+	// context: path.join(__dirname + path.sep + "src"),
+    entry: "./src/index.ts",
     output: {
-        filename: "./dist/engine.js",
+        filename: "./dist/pack/engine.js",
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -23,7 +23,7 @@ module.exports = {
         ]
     },
 	plugins: [
-        new WebpackNotifierPlugin({ alwaysNotify: true, skipFirstNotification: true}) 
+        new WebpackNotifierPlugin({ alwaysNotify: true, skipFirstNotification: true})
 	],
 	watchOptions: {
 		poll: true
