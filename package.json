@@ -1,7 +1,7 @@
 {
   "name": "@jiggy/engine",
   "version": "0.0.1",
-  "description": "",
+  "description": "A simple 2d game engine for HTML5",
   "main": "./dist/lib/index.js",
   "dependencies": {
     "@types/node": "^8.0.46"
