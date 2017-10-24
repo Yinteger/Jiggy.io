@@ -43,3 +43,5 @@ typings
 
 #Visual Studio
 .vs
+
+dist/
