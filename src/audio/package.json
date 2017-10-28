@@ -1,0 +1,16 @@
+{
+  "name": "@jiggy/audio",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/audio.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@jiggy/assets": "file:../assets",
+    "@jiggy/utils": "file:../utils"
+  }
+}

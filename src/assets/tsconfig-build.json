@@ -1,0 +1,15 @@
+{
+    "extends": "../tsconfig-build.json",
+
+    "compilerOptions": {
+        "rootDir": "./src/",
+        "outDir": "./dist/",
+        "paths": {
+            "@jiggy/utils" : ["../../dist/packages/utils"]
+        }
+    },
+
+    "files": [
+        "./src/index.ts"
+    ]
+}

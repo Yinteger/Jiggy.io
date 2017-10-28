@@ -1,0 +1,16 @@
+{
+  "name": "@jiggy/assets",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/assets.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@jiggy/entities": "file:../entities",
+    "@jiggy/utils": "file:../utils"
+  }
+}

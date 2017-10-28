@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "declaration": true,
+        "moduleResolution": "node",
+        "removeComments": true,
+        "module": "es2015",
+        "target": "es2015",
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "pretty": true,
+        "allowUnreachableCode": false
+    }
+}

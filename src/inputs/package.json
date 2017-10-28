@@ -1,0 +1,20 @@
+{
+  "name": "@jiggy/inputs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/inputs.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@jiggy/assets": "file:../assets",
+    "@jiggy/audio": "file:../audio",
+    "@jiggy/engines": "file:../engines",
+    "@jiggy/entities": "file:../entities",
+    "@jiggy/inputs": "file:../inputs",
+    "@jiggy/utils": "file:../utils"
+  }
+}
