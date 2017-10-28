@@ -1,20 +1,22 @@
 {
   "name": "@jiggy/inputs",
   "version": "0.0.1",
-  "description": "",
-  "main": "./dist/index.js",
-  "types": "./dist/inputs.d.ts",
+  "description": "Inputs package of the @jiggy engine",
+  "main": "./dist/inputs/src/index.js",
+  "types": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "Kyle Williams <kyle@kylewilliams.io",
   "peerDependencies": {
-    "@jiggy/assets": "file:../assets",
-    "@jiggy/audio": "file:../audio",
-    "@jiggy/engines": "file:../engines",
-    "@jiggy/entities": "file:../entities",
-    "@jiggy/inputs": "file:../inputs",
-    "@jiggy/utils": "file:../utils"
+    "@jiggy/assets": "^0.0.1",
+    "@jiggy/audio": "^0.0.1",
+    "@jiggy/engines": "^0.0.1",
+    "@jiggy/entities": "^0.0.1",
+    "@jiggy/inputs": "^0.0.1",
+    "@jiggy/utils": "^0.0.1"
+  },
+  "dependencies": {
+    "@types/node": "^8.0.47"
   }
 }

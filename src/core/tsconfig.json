@@ -1,11 +1,11 @@
 {
-    "extends": "../tsconfig-build.json",
+    "extends": "../tsconfig.json",
 
     "compilerOptions": {
-        "rootDir": "./src/",
+        "baseUrl": ".",
         "outDir": "./dist/",
         "paths": {
-            "@jiggy/utils" : ["../../dist/packages/utils"]
+            "@jiggy/*" : ["../*/src"]
         }
     },
 

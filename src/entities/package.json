@@ -1,17 +1,19 @@
 {
   "name": "@jiggy/entities",
   "version": "0.0.1",
-  "description": "",
-  "main": "./dist/index.js",
-  "types": "./dist/entities.d.ts",
+  "description": "Entities package of the @jiggy engine",
+  "main": "./dist/entities/src/index.js",
+  "types": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "author": "Kyle Williams <kyle@kylewilliams.io",
   "peerDependencies": {
-    "@jiggy/assets": "file:../assets",
-    "@jiggy/interfaces": "file:../interfaces",
-    "@jiggy/utils": "file:../utils"
+    "@jiggy/assets": "^0.0.1",
+    "@jiggy/interfaces": "^0.0.1",
+    "@jiggy/utils": "^0.0.1"
+  },
+  "dependencies": {
+    "@types/node": "^8.0.47"
   }
 }

@@ -2,7 +2,6 @@
     "compilerOptions": {
         "sourceMap": true,
         "noImplicitAny": true,
-        "declaration": true,
         "moduleResolution": "node",
         "removeComments": true,
         "module": "commonjs",
@@ -10,11 +9,6 @@
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true,
         "pretty": true,
-        "allowUnreachableCode": false,
-        "outDir": "../dist/lib/@jiggy",
-        "baseUrl": "./",
-        "paths": {
-            "@jiggy/*" : ["./*"]
-        }
+        "allowUnreachableCode": false
     }
 }

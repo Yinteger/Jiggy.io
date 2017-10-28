@@ -19,7 +19,7 @@ function execBuild(done, args = '') {
             if (FileSystem.existsSync(Path.resolve(SRC_DIR, pkg, 'package.json'))) {
                 console.log('Building', pkg, '...');
                 
-                var buildProcess = ChildProcess.spawnSync(`${BIN_DIR}/tsc && node bundle_declarations.js`, {
+                var buildProcess = ChildProcess.spawnSync(`${BIN_DIR}/tsc`, {
                     cwd : Path.resolve(SRC_DIR, pkg),
                     shell : true,
                     stdio: 'inherit'
