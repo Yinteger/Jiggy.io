@@ -1,8 +1,8 @@
 {
   "name": "@jiggy/inputs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Inputs package of the @jiggy engine",
-  "main": "./dist/inputs/src/index.js",
+  "main": "./dist/index.js",
   "types": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,6 @@
     "@jiggy/audio": "^0.0.1",
     "@jiggy/engines": "^0.0.1",
     "@jiggy/entities": "^0.0.1",
-    "@jiggy/inputs": "^0.0.1",
     "@jiggy/utils": "^0.0.1"
   },
   "dependencies": {
