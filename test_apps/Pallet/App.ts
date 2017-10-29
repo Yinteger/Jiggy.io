@@ -16,7 +16,9 @@ class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
 	private _bgMusic : Asset;
 	private _characterSpritesheet : Spritesheet;
-	public player : Character;
+    public player: Character;
+    private _mainCamera: Camera;
+    private _direction : String = "";
 
 	constructor () {
 		super();
@@ -134,7 +136,8 @@ class PalletDemo extends Engine {
 
 				//Load Map
 				var map = this._createMainMap();
-				var camera = new Camera(map, null, {width: 250, height: 250}, null, {width: 500, height: 500});
+                var camera = new Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
+                this._mainCamera = camera;
 				this.renderingEngine.addCamera(camera);
 
 				mouse.on(MouseEvents.ScrollWheelMove, (e: ScrollWheelMove) => {
@@ -218,9 +221,9 @@ class PalletDemo extends Engine {
 				//Enable Input
 				//Add Inputs to move Character around
 
-				var direction: string = null;
+				//var direction: string = null;
 				this.logicEngine.addLogic('moveLogic', () => {
-					switch(direction) {
+					switch(this._direction) {
 						case 'left':
 							this.player.moveLeft();
 							break;
@@ -256,48 +259,37 @@ class PalletDemo extends Engine {
                 if (inputManager.hasGamePads()) {
                     //Grab First GamePad
                     console.log("GamePadConnected");
-
-                    var gamePad: GamePad = inputManager.getGamePads()[0];
-                    gamePad.on(GamePadEvents.AxisValueChange, () => {
-                        console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1));
-                        if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                            this.player.x += Math.floor(gamePad.getAxis(0) * 10);
-                        }
-                        
-                        if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                            this.player.y += Math.floor(gamePad.getAxis(1) * 10);
-                        }
-
-                        if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                            camera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
-                        }
-
-                        if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                            camera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
-                        }
-                    });
-
-                } else {
-                    //Listen for GamePad Connections
-                    inputManager.on(InputManagerEvents.GamePadAdded, () => {
-                        console.log("GamePadConnected");
-
+                    var gamePads: GamePad[] = inputManager.getGamePads();
+                    gamePads.forEach((gamePad: GamePad) => {
+                        this.attachGamepad(gamePad);
                     });
                 }
+
+                //Listen for GamePad Connections
+                inputManager.on(InputManagerEvents.GamePadAdded, (gamePad: GamePad) => {
+                    console.log("GamePadConnected");
+                    this.attachGamepad(gamePad);
+                });
+
+
+                //Global GamePad Disconnect event
+                inputManager.on(InputManagerEvents.GamePadRemoved, (gamePad: GamePad) => {
+                    console.log("GameaPad Disconnected");
+                });
 
 				keyboard.on(KeyboardEvents.KeyDown, (e: KeyDown) => {
 					switch(e.key) {
 						case KeyboardKeys.W:
-							direction = 'up';
+							this._direction = 'up';
 							break;
 						case KeyboardKeys.A:
-							direction = "left";
+							this._direction = "left";
 							break;
 						case KeyboardKeys.S:
-							direction = "down"
+							this._direction = "down"
 							break;
 						case KeyboardKeys.D:
-							direction = "right";
+							this._direction = "right";
 							break;
 					}
 				});
@@ -308,13 +300,74 @@ class PalletDemo extends Engine {
 						case KeyboardKeys.A:
 						case KeyboardKeys.S:
 						case KeyboardKeys.D:
-							direction = null;
+							this._direction = null;
 							break;
 					}
 				});
 			}, 1000);			
 		}
-	}
+    }
+
+    private attachGamepad(gamePad: GamePad): void {
+        gamePad.on(GamePadEvents.AxisValueChange, (axisId: number, newValue: number) => {
+            //console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1), axisId, newValue);
+            if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
+                this.player.x += Math.floor(gamePad.getAxis(0) * 10);
+            }
+
+            if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
+                this.player.y += Math.floor(gamePad.getAxis(1) * 10);
+            }
+
+            if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
+                this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
+            }
+
+            if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
+                this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
+            }
+        });
+
+        gamePad.on(GamePadEvents.ButtonValueChange, (buttonId: number, newValue: number) => {
+            console.log(buttonId);
+            console.log(newValue);
+            if (buttonId === 12) {
+                if (newValue === 0 && this._direction === "up") {
+                    this._direction = "";
+                } else {
+                    this._direction = "up";
+                }
+            }
+
+            if (buttonId === 13) {
+                if (newValue === 0 && this._direction === "down") {
+                    this._direction = "";
+                } else {
+                    this._direction = "down";
+                }
+            }
+
+            if (buttonId === 14) {
+                if (newValue === 0 && this._direction === "left") {
+                    this._direction = "";
+                } else {
+                    this._direction = "left";
+                }
+            }
+
+            if (buttonId === 15) {
+                if (newValue === 0 && this._direction === "right") {
+                    this._direction = "";
+                } else {
+                    this._direction = "right";
+                }
+            }
+        });
+    }
+
+    private detachGamePad(gamepad: GamePad): void {
+        //Don't need to do anything really...Destroy the anon func maybe for performance...
+    }
 
 	private _loadMapSpritesheet () : void {
 		var map_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/61816.png');

@@ -96,29 +96,6 @@ exports.Animation = Animation_1.Animation;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(8);
-exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(15);
-exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(9);
-exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(10);
-exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(16);
-exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(3);
-exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(17);
-exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -426,6 +403,29 @@ function isUndefined(arg) {
 
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum_1 = __webpack_require__(8);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+var Camera_1 = __webpack_require__(15);
+exports.Camera = Camera_1.Camera;
+var IDGenerator_1 = __webpack_require__(9);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+var Iterator_1 = __webpack_require__(10);
+exports.Iterator = Iterator_1.Iterator;
+var LogManager_1 = __webpack_require__(16);
+exports.LogManager = LogManager_1.LogManager;
+var ViewPort_1 = __webpack_require__(3);
+exports.ViewPort = ViewPort_1.ViewPort;
+var CollisionEmitter_1 = __webpack_require__(17);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -442,7 +442,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(1);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -597,7 +597,7 @@ exports.GridMap = GridMap_1.GridMap;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(2);
 var audio_1 = __webpack_require__(4);
 var assets_1 = __webpack_require__(0);
 var Engine = (function () {
@@ -752,7 +752,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(1);
 var _1 = __webpack_require__(0);
 var _2 = __webpack_require__(6);
 var Iterator_1 = __webpack_require__(10);
@@ -1307,7 +1307,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(1);
 var EntityView = (function (_super) {
     __extends(EntityView, _super);
     function EntityView(model) {
@@ -1369,7 +1369,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(1);
 var InputDevice = (function (_super) {
     __extends(InputDevice, _super);
     function InputDevice() {
@@ -1401,7 +1401,7 @@ var Engine_1 = __webpack_require__(7);
 var _1 = __webpack_require__(5);
 var _2 = __webpack_require__(4);
 var _3 = __webpack_require__(6);
-var _4 = __webpack_require__(1);
+var _4 = __webpack_require__(2);
 var Keyboard_1 = __webpack_require__(38);
 var Mouse_1 = __webpack_require__(39);
 var _5 = __webpack_require__(0);
@@ -1411,6 +1411,7 @@ var PalletDemo = (function (_super) {
     __extends(PalletDemo, _super);
     function PalletDemo() {
         var _this = _super.call(this) || this;
+        _this._direction = "";
         _this.viewPort.size = ({ width: 500, height: 500 });
         _this.renderingEngine = new _1.TwoDimensionalRenderingEngine();
         _this.audioEngine = new _2.HTML5AudioEngine();
@@ -1494,6 +1495,7 @@ var PalletDemo = (function (_super) {
                 delete _this.renderingEngine.HUDEntity;
                 var map = _this._createMainMap();
                 var camera = new _4.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
+                _this._mainCamera = camera;
                 _this.renderingEngine.addCamera(camera);
                 Mouse_1.mouse.on("SCROLLWHEELMOVE", function (e) {
                     var fov = camera.fov;
@@ -1554,9 +1556,8 @@ var PalletDemo = (function (_super) {
                 _this.audioEngine.addAudio('bg', _this._bgMusic);
                 _this.audioEngine.loopAudio('bg', true);
                 _this.audioEngine.playAudio('bg');
-                var direction = null;
                 _this.logicEngine.addLogic('moveLogic', function () {
-                    switch (direction) {
+                    switch (_this._direction) {
                         case 'left':
                             _this.player.moveLeft();
                             break;
@@ -1588,41 +1589,31 @@ var PalletDemo = (function (_super) {
                 var inputManager = InputManager_1.InputManager.getInstance();
                 if (inputManager.hasGamePads()) {
                     console.log("GamePadConnected");
-                    var gamePad = inputManager.getGamePads()[0];
-                    gamePad.on("AXISVALUECHANGE", function () {
-                        console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1));
-                        if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                            _this.player.x += Math.floor(gamePad.getAxis(0) * 10);
-                        }
-                        if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                            _this.player.y += Math.floor(gamePad.getAxis(1) * 10);
-                        }
-                        if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                            camera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
-                        }
-                        if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                            camera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
-                        }
+                    var gamePads = inputManager.getGamePads();
+                    gamePads.forEach(function (gamePad) {
+                        _this.attachGamepad(gamePad);
                     });
                 }
-                else {
-                    inputManager.on("GAMEPADADDED", function () {
-                        console.log("GamePadConnected");
-                    });
-                }
+                inputManager.on("GAMEPADADDED", function (gamePad) {
+                    console.log("GamePadConnected");
+                    _this.attachGamepad(gamePad);
+                });
+                inputManager.on("GAMEPADREMOVED", function (gamePad) {
+                    console.log("GameaPad Disconnected");
+                });
                 Keyboard_1.keyboard.on("KEYDOWN", function (e) {
                     switch (e.key) {
                         case Keyboard_1.KeyboardKeys.W:
-                            direction = 'up';
+                            _this._direction = 'up';
                             break;
                         case Keyboard_1.KeyboardKeys.A:
-                            direction = "left";
+                            _this._direction = "left";
                             break;
                         case Keyboard_1.KeyboardKeys.S:
-                            direction = "down";
+                            _this._direction = "down";
                             break;
                         case Keyboard_1.KeyboardKeys.D:
-                            direction = "right";
+                            _this._direction = "right";
                             break;
                     }
                 });
@@ -1632,12 +1623,67 @@ var PalletDemo = (function (_super) {
                         case Keyboard_1.KeyboardKeys.A:
                         case Keyboard_1.KeyboardKeys.S:
                         case Keyboard_1.KeyboardKeys.D:
-                            direction = null;
+                            _this._direction = null;
                             break;
                     }
                 });
             }, 1000);
         }
+    };
+    PalletDemo.prototype.attachGamepad = function (gamePad) {
+        var _this = this;
+        gamePad.on("AXISVALUECHANGE", function (axisId, newValue) {
+            if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
+                _this.player.x += Math.floor(gamePad.getAxis(0) * 10);
+            }
+            if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
+                _this.player.y += Math.floor(gamePad.getAxis(1) * 10);
+            }
+            if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
+                _this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
+            }
+            if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
+                _this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
+            }
+        });
+        gamePad.on("BUTTONVALUECHANGE", function (buttonId, newValue) {
+            console.log(buttonId);
+            console.log(newValue);
+            if (buttonId === 12) {
+                if (newValue === 0 && _this._direction === "up") {
+                    _this._direction = "";
+                }
+                else {
+                    _this._direction = "up";
+                }
+            }
+            if (buttonId === 13) {
+                if (newValue === 0 && _this._direction === "down") {
+                    _this._direction = "";
+                }
+                else {
+                    _this._direction = "down";
+                }
+            }
+            if (buttonId === 14) {
+                if (newValue === 0 && _this._direction === "left") {
+                    _this._direction = "";
+                }
+                else {
+                    _this._direction = "left";
+                }
+            }
+            if (buttonId === 15) {
+                if (newValue === 0 && _this._direction === "right") {
+                    _this._direction = "";
+                }
+                else {
+                    _this._direction = "right";
+                }
+            }
+        });
+    };
+    PalletDemo.prototype.detachGamePad = function (gamepad) {
     };
     PalletDemo.prototype._loadMapSpritesheet = function () {
         var _this = this;
@@ -1920,7 +1966,7 @@ exports.CollisionEmitter = CollisionEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(1);
+var _1 = __webpack_require__(2);
 var _2 = __webpack_require__(0);
 var assetFactory = _2.AssetFactory.getSingleton();
 var AudioEngine = (function () {
@@ -2517,7 +2563,7 @@ exports.JSONLoader = JSONLoader;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(0);
-var _2 = __webpack_require__(1);
+var _2 = __webpack_require__(2);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
     }
@@ -3175,8 +3221,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var _1 = __webpack_require__(1);
+var Events = __webpack_require__(1);
+var _1 = __webpack_require__(2);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
     function EntityModel() {
@@ -3849,20 +3895,31 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var GamePad_1 = __webpack_require__(42);
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(1);
 var InputManager = (function (_super) {
     __extends(InputManager, _super);
     function InputManager() {
         var _this = _super.call(this) || this;
-        window.addEventListener("gamepadconnected", function (gamePad) {
+        if (navigator.getGamepads) {
             _this._buildGamePads();
-            _this.emit("GAMEPADADDED");
-        });
-        window.addEventListener("gamepaddisconnected", function (gamePad) {
-            _this._buildGamePads();
-            _this.emit("GAMEPADREMOVED");
-        });
-        _this._buildGamePads();
+            _this._gamePadPollTimer = setInterval(function () {
+                var gamePads = navigator.getGamepads();
+                for (var i = 0; i < gamePads.length; i++) {
+                    if (gamePads[i] && !_this._activeGamePads[i]) {
+                        var gamePad = _this._buildGamePad(i);
+                        _this.emit("GAMEPADADDED", gamePad);
+                    }
+                    else if (!gamePads[i] && _this._activeGamePads[i]) {
+                        var gamePad = _this._activeGamePads[i];
+                        delete _this._activeGamePads[i];
+                        _this.emit("GAMEPADREMOVED", gamePad);
+                    }
+                }
+            }, 15);
+        }
+        else {
+            console.log("Browser does not support GamePad API");
+        }
         return _this;
     }
     InputManager.prototype._buildGamePads = function () {
@@ -3870,10 +3927,14 @@ var InputManager = (function (_super) {
         this._activeGamePads = [];
         for (var i = 0; i < gamePads.length; i++) {
             if (gamePads[i]) {
-                var gamePad = new GamePad_1.GamePad(i);
-                this._activeGamePads.push(gamePad);
+                this._buildGamePad(i);
             }
         }
+    };
+    InputManager.prototype._buildGamePad = function (index) {
+        var gamePad = new GamePad_1.GamePad(index);
+        this._activeGamePads[index] = gamePad;
+        return gamePad;
     };
     InputManager.getInstance = function () {
         InputManager._instance = InputManager._instance || new InputManager();
@@ -3910,31 +3971,57 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var InputDevice_1 = __webpack_require__(13);
 var GamePad = (function (_super) {
     __extends(GamePad, _super);
-    function GamePad(index) {
+    function GamePad(id) {
         var _this = _super.call(this) || this;
+        _this._pollRate = 15;
         _this._buttons = [];
         _this._axes = [];
-        var gamePad = navigator.getGamepads()[index];
-        console.log(gamePad);
+        _this._gamePadID = id;
+        var gamePad = navigator.getGamepads()[id];
         for (var i = 0; i < gamePad.buttons.length; i++) {
-            _this._buttons.push(gamePad.buttons[i]);
+            _this._buttons.push(gamePad.buttons[i].value);
         }
         for (var i = 0; i < gamePad.axes.length; i++) {
             _this._axes.push(gamePad.axes[i]);
         }
-        setInterval(function () {
-            var gamePad = navigator.getGamepads()[index];
-            _this._axes = [];
-            for (var i = 0; i < gamePad.axes.length; i++) {
-                _this._axes.push(gamePad.axes[i]);
-            }
-            _this.emit("BUTTONVALUECHANGE");
-            _this.emit("AXISVALUECHANGE");
-        }, 15);
+        _this._initializePolling();
         return _this;
     }
     GamePad.prototype.getAxis = function (index) {
         return this._axes[index];
+    };
+    GamePad.prototype.setPollRate = function (pollRate) {
+        this._pollRate = pollRate;
+        this._initializePolling();
+    };
+    GamePad.prototype._initializePolling = function () {
+        if (this._pollTimer) {
+            clearInterval(this._pollTimer);
+        }
+        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
+    };
+    GamePad.prototype._poll = function () {
+        var gamePad = navigator.getGamepads()[this._gamePadID];
+        if (!gamePad) {
+            this._disconnect();
+            return null;
+        }
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            if (gamePad.buttons[i].value != this._buttons[i]) {
+                this._buttons[i] = gamePad.buttons[i].value;
+                this.emit("BUTTONVALUECHANGE", i, gamePad.buttons[i].value);
+            }
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            if (gamePad.axes[i] != this._axes[i]) {
+                this._axes[i] = gamePad.axes[i];
+                this.emit("AXISVALUECHANGE", i, gamePad.axes[i]);
+            }
+        }
+    };
+    GamePad.prototype._disconnect = function () {
+        clearInterval(this._pollTimer);
+        this.emit("DISCONNECT", this);
     };
     return GamePad;
 }(InputDevice_1.default));

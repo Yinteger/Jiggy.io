@@ -14,24 +14,60 @@ export const enum InputManagerEvents {
 export class InputManager extends Events.EventEmitter {
     private static _instance: InputManager;
     private _activeGamePads: GamePad[];
+    private _gamePadPollTimer: number; 
 
     private constructor () {
         super();
 
-        window.addEventListener("gamepadconnected", (gamePad: NativeGamepadEvent) => {
+        //NOTE: GamePad events only fire on Firefox
+        //window.addEventListener("gamepadconnected", () => {
+        //    var gamePads: NativeGamepad[] = navigator.getGamepads();
+        //    //Identify the new Gamepad by index
+        //    for (var i = 0; i < gamePads.length; i++) {
+        //        if (!this._activeGamePads[i]) {
+        //            //There is no GamePad at this index, register the new one and emit it
+        //            var gamePad: GamePad = this._buildGamePad(i);
+        //            this.emit(InputManagerEvents.GamePadAdded, gamePad);
+        //        }   
+        //    }
+        //});
+
+        //window.addEventListener("gamepaddisconnected", () => {
+        //    var gamePads: NativeGamepad[] = navigator.getGamepads();
+        //    //Identify the deleted Gamepad by index
+        //    for (var i = 0; i < this._activeGamePads.length; i++) {
+        //        if (!gamePads[i]) {
+        //            //There is no GamePad at this index, register the new one and emit it;
+        //            var gamePad: GamePad = this._activeGamePads[i];
+        //            this.emit(InputManagerEvents.GamePadRemoved, gamePad);
+        //        }
+        //    }
+        //});
+
+        if (navigator.getGamepads) {
             //Build initial set of gamepads
             this._buildGamePads();
-            this.emit(InputManagerEvents.GamePadAdded);
-        });
 
-        window.addEventListener("gamepaddisconnected", (gamePad: NativeGamepadEvent) => {
-            //Build initial set of gamepads
-            this._buildGamePads();
-            this.emit(InputManagerEvents.GamePadRemoved);
-        });
+            //Poll for new gamepads or deactivated gamepads
+            this._gamePadPollTimer = setInterval(() => {
+                var gamePads: NativeGamepad[] = navigator.getGamepads();
+                //Identify the new Gamepad by index
+                for (var i = 0; i < gamePads.length; i++) {
+                    if (gamePads[i] && !this._activeGamePads[i]) {
+                        //There is no GamePad at this index, register the new one and emit it
+                        var gamePad: GamePad = this._buildGamePad(i);
+                        this.emit(InputManagerEvents.GamePadAdded, gamePad);
+                    } else if (!gamePads[i] && this._activeGamePads[i]) {
+                        var gamePad: GamePad = this._activeGamePads[i];
+                        delete this._activeGamePads[i];
+                        this.emit(InputManagerEvents.GamePadRemoved, gamePad);
+                    }  
+                }
+            }, 15);
+        } else {
+            console.log("Browser does not support GamePad API");
+        }
 
-        //Build initial set of gamepads
-        this._buildGamePads();
     }
 
     private _buildGamePads() : void {
@@ -40,10 +76,19 @@ export class InputManager extends Events.EventEmitter {
 
         for (var i = 0; i < gamePads.length; i++) {
             if (gamePads[i]) {
-                var gamePad: GamePad = new GamePad(i);
-                this._activeGamePads.push(gamePad);
+                this._buildGamePad(i);
             }
         }
+    }
+
+    /**
+     * 
+     * @param index - Index in the HTML5 gamePad API that this GamePad represents.  An index is used over the object so polling update checks can be done.
+     */
+    private _buildGamePad(index: number): GamePad {
+        var gamePad: GamePad = new GamePad(index);
+        this._activeGamePads[index] = gamePad;
+        return gamePad;
     }
 
     static getInstance(): InputManager {
