@@ -6,17 +6,20 @@ import { GamePad } from "./GamePad";
 import * as Events from 'events';
 
 
-export const enum InputManagerEvents {
+export const enum GamePadListenerEvents {
     GamePadAdded = "GAMEPADADDED",
     GamePadRemoved = "GAMEPADREMOVED"
 }
 
-export class InputManager extends Events.EventEmitter {
-    private static _instance: InputManager;
+/**
+ * Listens to the window and detects any new gamePads plugged in.  GamePads may only be detected once a button is clicked.
+ */
+export class GamePadListener extends Events.EventEmitter {
+    private static _instance: GamePadListener;
     private _activeGamePads: GamePad[];
-    private _gamePadPollTimer: number; 
+    private _gamePadPollTimer: number;
 
-    private constructor () {
+    private constructor() {
         super();
 
         //NOTE: GamePad events only fire on Firefox
@@ -56,21 +59,20 @@ export class InputManager extends Events.EventEmitter {
                     if (gamePads[i] && !this._activeGamePads[i]) {
                         //There is no GamePad at this index, register the new one and emit it
                         var gamePad: GamePad = this._buildGamePad(i);
-                        this.emit(InputManagerEvents.GamePadAdded, gamePad);
+                        this.emit(GamePadListenerEvents.GamePadAdded, gamePad);
                     } else if (!gamePads[i] && this._activeGamePads[i]) {
                         var gamePad: GamePad = this._activeGamePads[i];
                         delete this._activeGamePads[i];
-                        this.emit(InputManagerEvents.GamePadRemoved, gamePad);
-                    }  
+                        this.emit(GamePadListenerEvents.GamePadRemoved, gamePad);
+                    }
                 }
             }, 15);
         } else {
             console.log("Browser does not support GamePad API");
         }
-
     }
 
-    private _buildGamePads() : void {
+    private _buildGamePads(): void {
         var gamePads: NativeGamepad[] = navigator.getGamepads();
         this._activeGamePads = [];
 
@@ -91,9 +93,9 @@ export class InputManager extends Events.EventEmitter {
         return gamePad;
     }
 
-    static getInstance(): InputManager {
-        InputManager._instance = InputManager._instance || new InputManager();
-        return InputManager._instance;
+    static getInstance(): GamePadListener {
+        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
+        return GamePadListener._instance;
     }
 
     public hasGamePads(): boolean {

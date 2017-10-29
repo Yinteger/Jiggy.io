@@ -13,6 +13,9 @@ export const enum GamePadEvents {
 
 export type GamePadButton = NativeGamepadButton;
 
+/**
+ * Represents a single Gamepad the user has plugged in.  May only be detected once the user hits a key.  Have an array of axes, and buttons, for the Gamepad.
+ */
 export class GamePad extends InputDevice {
     private _pollRate: number = 15;
     private _pollTimer: number;

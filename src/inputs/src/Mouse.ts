@@ -29,13 +29,14 @@ export interface ScrollWheelMove extends Event {
     xDelta: number
 }
 
-class Mouse extends InputDevice {
+export class Mouse extends InputDevice {
+    private static _instance: Mouse;
     private _leftButtonDown : boolean = false;
     private _rightButtonDown : boolean = false;
     private _scrollWheelDown : boolean = false;
     private _mouseCoords : Coordinate = {x: 0, y: 0};
 
-    constructor () {
+    private constructor () {
         super();
 
         window.addEventListener("contextmenu", (e: MouseEvent) => {
@@ -164,6 +165,9 @@ class Mouse extends InputDevice {
     public isRightButtonClicked(): boolean {
         return this._rightButtonDown;
     }
-}
 
-export let mouse = new Mouse();
+    static getInstance(): Mouse {
+        Mouse._instance = Mouse._instance || new Mouse();
+        return Mouse._instance;
+    }
+}

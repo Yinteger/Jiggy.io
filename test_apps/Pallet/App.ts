@@ -7,9 +7,9 @@ import {Iterator, Camera} from "../../src/utils/src/";
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/src/";
 import Character from "./Character";
 import { EntityEventTypes, LocationUpdateEvent } from "../../src/entities/src/";
-import { mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove } from "../../src/inputs/src/Mouse";
+import { Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove } from "../../src/inputs/src/Mouse";
 import { keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys } from "../../src/inputs/src/Keyboard";
-import { InputManager, InputManagerEvents } from "../../src/inputs/src/InputManager";
+import { GamePadListener, GamePadListenerEvents } from "../../src/inputs/src/GamepadListener";
 import { GamePad, GamePadEvents } from "../../src/inputs/src/GamePad";
 
 class PalletDemo extends Engine {
@@ -138,7 +138,8 @@ class PalletDemo extends Engine {
 				var map = this._createMainMap();
                 var camera = new Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
                 this._mainCamera = camera;
-				this.renderingEngine.addCamera(camera);
+                this.renderingEngine.addCamera(camera);
+                var mouse = Mouse.getInstance();
 
 				mouse.on(MouseEvents.ScrollWheelMove, (e: ScrollWheelMove) => {
 					// console.warn(e);
@@ -255,25 +256,25 @@ class PalletDemo extends Engine {
                     }
                 }, 50);
 
-                let inputManager : InputManager = InputManager.getInstance();
-                if (inputManager.hasGamePads()) {
+                let gamepadListener: GamePadListener = GamePadListener.getInstance();
+                if (gamepadListener.hasGamePads()) {
                     //Grab First GamePad
                     console.log("GamePadConnected");
-                    var gamePads: GamePad[] = inputManager.getGamePads();
+                    var gamePads: GamePad[] = gamepadListener.getGamePads();
                     gamePads.forEach((gamePad: GamePad) => {
                         this.attachGamepad(gamePad);
                     });
                 }
 
                 //Listen for GamePad Connections
-                inputManager.on(InputManagerEvents.GamePadAdded, (gamePad: GamePad) => {
+                gamepadListener.on(GamePadListenerEvents.GamePadAdded, (gamePad: GamePad) => {
                     console.log("GamePadConnected");
                     this.attachGamepad(gamePad);
                 });
 
 
                 //Global GamePad Disconnect event
-                inputManager.on(InputManagerEvents.GamePadRemoved, (gamePad: GamePad) => {
+                gamepadListener.on(GamePadListenerEvents.GamePadRemoved, (gamePad: GamePad) => {
                     console.log("GameaPad Disconnected");
                 });
 
