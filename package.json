@@ -27,7 +27,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-old": "node_modules/.bin/tsc && node bundle_declarations",
     "build": "node_modules/.bin/gulp build",
-    "pack": "node_modules/.bin/webpack",
     "docs": "node_modules/.bin/typedoc --out docs --mode file --ignoreCompilerErrors --sourcefile-url-prefix \"https://github.com/YuniYasha/Jiggy.io/blob/master/src/\" src"
   },
   "repository": {
