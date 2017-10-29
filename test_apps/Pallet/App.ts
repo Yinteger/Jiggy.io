@@ -1,16 +1,16 @@
-import Engine from "../../src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/";
-import {HTML5AudioEngine} from "../../src/audio/";
-import {Entity, GridMap} from "../../src/entities/";
-import {Iterator, Camera} from "../../src/utils/";
-// import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/';
-import {keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys} from "../../src/inputs/Keyboard";
-import { mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove} from "../../src/inputs/Mouse";
-import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/";
+import Engine from "../../src/core/src/Engine";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src/";
+import {HTML5AudioEngine} from "../../src/audio/src/";
+import {Entity, GridMap} from "../../src/entities/src/";
+import {Iterator, Camera} from "../../src/utils/src/";
+//import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/src/';
+import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/src/";
 import Character from "./Character";
-import { EntityEventTypes, LocationUpdateEvent } from "../../src/entities/";
-import { InputManager, InputManagerEvents } from "../../src/inputs/InputManager";
-import { GamePad, GamePadEvents} from "../../src/inputs/GamePad";
+import { EntityEventTypes, LocationUpdateEvent } from "../../src/entities/src/";
+import { mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove } from "../../src/inputs/src/Mouse";
+import { keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys } from "../../src/inputs/src/Keyboard";
+import { InputManager, InputManagerEvents } from "../../src/inputs/src/InputManager";
+import { GamePad, GamePadEvents } from "../../src/inputs/src/GamePad";
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
