@@ -1,9 +1,9 @@
-import Engine from "../../src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
-import {HTML5AudioEngine} from "../../src/audio";
-import {Entity, LocationUpdateEvent} from "../../src/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
+import Engine from "../../src/core/src/Engine";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src/";
+import {HTML5AudioEngine} from "../../src/audio/src/";
+import {Entity, LocationUpdateEvent} from "../../src/entities/src/";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils/src/";
+import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets/src/";
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];

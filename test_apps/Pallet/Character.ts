@@ -1,7 +1,7 @@
-import {Entity} from "../../src/entities/";
-import {Animation, Spritesheet, Asset} from "../../src/assets/";
-import {Coordinate} from "../../src/interfaces/";
-import Engine from "../../src/Engine";
+import {Entity} from "../../src/entities/src/";
+import {Animation, Spritesheet, Asset} from "../../src/assets/src/";
+import {Coordinate} from "../../src/interfaces/src/";
+import * as Core from "../../src/core/src/";
 
 export default class Character extends Entity {
 	public moving :  boolean;
@@ -49,7 +49,8 @@ export default class Character extends Entity {
 	}
 
 	private _move (coordinates : Coordinate) : void {
-		Engine.getSingleton().logicEngine.removeLogic(this.ID + "_endmove");
+		var Engine: Core.Engine = (<any>window)._PalletDemo;
+		Engine.logicEngine.removeLogic(this.ID + "_endmove");
 		// var collision =  mapl2.findChildren(new zen.data.Coordinate(player.getX2() + 3, player.getY2() - 5),  new zen.data.Coordinate(player.getX2() + 3, player.getY2()));
 		var collision = false;
 		var updatedCoordinates = false;
@@ -65,7 +66,7 @@ export default class Character extends Entity {
 		}
 
 		if (!collision) {
-			Engine.getSingleton().logicEngine.addLogic(this.ID + "_move", () => {
+			Engine.logicEngine.addLogic(this.ID + "_move", () => {
 
 				if (this.x != x) {
 					if (this.x > x) {
@@ -108,14 +109,14 @@ export default class Character extends Entity {
 				// tilePosition.setTexture(zen.assets.TextAssetBuilder.build("15px Georgia", "X: " + character.tileX + " Y: " + character.tileY, 75, 50, "black"));
 
 				if (this.x == x && this.y == y || collision) {
-					Engine.getSingleton().logicEngine.removeLogic(this.ID + "_move");
+					Engine.logicEngine.removeLogic(this.ID + "_move");
 					this.moving = false;
 
-					Engine.getSingleton().logicEngine.addLogic(this.ID + "_endmove", () => {
+					Engine.logicEngine.addLogic(this.ID + "_endmove", () => {
 						this._activeAnim.stop();
 						delete this._activeAnim;
 						this.texture = this._endTexture;
-						Engine.getSingleton().logicEngine.removeLogic(this.ID + "_endmove");
+						Engine.logicEngine.removeLogic(this.ID + "_endmove");
 					}, 50);
 
 				}

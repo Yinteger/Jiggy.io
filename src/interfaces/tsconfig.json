@@ -3,7 +3,7 @@
 
     "compilerOptions": {
         "baseUrl": ".",
-        "outDir": "../../dist/packages/interfaces",
+        "outDir": "./dist/",
         "paths": {
             "@jiggy/*" : ["../*/src"]
         }
