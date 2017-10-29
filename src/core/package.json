@@ -1,6 +1,6 @@
 {
   "name": "@jiggy/core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Core package of the @jiggy engine",
   "main": "./dist/core/src/index.js",
   "types": "./src/index.ts",
@@ -9,12 +9,12 @@
   },
   "author": "Kyle Williams <kyle@kylewilliams.io",
   "peerDependencies": {
-    "@jiggy/assets": "^0.0.1",
-    "@jiggy/audio": "^0.0.1",
-    "@jiggy/engines": "^0.0.1",
-    "@jiggy/entities": "^0.0.1",
+    "@jiggy/assets": "^0.0.2",
+    "@jiggy/audio": "^0.0.2",
+    "@jiggy/engines": "^0.0.2",
+    "@jiggy/entities": "^0.0.2",
     "@jiggy/inputs": "0.0.2",
-    "@jiggy/utils": "^0.0.1"
+    "@jiggy/utils": "^0.0.2"
   },
   "dependencies": {
     "@types/node": "^8.0.47"

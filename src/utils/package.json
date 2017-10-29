@@ -1,6 +1,6 @@
 {
   "name": "@jiggy/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utils package of the @jiggy engine",
   "main": "./dist/utils/src/index.js",
   "types": "./src/index.ts",
@@ -9,8 +9,8 @@
   },
   "author": "Kyle Williams <kyle@kylewilliams.io",
   "peerDependencies": {
-    "@jiggy/entities": "^0.0.1",
-    "@jiggy/interfaces": "^0.0.1"
+    "@jiggy/entities": "^0.0.2",
+    "@jiggy/interfaces": "^0.0.2"
   },
   "dependencies": {
     "@types/node": "^8.0.47"
