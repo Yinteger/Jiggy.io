@@ -282,16 +282,20 @@ class PalletDemo extends Engine {
                 var keyboard = Keyboard.getInstance();
 				keyboard.on(KeyboardEvents.KeyDown, (e: KeyDown) => {
 					switch(e.key) {
-						case KeyboardKeys.W:
+                        case KeyboardKeys.W:
+                        case KeyboardKeys[0]:
 							this._direction = 'up';
 							break;
-						case KeyboardKeys.A:
+                        case KeyboardKeys.A:
+                        case KeyboardKeys[1]:
 							this._direction = "left";
 							break;
-						case KeyboardKeys.S:
+                        case KeyboardKeys.S:
+                        case KeyboardKeys[2]:
 							this._direction = "down"
 							break;
-						case KeyboardKeys.D:
+                        case KeyboardKeys.D:
+                        case KeyboardKeys[3]:
 							this._direction = "right";
 							break;
 					}

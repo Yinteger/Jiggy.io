@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,17 +72,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(6);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(15);
+var Camera_1 = __webpack_require__(16);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(16);
+var IDGenerator_1 = __webpack_require__(17);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(17);
+var Iterator_1 = __webpack_require__(18);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(18);
+var LogManager_1 = __webpack_require__(19);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(19);
+var ViewPort_1 = __webpack_require__(20);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(20);
+var CollisionEmitter_1 = __webpack_require__(21);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
@@ -93,63 +93,32 @@ exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(22);
+var Asset_1 = __webpack_require__(23);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(23);
+var AssetType_1 = __webpack_require__(24);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(24);
+var AssetState_1 = __webpack_require__(25);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(25);
+var AssetFactory_1 = __webpack_require__(26);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(26);
+var AssetLoader_1 = __webpack_require__(27);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(27);
+var AudioLoader_1 = __webpack_require__(28);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(28);
+var ImageLoader_1 = __webpack_require__(29);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(29);
+var JSONLoader_1 = __webpack_require__(30);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(30);
+var TextAssetBuilder_1 = __webpack_require__(31);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(31);
+var Spritesheet_1 = __webpack_require__(32);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(32);
+var Animation_1 = __webpack_require__(33);
 exports.Animation = Animation_1.Animation;
 
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(50);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(51);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(52);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(53);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(54);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(55);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(56);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(57);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(58);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(59);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(60);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -457,19 +426,50 @@ function isUndefined(arg) {
 
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Asset_1 = __webpack_require__(51);
+exports.Asset = Asset_1.Asset;
+var AssetType_1 = __webpack_require__(52);
+exports.AssetType = AssetType_1.AssetType;
+var AssetState_1 = __webpack_require__(53);
+exports.AssetState = AssetState_1.AssetState;
+var AssetFactory_1 = __webpack_require__(54);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+var AssetLoader_1 = __webpack_require__(55);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+var AudioLoader_1 = __webpack_require__(56);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+var ImageLoader_1 = __webpack_require__(57);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+var JSONLoader_1 = __webpack_require__(58);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+var TextAssetBuilder_1 = __webpack_require__(59);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+var Spritesheet_1 = __webpack_require__(60);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+var Animation_1 = __webpack_require__(61);
+exports.Animation = Animation_1.Animation;
+
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(34);
+var LogicEngine_1 = __webpack_require__(35);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(35);
+var GroupLogicEngine_1 = __webpack_require__(36);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(36);
+var RenderingEngine_1 = __webpack_require__(37);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(37);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(38);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -482,13 +482,13 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_1 = __webpack_require__(9);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
+var EntityModel_1 = __webpack_require__(41);
 exports.EntityModel = EntityModel_1.EntityModel;
 var EntityView_1 = __webpack_require__(10);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
+var EntityView2D_1 = __webpack_require__(42);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
+var GridMap_1 = __webpack_require__(43);
 exports.GridMap = GridMap_1.GridMap;
 
 
@@ -907,7 +907,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var assets_1 = __webpack_require__(1);
 var _1 = __webpack_require__(5);
 var utils_1 = __webpack_require__(0);
@@ -1462,7 +1462,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var EntityView = (function (_super) {
     __extends(EntityView, _super);
     function EntityView(model) {
@@ -1540,7 +1540,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var GamePad = (function (_super) {
     __extends(GamePad, _super);
     function GamePad(id) {
@@ -1633,14 +1633,94 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(14);
+var Events = __webpack_require__(2);
+;
+;
+var Touch = (function (_super) {
+    __extends(Touch, _super);
+    function Touch(nTouch) {
+        var _this = _super.call(this) || this;
+        _this._id = nTouch.identifier;
+        _this._x = nTouch.pageX;
+        _this._y = nTouch.pageY;
+        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
+        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
+        return _this;
+    }
+    Touch.prototype.getID = function () {
+        return this._id;
+    };
+    Touch.prototype.getX = function () {
+        return this._x;
+    };
+    Touch.prototype.getY = function () {
+        return this._y;
+    };
+    Touch.prototype._onTouchEnd = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id) {
+                this._disconnect();
+            }
+        }
+    };
+    Touch.prototype._onTouchMove = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
+                this._x = nTouch.pageX;
+                this._y = nTouch.pageY;
+                var e_1 = {
+                    type: "TOUCHMOVED",
+                    source: this,
+                    position: {
+                        x: this._x,
+                        y: this._y
+                    }
+                };
+                this.emit("TOUCHMOVED", e_1);
+            }
+        }
+    };
+    Touch.prototype._disconnect = function () {
+        var e = {
+            source: this,
+            type: "TOUCHREMOVED"
+        };
+        this.emit("TOUCHREMOVED", e);
+        window.removeEventListener("touchmove", this._touchMoveListener);
+        window.removeEventListener("touchend", this._touchEndListener);
+    };
+    return Touch;
+}(Events.EventEmitter));
+exports.Touch = Touch;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Engine_1 = __webpack_require__(15);
 var _1 = __webpack_require__(4);
-var _2 = __webpack_require__(38);
+var _2 = __webpack_require__(39);
 var _3 = __webpack_require__(5);
-var _4 = __webpack_require__(43);
-var _5 = __webpack_require__(2);
-var Character_1 = __webpack_require__(61);
-var _6 = __webpack_require__(62);
+var _4 = __webpack_require__(44);
+var _5 = __webpack_require__(3);
+var Character_1 = __webpack_require__(62);
+var _6 = __webpack_require__(63);
 var PalletDemo = (function (_super) {
     __extends(PalletDemo, _super);
     function PalletDemo() {
@@ -1840,15 +1920,19 @@ var PalletDemo = (function (_super) {
                 keyboard.on("KEYDOWN", function (e) {
                     switch (e.key) {
                         case _6.KeyboardKeys.W:
+                        case _6.KeyboardKeys[0]:
                             _this._direction = 'up';
                             break;
                         case _6.KeyboardKeys.A:
+                        case _6.KeyboardKeys[1]:
                             _this._direction = "left";
                             break;
                         case _6.KeyboardKeys.S:
+                        case _6.KeyboardKeys[2]:
                             _this._direction = "down";
                             break;
                         case _6.KeyboardKeys.D:
+                        case _6.KeyboardKeys[3]:
                             _this._direction = "right";
                             break;
                     }
@@ -2054,14 +2138,14 @@ window._PalletDemo = new PalletDemo();
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(21);
+var audio_1 = __webpack_require__(22);
 var assets_1 = __webpack_require__(1);
 var Engine = (function () {
     function Engine() {
@@ -2093,7 +2177,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2113,7 +2197,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2140,7 +2224,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2194,7 +2278,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2244,7 +2328,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2260,7 +2344,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -2360,7 +2444,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2434,7 +2518,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2442,12 +2526,12 @@ exports.CollisionEmitter = CollisionEmitter;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(7);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(33);
+var HTML5AudioEngine_1 = __webpack_require__(34);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2525,7 +2609,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2541,7 +2625,7 @@ var AssetType;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2556,7 +2640,7 @@ var AssetState;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2663,7 +2747,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2729,7 +2813,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2781,7 +2865,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2820,7 +2904,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2852,7 +2936,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2886,7 +2970,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2925,7 +3009,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3021,7 +3105,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3150,7 +3234,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3165,7 +3249,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3252,7 +3336,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3336,7 +3420,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3501,7 +3585,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3509,12 +3593,12 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(8);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(39);
+var HTML5AudioEngine_1 = __webpack_require__(40);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3643,7 +3727,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3659,7 +3743,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var utils_1 = __webpack_require__(0);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
@@ -3731,7 +3815,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3759,7 +3843,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3813,7 +3897,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3821,22 +3905,22 @@ exports.GridMap = GridMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(11);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(44);
+var Camera_1 = __webpack_require__(45);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(45);
+var IDGenerator_1 = __webpack_require__(46);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(46);
+var Iterator_1 = __webpack_require__(47);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(47);
+var LogManager_1 = __webpack_require__(48);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(48);
+var ViewPort_1 = __webpack_require__(49);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(49);
+var CollisionEmitter_1 = __webpack_require__(50);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3856,7 +3940,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3883,7 +3967,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3937,7 +4021,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3987,7 +4071,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4003,7 +4087,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -4103,7 +4187,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4177,14 +4261,14 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var Asset = (function () {
     function Asset(type, url) {
         this._id = utils_1.IDGenerator.getSingleton().generate();
@@ -4255,7 +4339,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4271,7 +4355,7 @@ var AssetType;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4286,13 +4370,13 @@ var AssetState;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var AssetFactory = (function () {
     function AssetFactory() {
         this._assetLoader = new _1.AssetLoader();
@@ -4393,13 +4477,13 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var AssetLoader = (function () {
     function AssetLoader() {
     }
@@ -4459,7 +4543,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4475,7 +4559,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var AudioLoader = (function (_super) {
     __extends(AudioLoader, _super);
     function AudioLoader() {
@@ -4511,7 +4595,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4527,7 +4611,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var ImageLoader = (function (_super) {
     __extends(ImageLoader, _super);
     function ImageLoader() {
@@ -4550,7 +4634,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4566,7 +4650,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var JSONLoader = (function (_super) {
     __extends(JSONLoader, _super);
     function JSONLoader() {
@@ -4582,13 +4666,13 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var utils_1 = __webpack_require__(0);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
@@ -4616,14 +4700,14 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
@@ -4655,7 +4739,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4751,7 +4835,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4768,7 +4852,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(5);
-var _2 = __webpack_require__(2);
+var _2 = __webpack_require__(3);
 var Character = (function (_super) {
     __extends(Character, _super);
     function Character(character_spritesheet) {
@@ -4924,25 +5008,29 @@ exports.default = Character;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(63);
+var GamePadListener_1 = __webpack_require__(64);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
 var GamePad_1 = __webpack_require__(12);
 exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(64);
+var Keyboard_1 = __webpack_require__(65);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(65);
+var Mouse_1 = __webpack_require__(66);
 exports.Mouse = Mouse_1.Mouse;
+var Touch_1 = __webpack_require__(13);
+exports.Touch = Touch_1.Touch;
+var TouchListener_1 = __webpack_require__(67);
+exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4959,7 +5047,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var GamePad_1 = __webpack_require__(12);
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var GamePadListener = (function (_super) {
     __extends(GamePadListener, _super);
     function GamePadListener() {
@@ -5016,7 +5104,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5032,7 +5120,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 exports.KeyboardKeys = {
     0: 48,
     1: 49,
@@ -5203,7 +5291,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5219,7 +5307,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var Mouse = (function (_super) {
     __extends(Mouse, _super);
     function Mouse() {
@@ -5351,6 +5439,47 @@ var Mouse = (function (_super) {
     return Mouse;
 }(Events.EventEmitter));
 exports.Mouse = Mouse;
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Touch_1 = __webpack_require__(13);
+var Events = __webpack_require__(2);
+var TouchListener = (function (_super) {
+    __extends(TouchListener, _super);
+    function TouchListener() {
+        var _this = _super.call(this) || this;
+        window.addEventListener("touchstart", function (e) {
+            e.preventDefault();
+            for (var i = 0; i < e.changedTouches.length; i++) {
+                var touch = new Touch_1.Touch(e.changedTouches.item(i));
+                _this.emit("TOUCHADDED", touch);
+            }
+        });
+        return _this;
+    }
+    TouchListener.getInstance = function () {
+        TouchListener._instance = TouchListener._instance || new TouchListener();
+        return TouchListener._instance;
+    };
+    return TouchListener;
+}(Events.EventEmitter));
+exports.TouchListener = TouchListener;
 
 
 /***/ })
