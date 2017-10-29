@@ -1,4 +1,4 @@
-import InputDevice from "./InputDevice";
+import * as Events from 'events';
 import {Event} from "../../interfaces";
 
 
@@ -135,7 +135,7 @@ export interface KeyDown extends Event {
     key: number;
 }
 
-class Keyboard extends InputDevice {
+class Keyboard extends Events.EventEmitter {
     private _buttonMap : {[key: string]: any}; //Mapping of Button Values
     private _buttonsActive : {[key: string]: boolean};//Mapping of Buttons that are actively being used by the user right now (Ex: Keyboard button down)
 

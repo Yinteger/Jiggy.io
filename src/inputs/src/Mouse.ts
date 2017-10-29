@@ -1,5 +1,5 @@
-import InputDevice from "./InputDevice";
 import {Event, Coordinate} from "../../interfaces";
+import * as Events from 'events';
 
 export const enum MouseEvents {
     LeftButtonDown = "LEFTBUTTONDOWN",
@@ -29,7 +29,7 @@ export interface ScrollWheelMove extends Event {
     xDelta: number
 }
 
-export class Mouse extends InputDevice {
+export class Mouse extends Events.EventEmitter {
     private static _instance: Mouse;
     private _leftButtonDown : boolean = false;
     private _rightButtonDown : boolean = false;

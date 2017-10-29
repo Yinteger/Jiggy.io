@@ -1343,8 +1343,8 @@ var TouchDemo = (function (_super) {
         touchListener.on("TOUCHADDED", function (touch) {
             console.log("New Touch added with an ID of ", touch.getID());
             var block = new src_2.Entity();
-            block.x = touch.getX();
-            block.y = touch.getY();
+            block.x = touch.getX() - 25;
+            block.y = touch.getY() - 25;
             block.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
             block.width = 50;
             block.height = 50;
@@ -3414,7 +3414,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var InputDevice_1 = __webpack_require__(47);
+var Events = __webpack_require__(2);
 ;
 var Touch = (function (_super) {
     __extends(Touch, _super);
@@ -3460,36 +3460,8 @@ var Touch = (function (_super) {
         window.removeEventListener("touchend", this._touchEndListener);
     };
     return Touch;
-}(InputDevice_1.default));
-exports.Touch = Touch;
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var InputDevice = (function (_super) {
-    __extends(InputDevice, _super);
-    function InputDevice() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return InputDevice;
 }(Events.EventEmitter));
-exports.default = InputDevice;
+exports.Touch = Touch;
 
 
 /***/ })

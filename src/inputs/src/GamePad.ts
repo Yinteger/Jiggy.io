@@ -3,7 +3,7 @@ type NativeGamepadEvent = GamepadEvent;
 type NativeGamepad = Gamepad;
 type NativeGamepadButton = GamepadButton;
 
-import InputDevice from "./InputDevice";
+import * as Events from 'events';
 
 export const enum GamePadEvents {
     ButtonValueChange = "BUTTONVALUECHANGE",
@@ -16,7 +16,7 @@ export type GamePadButton = NativeGamepadButton;
 /**
  * Represents a single Gamepad the user has plugged in.  May only be detected once the user hits a key.  Have an array of axes, and buttons, for the Gamepad.
  */
-export class GamePad extends InputDevice {
+export class GamePad extends Events.EventEmitter {
     private _pollRate: number = 15;
     private _pollTimer: number;
     private _gamePadID: number;

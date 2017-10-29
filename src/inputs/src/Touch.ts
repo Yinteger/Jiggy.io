@@ -1,4 +1,4 @@
-import InputDevice from "./InputDevice";
+import * as Events from 'events';
 import { NativeTouch, TouchList, TouchEvent } from "./NativeTouchEvent";
 
 export const enum TouchEvents {
@@ -9,7 +9,7 @@ export const enum TouchEvents {
 /**
  * Represents a single touch or 'finger' of the screen touching the screen
  */
-export class Touch extends InputDevice {
+export class Touch extends Events.EventEmitter {
     private _id: number;
     private _x: number;
     private _y: number;

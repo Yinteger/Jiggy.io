@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,19 +70,19 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(7);
+var SeverityEnum_1 = __webpack_require__(6);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(15);
+var Camera_1 = __webpack_require__(14);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(16);
+var IDGenerator_1 = __webpack_require__(15);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(17);
+var Iterator_1 = __webpack_require__(16);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(18);
+var LogManager_1 = __webpack_require__(17);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(19);
+var ViewPort_1 = __webpack_require__(18);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(20);
+var CollisionEmitter_1 = __webpack_require__(19);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
@@ -93,27 +93,27 @@ exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(22);
+var Asset_1 = __webpack_require__(21);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(23);
+var AssetType_1 = __webpack_require__(22);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(24);
+var AssetState_1 = __webpack_require__(23);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(25);
+var AssetFactory_1 = __webpack_require__(24);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(26);
+var AssetLoader_1 = __webpack_require__(25);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(27);
+var AudioLoader_1 = __webpack_require__(26);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(28);
+var ImageLoader_1 = __webpack_require__(27);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(29);
+var JSONLoader_1 = __webpack_require__(28);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(30);
+var TextAssetBuilder_1 = __webpack_require__(29);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(31);
+var Spritesheet_1 = __webpack_require__(30);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(32);
+var Animation_1 = __webpack_require__(31);
 exports.Animation = Animation_1.Animation;
 
 
@@ -124,27 +124,27 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(50);
+var Asset_1 = __webpack_require__(49);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(51);
+var AssetType_1 = __webpack_require__(50);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(52);
+var AssetState_1 = __webpack_require__(51);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(53);
+var AssetFactory_1 = __webpack_require__(52);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(54);
+var AssetLoader_1 = __webpack_require__(53);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(55);
+var AudioLoader_1 = __webpack_require__(54);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(56);
+var ImageLoader_1 = __webpack_require__(55);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(57);
+var JSONLoader_1 = __webpack_require__(56);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(58);
+var TextAssetBuilder_1 = __webpack_require__(57);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(59);
+var Spritesheet_1 = __webpack_require__(58);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(60);
+var Animation_1 = __webpack_require__(59);
 exports.Animation = Animation_1.Animation;
 
 
@@ -463,13 +463,13 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(34);
+var LogicEngine_1 = __webpack_require__(33);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(35);
+var GroupLogicEngine_1 = __webpack_require__(34);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(36);
+var RenderingEngine_1 = __webpack_require__(35);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(37);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(36);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -480,48 +480,20 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
+var Entity_1 = __webpack_require__(9);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
+var EntityModel_1 = __webpack_require__(39);
 exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(11);
+var EntityView_1 = __webpack_require__(10);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
+var EntityView2D_1 = __webpack_require__(40);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
+var GridMap_1 = __webpack_require__(41);
 exports.GridMap = GridMap_1.GridMap;
 
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
-var InputDevice = (function (_super) {
-    __extends(InputDevice, _super);
-    function InputDevice() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return InputDevice;
-}(Events.EventEmitter));
-exports.default = InputDevice;
-
-
-/***/ }),
-/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -534,6 +506,197 @@ var SeverityEnum;
     SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
     SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
 })(SeverityEnum = exports.SeverityEnum || (exports.SeverityEnum = {}));
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
+var assetFactory = assets_1.AssetFactory.getSingleton();
+var AudioEngine = (function () {
+    function AudioEngine() {
+        this._audioMap = {};
+        this.logManager = utils_1.LogManager.getSingleton();
+    }
+    AudioEngine.prototype.addAudio = function (name, audio, channels) {
+        if (audio.getType() !== assets_1.AssetType.AUDIO) {
+            throw 'AudioEngine.addAudio: Invalid Asset Type.';
+        }
+        this._setAudio(name, audio, channels);
+    };
+    AudioEngine.prototype.hasAudio = function (name) {
+        var audio = this._getAudio(name);
+        return (audio !== null);
+    };
+    AudioEngine.prototype.removeAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._stopAudio(audio);
+        }
+        delete this._audioMap[name];
+    };
+    AudioEngine.prototype.releaseAssets = function () {
+        var keys = Object.keys(this._audioMap);
+        for (var i = 0, len = keys.length; i < len; i++) {
+            this.removeAudio(keys[i]);
+        }
+    };
+    AudioEngine.prototype.playAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._playAudio(audio);
+            audio.setAttribute('playing', true);
+        }
+    };
+    AudioEngine.prototype.pauseAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._pauseAudio(audio);
+            audio.setAttribute('playing', false);
+        }
+    };
+    AudioEngine.prototype.stopAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._stopAudio(audio);
+            audio.setAttribute('playing', false);
+        }
+    };
+    AudioEngine.prototype.isAudioLooping = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._isAudioLooping(audio);
+        }
+        return false;
+    };
+    AudioEngine.prototype.loopAudio = function (name, state) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._loopAudio(audio, state);
+        }
+    };
+    AudioEngine.prototype.isAudioMuted = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._isAudioMuted(audio);
+        }
+        return false;
+    };
+    AudioEngine.prototype.muteAudio = function (name, state) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._muteAudio(audio, state);
+        }
+    };
+    AudioEngine.prototype.getAudioDuration = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._getAudioDuration(audio);
+        }
+        return 0;
+    };
+    AudioEngine.prototype.setTimeCursor = function (name, seconds) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._setTimeCursor(audio, seconds);
+        }
+    };
+    AudioEngine.prototype.getTimeCursor = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._getTimeCursor(audio);
+        }
+        return 0;
+    };
+    AudioEngine.prototype.setVolume = function (name, volume) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._setVolume(audio, volume);
+        }
+    };
+    AudioEngine.prototype.getVolume = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._getVolume(audio);
+        }
+        else {
+            return 0;
+        }
+    };
+    AudioEngine.prototype._setAudio = function (name, audio, channels) {
+        if (!audio) {
+            this.removeAudio(name);
+        }
+        else {
+            var channelArr = [audio];
+            if (channels > 1) {
+                var clone;
+                for (var i = 1; i < channels; i++) {
+                    clone = assetFactory.build(audio.getType(), audio.getSource());
+                    channelArr.push(clone);
+                }
+            }
+            this._audioMap[name] = channelArr;
+            this._registerEvents(channelArr);
+        }
+    };
+    AudioEngine.prototype._warnMissingAudio = function (name) {
+        this.logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+    };
+    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
+        if (this._audioMap[name]) {
+            var channels = this._audioMap[name];
+            if (justGiveChannel1) {
+                return channels[0];
+            }
+            else {
+                var channel;
+                var asset;
+                for (var i = 0, len = channels.length; i < len; i++) {
+                    channel = channels[i];
+                    if (!channel.getAttribute('playing')) {
+                        return channel;
+                    }
+                }
+            }
+            return channels[0];
+        }
+        else {
+            this._warnMissingAudio(name);
+            return null;
+        }
+    };
+    AudioEngine.prototype._getData = function (audio) {
+        return audio.getData();
+    };
+    AudioEngine.prototype._attachStartEvent = function (asset) {
+        if (!asset.getAttribute('startEvent')) {
+            this._registerStartEvent(asset);
+            asset.setAttribute('startEvent', true);
+        }
+    };
+    AudioEngine.prototype._attachEndEvent = function (asset) {
+        if (!asset.getAttribute('endEvent')) {
+            this._registerEndEvent(asset);
+            asset.setAttribute('endEvent', true);
+        }
+    };
+    AudioEngine.prototype._registerEvents = function (channelArray) {
+        var channel;
+        for (var i = 0, len = channelArray.length; i < len; i++) {
+            channel = channelArray[i];
+            this._attachStartEvent(channel);
+            this._attachEndEvent(channel);
+        }
+    };
+    return AudioEngine;
+}());
+exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
@@ -729,197 +892,6 @@ exports.AudioEngine = AudioEngine;
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var assets_1 = __webpack_require__(1);
-var assetFactory = assets_1.AssetFactory.getSingleton();
-var AudioEngine = (function () {
-    function AudioEngine() {
-        this._audioMap = {};
-        this.logManager = utils_1.LogManager.getSingleton();
-    }
-    AudioEngine.prototype.addAudio = function (name, audio, channels) {
-        if (audio.getType() !== assets_1.AssetType.AUDIO) {
-            throw 'AudioEngine.addAudio: Invalid Asset Type.';
-        }
-        this._setAudio(name, audio, channels);
-    };
-    AudioEngine.prototype.hasAudio = function (name) {
-        var audio = this._getAudio(name);
-        return (audio !== null);
-    };
-    AudioEngine.prototype.removeAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._stopAudio(audio);
-        }
-        delete this._audioMap[name];
-    };
-    AudioEngine.prototype.releaseAssets = function () {
-        var keys = Object.keys(this._audioMap);
-        for (var i = 0, len = keys.length; i < len; i++) {
-            this.removeAudio(keys[i]);
-        }
-    };
-    AudioEngine.prototype.playAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._playAudio(audio);
-            audio.setAttribute('playing', true);
-        }
-    };
-    AudioEngine.prototype.pauseAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._pauseAudio(audio);
-            audio.setAttribute('playing', false);
-        }
-    };
-    AudioEngine.prototype.stopAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._stopAudio(audio);
-            audio.setAttribute('playing', false);
-        }
-    };
-    AudioEngine.prototype.isAudioLooping = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._isAudioLooping(audio);
-        }
-        return false;
-    };
-    AudioEngine.prototype.loopAudio = function (name, state) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._loopAudio(audio, state);
-        }
-    };
-    AudioEngine.prototype.isAudioMuted = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._isAudioMuted(audio);
-        }
-        return false;
-    };
-    AudioEngine.prototype.muteAudio = function (name, state) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._muteAudio(audio, state);
-        }
-    };
-    AudioEngine.prototype.getAudioDuration = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getAudioDuration(audio);
-        }
-        return 0;
-    };
-    AudioEngine.prototype.setTimeCursor = function (name, seconds) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._setTimeCursor(audio, seconds);
-        }
-    };
-    AudioEngine.prototype.getTimeCursor = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getTimeCursor(audio);
-        }
-        return 0;
-    };
-    AudioEngine.prototype.setVolume = function (name, volume) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._setVolume(audio, volume);
-        }
-    };
-    AudioEngine.prototype.getVolume = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getVolume(audio);
-        }
-        else {
-            return 0;
-        }
-    };
-    AudioEngine.prototype._setAudio = function (name, audio, channels) {
-        if (!audio) {
-            this.removeAudio(name);
-        }
-        else {
-            var channelArr = [audio];
-            if (channels > 1) {
-                var clone;
-                for (var i = 1; i < channels; i++) {
-                    clone = assetFactory.build(audio.getType(), audio.getSource());
-                    channelArr.push(clone);
-                }
-            }
-            this._audioMap[name] = channelArr;
-            this._registerEvents(channelArr);
-        }
-    };
-    AudioEngine.prototype._warnMissingAudio = function (name) {
-        this.logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
-    };
-    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
-        if (this._audioMap[name]) {
-            var channels = this._audioMap[name];
-            if (justGiveChannel1) {
-                return channels[0];
-            }
-            else {
-                var channel;
-                var asset;
-                for (var i = 0, len = channels.length; i < len; i++) {
-                    channel = channels[i];
-                    if (!channel.getAttribute('playing')) {
-                        return channel;
-                    }
-                }
-            }
-            return channels[0];
-        }
-        else {
-            this._warnMissingAudio(name);
-            return null;
-        }
-    };
-    AudioEngine.prototype._getData = function (audio) {
-        return audio.getData();
-    };
-    AudioEngine.prototype._attachStartEvent = function (asset) {
-        if (!asset.getAttribute('startEvent')) {
-            this._registerStartEvent(asset);
-            asset.setAttribute('startEvent', true);
-        }
-    };
-    AudioEngine.prototype._attachEndEvent = function (asset) {
-        if (!asset.getAttribute('endEvent')) {
-            this._registerEndEvent(asset);
-            asset.setAttribute('endEvent', true);
-        }
-    };
-    AudioEngine.prototype._registerEvents = function (channelArray) {
-        var channel;
-        for (var i = 0, len = channelArray.length; i < len; i++) {
-            channel = channelArray[i];
-            this._attachStartEvent(channel);
-            this._attachEndEvent(channel);
-        }
-    };
-    return AudioEngine;
-}());
-exports.AudioEngine = AudioEngine;
-
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1474,7 +1446,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1536,7 +1508,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1552,7 +1524,7 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1568,16 +1540,16 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(14);
+var Engine_1 = __webpack_require__(13);
 var _1 = __webpack_require__(4);
-var _2 = __webpack_require__(38);
+var _2 = __webpack_require__(37);
 var _3 = __webpack_require__(5);
-var _4 = __webpack_require__(43);
+var _4 = __webpack_require__(42);
 var _5 = __webpack_require__(2);
-var Character_1 = __webpack_require__(61);
-var Mouse_1 = __webpack_require__(62);
-var Keyboard_1 = __webpack_require__(63);
-var InputManager_1 = __webpack_require__(64);
+var Character_1 = __webpack_require__(60);
+var Mouse_1 = __webpack_require__(61);
+var Keyboard_1 = __webpack_require__(62);
+var GamepadListener_1 = __webpack_require__(63);
 var PalletDemo = (function (_super) {
     __extends(PalletDemo, _super);
     function PalletDemo() {
@@ -1758,19 +1730,19 @@ var PalletDemo = (function (_super) {
                         layer.addChild(newPokeball);
                     }
                 }, 50);
-                var inputManager = InputManager_1.InputManager.getInstance();
-                if (inputManager.hasGamePads()) {
+                var gamepadListener = GamepadListener_1.GamePadListener.getInstance();
+                if (gamepadListener.hasGamePads()) {
                     console.log("GamePadConnected");
-                    var gamePads = inputManager.getGamePads();
+                    var gamePads = gamepadListener.getGamePads();
                     gamePads.forEach(function (gamePad) {
                         _this.attachGamepad(gamePad);
                     });
                 }
-                inputManager.on("GAMEPADADDED", function (gamePad) {
+                gamepadListener.on("GAMEPADADDED", function (gamePad) {
                     console.log("GamePadConnected");
                     _this.attachGamepad(gamePad);
                 });
-                inputManager.on("GAMEPADREMOVED", function (gamePad) {
+                gamepadListener.on("GAMEPADREMOVED", function (gamePad) {
                     console.log("GameaPad Disconnected");
                 });
                 Keyboard_1.keyboard.on("KEYDOWN", function (e) {
@@ -1988,14 +1960,14 @@ window._PalletDemo = new PalletDemo();
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(21);
+var audio_1 = __webpack_require__(20);
 var assets_1 = __webpack_require__(1);
 var Engine = (function () {
     function Engine() {
@@ -2027,7 +1999,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2047,7 +2019,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2074,7 +2046,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2128,13 +2100,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(7);
+var SeverityEnum_1 = __webpack_require__(6);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -2178,7 +2150,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2294,7 +2266,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2368,20 +2340,20 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(7);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(33);
+var HTML5AudioEngine_1 = __webpack_require__(32);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2459,7 +2431,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2475,7 +2447,7 @@ var AssetType;
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2490,7 +2462,7 @@ var AssetState;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2597,7 +2569,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2663,7 +2635,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2715,7 +2687,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2754,7 +2726,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2786,7 +2758,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2820,7 +2792,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2859,7 +2831,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2955,7 +2927,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2971,7 +2943,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(7);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -3084,7 +3056,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3099,7 +3071,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3186,7 +3158,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3270,7 +3242,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3435,20 +3407,20 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(9);
+var AudioEngine_1 = __webpack_require__(8);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(39);
+var HTML5AudioEngine_1 = __webpack_require__(38);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3464,7 +3436,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(9);
+var AudioEngine_1 = __webpack_require__(8);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -3577,7 +3549,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3665,6 +3637,34 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var EntityView_1 = __webpack_require__(10);
+var EntityView2D = (function (_super) {
+    __extends(EntityView2D, _super);
+    function EntityView2D() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityView2D;
+}(EntityView_1.EntityView));
+exports.EntityView2D = EntityView2D;
+
+
+/***/ }),
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3681,35 +3681,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(11);
-var EntityView2D = (function (_super) {
-    __extends(EntityView2D, _super);
-    function EntityView2D() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return EntityView2D;
-}(EntityView_1.EntityView));
-exports.EntityView2D = EntityView2D;
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
+var Entity_1 = __webpack_require__(9);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -3747,30 +3719,30 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(12);
+var SeverityEnum_1 = __webpack_require__(11);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(44);
+var Camera_1 = __webpack_require__(43);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(45);
+var IDGenerator_1 = __webpack_require__(44);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(46);
+var Iterator_1 = __webpack_require__(45);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(47);
+var LogManager_1 = __webpack_require__(46);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(48);
+var ViewPort_1 = __webpack_require__(47);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(49);
+var CollisionEmitter_1 = __webpack_require__(48);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3790,7 +3762,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3817,7 +3789,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3871,13 +3843,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(12);
+var SeverityEnum_1 = __webpack_require__(11);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -3921,7 +3893,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4037,7 +4009,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4111,7 +4083,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4189,7 +4161,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4205,7 +4177,7 @@ var AssetType;
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4220,7 +4192,7 @@ var AssetState;
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4327,7 +4299,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4393,7 +4365,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4445,7 +4417,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4484,7 +4456,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4516,7 +4488,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4550,7 +4522,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4589,7 +4561,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4685,7 +4657,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4858,7 +4830,7 @@ exports.default = Character;
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4874,7 +4846,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var InputDevice_1 = __webpack_require__(6);
+var Events = __webpack_require__(3);
 var Mouse = (function (_super) {
     __extends(Mouse, _super);
     function Mouse() {
@@ -5004,12 +4976,12 @@ var Mouse = (function (_super) {
         return Mouse._instance;
     };
     return Mouse;
-}(InputDevice_1.default));
+}(Events.EventEmitter));
 exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5025,7 +4997,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var InputDevice_1 = __webpack_require__(6);
+var Events = __webpack_require__(3);
 exports.KeyboardKeys = {
     0: 48,
     1: 49,
@@ -5187,12 +5159,12 @@ var Keyboard = (function (_super) {
         this._buttonMap[id] = value;
     };
     return Keyboard;
-}(InputDevice_1.default));
+}(Events.EventEmitter));
 exports.keyboard = new Keyboard();
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5208,11 +5180,11 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(65);
+var GamePad_1 = __webpack_require__(64);
 var Events = __webpack_require__(3);
-var InputManager = (function (_super) {
-    __extends(InputManager, _super);
-    function InputManager() {
+var GamePadListener = (function (_super) {
+    __extends(GamePadListener, _super);
+    function GamePadListener() {
         var _this = _super.call(this) || this;
         if (navigator.getGamepads) {
             _this._buildGamePads();
@@ -5234,12 +5206,9 @@ var InputManager = (function (_super) {
         else {
             console.log("Browser does not support GamePad API");
         }
-        window.addEventListener("touchstart", function (e) {
-            console.log(e.changedTouches.length);
-        });
         return _this;
     }
-    InputManager.prototype._buildGamePads = function () {
+    GamePadListener.prototype._buildGamePads = function () {
         var gamePads = navigator.getGamepads();
         this._activeGamePads = [];
         for (var i = 0; i < gamePads.length; i++) {
@@ -5248,28 +5217,28 @@ var InputManager = (function (_super) {
             }
         }
     };
-    InputManager.prototype._buildGamePad = function (index) {
+    GamePadListener.prototype._buildGamePad = function (index) {
         var gamePad = new GamePad_1.GamePad(index);
         this._activeGamePads[index] = gamePad;
         return gamePad;
     };
-    InputManager.getInstance = function () {
-        InputManager._instance = InputManager._instance || new InputManager();
-        return InputManager._instance;
+    GamePadListener.getInstance = function () {
+        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
+        return GamePadListener._instance;
     };
-    InputManager.prototype.hasGamePads = function () {
+    GamePadListener.prototype.hasGamePads = function () {
         return this._activeGamePads.length > 0;
     };
-    InputManager.prototype.getGamePads = function () {
+    GamePadListener.prototype.getGamePads = function () {
         return this._activeGamePads;
     };
-    return InputManager;
+    return GamePadListener;
 }(Events.EventEmitter));
-exports.InputManager = InputManager;
+exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5285,7 +5254,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var InputDevice_1 = __webpack_require__(6);
+var Events = __webpack_require__(3);
 var GamePad = (function (_super) {
     __extends(GamePad, _super);
     function GamePad(id) {
@@ -5341,7 +5310,7 @@ var GamePad = (function (_super) {
         this.emit("DISCONNECT", this);
     };
     return GamePad;
-}(InputDevice_1.default));
+}(Events.EventEmitter));
 exports.GamePad = GamePad;
 
 

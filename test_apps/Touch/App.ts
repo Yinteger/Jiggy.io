@@ -38,8 +38,8 @@ class TouchDemo extends Engine {
         touchListener.on(TouchListenerEvents.TouchAdded, (touch: Touch) => {
             console.log("New Touch added with an ID of ", touch.getID());
             var block = new Entity();
-            block.x = touch.getX();
-            block.y = touch.getY();
+            block.x = touch.getX() - 25;
+            block.y = touch.getY() - 25;
             block.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
             block.width = 50;
             block.height = 50;
