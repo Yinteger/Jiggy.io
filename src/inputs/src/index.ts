@@ -1,31 +1,29 @@
-import {ControllerType} from './ControllerType';
-
-import {Controller} from './Controller';
-import {MouseController} from './MouseController';
-import {KeyboardController} from './KeyboardController';
-
-import {InputEvent} from './InputEvent';
-import {KeyCode} from './KeyCode';
-import {MouseButton} from './MouseButton';
-
-import {ControllerEventDetail} from './ControllerEventDetail';
-import {KeyboardEventDetail} from './KeyboardEventDetail';
-import {MouseEventDetail} from './MouseEventDetail';
-
-import {ControllerFactory} from './ControllerFactory';
-import {InputManager} from './InputManager';
+import { GamePadListener, GamePadListenerEvents } from "./GamePadListener";
+import { GamePad, GamePadEvents, ValueChangeEvent} from "./GamePad";
+import { Keyboard, KeyboardKeys, KeyboardEvents, KeyUp, KeyDown } from "./Keyboard";
+import { Mouse, MouseEvents, MouseClickEvent, MouseMoveEvent, ScrollWheelMove } from "./Mouse";
+import { Touch, TouchMoveEvent, TouchEvents } from "./Touch";
+import { TouchListener, TouchListenerEvents } from "./TouchListener";
 
 export {
-    Controller,
-    ControllerType,
-    MouseController,
-    KeyboardController,
-    InputEvent,
-    KeyCode,
-    MouseButton,
-    ControllerEventDetail,
-    KeyboardEventDetail,
-    MouseEventDetail,
-    ControllerFactory,
-    InputManager
+    GamePad,
+    GamePadEvents,
+    GamePadListener,
+    GamePadListenerEvents,
+    ValueChangeEvent,
+    Keyboard,
+    KeyboardKeys,
+    KeyboardEvents,
+    KeyUp,
+    KeyDown,
+    Mouse,
+    MouseEvents,
+    MouseClickEvent,
+    MouseMoveEvent,
+    ScrollWheelMove,
+    Touch,
+    TouchMoveEvent,
+    TouchEvents,
+    TouchListener,
+    TouchListenerEvents
 };

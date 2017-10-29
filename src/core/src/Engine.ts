@@ -5,7 +5,7 @@ import {RenderingEngine,GroupLogicEngine,TwoDimensionalRenderingEngine, LogicEng
 
 //Typescript Testing Imports
 import {GridMap,Entity} from '@jiggy/entities';
-import {ControllerFactory} from '@jiggy/inputs';
+//import {ControllerFactory} from '@jiggy/inputs';
 import {Animation,Spritesheet} from '@jiggy/assets';
 import {CollisionEmitter} from '@jiggy/utils';
 //End//

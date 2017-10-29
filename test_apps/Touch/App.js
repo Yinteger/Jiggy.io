@@ -60,65 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
-exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(16);
-exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(17);
-exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(18);
-exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(19);
-exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(20);
-exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(21);
-exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(23);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(24);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(25);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(26);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(27);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(28);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(29);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(30);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(31);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(32);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(33);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -426,74 +372,78 @@ function isUndefined(arg) {
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Asset_1 = __webpack_require__(21);
+exports.Asset = Asset_1.Asset;
+var AssetType_1 = __webpack_require__(22);
+exports.AssetType = AssetType_1.AssetType;
+var AssetState_1 = __webpack_require__(23);
+exports.AssetState = AssetState_1.AssetState;
+var AssetFactory_1 = __webpack_require__(24);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+var AssetLoader_1 = __webpack_require__(25);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+var AudioLoader_1 = __webpack_require__(26);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+var ImageLoader_1 = __webpack_require__(27);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+var JSONLoader_1 = __webpack_require__(28);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+var TextAssetBuilder_1 = __webpack_require__(29);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+var Spritesheet_1 = __webpack_require__(30);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+var Animation_1 = __webpack_require__(31);
+exports.Animation = Animation_1.Animation;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum_1 = __webpack_require__(4);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+var Camera_1 = __webpack_require__(14);
+exports.Camera = Camera_1.Camera;
+var IDGenerator_1 = __webpack_require__(15);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+var Iterator_1 = __webpack_require__(16);
+exports.Iterator = Iterator_1.Iterator;
+var LogManager_1 = __webpack_require__(17);
+exports.LogManager = LogManager_1.LogManager;
+var ViewPort_1 = __webpack_require__(18);
+exports.ViewPort = ViewPort_1.ViewPort;
+var CollisionEmitter_1 = __webpack_require__(19);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(51);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(52);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(53);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(54);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(55);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(56);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(57);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(58);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(59);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(60);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(61);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(35);
+var LogicEngine_1 = __webpack_require__(33);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(36);
+var GroupLogicEngine_1 = __webpack_require__(34);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(37);
+var RenderingEngine_1 = __webpack_require__(35);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(38);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(36);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(9);
-exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(41);
-exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(10);
-exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(42);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(43);
-exports.GridMap = GridMap_1.GridMap;
-
-
-/***/ }),
-/* 6 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -509,389 +459,217 @@ var SeverityEnum;
 
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = __webpack_require__(2);
+var assets_1 = __webpack_require__(1);
+var assetFactory = assets_1.AssetFactory.getSingleton();
+var AudioEngine = (function () {
+    function AudioEngine() {
+        this._audioMap = {};
+        this.logManager = utils_1.LogManager.getSingleton();
+    }
+    AudioEngine.prototype.addAudio = function (name, audio, channels) {
+        if (audio.getType() !== assets_1.AssetType.AUDIO) {
+            throw 'AudioEngine.addAudio: Invalid Asset Type.';
+        }
+        this._setAudio(name, audio, channels);
+    };
+    AudioEngine.prototype.hasAudio = function (name) {
+        var audio = this._getAudio(name);
+        return (audio !== null);
+    };
+    AudioEngine.prototype.removeAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._stopAudio(audio);
+        }
+        delete this._audioMap[name];
+    };
+    AudioEngine.prototype.releaseAssets = function () {
+        var keys = Object.keys(this._audioMap);
+        for (var i = 0, len = keys.length; i < len; i++) {
+            this.removeAudio(keys[i]);
+        }
+    };
+    AudioEngine.prototype.playAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._playAudio(audio);
+            audio.setAttribute('playing', true);
+        }
+    };
+    AudioEngine.prototype.pauseAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._pauseAudio(audio);
+            audio.setAttribute('playing', false);
+        }
+    };
+    AudioEngine.prototype.stopAudio = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._stopAudio(audio);
+            audio.setAttribute('playing', false);
+        }
+    };
+    AudioEngine.prototype.isAudioLooping = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._isAudioLooping(audio);
+        }
+        return false;
+    };
+    AudioEngine.prototype.loopAudio = function (name, state) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._loopAudio(audio, state);
+        }
+    };
+    AudioEngine.prototype.isAudioMuted = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._isAudioMuted(audio);
+        }
+        return false;
+    };
+    AudioEngine.prototype.muteAudio = function (name, state) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._muteAudio(audio, state);
+        }
+    };
+    AudioEngine.prototype.getAudioDuration = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._getAudioDuration(audio);
+        }
+        return 0;
+    };
+    AudioEngine.prototype.setTimeCursor = function (name, seconds) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._setTimeCursor(audio, seconds);
+        }
+    };
+    AudioEngine.prototype.getTimeCursor = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._getTimeCursor(audio);
+        }
+        return 0;
+    };
+    AudioEngine.prototype.setVolume = function (name, volume) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            this._setVolume(audio, volume);
+        }
+    };
+    AudioEngine.prototype.getVolume = function (name) {
+        var audio = this._getAudio(name);
+        if (audio) {
+            return this._getVolume(audio);
+        }
+        else {
+            return 0;
+        }
+    };
+    AudioEngine.prototype._setAudio = function (name, audio, channels) {
+        if (!audio) {
+            this.removeAudio(name);
+        }
+        else {
+            var channelArr = [audio];
+            if (channels > 1) {
+                var clone;
+                for (var i = 1; i < channels; i++) {
+                    clone = assetFactory.build(audio.getType(), audio.getSource());
+                    channelArr.push(clone);
+                }
+            }
+            this._audioMap[name] = channelArr;
+            this._registerEvents(channelArr);
+        }
+    };
+    AudioEngine.prototype._warnMissingAudio = function (name) {
+        this.logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+    };
+    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
+        if (this._audioMap[name]) {
+            var channels = this._audioMap[name];
+            if (justGiveChannel1) {
+                return channels[0];
+            }
+            else {
+                var channel;
+                var asset;
+                for (var i = 0, len = channels.length; i < len; i++) {
+                    channel = channels[i];
+                    if (!channel.getAttribute('playing')) {
+                        return channel;
+                    }
+                }
+            }
+            return channels[0];
+        }
+        else {
+            this._warnMissingAudio(name);
+            return null;
+        }
+    };
+    AudioEngine.prototype._getData = function (audio) {
+        return audio.getData();
+    };
+    AudioEngine.prototype._attachStartEvent = function (asset) {
+        if (!asset.getAttribute('startEvent')) {
+            this._registerStartEvent(asset);
+            asset.setAttribute('startEvent', true);
+        }
+    };
+    AudioEngine.prototype._attachEndEvent = function (asset) {
+        if (!asset.getAttribute('endEvent')) {
+            this._registerEndEvent(asset);
+            asset.setAttribute('endEvent', true);
+        }
+    };
+    AudioEngine.prototype._registerEvents = function (channelArray) {
+        var channel;
+        for (var i = 0, len = channelArray.length; i < len; i++) {
+            channel = channelArray[i];
+            this._attachStartEvent(channel);
+            this._attachEndEvent(channel);
+        }
+    };
+    return AudioEngine;
+}());
+exports.AudioEngine = AudioEngine;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(7);
+exports.Entity = Entity_1.Entity;
+var EntityModel_1 = __webpack_require__(37);
+exports.EntityModel = EntityModel_1.EntityModel;
+var EntityView_1 = __webpack_require__(8);
+exports.EntityView = EntityView_1.EntityView;
+var EntityView2D_1 = __webpack_require__(38);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+var GridMap_1 = __webpack_require__(39);
+exports.GridMap = GridMap_1.GridMap;
+
+
+/***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var assets_1 = __webpack_require__(1);
-var assetFactory = assets_1.AssetFactory.getSingleton();
-var AudioEngine = (function () {
-    function AudioEngine() {
-        this._audioMap = {};
-        this.logManager = utils_1.LogManager.getSingleton();
-    }
-    AudioEngine.prototype.addAudio = function (name, audio, channels) {
-        if (audio.getType() !== assets_1.AssetType.AUDIO) {
-            throw 'AudioEngine.addAudio: Invalid Asset Type.';
-        }
-        this._setAudio(name, audio, channels);
-    };
-    AudioEngine.prototype.hasAudio = function (name) {
-        var audio = this._getAudio(name);
-        return (audio !== null);
-    };
-    AudioEngine.prototype.removeAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._stopAudio(audio);
-        }
-        delete this._audioMap[name];
-    };
-    AudioEngine.prototype.releaseAssets = function () {
-        var keys = Object.keys(this._audioMap);
-        for (var i = 0, len = keys.length; i < len; i++) {
-            this.removeAudio(keys[i]);
-        }
-    };
-    AudioEngine.prototype.playAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._playAudio(audio);
-            audio.setAttribute('playing', true);
-        }
-    };
-    AudioEngine.prototype.pauseAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._pauseAudio(audio);
-            audio.setAttribute('playing', false);
-        }
-    };
-    AudioEngine.prototype.stopAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._stopAudio(audio);
-            audio.setAttribute('playing', false);
-        }
-    };
-    AudioEngine.prototype.isAudioLooping = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._isAudioLooping(audio);
-        }
-        return false;
-    };
-    AudioEngine.prototype.loopAudio = function (name, state) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._loopAudio(audio, state);
-        }
-    };
-    AudioEngine.prototype.isAudioMuted = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._isAudioMuted(audio);
-        }
-        return false;
-    };
-    AudioEngine.prototype.muteAudio = function (name, state) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._muteAudio(audio, state);
-        }
-    };
-    AudioEngine.prototype.getAudioDuration = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getAudioDuration(audio);
-        }
-        return 0;
-    };
-    AudioEngine.prototype.setTimeCursor = function (name, seconds) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._setTimeCursor(audio, seconds);
-        }
-    };
-    AudioEngine.prototype.getTimeCursor = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getTimeCursor(audio);
-        }
-        return 0;
-    };
-    AudioEngine.prototype.setVolume = function (name, volume) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._setVolume(audio, volume);
-        }
-    };
-    AudioEngine.prototype.getVolume = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getVolume(audio);
-        }
-        else {
-            return 0;
-        }
-    };
-    AudioEngine.prototype._setAudio = function (name, audio, channels) {
-        if (!audio) {
-            this.removeAudio(name);
-        }
-        else {
-            var channelArr = [audio];
-            if (channels > 1) {
-                var clone;
-                for (var i = 1; i < channels; i++) {
-                    clone = assetFactory.build(audio.getType(), audio.getSource());
-                    channelArr.push(clone);
-                }
-            }
-            this._audioMap[name] = channelArr;
-            this._registerEvents(channelArr);
-        }
-    };
-    AudioEngine.prototype._warnMissingAudio = function (name) {
-        this.logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
-    };
-    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
-        if (this._audioMap[name]) {
-            var channels = this._audioMap[name];
-            if (justGiveChannel1) {
-                return channels[0];
-            }
-            else {
-                var channel;
-                var asset;
-                for (var i = 0, len = channels.length; i < len; i++) {
-                    channel = channels[i];
-                    if (!channel.getAttribute('playing')) {
-                        return channel;
-                    }
-                }
-            }
-            return channels[0];
-        }
-        else {
-            this._warnMissingAudio(name);
-            return null;
-        }
-    };
-    AudioEngine.prototype._getData = function (audio) {
-        return audio.getData();
-    };
-    AudioEngine.prototype._attachStartEvent = function (asset) {
-        if (!asset.getAttribute('startEvent')) {
-            this._registerStartEvent(asset);
-            asset.setAttribute('startEvent', true);
-        }
-    };
-    AudioEngine.prototype._attachEndEvent = function (asset) {
-        if (!asset.getAttribute('endEvent')) {
-            this._registerEndEvent(asset);
-            asset.setAttribute('endEvent', true);
-        }
-    };
-    AudioEngine.prototype._registerEvents = function (channelArray) {
-        var channel;
-        for (var i = 0, len = channelArray.length; i < len; i++) {
-            channel = channelArray[i];
-            this._attachStartEvent(channel);
-            this._attachEndEvent(channel);
-        }
-    };
-    return AudioEngine;
-}());
-exports.AudioEngine = AudioEngine;
-
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var assets_1 = __webpack_require__(1);
-var assetFactory = assets_1.AssetFactory.getSingleton();
-var AudioEngine = (function () {
-    function AudioEngine() {
-        this._audioMap = {};
-        this.logManager = utils_1.LogManager.getSingleton();
-    }
-    AudioEngine.prototype.addAudio = function (name, audio, channels) {
-        if (audio.getType() !== assets_1.AssetType.AUDIO) {
-            throw 'AudioEngine.addAudio: Invalid Asset Type.';
-        }
-        this._setAudio(name, audio, channels);
-    };
-    AudioEngine.prototype.hasAudio = function (name) {
-        var audio = this._getAudio(name);
-        return (audio !== null);
-    };
-    AudioEngine.prototype.removeAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._stopAudio(audio);
-        }
-        delete this._audioMap[name];
-    };
-    AudioEngine.prototype.releaseAssets = function () {
-        var keys = Object.keys(this._audioMap);
-        for (var i = 0, len = keys.length; i < len; i++) {
-            this.removeAudio(keys[i]);
-        }
-    };
-    AudioEngine.prototype.playAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._playAudio(audio);
-            audio.setAttribute('playing', true);
-        }
-    };
-    AudioEngine.prototype.pauseAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._pauseAudio(audio);
-            audio.setAttribute('playing', false);
-        }
-    };
-    AudioEngine.prototype.stopAudio = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._stopAudio(audio);
-            audio.setAttribute('playing', false);
-        }
-    };
-    AudioEngine.prototype.isAudioLooping = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._isAudioLooping(audio);
-        }
-        return false;
-    };
-    AudioEngine.prototype.loopAudio = function (name, state) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._loopAudio(audio, state);
-        }
-    };
-    AudioEngine.prototype.isAudioMuted = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._isAudioMuted(audio);
-        }
-        return false;
-    };
-    AudioEngine.prototype.muteAudio = function (name, state) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._muteAudio(audio, state);
-        }
-    };
-    AudioEngine.prototype.getAudioDuration = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getAudioDuration(audio);
-        }
-        return 0;
-    };
-    AudioEngine.prototype.setTimeCursor = function (name, seconds) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._setTimeCursor(audio, seconds);
-        }
-    };
-    AudioEngine.prototype.getTimeCursor = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getTimeCursor(audio);
-        }
-        return 0;
-    };
-    AudioEngine.prototype.setVolume = function (name, volume) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            this._setVolume(audio, volume);
-        }
-    };
-    AudioEngine.prototype.getVolume = function (name) {
-        var audio = this._getAudio(name);
-        if (audio) {
-            return this._getVolume(audio);
-        }
-        else {
-            return 0;
-        }
-    };
-    AudioEngine.prototype._setAudio = function (name, audio, channels) {
-        if (!audio) {
-            this.removeAudio(name);
-        }
-        else {
-            var channelArr = [audio];
-            if (channels > 1) {
-                var clone;
-                for (var i = 1; i < channels; i++) {
-                    clone = assetFactory.build(audio.getType(), audio.getSource());
-                    channelArr.push(clone);
-                }
-            }
-            this._audioMap[name] = channelArr;
-            this._registerEvents(channelArr);
-        }
-    };
-    AudioEngine.prototype._warnMissingAudio = function (name) {
-        this.logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
-    };
-    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
-        if (this._audioMap[name]) {
-            var channels = this._audioMap[name];
-            if (justGiveChannel1) {
-                return channels[0];
-            }
-            else {
-                var channel;
-                var asset;
-                for (var i = 0, len = channels.length; i < len; i++) {
-                    channel = channels[i];
-                    if (!channel.getAttribute('playing')) {
-                        return channel;
-                    }
-                }
-            }
-            return channels[0];
-        }
-        else {
-            this._warnMissingAudio(name);
-            return null;
-        }
-    };
-    AudioEngine.prototype._getData = function (audio) {
-        return audio.getData();
-    };
-    AudioEngine.prototype._attachStartEvent = function (asset) {
-        if (!asset.getAttribute('startEvent')) {
-            this._registerStartEvent(asset);
-            asset.setAttribute('startEvent', true);
-        }
-    };
-    AudioEngine.prototype._attachEndEvent = function (asset) {
-        if (!asset.getAttribute('endEvent')) {
-            this._registerEndEvent(asset);
-            asset.setAttribute('endEvent', true);
-        }
-    };
-    AudioEngine.prototype._registerEvents = function (channelArray) {
-        var channel;
-        for (var i = 0, len = channelArray.length; i < len; i++) {
-            channel = channelArray[i];
-            this._attachStartEvent(channel);
-            this._attachEndEvent(channel);
-        }
-    };
-    return AudioEngine;
-}());
-exports.AudioEngine = AudioEngine;
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -907,10 +685,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var assets_1 = __webpack_require__(1);
-var _1 = __webpack_require__(5);
-var utils_1 = __webpack_require__(0);
+var _1 = __webpack_require__(6);
+var utils_1 = __webpack_require__(2);
 var Entity = (function (_super) {
     __extends(Entity, _super);
     function Entity(model) {
@@ -1446,7 +1224,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1462,7 +1240,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var EntityView = (function (_super) {
     __extends(EntityView, _super);
     function EntityView(model) {
@@ -1508,7 +1286,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1524,7 +1302,7 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1540,7 +1318,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var GamePad = (function (_super) {
     __extends(GamePad, _super);
     function GamePad(id) {
@@ -1617,7 +1395,7 @@ exports.GamePad = GamePad;
 
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1633,7 +1411,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 ;
 ;
 var Touch = (function (_super) {
@@ -1697,7 +1475,7 @@ exports.Touch = Touch;
 
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1713,439 +1491,72 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(15);
-var _1 = __webpack_require__(4);
-var _2 = __webpack_require__(39);
-var _3 = __webpack_require__(5);
-var _4 = __webpack_require__(44);
-var _5 = __webpack_require__(3);
-var Character_1 = __webpack_require__(62);
-var _6 = __webpack_require__(63);
-var PalletDemo = (function (_super) {
-    __extends(PalletDemo, _super);
-    function PalletDemo() {
+var Engine_1 = __webpack_require__(13);
+var src_1 = __webpack_require__(3);
+var src_2 = __webpack_require__(6);
+var src_3 = __webpack_require__(40);
+var _1 = __webpack_require__(47);
+var TouchDemo = (function (_super) {
+    __extends(TouchDemo, _super);
+    function TouchDemo() {
         var _this = _super.call(this) || this;
-        _this._direction = "";
-        _this.viewPort.size = ({ width: 500, height: 500 });
-        _this.renderingEngine = new _1.TwoDimensionalRenderingEngine();
-        _this.audioEngine = new _2.HTML5AudioEngine();
-        _this.logicEngine = new _1.GroupLogicEngine();
-        _this.renderingEngine.HUDEntity = (_this._createLoadingScreen());
-        _this._loadResources();
+        _this.viewPort.autoSize = true;
+        _this.renderingEngine = new src_1.TwoDimensionalRenderingEngine();
+        _this.logicEngine = new src_1.GroupLogicEngine();
+        _this._container = new src_2.Entity();
+        _this._container.color = { r: 0, g: 0, b: 0 };
+        console.log(_this.viewPort.canvas.offsetWidth);
+        _this._container.width = 1000;
+        _this._container.height = 1000;
+        _this._camera = new src_3.Camera(_this._container, null, { width: _this._container.width, height: _this._container.height }, null, { height: _this._container.height, width: _this._container.width });
+        _this.renderingEngine.addCamera(_this._camera);
+        _this.viewPort.on(0..toString(), _this._viewPortUpdated.bind(_this));
+        _this.logicEngine.addLogic("touch", _this._touch.bind(_this), 25);
+        var touchListener = _1.TouchListener.getInstance();
+        touchListener.on("TOUCHADDED", function (touch) {
+            console.log("New Touch added with an ID of ", touch.getID());
+            var block = new src_2.Entity();
+            block.x = touch.getX() - 25;
+            block.y = touch.getY() - 25;
+            block.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
+            block.width = 50;
+            block.height = 50;
+            _this._container.addChild(block);
+            touch.on("TOUCHMOVED", function (e) {
+                console.log("Touch moved");
+                var position = e.position;
+                block.x = position.x - 25;
+                block.y = position.y - 25;
+            });
+            touch.on("TOUCHREMOVED", function (touch) {
+                console.log("Touch removed");
+                _this._container.removeChild(block);
+            });
+        });
         return _this;
     }
-    PalletDemo.prototype._createLoadingScreen = function () {
-        var textAssetBuilder = new _5.TextAssetBuilder();
-        var hud = new _3.Entity();
-        hud.width = 500;
-        hud.height = 500;
-        var loadingText = new _3.Entity();
-        loadingText.width = 165;
-        loadingText.height = 50;
-        loadingText.x = (500 / 2) - 100;
-        loadingText.y = (500 / 2) - 25;
-        hud.addChild(loadingText);
-        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "black");
-        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
-        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
-        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
-        var loadingAnim = new _5.Animation(loadingText, [
-            { 'asset': loading0, 'delay': 250 },
-            { 'asset': loading1, 'delay': 250 },
-            { 'asset': loading2, 'delay': 250 },
-            { 'asset': loading3, 'delay': 250 }
-        ]);
-        loadingAnim.start();
-        return hud;
+    TouchDemo.prototype._viewPortUpdated = function (event) {
+        this._container.width = event.newDimensions.width;
+        this._container.height = event.newDimensions.height;
+        this._camera.fov = { width: event.newDimensions.width, height: event.newDimensions.height };
+        this._camera.renderDimension = { width: event.newDimensions.width, height: event.newDimensions.height };
     };
-    PalletDemo.prototype._createMainMap = function () {
-        var mapContainer = new _3.Entity();
-        var layer1 = new _3.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer2 = new _3.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer3 = new _3.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        mapContainer.width = layer1.width;
-        mapContainer.height = layer1.height;
-        mapContainer.addChild(layer1);
-        mapContainer.addChild(layer2);
-        mapContainer.addChild(layer3);
-        var layer1Iterator = layer1.iterator();
-        while (layer1Iterator.hasNext()) {
-            var tile = layer1Iterator.next();
-            tile.texture = (this._mapSpritesheet.getSprite('grass'));
-        }
-        layer3.getTile({ x: 10, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_11');
-        layer3.getTile({ x: 11, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_12');
-        layer3.getTile({ x: 12, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_13');
-        layer2.getTile({ x: 10, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_21');
-        layer2.getTile({ x: 11, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_22');
-        layer2.getTile({ x: 12, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_23');
-        layer2.getTile({ x: 10, y: 11 }).collisionable = true;
-        layer2.getTile({ x: 11, y: 11 }).collisionable = true;
-        layer2.getTile({ x: 12, y: 11 }).collisionable = true;
-        layer2.getTile({ x: 10, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_31');
-        layer2.getTile({ x: 11, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_32');
-        layer2.getTile({ x: 12, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_33');
-        layer2.getTile({ x: 10, y: 12 }).collisionable = true;
-        layer2.getTile({ x: 11, y: 12 }).collisionable = true;
-        layer2.getTile({ x: 12, y: 12 }).collisionable = true;
-        layer2.getTile({ x: 10, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_41');
-        layer2.getTile({ x: 11, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_42');
-        layer2.getTile({ x: 12, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_43');
-        layer2.getTile({ x: 10, y: 13 }).collisionable = true;
-        layer2.getTile({ x: 11, y: 13 }).collisionable = true;
-        layer2.getTile({ x: 12, y: 13 }).collisionable = true;
-        return mapContainer;
+    TouchDemo.prototype._touch = function () {
     };
-    PalletDemo.prototype._loadResources = function () {
-        this._loadMapSpritesheet();
-        this._loadBackgroundMusic();
-        this._loadCharacterSpritesheet();
-    };
-    PalletDemo.prototype._resourceLoaded = function () {
-        var _this = this;
-        if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
-            console.log("Resources all loaded");
-            setTimeout(function () {
-                delete _this.renderingEngine.HUDEntity;
-                var map = _this._createMainMap();
-                var camera = new _4.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
-                _this._mainCamera = camera;
-                _this.renderingEngine.addCamera(camera);
-                var mouse = _6.Mouse.getInstance();
-                mouse.on("SCROLLWHEELMOVE", function (e) {
-                    var fov = camera.fov;
-                    var viewPoint = camera.viewPoint;
-                    if (e.yDelta > 0) {
-                        camera.viewPoint = ({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
-                        camera.fov = ({ width: fov.width - 10, height: fov.height - 10 });
-                    }
-                    else {
-                        camera.viewPoint = ({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
-                        camera.fov = ({ width: fov.width + 10, height: fov.height + 10 });
-                    }
-                });
-                _this.player = new Character_1.default(_this._characterSpritesheet);
-                _this.player.texture = _this._characterSpritesheet.getSprite("player_down");
-                var layer = map.getChildAt(1);
-                var tile = layer.getTile({ x: 5, y: 5 });
-                layer.addChild(_this.player);
-                _this.player.tileX = 5;
-                _this.player.tileY = 5;
-                _this.player.x = tile.x;
-                _this.player.y = tile.y - _this.player.height - tile.height;
-                var pokeball = new _3.Entity();
-                pokeball.width = 25;
-                pokeball.height = 25;
-                var pokeball_asset = _5.AssetFactory.getSingleton().build(_5.AssetType.IMAGE, 'Resources/pokeball.png');
-                pokeball_asset.onStateChange = function (state) {
-                    if (state === _5.AssetState.LOADED) {
-                        pokeball.texture = pokeball_asset;
-                        _this.renderingEngine.HUDEntity = pokeball;
-                    }
-                };
-                pokeball_asset.load();
-                mouse.on("MOUSEMOVE", function (e) {
-                    pokeball.x = e.x - _this.renderingEngine.viewPort.canvas.offsetLeft - 14;
-                    pokeball.y = e.y - _this.renderingEngine.viewPort.canvas.offsetTop - 14;
-                });
-                mouse.on("LEFTBUTTONDOWN", function (e) {
-                    var newPokeball = new _3.Entity();
-                    console.log(e);
-                    console.log(camera);
-                    var x_fov = camera.fov.width / camera.renderDimension.width;
-                    var y_fov = camera.fov.height / camera.renderDimension.height;
-                    newPokeball.width = 25 * x_fov;
-                    newPokeball.height = 25 * y_fov;
-                    newPokeball.x = camera.viewPoint.x + ((e.x * x_fov) - (23 * x_fov));
-                    newPokeball.y = camera.viewPoint.y + ((e.y * y_fov) - (23 * y_fov));
-                    newPokeball.texture = pokeball_asset;
-                    layer.addChild(newPokeball);
-                });
-                mouse.on("RIGHTBUTTONDOWN", function (e) {
-                    alert("YOU SHALL NOT PASS");
-                });
-                _this.player.on(0..toString(), function () {
-                    var fov = camera.fov;
-                    camera.viewPoint = { x: _this.player.x + ((_this.player.width - fov.width) / 2), y: _this.player.y + ((_this.player.height - fov.height) / 2) };
-                });
-                _this.audioEngine.addAudio('bg', _this._bgMusic);
-                _this.audioEngine.loopAudio('bg', true);
-                _this.audioEngine.playAudio('bg');
-                _this.logicEngine.addLogic('moveLogic', function () {
-                    switch (_this._direction) {
-                        case 'left':
-                            _this.player.moveLeft();
-                            break;
-                        case 'up':
-                            _this.player.moveUp();
-                            break;
-                        case 'down':
-                            _this.player.moveDown();
-                            break;
-                        case 'right':
-                            _this.player.moveRight();
-                            break;
-                    }
-                }, 1);
-                _this.logicEngine.addLogic('pokeballLogic', function () {
-                    if (mouse.isLeftButtonClicked()) {
-                        var newPokeball = new _3.Entity();
-                        var x_fov = camera.fov.width / camera.renderDimension.width;
-                        var y_fov = camera.fov.height / camera.renderDimension.height;
-                        newPokeball.width = 25 * x_fov;
-                        newPokeball.height = 25 * y_fov;
-                        var mouseCoordinates = mouse.getCurrentCoordinates();
-                        newPokeball.x = camera.viewPoint.x + ((mouseCoordinates.x * x_fov) - (23 * x_fov));
-                        newPokeball.y = camera.viewPoint.y + ((mouseCoordinates.y * y_fov) - (23 * y_fov));
-                        newPokeball.texture = pokeball_asset;
-                        layer.addChild(newPokeball);
-                    }
-                }, 50);
-                var gamepadListener = _6.GamePadListener.getInstance();
-                if (gamepadListener.hasGamePads()) {
-                    console.log("GamePadConnected");
-                    var gamePads = gamepadListener.getGamePads();
-                    gamePads.forEach(function (gamePad) {
-                        _this.attachGamepad(gamePad);
-                    });
-                }
-                gamepadListener.on("GAMEPADADDED", function (gamePad) {
-                    console.log("GamePadConnected");
-                    _this.attachGamepad(gamePad);
-                });
-                gamepadListener.on("GAMEPADREMOVED", function (gamePad) {
-                    console.log("GameaPad Disconnected");
-                });
-                var keyboard = _6.Keyboard.getInstance();
-                keyboard.on("KEYDOWN", function (e) {
-                    switch (e.key) {
-                        case _6.KeyboardKeys.W:
-                        case _6.KeyboardKeys[0]:
-                            _this._direction = 'up';
-                            break;
-                        case _6.KeyboardKeys.A:
-                        case _6.KeyboardKeys[1]:
-                            _this._direction = "left";
-                            break;
-                        case _6.KeyboardKeys.S:
-                        case _6.KeyboardKeys[2]:
-                            _this._direction = "down";
-                            break;
-                        case _6.KeyboardKeys.D:
-                        case _6.KeyboardKeys[3]:
-                            _this._direction = "right";
-                            break;
-                    }
-                });
-                keyboard.on("KEYUP", function (e) {
-                    switch (e.key) {
-                        case _6.KeyboardKeys.W:
-                        case _6.KeyboardKeys.A:
-                        case _6.KeyboardKeys.S:
-                        case _6.KeyboardKeys.D:
-                            _this._direction = null;
-                            break;
-                    }
-                });
-            }, 1000);
-        }
-    };
-    PalletDemo.prototype.attachGamepad = function (gamePad) {
-        var _this = this;
-        gamePad.on("AXISVALUECHANGE", function (e) {
-            if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                _this.player.x += Math.floor(gamePad.getAxis(0) * 10);
-            }
-            if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                _this.player.y += Math.floor(gamePad.getAxis(1) * 10);
-            }
-            if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                _this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
-            }
-            if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                _this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
-            }
-        });
-        gamePad.on("BUTTONVALUECHANGE", function (e) {
-            var buttonId = e.id;
-            var newValue = e.value;
-            console.log(buttonId);
-            console.log(newValue);
-            if (buttonId === 12) {
-                if (newValue === 0 && _this._direction === "up") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "up";
-                }
-            }
-            if (buttonId === 13) {
-                if (newValue === 0 && _this._direction === "down") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "down";
-                }
-            }
-            if (buttonId === 14) {
-                if (newValue === 0 && _this._direction === "left") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "left";
-                }
-            }
-            if (buttonId === 15) {
-                if (newValue === 0 && _this._direction === "right") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "right";
-                }
-            }
-        });
-    };
-    PalletDemo.prototype.detachGamePad = function (gamepad) {
-    };
-    PalletDemo.prototype._loadMapSpritesheet = function () {
-        var _this = this;
-        var map_asset = _5.AssetFactory.getSingleton().build(_5.AssetType.IMAGE, 'Resources/61816.png');
-        map_asset.onStateChange = function (state) {
-            if (state === _5.AssetState.LOADED) {
-                _this._mapSpritesheet = new _5.Spritesheet(map_asset, {
-                    "grass": {
-                        x: 16,
-                        y: 0,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_11": {
-                        x: 0,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_12": {
-                        x: 16,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_13": {
-                        x: 32,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_21": {
-                        x: 0,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_22": {
-                        x: 16,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_23": {
-                        x: 32,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_31": {
-                        x: 0,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_32": {
-                        x: 16,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_33": {
-                        x: 32,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_41": {
-                        x: 0,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_42": {
-                        x: 16,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_43": {
-                        x: 32,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        map_asset.load();
-    };
-    PalletDemo.prototype._loadCharacterSpritesheet = function () {
-        var _this = this;
-        var character_spritesheet = _5.AssetFactory.getSingleton().build(_5.AssetType.IMAGE, 'Resources/3698.png');
-        character_spritesheet.onStateChange = function (state) {
-            if (state === _5.AssetState.LOADED) {
-                _this._characterSpritesheet = new _5.Spritesheet(character_spritesheet, {
-                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
-                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
-                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_left": { x: 36, y: 10, width: 14, height: 20 },
-                    "player_left_step1": { x: 81, y: 10, width: 14, height: 20 },
-                    "player_left_step2": { x: 95, y: 10, width: 14, height: 20 },
-                    "player_right": { x: 36, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step1": { x: 81, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step2": { x: 95, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_down": { x: 6, y: 10, width: 14, height: 20 },
-                    "player_down_step1": { x: 51, y: 10, width: 14, height: 20 },
-                    "player_down_step2": { x: 51, y: 10, width: 14, height: 20, "flipX": true }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        character_spritesheet.load();
-    };
-    PalletDemo.prototype._loadBackgroundMusic = function () {
-        var _this = this;
-        var bg_music = _5.AssetFactory.getSingleton().build(_5.AssetType.AUDIO, 'Resources/music.mp3');
-        bg_music.onStateChange = function (state) {
-            if (state === _5.AssetState.LOADED) {
-                _this._bgMusic = bg_music;
-                _this._resourceLoaded();
-            }
-        };
-        bg_music.load();
-    };
-    return PalletDemo;
+    return TouchDemo;
 }(Engine_1.default));
-window._PalletDemo = new PalletDemo();
+window.TouchDemo = new TouchDemo();
 
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(22);
+var utils_1 = __webpack_require__(2);
+var audio_1 = __webpack_require__(20);
 var assets_1 = __webpack_require__(1);
 var Engine = (function () {
     function Engine() {
@@ -2177,7 +1588,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2197,7 +1608,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2224,7 +1635,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2278,13 +1689,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
+var SeverityEnum_1 = __webpack_require__(4);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -2328,7 +1739,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2344,7 +1755,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -2444,7 +1855,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2518,26 +1929,26 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(7);
+var AudioEngine_1 = __webpack_require__(5);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(34);
+var HTML5AudioEngine_1 = __webpack_require__(32);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
 var _1 = __webpack_require__(1);
 var Asset = (function () {
     function Asset(type, url) {
@@ -2609,7 +2020,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2625,7 +2036,7 @@ var AssetType;
 
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2640,7 +2051,7 @@ var AssetState;
 
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2747,7 +2158,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2813,7 +2224,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2865,7 +2276,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2904,7 +2315,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2936,14 +2347,14 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(1);
-var utils_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
     }
@@ -2970,13 +2381,13 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
 var _1 = __webpack_require__(1);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
@@ -3009,7 +2420,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3105,7 +2516,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3121,7 +2532,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(7);
+var AudioEngine_1 = __webpack_require__(5);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -3234,7 +2645,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3249,7 +2660,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 36 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3265,7 +2676,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(4);
+var _1 = __webpack_require__(3);
 var GroupLogicEngine = (function (_super) {
     __extends(GroupLogicEngine, _super);
     function GroupLogicEngine() {
@@ -3336,13 +2747,13 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
 var RenderingEngine = (function () {
     function RenderingEngine() {
         this._prerenderViewPort = new utils_1.ViewPort();
@@ -3420,7 +2831,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3436,7 +2847,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(4);
+var _1 = __webpack_require__(3);
 var TwoDimensionalRenderingEngine = (function (_super) {
     __extends(TwoDimensionalRenderingEngine, _super);
     function TwoDimensionalRenderingEngine() {
@@ -3585,20 +2996,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
-exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(40);
-exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
-
-
-/***/ }),
-/* 40 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3614,137 +3012,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
-var HTML5AudioEngine = (function (_super) {
-    __extends(HTML5AudioEngine, _super);
-    function HTML5AudioEngine() {
-        var _this = _super.call(this) || this;
-        _this._backgroundVolume = 1.0;
-        _this._soundEffectVolume = 1.0;
-        _this._backgroundAudios = [];
-        _this._soundEffects = [];
-        return _this;
-    }
-    HTML5AudioEngine.prototype.addBackgroundMusic = function (name, audio) {
-        this.addAudio(name, audio);
-        this._backgroundAudios.push(audio);
-    };
-    HTML5AudioEngine.prototype.addSoundEffect = function (name, audio) {
-        this.addAudio(name, audio);
-        this._soundEffects.push(audio);
-    };
-    HTML5AudioEngine.prototype.setBackgroundVolume = function (volume) {
-        this._backgroundVolume = volume;
-        for (var i = 0, len = this._backgroundAudios.length; i < len; i++) {
-            this._setVolume(this._backgroundAudios[i], this._backgroundVolume);
-        }
-    };
-    HTML5AudioEngine.prototype.setSoundEffectVolume = function (volume) {
-        this._soundEffectVolume = volume;
-        for (var i = 0, len = this._soundEffects.length; i < len; i++) {
-            this._setVolume(this._soundEffects[i], this._soundEffectVolume);
-        }
-    };
-    HTML5AudioEngine.prototype.isBackgroundMusic = function (audio) {
-        return (this._backgroundAudios.indexOf(audio) > -1);
-    };
-    HTML5AudioEngine.prototype.isSoundEffect = function (audio) {
-        return (this._soundEffects.indexOf(audio) > -1);
-    };
-    HTML5AudioEngine.prototype._playAudio = function (audio) {
-        this._updateVolume(audio);
-        var data = this._getData(audio);
-        data.play();
-    };
-    HTML5AudioEngine.prototype._updateVolume = function (audio) {
-        if (this.isSoundEffect(audio)) {
-            this._setVolume(audio, this._soundEffectVolume);
-        }
-        else if (this.isBackgroundMusic(audio)) {
-            this._setVolume(audio, this._backgroundVolume);
-        }
-    };
-    HTML5AudioEngine.prototype._pauseAudio = function (audio) {
-        var data = this._getData(audio);
-        data.pause();
-    };
-    HTML5AudioEngine.prototype._stopAudio = function (audio) {
-        var data = this._getData(audio);
-        data.pause();
-        this._setTimeCursor(audio, 0);
-    };
-    HTML5AudioEngine.prototype._isAudioLooping = function (audio) {
-        var data = this._getData(audio);
-        return data.loop;
-    };
-    HTML5AudioEngine.prototype._loopAudio = function (audio, state) {
-        var data = this._getData(audio);
-        data.loop = state;
-    };
-    HTML5AudioEngine.prototype._isAudioMuted = function (audio) {
-        var data = this._getData(audio);
-        return data.muted;
-    };
-    HTML5AudioEngine.prototype._muteAudio = function (audio, state) {
-        var data = this._getData(audio);
-        data.muted = state;
-    };
-    HTML5AudioEngine.prototype._getAudioDuration = function (audio) {
-        var data = this._getData(audio);
-        return data.duration;
-    };
-    HTML5AudioEngine.prototype._setTimeCursor = function (audio, seconds) {
-        var data = this._getData(audio);
-        data.currentTime = seconds;
-    };
-    HTML5AudioEngine.prototype._getTimeCursor = function (audio) {
-        var data = this._getData(audio);
-        return data.currentTime;
-    };
-    HTML5AudioEngine.prototype._setVolume = function (audio, volume) {
-        var data = this._getData(audio);
-        data.volume = volume;
-    };
-    HTML5AudioEngine.prototype._getVolume = function (audio) {
-        var data = this._getData(audio);
-        return data.volume;
-    };
-    HTML5AudioEngine.prototype._registerStartEvent = function (audio) {
-        var data = audio.getData();
-        data.addEventListener('playing', function (e) {
-            audio.setAttribute('playing', true);
-        });
-    };
-    HTML5AudioEngine.prototype._registerEndEvent = function (audio) {
-        var data = audio.getData();
-        data.addEventListener('ended', function (e) {
-            audio.setAttribute('playing', false);
-        });
-    };
-    return HTML5AudioEngine;
-}(AudioEngine_1.AudioEngine));
-exports.HTML5AudioEngine = HTML5AudioEngine;
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var utils_1 = __webpack_require__(0);
+var Events = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
     function EntityModel() {
@@ -3815,7 +3084,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 42 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3831,7 +3100,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(10);
+var EntityView_1 = __webpack_require__(8);
 var EntityView2D = (function (_super) {
     __extends(EntityView2D, _super);
     function EntityView2D() {
@@ -3843,7 +3112,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 43 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3859,7 +3128,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(9);
+var Entity_1 = __webpack_require__(7);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -3897,30 +3166,30 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 44 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(11);
+var SeverityEnum_1 = __webpack_require__(9);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(45);
+var Camera_1 = __webpack_require__(41);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(46);
+var IDGenerator_1 = __webpack_require__(42);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(47);
+var Iterator_1 = __webpack_require__(43);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(48);
+var LogManager_1 = __webpack_require__(44);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(49);
+var ViewPort_1 = __webpack_require__(45);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(50);
+var CollisionEmitter_1 = __webpack_require__(46);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
 /***/ }),
-/* 45 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3940,7 +3209,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 46 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3967,7 +3236,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 47 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4021,13 +3290,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 48 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(11);
+var SeverityEnum_1 = __webpack_require__(9);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -4071,7 +3340,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 49 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4087,7 +3356,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -4187,7 +3456,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 50 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4261,776 +3530,29 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 51 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var _1 = __webpack_require__(3);
-var Asset = (function () {
-    function Asset(type, url) {
-        this._id = utils_1.IDGenerator.getSingleton().generate();
-        this._type = type;
-        this._data = null;
-        this.setSource(url);
-        this._attributes = {};
-    }
-    Asset.prototype.setSource = function (source) {
-        if (source !== this.getSource()) {
-            this._url = source;
-            this.setData(null);
-            this.setState(_1.AssetState.NOT_LOADED);
-        }
-    };
-    Asset.prototype.getSource = function () {
-        return this._url;
-    };
-    Asset.prototype.setState = function (state) {
-        if (this._state !== state) {
-            this._state = state;
-            this.onStateChange(this._state);
-        }
-    };
-    Asset.prototype.getState = function () {
-        return this._state;
-    };
-    Asset.prototype.setData = function (data) {
-        this._data = data;
-        this.onDataChange(this._data);
-    };
-    Asset.prototype.getData = function () {
-        return this._data;
-    };
-    Asset.prototype.getType = function () {
-        return this._type;
-    };
-    Asset.prototype.setLoadStrategy = function (loadStrategy) {
-        this._loadStrategy = loadStrategy;
-    };
-    Asset.prototype.getLoadStrategy = function () {
-        return this._loadStrategy;
-    };
-    Asset.prototype.load = function () {
-        this._loadStrategy.load(this);
-    };
-    Asset.prototype.isReady = function () {
-        return (this.getState() === _1.AssetState.LOADED);
-    };
-    Asset.prototype.setAttribute = function (key, value) {
-        this._attributes[key] = value;
-    };
-    Asset.prototype.getAttribute = function (key) {
-        return this._attributes[key];
-    };
-    Asset.prototype.isAttribute = function (key) {
-        return !!this._attributes[key];
-    };
-    Asset.prototype.removeAttribute = function (key) {
-        delete this._attributes[key];
-    };
-    Asset.prototype.onStateChange = function (state) { };
-    Asset.prototype.onDataChange = function (data) { };
-    Asset.prototype.onError = function (error) { };
-    return Asset;
-}());
-exports.Asset = Asset;
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AssetType;
-(function (AssetType) {
-    AssetType[AssetType["RAW"] = 0] = "RAW";
-    AssetType[AssetType["IMAGE"] = 1] = "IMAGE";
-    AssetType[AssetType["AUDIO"] = 2] = "AUDIO";
-    AssetType[AssetType["JSON"] = 3] = "JSON";
-})(AssetType = exports.AssetType || (exports.AssetType = {}));
-
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AssetState;
-(function (AssetState) {
-    AssetState[AssetState["NOT_LOADED"] = 0] = "NOT_LOADED";
-    AssetState[AssetState["LOADING"] = 1] = "LOADING";
-    AssetState[AssetState["LOADED"] = 2] = "LOADED";
-})(AssetState = exports.AssetState || (exports.AssetState = {}));
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var AssetFactory = (function () {
-    function AssetFactory() {
-        this._assetLoader = new _1.AssetLoader();
-        this._audioLoader = new _1.AudioLoader();
-        this._imageLoader = new _1.ImageLoader();
-        this._jsonLoader = new _1.JSONLoader();
-        this._cache = {};
-    }
-    AssetFactory.getSingleton = function () {
-        if (!AssetFactory._instance) {
-            AssetFactory._instance = new AssetFactory();
-        }
-        return AssetFactory._instance;
-    };
-    AssetFactory.prototype.build = function (type, url) {
-        var asset;
-        var cache = this._cache[url];
-        if (cache) {
-            asset = this._clone(cache);
-        }
-        else {
-            asset = new _1.Asset(type, url);
-        }
-        if (!cache) {
-            switch (type) {
-                default:
-                    break;
-                case _1.AssetType.RAW:
-                    asset.setLoadStrategy(this._assetLoader);
-                    this._configureRawAsset(asset, url);
-                    break;
-                case _1.AssetType.IMAGE:
-                    asset.setLoadStrategy(this._imageLoader);
-                    this._configureImageAsset(asset, url);
-                    break;
-                case _1.AssetType.AUDIO:
-                    asset.setLoadStrategy(this._audioLoader);
-                    this._configureAudioAsset(asset, url);
-                    break;
-                case _1.AssetType.JSON:
-                    asset.setLoadStrategy(this._jsonLoader);
-                    this._configureJSONAsset(asset, url);
-                    break;
-            }
-            this._cache[url] = asset;
-        }
-        return asset;
-    };
-    AssetFactory.prototype._configureRawAsset = function (asset, url) { };
-    AssetFactory.prototype._configureImageAsset = function (asset, url) {
-        var img = document.createElement('img');
-        img.addEventListener('load', function () {
-            asset.setState(_1.AssetState.LOADED);
-        });
-        asset.setData(img);
-    };
-    AssetFactory.prototype._configureJSONAsset = function (asset, url) { };
-    AssetFactory.prototype._configureAudioAsset = function (asset, url) {
-        var audio = document.createElement('audio');
-        audio.addEventListener('canplaythrough', function () {
-            asset.setState(_1.AssetState.LOADED);
-        });
-        asset.setData(audio);
-    };
-    AssetFactory.prototype._clone = function (asset) {
-        var type = asset.getType();
-        var clone = new _1.Asset(type, asset.getSource());
-        this._cloneAssetData(clone, asset, type);
-        return clone;
-    };
-    AssetFactory.prototype._cloneAssetData = function (clone, asset, type) {
-        var data = null;
-        switch (type) {
-            default:
-                data = asset.getData();
-                break;
-            case _1.AssetType.IMAGE:
-                data = this._cloneNode(asset.getData());
-                break;
-            case _1.AssetType.AUDIO:
-                data = this._cloneNode(asset.getData());
-                break;
-        }
-        clone.setLoadStrategy(asset.getLoadStrategy());
-        clone.setData(data);
-    };
-    AssetFactory.prototype._cloneNode = function (node) {
-        if (node) {
-            return node.cloneNode(true);
-        }
-        else {
-            return null;
-        }
-    };
-    return AssetFactory;
-}());
-exports.AssetFactory = AssetFactory;
-
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var AssetLoader = (function () {
-    function AssetLoader() {
-    }
-    AssetLoader.prototype.load = function (asset) {
-        var _this = this;
-        var request = new XMLHttpRequest();
-        var source = asset.getSource();
-        if (this._validateURL(source)) {
-            request.open(this._getMethod(), asset.getSource());
-            asset.setState(_1.AssetState.LOADING);
-            request.onreadystatechange = function (e) {
-                if (request.readyState === XMLHttpRequest.DONE) {
-                    if (request.status === 200) {
-                        _this._onSuccess(asset, request.responseText);
-                    }
-                    else {
-                        _this._onFail(asset, request);
-                    }
-                }
-                _this._postRequest();
-            };
-            this._preRequest();
-            request.send();
-        }
-        else {
-            this._onSuccess(asset, source);
-        }
-    };
-    AssetLoader.prototype.clone = function (asset, clone) {
-        clone.setData(asset.getData());
-    };
-    AssetLoader.prototype._validateURL = function (url) {
-        url = url.trim();
-        var type = url.substring(0, 5);
-        if (type === 'data:') {
-            return false;
-        }
-        return true;
-    };
-    AssetLoader.prototype._getMethod = function () {
-        return 'GET';
-    };
-    AssetLoader.prototype._preRequest = function () { };
-    AssetLoader.prototype._postRequest = function () { };
-    AssetLoader.prototype._onSuccess = function (asset, data) {
-        asset.setData(data);
-    };
-    AssetLoader.prototype._onFail = function (asset, request) {
-        asset.onError({
-            code: request.status,
-            message: 'Generic Error Message'
-        });
-    };
-    return AssetLoader;
-}());
-exports.AssetLoader = AssetLoader;
-
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var AudioLoader = (function (_super) {
-    __extends(AudioLoader, _super);
-    function AudioLoader() {
-        return _super.call(this) || this;
-    }
-    AudioLoader.prototype.load = function (asset) {
-        asset.setState(_1.AssetState.LOADING);
-        var audio = asset.getData();
-        audio.setAttribute('preload', 'auto');
-        this._assignEvents(asset, audio);
-        audio.src = asset.getSource();
-    };
-    AudioLoader.prototype._assignEvents = function (asset, audio) {
-        var canPlay = function (e) {
-            asset.setData(audio);
-            audio.removeEventListener('canplaythrough', canPlay);
-        };
-        audio.addEventListener('canplaythrough', canPlay);
-        audio.addEventListener('error', function () {
-            asset.onError();
-        });
-        audio.addEventListener('playing', function () {
-            asset.setAttribute('playing', true);
-        });
-        audio.addEventListener('ended', function () {
-            audio.currentTime = 0;
-            asset.setAttribute('playing', false);
-        });
-    };
-    return AudioLoader;
-}(_1.AssetLoader));
-exports.AudioLoader = AudioLoader;
-
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var ImageLoader = (function (_super) {
-    __extends(ImageLoader, _super);
-    function ImageLoader() {
-        return _super.call(this) || this;
-    }
-    ImageLoader.prototype.load = function (asset) {
-        asset.setState(_1.AssetState.LOADING);
-        var image = asset.getData();
-        image.onload = function (e) {
-            asset.setData(image);
-        };
-        image.onerror = function (e) {
-            asset.onError();
-        };
-        image.src = asset.getSource();
-    };
-    return ImageLoader;
-}(_1.AssetLoader));
-exports.ImageLoader = ImageLoader;
-
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var JSONLoader = (function (_super) {
-    __extends(JSONLoader, _super);
-    function JSONLoader() {
-        return _super.call(this) || this;
-    }
-    JSONLoader.prototype._onSuccess = function (asset, data) {
-        var json = data;
-        asset.setData(JSON.parse(json));
-    };
-    return JSONLoader;
-}(_1.AssetLoader));
-exports.JSONLoader = JSONLoader;
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var utils_1 = __webpack_require__(0);
-var TextAssetBuilder = (function () {
-    function TextAssetBuilder() {
-    }
-    TextAssetBuilder.prototype.build = function (font, text, maxWidth, height, color) {
-        var textViewPort = new utils_1.ViewPort();
-        var textAsset = new _1.Asset(_1.AssetType.IMAGE);
-        textViewPort.setFont(font);
-        textViewPort.setColor(color || "green");
-        textViewPort.setTextBaseline("hanging");
-        if (!maxWidth) {
-            maxWidth = textViewPort.measureText(text).width;
-        }
-        textViewPort.size = ({ width: maxWidth, height: height });
-        textViewPort.setFont(font);
-        textViewPort.setColor(color);
-        textViewPort.setTextBaseline("hanging");
-        textViewPort.drawText(text, 0, 0, maxWidth);
-        textAsset.setData(textViewPort.getImage());
-        return textAsset;
-    };
-    return TextAssetBuilder;
-}());
-exports.TextAssetBuilder = TextAssetBuilder;
-
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var _1 = __webpack_require__(3);
-var Spritesheet = (function () {
-    function Spritesheet(spritesheetAsset, spritesheetDefinition) {
-        this._spritesheetAsset = spritesheetAsset;
-        this._spritesheetDefinition = spritesheetDefinition;
-        this._spriteCache = {};
-    }
-    Spritesheet.prototype.getSprite = function (id) {
-        if (this._spriteCache[id]) {
-            return this._spriteCache[id];
-        }
-        else if (this._spritesheetDefinition[id]) {
-            var def = this._spritesheetDefinition[id];
-            var spriteViewPort = new utils_1.ViewPort();
-            this._spriteCache[id] = new _1.Asset(_1.AssetType.IMAGE);
-            spriteViewPort.size = { width: def.width, height: def.height };
-            spriteViewPort.context.translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0);
-            spriteViewPort.setScale({ width: def.flipX === true ? -1 : 1, height: def.flipY === true ? -1 : 1 });
-            spriteViewPort.drawImage(this._spritesheetAsset.getData(), def.x, def.y, def.width, def.height, 0, 0, def.width, def.height);
-            this._spriteCache[id].setData(spriteViewPort.getImage());
-            return this._spriteCache[id];
-        }
-        else {
-            return false;
-        }
-    };
-    return Spritesheet;
-}());
-exports.Spritesheet = Spritesheet;
-
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Animation = (function () {
-    function Animation(entity, animationDefinitions) {
-        this._entity = entity;
-        this._animationDefinition = animationDefinitions;
-        this.loop = true;
-        this.timeout = false;
-        this.reverseLoop = false;
-        this._animating = false;
-        this._animation_index = -1;
-    }
-    Animation.prototype.isAnimating = function () {
-        return this._animating;
-    };
-    Animation.prototype.start = function () {
-        if (!this.timeout) {
-            this._direction = "forward";
-            this._loadStep(0);
-            this._animating = true;
-        }
-    };
-    Animation.prototype.stop = function () {
-        clearTimeout(this.timeout);
-        this.timeout = false;
-        this._animating = false;
-    };
-    Animation.prototype._loadStep = function (stepIndex) {
-        var _this = this;
-        var step = this._animationDefinition[stepIndex];
-        var sprite = step.asset;
-        this._entity.texture = sprite;
-        this._entity.width = sprite.getData().width;
-        this._entity.height = sprite.getData().height;
-        var offset = 0;
-        if (step.moveX || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX)) {
-            if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX) {
-                offset = 0 - this._animationDefinition[stepIndex + 1].moveX;
-                this._entity.x = (this._entity.x - this._animationDefinition[stepIndex + 1].moveX);
-            }
-            else {
-                offset = 0 + step.moveX;
-                this._entity.x = (this._entity.x + step.moveX);
-            }
-        }
-        if (step.moveY || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY)) {
-            if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY) {
-                this._entity.y = (this._entity.y - this._animationDefinition[stepIndex + 1].moveY);
-            }
-            else {
-                this._entity.y = (this._entity.y + step.moveY);
-            }
-        }
-        var nextStepIndex;
-        if (this._direction === "reverse") {
-            nextStepIndex = stepIndex - 1;
-        }
-        else {
-            nextStepIndex = stepIndex + 1;
-        }
-        if (this._animationDefinition[nextStepIndex]) {
-            this.timeout = setTimeout(function () {
-                _this._loadStep(nextStepIndex);
-            }, step.delay);
-        }
-        else if (this.reverseLoop) {
-            this.timeout = setTimeout(function () {
-                if (_this._direction === "forward") {
-                    _this._direction = "reverse";
-                    _this._loadStep(stepIndex - 1);
-                }
-                else if (_this._direction === "reverse") {
-                    _this._direction = "forward";
-                    _this._loadStep(stepIndex + 1);
-                }
-            }, step.delay);
-        }
-        else if (this.loop) {
-            this.timeout = setTimeout(function () {
-                _this._loadStep(0);
-            }, step.delay);
-        }
-        else {
-            this.stop();
-        }
-    };
-    return Animation;
-}());
-exports.Animation = Animation;
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(5);
-var _2 = __webpack_require__(3);
-var Character = (function (_super) {
-    __extends(Character, _super);
-    function Character(character_spritesheet) {
-        var _this = _super.call(this) || this;
-        _this.width = 14;
-        _this.height = 21;
-        _this._characterSpritesheet = character_spritesheet;
-        _this._upAnim = new _2.Animation(_this, [
-            { "asset": character_spritesheet.getSprite('player_up_step1'), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 }
-        ]);
-        _this._downAnim = new _2.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_down_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 }
-        ]);
-        _this._leftAnim = new _2.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_left_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 }
-        ]);
-        _this._rightAnim = new _2.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_right_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 }
-        ]);
-        return _this;
-    }
-    Character.prototype._move = function (coordinates) {
-        var _this = this;
-        var Engine = window._PalletDemo;
-        Engine.logicEngine.removeLogic(this.ID + "_endmove");
-        var collision = false;
-        var updatedCoordinates = false;
-        var x = coordinates.x;
-        var y = coordinates.y;
-        var potCollisions = this.parent.findChildren({ x: x + 1, y: y + 16 });
-        for (var i in potCollisions) {
-            if (potCollisions[i] != this && potCollisions[i].collisionable) {
-                collision = true;
-            }
-        }
-        if (!collision) {
-            Engine.logicEngine.addLogic(this.ID + "_move", function () {
-                if (_this.x != x) {
-                    if (_this.x > x) {
-                        _this.x = (_this.x - 2);
-                        if (!updatedCoordinates) {
-                            _this.tileX -= 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                    else {
-                        _this.x = (_this.x + 2);
-                        if (!updatedCoordinates) {
-                            _this.tileX += 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                }
-                if (_this.y != y) {
-                    if (_this.y > y) {
-                        _this.y = (_this.y - 2);
-                        if (!updatedCoordinates) {
-                            _this.tileY -= 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                    else {
-                        _this.y = (_this.y) + 2;
-                        if (!updatedCoordinates) {
-                            _this.tileY += 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                }
-                ;
-                if (_this.x == x && _this.y == y || collision) {
-                    Engine.logicEngine.removeLogic(_this.ID + "_move");
-                    _this.moving = false;
-                    Engine.logicEngine.addLogic(_this.ID + "_endmove", function () {
-                        _this._activeAnim.stop();
-                        delete _this._activeAnim;
-                        _this.texture = _this._endTexture;
-                        Engine.logicEngine.removeLogic(_this.ID + "_endmove");
-                    }, 50);
-                }
-            }, 50);
-        }
-        else {
-            this.moving = false;
-            this._activeAnim.stop();
-            delete this._activeAnim;
-            this.texture = (this._endTexture);
-        }
-    };
-    Character.prototype.moveLeft = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._leftAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_left");
-            this._leftAnim.start();
-            this._activeAnim = this._leftAnim;
-            this.moving = true;
-            this._move({ x: this.x - 16, y: this.y });
-        }
-    };
-    Character.prototype.moveUp = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._upAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_up");
-            this._upAnim.start();
-            this._activeAnim = this._upAnim;
-            this.moving = true;
-            this._move({ x: this.x, y: this.y - 16 });
-        }
-    };
-    Character.prototype.moveRight = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._rightAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_right");
-            this._rightAnim.start();
-            this._activeAnim = this._rightAnim;
-            this.moving = true;
-            this._move({ x: this.x + 16, y: this.y });
-        }
-    };
-    Character.prototype.moveDown = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._downAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_down");
-            this._downAnim.start();
-            this._activeAnim = this._downAnim;
-            this.moving = true;
-            this._move({ x: this.x, y: this.y + 16 });
-        }
-    };
-    return Character;
-}(_1.Entity));
-exports.default = Character;
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(64);
+var GamePadListener_1 = __webpack_require__(48);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
-var GamePad_1 = __webpack_require__(12);
+var GamePad_1 = __webpack_require__(10);
 exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(65);
+var Keyboard_1 = __webpack_require__(49);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(66);
+var Mouse_1 = __webpack_require__(50);
 exports.Mouse = Mouse_1.Mouse;
-var Touch_1 = __webpack_require__(13);
+var Touch_1 = __webpack_require__(11);
 exports.Touch = Touch_1.Touch;
-var TouchListener_1 = __webpack_require__(67);
+var TouchListener_1 = __webpack_require__(51);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 64 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5046,8 +3568,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(12);
-var Events = __webpack_require__(2);
+var GamePad_1 = __webpack_require__(10);
+var Events = __webpack_require__(0);
 var GamePadListener = (function (_super) {
     __extends(GamePadListener, _super);
     function GamePadListener() {
@@ -5104,7 +3626,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 65 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5120,7 +3642,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 exports.KeyboardKeys = {
     0: 48,
     1: 49,
@@ -5291,7 +3813,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 66 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5307,7 +3829,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var Mouse = (function (_super) {
     __extends(Mouse, _super);
     function Mouse() {
@@ -5442,7 +3964,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 67 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5458,8 +3980,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(13);
-var Events = __webpack_require__(2);
+var Touch_1 = __webpack_require__(11);
+var Events = __webpack_require__(0);
 var TouchListener = (function (_super) {
     __extends(TouchListener, _super);
     function TouchListener() {

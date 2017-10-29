@@ -3,16 +3,23 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines
 import {HTML5AudioEngine} from "../../src/audio/src/";
 import {Entity, GridMap} from "../../src/entities/src/";
 import {Iterator, Camera} from "../../src/utils/src/";
-import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/src/';
+//import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/src/';
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/src/";
 import Character from "./Character";
-import {EntityEventTypes, LocationUpdateEvent} from "../../src/entities/src/";
+import { EntityEventTypes, LocationUpdateEvent } from "../../src/entities/src/";
+import {
+    Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
+    Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
+    GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
+} from "../../src/inputs/src/";
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
 	private _bgMusic : Asset;
 	private _characterSpritesheet : Spritesheet;
-	public player : Character;
+    public player: Character;
+    private _mainCamera: Camera;
+    private _direction : String = "";
 
 	constructor () {
 		super();
@@ -130,14 +137,16 @@ class PalletDemo extends Engine {
 
 				//Load Map
 				var map = this._createMainMap();
-				var camera = new Camera(map, null, {width: 250, height: 250}, null, {width: 500, height: 500});
-				this.renderingEngine.addCamera(camera);
+                var camera = new Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
+                this._mainCamera = camera;
+                this.renderingEngine.addCamera(camera);
+                var mouse = Mouse.getInstance();
 
-				this.viewPort.canvas.addEventListener('mousewheel', function (e: MouseWheelEvent) {
+				mouse.on(MouseEvents.ScrollWheelMove, (e: ScrollWheelMove) => {
 					// console.warn(e);
 					var fov = camera.fov;
 					var viewPoint = camera.viewPoint;
-					if (e.wheelDelta > 0) {
+					if (e.yDelta > 0) {
 						//Mouse wheel went up, zoom in by decreasing FOV
 						camera.viewPoint = ({x: viewPoint.x + 5, y: viewPoint.y + 5});
 						camera.fov = ({width: fov.width - 10, height: fov.height - 10});
@@ -146,8 +155,7 @@ class PalletDemo extends Engine {
 						camera.viewPoint = ({x: viewPoint.x - 5, y: viewPoint.y - 5});
 						camera.fov = ({width: fov.width + 10, height: fov.height + 10});
 					}
-				});
-
+                });
 
 				//Load Character
 				this.player = new Character(this._characterSpritesheet);
@@ -159,6 +167,46 @@ class PalletDemo extends Engine {
 				this.player.tileY = 5;
 				this.player.x = tile.x;
 				this.player.y = tile.y - this.player.height - tile.height;
+
+				var pokeball = new Entity();
+				pokeball.width = 25;
+				pokeball.height = 25;
+				// layer.addChild(pokeball);
+				var pokeball_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/pokeball.png');
+
+				pokeball_asset.onStateChange = (state : AssetState) => {
+					if (state === AssetState.LOADED) {
+						pokeball.texture = pokeball_asset;
+						this.renderingEngine.HUDEntity = pokeball;
+					}
+				};
+
+				pokeball_asset.load();
+
+
+				mouse.on(MouseEvents.MouseMove, (e: MouseMoveEvent) => {
+					pokeball.x = e.x - this.renderingEngine.viewPort.canvas.offsetLeft - 14;
+					pokeball.y = e.y - this.renderingEngine.viewPort.canvas.offsetTop - 14;
+                });
+
+                mouse.on(MouseEvents.LeftButtonDown, (e: MouseClickEvent) => {
+                    var newPokeball = new Entity();
+                    console.log(e);
+                    console.log(camera);
+                    var x_fov = camera.fov.width / camera.renderDimension.width;
+                    var y_fov = camera.fov.height / camera.renderDimension.height;
+                    newPokeball.width = 25 * x_fov;
+                    newPokeball.height = 25 * y_fov;
+                    //23 is a magic number, this demo seems to be rendering at an offset...
+                    newPokeball.x = camera.viewPoint.x + ((e.x * x_fov) - (23 * x_fov));
+                    newPokeball.y = camera.viewPoint.y + ((e.y * y_fov) - (23 * y_fov));
+                    newPokeball.texture = pokeball_asset;
+                    layer.addChild(newPokeball);
+                });
+
+                mouse.on(MouseEvents.RightButtonDown, (e: MouseClickEvent) => {
+                    alert("YOU SHALL NOT PASS");
+                });
 
 				this.player.on(EntityEventTypes.LOCATION_UPDATE.toString(), () => {
 					var fov = camera.fov;
@@ -175,9 +223,9 @@ class PalletDemo extends Engine {
 				//Enable Input
 				//Add Inputs to move Character around
 
-				var direction: string = null;
+				//var direction: string = null;
 				this.logicEngine.addLogic('moveLogic', () => {
-					switch(direction) {
+					switch(this._direction) {
 						case 'left':
 							this.player.moveLeft();
 							break;
@@ -191,39 +239,144 @@ class PalletDemo extends Engine {
 							this.player.moveRight();
 							break;
 					}
-				}, 1);
+                }, 1);
 
-				var inputManager: InputManager = InputManager.getSingleton();
-				inputManager.createController('player', ControllerType.KEYBOARD);
-				inputManager.on(InputEvent.BUTTON_DOWN.toString(), (data: KeyboardEventDetail) => {
-					switch(data.keyCode) {
-						case KeyCode.W:
-							direction = 'up';
+                this.logicEngine.addLogic('pokeballLogic', () => {
+                    if (mouse.isLeftButtonClicked()) {
+                        var newPokeball = new Entity();
+                        var x_fov = camera.fov.width / camera.renderDimension.width;
+                        var y_fov = camera.fov.height / camera.renderDimension.height;
+                        newPokeball.width = 25 * x_fov;
+                        newPokeball.height = 25 * y_fov;
+                        var mouseCoordinates = mouse.getCurrentCoordinates();
+                        //23 is a magic number, this demo seems to be rendering at an offset...
+                        newPokeball.x = camera.viewPoint.x + ((mouseCoordinates.x * x_fov) - (23 * x_fov));
+                        newPokeball.y = camera.viewPoint.y + ((mouseCoordinates.y * y_fov) - (23 * y_fov));
+                        newPokeball.texture = pokeball_asset;
+                        layer.addChild(newPokeball);
+                    }
+                }, 50);
+
+                let gamepadListener: GamePadListener = GamePadListener.getInstance();
+                if (gamepadListener.hasGamePads()) {
+                    //Grab First GamePad
+                    console.log("GamePadConnected");
+                    var gamePads: GamePad[] = gamepadListener.getGamePads();
+                    gamePads.forEach((gamePad: GamePad) => {
+                        this.attachGamepad(gamePad);
+                    });
+                }
+
+                //Listen for GamePad Connections
+                gamepadListener.on(GamePadListenerEvents.GamePadAdded, (gamePad: GamePad) => {
+                    console.log("GamePadConnected");
+                    this.attachGamepad(gamePad);
+                });
+
+
+                //Global GamePad Disconnect event
+                gamepadListener.on(GamePadListenerEvents.GamePadRemoved, (gamePad: GamePad) => {
+                    console.log("GameaPad Disconnected");
+                });
+
+                var keyboard = Keyboard.getInstance();
+				keyboard.on(KeyboardEvents.KeyDown, (e: KeyDown) => {
+					switch(e.key) {
+                        case KeyboardKeys.W:
+                        case KeyboardKeys[0]:
+							this._direction = 'up';
 							break;
-						case KeyCode.A:
-							direction = 'left';
+                        case KeyboardKeys.A:
+                        case KeyboardKeys[1]:
+							this._direction = "left";
 							break;
-						case KeyCode.S:
-							direction = 'down';
+                        case KeyboardKeys.S:
+                        case KeyboardKeys[2]:
+							this._direction = "down"
 							break;
-						case KeyCode.D:
-							direction = 'right';
+                        case KeyboardKeys.D:
+                        case KeyboardKeys[3]:
+							this._direction = "right";
 							break;
 					}
 				});
-				inputManager.on(InputEvent.BUTTON_UP.toString(), (data: KeyboardEventDetail) => {
-					switch(data.keyCode) {
-						case KeyCode.W:
-						case KeyCode.A:
-						case KeyCode.S:
-						case KeyCode.D:
-							direction = null;
+
+				keyboard.on(KeyboardEvents.KeyUp, (e: KeyUp) => {
+					switch(e.key) {
+						case KeyboardKeys.W:
+						case KeyboardKeys.A:
+						case KeyboardKeys.S:
+						case KeyboardKeys.D:
+							this._direction = null;
 							break;
 					}
 				});
 			}, 1000);			
 		}
-	}
+    }
+
+    private attachGamepad(gamePad: GamePad): void {
+        gamePad.on(GamePadEvents.AxisValueChange, (e: ValueChangeEvent) => {
+            //console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1), axisId, newValue);
+            if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
+                this.player.x += Math.floor(gamePad.getAxis(0) * 10);
+            }
+
+            if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
+                this.player.y += Math.floor(gamePad.getAxis(1) * 10);
+            }
+
+            if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
+                this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
+            }
+
+            if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
+                this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
+            }
+        });
+
+        gamePad.on(GamePadEvents.ButtonValueChange, (e: ValueChangeEvent) => {
+            var buttonId = e.id;
+            var newValue = e.value;
+            console.log(buttonId);
+            console.log(newValue);
+            if (buttonId === 12) {
+                if (newValue === 0 && this._direction === "up") {
+                    this._direction = "";
+                } else {
+                    this._direction = "up";
+                }
+            }
+
+            if (buttonId === 13) {
+                if (newValue === 0 && this._direction === "down") {
+                    this._direction = "";
+                } else {
+                    this._direction = "down";
+                }
+            }
+
+            if (buttonId === 14) {
+                if (newValue === 0 && this._direction === "left") {
+                    this._direction = "";
+                } else {
+                    this._direction = "left";
+                }
+            }
+
+            if (buttonId === 15) {
+                if (newValue === 0 && this._direction === "right") {
+                    this._direction = "";
+                } else {
+                    this._direction = "right";
+                }
+            }
+        });
+    }
+
+    private detachGamePad(gamepad: GamePad): void {
+        //Don't need to do anything really...Destroy the anon func maybe for performance...
+    }
 
 	private _loadMapSpritesheet () : void {
 		var map_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/61816.png');

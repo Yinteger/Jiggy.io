@@ -5,7 +5,8 @@
   "main": "./dist/lib/index.js",
   "private": true,
   "dependencies": {
-    "@types/node": "^8.0.46"
+    "@types/node": "^8.0.46",
+    "@types/gamepad": "0.0.28"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.2.3",
