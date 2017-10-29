@@ -13,7 +13,7 @@
     "@jiggy/audio": "^0.0.1",
     "@jiggy/engines": "^0.0.1",
     "@jiggy/entities": "^0.0.1",
-    "@jiggy/inputs": "^0.0.1",
+    "@jiggy/inputs": "0.0.2",
     "@jiggy/utils": "^0.0.1"
   },
   "dependencies": {
