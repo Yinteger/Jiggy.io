@@ -1,21 +1,21 @@
 {
-  "name": "@jiggy/inputs",
-  "version": "0.0.2",
-  "description": "Inputs package of the @jiggy engine",
-  "main": "./dist/index.js",
-  "types": "./src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Kyle Williams <kyle@kylewilliams.io",
-  "peerDependencies": {
-    "@jiggy/assets": "^0.0.2",
-    "@jiggy/audio": "^0.0.2",
-    "@jiggy/engines": "^0.0.2",
-    "@jiggy/entities": "^0.0.2",
-    "@jiggy/utils": "^0.0.2"
-  },
-  "dependencies": {
-    "@types/node": "^8.0.47"
-  }
+    "name": "@jiggy/inputs",
+    "version": "0.0.3",
+    "description": "Inputs package of the @jiggy engine",
+    "main": "./dist/index.js",
+    "types": "./src/index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Kyle Williams <kyle@kylewilliams.io",
+    "peerDependencies": {
+        "@jiggy/assets": "0.0.3",
+        "@jiggy/audio": "0.0.3",
+        "@jiggy/engines": "0.0.3",
+        "@jiggy/entities": "0.0.3",
+        "@jiggy/utils": "0.0.3"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.47"
+    }
 }

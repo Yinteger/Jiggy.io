@@ -1,18 +1,18 @@
 {
-  "name": "@jiggy/engines",
-  "version": "0.0.2",
-  "description": "Engines package of the @jiggy engine",
-  "main": "./dist/engines/src/index.js",
-  "types": "./src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Kyle Williams <kyle@kylewilliams.io",
-  "peerDependencies": {
-    "@jiggy/entities": "^0.0.2",
-    "@jiggy/utils": "^0.0.2"
-  },
-  "dependencies": {
-    "@types/node": "^8.0.47"
-  }
+    "name": "@jiggy/engines",
+    "version": "0.0.3",
+    "description": "Engines package of the @jiggy engine",
+    "main": "./dist/engines/src/index.js",
+    "types": "./src/index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Kyle Williams <kyle@kylewilliams.io",
+    "peerDependencies": {
+        "@jiggy/entities": "0.0.3",
+        "@jiggy/utils": "0.0.3"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.47"
+    }
 }
