@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,27 +70,27 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(20);
+var Asset_1 = __webpack_require__(19);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(21);
+var AssetType_1 = __webpack_require__(20);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(22);
+var AssetState_1 = __webpack_require__(21);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(23);
+var AssetFactory_1 = __webpack_require__(22);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(24);
+var AssetLoader_1 = __webpack_require__(23);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(25);
+var AudioLoader_1 = __webpack_require__(24);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(26);
+var ImageLoader_1 = __webpack_require__(25);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(27);
+var JSONLoader_1 = __webpack_require__(26);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(28);
+var TextAssetBuilder_1 = __webpack_require__(27);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(29);
+var Spritesheet_1 = __webpack_require__(28);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(30);
+var Animation_1 = __webpack_require__(29);
 exports.Animation = Animation_1.Animation;
 
 
@@ -101,19 +101,19 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
+var SeverityEnum_1 = __webpack_require__(4);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(14);
+var Camera_1 = __webpack_require__(13);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(15);
+var IDGenerator_1 = __webpack_require__(14);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(16);
+var Iterator_1 = __webpack_require__(15);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(17);
+var LogManager_1 = __webpack_require__(16);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(18);
+var ViewPort_1 = __webpack_require__(17);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(19);
+var CollisionEmitter_1 = __webpack_require__(18);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
@@ -432,64 +432,18 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ControllerType_1 = __webpack_require__(39);
-exports.ControllerType = ControllerType_1.ControllerType;
-var Controller_1 = __webpack_require__(40);
-exports.Controller = Controller_1.Controller;
-var MouseController_1 = __webpack_require__(41);
-exports.MouseController = MouseController_1.MouseController;
-var KeyboardController_1 = __webpack_require__(42);
-exports.KeyboardController = KeyboardController_1.KeyboardController;
-var InputEvent_1 = __webpack_require__(43);
-exports.InputEvent = InputEvent_1.InputEvent;
-var KeyCode_1 = __webpack_require__(44);
-exports.KeyCode = KeyCode_1.KeyCode;
-var MouseButton_1 = __webpack_require__(45);
-exports.MouseButton = MouseButton_1.MouseButton;
-var ControllerFactory_1 = __webpack_require__(46);
-exports.ControllerFactory = ControllerFactory_1.ControllerFactory;
-var InputManager_1 = __webpack_require__(47);
-exports.InputManager = InputManager_1.InputManager;
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(32);
+var LogicEngine_1 = __webpack_require__(31);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(33);
+var GroupLogicEngine_1 = __webpack_require__(32);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(34);
+var RenderingEngine_1 = __webpack_require__(33);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(35);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(34);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(9);
-exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(36);
-exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(10);
-exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(37);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(38);
-exports.GridMap = GridMap_1.GridMap;
-
-
-/***/ }),
-/* 6 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -505,20 +459,20 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(6);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(31);
+var HTML5AudioEngine_1 = __webpack_require__(30);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -709,7 +663,26 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 9 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(8);
+exports.Entity = Entity_1.Entity;
+var EntityModel_1 = __webpack_require__(35);
+exports.EntityModel = EntityModel_1.EntityModel;
+var EntityView_1 = __webpack_require__(9);
+exports.EntityView = EntityView_1.EntityView;
+var EntityView2D_1 = __webpack_require__(36);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+var GridMap_1 = __webpack_require__(37);
+exports.GridMap = GridMap_1.GridMap;
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -727,7 +700,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Events = __webpack_require__(2);
 var assets_1 = __webpack_require__(0);
-var _1 = __webpack_require__(5);
+var _1 = __webpack_require__(7);
 var utils_1 = __webpack_require__(1);
 var Entity = (function (_super) {
     __extends(Entity, _super);
@@ -1264,7 +1237,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1326,7 +1299,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1342,306 +1315,134 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(12);
-var engines_1 = __webpack_require__(4);
-var audio_1 = __webpack_require__(7);
-var entities_1 = __webpack_require__(5);
+var core_1 = __webpack_require__(11);
+var engines_1 = __webpack_require__(3);
+var audio_1 = __webpack_require__(5);
+var entities_1 = __webpack_require__(7);
 var utils_1 = __webpack_require__(1);
-var inputs_1 = __webpack_require__(3);
-var assets_1 = __webpack_require__(0);
-var Character_1 = __webpack_require__(48);
-var PalletDemo = (function (_super) {
-    __extends(PalletDemo, _super);
-    function PalletDemo() {
+var RelativeDemo = (function (_super) {
+    __extends(RelativeDemo, _super);
+    function RelativeDemo() {
         var _this = _super.call(this) || this;
-        _this.viewPort.size = ({ width: 500, height: 500 });
+        _this.viewPort.autoSize = true;
         _this.renderingEngine = new engines_1.TwoDimensionalRenderingEngine();
         _this.audioEngine = new audio_1.HTML5AudioEngine();
         _this.logicEngine = new engines_1.GroupLogicEngine();
-        _this.renderingEngine.HUDEntity = (_this._createLoadingScreen());
-        _this._loadResources();
+        _this._blocks = [];
+        _this._blockConfigs = {};
+        _this._container = new entities_1.Entity();
+        _this._container.color = { r: 0, g: 0, b: 0 };
+        console.log(_this.viewPort.canvas.offsetWidth);
+        _this._container.width = 1000;
+        _this._container.height = 1000;
+        _this._camera = new utils_1.Camera(_this._container, null, { width: _this._container.width, height: _this._container.height }, null, { height: _this._container.height, width: _this._container.width });
+        _this.renderingEngine.addCamera(_this._camera);
+        for (var i = 0; i < 50; i++) {
+            var block = _this._generateBlock(0, _this._container);
+            _this._container.addChild(block);
+            var block2 = _this._generateBlock(1, block);
+            block.addChild(block2);
+            var block21 = _this._generateBlock(2, block2);
+            block2.addChild(block21);
+            var block22 = _this._generateBlock(2, block2);
+            block2.addChild(block22);
+            var block3 = _this._generateBlock(1, block);
+            block.addChild(block3);
+            var block31 = _this._generateBlock(2, block3);
+            block3.addChild(block31);
+            var block32 = _this._generateBlock(2, block3);
+            block3.addChild(block32);
+        }
+        _this.viewPort.on(0..toString(), _this._viewPortUpdated.bind(_this));
+        _this.logicEngine.addLogic("collision", _this._moveBlocks.bind(_this), 25);
         return _this;
     }
-    PalletDemo.prototype._createLoadingScreen = function () {
-        var textAssetBuilder = new assets_1.TextAssetBuilder();
-        var hud = new entities_1.Entity();
-        hud.width = 500;
-        hud.height = 500;
-        var loadingText = new entities_1.Entity();
-        loadingText.width = 165;
-        loadingText.height = 50;
-        loadingText.x = (500 / 2) - 100;
-        loadingText.y = (500 / 2) - 25;
-        hud.addChild(loadingText);
-        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "black");
-        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
-        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
-        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
-        var loadingAnim = new assets_1.Animation(loadingText, [
-            { 'asset': loading0, 'delay': 250 },
-            { 'asset': loading1, 'delay': 250 },
-            { 'asset': loading2, 'delay': 250 },
-            { 'asset': loading3, 'delay': 250 }
-        ]);
-        loadingAnim.start();
-        return hud;
-    };
-    PalletDemo.prototype._createMainMap = function () {
-        var mapContainer = new entities_1.Entity();
-        var layer1 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer2 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer3 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        mapContainer.width = layer1.width;
-        mapContainer.height = layer1.height;
-        mapContainer.addChild(layer1);
-        mapContainer.addChild(layer2);
-        mapContainer.addChild(layer3);
-        var layer1Iterator = layer1.iterator();
-        while (layer1Iterator.hasNext()) {
-            var tile = layer1Iterator.next();
-            tile.texture = (this._mapSpritesheet.getSprite('grass'));
+    RelativeDemo.prototype._generateBlock = function (level, parent) {
+        var block = new entities_1.Entity();
+        this._blocks.push(block);
+        var dimension;
+        if (level === 0) {
+            dimension = 100;
         }
-        layer3.getTile({ x: 10, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_11');
-        layer3.getTile({ x: 11, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_12');
-        layer3.getTile({ x: 12, y: 10 }).texture = this._mapSpritesheet.getSprite('house_1_roof_13');
-        layer2.getTile({ x: 10, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_21');
-        layer2.getTile({ x: 11, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_22');
-        layer2.getTile({ x: 12, y: 11 }).texture = this._mapSpritesheet.getSprite('house_1_roof_23');
-        layer2.getTile({ x: 10, y: 11 }).collisionable = true;
-        layer2.getTile({ x: 11, y: 11 }).collisionable = true;
-        layer2.getTile({ x: 12, y: 11 }).collisionable = true;
-        layer2.getTile({ x: 10, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_31');
-        layer2.getTile({ x: 11, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_32');
-        layer2.getTile({ x: 12, y: 12 }).texture = this._mapSpritesheet.getSprite('house_1_roof_33');
-        layer2.getTile({ x: 10, y: 12 }).collisionable = true;
-        layer2.getTile({ x: 11, y: 12 }).collisionable = true;
-        layer2.getTile({ x: 12, y: 12 }).collisionable = true;
-        layer2.getTile({ x: 10, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_41');
-        layer2.getTile({ x: 11, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_42');
-        layer2.getTile({ x: 12, y: 13 }).texture = this._mapSpritesheet.getSprite('house_1_roof_43');
-        layer2.getTile({ x: 10, y: 13 }).collisionable = true;
-        layer2.getTile({ x: 11, y: 13 }).collisionable = true;
-        layer2.getTile({ x: 12, y: 13 }).collisionable = true;
-        return mapContainer;
+        else if (level === 1) {
+            dimension = 40;
+        }
+        else if (level === 2) {
+            dimension = 15;
+        }
+        block.width = dimension;
+        block.height = dimension;
+        block.x = Math.floor((Math.random() * parent.width) + 1);
+        block.y = Math.floor((Math.random() * parent.height) + 1);
+        block.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
+        this._blockConfigs[block.ID] = {};
+        this._blockConfigs[block.ID]["x_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "right" : "left";
+        this._blockConfigs[block.ID]["y_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "up" : "down";
+        this._blockConfigs[block.ID]["speed"] = Math.floor((Math.random() * 2) + 1) / 1.5;
+        return block;
     };
-    PalletDemo.prototype._loadResources = function () {
-        this._loadMapSpritesheet();
-        this._loadBackgroundMusic();
-        this._loadCharacterSpritesheet();
+    RelativeDemo.prototype._viewPortUpdated = function (event) {
+        this._container.width = event.newDimensions.width;
+        this._container.height = event.newDimensions.height;
+        this._camera.fov = { width: event.newDimensions.width, height: event.newDimensions.height };
+        this._camera.renderDimension = { width: event.newDimensions.width, height: event.newDimensions.height };
     };
-    PalletDemo.prototype._resourceLoaded = function () {
-        var _this = this;
-        if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
-            console.log("Resources all loaded");
-            setTimeout(function () {
-                delete _this.renderingEngine.HUDEntity;
-                var map = _this._createMainMap();
-                var camera = new utils_1.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
-                _this.renderingEngine.addCamera(camera);
-                _this.viewPort.canvas.addEventListener('mousewheel', function (e) {
-                    var fov = camera.fov;
-                    var viewPoint = camera.viewPoint;
-                    if (e.wheelDelta > 0) {
-                        camera.viewPoint = ({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
-                        camera.fov = ({ width: fov.width - 10, height: fov.height - 10 });
-                    }
-                    else {
-                        camera.viewPoint = ({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
-                        camera.fov = ({ width: fov.width + 10, height: fov.height + 10 });
-                    }
-                });
-                _this.player = new Character_1.default(_this._characterSpritesheet);
-                _this.player.texture = _this._characterSpritesheet.getSprite("player_down");
-                var layer = map.getChildAt(1);
-                var tile = layer.getTile({ x: 5, y: 5 });
-                layer.addChild(_this.player);
-                _this.player.tileX = 5;
-                _this.player.tileY = 5;
-                _this.player.x = tile.x;
-                _this.player.y = tile.y - _this.player.height - tile.height;
-                _this.player.on(0..toString(), function () {
-                    var fov = camera.fov;
-                    camera.viewPoint = { x: _this.player.x + ((_this.player.width - fov.width) / 2), y: _this.player.y + ((_this.player.height - fov.height) / 2) };
-                });
-                _this.audioEngine.addAudio('bg', _this._bgMusic);
-                _this.audioEngine.loopAudio('bg', true);
-                _this.audioEngine.playAudio('bg');
-                var direction = null;
-                _this.logicEngine.addLogic('moveLogic', function () {
-                    switch (direction) {
-                        case 'left':
-                            _this.player.moveLeft();
-                            break;
-                        case 'up':
-                            _this.player.moveUp();
-                            break;
-                        case 'down':
-                            _this.player.moveDown();
-                            break;
-                        case 'right':
-                            _this.player.moveRight();
-                            break;
-                    }
-                }, 1);
-                var inputManager = inputs_1.InputManager.getSingleton();
-                inputManager.createController('player', inputs_1.ControllerType.KEYBOARD);
-                inputManager.on(inputs_1.InputEvent.BUTTON_DOWN.toString(), function (data) {
-                    switch (data.keyCode) {
-                        case inputs_1.KeyCode.W:
-                            direction = 'up';
-                            break;
-                        case inputs_1.KeyCode.A:
-                            direction = 'left';
-                            break;
-                        case inputs_1.KeyCode.S:
-                            direction = 'down';
-                            break;
-                        case inputs_1.KeyCode.D:
-                            direction = 'right';
-                            break;
-                    }
-                });
-                inputManager.on(inputs_1.InputEvent.BUTTON_UP.toString(), function (data) {
-                    switch (data.keyCode) {
-                        case inputs_1.KeyCode.W:
-                        case inputs_1.KeyCode.A:
-                        case inputs_1.KeyCode.S:
-                        case inputs_1.KeyCode.D:
-                            direction = null;
-                            break;
-                    }
-                });
-            }, 1000);
+    RelativeDemo.prototype._moveBlocks = function () {
+        for (var i in this._blocks) {
+            var block = this._blocks[i];
+            var x = void 0;
+            var y = void 0;
+            var x2 = void 0;
+            var y2 = void 0;
+            if (this._blockConfigs[block.ID]["x_dir"] === "right") {
+                x = block.x + this._blockConfigs[block.ID]["speed"];
+                x2 = x + block.width;
+                if (x2 >= block.parent.width) {
+                    x = block.parent.width - block.width;
+                    this._blockConfigs[block.ID]["x_dir"] = "left";
+                }
+            }
+            else if (this._blockConfigs[block.ID]["x_dir"] === "left") {
+                x = block.x - this._blockConfigs[block.ID]["speed"];
+                x2 = x + block.width;
+                if (x <= 0) {
+                    x = 0;
+                    this._blockConfigs[block.ID]["x_dir"] = "right";
+                }
+            }
+            if (this._blockConfigs[block.ID]["y_dir"] === "down") {
+                y = block.y + this._blockConfigs[block.ID]["speed"];
+                y2 = y + block.height;
+                if (y2 >= block.parent.height) {
+                    y = block.parent.height - block.height;
+                    this._blockConfigs[block.ID]["y_dir"] = "up";
+                }
+            }
+            else if (this._blockConfigs[block.ID]["y_dir"] === "up") {
+                y = block.y - this._blockConfigs[block.ID]["speed"];
+                y2 = y + block.height;
+                if (block.y <= 0) {
+                    y = 0;
+                    this._blockConfigs[block.ID]["y_dir"] = "down";
+                }
+            }
+            block.coordinate = { x: x, y: y };
         }
     };
-    PalletDemo.prototype._loadMapSpritesheet = function () {
-        var _this = this;
-        var map_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'resources/61816.png');
-        map_asset.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._mapSpritesheet = new assets_1.Spritesheet(map_asset, {
-                    "grass": {
-                        x: 16,
-                        y: 0,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_11": {
-                        x: 0,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_12": {
-                        x: 16,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_13": {
-                        x: 32,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_21": {
-                        x: 0,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_22": {
-                        x: 16,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_23": {
-                        x: 32,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_31": {
-                        x: 0,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_32": {
-                        x: 16,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_33": {
-                        x: 32,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_41": {
-                        x: 0,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_42": {
-                        x: 16,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_43": {
-                        x: 32,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        map_asset.load();
-    };
-    PalletDemo.prototype._loadCharacterSpritesheet = function () {
-        var _this = this;
-        var character_spritesheet = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'resources/3698.png');
-        character_spritesheet.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._characterSpritesheet = new assets_1.Spritesheet(character_spritesheet, {
-                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
-                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
-                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_left": { x: 36, y: 10, width: 14, height: 20 },
-                    "player_left_step1": { x: 81, y: 10, width: 14, height: 20 },
-                    "player_left_step2": { x: 95, y: 10, width: 14, height: 20 },
-                    "player_right": { x: 36, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step1": { x: 81, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step2": { x: 95, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_down": { x: 6, y: 10, width: 14, height: 20 },
-                    "player_down_step1": { x: 51, y: 10, width: 14, height: 20 },
-                    "player_down_step2": { x: 51, y: 10, width: 14, height: 20, "flipX": true }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        character_spritesheet.load();
-    };
-    PalletDemo.prototype._loadBackgroundMusic = function () {
-        var _this = this;
-        var bg_music = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.AUDIO, 'resources/music.mp3');
-        bg_music.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._bgMusic = bg_music;
-                _this._resourceLoaded();
-            }
-        };
-        bg_music.load();
-    };
-    return PalletDemo;
+    return RelativeDemo;
 }(core_1.Engine));
-window._PalletDemo = new PalletDemo();
+window._RelativeDemo = new RelativeDemo();
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Engine_1 = __webpack_require__(12);
+exports.Engine = Engine_1.Engine;
 
 
 /***/ }),
@@ -1651,19 +1452,8 @@ window._PalletDemo = new PalletDemo();
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(13);
-exports.Engine = Engine_1.Engine;
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var audio_1 = __webpack_require__(7);
+var audio_1 = __webpack_require__(5);
 var assets_1 = __webpack_require__(0);
 var Engine = (function () {
     function Engine() {
@@ -1695,7 +1485,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1715,7 +1505,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1742,7 +1532,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1796,13 +1586,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
+var SeverityEnum_1 = __webpack_require__(4);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -1846,7 +1636,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1962,7 +1752,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2036,7 +1826,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2114,7 +1904,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2130,7 +1920,7 @@ var AssetType;
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2145,7 +1935,7 @@ var AssetState;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2252,7 +2042,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2318,7 +2108,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2370,7 +2160,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2409,7 +2199,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2441,7 +2231,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2475,7 +2265,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2514,7 +2304,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2610,7 +2400,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2626,7 +2416,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(6);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -2739,7 +2529,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2754,7 +2544,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2770,7 +2560,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(4);
+var _1 = __webpack_require__(3);
 var GroupLogicEngine = (function (_super) {
     __extends(GroupLogicEngine, _super);
     function GroupLogicEngine() {
@@ -2841,7 +2631,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2925,7 +2715,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2941,7 +2731,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(4);
+var _1 = __webpack_require__(3);
 var TwoDimensionalRenderingEngine = (function (_super) {
     __extends(TwoDimensionalRenderingEngine, _super);
     function TwoDimensionalRenderingEngine() {
@@ -3090,7 +2880,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3178,6 +2968,34 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var EntityView_1 = __webpack_require__(9);
+var EntityView2D = (function (_super) {
+    __extends(EntityView2D, _super);
+    function EntityView2D() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityView2D;
+}(EntityView_1.EntityView));
+exports.EntityView2D = EntityView2D;
+
+
+/***/ }),
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3194,35 +3012,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(10);
-var EntityView2D = (function (_super) {
-    __extends(EntityView2D, _super);
-    function EntityView2D() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return EntityView2D;
-}(EntityView_1.EntityView));
-exports.EntityView2D = EntityView2D;
-
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(9);
+var Entity_1 = __webpack_require__(8);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -3257,703 +3047,6 @@ var GridMap = (function (_super) {
     return GridMap;
 }(Entity_1.Entity));
 exports.GridMap = GridMap;
-
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ControllerType;
-(function (ControllerType) {
-    ControllerType[ControllerType["MOUSE"] = 0] = "MOUSE";
-    ControllerType[ControllerType["KEYBOARD"] = 1] = "KEYBOARD";
-})(ControllerType = exports.ControllerType || (exports.ControllerType = {}));
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var events_1 = __webpack_require__(2);
-var Controller = (function (_super) {
-    __extends(Controller, _super);
-    function Controller() {
-        var _this = _super.call(this) || this;
-        _this._attachEvents();
-        return _this;
-    }
-    Controller.prototype._fireEvent = function (event, data) {
-        this.emit(event.toString(), data);
-    };
-    return Controller;
-}(events_1.EventEmitter));
-exports.Controller = Controller;
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var MouseController = (function (_super) {
-    __extends(MouseController, _super);
-    function MouseController() {
-        var _this = _super.call(this) || this;
-        _this._eventDetails = {
-            altKey: false,
-            shiftKey: false,
-            superKey: false,
-            x: -1,
-            y: -1,
-            buttons: [],
-            button: null
-        };
-        _this._x = -1;
-        _this._y = -1;
-        return _this;
-    }
-    MouseController.prototype.destroy = function () {
-        document.body.removeEventListener('mousedown', this._mouseDownHandler);
-        document.body.removeEventListener('mouseup', this._mouseUpHandler);
-        document.body.removeEventListener('mousemove', this._mouseMoveHandler);
-        window.removeEventListener('contextmenu', this._contextMenuHandler);
-        window.removeEventListener('wheel', this._wheelHandler);
-    };
-    MouseController.prototype._getMouseButton = function (e) {
-        switch (e.button) {
-            case 0:
-                return _1.MouseButton.BUTTON_LEFT;
-            case 1:
-                return _1.MouseButton.BUTTON_MIDDLE;
-            case 2:
-                return _1.MouseButton.BUTTON_RIGHT;
-        }
-        throw new Error('Unrecognized Mouse Button.');
-    };
-    MouseController.prototype._mouseDownHandler = function (e) {
-        var mouseButton = this._getMouseButton(e);
-        if (this._eventDetails.buttons.indexOf(mouseButton) === -1) {
-            this._updateEventDetail(e);
-            this._onMouseDown();
-        }
-    };
-    MouseController.prototype._mouseUpHandler = function (e) {
-        this._updateEventDetail(e);
-        this._onMouseUp();
-    };
-    MouseController.prototype._mouseMoveHandler = function (e) {
-        this._updateEventDetail(e);
-        if (this._eventDetails.x !== this._x || this._eventDetails.y !== this._y) {
-            this._x = this._eventDetails.x;
-            this._y = this._eventDetails.y;
-            this._onMouseMove();
-        }
-    };
-    MouseController.prototype._contextMenuHandler = function (e) {
-        e.preventDefault();
-    };
-    MouseController.prototype._wheelHandler = function (e) {
-        e.preventDefault();
-        this._updateEventDetail(e);
-        this._onMouseWheel();
-    };
-    MouseController.prototype._attachEvents = function () {
-        window.addEventListener('wheel', this._wheelHandler);
-        document.body.addEventListener('contextmenu', this._contextMenuHandler);
-        document.body.addEventListener('mousedown', this._mouseDownHandler);
-        document.body.addEventListener('mouseup', this._mouseUpHandler);
-        document.body.addEventListener('mousemove', this._mouseMoveHandler);
-    };
-    MouseController.prototype._onMouseDown = function () {
-        this._fireEvent(_1.InputEvent.BUTTON_DOWN, this._eventDetails);
-    };
-    MouseController.prototype._onMouseUp = function () {
-        this._fireEvent(_1.InputEvent.BUTTON_UP, this._eventDetails);
-    };
-    MouseController.prototype._onMouseMove = function () {
-        this._fireEvent(_1.InputEvent.POINTER_MOVE, this._eventDetails);
-    };
-    MouseController.prototype._onMouseWheel = function () {
-        this._fireEvent(_1.InputEvent.WHEEL, this._eventDetails);
-    };
-    MouseController.prototype._updateEventDetail = function (e) {
-        var mouseButton = this._getMouseButton(e);
-        this._eventDetails.altKey = e.altKey;
-        this._eventDetails.shiftKey = e.shiftKey;
-        this._eventDetails.superKey = e.metaKey;
-        this._eventDetails.button = e.button;
-        this._eventDetails.x = e.x;
-        this._eventDetails.y = e.y;
-        if (e.type === 'mousedown') {
-            if (this._eventDetails.buttons.indexOf(mouseButton) === -1) {
-                this._eventDetails.buttons.push(mouseButton);
-            }
-        }
-        else if (e.type === 'mouseup') {
-            if (this._eventDetails.buttons.indexOf(mouseButton) > -1) {
-                this._eventDetails.buttons.splice(this._eventDetails.buttons.indexOf(mouseButton), 1);
-            }
-        }
-    };
-    MouseController.prototype.initialize = function (inputManager) {
-        var _this = this;
-        this.on(_1.InputEvent.BUTTON_DOWN.toString(), function (data) {
-            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_DOWN, data);
-        });
-        this.on(_1.InputEvent.BUTTON_UP.toString(), function (data) {
-            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_UP, data);
-        });
-        this.on(_1.InputEvent.POINTER_MOVE.toString(), function (data) {
-            inputManager.onInputReceived(_this, _1.InputEvent.POINTER_MOVE, data);
-        });
-        this.on(_1.InputEvent.WHEEL.toString(), function (data) {
-            inputManager.onInputReceived(_this, _1.InputEvent.WHEEL, data);
-        });
-    };
-    return MouseController;
-}(_1.Controller));
-exports.MouseController = MouseController;
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var KeyboardController = (function (_super) {
-    __extends(KeyboardController, _super);
-    function KeyboardController() {
-        var _this = _super.call(this) || this;
-        _this._eventDetail = {
-            keyCodes: [],
-            keyCode: null,
-            altKey: false,
-            shiftKey: false,
-            superKey: false
-        };
-        return _this;
-    }
-    KeyboardController.prototype.destroy = function () {
-        window.removeEventListener('keyup', this._keyUpHandler);
-        window.removeEventListener('keydown', this._keyDownHandler);
-    };
-    KeyboardController.prototype._keyDownHandler = function (e) {
-        e.preventDefault();
-        if (this._eventDetail.keyCodes.indexOf(e.keyCode) === -1) {
-            this._updateEventDetail(e);
-            this._onKeyDown();
-        }
-    };
-    KeyboardController.prototype._keyUpHandler = function (e) {
-        e.preventDefault();
-        this._updateEventDetail(e);
-        this._onKeyUp();
-    };
-    KeyboardController.prototype._attachEvents = function () {
-        this._keyUpHandler = this._keyUpHandler.bind(this);
-        this._keyDownHandler = this._keyDownHandler.bind(this);
-        window.document.addEventListener('keydown', this._keyDownHandler);
-        window.addEventListener('keyup', this._keyUpHandler);
-    };
-    KeyboardController.prototype._onKeyDown = function () {
-        this._fireEvent(_1.InputEvent.BUTTON_DOWN, this._eventDetail);
-    };
-    KeyboardController.prototype._onKeyUp = function () {
-        this._fireEvent(_1.InputEvent.BUTTON_UP, this._eventDetail);
-    };
-    KeyboardController.prototype._updateEventDetail = function (e) {
-        this._eventDetail.altKey = e.altKey;
-        this._eventDetail.shiftKey = e.shiftKey;
-        this._eventDetail.superKey = e.metaKey;
-        this._eventDetail.keyCode = e.keyCode;
-        if (e.type === 'keydown') {
-            if (this._eventDetail.keyCodes.indexOf(e.keyCode) === -1) {
-                this._eventDetail.keyCodes.push(e.keyCode);
-            }
-        }
-        else if (e.type === 'keyup') {
-            if (this._eventDetail.keyCodes.indexOf(e.keyCode) > -1) {
-                this._eventDetail.keyCodes.splice(this._eventDetail.keyCodes.indexOf(e.keyCode), 1);
-            }
-        }
-    };
-    KeyboardController.prototype.initialize = function (inputManager) {
-        var _this = this;
-        this.on(_1.InputEvent.BUTTON_DOWN.toString(), function (data) {
-            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_DOWN, data);
-        });
-        this.on(_1.InputEvent.BUTTON_UP.toString(), function (data) {
-            inputManager.onInputReceived(_this, _1.InputEvent.BUTTON_UP, data);
-        });
-    };
-    return KeyboardController;
-}(_1.Controller));
-exports.KeyboardController = KeyboardController;
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var InputEvent;
-(function (InputEvent) {
-    InputEvent[InputEvent["BUTTON_DOWN"] = 0] = "BUTTON_DOWN";
-    InputEvent[InputEvent["BUTTON_UP"] = 1] = "BUTTON_UP";
-    InputEvent[InputEvent["POINTER_MOVE"] = 2] = "POINTER_MOVE";
-    InputEvent[InputEvent["WHEEL"] = 3] = "WHEEL";
-})(InputEvent = exports.InputEvent || (exports.InputEvent = {}));
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var KeyCode;
-(function (KeyCode) {
-    KeyCode[KeyCode["BACKSPACE"] = 8] = "BACKSPACE";
-    KeyCode[KeyCode["TAB"] = 9] = "TAB";
-    KeyCode[KeyCode["NP_5_UNLOCKED"] = 12] = "NP_5_UNLOCKED";
-    KeyCode[KeyCode["ENTER"] = 13] = "ENTER";
-    KeyCode[KeyCode["SHIFT"] = 16] = "SHIFT";
-    KeyCode[KeyCode["CONTROL"] = 17] = "CONTROL";
-    KeyCode[KeyCode["ALT"] = 18] = "ALT";
-    KeyCode[KeyCode["PAUSE"] = 19] = "PAUSE";
-    KeyCode[KeyCode["CAPS_LOCK"] = 20] = "CAPS_LOCK";
-    KeyCode[KeyCode["ESCAPE"] = 27] = "ESCAPE";
-    KeyCode[KeyCode["PAGE_UP"] = 33] = "PAGE_UP";
-    KeyCode[KeyCode["PAGE_DOWN"] = 34] = "PAGE_DOWN";
-    KeyCode[KeyCode["END"] = 35] = "END";
-    KeyCode[KeyCode["HOME"] = 36] = "HOME";
-    KeyCode[KeyCode["LEFT_ARROW"] = 37] = "LEFT_ARROW";
-    KeyCode[KeyCode["UP_ARROW"] = 38] = "UP_ARROW";
-    KeyCode[KeyCode["RIGHT_ARROW"] = 39] = "RIGHT_ARROW";
-    KeyCode[KeyCode["DOWN_ARROW"] = 40] = "DOWN_ARROW";
-    KeyCode[KeyCode["PRINT_SCREEN"] = 44] = "PRINT_SCREEN";
-    KeyCode[KeyCode["INSERT"] = 45] = "INSERT";
-    KeyCode[KeyCode["DELETE"] = 46] = "DELETE";
-    KeyCode[KeyCode["ZERO"] = 48] = "ZERO";
-    KeyCode[KeyCode["ONE"] = 49] = "ONE";
-    KeyCode[KeyCode["TWO"] = 50] = "TWO";
-    KeyCode[KeyCode["THREE"] = 51] = "THREE";
-    KeyCode[KeyCode["FOUR"] = 52] = "FOUR";
-    KeyCode[KeyCode["FIVE"] = 53] = "FIVE";
-    KeyCode[KeyCode["SIX"] = 54] = "SIX";
-    KeyCode[KeyCode["SEVEN"] = 55] = "SEVEN";
-    KeyCode[KeyCode["EIGHT"] = 56] = "EIGHT";
-    KeyCode[KeyCode["NINE"] = 57] = "NINE";
-    KeyCode[KeyCode["A"] = 65] = "A";
-    KeyCode[KeyCode["B"] = 66] = "B";
-    KeyCode[KeyCode["C"] = 67] = "C";
-    KeyCode[KeyCode["D"] = 68] = "D";
-    KeyCode[KeyCode["E"] = 69] = "E";
-    KeyCode[KeyCode["F"] = 70] = "F";
-    KeyCode[KeyCode["G"] = 71] = "G";
-    KeyCode[KeyCode["H"] = 72] = "H";
-    KeyCode[KeyCode["I"] = 73] = "I";
-    KeyCode[KeyCode["J"] = 74] = "J";
-    KeyCode[KeyCode["K"] = 75] = "K";
-    KeyCode[KeyCode["L"] = 76] = "L";
-    KeyCode[KeyCode["M"] = 77] = "M";
-    KeyCode[KeyCode["N"] = 78] = "N";
-    KeyCode[KeyCode["O"] = 79] = "O";
-    KeyCode[KeyCode["P"] = 80] = "P";
-    KeyCode[KeyCode["Q"] = 81] = "Q";
-    KeyCode[KeyCode["R"] = 82] = "R";
-    KeyCode[KeyCode["S"] = 83] = "S";
-    KeyCode[KeyCode["T"] = 84] = "T";
-    KeyCode[KeyCode["U"] = 85] = "U";
-    KeyCode[KeyCode["V"] = 86] = "V";
-    KeyCode[KeyCode["W"] = 87] = "W";
-    KeyCode[KeyCode["X"] = 88] = "X";
-    KeyCode[KeyCode["Y"] = 89] = "Y";
-    KeyCode[KeyCode["Z"] = 90] = "Z";
-    KeyCode[KeyCode["SUPER"] = 91] = "SUPER";
-    KeyCode[KeyCode["CONTEXT"] = 93] = "CONTEXT";
-    KeyCode[KeyCode["NP_0"] = 96] = "NP_0";
-    KeyCode[KeyCode["NP_1"] = 97] = "NP_1";
-    KeyCode[KeyCode["NP_2"] = 98] = "NP_2";
-    KeyCode[KeyCode["NP_3"] = 99] = "NP_3";
-    KeyCode[KeyCode["NP_4"] = 100] = "NP_4";
-    KeyCode[KeyCode["NP_5"] = 101] = "NP_5";
-    KeyCode[KeyCode["NP_6"] = 102] = "NP_6";
-    KeyCode[KeyCode["NP_7"] = 103] = "NP_7";
-    KeyCode[KeyCode["NP_8"] = 104] = "NP_8";
-    KeyCode[KeyCode["NP_9"] = 105] = "NP_9";
-    KeyCode[KeyCode["NP_ASTERIK"] = 106] = "NP_ASTERIK";
-    KeyCode[KeyCode["NP_PLUS"] = 107] = "NP_PLUS";
-    KeyCode[KeyCode["NP_HYPHEN"] = 109] = "NP_HYPHEN";
-    KeyCode[KeyCode["NP_DOT"] = 110] = "NP_DOT";
-    KeyCode[KeyCode["NP_SLASH"] = 111] = "NP_SLASH";
-    KeyCode[KeyCode["F1"] = 112] = "F1";
-    KeyCode[KeyCode["F2"] = 113] = "F2";
-    KeyCode[KeyCode["F3"] = 114] = "F3";
-    KeyCode[KeyCode["F4"] = 115] = "F4";
-    KeyCode[KeyCode["F5"] = 116] = "F5";
-    KeyCode[KeyCode["F6"] = 117] = "F6";
-    KeyCode[KeyCode["F7"] = 118] = "F7";
-    KeyCode[KeyCode["F8"] = 119] = "F8";
-    KeyCode[KeyCode["F9"] = 120] = "F9";
-    KeyCode[KeyCode["F10"] = 121] = "F10";
-    KeyCode[KeyCode["F11"] = 122] = "F11";
-    KeyCode[KeyCode["F12"] = 123] = "F12";
-    KeyCode[KeyCode["NUM_LOCK"] = 144] = "NUM_LOCK";
-    KeyCode[KeyCode["SCREEN_LOCK"] = 145] = "SCREEN_LOCK";
-    KeyCode[KeyCode["SEMICOLON"] = 186] = "SEMICOLON";
-    KeyCode[KeyCode["EQUALS"] = 187] = "EQUALS";
-    KeyCode[KeyCode["COMMA"] = 188] = "COMMA";
-    KeyCode[KeyCode["HYPHEN"] = 189] = "HYPHEN";
-    KeyCode[KeyCode["PERIOD"] = 190] = "PERIOD";
-    KeyCode[KeyCode["SLASH"] = 191] = "SLASH";
-    KeyCode[KeyCode["TILDE"] = 192] = "TILDE";
-    KeyCode[KeyCode["OPEN_SQUARE_BRACKET"] = 219] = "OPEN_SQUARE_BRACKET";
-    KeyCode[KeyCode["BACKSLASH"] = 220] = "BACKSLASH";
-    KeyCode[KeyCode["CLOSE_SQUARE_BRACKET"] = 221] = "CLOSE_SQUARE_BRACKET";
-    KeyCode[KeyCode["APOSTROPHE"] = 222] = "APOSTROPHE";
-    KeyCode[KeyCode["FUNCTION"] = 255] = "FUNCTION";
-})(KeyCode = exports.KeyCode || (exports.KeyCode = {}));
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var MouseButton;
-(function (MouseButton) {
-    MouseButton[MouseButton["BUTTON_LEFT"] = 0] = "BUTTON_LEFT";
-    MouseButton[MouseButton["BUTTON_MIDDLE"] = 1] = "BUTTON_MIDDLE";
-    MouseButton[MouseButton["BUTTON_RIGHT"] = 2] = "BUTTON_RIGHT";
-})(MouseButton = exports.MouseButton || (exports.MouseButton = {}));
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var ControllerFactory = (function () {
-    function ControllerFactory() {
-    }
-    ControllerFactory.getSingleton = function () {
-        if (!ControllerFactory._instance) {
-            ControllerFactory._instance = new ControllerFactory();
-        }
-        return ControllerFactory._instance;
-    };
-    ControllerFactory.prototype.create = function (type) {
-        switch (type) {
-            default:
-                throw new Error('Controller Type is not supported.');
-            case _1.ControllerType.MOUSE:
-                return new _1.MouseController();
-            case _1.ControllerType.KEYBOARD:
-                return new _1.KeyboardController();
-        }
-    };
-    return ControllerFactory;
-}());
-exports.ControllerFactory = ControllerFactory;
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var events_1 = __webpack_require__(2);
-var _1 = __webpack_require__(3);
-var InputManager = (function (_super) {
-    __extends(InputManager, _super);
-    function InputManager() {
-        var _this = _super.call(this) || this;
-        _this._controllers = {};
-        _this._factory = _this._createControllerFactory();
-        return _this;
-    }
-    InputManager.getSingleton = function () {
-        if (!InputManager._instance) {
-            InputManager._instance = new InputManager();
-        }
-        return InputManager._instance;
-    };
-    InputManager.prototype.createController = function (name, type) {
-        var controller = this._factory.create(type);
-        this._controllers[name] = controller;
-        controller.initialize(this);
-    };
-    InputManager.prototype.removeController = function (name) {
-        if (!this.hasController(name)) {
-            return;
-        }
-        var controller = this._getController(name);
-        controller.destroy();
-        delete this._controllers[name];
-    };
-    InputManager.prototype.hasController = function (name) {
-        return !!(this._controllers[name]);
-    };
-    InputManager.prototype._getController = function (name) {
-        if (!this.hasController(name)) {
-            return null;
-        }
-        return this._controllers[name];
-    };
-    InputManager.prototype._getControllerName = function (controller) {
-        for (var i in this._controllers) {
-            if (this._controllers[i] === controller) {
-                return i;
-            }
-        }
-        return null;
-    };
-    InputManager.prototype._createControllerFactory = function () {
-        return _1.ControllerFactory.getSingleton();
-    };
-    InputManager.prototype.onInputReceived = function (controller, inputEvent, data) {
-        data.controller = this._getControllerName(controller);
-        this.emit(inputEvent.toString(), data);
-    };
-    return InputManager;
-}(events_1.EventEmitter));
-exports.InputManager = InputManager;
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var entities_1 = __webpack_require__(5);
-var assets_1 = __webpack_require__(0);
-var Character = (function (_super) {
-    __extends(Character, _super);
-    function Character(character_spritesheet) {
-        var _this = _super.call(this) || this;
-        _this.width = 14;
-        _this.height = 21;
-        _this._characterSpritesheet = character_spritesheet;
-        _this._upAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite('player_up_step1'), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 }
-        ]);
-        _this._downAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_down_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 }
-        ]);
-        _this._leftAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_left_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 }
-        ]);
-        _this._rightAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_right_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 }
-        ]);
-        return _this;
-    }
-    Character.prototype._move = function (coordinates) {
-        var _this = this;
-        var Engine = window._PalletDemo;
-        Engine.logicEngine.removeLogic(this.ID + "_endmove");
-        var collision = false;
-        var updatedCoordinates = false;
-        var x = coordinates.x;
-        var y = coordinates.y;
-        var potCollisions = this.parent.findChildren({ x: x + 1, y: y + 16 });
-        for (var i in potCollisions) {
-            if (potCollisions[i] != this && potCollisions[i].collisionable) {
-                collision = true;
-            }
-        }
-        if (!collision) {
-            Engine.logicEngine.addLogic(this.ID + "_move", function () {
-                if (_this.x != x) {
-                    if (_this.x > x) {
-                        _this.x = (_this.x - 2);
-                        if (!updatedCoordinates) {
-                            _this.tileX -= 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                    else {
-                        _this.x = (_this.x + 2);
-                        if (!updatedCoordinates) {
-                            _this.tileX += 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                }
-                if (_this.y != y) {
-                    if (_this.y > y) {
-                        _this.y = (_this.y - 2);
-                        if (!updatedCoordinates) {
-                            _this.tileY -= 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                    else {
-                        _this.y = (_this.y) + 2;
-                        if (!updatedCoordinates) {
-                            _this.tileY += 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                }
-                ;
-                if (_this.x == x && _this.y == y || collision) {
-                    Engine.logicEngine.removeLogic(_this.ID + "_move");
-                    _this.moving = false;
-                    Engine.logicEngine.addLogic(_this.ID + "_endmove", function () {
-                        _this._activeAnim.stop();
-                        delete _this._activeAnim;
-                        _this.texture = _this._endTexture;
-                        Engine.logicEngine.removeLogic(_this.ID + "_endmove");
-                    }, 50);
-                }
-            }, 50);
-        }
-        else {
-            this.moving = false;
-            this._activeAnim.stop();
-            delete this._activeAnim;
-            this.texture = (this._endTexture);
-        }
-    };
-    Character.prototype.moveLeft = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._leftAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_left");
-            this._leftAnim.start();
-            this._activeAnim = this._leftAnim;
-            this.moving = true;
-            this._move({ x: this.x - 16, y: this.y });
-        }
-    };
-    Character.prototype.moveUp = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._upAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_up");
-            this._upAnim.start();
-            this._activeAnim = this._upAnim;
-            this.moving = true;
-            this._move({ x: this.x, y: this.y - 16 });
-        }
-    };
-    Character.prototype.moveRight = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._rightAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_right");
-            this._rightAnim.start();
-            this._activeAnim = this._rightAnim;
-            this.moving = true;
-            this._move({ x: this.x + 16, y: this.y });
-        }
-    };
-    Character.prototype.moveDown = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._downAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_down");
-            this._downAnim.start();
-            this._activeAnim = this._downAnim;
-            this.moving = true;
-            this._move({ x: this.x, y: this.y + 16 });
-        }
-    };
-    return Character;
-}(entities_1.Entity));
-exports.default = Character;
 
 
 /***/ })

@@ -1,7 +1,7 @@
 {
-  "name": "camera",
+  "name": "pallet",
   "version": "0.0.1",
-  "description": "Collision demo",
+  "description": "Pallet demo",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -10,14 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@jiggy/assets": "0.0.1",
-    "@jiggy/audio": "0.0.1",
-    "@jiggy/core": "0.0.1",
-    "@jiggy/engines": "0.0.1",
-    "@jiggy/entities": "0.0.1",
-    "@jiggy/inputs": "0.0.2",
-    "@jiggy/interfaces": "0.0.1",
-    "@jiggy/utils": "0.0.1",
+    "@jiggy/assets": "0.0.3",
+    "@jiggy/audio": "0.0.3",
+    "@jiggy/core": "0.0.3",
+    "@jiggy/engines": "0.0.3",
+    "@jiggy/entities": "0.0.3",
+    "@jiggy/inputs": "0.0.3",
+    "@jiggy/interfaces": "0.0.3",
+    "@jiggy/utils": "0.0.3",
     "source-map-loader": "^0.2.3",
     "ts-loader": "^3.1.0"
   }
