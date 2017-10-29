@@ -52,14 +52,16 @@ function exec(done, args = '') {
             console.log('Publishing', pkgLoc, '...');
 
             ammendPackageVersions(version, pkg);
-
+            
             ChildProcess.spawnSync(`npm publish`, {
-                cwd : Path.resolve(SRC_DIR, pkg),
+                cwd : Path.resolve(SRC_DIR, pkgLoc),
                 shell : true,
                 stdio: 'inherit'
             });
         }
     }
+
+    done();
 }
 
 module.exports = {
