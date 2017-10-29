@@ -4,11 +4,17 @@ type NativeGamepad = Gamepad;
 type NativeGamepadButton = GamepadButton;
 
 import * as Events from 'events';
+import { Event, Coordinate } from "../../interfaces";
 
 export const enum GamePadEvents {
     ButtonValueChange = "BUTTONVALUECHANGE",
     AxisValueChange = "AXISVALUECHANGE",
     Disconnect = "DISCONNECT"
+}
+
+export interface ValueChangeEvent extends Event {
+    value: number,
+    id: number
 }
 
 export type GamePadButton = NativeGamepadButton;
@@ -70,7 +76,13 @@ export class GamePad extends Events.EventEmitter {
         for (var i = 0; i < gamePad.buttons.length; i++) {
             if (gamePad.buttons[i].value != this._buttons[i]) {
                 this._buttons[i] = gamePad.buttons[i].value;
-                this.emit(GamePadEvents.ButtonValueChange, i, gamePad.buttons[i].value);
+                let e: ValueChangeEvent = {
+                    source: this,
+                    type: GamePadEvents.ButtonValueChange,
+                    value: gamePad.buttons[i].value,
+                    id: i
+                }
+                this.emit(GamePadEvents.ButtonValueChange, e);
             }
         }
 
@@ -78,13 +90,23 @@ export class GamePad extends Events.EventEmitter {
         for (var i = 0; i < gamePad.axes.length; i++) {
             if (gamePad.axes[i] != this._axes[i]) {
                 this._axes[i] = gamePad.axes[i];
-                this.emit(GamePadEvents.AxisValueChange, i, gamePad.axes[i]);
+                let e: ValueChangeEvent = {
+                    source: this,
+                    type: GamePadEvents.AxisValueChange,
+                    value: gamePad.axes[i],
+                    id: i
+                }
+                this.emit(GamePadEvents.AxisValueChange,e);
             }
         }
     }
 
     private _disconnect(): void {
         clearInterval(this._pollTimer);
-        this.emit(GamePadEvents.Disconnect, this);
+        let e: Event = {
+            source: this,
+            type: GamePadEvents.AxisValueChange
+        }
+        this.emit(GamePadEvents.Disconnect, e);
     }
 }

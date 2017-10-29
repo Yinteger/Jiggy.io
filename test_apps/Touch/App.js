@@ -60,65 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(19);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(20);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(21);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(22);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(23);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(24);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(25);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(26);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(27);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(28);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(29);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(4);
-exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(12);
-exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(13);
-exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(14);
-exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(15);
-exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(16);
-exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(17);
-exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -426,19 +372,73 @@ function isUndefined(arg) {
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Asset_1 = __webpack_require__(21);
+exports.Asset = Asset_1.Asset;
+var AssetType_1 = __webpack_require__(22);
+exports.AssetType = AssetType_1.AssetType;
+var AssetState_1 = __webpack_require__(23);
+exports.AssetState = AssetState_1.AssetState;
+var AssetFactory_1 = __webpack_require__(24);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+var AssetLoader_1 = __webpack_require__(25);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+var AudioLoader_1 = __webpack_require__(26);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+var ImageLoader_1 = __webpack_require__(27);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+var JSONLoader_1 = __webpack_require__(28);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+var TextAssetBuilder_1 = __webpack_require__(29);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+var Spritesheet_1 = __webpack_require__(30);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+var Animation_1 = __webpack_require__(31);
+exports.Animation = Animation_1.Animation;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum_1 = __webpack_require__(4);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+var Camera_1 = __webpack_require__(14);
+exports.Camera = Camera_1.Camera;
+var IDGenerator_1 = __webpack_require__(15);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+var Iterator_1 = __webpack_require__(16);
+exports.Iterator = Iterator_1.Iterator;
+var LogManager_1 = __webpack_require__(17);
+exports.LogManager = LogManager_1.LogManager;
+var ViewPort_1 = __webpack_require__(18);
+exports.ViewPort = ViewPort_1.ViewPort;
+var CollisionEmitter_1 = __webpack_require__(19);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(31);
+var LogicEngine_1 = __webpack_require__(33);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(32);
+var GroupLogicEngine_1 = __webpack_require__(34);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(33);
+var RenderingEngine_1 = __webpack_require__(35);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(34);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(36);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -465,8 +465,8 @@ var SeverityEnum;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
+var assets_1 = __webpack_require__(1);
 var assetFactory = assets_1.AssetFactory.getSingleton();
 var AudioEngine = (function () {
     function AudioEngine() {
@@ -658,13 +658,13 @@ exports.AudioEngine = AudioEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_1 = __webpack_require__(7);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(35);
+var EntityModel_1 = __webpack_require__(37);
 exports.EntityModel = EntityModel_1.EntityModel;
 var EntityView_1 = __webpack_require__(8);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(36);
+var EntityView2D_1 = __webpack_require__(38);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(37);
+var GridMap_1 = __webpack_require__(39);
 exports.GridMap = GridMap_1.GridMap;
 
 
@@ -685,10 +685,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var assets_1 = __webpack_require__(0);
+var Events = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var _1 = __webpack_require__(6);
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(2);
 var Entity = (function (_super) {
     __extends(Entity, _super);
     function Entity(model) {
@@ -1240,7 +1240,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var EntityView = (function (_super) {
     __extends(EntityView, _super);
     function EntityView(model) {
@@ -1318,11 +1318,184 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(11);
+var Events = __webpack_require__(0);
+var GamePad = (function (_super) {
+    __extends(GamePad, _super);
+    function GamePad(id) {
+        var _this = _super.call(this) || this;
+        _this._pollRate = 15;
+        _this._buttons = [];
+        _this._axes = [];
+        _this._gamePadID = id;
+        var gamePad = navigator.getGamepads()[id];
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            _this._buttons.push(gamePad.buttons[i].value);
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            _this._axes.push(gamePad.axes[i]);
+        }
+        _this._initializePolling();
+        return _this;
+    }
+    GamePad.prototype.getAxis = function (index) {
+        return this._axes[index];
+    };
+    GamePad.prototype.setPollRate = function (pollRate) {
+        this._pollRate = pollRate;
+        this._initializePolling();
+    };
+    GamePad.prototype._initializePolling = function () {
+        if (this._pollTimer) {
+            clearInterval(this._pollTimer);
+        }
+        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
+    };
+    GamePad.prototype._poll = function () {
+        var gamePad = navigator.getGamepads()[this._gamePadID];
+        if (!gamePad) {
+            this._disconnect();
+            return null;
+        }
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            if (gamePad.buttons[i].value != this._buttons[i]) {
+                this._buttons[i] = gamePad.buttons[i].value;
+                var e = {
+                    source: this,
+                    type: "BUTTONVALUECHANGE",
+                    value: gamePad.buttons[i].value,
+                    id: i
+                };
+                this.emit("BUTTONVALUECHANGE", e);
+            }
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            if (gamePad.axes[i] != this._axes[i]) {
+                this._axes[i] = gamePad.axes[i];
+                var e = {
+                    source: this,
+                    type: "AXISVALUECHANGE",
+                    value: gamePad.axes[i],
+                    id: i
+                };
+                this.emit("AXISVALUECHANGE", e);
+            }
+        }
+    };
+    GamePad.prototype._disconnect = function () {
+        clearInterval(this._pollTimer);
+        var e = {
+            source: this,
+            type: "AXISVALUECHANGE"
+        };
+        this.emit("DISCONNECT", e);
+    };
+    return GamePad;
+}(Events.EventEmitter));
+exports.GamePad = GamePad;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+;
+;
+var Touch = (function (_super) {
+    __extends(Touch, _super);
+    function Touch(nTouch) {
+        var _this = _super.call(this) || this;
+        _this._id = nTouch.identifier;
+        _this._x = nTouch.pageX;
+        _this._y = nTouch.pageY;
+        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
+        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
+        return _this;
+    }
+    Touch.prototype.getID = function () {
+        return this._id;
+    };
+    Touch.prototype.getX = function () {
+        return this._x;
+    };
+    Touch.prototype.getY = function () {
+        return this._y;
+    };
+    Touch.prototype._onTouchEnd = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id) {
+                this._disconnect();
+            }
+        }
+    };
+    Touch.prototype._onTouchMove = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
+                this._x = nTouch.pageX;
+                this._y = nTouch.pageY;
+                var e_1 = {
+                    type: "TOUCHMOVED",
+                    source: this,
+                    position: {
+                        x: this._x,
+                        y: this._y
+                    }
+                };
+                this.emit("TOUCHMOVED", e_1);
+            }
+        }
+    };
+    Touch.prototype._disconnect = function () {
+        var e = {
+            source: this,
+            type: "TOUCHREMOVED"
+        };
+        this.emit("TOUCHREMOVED", e);
+        window.removeEventListener("touchmove", this._touchMoveListener);
+        window.removeEventListener("touchend", this._touchEndListener);
+    };
+    return Touch;
+}(Events.EventEmitter));
+exports.Touch = Touch;
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Engine_1 = __webpack_require__(13);
 var src_1 = __webpack_require__(3);
 var src_2 = __webpack_require__(6);
-var src_3 = __webpack_require__(38);
-var TouchListener_1 = __webpack_require__(45);
+var src_3 = __webpack_require__(40);
+var _1 = __webpack_require__(47);
 var TouchDemo = (function (_super) {
     __extends(TouchDemo, _super);
     function TouchDemo() {
@@ -1339,7 +1512,7 @@ var TouchDemo = (function (_super) {
         _this.renderingEngine.addCamera(_this._camera);
         _this.viewPort.on(0..toString(), _this._viewPortUpdated.bind(_this));
         _this.logicEngine.addLogic("touch", _this._touch.bind(_this), 25);
-        var touchListener = TouchListener_1.TouchListener.getInstance();
+        var touchListener = _1.TouchListener.getInstance();
         touchListener.on("TOUCHADDED", function (touch) {
             console.log("New Touch added with an ID of ", touch.getID());
             var block = new src_2.Entity();
@@ -1349,9 +1522,9 @@ var TouchDemo = (function (_super) {
             block.width = 50;
             block.height = 50;
             _this._container.addChild(block);
-            touch.on("TOUCHMOVED", function (touch, position) {
+            touch.on("TOUCHMOVED", function (e) {
                 console.log("Touch moved");
-                console.log(position);
+                var position = e.position;
                 block.x = position.x - 25;
                 block.y = position.y - 25;
             });
@@ -1376,15 +1549,15 @@ window.TouchDemo = new TouchDemo();
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var audio_1 = __webpack_require__(18);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
+var audio_1 = __webpack_require__(20);
+var assets_1 = __webpack_require__(1);
 var Engine = (function () {
     function Engine() {
         this.debugMode = false;
@@ -1415,7 +1588,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1435,7 +1608,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1462,7 +1635,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1516,7 +1689,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1566,7 +1739,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1582,7 +1755,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -1682,7 +1855,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1756,7 +1929,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1764,19 +1937,19 @@ exports.CollisionEmitter = CollisionEmitter;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(5);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(30);
+var HTML5AudioEngine_1 = __webpack_require__(32);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
+var _1 = __webpack_require__(1);
 var Asset = (function () {
     function Asset(type, url) {
         this._id = utils_1.IDGenerator.getSingleton().generate();
@@ -1847,7 +2020,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1863,7 +2036,7 @@ var AssetType;
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1878,13 +2051,13 @@ var AssetState;
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(1);
 var AssetFactory = (function () {
     function AssetFactory() {
         this._assetLoader = new _1.AssetLoader();
@@ -1985,13 +2158,13 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(1);
 var AssetLoader = (function () {
     function AssetLoader() {
     }
@@ -2051,7 +2224,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2067,7 +2240,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(1);
 var AudioLoader = (function (_super) {
     __extends(AudioLoader, _super);
     function AudioLoader() {
@@ -2103,7 +2276,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2119,7 +2292,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(1);
 var ImageLoader = (function (_super) {
     __extends(ImageLoader, _super);
     function ImageLoader() {
@@ -2142,7 +2315,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2158,7 +2331,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(1);
 var JSONLoader = (function (_super) {
     __extends(JSONLoader, _super);
     function JSONLoader() {
@@ -2174,14 +2347,14 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
-var utils_1 = __webpack_require__(1);
+var _1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(2);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
     }
@@ -2208,14 +2381,14 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
+var _1 = __webpack_require__(1);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
@@ -2247,7 +2420,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2343,7 +2516,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2472,7 +2645,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2487,7 +2660,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2574,13 +2747,13 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(2);
 var RenderingEngine = (function () {
     function RenderingEngine() {
         this._prerenderViewPort = new utils_1.ViewPort();
@@ -2658,7 +2831,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2823,7 +2996,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2839,8 +3012,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var utils_1 = __webpack_require__(1);
+var Events = __webpack_require__(0);
+var utils_1 = __webpack_require__(2);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
     function EntityModel() {
@@ -2911,7 +3084,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2939,7 +3112,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2993,7 +3166,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3001,22 +3174,22 @@ exports.GridMap = GridMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(9);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(39);
+var Camera_1 = __webpack_require__(41);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(40);
+var IDGenerator_1 = __webpack_require__(42);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(41);
+var Iterator_1 = __webpack_require__(43);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(42);
+var LogManager_1 = __webpack_require__(44);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(43);
+var ViewPort_1 = __webpack_require__(45);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(44);
+var CollisionEmitter_1 = __webpack_require__(46);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3036,7 +3209,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3063,7 +3236,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3117,7 +3290,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3167,7 +3340,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3183,7 +3356,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -3283,7 +3456,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3357,7 +3530,29 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 45 */
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var GamePadListener_1 = __webpack_require__(48);
+exports.GamePadListener = GamePadListener_1.GamePadListener;
+var GamePad_1 = __webpack_require__(10);
+exports.GamePad = GamePad_1.GamePad;
+var Keyboard_1 = __webpack_require__(49);
+exports.Keyboard = Keyboard_1.Keyboard;
+exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
+var Mouse_1 = __webpack_require__(50);
+exports.Mouse = Mouse_1.Mouse;
+var Touch_1 = __webpack_require__(11);
+exports.Touch = Touch_1.Touch;
+var TouchListener_1 = __webpack_require__(51);
+exports.TouchListener = TouchListener_1.TouchListener;
+
+
+/***/ }),
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3373,8 +3568,420 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(46);
-var Events = __webpack_require__(2);
+var GamePad_1 = __webpack_require__(10);
+var Events = __webpack_require__(0);
+var GamePadListener = (function (_super) {
+    __extends(GamePadListener, _super);
+    function GamePadListener() {
+        var _this = _super.call(this) || this;
+        if (navigator.getGamepads) {
+            _this._buildGamePads();
+            _this._gamePadPollTimer = window.setInterval(function () {
+                var gamePads = navigator.getGamepads();
+                for (var i = 0; i < gamePads.length; i++) {
+                    if (gamePads[i] && !_this._activeGamePads[i]) {
+                        var gamePad = _this._buildGamePad(i);
+                        _this.emit("GAMEPADADDED", gamePad);
+                    }
+                    else if (!gamePads[i] && _this._activeGamePads[i]) {
+                        var gamePad = _this._activeGamePads[i];
+                        delete _this._activeGamePads[i];
+                        _this.emit("GAMEPADREMOVED", gamePad);
+                    }
+                }
+            }, 15);
+        }
+        else {
+            console.log("Browser does not support GamePad API");
+        }
+        return _this;
+    }
+    GamePadListener.prototype._buildGamePads = function () {
+        var gamePads = navigator.getGamepads();
+        this._activeGamePads = [];
+        for (var i = 0; i < gamePads.length; i++) {
+            if (gamePads[i]) {
+                this._buildGamePad(i);
+            }
+        }
+    };
+    GamePadListener.prototype._buildGamePad = function (index) {
+        var gamePad = new GamePad_1.GamePad(index);
+        this._activeGamePads[index] = gamePad;
+        return gamePad;
+    };
+    GamePadListener.getInstance = function () {
+        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
+        return GamePadListener._instance;
+    };
+    GamePadListener.prototype.hasGamePads = function () {
+        return this._activeGamePads.length > 0;
+    };
+    GamePadListener.prototype.getGamePads = function () {
+        return this._activeGamePads;
+    };
+    return GamePadListener;
+}(Events.EventEmitter));
+exports.GamePadListener = GamePadListener;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+exports.KeyboardKeys = {
+    0: 48,
+    1: 49,
+    2: 50,
+    3: 51,
+    4: 52,
+    5: 53,
+    6: 54,
+    7: 55,
+    8: 56,
+    9: 57,
+    "BREAK": 3,
+    "BACKSPACE": 8,
+    "TAB": 9,
+    "CLEAR": 12,
+    "ENTER": 13,
+    "SHIFT": 16,
+    "CTRL": 17,
+    "ALT": 18,
+    "PAUSE": 19,
+    "CAPSLOCK": 20,
+    "ESCAPE": 27,
+    "SPACEBAR": 32,
+    "PAGEUP": 33,
+    "PAGEDOWN": 34,
+    "END": 35,
+    "HOME": 36,
+    "LEFTARROW": 37,
+    "UPARROW": 38,
+    "RIGHTARROW": 39,
+    "DOWNARROW": 40,
+    "SELECT": 41,
+    "PRINT": 42,
+    "EXECUTE": 43,
+    "PRINTSCREEN": 44,
+    "INSERT": 45,
+    "DELETE": 46,
+    "COLON": 58,
+    "SEMICOLON": 59,
+    "LESSTHAN": 60,
+    "EQUALS": 61,
+    "AMPERSAT": 64,
+    "A": 65,
+    "B": 66,
+    "C": 67,
+    "D": 68,
+    "E": 69,
+    "F": 70,
+    "G": 71,
+    "H": 72,
+    "I": 73,
+    "J": 74,
+    "K": 75,
+    "L": 76,
+    "M": 77,
+    "N": 78,
+    "O": 79,
+    "P": 80,
+    "Q": 81,
+    "R": 82,
+    "S": 83,
+    "T": 84,
+    "U": 85,
+    "V": 86,
+    "W": 87,
+    "X": 88,
+    "Y": 89,
+    "Z": 90,
+    "WINDOWSKEY": 91,
+    "RIGHTWINDOWSKEY": 92,
+    "WINDOWSMENU": 93,
+    "NUM0": 96,
+    "NUM1": 97,
+    "NUM2": 98,
+    "NUM3": 99,
+    "NUM4": 100,
+    "NUM5": 101,
+    "NUM6": 102,
+    "NUM7": 103,
+    "NUM8": 104,
+    "NUM9": 105,
+    "NUMMULTIPLY": 106,
+    "NUMADD": 107,
+    "NUMPERIOUD": 108,
+    "NUMSUBTRACT": 109,
+    "DECIMALPOINT": 110,
+    "NUMDIVIDE": 111,
+    "F1": 112,
+    "F2": 113,
+    "F3": 114,
+    "F4": 115,
+    "F5": 116,
+    "F6": 117,
+    "F7": 118,
+    "F8": 119,
+    "F9": 120,
+    "F10": 121,
+    "F11": 122,
+    "F12": 123,
+    "F13": 124,
+    "F14": 125,
+    "F15": 126,
+    "F16": 127,
+    "F17": 128,
+    "F18": 129,
+    "F19": 130,
+    "F20": 131,
+    "F21": 132,
+    "F22": 133,
+    "F23": 134,
+    "F24": 135,
+    "NUMLOCK": 144,
+    "SCROLLLOCK": 145,
+    "CARET": 160,
+    "EXCLAMATION": 161,
+    "POUND": 163,
+    "MONEYSIGN": 164,
+};
+var Keyboard = (function (_super) {
+    __extends(Keyboard, _super);
+    function Keyboard() {
+        var _this = _super.call(this) || this;
+        _this._buttonMap = {};
+        _this._buttonsActive = {};
+        window.addEventListener("keydown", function (e) {
+            if (!_this.isButtonActive(e.which)) {
+                _this._setButtonActive(e.which, true);
+                _this._setButtonValue(e.which, true);
+                var event_1 = {
+                    type: "KEYDOWN",
+                    source: _this,
+                    key: e.which
+                };
+                _this.emit("KEYDOWN", event_1);
+            }
+        }, true);
+        window.addEventListener("keyup", function (e) {
+            _this._setButtonActive(e.which, false);
+            _this._setButtonValue(e.which, false);
+            var event = {
+                type: "KEYUP",
+                source: _this,
+                key: e.which
+            };
+            _this.emit("KEYUP", event);
+        }, true);
+        return _this;
+    }
+    Keyboard.prototype._setButtonActive = function (id, active) {
+        this._buttonsActive[id] = active;
+    };
+    Keyboard.prototype.isButtonActive = function (id) {
+        return this._buttonsActive[id] === true;
+    };
+    Keyboard.prototype.getButtonValue = function (id) {
+        return this._buttonMap[id];
+    };
+    Keyboard.prototype._setButtonValue = function (id, value) {
+        this._buttonMap[id] = value;
+    };
+    Keyboard.getInstance = function () {
+        Keyboard._instance = Keyboard._instance || new Keyboard();
+        return Keyboard._instance;
+    };
+    return Keyboard;
+}(Events.EventEmitter));
+exports.Keyboard = Keyboard;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+var Mouse = (function (_super) {
+    __extends(Mouse, _super);
+    function Mouse() {
+        var _this = _super.call(this) || this;
+        _this._leftButtonDown = false;
+        _this._rightButtonDown = false;
+        _this._scrollWheelDown = false;
+        _this._mouseCoords = { x: 0, y: 0 };
+        window.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        window.addEventListener("mousedown", function (e) {
+            if (e.button === 0) {
+                _this._leftButtonDown = true;
+                var event_1 = {
+                    type: "LEFTBUTTONDOWN",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("LEFTBUTTONDOWN", event_1);
+            }
+            else if (e.button === 1) {
+                _this._scrollWheelDown = true;
+                var event_2 = {
+                    type: "SCROLLWHEELDOWN",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("SCROLLWHEELDOWN", event_2);
+            }
+            else if (e.button === 2) {
+                _this._rightButtonDown = true;
+                var event_3 = {
+                    type: "RIGHTBUTTONDOWN",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("RIGHTBUTTONDOWN", event_3);
+            }
+        }, true);
+        window.addEventListener("mouseup", function (e) {
+            if (e.button === 0) {
+                _this._leftButtonDown = false;
+                var event_4 = {
+                    type: "LEFTBUTTONUP",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("LEFTBUTTONUP", event_4);
+            }
+            else if (e.button === 1) {
+                _this._scrollWheelDown = false;
+                var event_5 = {
+                    type: "SCROLLWHEELUP",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("SCROLLWHEELUP", event_5);
+            }
+            else if (e.button === 2) {
+                _this._rightButtonDown = false;
+                var event_6 = {
+                    type: "RIGHTBUTTONUP",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("RIGHTBUTTONUP", event_6);
+            }
+        }, true);
+        window.addEventListener("mousemove", function (e) {
+            _this._mouseCoords = { x: e.clientX, y: e.clientY };
+            var event = {
+                type: "MOUSEMOVE",
+                source: _this,
+                x: e.clientX,
+                y: e.clientY
+            };
+            _this.emit("MOUSEMOVE", event);
+        }, true);
+        window.addEventListener("wheel", function (e) {
+            var yDelta = 0;
+            var xDelta = 0;
+            if (e.wheelDeltaY > 0) {
+                yDelta = 1;
+            }
+            else if (e.wheelDeltaY < 0) {
+                yDelta = -1;
+            }
+            if (e.wheelDeltaX > 0) {
+                xDelta = 1;
+            }
+            else if (e.wheelDeltaX < 0) {
+                xDelta = -1;
+            }
+            var event = {
+                type: "SCROLLWHEELMOVE".toString(),
+                source: _this,
+                x: e.clientX,
+                y: e.clientY,
+                yDelta: yDelta,
+                xDelta: xDelta
+            };
+            _this.emit("SCROLLWHEELMOVE".toString(), event);
+        }, true);
+        return _this;
+    }
+    Mouse.prototype.getCurrentCoordinates = function () {
+        return this._mouseCoords;
+    };
+    Mouse.prototype.isLeftButtonClicked = function () {
+        return this._leftButtonDown;
+    };
+    Mouse.prototype.isMouseWheelClicked = function () {
+        return this._scrollWheelDown;
+    };
+    Mouse.prototype.isRightButtonClicked = function () {
+        return this._rightButtonDown;
+    };
+    Mouse.getInstance = function () {
+        Mouse._instance = Mouse._instance || new Mouse();
+        return Mouse._instance;
+    };
+    return Mouse;
+}(Events.EventEmitter));
+exports.Mouse = Mouse;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Touch_1 = __webpack_require__(11);
+var Events = __webpack_require__(0);
 var TouchListener = (function (_super) {
     __extends(TouchListener, _super);
     function TouchListener() {
@@ -3395,73 +4002,6 @@ var TouchListener = (function (_super) {
     return TouchListener;
 }(Events.EventEmitter));
 exports.TouchListener = TouchListener;
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-;
-var Touch = (function (_super) {
-    __extends(Touch, _super);
-    function Touch(nTouch) {
-        var _this = _super.call(this) || this;
-        _this._id = nTouch.identifier;
-        _this._x = nTouch.pageX;
-        _this._y = nTouch.pageY;
-        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
-        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
-        return _this;
-    }
-    Touch.prototype.getID = function () {
-        return this._id;
-    };
-    Touch.prototype.getX = function () {
-        return this._x;
-    };
-    Touch.prototype.getY = function () {
-        return this._y;
-    };
-    Touch.prototype._onTouchEnd = function (e) {
-        for (var i = 0; i < e.changedTouches.length; i++) {
-            var nTouch = e.changedTouches.item(i);
-            if (nTouch.identifier === this._id) {
-                this._disconnect();
-            }
-        }
-    };
-    Touch.prototype._onTouchMove = function (e) {
-        for (var i = 0; i < e.changedTouches.length; i++) {
-            var nTouch = e.changedTouches.item(i);
-            if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
-                this._x = nTouch.pageX;
-                this._y = nTouch.pageY;
-                this.emit("TOUCHMOVED", this, { x: this._x, y: this._y });
-            }
-        }
-    };
-    Touch.prototype._disconnect = function () {
-        this.emit("TOUCHREMOVED", this);
-        window.removeEventListener("touchmove", this._touchMoveListener);
-        window.removeEventListener("touchend", this._touchEndListener);
-    };
-    return Touch;
-}(Events.EventEmitter));
-exports.Touch = Touch;
 
 
 /***/ })

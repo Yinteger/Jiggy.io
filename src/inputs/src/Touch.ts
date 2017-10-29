@@ -1,9 +1,14 @@
 import * as Events from 'events';
 import { NativeTouch, TouchList, TouchEvent } from "./NativeTouchEvent";
+import { Event, Coordinate } from "../../interfaces";
 
 export const enum TouchEvents {
     TouchMoved = "TOUCHMOVED",
     TouchRemoved = "TOUCHREMOVED"
+};
+
+export interface TouchMoveEvent extends Event {
+    position: Coordinate
 };
 
 /**
@@ -50,13 +55,27 @@ export class Touch extends Events.EventEmitter {
             if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
                 this._x = nTouch.pageX;
                 this._y = nTouch.pageY;
-                this.emit(TouchEvents.TouchMoved, this, { x: this._x, y: this._y });
+
+                let e: TouchMoveEvent = {
+                    type: TouchEvents.TouchMoved,
+                    source: this,
+                    position: {
+                        x: this._x,
+                        y: this._y
+                    }
+                }
+
+                this.emit(TouchEvents.TouchMoved, e);
             }
         }
     }
 
     private _disconnect() {
-        this.emit(TouchEvents.TouchRemoved, this);
+        let e: Event = {
+            source: this,
+            type: TouchEvents.TouchRemoved
+        }
+        this.emit(TouchEvents.TouchRemoved, e);
         window.removeEventListener("touchmove", this._touchMoveListener);
         window.removeEventListener("touchend", this._touchEndListener);
     }

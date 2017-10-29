@@ -7,10 +7,11 @@ import {Iterator, Camera} from "../../src/utils/src/";
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/src/";
 import Character from "./Character";
 import { EntityEventTypes, LocationUpdateEvent } from "../../src/entities/src/";
-import { Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove } from "../../src/inputs/src/Mouse";
-import { keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys } from "../../src/inputs/src/Keyboard";
-import { GamePadListener, GamePadListenerEvents } from "../../src/inputs/src/GamepadListener";
-import { GamePad, GamePadEvents } from "../../src/inputs/src/GamePad";
+import {
+    Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
+    Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
+    GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
+} from "../../src/inputs/src/";
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
@@ -278,6 +279,7 @@ class PalletDemo extends Engine {
                     console.log("GameaPad Disconnected");
                 });
 
+                var keyboard = Keyboard.getInstance();
 				keyboard.on(KeyboardEvents.KeyDown, (e: KeyDown) => {
 					switch(e.key) {
 						case KeyboardKeys.W:
@@ -310,7 +312,7 @@ class PalletDemo extends Engine {
     }
 
     private attachGamepad(gamePad: GamePad): void {
-        gamePad.on(GamePadEvents.AxisValueChange, (axisId: number, newValue: number) => {
+        gamePad.on(GamePadEvents.AxisValueChange, (e: ValueChangeEvent) => {
             //console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1), axisId, newValue);
             if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
                 this.player.x += Math.floor(gamePad.getAxis(0) * 10);
@@ -329,7 +331,9 @@ class PalletDemo extends Engine {
             }
         });
 
-        gamePad.on(GamePadEvents.ButtonValueChange, (buttonId: number, newValue: number) => {
+        gamePad.on(GamePadEvents.ButtonValueChange, (e: ValueChangeEvent) => {
+            var buttonId = e.id;
+            var newValue = e.value;
             console.log(buttonId);
             console.log(newValue);
             if (buttonId === 12) {

@@ -2,8 +2,7 @@ import Engine from "../../src/core/src/Engine";
 import { TwoDimensionalRenderingEngine, GroupLogicEngine } from "../../src/engines/src";
 import { Entity, LocationUpdateEvent } from "../../src/entities/src";
 import { Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter } from "../../src/utils/src";
-import { TouchListener, TouchListenerEvents } from "../../src/inputs/src/TouchListener";
-import { Touch, TouchEvents } from "../../src/inputs/src/Touch";
+import { TouchListener, TouchListenerEvents, Touch, TouchEvents, TouchMoveEvent } from "../../src/inputs/src/";
 
 class TouchDemo extends Engine {
     private _minDimension: number;
@@ -45,10 +44,11 @@ class TouchDemo extends Engine {
             block.height = 50;
             this._container.addChild(block);
 
-            touch.on(TouchEvents.TouchMoved, (touch: Touch, position: any) => {
+            touch.on(TouchEvents.TouchMoved, (e: TouchMoveEvent) => {
                 //Move Block related to this touch object
                 console.log("Touch moved");
-                console.log(position);
+                var position = e.position;
+                //console.log(position);
                 block.x = position.x - 25;
                 block.y = position.y -25;
             });

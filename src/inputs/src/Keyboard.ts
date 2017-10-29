@@ -135,9 +135,10 @@ export interface KeyDown extends Event {
     key: number;
 }
 
-class Keyboard extends Events.EventEmitter {
+export class Keyboard extends Events.EventEmitter {
     private _buttonMap : {[key: string]: any}; //Mapping of Button Values
     private _buttonsActive : {[key: string]: boolean};//Mapping of Buttons that are actively being used by the user right now (Ex: Keyboard button down)
+    private static _instance: Keyboard;
 
     constructor () {
         super();
@@ -150,12 +151,12 @@ class Keyboard extends Events.EventEmitter {
                 this._setButtonValue(e.which, true);
 
                 let event : KeyUp = {
-                    type: KeyboardEvents.KeyDown.toString(),
+                    type: KeyboardEvents.KeyDown,
                     source: this,
                     key: e.which
                 };
 
-                this.emit(KeyboardEvents.KeyDown.toString(), event);
+                this.emit(KeyboardEvents.KeyDown, event);
             }
         }, true);
 
@@ -164,12 +165,12 @@ class Keyboard extends Events.EventEmitter {
             this._setButtonValue(e.which, false);
 
             let event : KeyDown = {
-                type: KeyboardEvents.KeyUp.toString(),
+                type: KeyboardEvents.KeyUp,
                 source: this,
                 key: e.which
             };
 
-            this.emit(KeyboardEvents.KeyUp.toString(), event);
+            this.emit(KeyboardEvents.KeyUp, event);
         }, true);
     }
 
@@ -188,6 +189,9 @@ class Keyboard extends Events.EventEmitter {
     protected _setButtonValue (id: number, value: any) : void {
         this._buttonMap[id] = value;
     }
-}
 
-export let keyboard = new Keyboard();
+    static getInstance(): Keyboard {
+        Keyboard._instance = Keyboard._instance || new Keyboard();
+        return Keyboard._instance;
+    }
+}

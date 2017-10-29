@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,17 +72,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(6);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(14);
+var Camera_1 = __webpack_require__(15);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(15);
+var IDGenerator_1 = __webpack_require__(16);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(16);
+var Iterator_1 = __webpack_require__(17);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(17);
+var LogManager_1 = __webpack_require__(18);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(18);
+var ViewPort_1 = __webpack_require__(19);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(19);
+var CollisionEmitter_1 = __webpack_require__(20);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
@@ -93,27 +93,27 @@ exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(21);
+var Asset_1 = __webpack_require__(22);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(22);
+var AssetType_1 = __webpack_require__(23);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(23);
+var AssetState_1 = __webpack_require__(24);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(24);
+var AssetFactory_1 = __webpack_require__(25);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(25);
+var AssetLoader_1 = __webpack_require__(26);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(26);
+var AudioLoader_1 = __webpack_require__(27);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(27);
+var ImageLoader_1 = __webpack_require__(28);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(28);
+var JSONLoader_1 = __webpack_require__(29);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(29);
+var TextAssetBuilder_1 = __webpack_require__(30);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(30);
+var Spritesheet_1 = __webpack_require__(31);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(31);
+var Animation_1 = __webpack_require__(32);
 exports.Animation = Animation_1.Animation;
 
 
@@ -124,27 +124,27 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(49);
+var Asset_1 = __webpack_require__(50);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(50);
+var AssetType_1 = __webpack_require__(51);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(51);
+var AssetState_1 = __webpack_require__(52);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(52);
+var AssetFactory_1 = __webpack_require__(53);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(53);
+var AssetLoader_1 = __webpack_require__(54);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(54);
+var AudioLoader_1 = __webpack_require__(55);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(55);
+var ImageLoader_1 = __webpack_require__(56);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(56);
+var JSONLoader_1 = __webpack_require__(57);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(57);
+var TextAssetBuilder_1 = __webpack_require__(58);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(58);
+var Spritesheet_1 = __webpack_require__(59);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(59);
+var Animation_1 = __webpack_require__(60);
 exports.Animation = Animation_1.Animation;
 
 
@@ -463,13 +463,13 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(33);
+var LogicEngine_1 = __webpack_require__(34);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(34);
+var GroupLogicEngine_1 = __webpack_require__(35);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(35);
+var RenderingEngine_1 = __webpack_require__(36);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(36);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(37);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -482,13 +482,13 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_1 = __webpack_require__(9);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(39);
+var EntityModel_1 = __webpack_require__(40);
 exports.EntityModel = EntityModel_1.EntityModel;
 var EntityView_1 = __webpack_require__(10);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(40);
+var EntityView2D_1 = __webpack_require__(41);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(41);
+var GridMap_1 = __webpack_require__(42);
 exports.GridMap = GridMap_1.GridMap;
 
 
@@ -1540,16 +1540,107 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(13);
+var Events = __webpack_require__(3);
+var GamePad = (function (_super) {
+    __extends(GamePad, _super);
+    function GamePad(id) {
+        var _this = _super.call(this) || this;
+        _this._pollRate = 15;
+        _this._buttons = [];
+        _this._axes = [];
+        _this._gamePadID = id;
+        var gamePad = navigator.getGamepads()[id];
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            _this._buttons.push(gamePad.buttons[i].value);
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            _this._axes.push(gamePad.axes[i]);
+        }
+        _this._initializePolling();
+        return _this;
+    }
+    GamePad.prototype.getAxis = function (index) {
+        return this._axes[index];
+    };
+    GamePad.prototype.setPollRate = function (pollRate) {
+        this._pollRate = pollRate;
+        this._initializePolling();
+    };
+    GamePad.prototype._initializePolling = function () {
+        if (this._pollTimer) {
+            clearInterval(this._pollTimer);
+        }
+        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
+    };
+    GamePad.prototype._poll = function () {
+        var gamePad = navigator.getGamepads()[this._gamePadID];
+        if (!gamePad) {
+            this._disconnect();
+            return null;
+        }
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            if (gamePad.buttons[i].value != this._buttons[i]) {
+                this._buttons[i] = gamePad.buttons[i].value;
+                var e = {
+                    source: this,
+                    type: "BUTTONVALUECHANGE",
+                    value: gamePad.buttons[i].value,
+                    id: i
+                };
+                this.emit("BUTTONVALUECHANGE", e);
+            }
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            if (gamePad.axes[i] != this._axes[i]) {
+                this._axes[i] = gamePad.axes[i];
+                var e = {
+                    source: this,
+                    type: "AXISVALUECHANGE",
+                    value: gamePad.axes[i],
+                    id: i
+                };
+                this.emit("AXISVALUECHANGE", e);
+            }
+        }
+    };
+    GamePad.prototype._disconnect = function () {
+        clearInterval(this._pollTimer);
+        var e = {
+            source: this,
+            type: "AXISVALUECHANGE"
+        };
+        this.emit("DISCONNECT", e);
+    };
+    return GamePad;
+}(Events.EventEmitter));
+exports.GamePad = GamePad;
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Engine_1 = __webpack_require__(14);
 var _1 = __webpack_require__(4);
-var _2 = __webpack_require__(37);
+var _2 = __webpack_require__(38);
 var _3 = __webpack_require__(5);
-var _4 = __webpack_require__(42);
+var _4 = __webpack_require__(43);
 var _5 = __webpack_require__(2);
-var Character_1 = __webpack_require__(60);
-var Mouse_1 = __webpack_require__(61);
-var Keyboard_1 = __webpack_require__(62);
-var GamepadListener_1 = __webpack_require__(63);
+var Character_1 = __webpack_require__(61);
+var _6 = __webpack_require__(62);
 var PalletDemo = (function (_super) {
     __extends(PalletDemo, _super);
     function PalletDemo() {
@@ -1640,7 +1731,7 @@ var PalletDemo = (function (_super) {
                 var camera = new _4.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
                 _this._mainCamera = camera;
                 _this.renderingEngine.addCamera(camera);
-                var mouse = Mouse_1.Mouse.getInstance();
+                var mouse = _6.Mouse.getInstance();
                 mouse.on("SCROLLWHEELMOVE", function (e) {
                     var fov = camera.fov;
                     var viewPoint = camera.viewPoint;
@@ -1730,7 +1821,7 @@ var PalletDemo = (function (_super) {
                         layer.addChild(newPokeball);
                     }
                 }, 50);
-                var gamepadListener = GamepadListener_1.GamePadListener.getInstance();
+                var gamepadListener = _6.GamePadListener.getInstance();
                 if (gamepadListener.hasGamePads()) {
                     console.log("GamePadConnected");
                     var gamePads = gamepadListener.getGamePads();
@@ -1745,28 +1836,29 @@ var PalletDemo = (function (_super) {
                 gamepadListener.on("GAMEPADREMOVED", function (gamePad) {
                     console.log("GameaPad Disconnected");
                 });
-                Keyboard_1.keyboard.on("KEYDOWN", function (e) {
+                var keyboard = _6.Keyboard.getInstance();
+                keyboard.on("KEYDOWN", function (e) {
                     switch (e.key) {
-                        case Keyboard_1.KeyboardKeys.W:
+                        case _6.KeyboardKeys.W:
                             _this._direction = 'up';
                             break;
-                        case Keyboard_1.KeyboardKeys.A:
+                        case _6.KeyboardKeys.A:
                             _this._direction = "left";
                             break;
-                        case Keyboard_1.KeyboardKeys.S:
+                        case _6.KeyboardKeys.S:
                             _this._direction = "down";
                             break;
-                        case Keyboard_1.KeyboardKeys.D:
+                        case _6.KeyboardKeys.D:
                             _this._direction = "right";
                             break;
                     }
                 });
-                Keyboard_1.keyboard.on("KEYUP", function (e) {
+                keyboard.on("KEYUP", function (e) {
                     switch (e.key) {
-                        case Keyboard_1.KeyboardKeys.W:
-                        case Keyboard_1.KeyboardKeys.A:
-                        case Keyboard_1.KeyboardKeys.S:
-                        case Keyboard_1.KeyboardKeys.D:
+                        case _6.KeyboardKeys.W:
+                        case _6.KeyboardKeys.A:
+                        case _6.KeyboardKeys.S:
+                        case _6.KeyboardKeys.D:
                             _this._direction = null;
                             break;
                     }
@@ -1776,7 +1868,7 @@ var PalletDemo = (function (_super) {
     };
     PalletDemo.prototype.attachGamepad = function (gamePad) {
         var _this = this;
-        gamePad.on("AXISVALUECHANGE", function (axisId, newValue) {
+        gamePad.on("AXISVALUECHANGE", function (e) {
             if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
                 _this.player.x += Math.floor(gamePad.getAxis(0) * 10);
             }
@@ -1790,7 +1882,9 @@ var PalletDemo = (function (_super) {
                 _this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
             }
         });
-        gamePad.on("BUTTONVALUECHANGE", function (buttonId, newValue) {
+        gamePad.on("BUTTONVALUECHANGE", function (e) {
+            var buttonId = e.id;
+            var newValue = e.value;
             console.log(buttonId);
             console.log(newValue);
             if (buttonId === 12) {
@@ -1960,14 +2054,14 @@ window._PalletDemo = new PalletDemo();
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(20);
+var audio_1 = __webpack_require__(21);
 var assets_1 = __webpack_require__(1);
 var Engine = (function () {
     function Engine() {
@@ -1999,7 +2093,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2019,7 +2113,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2046,7 +2140,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2100,7 +2194,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2150,7 +2244,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2266,7 +2360,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2340,7 +2434,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2348,12 +2442,12 @@ exports.CollisionEmitter = CollisionEmitter;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(7);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(32);
+var HTML5AudioEngine_1 = __webpack_require__(33);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2431,7 +2525,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2447,7 +2541,7 @@ var AssetType;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2462,7 +2556,7 @@ var AssetState;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2569,7 +2663,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2635,7 +2729,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2687,7 +2781,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2726,7 +2820,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2758,7 +2852,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2792,7 +2886,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2831,7 +2925,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2927,7 +3021,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3056,7 +3150,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3071,7 +3165,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3158,7 +3252,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3242,7 +3336,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3407,7 +3501,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3415,12 +3509,12 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(8);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(38);
+var HTML5AudioEngine_1 = __webpack_require__(39);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3549,7 +3643,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3637,7 +3731,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3665,7 +3759,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3719,7 +3813,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3727,22 +3821,22 @@ exports.GridMap = GridMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(11);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(43);
+var Camera_1 = __webpack_require__(44);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(44);
+var IDGenerator_1 = __webpack_require__(45);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(45);
+var Iterator_1 = __webpack_require__(46);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(46);
+var LogManager_1 = __webpack_require__(47);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(47);
+var ViewPort_1 = __webpack_require__(48);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(48);
+var CollisionEmitter_1 = __webpack_require__(49);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3762,7 +3856,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3789,7 +3883,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3843,7 +3937,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3893,7 +3987,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4009,7 +4103,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4083,7 +4177,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4161,7 +4255,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4177,7 +4271,7 @@ var AssetType;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4192,7 +4286,7 @@ var AssetState;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4299,7 +4393,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4365,7 +4459,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4417,7 +4511,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4456,7 +4550,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4488,7 +4582,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4522,7 +4616,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4561,7 +4655,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4657,7 +4751,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4830,7 +4924,286 @@ exports.default = Character;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var GamePadListener_1 = __webpack_require__(63);
+exports.GamePadListener = GamePadListener_1.GamePadListener;
+var GamePad_1 = __webpack_require__(12);
+exports.GamePad = GamePad_1.GamePad;
+var Keyboard_1 = __webpack_require__(64);
+exports.Keyboard = Keyboard_1.Keyboard;
+exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
+var Mouse_1 = __webpack_require__(65);
+exports.Mouse = Mouse_1.Mouse;
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var GamePad_1 = __webpack_require__(12);
+var Events = __webpack_require__(3);
+var GamePadListener = (function (_super) {
+    __extends(GamePadListener, _super);
+    function GamePadListener() {
+        var _this = _super.call(this) || this;
+        if (navigator.getGamepads) {
+            _this._buildGamePads();
+            _this._gamePadPollTimer = window.setInterval(function () {
+                var gamePads = navigator.getGamepads();
+                for (var i = 0; i < gamePads.length; i++) {
+                    if (gamePads[i] && !_this._activeGamePads[i]) {
+                        var gamePad = _this._buildGamePad(i);
+                        _this.emit("GAMEPADADDED", gamePad);
+                    }
+                    else if (!gamePads[i] && _this._activeGamePads[i]) {
+                        var gamePad = _this._activeGamePads[i];
+                        delete _this._activeGamePads[i];
+                        _this.emit("GAMEPADREMOVED", gamePad);
+                    }
+                }
+            }, 15);
+        }
+        else {
+            console.log("Browser does not support GamePad API");
+        }
+        return _this;
+    }
+    GamePadListener.prototype._buildGamePads = function () {
+        var gamePads = navigator.getGamepads();
+        this._activeGamePads = [];
+        for (var i = 0; i < gamePads.length; i++) {
+            if (gamePads[i]) {
+                this._buildGamePad(i);
+            }
+        }
+    };
+    GamePadListener.prototype._buildGamePad = function (index) {
+        var gamePad = new GamePad_1.GamePad(index);
+        this._activeGamePads[index] = gamePad;
+        return gamePad;
+    };
+    GamePadListener.getInstance = function () {
+        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
+        return GamePadListener._instance;
+    };
+    GamePadListener.prototype.hasGamePads = function () {
+        return this._activeGamePads.length > 0;
+    };
+    GamePadListener.prototype.getGamePads = function () {
+        return this._activeGamePads;
+    };
+    return GamePadListener;
+}(Events.EventEmitter));
+exports.GamePadListener = GamePadListener;
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(3);
+exports.KeyboardKeys = {
+    0: 48,
+    1: 49,
+    2: 50,
+    3: 51,
+    4: 52,
+    5: 53,
+    6: 54,
+    7: 55,
+    8: 56,
+    9: 57,
+    "BREAK": 3,
+    "BACKSPACE": 8,
+    "TAB": 9,
+    "CLEAR": 12,
+    "ENTER": 13,
+    "SHIFT": 16,
+    "CTRL": 17,
+    "ALT": 18,
+    "PAUSE": 19,
+    "CAPSLOCK": 20,
+    "ESCAPE": 27,
+    "SPACEBAR": 32,
+    "PAGEUP": 33,
+    "PAGEDOWN": 34,
+    "END": 35,
+    "HOME": 36,
+    "LEFTARROW": 37,
+    "UPARROW": 38,
+    "RIGHTARROW": 39,
+    "DOWNARROW": 40,
+    "SELECT": 41,
+    "PRINT": 42,
+    "EXECUTE": 43,
+    "PRINTSCREEN": 44,
+    "INSERT": 45,
+    "DELETE": 46,
+    "COLON": 58,
+    "SEMICOLON": 59,
+    "LESSTHAN": 60,
+    "EQUALS": 61,
+    "AMPERSAT": 64,
+    "A": 65,
+    "B": 66,
+    "C": 67,
+    "D": 68,
+    "E": 69,
+    "F": 70,
+    "G": 71,
+    "H": 72,
+    "I": 73,
+    "J": 74,
+    "K": 75,
+    "L": 76,
+    "M": 77,
+    "N": 78,
+    "O": 79,
+    "P": 80,
+    "Q": 81,
+    "R": 82,
+    "S": 83,
+    "T": 84,
+    "U": 85,
+    "V": 86,
+    "W": 87,
+    "X": 88,
+    "Y": 89,
+    "Z": 90,
+    "WINDOWSKEY": 91,
+    "RIGHTWINDOWSKEY": 92,
+    "WINDOWSMENU": 93,
+    "NUM0": 96,
+    "NUM1": 97,
+    "NUM2": 98,
+    "NUM3": 99,
+    "NUM4": 100,
+    "NUM5": 101,
+    "NUM6": 102,
+    "NUM7": 103,
+    "NUM8": 104,
+    "NUM9": 105,
+    "NUMMULTIPLY": 106,
+    "NUMADD": 107,
+    "NUMPERIOUD": 108,
+    "NUMSUBTRACT": 109,
+    "DECIMALPOINT": 110,
+    "NUMDIVIDE": 111,
+    "F1": 112,
+    "F2": 113,
+    "F3": 114,
+    "F4": 115,
+    "F5": 116,
+    "F6": 117,
+    "F7": 118,
+    "F8": 119,
+    "F9": 120,
+    "F10": 121,
+    "F11": 122,
+    "F12": 123,
+    "F13": 124,
+    "F14": 125,
+    "F15": 126,
+    "F16": 127,
+    "F17": 128,
+    "F18": 129,
+    "F19": 130,
+    "F20": 131,
+    "F21": 132,
+    "F22": 133,
+    "F23": 134,
+    "F24": 135,
+    "NUMLOCK": 144,
+    "SCROLLLOCK": 145,
+    "CARET": 160,
+    "EXCLAMATION": 161,
+    "POUND": 163,
+    "MONEYSIGN": 164,
+};
+var Keyboard = (function (_super) {
+    __extends(Keyboard, _super);
+    function Keyboard() {
+        var _this = _super.call(this) || this;
+        _this._buttonMap = {};
+        _this._buttonsActive = {};
+        window.addEventListener("keydown", function (e) {
+            if (!_this.isButtonActive(e.which)) {
+                _this._setButtonActive(e.which, true);
+                _this._setButtonValue(e.which, true);
+                var event_1 = {
+                    type: "KEYDOWN",
+                    source: _this,
+                    key: e.which
+                };
+                _this.emit("KEYDOWN", event_1);
+            }
+        }, true);
+        window.addEventListener("keyup", function (e) {
+            _this._setButtonActive(e.which, false);
+            _this._setButtonValue(e.which, false);
+            var event = {
+                type: "KEYUP",
+                source: _this,
+                key: e.which
+            };
+            _this.emit("KEYUP", event);
+        }, true);
+        return _this;
+    }
+    Keyboard.prototype._setButtonActive = function (id, active) {
+        this._buttonsActive[id] = active;
+    };
+    Keyboard.prototype.isButtonActive = function (id) {
+        return this._buttonsActive[id] === true;
+    };
+    Keyboard.prototype.getButtonValue = function (id) {
+        return this._buttonMap[id];
+    };
+    Keyboard.prototype._setButtonValue = function (id, value) {
+        this._buttonMap[id] = value;
+    };
+    Keyboard.getInstance = function () {
+        Keyboard._instance = Keyboard._instance || new Keyboard();
+        return Keyboard._instance;
+    };
+    return Keyboard;
+}(Events.EventEmitter));
+exports.Keyboard = Keyboard;
+
+
+/***/ }),
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4978,340 +5351,6 @@ var Mouse = (function (_super) {
     return Mouse;
 }(Events.EventEmitter));
 exports.Mouse = Mouse;
-
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
-exports.KeyboardKeys = {
-    0: 48,
-    1: 49,
-    2: 50,
-    3: 51,
-    4: 52,
-    5: 53,
-    6: 54,
-    7: 55,
-    8: 56,
-    9: 57,
-    "BREAK": 3,
-    "BACKSPACE": 8,
-    "TAB": 9,
-    "CLEAR": 12,
-    "ENTER": 13,
-    "SHIFT": 16,
-    "CTRL": 17,
-    "ALT": 18,
-    "PAUSE": 19,
-    "CAPSLOCK": 20,
-    "ESCAPE": 27,
-    "SPACEBAR": 32,
-    "PAGEUP": 33,
-    "PAGEDOWN": 34,
-    "END": 35,
-    "HOME": 36,
-    "LEFTARROW": 37,
-    "UPARROW": 38,
-    "RIGHTARROW": 39,
-    "DOWNARROW": 40,
-    "SELECT": 41,
-    "PRINT": 42,
-    "EXECUTE": 43,
-    "PRINTSCREEN": 44,
-    "INSERT": 45,
-    "DELETE": 46,
-    "COLON": 58,
-    "SEMICOLON": 59,
-    "LESSTHAN": 60,
-    "EQUALS": 61,
-    "AMPERSAT": 64,
-    "A": 65,
-    "B": 66,
-    "C": 67,
-    "D": 68,
-    "E": 69,
-    "F": 70,
-    "G": 71,
-    "H": 72,
-    "I": 73,
-    "J": 74,
-    "K": 75,
-    "L": 76,
-    "M": 77,
-    "N": 78,
-    "O": 79,
-    "P": 80,
-    "Q": 81,
-    "R": 82,
-    "S": 83,
-    "T": 84,
-    "U": 85,
-    "V": 86,
-    "W": 87,
-    "X": 88,
-    "Y": 89,
-    "Z": 90,
-    "WINDOWSKEY": 91,
-    "RIGHTWINDOWSKEY": 92,
-    "WINDOWSMENU": 93,
-    "NUM0": 96,
-    "NUM1": 97,
-    "NUM2": 98,
-    "NUM3": 99,
-    "NUM4": 100,
-    "NUM5": 101,
-    "NUM6": 102,
-    "NUM7": 103,
-    "NUM8": 104,
-    "NUM9": 105,
-    "NUMMULTIPLY": 106,
-    "NUMADD": 107,
-    "NUMPERIOUD": 108,
-    "NUMSUBTRACT": 109,
-    "DECIMALPOINT": 110,
-    "NUMDIVIDE": 111,
-    "F1": 112,
-    "F2": 113,
-    "F3": 114,
-    "F4": 115,
-    "F5": 116,
-    "F6": 117,
-    "F7": 118,
-    "F8": 119,
-    "F9": 120,
-    "F10": 121,
-    "F11": 122,
-    "F12": 123,
-    "F13": 124,
-    "F14": 125,
-    "F15": 126,
-    "F16": 127,
-    "F17": 128,
-    "F18": 129,
-    "F19": 130,
-    "F20": 131,
-    "F21": 132,
-    "F22": 133,
-    "F23": 134,
-    "F24": 135,
-    "NUMLOCK": 144,
-    "SCROLLLOCK": 145,
-    "CARET": 160,
-    "EXCLAMATION": 161,
-    "POUND": 163,
-    "MONEYSIGN": 164,
-};
-var Keyboard = (function (_super) {
-    __extends(Keyboard, _super);
-    function Keyboard() {
-        var _this = _super.call(this) || this;
-        _this._buttonMap = {};
-        _this._buttonsActive = {};
-        window.addEventListener("keydown", function (e) {
-            if (!_this.isButtonActive(e.which)) {
-                _this._setButtonActive(e.which, true);
-                _this._setButtonValue(e.which, true);
-                var event_1 = {
-                    type: "KEYDOWN".toString(),
-                    source: _this,
-                    key: e.which
-                };
-                _this.emit("KEYDOWN".toString(), event_1);
-            }
-        }, true);
-        window.addEventListener("keyup", function (e) {
-            _this._setButtonActive(e.which, false);
-            _this._setButtonValue(e.which, false);
-            var event = {
-                type: "KEYUP".toString(),
-                source: _this,
-                key: e.which
-            };
-            _this.emit("KEYUP".toString(), event);
-        }, true);
-        return _this;
-    }
-    Keyboard.prototype._setButtonActive = function (id, active) {
-        this._buttonsActive[id] = active;
-    };
-    Keyboard.prototype.isButtonActive = function (id) {
-        return this._buttonsActive[id] === true;
-    };
-    Keyboard.prototype.getButtonValue = function (id) {
-        return this._buttonMap[id];
-    };
-    Keyboard.prototype._setButtonValue = function (id, value) {
-        this._buttonMap[id] = value;
-    };
-    return Keyboard;
-}(Events.EventEmitter));
-exports.keyboard = new Keyboard();
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(64);
-var Events = __webpack_require__(3);
-var GamePadListener = (function (_super) {
-    __extends(GamePadListener, _super);
-    function GamePadListener() {
-        var _this = _super.call(this) || this;
-        if (navigator.getGamepads) {
-            _this._buildGamePads();
-            _this._gamePadPollTimer = window.setInterval(function () {
-                var gamePads = navigator.getGamepads();
-                for (var i = 0; i < gamePads.length; i++) {
-                    if (gamePads[i] && !_this._activeGamePads[i]) {
-                        var gamePad = _this._buildGamePad(i);
-                        _this.emit("GAMEPADADDED", gamePad);
-                    }
-                    else if (!gamePads[i] && _this._activeGamePads[i]) {
-                        var gamePad = _this._activeGamePads[i];
-                        delete _this._activeGamePads[i];
-                        _this.emit("GAMEPADREMOVED", gamePad);
-                    }
-                }
-            }, 15);
-        }
-        else {
-            console.log("Browser does not support GamePad API");
-        }
-        return _this;
-    }
-    GamePadListener.prototype._buildGamePads = function () {
-        var gamePads = navigator.getGamepads();
-        this._activeGamePads = [];
-        for (var i = 0; i < gamePads.length; i++) {
-            if (gamePads[i]) {
-                this._buildGamePad(i);
-            }
-        }
-    };
-    GamePadListener.prototype._buildGamePad = function (index) {
-        var gamePad = new GamePad_1.GamePad(index);
-        this._activeGamePads[index] = gamePad;
-        return gamePad;
-    };
-    GamePadListener.getInstance = function () {
-        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
-        return GamePadListener._instance;
-    };
-    GamePadListener.prototype.hasGamePads = function () {
-        return this._activeGamePads.length > 0;
-    };
-    GamePadListener.prototype.getGamePads = function () {
-        return this._activeGamePads;
-    };
-    return GamePadListener;
-}(Events.EventEmitter));
-exports.GamePadListener = GamePadListener;
-
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
-var GamePad = (function (_super) {
-    __extends(GamePad, _super);
-    function GamePad(id) {
-        var _this = _super.call(this) || this;
-        _this._pollRate = 15;
-        _this._buttons = [];
-        _this._axes = [];
-        _this._gamePadID = id;
-        var gamePad = navigator.getGamepads()[id];
-        for (var i = 0; i < gamePad.buttons.length; i++) {
-            _this._buttons.push(gamePad.buttons[i].value);
-        }
-        for (var i = 0; i < gamePad.axes.length; i++) {
-            _this._axes.push(gamePad.axes[i]);
-        }
-        _this._initializePolling();
-        return _this;
-    }
-    GamePad.prototype.getAxis = function (index) {
-        return this._axes[index];
-    };
-    GamePad.prototype.setPollRate = function (pollRate) {
-        this._pollRate = pollRate;
-        this._initializePolling();
-    };
-    GamePad.prototype._initializePolling = function () {
-        if (this._pollTimer) {
-            clearInterval(this._pollTimer);
-        }
-        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
-    };
-    GamePad.prototype._poll = function () {
-        var gamePad = navigator.getGamepads()[this._gamePadID];
-        if (!gamePad) {
-            this._disconnect();
-            return null;
-        }
-        for (var i = 0; i < gamePad.buttons.length; i++) {
-            if (gamePad.buttons[i].value != this._buttons[i]) {
-                this._buttons[i] = gamePad.buttons[i].value;
-                this.emit("BUTTONVALUECHANGE", i, gamePad.buttons[i].value);
-            }
-        }
-        for (var i = 0; i < gamePad.axes.length; i++) {
-            if (gamePad.axes[i] != this._axes[i]) {
-                this._axes[i] = gamePad.axes[i];
-                this.emit("AXISVALUECHANGE", i, gamePad.axes[i]);
-            }
-        }
-    };
-    GamePad.prototype._disconnect = function () {
-        clearInterval(this._pollTimer);
-        this.emit("DISCONNECT", this);
-    };
-    return GamePad;
-}(Events.EventEmitter));
-exports.GamePad = GamePad;
 
 
 /***/ })
