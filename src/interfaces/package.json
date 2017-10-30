@@ -1,6 +1,6 @@
 {
     "name": "@jiggy/interfaces",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Interfaces package of the @jiggy engine",
     "main": "./dist/interfaces/src/index.js",
     "types": "./src/index.ts",

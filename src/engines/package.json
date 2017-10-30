@@ -1,6 +1,6 @@
 {
     "name": "@jiggy/engines",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Engines package of the @jiggy engine",
     "main": "./dist/engines/src/index.js",
     "types": "./src/index.ts",
@@ -9,8 +9,8 @@
     },
     "author": "Kyle Williams <kyle@kylewilliams.io",
     "peerDependencies": {
-        "@jiggy/entities": "0.0.3",
-        "@jiggy/utils": "0.0.3"
+        "@jiggy/entities": "0.0.4",
+        "@jiggy/utils": "0.0.4"
     },
     "dependencies": {
         "@types/node": "^8.0.47"
