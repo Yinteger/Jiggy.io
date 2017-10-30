@@ -6,9 +6,9 @@ export class ViewPort extends Events.EventEmitter {
 	public canvas : HTMLCanvasElement;
 	public context : CanvasRenderingContext2D;
 	public resizable : boolean;
-	private _autoSize : boolean;
-	private _autoSizeTimer : any;
-	private _dimension : Dimension;
+    private _filledPage : boolean;
+    private _dimension: Dimension;
+    private _resizeListener: () => void;
 
 	public constructor () {
 		super();
@@ -16,28 +16,34 @@ export class ViewPort extends Events.EventEmitter {
 		this.context = this.canvas.getContext('2d');
 		this.resizable = false;
 		this._dimension = {width: 0, height: 0};
-		this.autoSize = false; //Auto sizes View
+        this._filledPage = false;
 	}
 
 	public setScale (dimension : Dimension) : void {
 		this.context.scale(dimension.width, dimension.height);
 	}
 
-	public set autoSize (state: boolean) {
-		if (this._autoSizeTimer) {
-			clearInterval(this._autoSizeTimer);
-		}
+    public fillPage (state: boolean) {
+        console.log("Test, ", state);
+        this._filledPage = state;
+        if (state) {
+            this.canvas.style.position = "fixed";
+            this.canvas.style.top = "0px";
+            this.canvas.style.left = "0px";
 
-		if (state) {
-			this._checkForParentSizeChange();
-			this._autoSizeTimer = setInterval(() => {
-				this._checkForParentSizeChange();
-			}, 100);
-		}
+            this._fillPage();
+
+            this._resizeListener = this._fillPage.bind(this);
+            window.addEventListener("resize", this._resizeListener);
+        } else {
+            //Remove listener if one
+            this.canvas.style.position = "";
+            window.removeEventListener("reisze", this._resizeListener);
+        }
 	}
 
-	public get autoSize () : boolean {
-		return this._autoSize;
+	public isFilledPage () : boolean {
+        return this._filledPage;
 	}
 
 	get size () : Dimension {
@@ -93,26 +99,17 @@ export class ViewPort extends Events.EventEmitter {
 		image.src = this.canvas.toDataURL("image/png");
 		return image;
 		// return this.context.getImageData(0, 0, this.width, this.height);
-	}
+    }
 
-	private _checkForParentSizeChange ( ) : void {
-		if (this.canvas.parentNode) {
-			var size = this.size;
-			var parent = <HTMLElement> this.canvas.parentNode;
-			//TODO: Fix an issue with incrementing auto size and remove magic number
-			var parent_size : Dimension = {width: parent.offsetWidth, height: parent.offsetHeight-2};
-			if (size.width != parent_size.width || size.height != parent_size.height) {
-				this.size = {width: parent_size.width, height: parent_size.height};
-
-				let eventData : DimensionUpdateEvent = {
-					type: ViewPortEventTypes.DIMENSION_UPDATE.toString(),
-					oldDimensions: size,
-					newDimensions: parent_size,
-					source: this
-				};
-
-				this.emit(ViewPortEventTypes.DIMENSION_UPDATE.toString(), eventData);
-			}
-		}
-	}
+    private _fillPage() {
+        var newSize = { width: window.innerWidth, height: window.innerHeight };
+        let eventData: DimensionUpdateEvent = {
+            type: ViewPortEventTypes.DIMENSION_UPDATE.toString(),
+            oldDimensions: this.size,
+            newDimensions: newSize,
+            source: this
+        };
+        this.size = newSize;
+        this.emit(ViewPortEventTypes.DIMENSION_UPDATE.toString(), eventData);
+    }
 }

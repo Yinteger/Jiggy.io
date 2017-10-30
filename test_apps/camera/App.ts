@@ -19,7 +19,6 @@ class CameraDemo extends Engine {
         super();
         this._mouseIsIn = false;
 
-        this.viewPort.autoSize = true;
         this.renderingEngine = new TwoDimensionalRenderingEngine();
         this.logicEngine = new GroupLogicEngine();
 
@@ -43,7 +42,7 @@ class CameraDemo extends Engine {
         let pikachuLoaded : boolean = false;
 
         this.viewPort.on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
-
+        this.viewPort.fillPage(true);
         var background : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'resources/poke_background.jpg');
         var pikachu : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'resources/pikachu_small.png');
 

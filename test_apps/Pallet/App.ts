@@ -23,7 +23,8 @@ class PalletDemo extends Engine {
 
 	constructor () {
 		super();
-		this.viewPort.size = ({width: 500, height: 500});
+        //this.viewPort.size = ({ width: 500, height: 500 });
+        this.viewPort.autoSize = true;
 		this.renderingEngine = new TwoDimensionalRenderingEngine();
 		this.audioEngine = new HTML5AudioEngine();
 		this.logicEngine = new GroupLogicEngine();
