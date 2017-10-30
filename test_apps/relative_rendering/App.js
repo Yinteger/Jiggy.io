@@ -1518,7 +1518,6 @@ var RelativeDemo = (function (_super) {
     __extends(RelativeDemo, _super);
     function RelativeDemo() {
         var _this = _super.call(this) || this;
-        _this.viewPort.autoSize = true;
         _this.renderingEngine = new src_1.TwoDimensionalRenderingEngine();
         _this.audioEngine = new src_2.HTML5AudioEngine();
         _this.logicEngine = new src_1.GroupLogicEngine();
@@ -1548,6 +1547,7 @@ var RelativeDemo = (function (_super) {
             block3.addChild(block32);
         }
         _this.viewPort.on(0..toString(), _this._viewPortUpdated.bind(_this));
+        _this.viewPort.fillPage(true);
         _this.logicEngine.addLogic("collision", _this._moveBlocks.bind(_this), 25);
         return _this;
     }
@@ -1844,31 +1844,31 @@ var ViewPort = (function (_super) {
         _this.context = _this.canvas.getContext('2d');
         _this.resizable = false;
         _this._dimension = { width: 0, height: 0 };
-        _this.autoSize = false;
+        _this._filledPage = false;
         return _this;
     }
     ViewPort.prototype.setScale = function (dimension) {
         this.context.scale(dimension.width, dimension.height);
     };
-    Object.defineProperty(ViewPort.prototype, "autoSize", {
-        get: function () {
-            return this._autoSize;
-        },
-        set: function (state) {
-            var _this = this;
-            if (this._autoSizeTimer) {
-                clearInterval(this._autoSizeTimer);
-            }
-            if (state) {
-                this._checkForParentSizeChange();
-                this._autoSizeTimer = setInterval(function () {
-                    _this._checkForParentSizeChange();
-                }, 100);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    ViewPort.prototype.fillPage = function (state) {
+        console.log("Test, ", state);
+        this._filledPage = state;
+        if (state) {
+            this.canvas.style.position = "fixed";
+            this.canvas.style.top = "0px";
+            this.canvas.style.left = "0px";
+            this._fillPage();
+            this._resizeListener = this._fillPage.bind(this);
+            window.addEventListener("resize", this._resizeListener);
+        }
+        else {
+            this.canvas.style.position = "";
+            window.removeEventListener("reisze", this._resizeListener);
+        }
+    };
+    ViewPort.prototype.isFilledPage = function () {
+        return this._filledPage;
+    };
     Object.defineProperty(ViewPort.prototype, "size", {
         get: function () {
             return { width: this.canvas.offsetWidth, height: this.canvas.offsetHeight };
@@ -1912,22 +1912,16 @@ var ViewPort = (function (_super) {
         image.src = this.canvas.toDataURL("image/png");
         return image;
     };
-    ViewPort.prototype._checkForParentSizeChange = function () {
-        if (this.canvas.parentNode) {
-            var size = this.size;
-            var parent = this.canvas.parentNode;
-            var parent_size = { width: parent.offsetWidth, height: parent.offsetHeight - 2 };
-            if (size.width != parent_size.width || size.height != parent_size.height) {
-                this.size = { width: parent_size.width, height: parent_size.height };
-                var eventData = {
-                    type: 0..toString(),
-                    oldDimensions: size,
-                    newDimensions: parent_size,
-                    source: this
-                };
-                this.emit(0..toString(), eventData);
-            }
-        }
+    ViewPort.prototype._fillPage = function () {
+        var newSize = { width: window.innerWidth, height: window.innerHeight };
+        var eventData = {
+            type: 0..toString(),
+            oldDimensions: this.size,
+            newDimensions: newSize,
+            source: this
+        };
+        this.size = newSize;
+        this.emit(0..toString(), eventData);
     };
     return ViewPort;
 }(Events.EventEmitter));
@@ -3587,31 +3581,31 @@ var ViewPort = (function (_super) {
         _this.context = _this.canvas.getContext('2d');
         _this.resizable = false;
         _this._dimension = { width: 0, height: 0 };
-        _this.autoSize = false;
+        _this._filledPage = false;
         return _this;
     }
     ViewPort.prototype.setScale = function (dimension) {
         this.context.scale(dimension.width, dimension.height);
     };
-    Object.defineProperty(ViewPort.prototype, "autoSize", {
-        get: function () {
-            return this._autoSize;
-        },
-        set: function (state) {
-            var _this = this;
-            if (this._autoSizeTimer) {
-                clearInterval(this._autoSizeTimer);
-            }
-            if (state) {
-                this._checkForParentSizeChange();
-                this._autoSizeTimer = setInterval(function () {
-                    _this._checkForParentSizeChange();
-                }, 100);
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
+    ViewPort.prototype.fillPage = function (state) {
+        console.log("Test, ", state);
+        this._filledPage = state;
+        if (state) {
+            this.canvas.style.position = "fixed";
+            this.canvas.style.top = "0px";
+            this.canvas.style.left = "0px";
+            this._fillPage();
+            this._resizeListener = this._fillPage.bind(this);
+            window.addEventListener("resize", this._resizeListener);
+        }
+        else {
+            this.canvas.style.position = "";
+            window.removeEventListener("reisze", this._resizeListener);
+        }
+    };
+    ViewPort.prototype.isFilledPage = function () {
+        return this._filledPage;
+    };
     Object.defineProperty(ViewPort.prototype, "size", {
         get: function () {
             return { width: this.canvas.offsetWidth, height: this.canvas.offsetHeight };
@@ -3655,22 +3649,16 @@ var ViewPort = (function (_super) {
         image.src = this.canvas.toDataURL("image/png");
         return image;
     };
-    ViewPort.prototype._checkForParentSizeChange = function () {
-        if (this.canvas.parentNode) {
-            var size = this.size;
-            var parent = this.canvas.parentNode;
-            var parent_size = { width: parent.offsetWidth, height: parent.offsetHeight - 2 };
-            if (size.width != parent_size.width || size.height != parent_size.height) {
-                this.size = { width: parent_size.width, height: parent_size.height };
-                var eventData = {
-                    type: 0..toString(),
-                    oldDimensions: size,
-                    newDimensions: parent_size,
-                    source: this
-                };
-                this.emit(0..toString(), eventData);
-            }
-        }
+    ViewPort.prototype._fillPage = function () {
+        var newSize = { width: window.innerWidth, height: window.innerHeight };
+        var eventData = {
+            type: 0..toString(),
+            oldDimensions: this.size,
+            newDimensions: newSize,
+            source: this
+        };
+        this.size = newSize;
+        this.emit(0..toString(), eventData);
     };
     return ViewPort;
 }(Events.EventEmitter));

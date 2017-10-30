@@ -1726,7 +1726,7 @@ var PalletDemo = (function (_super) {
     function PalletDemo() {
         var _this = _super.call(this) || this;
         _this._direction = "";
-        _this.viewPort.size = ({ width: 500, height: 500 });
+        _this.viewPort.autoSize = true;
         _this.renderingEngine = new _1.TwoDimensionalRenderingEngine();
         _this.audioEngine = new _2.HTML5AudioEngine();
         _this.logicEngine = new _1.GroupLogicEngine();
@@ -5204,7 +5204,7 @@ exports.KeyboardKeys = {
     "NUM9": 105,
     "NUMMULTIPLY": 106,
     "NUMADD": 107,
-    "NUMPERIOUD": 108,
+    "NUMPERIOD": 108,
     "NUMSUBTRACT": 109,
     "DECIMALPOINT": 110,
     "NUMDIVIDE": 111,

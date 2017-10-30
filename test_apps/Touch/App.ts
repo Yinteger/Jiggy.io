@@ -16,7 +16,6 @@ class TouchDemo extends Engine {
 
     constructor() {
         super();
-        this.viewPort.autoSize = true;
         this.renderingEngine = new TwoDimensionalRenderingEngine();
         this.logicEngine = new GroupLogicEngine();
 
@@ -31,6 +30,7 @@ class TouchDemo extends Engine {
 
 
         this.viewPort.on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
+        this.viewPort.fillPage(true);
         this.logicEngine.addLogic("touch", this._touch.bind(this), 25);
 
         var touchListener = TouchListener.getInstance();

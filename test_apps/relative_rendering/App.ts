@@ -13,7 +13,6 @@ class RelativeDemo extends Engine {
 
     constructor () {
         super();
-        this.viewPort.autoSize = true;
         this.renderingEngine = new TwoDimensionalRenderingEngine();
         this.audioEngine = new HTML5AudioEngine();
         this.logicEngine = new GroupLogicEngine();
@@ -55,6 +54,7 @@ class RelativeDemo extends Engine {
         }
 
         this.viewPort.on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
+        this.viewPort.fillPage(true);
         // this._collisionEmitter.addCollisionListener(this._blockCollision.bind(this));
         this.logicEngine.addLogic("collision", this._moveBlocks.bind(this), 25);
     }
