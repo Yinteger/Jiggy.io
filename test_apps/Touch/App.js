@@ -3726,7 +3726,7 @@ exports.KeyboardKeys = {
     "NUM9": 105,
     "NUMMULTIPLY": 106,
     "NUMADD": 107,
-    "NUMPERIOUD": 108,
+    "NUMPERIOD": 108,
     "NUMSUBTRACT": 109,
     "DECIMALPOINT": 110,
     "NUMDIVIDE": 111,

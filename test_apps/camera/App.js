@@ -1537,7 +1537,6 @@ var Engine = (function () {
 }());
 exports.Engine = Engine;
 exports.default = Engine;
-console.log('ohhhh abby');
 
 
 /***/ }),

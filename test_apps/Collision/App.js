@@ -3702,6 +3702,7 @@ var ViewPort = (function (_super) {
     return ViewPort;
 }(Events.EventEmitter));
 exports.ViewPort = ViewPort;
+console.log('asdfasdfasdf');
 
 
 /***/ }),

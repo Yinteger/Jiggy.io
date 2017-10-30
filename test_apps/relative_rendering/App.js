@@ -1665,6 +1665,7 @@ var Engine = (function () {
 }());
 exports.Engine = Engine;
 exports.default = Engine;
+console.log('WTF from Engine');
 
 
 /***/ }),
@@ -3675,6 +3676,7 @@ var ViewPort = (function (_super) {
     return ViewPort;
 }(Events.EventEmitter));
 exports.ViewPort = ViewPort;
+console.log('asdfasdf from Viewport');
 
 
 /***/ }),
