@@ -18,7 +18,7 @@ module.exports = {
             "@jiggy/core" : Path.resolve("../../src/core/dist/core/src/index.js"),
             "@jiggy/engines" : Path.resolve("../../src/engines/dist/engines/src/index.js"),
             "@jiggy/entities" : Path.resolve("../../src/entities/dist/entities/src/index.js"),
-            "@jiggy/inputs" : Path.resolve("../../src/inputs/dist/index.js"), // This one is different, I think it is because it doesn't depend on other packages.
+            "@jiggy/inputs" : Path.resolve("../../src/inputs/dist/inputs/src/index.js"),
             "@jiggy/interfaces" : Path.resolve("../../src/interfaces/dist/index.js"),
             "@jiggy/utils" : Path.resolve("../../src/utils/dist/utils/src/index.js")
         }

@@ -2,7 +2,7 @@
     "name": "@jiggy/inputs",
     "version": "0.0.3",
     "description": "Inputs package of the @jiggy engine",
-    "main": "./dist/index.js",
+    "main": "./dist/inputs/src/index.js",
     "types": "./src/index.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
