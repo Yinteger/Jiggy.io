@@ -6,7 +6,7 @@ import {EntityModel, ModelEventTypes, EntityView, EntityEventTypes, LocationUpda
 import {Iterator} from "@jiggy/utils";
 
 export class Entity extends Events.EventEmitter {
-	public view : EntityView;
+	protected _view : EntityView;
 	protected _model : EntityModel;
 	protected _children : Entity[];
 	private _regions : Entity[][][];
@@ -17,7 +17,7 @@ export class Entity extends Events.EventEmitter {
 	private _notifierKeys : string[];
 	private _parentNotifierKeys : string[];
 	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
-	public collisionable : boolean;
+	private _collisionable : boolean;
 	private _eventEmitted : boolean;
 
 	public constructor (model? : EntityModel) {
@@ -40,8 +40,8 @@ export class Entity extends Events.EventEmitter {
 		}
 		
 		//TODO figure out how to decide what EntityView class we should use...
-		this.view = new EntityView(model);
-		this.model = model;
+		this._view = new EntityView(model);
+		this._model = model;
 		
 		this._children = new Array(); //Array to store all the children entities
 
@@ -50,7 +50,7 @@ export class Entity extends Events.EventEmitter {
 		this._regionDimension; //The dimensions of the regions for this Entity
 		this._regionList = {}; //Mapping of Children to Region(s) so we don't have to search
 
-		this.collisionable = false;
+		this._collisionable = false;
 		//Layer Management
 		// this.layers = [[]]; //Layers for rendering so children can be rendering in proper order
 		// this.layerList = {}; //Mapping of Children to Layers so we don't have to search
@@ -65,41 +65,49 @@ export class Entity extends Events.EventEmitter {
 		}
 	}
 
-	get ID () {
-		return this._model.ID;
+	public getID (): string {
+		return this._model.getID();
 	}
 
-	get parent () {
+	public getParent (): Entity {
 		return this._parent;
 	}
 
-	set parent (parent : Entity) {
+	public setParent (parent : Entity): void {
 		this._parent = parent;
 	}
 
-	get regions () {
+	public getRegions (): Entity[][][] {
 		return this._regions;
 	}
 
-	get regionDimension () {
+	public getRegionDimension (): Dimension {
 		return this._regionDimension;
 	}
 
-	get type () {
-		return this._model.type;
+	public getType (): string {
+		return this._model.getType();
 	}
 
-	set type (type: string) {
-		this._model.type = type;
+	public setType (type: string) {
+		this._model.setType(type);
 	}
 
-	get model ()   : EntityModel {
+	public setCollisionable(collisionable: boolean): void {
+		this._collisionable = collisionable;
+	}
+
+	public isCollisionable(): boolean {
+		return this._collisionable;
+	}
+
+	public getModel () : EntityModel {
 		return this._model;
 	}
 
-	set model (model : EntityModel) {
-		var view = this.view;
-		var oldModel = this.model;
+	public setModel (model : EntityModel): void {
+		var view = this._view;
+		var oldModel = this._model;
 
 		if (oldModel) {
 			// view.deattachListener(oldModel);
@@ -111,35 +119,35 @@ export class Entity extends Events.EventEmitter {
 		model.on(ModelEventTypes.ATTR_CHANGE.toString(),  this._modelCB);
 	}
 
-	get height () : number {
-		return this.model.getAttribute('height');
+	public getHeight () : number {
+		return this._model.getAttribute('height');
 	}
 
-	set height (height: number) {
-		this.model.setAttribute('height', height);
+	public setHeight (height: number): void {
+		this._model.setAttribute('height', height);
 		this._generateRegions();
 	}
 
-	get width () : number {
-		return this.model.getAttribute('width');
+	public getWidth () : number {
+		return this._model.getAttribute('width');
 	}
 
-	set width (width: number) {
-		this.model.setAttribute('width', width);
+	public setWidth (width: number): void {
+		this._model.setAttribute('width', width);
 		this._generateRegions();
 	}
 
-	get x () {
-		return this.model.getAttribute('x');
+	public getX (): number {
+		return this._model.getAttribute('x');
 	}
 
-	set x (x : number) {
-		let oldCoordinates = {x: this.x, y: this.y};
-		this.model.setAttribute('x', x);
-		let newCoordinates = {x: this.x, y: this.y};
+	public setX (x : number): void {
+		let oldCoordinates = {x: this.getX(), y: this.getY()};
+		this._model.setAttribute('x', x);
+		let newCoordinates = {x: this.getX(), y: this.getY()};
 
-		if (this.parent) {
-			this.parent._updateChildsRegion(this);
+		if (this._parent) {
+			this._parent._updateChildsRegion(this);
 		}
 
 		let eventData : LocationUpdateEvent = {
@@ -156,14 +164,14 @@ export class Entity extends Events.EventEmitter {
 		}
 	}
 
-	set coordinate (coordinate: Coordinate) {
-		let oldCoordinates = {x: this.x, y: this.y};
-		this.model.setAttribute('x', coordinate.x);
-		this.model.setAttribute('y', coordinate.y);
-		let newCoordinates = {x: this.x, y: this.y};
+	public setCoordinate (coordinate: Coordinate): void {
+		let oldCoordinates = {x: this.getX(), y: this.getY()};
+		this._model.setAttribute('x', coordinate.x);
+		this._model.setAttribute('y', coordinate.y);
+		let newCoordinates = {x: this.getX(), y: this.getY()};
 
-		if (this.parent) {
-			this.parent._updateChildsRegion(this);
+		if (this._parent) {
+			this._parent._updateChildsRegion(this);
 		}
 
 		let eventData : LocationUpdateEvent = {
@@ -176,21 +184,21 @@ export class Entity extends Events.EventEmitter {
 		this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
 	}
 
-	get x2 () : number {
-		return this.x + this.width;
+	public getX2 () : number {
+		return this.getX() + this.getWidth();
 	}
 
-	get y () {
-		return this.model.getAttribute('y');
+	public getY (): number {
+		return this._model.getAttribute('y');
 	}
 
-	set y (y: number) {
-		let oldCoordinates = {x: this.x, y: this.y};
-		this.model.setAttribute('y', y);
-		let newCoordinates = {x: this.x, y: this.y};
+	public setY (y: number): void {
+		let oldCoordinates = {x: this.getX(), y: this.getY()};
+		this._model.setAttribute('y', y);
+		let newCoordinates = {x: this.getX(), y: this.getY()};
 
-		if (this.parent) {
-			this.parent._updateChildsRegion(this);
+		if (this._parent) {
+			this._parent._updateChildsRegion(this);
 		}
 
 		let eventData : LocationUpdateEvent = {
@@ -207,46 +215,46 @@ export class Entity extends Events.EventEmitter {
 		}
 	}
 
-	get y2 () : number {
-		return this.y + this.height;
+	public getY2 () : number {
+		return this.getY() + this.getHeight();
 	}
 
-	get z () {
-		return this.model.getAttribute('z');
+	public getZ (): number {
+		return this._model.getAttribute('z');
 	}
 
-	set z (z: number) {
-		this.model.setAttribute('z', z);
+	public setZ (z: number): void {
+		this._model.setAttribute('z', z);
 	}
 
-	get visible () : boolean {
-		return this.model.getAttribute('visible');
+	public getVisible () : boolean {
+		return this._model.getAttribute('visible');
 	}
 
-	set visible (state: boolean) {
-		this.model.setAttribute('visible', state);
+	public setVisible (state: boolean): void {
+		this._model.setAttribute('visible', state);
 	}
 
-	get color () : Color {
-		var data = this.model.getAttribute('color');
+	public getColor () : Color {
+		var data = this._model.getAttribute('color');
 		// return [data.r, data.g, data.b, data.r];
 		return data;
 	}
 
-	set color (color: Color) {
-		this.model.setAttribute('color', color);
+	public setColor (color: Color): void {
+		this._model.setAttribute('color', color);
 	}
 
-	get texture () : Asset {
-		return this.model.texture;
+	public getTexture () : Asset {
+		return this._model.getTexture();
 	}
 
-	set texture (asset  : Asset) {
+	public setTexture (asset  : Asset): void {
 		if (asset.getType() !== AssetType.IMAGE) {
 			throw new Error('Texture asset must be of type IMAGE.');
 		}
 
-		this.model.texture = asset;
+		this._model.setTexture(asset);
 		this._setModified(true);
 	}
 
@@ -271,12 +279,12 @@ export class Entity extends Events.EventEmitter {
 	 * @return {void}  
 	 */
 	 public addChild (child : Entity) : void {
-		var parent = child.parent;
+		var parent = child._parent;
 		if (parent) {
 			parent.removeChild(child);
 		}
 		this._children.push(child);
-		child.parent = this;
+		child._parent = this;
 
 		//Region Management
 		this._putChildInRegion(child);
@@ -298,7 +306,7 @@ export class Entity extends Events.EventEmitter {
 
 		//Region Management
 		this._removeChildFromRegions(child);
-		delete this._regionList[child.ID];
+		delete this._regionList[child.getID()];
 	 }	 
 
 	/**
@@ -573,39 +581,39 @@ export class Entity extends Events.EventEmitter {
 	 }
 
 	 public getCoordinate () : Coordinate {
-	 	return {x: this.x, y: this.y};
+	 	return {x: this.getX(), y: this.getY()};
 	 }
 
 	 public getOuterCoordinate () : Coordinate {
-	 	return {x: this.x2, y: this.y2};
+	 	return {x: this.getX2(), y: this.getY2()};
 	 }
 
 	 public getAbsoluteY () : number {
 		var entity : Entity = this;
 		var y = 0;
 		while (entity) {
-			y += entity.y;
-			entity = entity.parent;
+			y += entity.getY();
+			entity = entity._parent;
 		}
 		return y;
 	 }
 
 	 public getAbsoluteY2 () : number {
-		return this.getAbsoluteY() + this.height;
+		return this.getAbsoluteY() + this.getHeight();
 	 }
 
 	 public getAbsoluteX () : number {
 		var entity : Entity = this;
 		var x = 0;
 		while (entity) {
-			x += entity.x;
-			entity = entity.parent;
+			x += entity.getX();
+			entity = entity._parent;
 		}
 		return x;
 	 }
 
 	 public getAbsoluteX2 () : number {
-		return this.getAbsoluteX() + this.width;
+		return this.getAbsoluteX() + this.getWidth();
 	 }
 
 	/**
@@ -618,8 +626,8 @@ export class Entity extends Events.EventEmitter {
 	 * @param {Integer} z 
 	 */
 	 public setLocation (coordinate : Coordinate) : void {
-	 	this.x = coordinate.x;
-	 	this.y = coordinate.y;
+	 	this.setX(coordinate.x);
+	 	this.setY(coordinate.y);
 	 }
 
 	/**
@@ -635,19 +643,19 @@ export class Entity extends Events.EventEmitter {
 	 */
 	 public getLocation ()  : Coordinate {
 	 	return {
-	 		x: this.x,
-	 		y: this.y
+	 		x: this.getX(),
+	 		y: this.getY()
 	 	};
 	 }
 
 	 public setSize (dimension : Dimension) : void {
 	 	this._setModified(true);
-	 	this.width = dimension.width;
-	 	this.height = dimension.height;
+	 	this.setWidth(dimension.width);
+	 	this.setHeight(dimension.height);
 	 }
 
 	 public getSize () : Dimension {
-	 	return {width: this.width, height: this.height};
+	 	return {width: this.getWidth(), height: this.getHeight()};
 	 }
 
 	/**
@@ -660,7 +668,7 @@ export class Entity extends Events.EventEmitter {
 	 private _setDefaults () : void {
 		this.setLocation({x: 0, y: 0});
 		this.setSize({width: 0, height: 0});
-		this.visible = true;
+		this.setVisible(true);
 		// this.setColor(0,0,0,0);
 	 }
 
@@ -676,15 +684,15 @@ export class Entity extends Events.EventEmitter {
 		this._regionList = {};
 
 		//Pref we want 100 by 100 region, try to aim as close to it as we can
-		if (this.width <= 100) {
-			var regionWidth = this.width / 2;
+		if (this.getWidth() <= 100) {
+			var regionWidth = this.getWidth() / 2;
 		} else {
 			var regionWidth = 50;
 
 		}
 
-		if (this.height <= 100) {
-			var regionHeight = this.height / 2;
+		if (this.getHeight() <= 100) {
+			var regionHeight = this.getHeight() / 2;
 		} else {
 			var regionHeight = 50;
 		}
@@ -692,8 +700,8 @@ export class Entity extends Events.EventEmitter {
 		this._regionDimension = {width: regionWidth, height: regionHeight};
 
 		//Generate the Arrays
-		var xCount = Math.ceil(this.width / regionWidth);
-		var yCount = Math.ceil(this.height / regionHeight);
+		var xCount = Math.ceil(this.getWidth() / regionWidth);
+		var yCount = Math.ceil(this.getHeight() / regionHeight);
 
 		for (var x = 0; x < xCount; x ++) {
 			this._regions[x] = [];
@@ -711,11 +719,11 @@ export class Entity extends Events.EventEmitter {
 
 	 private _putChildInRegion (child: Entity) : void {
 		// console.log("Generating start region");
-		var startRegion = this._coordinateToRegion({x: child.x, y: child.y});
+		var startRegion = this._coordinateToRegion({x: child.getX(), y: child.getY()});
 		// console.log("Generator end region");
-		var endRegion = this._coordinateToRegion({x: child.x2, y: child.y2});
+		var endRegion = this._coordinateToRegion({x: child.getX2(), y: child.getY2()});
 
-		this._regionList[child.ID] = [];
+		this._regionList[child.getID()] = [];
 
 		if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
 			//Compare both Regions and add the entity to those regions, and all in between
@@ -724,7 +732,7 @@ export class Entity extends Events.EventEmitter {
 					for (var y = startRegion.y; y <= endRegion.y; y ++) {
 						if (this._regions[x][y]) { //Overflow Protection
 							this._regions[x][y].push(child);
-							this._regionList[child.ID].push({x, y});
+							this._regionList[child.getID()].push({x, y});
 						}
 					}
 				}
@@ -744,9 +752,9 @@ export class Entity extends Events.EventEmitter {
 
 	 private _removeChildFromRegions (child: Entity) : void {
 		//Clear Child out of existing regions
-		if (this._regionList[child.ID])  {
-			for (var i in this._regionList[child.ID]) {
-				var coord = this._regionList[child.ID][i];
+		if (this._regionList[child.getID()])  {
+			for (var i in this._regionList[child.getID()]) {
+				var coord = this._regionList[child.getID()][i];
 				this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
 			}
 		}

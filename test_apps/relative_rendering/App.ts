@@ -13,22 +13,21 @@ class RelativeDemo extends Engine {
 
     constructor () {
         super();
-        this.renderingEngine = new TwoDimensionalRenderingEngine();
-        this.audioEngine = new HTML5AudioEngine();
-        this.logicEngine = new GroupLogicEngine();
+        this.setRenderingEngine(new TwoDimensionalRenderingEngine());
+        // this.audioEngine = new HTML5AudioEngine();
+        this.setLogicEngine(new GroupLogicEngine());
         // this._collisionEmitter = new CollisionEmitter();
 
         this._blocks = [];
         this._blockConfigs = {};
 
         this._container = new Entity();
-        this._container.color = {r: 0, g: 0, b: 0};
-        console.log(this.viewPort.canvas.offsetWidth);
-        this._container.width = 1000;
-        this._container.height = 1000;
+        this._container.setColor({r: 0, g: 0, b: 0});
+        this._container.setWidth(1000);
+        this._container.setHeight(1000);
 
-        this._camera = new Camera(this._container, null, {width: this._container.width, height: this._container.height}, null, {height: this._container.height, width: this._container.width});
-        this.renderingEngine.addCamera(this._camera);
+        this._camera = new Camera(this._container, null, {width: this._container.getWidth(), height: this._container.getHeight()}, null, {height: this._container.getHeight(), width: this._container.getWidth()});
+        this.getRenderingEngine().addCamera(this._camera);
 
         for (var i : number = 0; i < 50; i ++) {
             var block = this._generateBlock(0, this._container);
@@ -53,10 +52,10 @@ class RelativeDemo extends Engine {
             block3.addChild(block32);
         }
 
-        this.viewPort.on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
-        this.viewPort.fillPage(true);
+        this.getViewPort().on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
+        this.getViewPort().fillPage(true);
         // this._collisionEmitter.addCollisionListener(this._blockCollision.bind(this));
-        this.logicEngine.addLogic("collision", this._moveBlocks.bind(this), 25);
+        this.getLogicEngine().addLogic("collision", this._moveBlocks.bind(this), 25);
     }
 
     private _generateBlock (level: number, parent:Entity) : Entity {
@@ -71,28 +70,28 @@ class RelativeDemo extends Engine {
         } else if (level === 2) {
             dimension =  15;
         }
-        block.width = dimension;
-        block.height = dimension;
+        block.setWidth(dimension);
+        block.setHeight(dimension);
 
-        block.x = Math.floor((Math.random() * parent.width) + 1);
-        block.y = Math.floor((Math.random() * parent.height) + 1);
+        block.setX(Math.floor((Math.random() * parent.getWidth()) + 1));
+        block.setY(Math.floor((Math.random() * parent.getHeight()) + 1));
 
-        block.color = {r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1)};
+        block.setColor({r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1)});
 
-        this._blockConfigs[block.ID] = {};
-        this._blockConfigs[block.ID]["x_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "right" : "left";
-        this._blockConfigs[block.ID]["y_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "up" : "down";
-        this._blockConfigs[block.ID]["speed"] = Math.floor((Math.random()*2)+1) / 1.5;
+        this._blockConfigs[block.getID()] = {};
+        this._blockConfigs[block.getID()]["x_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "right" : "left";
+        this._blockConfigs[block.getID()]["y_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "up" : "down";
+        this._blockConfigs[block.getID()]["speed"] = Math.floor((Math.random()*2)+1) / 1.5;
 
         // this._container.addChild(block);
         return block;
     }
 
     private _viewPortUpdated (event: DimensionUpdateEvent) : void {
-        this._container.width = event.newDimensions.width;
-        this._container.height = event.newDimensions.height;
-        this._camera.fov = {width: event.newDimensions.width, height: event.newDimensions.height};
-        this._camera.renderDimension = {width: event.newDimensions.width, height: event.newDimensions.height};
+        this._container.setWidth(event.newDimensions.width);
+        this._container.setHeight(event.newDimensions.height);
+        this._camera.setFOV({width: event.newDimensions.width, height: event.newDimensions.height});
+        this._camera.setRenderDimension({width: event.newDimensions.width, height: event.newDimensions.height});
 
     }
 
@@ -104,43 +103,43 @@ class RelativeDemo extends Engine {
             let x2 : number;
             let y2 : number;
 
-            if (this._blockConfigs[block.ID]["x_dir"] === "right") {
-                x = block.x + this._blockConfigs[block.ID]["speed"];
-                x2 = x + block.width;
+            if (this._blockConfigs[block.getID()]["x_dir"] === "right") {
+                x = block.getX() + this._blockConfigs[block.getID()]["speed"];
+                x2 = x + block.getWidth();
 
-                if (x2 >= block.parent.width) {
-                    x = block.parent.width - block.width;
-                    this._blockConfigs[block.ID]["x_dir"] = "left";
+                if (x2 >= block.getParent().getWidth()) {
+                    x = block.getParent().getWidth() - block.getWidth();
+                    this._blockConfigs[block.getID()]["x_dir"] = "left";
                 }
-            } else if (this._blockConfigs[block.ID]["x_dir"] === "left") {
-                x = block.x - this._blockConfigs[block.ID]["speed"];
-                x2 = x + block.width;
+            } else if (this._blockConfigs[block.getID()]["x_dir"] === "left") {
+                x = block.getX() - this._blockConfigs[block.getID()]["speed"];
+                x2 = x + block.getWidth();
 
                 if (x <= 0) {
                     x = 0;
-                    this._blockConfigs[block.ID]["x_dir"] = "right";
+                    this._blockConfigs[block.getID()]["x_dir"] = "right";
                 }
             }
 
-            if (this._blockConfigs[block.ID]["y_dir"] === "down") {
-                y = block.y + this._blockConfigs[block.ID]["speed"];
-                y2 = y + block.height;
+            if (this._blockConfigs[block.getID()]["y_dir"] === "down") {
+                y = block.getY() + this._blockConfigs[block.getID()]["speed"];
+                y2 = y + block.getHeight();
 
-                if (y2 >= block.parent.height) {
-                    y = block.parent.height - block.height;
-                    this._blockConfigs[block.ID]["y_dir"] = "up";
+                if (y2 >= block.getParent().getHeight()) {
+                    y = block.getParent().getHeight() - block.getHeight();
+                    this._blockConfigs[block.getID()]["y_dir"] = "up";
                 }
-            } else if (this._blockConfigs[block.ID]["y_dir"] === "up") {
-                y = block.y - this._blockConfigs[block.ID]["speed"];
-                y2 = y + block.height;
+            } else if (this._blockConfigs[block.getID()]["y_dir"] === "up") {
+                y = block.getY() - this._blockConfigs[block.getID()]["speed"];
+                y2 = y + block.getHeight();
 
-                if (block.y <= 0) {
+                if (block.getY() <= 0) {
                     y = 0;
-                    this._blockConfigs[block.ID]["y_dir"] = "down";
+                    this._blockConfigs[block.getID()]["y_dir"] = "down";
                 }
             }
 
-            block.coordinate = {x, y};
+            block.setCoordinate({x, y});
         }
     }
 }

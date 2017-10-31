@@ -18,7 +18,7 @@ export class CollisionEmitter {
 	public addEntity (entity: Entity) : void {
 		if (!this.hasEntity(entity)) {
 			this._entities.push(entity);
-			this._entitiesListeners[entity.ID] = [];
+			this._entitiesListeners[entity.getID()] = [];
 
 			entity.on(EntityEventTypes.LOCATION_UPDATE.toString(), this._cbs[EntityEventTypes.LOCATION_UPDATE]);
 			// entity.on("dimension_update", this._onEntityUpgrade.bind(this));
@@ -28,12 +28,12 @@ export class CollisionEmitter {
 	public removeEntity (entity: Entity) : void {
 		if (this.hasEntity(entity)) {
 			this._entities.splice(this._entities.indexOf(entity), 1);
-			delete this._entitiesListeners[entity.ID];
+			delete this._entitiesListeners[entity.getID()];
 		}
 	}
 
 	public hasEntity (entity: Entity) : boolean {
-		return this._entitiesListeners.hasOwnProperty(entity.ID);
+		return this._entitiesListeners.hasOwnProperty(entity.getID());
 	}
 
 	public addEntityCollisionListener (entity: Entity, callback: (entity1: Entity, entity2: Entity, event: LocationUpdateEvent) => void) : void {
@@ -41,12 +41,12 @@ export class CollisionEmitter {
 			this.addEntity(entity);
 		}
 
-		this._entitiesListeners[entity.ID].push(callback);
+		this._entitiesListeners[entity.getID()].push(callback);
 	}
 
 	public removeEntityCollisionListener (entity: Entity, callback: (entity1: Entity, entity2: Entity, event: LocationUpdateEvent) => void) : void {
-		if (this._entitiesListeners[entity.ID].indexOf(callback) > -1) {
-			this._entitiesListeners[entity.ID].splice(this._entitiesListeners[entity.ID].indexOf(callback), 1);
+		if (this._entitiesListeners[entity.getID()].indexOf(callback) > -1) {
+			this._entitiesListeners[entity.getID()].splice(this._entitiesListeners[entity.getID()].indexOf(callback), 1);
 		}
 	}
 
@@ -64,8 +64,8 @@ export class CollisionEmitter {
 		//Check for possible collisions
 		let entity : Entity = event.source;
 
-		if (entity.parent) {
-			var potCollisions : Entity[] = entity.parent.findChildren({x: entity.x, y: entity.y}, {x: entity.x2, y: entity.y2});
+		if (entity.getParent()) {
+			var potCollisions : Entity[] = entity.getParent().findChildren({x: entity.getX(), y: entity.getY()}, {x: entity.getX2(), y: entity.getY2()});
 			var collisions : Entity[] = [];
 
 			for (let i in potCollisions) {

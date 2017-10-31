@@ -16,16 +16,16 @@ export class GridMap extends Entity {
 		this.tileCount = tileCount;
 		this._tiles = [];
 
-		this.width = (this.tileSize.width * this.tileCount.x);
-		this.height = (this.tileSize.height * this.tileCount.y);
+		this.setWidth(this.tileSize.width * this.tileCount.x);
+		this.setHeight(this.tileSize.height * this.tileCount.y);
 
 		for (var x = 0; x < this.tileCount.x; x ++) {
 			for (var y = 0; y < this.tileCount.y; y ++) {
 				var tile = new Entity();
-				tile.width = this.tileSize.width;
-				tile.height = this.tileSize.height;
-				tile.x = ((x + 1) * this.tileSize.width);
-				tile.y = ((y + 1) * this.tileSize.height);
+				tile.setWidth(this.tileSize.width);
+				tile.setHeight(this.tileSize.height);
+				tile.setX((x + 1) * this.tileSize.width);
+				tile.setY((y + 1) * this.tileSize.height);
 
 				this.addChild(tile);
 

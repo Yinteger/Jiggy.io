@@ -16,7 +16,7 @@ export class  TextAssetBuilder {
 			maxWidth = textViewPort.measureText(text).width;
 		}
 
-		textViewPort.size = ({width: maxWidth, height});
+		textViewPort.setSize({width: maxWidth, height});
 		textViewPort.setFont(font);
 		textViewPort.setColor(color);
 		textViewPort.setTextBaseline("hanging");
