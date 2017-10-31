@@ -7,6 +7,7 @@ import {ViewPort} from './ViewPort';
 import {CollisionEmitter} from './CollisionEmitter';
 import {ViewPortEventTypes} from "./ViewPortEventTypes";
 import {DimensionUpdateEvent} from "./DimensionUpdateEvent";
+import {Color} from './Color';
 
 export {
     SeverityEnum,
@@ -17,5 +18,6 @@ export {
     ViewPort,
     CollisionEmitter,
     ViewPortEventTypes,
-    DimensionUpdateEvent
+    DimensionUpdateEvent,
+    Color
 };
