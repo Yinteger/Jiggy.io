@@ -19,7 +19,11 @@ var setInstance = (game: Engine): void => {
     instance = game;
 }
 
+var getInstance = (): Engine => {
+    return instance;
+}
+
 export {
     setInstance,
-    instance
+    getInstance
 };

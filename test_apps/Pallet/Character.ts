@@ -1,7 +1,7 @@
 import {Entity} from "../../src/entities/src/";
 import {Animation, Spritesheet, Asset} from "../../src/assets/src/";
 import {Coordinate} from "../../src/interfaces/src/";
-import {instance, Engine} from '../../src/core/src/';
+import {getInstance, Engine} from '../../src/core/src/';
 
 export default class Character extends Entity {
 	public moving :  boolean;
@@ -49,7 +49,7 @@ export default class Character extends Entity {
 	}
 
 	private _move (coordinates : Coordinate) : void {
-		var game: Engine = instance;
+		var game: Engine = getInstance();
 		// var Engine: Core.Engine = (<any>window)._PalletDemo;
 		game.getLogicEngine().removeLogic(this.getID() + "_endmove");
 		// var collision =  mapl2.findChildren(new zen.data.Coordinate(player.getX2() + 3, player.getY2() - 5),  new zen.data.Coordinate(player.getX2() + 3, player.getY2()));

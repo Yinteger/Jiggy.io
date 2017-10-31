@@ -776,14 +776,17 @@ exports.AudioEngine = AudioEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
 var instance = null;
-exports.instance = instance;
 var setInstance = function (game) {
     if (instance) {
         instance.getLogManager().log(utils_1.SeverityEnum.WARNING, 'Instance has already been set! Are you instantiating more than one game?');
     }
-    exports.instance = instance = game;
+    instance = game;
 };
 exports.setInstance = setInstance;
+var getInstance = function () {
+    return instance;
+};
+exports.getInstance = getInstance;
 
 
 /***/ }),
@@ -4668,7 +4671,7 @@ var Character = (function (_super) {
     }
     Character.prototype._move = function (coordinates) {
         var _this = this;
-        var game = _3.instance;
+        var game = _3.getInstance();
         game.getLogicEngine().removeLogic(this.getID() + "_endmove");
         var collision = false;
         var updatedCoordinates = false;
@@ -4797,7 +4800,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Engine_1 = __webpack_require__(6);
 exports.Engine = Engine_1.Engine;
 var Instance_1 = __webpack_require__(9);
-exports.instance = Instance_1.instance;
+exports.getInstance = Instance_1.getInstance;
 
 
 /***/ }),

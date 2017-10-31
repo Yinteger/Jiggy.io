@@ -4,9 +4,9 @@
 // If a particular module exports multiple items, ensure to include all that should be exposed to the public API.
 
 import {Engine} from './Engine';
-import {instance} from './Instance';
+import {getInstance} from './Instance';
 
 export {
     Engine,
-    instance
+    getInstance
 };
