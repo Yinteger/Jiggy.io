@@ -11,21 +11,29 @@ import {
 export class EntityModel extends Events.EventEmitter {
 	private _attributes : {[key: string]: any};
 	private _id : string;
-	public type : string;
+	private _type : string;
 	private _texture : Asset;
 
 	public constructor () {
 		super();
 		this._attributes = {};
 		this._id = IDGenerator.getSingleton().generate();
-		this.type = 'generic';
+		this._type = 'generic';
 	}
 
-	get ID () : string {
+	public getID () : string {
 		return this._id;
 	}
 
-	set texture (asset: Asset) {
+	public setType(type: string): void {
+		this._type = type;
+	}
+
+	public getType(): string {
+		return this._type;
+	}
+
+	public setTexture (asset: Asset): void {
 		this._texture = asset;
 		this.emit(ModelEventTypes.TEXTURE_CHANGE.toString(), {
 			attribute : 'texture',
@@ -34,7 +42,7 @@ export class EntityModel extends Events.EventEmitter {
 		});
 	}
 
-	get texture () : Asset {
+	public getTexture () : Asset {
 		return this._texture;
 	}
 

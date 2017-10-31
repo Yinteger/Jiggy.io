@@ -23,12 +23,12 @@ class PalletDemo extends Engine {
 
 	constructor () {
 		super();
-        this.viewPort.size = ({ width: 500, height: 500 });
-		this.renderingEngine = new TwoDimensionalRenderingEngine();
-		this.audioEngine = new HTML5AudioEngine();
-		this.logicEngine = new GroupLogicEngine();
+        this.getViewPort().setSize({ width: 500, height: 500 });
+		this.setRenderingEngine(new TwoDimensionalRenderingEngine());
+		// this.audioEngine = new HTML5AudioEngine();
+		this.setLogicEngine(new GroupLogicEngine());
 
-		this.renderingEngine.HUDEntity = (this._createLoadingScreen());
+		this.getRenderingEngine().setHUD(this._createLoadingScreen());
 		this._loadResources();
 	}
 
@@ -36,14 +36,14 @@ class PalletDemo extends Engine {
 		var textAssetBuilder : TextAssetBuilder = new TextAssetBuilder();
 
 		var hud : Entity = new Entity();
-		hud.width = 500;
-		hud.height = 500;
+		hud.setWidth(500);
+		hud.setHeight(500);
 
 		var loadingText : Entity = new Entity();
-		loadingText.width = 165;
-		loadingText.height = 50;
-		loadingText.x = (500 / 2) - 100;
-		loadingText.y = (500 / 2) - 25;
+		loadingText.setWidth(165);
+		loadingText.setHeight(50);
+		loadingText.setX((500 / 2) - 100);
+		loadingText.setY((500 / 2) - 25);
 		hud.addChild(loadingText);
 
 		var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "black");
@@ -71,8 +71,8 @@ class PalletDemo extends Engine {
 		var layer2 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
 		var layer3 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
 
-		mapContainer.width = layer1.width;
-		mapContainer.height = layer1.height;
+		mapContainer.setWidth(layer1.getWidth());
+		mapContainer.setHeight(layer1.getHeight());
 
 		mapContainer.addChild(layer1);		
 		mapContainer.addChild(layer2);		
@@ -84,36 +84,36 @@ class PalletDemo extends Engine {
 		var layer1Iterator : Iterator = layer1.iterator();
 		while(layer1Iterator.hasNext()) {
 			var tile : Entity = layer1Iterator.next();
-			tile.texture = (this._mapSpritesheet.getSprite('grass'));
+			tile.setTexture((this._mapSpritesheet.getSprite('grass')));
 		}
 
-		layer3.getTile({x:10, y: 10}).texture = this._mapSpritesheet.getSprite('house_1_roof_11');
-		layer3.getTile({x:11, y: 10}).texture = this._mapSpritesheet.getSprite('house_1_roof_12');
-		layer3.getTile({x:12, y: 10}).texture = this._mapSpritesheet.getSprite('house_1_roof_13');
+		layer3.getTile({x:10, y: 10}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_11'));
+		layer3.getTile({x:11, y: 10}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_12'));
+		layer3.getTile({x:12, y: 10}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_13'));
 
-		layer2.getTile({x:10, y: 11}).texture = this._mapSpritesheet.getSprite('house_1_roof_21');
-		layer2.getTile({x:11, y: 11}).texture = this._mapSpritesheet.getSprite('house_1_roof_22');
-		layer2.getTile({x:12, y: 11}).texture = this._mapSpritesheet.getSprite('house_1_roof_23');
+		layer2.getTile({x:10, y: 11}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_21'));
+		layer2.getTile({x:11, y: 11}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_22'));
+		layer2.getTile({x:12, y: 11}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_23'));
 
-		layer2.getTile({x:10, y: 11}).collisionable = true;
-		layer2.getTile({x:11, y: 11}).collisionable = true;
-		layer2.getTile({x:12, y: 11}).collisionable = true;
+		layer2.getTile({x:10, y: 11}).setCollisionable(true);
+		layer2.getTile({x:11, y: 11}).setCollisionable(true);
+		layer2.getTile({x:12, y: 11}).setCollisionable(true);
 
-		layer2.getTile({x:10, y: 12}).texture = this._mapSpritesheet.getSprite('house_1_roof_31');
-		layer2.getTile({x:11, y: 12}).texture = this._mapSpritesheet.getSprite('house_1_roof_32');
-		layer2.getTile({x:12, y: 12}).texture = this._mapSpritesheet.getSprite('house_1_roof_33');
+		layer2.getTile({x:10, y: 12}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_31'));
+		layer2.getTile({x:11, y: 12}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_32'));
+		layer2.getTile({x:12, y: 12}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_33'));
 
-		layer2.getTile({x:10, y: 12}).collisionable = true;
-		layer2.getTile({x:11, y: 12}).collisionable = true;
-		layer2.getTile({x:12, y: 12}).collisionable = true;
+		layer2.getTile({x:10, y: 12}).setCollisionable(true);
+		layer2.getTile({x:11, y: 12}).setCollisionable(true);
+		layer2.getTile({x:12, y: 12}).setCollisionable(true);
 
-		layer2.getTile({x:10, y: 13}).texture = this._mapSpritesheet.getSprite('house_1_roof_41');
-		layer2.getTile({x:11, y: 13}).texture = this._mapSpritesheet.getSprite('house_1_roof_42');
-		layer2.getTile({x:12, y: 13}).texture = this._mapSpritesheet.getSprite('house_1_roof_43');
+		layer2.getTile({x:10, y: 13}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_41'));
+		layer2.getTile({x:11, y: 13}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_42'));
+		layer2.getTile({x:12, y: 13}).setTexture(this._mapSpritesheet.getSprite('house_1_roof_43'));
 
-		layer2.getTile({x:10, y: 13}).collisionable = true;
-		layer2.getTile({x:11, y: 13}).collisionable = true;
-		layer2.getTile({x:12, y: 13}).collisionable = true;
+		layer2.getTile({x:10, y: 13}).setCollisionable(true);
+		layer2.getTile({x:11, y: 13}).setCollisionable(true);
+		layer2.getTile({x:12, y: 13}).setCollisionable(true);
 
 		return mapContainer;
 	}
@@ -131,7 +131,7 @@ class PalletDemo extends Engine {
 			//Artifical Delay to show loading animation
 			setTimeout(() => {
 				//Remove Loading Screen
-				delete this.renderingEngine.HUDEntity;
+				this.getRenderingEngine().setHUD(null);
 
 				//TODO: Stop Loading Animation
 
@@ -139,45 +139,44 @@ class PalletDemo extends Engine {
 				var map = this._createMainMap();
                 var camera = new Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
                 this._mainCamera = camera;
-                this.renderingEngine.addCamera(camera);
+                this.getRenderingEngine().addCamera(camera);
                 var mouse = Mouse.getInstance();
 
 				mouse.on(MouseEvents.ScrollWheelMove, (e: ScrollWheelMove) => {
-					// console.warn(e);
-					var fov = camera.fov;
-					var viewPoint = camera.viewPoint;
+					var fov = camera.getFOV();
+					var viewPoint = camera.getViewPoint();
 					if (e.yDelta > 0) {
 						//Mouse wheel went up, zoom in by decreasing FOV
-						camera.viewPoint = ({x: viewPoint.x + 5, y: viewPoint.y + 5});
-						camera.fov = ({width: fov.width - 10, height: fov.height - 10});
+						camera.setViewPoint({x: viewPoint.x + 5, y: viewPoint.y + 5});
+						camera.setFOV({width: fov.width - 10, height: fov.height - 10});
 					} else {
 						//Zoom out
-						camera.viewPoint = ({x: viewPoint.x - 5, y: viewPoint.y - 5});
-						camera.fov = ({width: fov.width + 10, height: fov.height + 10});
+						camera.setViewPoint({x: viewPoint.x - 5, y: viewPoint.y - 5});
+						camera.setFOV({width: fov.width + 10, height: fov.height + 10});
 					}
                 });
 
 				//Load Character
 				this.player = new Character(this._characterSpritesheet);
-				this.player.texture = this._characterSpritesheet.getSprite("player_down");
+				this.player.setTexture(this._characterSpritesheet.getSprite("player_down"));
 				let layer = <GridMap> map.getChildAt(1);	
 				let tile = layer.getTile({x: 5, y: 5})
 				layer.addChild(this.player);
 				this.player.tileX = 5;
 				this.player.tileY = 5;
-				this.player.x = tile.x;
-				this.player.y = tile.y - this.player.height - tile.height;
+				this.player.setX(tile.getX());
+				this.player.setY(tile.getY() - this.player.getHeight() - tile.getHeight());
 
 				var pokeball = new Entity();
-				pokeball.width = 25;
-				pokeball.height = 25;
+				pokeball.setWidth(25);
+				pokeball.setHeight(25);
 				// layer.addChild(pokeball);
 				var pokeball_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/pokeball.png');
 
 				pokeball_asset.onStateChange = (state : AssetState) => {
 					if (state === AssetState.LOADED) {
-						pokeball.texture = pokeball_asset;
-						this.renderingEngine.HUDEntity = pokeball;
+						pokeball.setTexture(pokeball_asset);
+						this.getRenderingEngine().setHUD(pokeball);
 					}
 				};
 
@@ -185,22 +184,22 @@ class PalletDemo extends Engine {
 
 
 				mouse.on(MouseEvents.MouseMove, (e: MouseMoveEvent) => {
-					pokeball.x = e.x - this.renderingEngine.viewPort.canvas.offsetLeft - 14;
-					pokeball.y = e.y - this.renderingEngine.viewPort.canvas.offsetTop - 14;
+					pokeball.setX(e.x - this.getRenderingEngine().getViewPort().getCanvas().offsetLeft - 14);
+					pokeball.setY(e.y - this.getRenderingEngine().getViewPort().getCanvas().offsetTop - 14);
                 });
 
                 mouse.on(MouseEvents.LeftButtonDown, (e: MouseClickEvent) => {
                     var newPokeball = new Entity();
                     console.log(e);
                     console.log(camera);
-                    var x_fov = camera.fov.width / camera.renderDimension.width;
-                    var y_fov = camera.fov.height / camera.renderDimension.height;
-                    newPokeball.width = 25 * x_fov;
-                    newPokeball.height = 25 * y_fov;
+                    var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
+                    var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
+                    newPokeball.setWidth(25 * x_fov);
+                    newPokeball.setHeight(25 * y_fov);
                     //23 is a magic number, this demo seems to be rendering at an offset...
-                    newPokeball.x = camera.viewPoint.x + ((e.x * x_fov) - (23 * x_fov));
-                    newPokeball.y = camera.viewPoint.y + ((e.y * y_fov) - (23 * y_fov));
-                    newPokeball.texture = pokeball_asset;
+                    newPokeball.setX(camera.getViewPoint().x + ((e.x * x_fov) - (23 * x_fov)));
+                    newPokeball.setY(camera.getViewPoint().y + ((e.y * y_fov) - (23 * y_fov)));
+                    newPokeball.setTexture(pokeball_asset);
                     layer.addChild(newPokeball);
                 });
 
@@ -209,22 +208,22 @@ class PalletDemo extends Engine {
                 });
 
 				this.player.on(EntityEventTypes.LOCATION_UPDATE.toString(), () => {
-					var fov = camera.fov;
-					camera.viewPoint = {x: this.player.x + ((this.player.width - fov.width) / 2), y: this.player.y + ((this.player.height - fov.height) / 2)};
+					var fov = camera.getFOV();
+					camera.setViewPoint({x: this.player.getX() + ((this.player.getWidth() - fov.width) / 2), y: this.player.getY() + ((this.player.getHeight() - fov.height) / 2)});
 				});
 
 				//Load NPC's
 
 				//Play Background Music
-				this.audioEngine.addAudio('bg', this._bgMusic);
-				this.audioEngine.loopAudio('bg', true);
-				this.audioEngine.playAudio('bg');
+				this.getAudioEngine().addAudio('bg', this._bgMusic);
+				this.getAudioEngine().loopAudio('bg', true);
+				this.getAudioEngine().playAudio('bg');
 
 				//Enable Input
 				//Add Inputs to move Character around
 
 				//var direction: string = null;
-				this.logicEngine.addLogic('moveLogic', () => {
+				this.getLogicEngine().addLogic('moveLogic', () => {
 					switch(this._direction) {
 						case 'left':
 							this.player.moveLeft();
@@ -241,18 +240,18 @@ class PalletDemo extends Engine {
 					}
                 }, 1);
 
-                this.logicEngine.addLogic('pokeballLogic', () => {
+                this.getLogicEngine().addLogic('pokeballLogic', () => {
                     if (mouse.isLeftButtonClicked()) {
                         var newPokeball = new Entity();
-                        var x_fov = camera.fov.width / camera.renderDimension.width;
-                        var y_fov = camera.fov.height / camera.renderDimension.height;
-                        newPokeball.width = 25 * x_fov;
-                        newPokeball.height = 25 * y_fov;
+                        var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
+                        var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
+                        newPokeball.setWidth(25 * x_fov);
+                        newPokeball.setHeight(25 * y_fov);
                         var mouseCoordinates = mouse.getCurrentCoordinates();
                         //23 is a magic number, this demo seems to be rendering at an offset...
-                        newPokeball.x = camera.viewPoint.x + ((mouseCoordinates.x * x_fov) - (23 * x_fov));
-                        newPokeball.y = camera.viewPoint.y + ((mouseCoordinates.y * y_fov) - (23 * y_fov));
-                        newPokeball.texture = pokeball_asset;
+                        newPokeball.setX(camera.getViewPoint().x + ((mouseCoordinates.x * x_fov) - (23 * x_fov)));
+                        newPokeball.setY(camera.getViewPoint().y + ((mouseCoordinates.y * y_fov) - (23 * y_fov)));
+                        newPokeball.setTexture(pokeball_asset);
                         layer.addChild(newPokeball);
                     }
                 }, 50);
@@ -319,19 +318,19 @@ class PalletDemo extends Engine {
         gamePad.on(GamePadEvents.AxisValueChange, (e: ValueChangeEvent) => {
             //console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1), axisId, newValue);
             if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                this.player.x += Math.floor(gamePad.getAxis(0) * 10);
+                this.player.setX(this.player.getX() + Math.floor(gamePad.getAxis(0) * 10));
             }
 
             if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                this.player.y += Math.floor(gamePad.getAxis(1) * 10);
+                this.player.setY(this.player.getY() + Math.floor(gamePad.getAxis(1) * 10));
             }
 
             if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
+                this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
             }
 
             if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
+                this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
             }
         });
 

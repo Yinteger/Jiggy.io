@@ -27,8 +27,8 @@ export class Spritesheet {
 
 			var spriteViewPort = new ViewPort();
 			this._spriteCache[id] = new Asset(AssetType.IMAGE);
-			spriteViewPort.size = {width: def.width, height: def.height};
-			spriteViewPort.context.translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0)
+			spriteViewPort.setSize({width: def.width, height: def.height});
+			spriteViewPort.getContext().translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0)
 			spriteViewPort.setScale({width: def.flipX === true ? -1 : 1, height: def.flipY === true ? -1 : 1});
 			spriteViewPort.drawImage(this._spritesheetAsset.getData(), def.x, def.y, def.width, def.height, 0, 0, def.width, def.height);
 			this._spriteCache[id].setData(spriteViewPort.getImage());

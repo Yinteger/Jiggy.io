@@ -19,15 +19,15 @@ export class EntityView extends Events.EventEmitter {
 
 	}
 
-	set visible (visible: boolean) {
+	public setVisible (visible: boolean): void {
 		this._visible = visible;
 	}
 
-	get visible () {
+	public getVisible (): boolean {
 		return this._visible;
 	}
 
-	set model (model: EntityModel) {
+	public setModel (model: EntityModel): void {
 		if (this._model) {
 			this._detachEvents();
 		}
