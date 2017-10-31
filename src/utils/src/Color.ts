@@ -122,7 +122,7 @@ export class Color {
             colorCodes[0] = parseInt(parts[0]);
             colorCodes[1] = parseInt(parts[1]);
             colorCodes[2] = parseInt(parts[2]);
-            colorCodes[3] = parseInt(parent[3]);
+            colorCodes[3] = parseInt(parts[3]);
         }
         else if (color.indexOf('rgb(') > -1) {
             color = color.replace('rgb(', '');
