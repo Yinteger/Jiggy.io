@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,17 +72,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(5);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(13);
+var Camera_1 = __webpack_require__(14);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(14);
+var IDGenerator_1 = __webpack_require__(15);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(15);
+var Iterator_1 = __webpack_require__(16);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(16);
+var LogManager_1 = __webpack_require__(17);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(17);
+var ViewPort_1 = __webpack_require__(18);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(18);
+var CollisionEmitter_1 = __webpack_require__(19);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
@@ -93,27 +93,27 @@ exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(20);
+var Asset_1 = __webpack_require__(21);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(21);
+var AssetType_1 = __webpack_require__(22);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(22);
+var AssetState_1 = __webpack_require__(23);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(23);
+var AssetFactory_1 = __webpack_require__(24);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(24);
+var AssetLoader_1 = __webpack_require__(25);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(25);
+var AudioLoader_1 = __webpack_require__(26);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(26);
+var ImageLoader_1 = __webpack_require__(27);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(27);
+var JSONLoader_1 = __webpack_require__(28);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(28);
+var TextAssetBuilder_1 = __webpack_require__(29);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(29);
+var Spritesheet_1 = __webpack_require__(30);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(30);
+var Animation_1 = __webpack_require__(31);
 exports.Animation = Animation_1.Animation;
 
 
@@ -124,27 +124,27 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(46);
+var Asset_1 = __webpack_require__(47);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(47);
+var AssetType_1 = __webpack_require__(48);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(48);
+var AssetState_1 = __webpack_require__(49);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(49);
+var AssetFactory_1 = __webpack_require__(50);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(50);
+var AssetLoader_1 = __webpack_require__(51);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(51);
+var AudioLoader_1 = __webpack_require__(52);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(52);
+var ImageLoader_1 = __webpack_require__(53);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(53);
+var JSONLoader_1 = __webpack_require__(54);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(54);
+var TextAssetBuilder_1 = __webpack_require__(55);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(55);
+var Spritesheet_1 = __webpack_require__(56);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(56);
+var Animation_1 = __webpack_require__(57);
 exports.Animation = Animation_1.Animation;
 
 
@@ -463,13 +463,13 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(32);
+var LogicEngine_1 = __webpack_require__(34);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(33);
+var GroupLogicEngine_1 = __webpack_require__(35);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(34);
+var RenderingEngine_1 = __webpack_require__(36);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(35);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(37);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -486,6 +486,7 @@ var SeverityEnum;
     SeverityEnum[SeverityEnum["INFO"] = 1] = "INFO";
     SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
     SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
+    SeverityEnum[SeverityEnum["DEPRECATE"] = 4] = "DEPRECATE";
 })(SeverityEnum = exports.SeverityEnum || (exports.SeverityEnum = {}));
 
 
@@ -502,7 +503,7 @@ var assetFactory = assets_1.AssetFactory.getSingleton();
 var AudioEngine = (function () {
     function AudioEngine() {
         this._audioMap = {};
-        this.logManager = utils_1.LogManager.getSingleton();
+        this._logManager = utils_1.LogManager.getSingleton();
     }
     AudioEngine.prototype.addAudio = function (name, audio, channels) {
         if (audio.getType() !== assets_1.AssetType.AUDIO) {
@@ -627,7 +628,7 @@ var AudioEngine = (function () {
         }
     };
     AudioEngine.prototype._warnMissingAudio = function (name) {
-        this.logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+        this._logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
     };
     AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
         if (this._audioMap[name]) {
@@ -689,13 +690,13 @@ exports.AudioEngine = AudioEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_1 = __webpack_require__(8);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(36);
+var EntityModel_1 = __webpack_require__(38);
 exports.EntityModel = EntityModel_1.EntityModel;
 var EntityView_1 = __webpack_require__(9);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(37);
+var EntityView2D_1 = __webpack_require__(39);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(38);
+var GridMap_1 = __webpack_require__(40);
 exports.GridMap = GridMap_1.GridMap;
 
 
@@ -737,13 +738,13 @@ var Entity = (function (_super) {
             model = new _1.EntityModel();
             useDefaults = true;
         }
-        _this.view = new _1.EntityView(model);
-        _this.model = model;
+        _this._view = new _1.EntityView(model);
+        _this._model = model;
         _this._children = new Array();
         _this._regions = [];
         _this._regionDimension;
         _this._regionList = {};
-        _this.collisionable = false;
+        _this._collisionable = false;
         _this._parent = null;
         _this._modified = false;
         _this._notifierKeys = ['width', 'height', 'color', 'texture', 'textures'];
@@ -753,226 +754,164 @@ var Entity = (function (_super) {
         }
         return _this;
     }
-    Object.defineProperty(Entity.prototype, "ID", {
-        get: function () {
-            return this._model.ID;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "parent", {
-        get: function () {
-            return this._parent;
-        },
-        set: function (parent) {
-            this._parent = parent;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "regions", {
-        get: function () {
-            return this._regions;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "regionDimension", {
-        get: function () {
-            return this._regionDimension;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "type", {
-        get: function () {
-            return this._model.type;
-        },
-        set: function (type) {
-            this._model.type = type;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "model", {
-        get: function () {
-            return this._model;
-        },
-        set: function (model) {
-            var view = this.view;
-            var oldModel = this.model;
-            if (oldModel) {
-                oldModel.removeListener(1..toString(), this._modelCB);
-            }
-            this._model = model;
-            model.on(1..toString(), this._modelCB);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "height", {
-        get: function () {
-            return this.model.getAttribute('height');
-        },
-        set: function (height) {
-            this.model.setAttribute('height', height);
-            this._generateRegions();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "width", {
-        get: function () {
-            return this.model.getAttribute('width');
-        },
-        set: function (width) {
-            this.model.setAttribute('width', width);
-            this._generateRegions();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "x", {
-        get: function () {
-            return this.model.getAttribute('x');
-        },
-        set: function (x) {
-            var oldCoordinates = { x: this.x, y: this.y };
-            this.model.setAttribute('x', x);
-            var newCoordinates = { x: this.x, y: this.y };
-            if (this.parent) {
-                this.parent._updateChildsRegion(this);
-            }
-            var eventData = {
-                type: 0..toString(),
-                oldCoordinates: oldCoordinates,
-                newCoordinates: newCoordinates,
-                source: this
-            };
-            if (!this._eventEmitted) {
-                this._eventEmitted = true;
-                this.emit(0..toString(), eventData);
-                this._eventEmitted = false;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "coordinate", {
-        set: function (coordinate) {
-            var oldCoordinates = { x: this.x, y: this.y };
-            this.model.setAttribute('x', coordinate.x);
-            this.model.setAttribute('y', coordinate.y);
-            var newCoordinates = { x: this.x, y: this.y };
-            if (this.parent) {
-                this.parent._updateChildsRegion(this);
-            }
-            var eventData = {
-                type: 0..toString(),
-                oldCoordinates: oldCoordinates,
-                newCoordinates: newCoordinates,
-                source: this
-            };
+    Entity.prototype.getID = function () {
+        return this._model.getID();
+    };
+    Entity.prototype.getParent = function () {
+        return this._parent;
+    };
+    Entity.prototype.setParent = function (parent) {
+        this._parent = parent;
+    };
+    Entity.prototype.getRegions = function () {
+        return this._regions;
+    };
+    Entity.prototype.getRegionDimension = function () {
+        return this._regionDimension;
+    };
+    Entity.prototype.getType = function () {
+        return this._model.getType();
+    };
+    Entity.prototype.setType = function (type) {
+        this._model.setType(type);
+    };
+    Entity.prototype.setCollisionable = function (collisionable) {
+        this._collisionable = collisionable;
+    };
+    Entity.prototype.isCollisionable = function () {
+        return this._collisionable;
+    };
+    Entity.prototype.getModel = function () {
+        return this._model;
+    };
+    Entity.prototype.setModel = function (model) {
+        var view = this._view;
+        var oldModel = this._model;
+        if (oldModel) {
+            oldModel.removeListener(1..toString(), this._modelCB);
+        }
+        this._model = model;
+        model.on(1..toString(), this._modelCB);
+    };
+    Entity.prototype.getHeight = function () {
+        return this._model.getAttribute('height');
+    };
+    Entity.prototype.setHeight = function (height) {
+        this._model.setAttribute('height', height);
+        this._generateRegions();
+    };
+    Entity.prototype.getWidth = function () {
+        return this._model.getAttribute('width');
+    };
+    Entity.prototype.setWidth = function (width) {
+        this._model.setAttribute('width', width);
+        this._generateRegions();
+    };
+    Entity.prototype.getX = function () {
+        return this._model.getAttribute('x');
+    };
+    Entity.prototype.setX = function (x) {
+        var oldCoordinates = { x: this.getX(), y: this.getY() };
+        this._model.setAttribute('x', x);
+        var newCoordinates = { x: this.getX(), y: this.getY() };
+        if (this._parent) {
+            this._parent._updateChildsRegion(this);
+        }
+        var eventData = {
+            type: 0..toString(),
+            oldCoordinates: oldCoordinates,
+            newCoordinates: newCoordinates,
+            source: this
+        };
+        if (!this._eventEmitted) {
+            this._eventEmitted = true;
             this.emit(0..toString(), eventData);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "x2", {
-        get: function () {
-            return this.x + this.width;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "y", {
-        get: function () {
-            return this.model.getAttribute('y');
-        },
-        set: function (y) {
-            var oldCoordinates = { x: this.x, y: this.y };
-            this.model.setAttribute('y', y);
-            var newCoordinates = { x: this.x, y: this.y };
-            if (this.parent) {
-                this.parent._updateChildsRegion(this);
-            }
-            var eventData = {
-                type: 0..toString(),
-                oldCoordinates: oldCoordinates,
-                newCoordinates: newCoordinates,
-                source: this
-            };
-            if (!this._eventEmitted) {
-                this._eventEmitted = true;
-                this.emit(0..toString(), eventData);
-                this._eventEmitted = false;
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "y2", {
-        get: function () {
-            return this.y + this.height;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "z", {
-        get: function () {
-            return this.model.getAttribute('z');
-        },
-        set: function (z) {
-            this.model.setAttribute('z', z);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "visible", {
-        get: function () {
-            return this.model.getAttribute('visible');
-        },
-        set: function (state) {
-            this.model.setAttribute('visible', state);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "color", {
-        get: function () {
-            var data = this.model.getAttribute('color');
-            return data;
-        },
-        set: function (color) {
-            this.model.setAttribute('color', color);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Entity.prototype, "texture", {
-        get: function () {
-            return this.model.texture;
-        },
-        set: function (asset) {
-            if (asset.getType() !== assets_1.AssetType.IMAGE) {
-                throw new Error('Texture asset must be of type IMAGE.');
-            }
-            this.model.texture = asset;
-            this._setModified(true);
-        },
-        enumerable: true,
-        configurable: true
-    });
+            this._eventEmitted = false;
+        }
+    };
+    Entity.prototype.setCoordinate = function (coordinate) {
+        var oldCoordinates = { x: this.getX(), y: this.getY() };
+        this._model.setAttribute('x', coordinate.x);
+        this._model.setAttribute('y', coordinate.y);
+        var newCoordinates = { x: this.getX(), y: this.getY() };
+        if (this._parent) {
+            this._parent._updateChildsRegion(this);
+        }
+        var eventData = {
+            type: 0..toString(),
+            oldCoordinates: oldCoordinates,
+            newCoordinates: newCoordinates,
+            source: this
+        };
+        this.emit(0..toString(), eventData);
+    };
+    Entity.prototype.getX2 = function () {
+        return this.getX() + this.getWidth();
+    };
+    Entity.prototype.getY = function () {
+        return this._model.getAttribute('y');
+    };
+    Entity.prototype.setY = function (y) {
+        var oldCoordinates = { x: this.getX(), y: this.getY() };
+        this._model.setAttribute('y', y);
+        var newCoordinates = { x: this.getX(), y: this.getY() };
+        if (this._parent) {
+            this._parent._updateChildsRegion(this);
+        }
+        var eventData = {
+            type: 0..toString(),
+            oldCoordinates: oldCoordinates,
+            newCoordinates: newCoordinates,
+            source: this
+        };
+        if (!this._eventEmitted) {
+            this._eventEmitted = true;
+            this.emit(0..toString(), eventData);
+            this._eventEmitted = false;
+        }
+    };
+    Entity.prototype.getY2 = function () {
+        return this.getY() + this.getHeight();
+    };
+    Entity.prototype.getZ = function () {
+        return this._model.getAttribute('z');
+    };
+    Entity.prototype.setZ = function (z) {
+        this._model.setAttribute('z', z);
+    };
+    Entity.prototype.getVisible = function () {
+        return this._model.getAttribute('visible');
+    };
+    Entity.prototype.setVisible = function (state) {
+        this._model.setAttribute('visible', state);
+    };
+    Entity.prototype.getColor = function () {
+        var data = this._model.getAttribute('color');
+        return data;
+    };
+    Entity.prototype.setColor = function (color) {
+        this._model.setAttribute('color', color);
+    };
+    Entity.prototype.getTexture = function () {
+        return this._model.getTexture();
+    };
+    Entity.prototype.setTexture = function (asset) {
+        if (asset.getType() !== assets_1.AssetType.IMAGE) {
+            throw new Error('Texture asset must be of type IMAGE.');
+        }
+        this._model.setTexture(asset);
+        this._setModified(true);
+    };
     Entity.prototype.isModified = function () {
         return this._modified;
     };
     Entity.prototype.addChild = function (child) {
-        var parent = child.parent;
+        var parent = child._parent;
         if (parent) {
             parent.removeChild(child);
         }
         this._children.push(child);
-        child.parent = this;
+        child._parent = this;
         this._putChildInRegion(child);
     };
     Entity.prototype.removeChild = function (child) {
@@ -981,7 +920,7 @@ var Entity = (function (_super) {
             this._children.splice(idx, 1);
         }
         this._removeChildFromRegions(child);
-        delete this._regionList[child.ID];
+        delete this._regionList[child.getID()];
     };
     Entity.prototype.removeAllChildren = function () {
         var child;
@@ -1124,76 +1063,76 @@ var Entity = (function (_super) {
         return child;
     };
     Entity.prototype.getCoordinate = function () {
-        return { x: this.x, y: this.y };
+        return { x: this.getX(), y: this.getY() };
     };
     Entity.prototype.getOuterCoordinate = function () {
-        return { x: this.x2, y: this.y2 };
+        return { x: this.getX2(), y: this.getY2() };
     };
     Entity.prototype.getAbsoluteY = function () {
         var entity = this;
         var y = 0;
         while (entity) {
-            y += entity.y;
-            entity = entity.parent;
+            y += entity.getY();
+            entity = entity._parent;
         }
         return y;
     };
     Entity.prototype.getAbsoluteY2 = function () {
-        return this.getAbsoluteY() + this.height;
+        return this.getAbsoluteY() + this.getHeight();
     };
     Entity.prototype.getAbsoluteX = function () {
         var entity = this;
         var x = 0;
         while (entity) {
-            x += entity.x;
-            entity = entity.parent;
+            x += entity.getX();
+            entity = entity._parent;
         }
         return x;
     };
     Entity.prototype.getAbsoluteX2 = function () {
-        return this.getAbsoluteX() + this.width;
+        return this.getAbsoluteX() + this.getWidth();
     };
     Entity.prototype.setLocation = function (coordinate) {
-        this.x = coordinate.x;
-        this.y = coordinate.y;
+        this.setX(coordinate.x);
+        this.setY(coordinate.y);
     };
     Entity.prototype.getLocation = function () {
         return {
-            x: this.x,
-            y: this.y
+            x: this.getX(),
+            y: this.getY()
         };
     };
     Entity.prototype.setSize = function (dimension) {
         this._setModified(true);
-        this.width = dimension.width;
-        this.height = dimension.height;
+        this.setWidth(dimension.width);
+        this.setHeight(dimension.height);
     };
     Entity.prototype.getSize = function () {
-        return { width: this.width, height: this.height };
+        return { width: this.getWidth(), height: this.getHeight() };
     };
     Entity.prototype._setDefaults = function () {
         this.setLocation({ x: 0, y: 0 });
         this.setSize({ width: 0, height: 0 });
-        this.visible = true;
+        this.setVisible(true);
     };
     Entity.prototype._generateRegions = function () {
         this._regions = [];
         this._regionList = {};
-        if (this.width <= 100) {
-            var regionWidth = this.width / 2;
+        if (this.getWidth() <= 100) {
+            var regionWidth = this.getWidth() / 2;
         }
         else {
             var regionWidth = 50;
         }
-        if (this.height <= 100) {
-            var regionHeight = this.height / 2;
+        if (this.getHeight() <= 100) {
+            var regionHeight = this.getHeight() / 2;
         }
         else {
             var regionHeight = 50;
         }
         this._regionDimension = { width: regionWidth, height: regionHeight };
-        var xCount = Math.ceil(this.width / regionWidth);
-        var yCount = Math.ceil(this.height / regionHeight);
+        var xCount = Math.ceil(this.getWidth() / regionWidth);
+        var yCount = Math.ceil(this.getHeight() / regionHeight);
         for (var x = 0; x < xCount; x++) {
             this._regions[x] = [];
             for (var y = 0; y < yCount; y++) {
@@ -1206,16 +1145,16 @@ var Entity = (function (_super) {
         }
     };
     Entity.prototype._putChildInRegion = function (child) {
-        var startRegion = this._coordinateToRegion({ x: child.x, y: child.y });
-        var endRegion = this._coordinateToRegion({ x: child.x2, y: child.y2 });
-        this._regionList[child.ID] = [];
+        var startRegion = this._coordinateToRegion({ x: child.getX(), y: child.getY() });
+        var endRegion = this._coordinateToRegion({ x: child.getX2(), y: child.getY2() });
+        this._regionList[child.getID()] = [];
         if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
             for (var x = startRegion.x; x <= endRegion.x; x++) {
                 if (this._regions[x]) {
                     for (var y = startRegion.y; y <= endRegion.y; y++) {
                         if (this._regions[x][y]) {
                             this._regions[x][y].push(child);
-                            this._regionList[child.ID].push({ x: x, y: y });
+                            this._regionList[child.getID()].push({ x: x, y: y });
                         }
                     }
                 }
@@ -1233,9 +1172,9 @@ var Entity = (function (_super) {
         }
     };
     Entity.prototype._removeChildFromRegions = function (child) {
-        if (this._regionList[child.ID]) {
-            for (var i in this._regionList[child.ID]) {
-                var coord = this._regionList[child.ID][i];
+        if (this._regionList[child.getID()]) {
+            for (var i in this._regionList[child.getID()]) {
+                var coord = this._regionList[child.getID()][i];
                 this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
             }
         }
@@ -1282,27 +1221,19 @@ var EntityView = (function (_super) {
         _this._attachEvents();
         return _this;
     }
-    Object.defineProperty(EntityView.prototype, "visible", {
-        get: function () {
-            return this._visible;
-        },
-        set: function (visible) {
-            this._visible = visible;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(EntityView.prototype, "model", {
-        set: function (model) {
-            if (this._model) {
-                this._detachEvents();
-            }
-            this._model = model;
-            this._attachEvents();
-        },
-        enumerable: true,
-        configurable: true
-    });
+    EntityView.prototype.setVisible = function (visible) {
+        this._visible = visible;
+    };
+    EntityView.prototype.getVisible = function () {
+        return this._visible;
+    };
+    EntityView.prototype.setModel = function (model) {
+        if (this._model) {
+            this._detachEvents();
+        }
+        this._model = model;
+        this._attachEvents();
+    };
     EntityView.prototype._handleAttrChange = function (e) {
     };
     EntityView.prototype._attachEvents = function () {
@@ -1323,17 +1254,41 @@ exports.EntityView = EntityView;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum_1 = __webpack_require__(11);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+var Camera_1 = __webpack_require__(41);
+exports.Camera = Camera_1.Camera;
+var IDGenerator_1 = __webpack_require__(42);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+var Iterator_1 = __webpack_require__(43);
+exports.Iterator = Iterator_1.Iterator;
+var LogManager_1 = __webpack_require__(44);
+exports.LogManager = LogManager_1.LogManager;
+var ViewPort_1 = __webpack_require__(45);
+exports.ViewPort = ViewPort_1.ViewPort;
+var CollisionEmitter_1 = __webpack_require__(46);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum;
 (function (SeverityEnum) {
     SeverityEnum[SeverityEnum["DEBUG"] = 0] = "DEBUG";
     SeverityEnum[SeverityEnum["INFO"] = 1] = "INFO";
     SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
     SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
+    SeverityEnum[SeverityEnum["DEPRECATE"] = 4] = "DEPRECATE";
 })(SeverityEnum = exports.SeverityEnum || (exports.SeverityEnum = {}));
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1349,33 +1304,33 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(12);
+var Engine_1 = __webpack_require__(13);
 var _1 = __webpack_require__(4);
 var _2 = __webpack_require__(7);
-var _3 = __webpack_require__(39);
+var _3 = __webpack_require__(10);
 var _4 = __webpack_require__(2);
 var CameraDemo = (function (_super) {
     __extends(CameraDemo, _super);
     function CameraDemo() {
         var _this = _super.call(this) || this;
         _this._mouseIsIn = false;
-        _this.renderingEngine = new _1.TwoDimensionalRenderingEngine();
-        _this.logicEngine = new _1.GroupLogicEngine();
+        _this.setRenderingEngine(new _1.TwoDimensionalRenderingEngine());
+        _this.setLogicEngine(new _1.GroupLogicEngine());
         _this._blocks = [];
         _this._blockConfigs = {};
         _this._container = new _2.Entity();
-        _this._container.color = { r: 0, g: 0, b: 0 };
-        _this._container.width = 1000;
-        _this._container.height = 1000;
-        _this._camera = new _3.Camera(_this._container, null, { width: _this._container.width, height: _this._container.height }, null, { height: _this._container.height, width: _this._container.width });
-        _this.renderingEngine.addCamera(_this._camera);
+        _this._container.setColor({ r: 0, g: 0, b: 0 });
+        _this._container.setWidth(1000);
+        _this._container.setHeight(1000);
+        _this._camera = new _3.Camera(_this._container, null, { width: _this._container.getWidth(), height: _this._container.getHeight() }, null, { height: _this._container.getHeight(), width: _this._container.getWidth() });
+        _this.getRenderingEngine().addCamera(_this._camera);
         _this._smallCamera = new _3.Camera(_this._container, { x: 450, y: 450 }, { width: 75, height: 75 }, { x: 35, y: 35 }, { width: 100, height: 100 });
-        _this.renderingEngine.addCamera(_this._smallCamera);
-        _this.renderingEngine.debugCamera = true;
+        _this.getRenderingEngine().addCamera(_this._smallCamera);
+        _this.getRenderingEngine().debugCamera = true;
         var backgroundLoaded = false;
         var pikachuLoaded = false;
-        _this.viewPort.on(0..toString(), _this._viewPortUpdated.bind(_this));
-        _this.viewPort.fillPage(true);
+        _this.getViewPort().on(0..toString(), _this._viewPortUpdated.bind(_this));
+        _this.getViewPort().fillPage(true);
         var background = _4.AssetFactory.getSingleton().build(_4.AssetType.IMAGE, 'resources/poke_background.jpg');
         var pikachu = _4.AssetFactory.getSingleton().build(_4.AssetType.IMAGE, 'resources/pikachu_small.png');
         var resourcesLoaded = function () {
@@ -1383,26 +1338,26 @@ var CameraDemo = (function (_super) {
                 console.log("Generate Pikachus");
                 _this._generatePikachu();
             }
-            _this.logicEngine.addLogic("collision", _this._moveBlocks.bind(_this), 25);
-            _this.viewPort.canvas.addEventListener('mouseover', function () {
+            _this.getLogicEngine().addLogic("collision", _this._moveBlocks.bind(_this), 25);
+            _this.getViewPort().getCanvas().addEventListener('mouseover', function () {
                 console.log("OVER");
                 _this._mouseIsIn = true;
             });
-            _this.viewPort.canvas.addEventListener('mouseout', function () {
+            _this.getViewPort().getCanvas().addEventListener('mouseout', function () {
                 console.log("OUT");
                 _this._mouseIsIn = false;
             });
-            _this.viewPort.canvas.addEventListener('mousemove', function (e) {
-                var fov = _this._smallCamera.fov;
-                _this._smallCamera.viewPoint = { x: e.clientX - _this.viewPort.canvas.offsetLeft - (fov.width / 2), y: e.clientY - _this.viewPort.canvas.offsetTop - (fov.height / 2) };
+            _this.getViewPort().getCanvas().addEventListener('mousemove', function (e) {
+                var fov = _this._smallCamera.getFOV();
+                _this._smallCamera.setViewPoint({ x: e.clientX - _this.getViewPort().getCanvas().offsetLeft - (fov.width / 2), y: e.clientY - _this.getViewPort().getCanvas().offsetTop - (fov.height / 2) });
             });
-            _this.viewPort.canvas.addEventListener('mousewheel', function (e) {
-                var fov = _this._smallCamera.fov;
+            _this.getViewPort().getCanvas().addEventListener('mousewheel', function (e) {
+                var fov = _this._smallCamera.getFOV();
                 if (e.wheelDelta > 0) {
-                    _this._smallCamera.fov = { width: fov.width - 10, height: fov.height - 10 };
+                    _this._smallCamera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
                 }
                 else {
-                    _this._smallCamera.fov = { width: fov.width + 10, height: fov.height + 10 };
+                    _this._smallCamera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
                 }
             });
         };
@@ -1410,7 +1365,7 @@ var CameraDemo = (function (_super) {
         background.onStateChange = function (state) {
             if (state === _4.AssetState.LOADED) {
                 backgroundLoaded = true;
-                _this._container.texture = background;
+                _this._container.setTexture(background);
                 if (backgroundLoaded && pikachuLoaded) {
                     resourcesLoaded();
                 }
@@ -1431,22 +1386,22 @@ var CameraDemo = (function (_super) {
     CameraDemo.prototype._generatePikachu = function () {
         var block = new _2.Entity();
         this._blocks.push(block);
-        block.width = 50;
-        block.height = 50;
-        block.texture = this._pikachuTexture;
-        block.x = Math.floor((Math.random() * this._container.width) + 1);
-        block.y = Math.floor((Math.random() * this._container.height) + 1);
-        this._blockConfigs[block.ID] = {};
-        this._blockConfigs[block.ID]["x_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "right" : "left";
-        this._blockConfigs[block.ID]["y_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "up" : "down";
-        this._blockConfigs[block.ID]["speed"] = Math.floor((Math.random() * 2) + 1) / 1.5;
+        block.setWidth(50);
+        block.setHeight(50);
+        block.setTexture(this._pikachuTexture);
+        block.setX(Math.floor((Math.random() * this._container.getWidth()) + 1));
+        block.setY(Math.floor((Math.random() * this._container.getHeight()) + 1));
+        this._blockConfigs[block.getID()] = {};
+        this._blockConfigs[block.getID()]["x_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "right" : "left";
+        this._blockConfigs[block.getID()]["y_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "up" : "down";
+        this._blockConfigs[block.getID()]["speed"] = Math.floor((Math.random() * 2) + 1) / 1.5;
         this._container.addChild(block);
     };
     CameraDemo.prototype._viewPortUpdated = function (event) {
-        this._container.width = event.newDimensions.width;
-        this._container.height = event.newDimensions.height;
-        this._camera.fov = { width: event.newDimensions.width, height: event.newDimensions.height };
-        this._camera.renderDimension = { width: event.newDimensions.width, height: event.newDimensions.height };
+        this._container.setWidth(event.newDimensions.width);
+        this._container.setHeight(event.newDimensions.height);
+        this._camera.setFOV({ width: event.newDimensions.width, height: event.newDimensions.height });
+        this._camera.setRenderDimension({ width: event.newDimensions.width, height: event.newDimensions.height });
     };
     CameraDemo.prototype._moveBlocks = function () {
         for (var i in this._blocks) {
@@ -1455,88 +1410,49 @@ var CameraDemo = (function (_super) {
             var y = void 0;
             var x2 = void 0;
             var y2 = void 0;
-            if (this._blockConfigs[block.ID]["x_dir"] === "right") {
-                x = block.x + this._blockConfigs[block.ID]["speed"];
-                x2 = x + block.width;
-                if (x2 >= this._container.width) {
-                    x = this._container.width - block.width;
-                    this._blockConfigs[block.ID]["x_dir"] = "left";
+            if (this._blockConfigs[block.getID()]["x_dir"] === "right") {
+                x = block.getX() + this._blockConfigs[block.getID()]["speed"];
+                x2 = x + block.getWidth();
+                if (x2 >= this._container.getWidth()) {
+                    x = this._container.getWidth() - block.getWidth();
+                    this._blockConfigs[block.getID()]["x_dir"] = "left";
                 }
             }
-            else if (this._blockConfigs[block.ID]["x_dir"] === "left") {
-                x = block.x - this._blockConfigs[block.ID]["speed"];
-                x2 = x + block.width;
+            else if (this._blockConfigs[block.getID()]["x_dir"] === "left") {
+                x = block.getX() - this._blockConfigs[block.getID()]["speed"];
+                x2 = x + block.getWidth();
                 if (x <= 0) {
                     x = 0;
-                    this._blockConfigs[block.ID]["x_dir"] = "right";
+                    this._blockConfigs[block.getID()]["x_dir"] = "right";
                 }
             }
-            if (this._blockConfigs[block.ID]["y_dir"] === "down") {
-                y = block.y + this._blockConfigs[block.ID]["speed"];
-                y2 = y + block.height;
-                if (y2 >= this._container.height) {
-                    y = this._container.height - block.height;
-                    this._blockConfigs[block.ID]["y_dir"] = "up";
+            if (this._blockConfigs[block.getID()]["y_dir"] === "down") {
+                y = block.getY() + this._blockConfigs[block.getID()]["speed"];
+                y2 = y + block.getHeight();
+                if (y2 >= this._container.getHeight()) {
+                    y = this._container.getHeight() - block.getHeight();
+                    this._blockConfigs[block.getID()]["y_dir"] = "up";
                 }
             }
-            else if (this._blockConfigs[block.ID]["y_dir"] === "up") {
-                y = block.y - this._blockConfigs[block.ID]["speed"];
-                y2 = y + block.height;
-                if (block.y <= 0) {
+            else if (this._blockConfigs[block.getID()]["y_dir"] === "up") {
+                y = block.getY() - this._blockConfigs[block.getID()]["speed"];
+                y2 = y + block.getHeight();
+                if (block.getY() <= 0) {
                     y = 0;
-                    this._blockConfigs[block.ID]["y_dir"] = "down";
+                    this._blockConfigs[block.getID()]["y_dir"] = "down";
                 }
             }
-            block.coordinate = { x: x, y: y };
+            block.setCoordinate({ x: x, y: y });
         }
         if (!this._mouseIsIn && this._blocks.length > 0) {
             var picka = this._blocks[1];
-            var fov = this._smallCamera.fov;
-            this._smallCamera.viewPoint = { x: picka.x + ((picka.width - fov.width) / 2), y: picka.y + ((picka.height - fov.height) / 2) };
+            var fov = this._smallCamera.getFOV();
+            this._smallCamera.setViewPoint({ x: picka.getX() + ((picka.getWidth() - fov.width) / 2), y: picka.getY() + ((picka.getHeight() - fov.height) / 2) });
         }
     };
     return CameraDemo;
 }(Engine_1.default));
 window._CameraDemo = new CameraDemo();
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(19);
-var assets_1 = __webpack_require__(1);
-var Engine = (function () {
-    function Engine() {
-        this.debugMode = false;
-        this.logManager = utils_1.LogManager.getSingleton();
-        this.assetFactory = assets_1.AssetFactory.getSingleton();
-        this.audioEngine = new audio_1.HTML5AudioEngine();
-        this.viewPort = new utils_1.ViewPort();
-        this.logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
-    }
-    Object.defineProperty(Engine.prototype, "renderingEngine", {
-        get: function () {
-            return this._renderingEngine;
-        },
-        set: function (renderingEngine) {
-            if (this.renderingEngine) {
-            }
-            this._renderingEngine = renderingEngine;
-            this._renderingEngine.viewPort = this.viewPort;
-            this._renderingEngine.startRendering();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Engine;
-}());
-exports.Engine = Engine;
-exports.default = Engine;
 
 
 /***/ }),
@@ -1546,17 +1462,64 @@ exports.default = Engine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Camera = (function () {
-    function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
-        this.scene = scene;
-        this.viewPoint = viewPoint || { x: 0, y: 0 };
-        this.fov = fov || { width: 100, height: 100 };
-        this.renderOrigin = renderOrigin || { x: 0, y: 0 };
-        this.renderDimension = renderDimension || { width: 100, height: 100 };
+var utils_1 = __webpack_require__(0);
+var audio_1 = __webpack_require__(20);
+var assets_1 = __webpack_require__(1);
+var Instance_1 = __webpack_require__(33);
+var Engine = (function () {
+    function Engine() {
+        Instance_1.setInstance(this);
+        this._debugMode = false;
+        this._logManager = utils_1.LogManager.getSingleton();
+        this._assetFactory = assets_1.AssetFactory.getSingleton();
+        this._audioEngine = new audio_1.HTML5AudioEngine();
+        this._viewPort = new utils_1.ViewPort();
+        this._logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
     }
-    return Camera;
+    Engine.prototype.isDebugEnabled = function () {
+        return this._debugMode;
+    };
+    Engine.prototype.setRenderingEngine = function (renderingEngine) {
+        if (this._renderingEngine) {
+        }
+        this._renderingEngine = renderingEngine;
+        this._renderingEngine.setViewPort(this._viewPort);
+        this._renderingEngine.startRendering();
+    };
+    Engine.prototype.getRenderingEngine = function () {
+        return this._renderingEngine;
+    };
+    Engine.prototype.setLogManager = function (logManager) {
+        this._logManager = logManager;
+    };
+    Engine.prototype.getLogManager = function () {
+        return this._logManager;
+    };
+    Engine.prototype.setAssetFactory = function (assetFactory) {
+        this._assetFactory = assetFactory;
+    };
+    Engine.prototype.getAssetFactory = function () {
+        return this._assetFactory;
+    };
+    Engine.prototype.getViewPort = function () {
+        return this._viewPort;
+    };
+    Engine.prototype.setAudioEngine = function (audioEngine) {
+        this._audioEngine = audioEngine;
+    };
+    Engine.prototype.getAudioEngine = function () {
+        return this._audioEngine;
+    };
+    Engine.prototype.setLogicEngine = function (logicEngine) {
+        this._logicEngine = logicEngine;
+    };
+    Engine.prototype.getLogicEngine = function () {
+        return this._logicEngine;
+    };
+    return Engine;
 }());
-exports.Camera = Camera;
+exports.Engine = Engine;
+exports.default = Engine;
 
 
 /***/ }),
@@ -1566,16 +1529,75 @@ exports.Camera = Camera;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+var DEFAULT_FOV = { width: 100, height: 100 };
+var DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+var DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
+var Camera = (function () {
+    function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
+        this.setScene(scene);
+        this.setViewPoint(viewPoint || DEFAULT_VIEWPOINT);
+        this.setFOV(fov || DEFAULT_FOV);
+        this.setRenderOrigin(renderOrigin || DEFAULT_RENDER_ORIGIN);
+        this.setRenderDimension(renderDimension || DEFAULT_RENDER_DIMENSION);
+    }
+    Camera.prototype.setScene = function (scene) {
+        this._scene = scene;
+    };
+    Camera.prototype.getScene = function () {
+        return this._scene;
+    };
+    Camera.prototype.setViewPoint = function (viewPoint) {
+        this._viewPoint = viewPoint;
+    };
+    Camera.prototype.getViewPoint = function () {
+        return this._viewPoint;
+    };
+    Camera.prototype.setFOV = function (fov) {
+        this._fov = fov;
+    };
+    Camera.prototype.getFOV = function () {
+        return this._fov;
+    };
+    Camera.prototype.setRenderOrigin = function (origin) {
+        this._renderOrigin = origin;
+    };
+    Camera.prototype.getRenderOrigin = function () {
+        return this._renderOrigin;
+    };
+    Camera.prototype.setRenderDimension = function (dim) {
+        this._renderDimension = dim;
+    };
+    Camera.prototype.getRenderDimension = function () {
+        return this._renderDimension;
+    };
+    return Camera;
+}());
+exports.Camera = Camera;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var _1 = __webpack_require__(0);
 var IDGenerator = (function () {
     function IDGenerator() {
     }
     IDGenerator.prototype.generate = function () {
+        return IDGenerator.generate();
+    };
+    IDGenerator.generate = function () {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     };
     IDGenerator.getSingleton = function () {
+        _1.LogManager.getSingleton().deprecate('IDGenerator should no longer be used as a singleton anymore. Instead use IDGenerator.generate().');
         if (!IDGenerator._instance) {
             IDGenerator._instance = new IDGenerator();
         }
@@ -1587,7 +1609,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1641,7 +1663,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1657,19 +1679,36 @@ var LogManager = (function () {
         if (this.getLogLevel() & severity) {
             switch (severity) {
                 case SeverityEnum_1.SeverityEnum.DEBUG:
-                    console.debug(message);
+                    console.debug("[DEBUG] " + message);
                     break;
                 case SeverityEnum_1.SeverityEnum.INFO:
-                    console.info(message);
+                    console.info("[INFO] " + message);
                     break;
                 case SeverityEnum_1.SeverityEnum.WARNING:
-                    console.warn(message);
+                    console.warn("[WARN] " + message);
                     break;
                 case SeverityEnum_1.SeverityEnum.ERROR:
-                    console.error(message);
+                    console.error("[ERROR] " + message);
                     break;
+                case SeverityEnum_1.SeverityEnum.DEPRECATE:
+                    console.error("[DEPRECATE] " + message);
             }
         }
+    };
+    LogManager.prototype.debug = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEBUG, message);
+    };
+    LogManager.prototype.info = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.INFO, message);
+    };
+    LogManager.prototype.warn = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.WARNING, message);
+    };
+    LogManager.prototype.error = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.ERROR, message);
+    };
+    LogManager.prototype.deprecate = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEPRECATE, message);
     };
     LogManager.prototype.setLogLevel = function (severity) {
         this._logLevel = severity;
@@ -1691,7 +1730,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1712,87 +1751,95 @@ var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
         var _this = _super.call(this) || this;
-        _this.canvas = document.createElement('canvas');
-        _this.context = _this.canvas.getContext('2d');
-        _this.resizable = false;
+        _this._canvas = document.createElement('canvas');
+        _this._context = _this._canvas.getContext('2d');
+        _this._resizable = false;
         _this._dimension = { width: 0, height: 0 };
         _this._filledPage = false;
         return _this;
     }
+    ViewPort.prototype.getCanvas = function () {
+        return this._canvas;
+    };
+    ViewPort.prototype.getContext = function () {
+        return this._context;
+    };
+    ViewPort.prototype.setResizable = function (resizable) {
+        this._resizable = resizable;
+    };
+    ViewPort.prototype.isResizable = function () {
+        return this._resizable;
+    };
     ViewPort.prototype.setScale = function (dimension) {
-        this.context.scale(dimension.width, dimension.height);
+        this._context.scale(dimension.width, dimension.height);
     };
     ViewPort.prototype.fillPage = function (state) {
         console.log("Test, ", state);
         this._filledPage = state;
         if (state) {
-            this.canvas.style.position = "fixed";
-            this.canvas.style.top = "0px";
-            this.canvas.style.left = "0px";
+            this._canvas.style.position = "fixed";
+            this._canvas.style.top = "0px";
+            this._canvas.style.left = "0px";
             this._fillPage();
             this._resizeListener = this._fillPage.bind(this);
             window.addEventListener("resize", this._resizeListener);
         }
         else {
-            this.canvas.style.position = "";
+            this._canvas.style.position = "";
             window.removeEventListener("reisze", this._resizeListener);
         }
     };
     ViewPort.prototype.isFilledPage = function () {
         return this._filledPage;
     };
-    Object.defineProperty(ViewPort.prototype, "size", {
-        get: function () {
-            return { width: this.canvas.offsetWidth, height: this.canvas.offsetHeight };
-        },
-        set: function (dimension) {
-            this._dimension = dimension;
-            this.canvas.setAttribute('width', dimension.width + "px");
-            this.canvas.setAttribute('height', dimension.height + "px");
-            this.emit('resize', dimension);
-        },
-        enumerable: true,
-        configurable: true
-    });
+    ViewPort.prototype.getSize = function () {
+        return { width: this._canvas.offsetWidth, height: this._canvas.offsetHeight };
+    };
+    ViewPort.prototype.setSize = function (dimension) {
+        this._dimension = dimension;
+        this._canvas.setAttribute('width', dimension.width + "px");
+        this._canvas.setAttribute('height', dimension.height + "px");
+        this.emit('resize', dimension);
+    };
     ViewPort.prototype.clear = function () {
-        this.context.clearRect(0, 0, this._dimension.width, this._dimension.height);
+        this._context.clearRect(0, 0, this._dimension.width, this._dimension.height);
     };
     ViewPort.prototype.drawImage = function (img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
-        this.context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
+        this._context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
     };
     ViewPort.prototype.setFont = function (font) {
-        this.context.font = font;
+        this._context.font = font;
     };
     ViewPort.prototype.setColor = function (color) {
-        this.context.fillStyle = color;
+        this._context.fillStyle = color;
     };
     ViewPort.prototype.measureText = function (text) {
-        return this.context.measureText(text);
+        return this._context.measureText(text);
     };
     ViewPort.prototype.setTextBaseline = function (baseline) {
-        this.context.textBaseline = baseline;
+        this._context.textBaseline = baseline;
     };
     ViewPort.prototype.drawText = function (text, x, y, maxWidth) {
-        this.context.fillText(text, x, y, maxWidth);
+        this._context.fillText(text, x, y, maxWidth);
     };
     ViewPort.prototype.setHidden = function () {
-        this.canvas.style.position = "absolute";
-        this.canvas.style.left = '110001px';
+        this._canvas.style.position = "absolute";
+        this._canvas.style.left = '110001px';
     };
     ViewPort.prototype.getImage = function () {
         var image = document.createElement('img');
-        image.src = this.canvas.toDataURL("image/png");
+        image.src = this._canvas.toDataURL("image/png");
         return image;
     };
     ViewPort.prototype._fillPage = function () {
         var newSize = { width: window.innerWidth, height: window.innerHeight };
         var eventData = {
             type: 0..toString(),
-            oldDimensions: this.size,
+            oldDimensions: this.getSize(),
             newDimensions: newSize,
             source: this
         };
-        this.size = newSize;
+        this.setSize(newSize);
         this.emit(0..toString(), eventData);
     };
     return ViewPort;
@@ -1801,7 +1848,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1818,28 +1865,28 @@ var CollisionEmitter = (function () {
     CollisionEmitter.prototype.addEntity = function (entity) {
         if (!this.hasEntity(entity)) {
             this._entities.push(entity);
-            this._entitiesListeners[entity.ID] = [];
+            this._entitiesListeners[entity.getID()] = [];
             entity.on(0..toString(), this._cbs[0]);
         }
     };
     CollisionEmitter.prototype.removeEntity = function (entity) {
         if (this.hasEntity(entity)) {
             this._entities.splice(this._entities.indexOf(entity), 1);
-            delete this._entitiesListeners[entity.ID];
+            delete this._entitiesListeners[entity.getID()];
         }
     };
     CollisionEmitter.prototype.hasEntity = function (entity) {
-        return this._entitiesListeners.hasOwnProperty(entity.ID);
+        return this._entitiesListeners.hasOwnProperty(entity.getID());
     };
     CollisionEmitter.prototype.addEntityCollisionListener = function (entity, callback) {
         if (!this.hasEntity(entity)) {
             this.addEntity(entity);
         }
-        this._entitiesListeners[entity.ID].push(callback);
+        this._entitiesListeners[entity.getID()].push(callback);
     };
     CollisionEmitter.prototype.removeEntityCollisionListener = function (entity, callback) {
-        if (this._entitiesListeners[entity.ID].indexOf(callback) > -1) {
-            this._entitiesListeners[entity.ID].splice(this._entitiesListeners[entity.ID].indexOf(callback), 1);
+        if (this._entitiesListeners[entity.getID()].indexOf(callback) > -1) {
+            this._entitiesListeners[entity.getID()].splice(this._entitiesListeners[entity.getID()].indexOf(callback), 1);
         }
     };
     CollisionEmitter.prototype.addCollisionListener = function (callback) {
@@ -1852,8 +1899,8 @@ var CollisionEmitter = (function () {
     };
     CollisionEmitter.prototype._onEntityLocationUpdate = function (event) {
         var entity = event.source;
-        if (entity.parent) {
-            var potCollisions = entity.parent.findChildren({ x: entity.x, y: entity.y }, { x: entity.x2, y: entity.y2 });
+        if (entity.getParent()) {
+            var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
             var collisions = [];
             for (var i in potCollisions) {
                 var potEntity = potCollisions[i];
@@ -1875,7 +1922,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1883,12 +1930,12 @@ exports.CollisionEmitter = CollisionEmitter;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(6);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(31);
+var HTML5AudioEngine_1 = __webpack_require__(32);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1966,7 +2013,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1982,7 +2029,7 @@ var AssetType;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1997,7 +2044,7 @@ var AssetState;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2104,7 +2151,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2170,7 +2217,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2222,7 +2269,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2261,7 +2308,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2293,7 +2340,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2313,7 +2360,7 @@ var TextAssetBuilder = (function () {
         if (!maxWidth) {
             maxWidth = textViewPort.measureText(text).width;
         }
-        textViewPort.size = ({ width: maxWidth, height: height });
+        textViewPort.setSize({ width: maxWidth, height: height });
         textViewPort.setFont(font);
         textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
@@ -2327,7 +2374,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2349,8 +2396,8 @@ var Spritesheet = (function () {
             var def = this._spritesheetDefinition[id];
             var spriteViewPort = new utils_1.ViewPort();
             this._spriteCache[id] = new _1.Asset(_1.AssetType.IMAGE);
-            spriteViewPort.size = { width: def.width, height: def.height };
-            spriteViewPort.context.translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0);
+            spriteViewPort.setSize({ width: def.width, height: def.height });
+            spriteViewPort.getContext().translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0);
             spriteViewPort.setScale({ width: def.flipX === true ? -1 : 1, height: def.flipY === true ? -1 : 1 });
             spriteViewPort.drawImage(this._spritesheetAsset.getData(), def.x, def.y, def.width, def.height, 0, 0, def.width, def.height);
             this._spriteCache[id].setData(spriteViewPort.getImage());
@@ -2366,7 +2413,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2377,7 +2424,7 @@ var Animation = (function () {
         this._entity = entity;
         this._animationDefinition = animationDefinitions;
         this.loop = true;
-        this.timeout = false;
+        this._timeout = false;
         this.reverseLoop = false;
         this._animating = false;
         this._animation_index = -1;
@@ -2386,41 +2433,41 @@ var Animation = (function () {
         return this._animating;
     };
     Animation.prototype.start = function () {
-        if (!this.timeout) {
+        if (!this._timeout) {
             this._direction = "forward";
             this._loadStep(0);
             this._animating = true;
         }
     };
     Animation.prototype.stop = function () {
-        clearTimeout(this.timeout);
-        this.timeout = false;
+        clearTimeout(this._timeout);
+        this._timeout = false;
         this._animating = false;
     };
     Animation.prototype._loadStep = function (stepIndex) {
         var _this = this;
         var step = this._animationDefinition[stepIndex];
         var sprite = step.asset;
-        this._entity.texture = sprite;
-        this._entity.width = sprite.getData().width;
-        this._entity.height = sprite.getData().height;
+        this._entity.setTexture(sprite);
+        this._entity.setWidth(sprite.getData().width);
+        this._entity.setHeight(sprite.getData().height);
         var offset = 0;
         if (step.moveX || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX)) {
             if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX) {
                 offset = 0 - this._animationDefinition[stepIndex + 1].moveX;
-                this._entity.x = (this._entity.x - this._animationDefinition[stepIndex + 1].moveX);
+                this._entity.setX(this._entity.getX() - this._animationDefinition[stepIndex + 1].moveX);
             }
             else {
                 offset = 0 + step.moveX;
-                this._entity.x = (this._entity.x + step.moveX);
+                this._entity.setX(this._entity.getX() + step.moveX);
             }
         }
         if (step.moveY || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY)) {
             if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY) {
-                this._entity.y = (this._entity.y - this._animationDefinition[stepIndex + 1].moveY);
+                this._entity.setY(this._entity.getY() - this._animationDefinition[stepIndex + 1].moveY);
             }
             else {
-                this._entity.y = (this._entity.y + step.moveY);
+                this._entity.setY(this._entity.getY() + step.moveY);
             }
         }
         var nextStepIndex;
@@ -2431,12 +2478,12 @@ var Animation = (function () {
             nextStepIndex = stepIndex + 1;
         }
         if (this._animationDefinition[nextStepIndex]) {
-            this.timeout = setTimeout(function () {
+            this._timeout = setTimeout(function () {
                 _this._loadStep(nextStepIndex);
             }, step.delay);
         }
         else if (this.reverseLoop) {
-            this.timeout = setTimeout(function () {
+            this._timeout = setTimeout(function () {
                 if (_this._direction === "forward") {
                     _this._direction = "reverse";
                     _this._loadStep(stepIndex - 1);
@@ -2448,7 +2495,7 @@ var Animation = (function () {
             }, step.delay);
         }
         else if (this.loop) {
-            this.timeout = setTimeout(function () {
+            this._timeout = setTimeout(function () {
                 _this._loadStep(0);
             }, step.delay);
         }
@@ -2462,7 +2509,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2591,7 +2638,26 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = __webpack_require__(0);
+var instance = null;
+exports.instance = instance;
+var setInstance = function (game) {
+    if (instance) {
+        instance.getLogManager().log(utils_1.SeverityEnum.WARNING, 'Instance has already been set! Are you instantiating more than one game?');
+    }
+    exports.instance = instance = game;
+};
+exports.setInstance = setInstance;
+
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2606,7 +2672,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2693,7 +2759,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2709,6 +2775,18 @@ var RenderingEngine = (function () {
         this._showFPS = true;
         this._cameras = [];
     }
+    RenderingEngine.prototype.setViewPort = function (viewPort) {
+        this._viewPort = viewPort;
+    };
+    RenderingEngine.prototype.getViewPort = function () {
+        return this._viewPort;
+    };
+    RenderingEngine.prototype.setHUD = function (hud) {
+        this._HUDEntity = hud;
+    };
+    RenderingEngine.prototype.getHUD = function () {
+        return this._HUDEntity;
+    };
     RenderingEngine.prototype.addCamera = function (camera) {
         this._cameras.push(camera);
     };
@@ -2716,7 +2794,7 @@ var RenderingEngine = (function () {
         delete this._cameras[this._cameras.indexOf(camera)];
     };
     RenderingEngine.prototype.startRendering = function () {
-        if (this.viewPort) {
+        if (this._viewPort) {
             var self = this;
             this._rendering = true;
             this._requestFrame();
@@ -2742,7 +2820,7 @@ var RenderingEngine = (function () {
         }
     };
     RenderingEngine.prototype._render = function () {
-        this.viewPort.clear();
+        this._viewPort.clear();
     };
     RenderingEngine.prototype._calculateFPS = function () {
         var date = new Date();
@@ -2760,7 +2838,7 @@ var RenderingEngine = (function () {
     RenderingEngine.prototype._postRender = function () {
         if (this._showFPS) {
             this._calculateFPS();
-            var ctx = this.viewPort.context;
+            var ctx = this._viewPort.getContext();
             ctx.globalAlpha = 0.5;
             ctx.fillStyle = 'black';
             ctx.fillRect(0, 0, 100, 35);
@@ -2777,7 +2855,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2801,25 +2879,29 @@ var TwoDimensionalRenderingEngine = (function (_super) {
     }
     TwoDimensionalRenderingEngine.prototype._render = function () {
         _super.prototype._render.call(this);
-        var context = this.viewPort.context;
+        var context = this.getViewPort().getContext();
         for (var i in this._cameras) {
             this._renderCamera(this._cameras[i]);
         }
-        if (this.HUDEntity) {
-            this._renderEntity(this.HUDEntity, null);
+        if (this.getHUD()) {
+            this._renderEntity(this.getHUD(), null);
         }
     };
     TwoDimensionalRenderingEngine.prototype._renderCamera = function (camera) {
-        var scene = camera.scene;
-        var context = this.viewPort.context;
+        var scene = camera.getScene();
+        var context = this.getViewPort().getContext();
         if (this.debugCamera) {
+            var viewPoint = camera.getViewPoint();
+            var fov = camera.getFOV();
+            var renderOrigin = camera.getRenderOrigin();
+            var renderDimension = camera.getRenderDimension();
             context.beginPath();
-            context.rect(camera.viewPoint.x, camera.viewPoint.y, camera.fov.width, camera.fov.height);
+            context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
             context.lineWidth = 7;
             context.strokeStyle = 'red';
             context.stroke();
             context.beginPath();
-            context.rect(camera.renderOrigin.x, camera.renderOrigin.y, camera.renderDimension.width, camera.renderDimension.height);
+            context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
             context.lineWidth = 7;
             context.fillStyle = 'black';
             context.fill();
@@ -2830,13 +2912,17 @@ var TwoDimensionalRenderingEngine = (function (_super) {
     };
     TwoDimensionalRenderingEngine.prototype._renderEntity = function (entity, camera) {
         if (camera) {
+            var viewPoint = camera.getViewPoint();
+            var fov = camera.getFOV();
+            var renderOrigin = camera.getRenderOrigin();
+            var renderDimension = camera.getRenderDimension();
             var collidesYAxis = false;
             var collidesXAxis = false;
             var cameraBounds = {
-                x: camera.viewPoint.x,
-                y: camera.viewPoint.y,
-                x2: camera.viewPoint.x + camera.fov.width,
-                y2: camera.viewPoint.y + camera.fov.height
+                x: viewPoint.x,
+                y: viewPoint.y,
+                x2: viewPoint.x + fov.width,
+                y2: viewPoint.y + fov.height
             };
             var entityBounds = {
                 x: entity.getAbsoluteX(),
@@ -2856,23 +2942,23 @@ var TwoDimensionalRenderingEngine = (function (_super) {
                 return false;
             }
             var leftClip = 0;
-            if (entity.getAbsoluteX() < camera.viewPoint.x) {
-                leftClip = camera.viewPoint.x - entity.getAbsoluteX();
+            if (entity.getAbsoluteX() < viewPoint.x) {
+                leftClip = viewPoint.x - entity.getAbsoluteX();
             }
             var rightClip = 0;
-            if (entity.getAbsoluteX2() > (camera.viewPoint.x + camera.fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (camera.viewPoint.x + camera.fov.width);
+            if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
+                rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
             }
             var topClip = 0;
-            if (entity.getAbsoluteY() < camera.viewPoint.y) {
-                topClip = camera.viewPoint.y - entity.getAbsoluteY();
+            if (entity.getAbsoluteY() < viewPoint.y) {
+                topClip = viewPoint.y - entity.getAbsoluteY();
             }
             var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (camera.viewPoint.y + camera.fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (camera.viewPoint.y + camera.fov.height);
+            if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
+                bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
             }
-            var xModifier = camera.fov.width / camera.renderDimension.width;
-            var yModifier = camera.fov.height / camera.renderDimension.height;
+            var xModifier = fov.width / renderDimension.width;
+            var yModifier = fov.height / renderDimension.height;
             var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
             if (cameraRelativeY < 0) {
                 cameraRelativeY = 0;
@@ -2881,53 +2967,54 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             if (cameraRelativeX < 0) {
                 cameraRelativeX = 0;
             }
-            var clippedEntityHeight = (entity.height - topClip - bottomClip);
-            var clippedEntityWidth = (entity.width - rightClip - leftClip);
-            var x = camera.renderOrigin.x + cameraRelativeX;
-            var y = camera.renderOrigin.y + cameraRelativeY;
+            var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
+            var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
+            var x = renderOrigin.x + cameraRelativeX;
+            var y = renderOrigin.y + cameraRelativeY;
             var w = clippedEntityWidth / xModifier;
             var h = clippedEntityHeight / yModifier;
-            if (entity.color) {
-                var color = entity.color;
-                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-                this.viewPort.context.fillRect(x, y, w, h);
+            if (entity.getColor()) {
+                var color = entity.getColor();
+                this.getViewPort().getContext().fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+                this.getViewPort().getContext().fillRect(x, y, w, h);
             }
             if (this.debugRegions) {
-                for (var x_i in entity.regions) {
-                    for (var y_i in entity.regions[x]) {
-                        if (entity.regions[x_i][y_i].length > 0) {
-                            this.viewPort.context.strokeStyle = "red";
-                            this.viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * parseInt(x_i), entity.getAbsoluteY() + entity.regionDimension.height * parseInt(y_i), entity.regionDimension.width, entity.regionDimension.height);
+                var regions = entity.getRegions();
+                for (var x_i in regions) {
+                    for (var y_i in regions[x]) {
+                        if (regions[x_i][y_i].length > 0) {
+                            this.getViewPort().getContext().strokeStyle = "red";
+                            this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
                         }
                     }
                 }
             }
-            if (entity.texture) {
-                var imageData = entity.texture.getData();
-                var entityToImageYModifier = imageData.height / entity.height;
-                var entityToImageXModifier = imageData.width / entity.width;
+            if (entity.getTexture()) {
+                var imageData = entity.getTexture().getData();
+                var entityToImageYModifier = imageData.height / entity.getHeight();
+                var entityToImageXModifier = imageData.width / entity.getWidth();
                 var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h);
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h);
             }
         }
         else {
-            var x = entity.x;
-            var y = entity.y;
-            var w = entity.width;
-            var h = entity.height;
-            if (entity.color) {
-                var color = entity.color;
-                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-                this.viewPort.context.fillRect(x, y, w, h);
+            var x = entity.getX();
+            var y = entity.getY();
+            var w = entity.getWidth();
+            var h = entity.getHeight();
+            if (entity.getColor()) {
+                var color = entity.getColor();
+                this.getViewPort().getContext().fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+                this.getViewPort().getContext().fillRect(x, y, w, h);
             }
-            if (entity.texture) {
-                var imageData = entity.texture.getData();
-                var entityToImageYModifier = imageData.height / entity.height;
-                var entityToImageXModifier = imageData.width / entity.width;
+            if (entity.getTexture()) {
+                var imageData = entity.getTexture().getData();
+                var entityToImageYModifier = imageData.height / entity.getHeight();
+                var entityToImageXModifier = imageData.width / entity.getWidth();
                 var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.viewPort.context.drawImage(imageData, x, y, w, h);
+                this.getViewPort().getContext().drawImage(imageData, x, y, w, h);
             }
         }
         var children = entity.getChildren();
@@ -2942,7 +3029,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2966,31 +3053,29 @@ var EntityModel = (function (_super) {
         var _this = _super.call(this) || this;
         _this._attributes = {};
         _this._id = utils_1.IDGenerator.getSingleton().generate();
-        _this.type = 'generic';
+        _this._type = 'generic';
         return _this;
     }
-    Object.defineProperty(EntityModel.prototype, "ID", {
-        get: function () {
-            return this._id;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(EntityModel.prototype, "texture", {
-        get: function () {
-            return this._texture;
-        },
-        set: function (asset) {
-            this._texture = asset;
-            this.emit(3..toString(), {
-                attribute: 'texture',
-                name: name,
-                value: asset
-            });
-        },
-        enumerable: true,
-        configurable: true
-    });
+    EntityModel.prototype.getID = function () {
+        return this._id;
+    };
+    EntityModel.prototype.setType = function (type) {
+        this._type = type;
+    };
+    EntityModel.prototype.getType = function () {
+        return this._type;
+    };
+    EntityModel.prototype.setTexture = function (asset) {
+        this._texture = asset;
+        this.emit(3..toString(), {
+            attribute: 'texture',
+            name: name,
+            value: asset
+        });
+    };
+    EntityModel.prototype.getTexture = function () {
+        return this._texture;
+    };
     EntityModel.prototype.setAttribute = function (key, value) {
         var oldValue = this.getAttribute(key);
         this._attributes[key] = value;
@@ -3030,7 +3115,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3058,7 +3143,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3082,15 +3167,15 @@ var GridMap = (function (_super) {
         _this.tileSize = tileSize;
         _this.tileCount = tileCount;
         _this._tiles = [];
-        _this.width = (_this.tileSize.width * _this.tileCount.x);
-        _this.height = (_this.tileSize.height * _this.tileCount.y);
+        _this.setWidth(_this.tileSize.width * _this.tileCount.x);
+        _this.setHeight(_this.tileSize.height * _this.tileCount.y);
         for (var x = 0; x < _this.tileCount.x; x++) {
             for (var y = 0; y < _this.tileCount.y; y++) {
                 var tile = new Entity_1.Entity();
-                tile.width = _this.tileSize.width;
-                tile.height = _this.tileSize.height;
-                tile.x = ((x + 1) * _this.tileSize.width);
-                tile.y = ((y + 1) * _this.tileSize.height);
+                tile.setWidth(_this.tileSize.width);
+                tile.setHeight(_this.tileSize.height);
+                tile.setX((x + 1) * _this.tileSize.width);
+                tile.setY((y + 1) * _this.tileSize.height);
                 _this.addChild(tile);
                 if (!_this._tiles[x]) {
                     _this._tiles[x] = [];
@@ -3112,65 +3197,81 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(10);
-exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(40);
-exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(41);
-exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(42);
-exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(43);
-exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(44);
-exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(45);
-exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Camera = (function () {
-    function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
-        this.scene = scene;
-        this.viewPoint = viewPoint || { x: 0, y: 0 };
-        this.fov = fov || { width: 100, height: 100 };
-        this.renderOrigin = renderOrigin || { x: 0, y: 0 };
-        this.renderDimension = renderDimension || { width: 100, height: 100 };
-    }
-    return Camera;
-}());
-exports.Camera = Camera;
-
-
-/***/ }),
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+var DEFAULT_FOV = { width: 100, height: 100 };
+var DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+var DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
+var Camera = (function () {
+    function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
+        this.setScene(scene);
+        this.setViewPoint(viewPoint || DEFAULT_VIEWPOINT);
+        this.setFOV(fov || DEFAULT_FOV);
+        this.setRenderOrigin(renderOrigin || DEFAULT_RENDER_ORIGIN);
+        this.setRenderDimension(renderDimension || DEFAULT_RENDER_DIMENSION);
+    }
+    Camera.prototype.setScene = function (scene) {
+        this._scene = scene;
+    };
+    Camera.prototype.getScene = function () {
+        return this._scene;
+    };
+    Camera.prototype.setViewPoint = function (viewPoint) {
+        this._viewPoint = viewPoint;
+    };
+    Camera.prototype.getViewPoint = function () {
+        return this._viewPoint;
+    };
+    Camera.prototype.setFOV = function (fov) {
+        this._fov = fov;
+    };
+    Camera.prototype.getFOV = function () {
+        return this._fov;
+    };
+    Camera.prototype.setRenderOrigin = function (origin) {
+        this._renderOrigin = origin;
+    };
+    Camera.prototype.getRenderOrigin = function () {
+        return this._renderOrigin;
+    };
+    Camera.prototype.setRenderDimension = function (dim) {
+        this._renderDimension = dim;
+    };
+    Camera.prototype.getRenderDimension = function () {
+        return this._renderDimension;
+    };
+    return Camera;
+}());
+exports.Camera = Camera;
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var _1 = __webpack_require__(10);
 var IDGenerator = (function () {
     function IDGenerator() {
     }
     IDGenerator.prototype.generate = function () {
+        return IDGenerator.generate();
+    };
+    IDGenerator.generate = function () {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     };
     IDGenerator.getSingleton = function () {
+        _1.LogManager.getSingleton().deprecate('IDGenerator should no longer be used as a singleton anymore. Instead use IDGenerator.generate().');
         if (!IDGenerator._instance) {
             IDGenerator._instance = new IDGenerator();
         }
@@ -3182,7 +3283,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3236,13 +3337,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(10);
+var SeverityEnum_1 = __webpack_require__(11);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -3252,19 +3353,36 @@ var LogManager = (function () {
         if (this.getLogLevel() & severity) {
             switch (severity) {
                 case SeverityEnum_1.SeverityEnum.DEBUG:
-                    console.debug(message);
+                    console.debug("[DEBUG] " + message);
                     break;
                 case SeverityEnum_1.SeverityEnum.INFO:
-                    console.info(message);
+                    console.info("[INFO] " + message);
                     break;
                 case SeverityEnum_1.SeverityEnum.WARNING:
-                    console.warn(message);
+                    console.warn("[WARN] " + message);
                     break;
                 case SeverityEnum_1.SeverityEnum.ERROR:
-                    console.error(message);
+                    console.error("[ERROR] " + message);
                     break;
+                case SeverityEnum_1.SeverityEnum.DEPRECATE:
+                    console.error("[DEPRECATE] " + message);
             }
         }
+    };
+    LogManager.prototype.debug = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEBUG, message);
+    };
+    LogManager.prototype.info = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.INFO, message);
+    };
+    LogManager.prototype.warn = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.WARNING, message);
+    };
+    LogManager.prototype.error = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.ERROR, message);
+    };
+    LogManager.prototype.deprecate = function (message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEPRECATE, message);
     };
     LogManager.prototype.setLogLevel = function (severity) {
         this._logLevel = severity;
@@ -3286,7 +3404,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3307,87 +3425,95 @@ var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
         var _this = _super.call(this) || this;
-        _this.canvas = document.createElement('canvas');
-        _this.context = _this.canvas.getContext('2d');
-        _this.resizable = false;
+        _this._canvas = document.createElement('canvas');
+        _this._context = _this._canvas.getContext('2d');
+        _this._resizable = false;
         _this._dimension = { width: 0, height: 0 };
         _this._filledPage = false;
         return _this;
     }
+    ViewPort.prototype.getCanvas = function () {
+        return this._canvas;
+    };
+    ViewPort.prototype.getContext = function () {
+        return this._context;
+    };
+    ViewPort.prototype.setResizable = function (resizable) {
+        this._resizable = resizable;
+    };
+    ViewPort.prototype.isResizable = function () {
+        return this._resizable;
+    };
     ViewPort.prototype.setScale = function (dimension) {
-        this.context.scale(dimension.width, dimension.height);
+        this._context.scale(dimension.width, dimension.height);
     };
     ViewPort.prototype.fillPage = function (state) {
         console.log("Test, ", state);
         this._filledPage = state;
         if (state) {
-            this.canvas.style.position = "fixed";
-            this.canvas.style.top = "0px";
-            this.canvas.style.left = "0px";
+            this._canvas.style.position = "fixed";
+            this._canvas.style.top = "0px";
+            this._canvas.style.left = "0px";
             this._fillPage();
             this._resizeListener = this._fillPage.bind(this);
             window.addEventListener("resize", this._resizeListener);
         }
         else {
-            this.canvas.style.position = "";
+            this._canvas.style.position = "";
             window.removeEventListener("reisze", this._resizeListener);
         }
     };
     ViewPort.prototype.isFilledPage = function () {
         return this._filledPage;
     };
-    Object.defineProperty(ViewPort.prototype, "size", {
-        get: function () {
-            return { width: this.canvas.offsetWidth, height: this.canvas.offsetHeight };
-        },
-        set: function (dimension) {
-            this._dimension = dimension;
-            this.canvas.setAttribute('width', dimension.width + "px");
-            this.canvas.setAttribute('height', dimension.height + "px");
-            this.emit('resize', dimension);
-        },
-        enumerable: true,
-        configurable: true
-    });
+    ViewPort.prototype.getSize = function () {
+        return { width: this._canvas.offsetWidth, height: this._canvas.offsetHeight };
+    };
+    ViewPort.prototype.setSize = function (dimension) {
+        this._dimension = dimension;
+        this._canvas.setAttribute('width', dimension.width + "px");
+        this._canvas.setAttribute('height', dimension.height + "px");
+        this.emit('resize', dimension);
+    };
     ViewPort.prototype.clear = function () {
-        this.context.clearRect(0, 0, this._dimension.width, this._dimension.height);
+        this._context.clearRect(0, 0, this._dimension.width, this._dimension.height);
     };
     ViewPort.prototype.drawImage = function (img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
-        this.context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
+        this._context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
     };
     ViewPort.prototype.setFont = function (font) {
-        this.context.font = font;
+        this._context.font = font;
     };
     ViewPort.prototype.setColor = function (color) {
-        this.context.fillStyle = color;
+        this._context.fillStyle = color;
     };
     ViewPort.prototype.measureText = function (text) {
-        return this.context.measureText(text);
+        return this._context.measureText(text);
     };
     ViewPort.prototype.setTextBaseline = function (baseline) {
-        this.context.textBaseline = baseline;
+        this._context.textBaseline = baseline;
     };
     ViewPort.prototype.drawText = function (text, x, y, maxWidth) {
-        this.context.fillText(text, x, y, maxWidth);
+        this._context.fillText(text, x, y, maxWidth);
     };
     ViewPort.prototype.setHidden = function () {
-        this.canvas.style.position = "absolute";
-        this.canvas.style.left = '110001px';
+        this._canvas.style.position = "absolute";
+        this._canvas.style.left = '110001px';
     };
     ViewPort.prototype.getImage = function () {
         var image = document.createElement('img');
-        image.src = this.canvas.toDataURL("image/png");
+        image.src = this._canvas.toDataURL("image/png");
         return image;
     };
     ViewPort.prototype._fillPage = function () {
         var newSize = { width: window.innerWidth, height: window.innerHeight };
         var eventData = {
             type: 0..toString(),
-            oldDimensions: this.size,
+            oldDimensions: this.getSize(),
             newDimensions: newSize,
             source: this
         };
-        this.size = newSize;
+        this.setSize(newSize);
         this.emit(0..toString(), eventData);
     };
     return ViewPort;
@@ -3396,7 +3522,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3413,28 +3539,28 @@ var CollisionEmitter = (function () {
     CollisionEmitter.prototype.addEntity = function (entity) {
         if (!this.hasEntity(entity)) {
             this._entities.push(entity);
-            this._entitiesListeners[entity.ID] = [];
+            this._entitiesListeners[entity.getID()] = [];
             entity.on(0..toString(), this._cbs[0]);
         }
     };
     CollisionEmitter.prototype.removeEntity = function (entity) {
         if (this.hasEntity(entity)) {
             this._entities.splice(this._entities.indexOf(entity), 1);
-            delete this._entitiesListeners[entity.ID];
+            delete this._entitiesListeners[entity.getID()];
         }
     };
     CollisionEmitter.prototype.hasEntity = function (entity) {
-        return this._entitiesListeners.hasOwnProperty(entity.ID);
+        return this._entitiesListeners.hasOwnProperty(entity.getID());
     };
     CollisionEmitter.prototype.addEntityCollisionListener = function (entity, callback) {
         if (!this.hasEntity(entity)) {
             this.addEntity(entity);
         }
-        this._entitiesListeners[entity.ID].push(callback);
+        this._entitiesListeners[entity.getID()].push(callback);
     };
     CollisionEmitter.prototype.removeEntityCollisionListener = function (entity, callback) {
-        if (this._entitiesListeners[entity.ID].indexOf(callback) > -1) {
-            this._entitiesListeners[entity.ID].splice(this._entitiesListeners[entity.ID].indexOf(callback), 1);
+        if (this._entitiesListeners[entity.getID()].indexOf(callback) > -1) {
+            this._entitiesListeners[entity.getID()].splice(this._entitiesListeners[entity.getID()].indexOf(callback), 1);
         }
     };
     CollisionEmitter.prototype.addCollisionListener = function (callback) {
@@ -3447,8 +3573,8 @@ var CollisionEmitter = (function () {
     };
     CollisionEmitter.prototype._onEntityLocationUpdate = function (event) {
         var entity = event.source;
-        if (entity.parent) {
-            var potCollisions = entity.parent.findChildren({ x: entity.x, y: entity.y }, { x: entity.x2, y: entity.y2 });
+        if (entity.getParent()) {
+            var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
             var collisions = [];
             for (var i in potCollisions) {
                 var potEntity = potCollisions[i];
@@ -3470,7 +3596,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3548,7 +3674,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3564,7 +3690,7 @@ var AssetType;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3579,7 +3705,7 @@ var AssetState;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3686,7 +3812,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3752,7 +3878,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3804,7 +3930,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3843,7 +3969,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3875,7 +4001,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3895,7 +4021,7 @@ var TextAssetBuilder = (function () {
         if (!maxWidth) {
             maxWidth = textViewPort.measureText(text).width;
         }
-        textViewPort.size = ({ width: maxWidth, height: height });
+        textViewPort.setSize({ width: maxWidth, height: height });
         textViewPort.setFont(font);
         textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
@@ -3909,7 +4035,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3931,8 +4057,8 @@ var Spritesheet = (function () {
             var def = this._spritesheetDefinition[id];
             var spriteViewPort = new utils_1.ViewPort();
             this._spriteCache[id] = new _1.Asset(_1.AssetType.IMAGE);
-            spriteViewPort.size = { width: def.width, height: def.height };
-            spriteViewPort.context.translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0);
+            spriteViewPort.setSize({ width: def.width, height: def.height });
+            spriteViewPort.getContext().translate(def.flipX === true ? def.width : 0, def.flipY === true ? def.height : 0);
             spriteViewPort.setScale({ width: def.flipX === true ? -1 : 1, height: def.flipY === true ? -1 : 1 });
             spriteViewPort.drawImage(this._spritesheetAsset.getData(), def.x, def.y, def.width, def.height, 0, 0, def.width, def.height);
             this._spriteCache[id].setData(spriteViewPort.getImage());
@@ -3948,7 +4074,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3959,7 +4085,7 @@ var Animation = (function () {
         this._entity = entity;
         this._animationDefinition = animationDefinitions;
         this.loop = true;
-        this.timeout = false;
+        this._timeout = false;
         this.reverseLoop = false;
         this._animating = false;
         this._animation_index = -1;
@@ -3968,41 +4094,41 @@ var Animation = (function () {
         return this._animating;
     };
     Animation.prototype.start = function () {
-        if (!this.timeout) {
+        if (!this._timeout) {
             this._direction = "forward";
             this._loadStep(0);
             this._animating = true;
         }
     };
     Animation.prototype.stop = function () {
-        clearTimeout(this.timeout);
-        this.timeout = false;
+        clearTimeout(this._timeout);
+        this._timeout = false;
         this._animating = false;
     };
     Animation.prototype._loadStep = function (stepIndex) {
         var _this = this;
         var step = this._animationDefinition[stepIndex];
         var sprite = step.asset;
-        this._entity.texture = sprite;
-        this._entity.width = sprite.getData().width;
-        this._entity.height = sprite.getData().height;
+        this._entity.setTexture(sprite);
+        this._entity.setWidth(sprite.getData().width);
+        this._entity.setHeight(sprite.getData().height);
         var offset = 0;
         if (step.moveX || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX)) {
             if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX) {
                 offset = 0 - this._animationDefinition[stepIndex + 1].moveX;
-                this._entity.x = (this._entity.x - this._animationDefinition[stepIndex + 1].moveX);
+                this._entity.setX(this._entity.getX() - this._animationDefinition[stepIndex + 1].moveX);
             }
             else {
                 offset = 0 + step.moveX;
-                this._entity.x = (this._entity.x + step.moveX);
+                this._entity.setX(this._entity.getX() + step.moveX);
             }
         }
         if (step.moveY || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY)) {
             if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY) {
-                this._entity.y = (this._entity.y - this._animationDefinition[stepIndex + 1].moveY);
+                this._entity.setY(this._entity.getY() - this._animationDefinition[stepIndex + 1].moveY);
             }
             else {
-                this._entity.y = (this._entity.y + step.moveY);
+                this._entity.setY(this._entity.getY() + step.moveY);
             }
         }
         var nextStepIndex;
@@ -4013,12 +4139,12 @@ var Animation = (function () {
             nextStepIndex = stepIndex + 1;
         }
         if (this._animationDefinition[nextStepIndex]) {
-            this.timeout = setTimeout(function () {
+            this._timeout = setTimeout(function () {
                 _this._loadStep(nextStepIndex);
             }, step.delay);
         }
         else if (this.reverseLoop) {
-            this.timeout = setTimeout(function () {
+            this._timeout = setTimeout(function () {
                 if (_this._direction === "forward") {
                     _this._direction = "reverse";
                     _this._loadStep(stepIndex - 1);
@@ -4030,7 +4156,7 @@ var Animation = (function () {
             }, step.delay);
         }
         else if (this.loop) {
-            this.timeout = setTimeout(function () {
+            this._timeout = setTimeout(function () {
                 _this._loadStep(0);
             }, step.delay);
         }

@@ -14,19 +14,41 @@ export class LogManager {
 		if (this.getLogLevel() & severity) {
 			switch(severity) {
 				case SeverityEnum.DEBUG:
-					console.debug(message);
+					console.debug(`[DEBUG] ${message}`);
 					break;
 				case SeverityEnum.INFO:
-					console.info(message);
+					console.info(`[INFO] ${message}`);
 					break;
 				case SeverityEnum.WARNING:
-					console.warn(message);
+					console.warn(`[WARN] ${message}`);
 					break;
 				case SeverityEnum.ERROR:
-					console.error(message);
+					console.error(`[ERROR] ${message}`);
 					break;
+				case SeverityEnum.DEPRECATE:
+					console.error(`[DEPRECATE] ${message}`);
 			}
 		}
+	}
+
+	public debug(message: string): void {
+		this.log(SeverityEnum.DEBUG, message);
+	}
+
+	public info(message: string): void {
+		this.log(SeverityEnum.INFO, message);
+	}
+
+	public warn(message: string): void {
+		this.log(SeverityEnum.WARNING, message);
+	}
+
+	public error(message: string): void {
+		this.log(SeverityEnum.ERROR, message);
+	}
+
+	public deprecate(message: string): void {
+		this.log(SeverityEnum.DEPRECATE, message);
 	}
 
 	public setLogLevel (severity: SeverityEnum) : void {

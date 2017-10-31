@@ -15,13 +15,13 @@ export class Animation {
 	private _direction : string;
 	private _animating : boolean;
 	private _animation_index : number;
-	private timeout: any;
+	private _timeout: any;
 
 	public constructor (entity: Entity, animationDefinitions: AnimationFrame[]) {
 		this._entity = entity; //Entity to do the animation
 		this._animationDefinition = animationDefinitions; //Definitions for animations
 		this.loop = true;
-		this.timeout = false;
+		this._timeout = false;
 		this.reverseLoop = false;
 		this._animating = false;
 		this._animation_index = -1;
@@ -32,7 +32,7 @@ export class Animation {
 	}
 
 	public start () : void {
-		if (!this.timeout) {
+		if (!this._timeout) {
 			this._direction = "forward";
 			this._loadStep(0);
 			this._animating = true;
@@ -40,35 +40,35 @@ export class Animation {
 	}
 
 	public stop () : void {
-		clearTimeout(this.timeout);
-		this.timeout = false;
+		clearTimeout(this._timeout);
+		this._timeout = false;
 		this._animating = false;
 	}
 
 	private _loadStep (stepIndex: number) : void {
 		var step = this._animationDefinition[stepIndex];
 		var sprite = step.asset;
-		this._entity.texture = sprite;
-		this._entity.width = sprite.getData().width;
-		this._entity.height = sprite.getData().height;
+		this._entity.setTexture(sprite);
+		this._entity.setWidth(sprite.getData().width);
+		this._entity.setHeight(sprite.getData().height);
 
 		var offset : number = 0;
 
 		if (step.moveX || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX)) {
 			if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveX) {
 				offset =  0 - this._animationDefinition[stepIndex + 1].moveX;
-				this._entity.x = (this._entity.x - this._animationDefinition[stepIndex + 1].moveX);
+				this._entity.setX(this._entity.getX() - this._animationDefinition[stepIndex + 1].moveX);
 			} else {
 				offset =  0 + step.moveX;
-				this._entity.x = (this._entity.x + step.moveX);
+				this._entity.setX(this._entity.getX() + step.moveX);
 			}
 		}
 
 		if (step.moveY || (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY)) {
 			if (this._direction === "reverse" && this._animationDefinition[stepIndex + 1].moveY) {
-				this._entity.y = (this._entity.y - this._animationDefinition[stepIndex + 1].moveY);
+				this._entity.setY(this._entity.getY() - this._animationDefinition[stepIndex + 1].moveY);
 			} else {
-				this._entity.y = (this._entity.y + step.moveY);
+				this._entity.setY(this._entity.getY() + step.moveY);
 			}
 		}
 		// LogManager.getInstance().log(SeverityEnum.INFO, stepIndex + this._direction + offset);
@@ -82,11 +82,11 @@ export class Animation {
 		}
 
 		if (this._animationDefinition[nextStepIndex]) {
-			this.timeout = setTimeout(() => {
+			this._timeout = setTimeout(() => {
 				this._loadStep(nextStepIndex)
 			}, step.delay);
 		} else if (this.reverseLoop) {
-			this.timeout = setTimeout(() => {
+			this._timeout = setTimeout(() => {
 				if (this._direction === "forward") {
 					this._direction = "reverse";
 					this._loadStep(stepIndex - 1);
@@ -96,7 +96,7 @@ export class Animation {
 				}
 			}, step.delay);
 		} else if (this.loop) {
-			this.timeout = setTimeout(() => {
+			this._timeout = setTimeout(() => {
 				this._loadStep(0)
 			}, step.delay);
 		} else {

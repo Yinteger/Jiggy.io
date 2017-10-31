@@ -4,22 +4,69 @@ import {
 	Dimension
 } from '@jiggy/interfaces';
 
+const DEFAULT_VIEWPOINT: Coordinate = {x:0,y:0};
+const DEFAULT_FOV: Dimension = {width:100,height:100};
+const DEFAULT_RENDER_ORIGIN: Coordinate = {x:0,y:0};
+const DEFAULT_RENDER_DIMENSION: Dimension = {width:100,height:100};
+
 export class Camera {
-	public scene : Entity;
-	public viewPoint : Coordinate;
-	public fov : Dimension;
-	public renderOrigin : Coordinate;
-	public renderDimension : Dimension;
+	private _scene : Entity;
+	private _viewPoint : Coordinate;
+	private _fov : Dimension;
+	private _renderOrigin : Coordinate;
+	private _renderDimension : Dimension;
 
 	public constructor (scene : Entity, viewPoint : Coordinate, fov : Dimension, renderOrigin: Coordinate, renderDimension: Dimension) {
-		this.scene = scene;
+		// this._scene = scene;
+		// this._viewPoint = viewPoint || {x:  0, y: 0};
+		// this._fov = fov || {width: 100, height: 100};
+		// this._renderOrigin = renderOrigin || {x: 0, y: 0};
+		// this._renderDimension = renderDimension || {width: 100, height: 100};
 
-		this.viewPoint = viewPoint || {x:  0, y: 0};
+		this.setScene(scene);
+		this.setViewPoint(viewPoint || DEFAULT_VIEWPOINT);
+		this.setFOV(fov || DEFAULT_FOV);
+		this.setRenderOrigin(renderOrigin || DEFAULT_RENDER_ORIGIN);
+		this.setRenderDimension(renderDimension || DEFAULT_RENDER_DIMENSION);
+	}
 
-		this.fov = fov || {width: 100, height: 100};
+	public setScene(scene: Entity): void {
+		this._scene = scene;
+	}
 
-		this.renderOrigin = renderOrigin || {x: 0, y: 0};
+	public getScene(): Entity {
+		return this._scene;
+	}
 
-		this.renderDimension = renderDimension || {width: 100, height: 100};
+	public setViewPoint(viewPoint: Coordinate): void {
+		this._viewPoint = viewPoint;
+	}
+
+	public getViewPoint(): Coordinate {
+		return this._viewPoint;
+	}
+
+	public setFOV(fov: Dimension): void {
+		this._fov = fov;
+	}
+
+	public getFOV(): Dimension {
+		return this._fov;
+	}
+
+	public setRenderOrigin(origin: Coordinate): void {
+		this._renderOrigin = origin;
+	}
+
+	public getRenderOrigin(): Coordinate {
+		return this._renderOrigin;
+	}
+
+	public setRenderDimension(dim: Dimension): void {
+		this._renderDimension = dim;
+	}
+
+	public getRenderDimension(): Dimension {
+		return this._renderDimension;
 	}
 }

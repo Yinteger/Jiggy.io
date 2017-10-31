@@ -2,11 +2,11 @@ import {ViewPort, Camera} from "@jiggy/utils";
 import {Entity} from "@jiggy/entities";
 
 export class RenderingEngine {
-	public viewPort : ViewPort;
+	private _viewPort : ViewPort;
 	protected _prerenderViewPort : ViewPort;
 	protected _rendering  : boolean;
 	protected _fps : number;
-	public HUDEntity : Entity;
+	private _HUDEntity : Entity;
 	protected _cameras : Camera[];
 	private _animationFrameID : number;
 	private _frames : number;
@@ -23,6 +23,22 @@ export class RenderingEngine {
 		this._cameras = [];
 	}
 
+	public setViewPort(viewPort: ViewPort): void {
+		this._viewPort = viewPort;
+	}
+
+	public getViewPort(): ViewPort {
+		return this._viewPort;
+	}
+
+	public setHUD(hud: Entity): void {
+		this._HUDEntity = hud;
+	}
+
+	public getHUD(): Entity {
+		return this._HUDEntity;
+	}
+
 	public addCamera (camera : Camera) : void {
 		this._cameras.push(camera);
 	}
@@ -32,7 +48,7 @@ export class RenderingEngine {
 	}
 
 	public startRendering () : boolean {
-		if (this.viewPort) {
+		if (this._viewPort) {
 			var self = this;
 			this._rendering = true;
 			this._requestFrame();
@@ -59,7 +75,7 @@ export class RenderingEngine {
 	}
 
 	protected _render () : void {
-		this.viewPort.clear();
+		this._viewPort.clear();
 	}
 
 	private _calculateFPS () : void {
@@ -90,7 +106,7 @@ export class RenderingEngine {
 			this._calculateFPS();
 
 			//Draw the FPS on the screen
-			var ctx = this.viewPort.context;
+			var ctx = this._viewPort.getContext();
 			ctx.globalAlpha=0.5;
 			ctx.fillStyle = 'black';
 			ctx.fillRect(0,0,100,35);

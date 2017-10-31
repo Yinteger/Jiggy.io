@@ -1,7 +1,7 @@
 import {Entity} from "../../src/entities/src/";
 import {Animation, Spritesheet, Asset} from "../../src/assets/src/";
 import {Coordinate} from "../../src/interfaces/src/";
-import * as Core from "../../src/core/src/";
+import {instance, Engine} from '../../src/core/src/';
 
 export default class Character extends Entity {
 	public moving :  boolean;
@@ -18,8 +18,8 @@ export default class Character extends Entity {
 	constructor (character_spritesheet : Spritesheet) {
 		super();
 
-		this.width = 14;
-		this.height = 21;
+		this.setWidth(14);
+		this.setHeight(21);
 
 		this._characterSpritesheet = character_spritesheet;
 
@@ -49,8 +49,9 @@ export default class Character extends Entity {
 	}
 
 	private _move (coordinates : Coordinate) : void {
-		var Engine: Core.Engine = (<any>window)._PalletDemo;
-		Engine.logicEngine.removeLogic(this.ID + "_endmove");
+		var game: Engine = instance;
+		// var Engine: Core.Engine = (<any>window)._PalletDemo;
+		game.getLogicEngine().removeLogic(this.getID() + "_endmove");
 		// var collision =  mapl2.findChildren(new zen.data.Coordinate(player.getX2() + 3, player.getY2() - 5),  new zen.data.Coordinate(player.getX2() + 3, player.getY2()));
 		var collision = false;
 		var updatedCoordinates = false;
@@ -58,19 +59,19 @@ export default class Character extends Entity {
 		var y = coordinates.y;
 
 		//TODO: Fix Magic Numbers... 16 is so only the bottom balf of the sprite is collision but the +1 is fixing it to check rpoper tile...
-		var potCollisions = this.parent.findChildren({x: x + 1, y: y + 	16});
+		var potCollisions = this.getParent().findChildren({x: x + 1, y: y + 	16});
 		for (var i in potCollisions) {
-			if (potCollisions[i] != this && potCollisions[i].collisionable) {
+			if (potCollisions[i] != this && potCollisions[i].isCollisionable()) {
 				collision = true;
 			}
 		}
 
 		if (!collision) {
-			Engine.logicEngine.addLogic(this.ID + "_move", () => {
+			game.getLogicEngine().addLogic(this.getID() + "_move", () => {
 
-				if (this.x != x) {
-					if (this.x > x) {
-						this.x =  (this.x - 2);
+				if (this.getX() != x) {
+					if (this.getX() > x) {
+						this.setX(this.getX() - 2);
 
 						if (!updatedCoordinates) {
 							this.tileX -= 1;
@@ -78,7 +79,7 @@ export default class Character extends Entity {
 						}
 
 					} else {
-						this.x = (this.x + 2);
+						this.setX(this.getX() + 2);
 
 						if (!updatedCoordinates) {
 							this.tileX += 1;
@@ -87,16 +88,16 @@ export default class Character extends Entity {
 					}
 				}
 
-				if (this.y != y) {
-					if (this.y > y) {
-						this.y = (this.y - 2);
+				if (this.getY() != y) {
+					if (this.getY() > y) {
+						this.setY(this.getY() - 2);
 
 						if (!updatedCoordinates) {
 							this.tileY -= 1;
 							updatedCoordinates = true;
 						}
 					} else {
-						this.y = (this.y) + 2;
+						this.setY((this.getY()) + 2);
 
 
 						if (!updatedCoordinates) {
@@ -108,15 +109,15 @@ export default class Character extends Entity {
 
 				// tilePosition.setTexture(zen.assets.TextAssetBuilder.build("15px Georgia", "X: " + character.tileX + " Y: " + character.tileY, 75, 50, "black"));
 
-				if (this.x == x && this.y == y || collision) {
-					Engine.logicEngine.removeLogic(this.ID + "_move");
+				if (this.getX() == x && this.getY() == y || collision) {
+					game.getLogicEngine().removeLogic(this.getID() + "_move");
 					this.moving = false;
 
-					Engine.logicEngine.addLogic(this.ID + "_endmove", () => {
+					game.getLogicEngine().addLogic(this.getID() + "_endmove", () => {
 						this._activeAnim.stop();
 						delete this._activeAnim;
-						this.texture = this._endTexture;
-						Engine.logicEngine.removeLogic(this.ID + "_endmove");
+						this.setTexture(this._endTexture);
+						game.getLogicEngine().removeLogic(this.getID() + "_endmove");
 					}, 50);
 
 				}
@@ -125,7 +126,7 @@ export default class Character extends Entity {
 			this.moving = false;
 			this._activeAnim.stop();
 			delete this._activeAnim;
-			this.texture = (this._endTexture);
+			this.setTexture(this._endTexture);
 		}
 	}
 
@@ -140,7 +141,7 @@ export default class Character extends Entity {
 			this._leftAnim.start();
 			this._activeAnim = this._leftAnim;
 			this.moving = true;
-			this._move({x:  this.x - 16, y: this.y});
+			this._move({x:  this.getX() - 16, y: this.getY()});
 		}
 	}
 
@@ -154,7 +155,7 @@ export default class Character extends Entity {
 			this._upAnim.start();
 			this._activeAnim = this._upAnim;
 			this.moving = true;
-			this._move({x:  this.x, y: this.y - 16});
+			this._move({x:  this.getX(), y: this.getY() - 16});
 
 		}
 	}
@@ -169,7 +170,7 @@ export default class Character extends Entity {
 			this._rightAnim.start();
 			this._activeAnim = this._rightAnim;
 			this.moving = true;
-			this._move({x: this.x + 16, y:  this.y});
+			this._move({x: this.getX() + 16, y: this.getY()});
 		}
 	}
 
@@ -183,7 +184,7 @@ export default class Character extends Entity {
 			this._downAnim.start();
 			this._activeAnim = this._downAnim;
 			this.moving = true;
-			this._move({x: this.x, y: this.y + 16});
+			this._move({x: this.getX(), y: this.getY() + 16});
 		}
 	}
 

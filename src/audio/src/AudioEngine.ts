@@ -27,12 +27,12 @@ interface AudioMap {
  */
 
 export abstract class AudioEngine {
-	public logManager: LogManager;
+	private _logManager: LogManager;
 	private _audioMap: AudioMap;
 
 	public constructor() {
 		this._audioMap = {};
-		this.logManager = LogManager.getSingleton();
+		this._logManager = LogManager.getSingleton();
 	}
 
 	/**
@@ -325,7 +325,7 @@ export abstract class AudioEngine {
 	 * @return {void}      
 	 */
 	protected _warnMissingAudio(name: string): void {
-		this.logManager.log(SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+		this._logManager.log(SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
 	}
 
 	/**
