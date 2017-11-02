@@ -1,11 +1,19 @@
 
+import {ColorCode, IColorMap, ColorMap} from './ColorCode';
+
+interface RGB {
+    r: number;
+    g: number;
+    b: number;
+}
+
 export class Color {
     private _r: number;
     private _g: number;
     private _b: number;
     private _a: number;
 
-    constructor(r: number = 0, g: number = 0, b: number = 0, a: number = 0) {
+    public constructor(r: number = 0, g: number = 0, b: number = 0, a: number = 1) {
         this.setRed(r);
         this.setGreen(g);
         this.setBlue(b);
@@ -60,12 +68,64 @@ export class Color {
         return this._a / 255;
     }
 
-    valueOf(): string {
+    /**
+     * toRGB
+     * 
+     * Returns as string in rgb(red,green,blue) format. Note this does not return an alpha value.
+     */
+    public toRGB(): string {
+        return `rgb(${this.getRed()},${this.getGreen()},${this.getBlue()})`;
+    }
+
+    /**
+     * toRGB
+     * 
+     * Returns as string in rgba(red,green,blue,alpha) format.
+     */
+    public toRGBA(): string {
+        return `rgba(${this.getRed()},${this.getGreen()},${this.getBlue()},${this.getAlpha()})`;
+    }
+
+    /**
+     * toRGB
+     * 
+     * Returns as integer/ColorCode. Note this does not return an alpha value.
+     */
+    public toHex(): number {
+        return (this.getRed() << 16) + (this.getGreen() << 8) + this.getBlue();
+    }
+
+    /**
+     * toHexString
+     * 
+     * Returns a hex string in #RRGGBB format.
+     */
+    public toHexString(): string {
+        var hex: string = `#`
+        
+        hex += this._toHexString(this.getRed());
+        hex += this._toHexString(this.getGreen());
+        hex += this._toHexString(this.getBlue());
+
+        return hex.toUpperCase();
+    }
+
+    public valueOf(): string {
         return this.toString();
     }
 
-    toString(): string {
-        return `rgba(${this.getRed()},${this.getGreen()},${this.getBlue()},${this.getAlpha()})`;
+    public toString(): string {
+        return this.toRGBA();
+    }
+
+    private _toHexString(value: number): string {
+        var hex: string = value.toString(16);
+
+        if (hex.length === 1) {
+            hex = '0' + hex;
+        }
+
+        return hex;
     }
 
     private static _parseHexString(color: string): Array<number> {
@@ -77,27 +137,20 @@ export class Color {
             case 3: //This is a shorthand form, expand to full hex
                 color = `${color.charAt(0)}${color.charAt(0)}${color.charAt(1)}${color.charAt(1)}${color.charAt(2)}${color.charAt(2)}`;
                 break;
-            case 4: //This is a shorthand (with alpha) form, expand to full hex
-                color = `${color.charAt(0)}${color.charAt(0)}${color.charAt(1)}${color.charAt(1)}${color.charAt(2)}${color.charAt(2)}${color.charAt(3)}${color.charAt(3)}`;
-                break;
-            case 6: // This is a full hex without alpha, simply add the alpha.
-                color = `${color}FF`;
-                break;
-            case 8: // This is just a capture case to prevent a valid hex value from tripping the error case
+            case 6: // This is just a capture case to prevent a valid hex value from tripping the error case
                 break;
             default: //If we made it here, this is an invalid hex code
-                throw new Error(`Malformed hex code "#${color}". Expecting hex length of 3, 4, 6, or 8.`);
+                throw new Error(`Malformed hex code "#${color}". Expecting hex length of 3 or 6.`);
         }
 
         var rHex: string = color.slice(0, 2);
         var gHex: string = color.slice(2, 4);
         var bHex: string = color.slice(4, 6);
-        var aHex: string = color.slice(6, 8);
 
         colorCodes[0] = parseInt(rHex, 16);
         colorCodes[1] = parseInt(gHex, 16);
         colorCodes[2] = parseInt(bHex, 16);
-        colorCodes[3] = parseInt(aHex, 16);
+        colorCodes[3] = 255;
 
         for (var i: number = 0; i < colorCodes.length; i++) {
             if (isNaN(colorCodes[i])) {
@@ -133,7 +186,7 @@ export class Color {
             colorCodes[0] = parseInt(parts[0]);
             colorCodes[1] = parseInt(parts[1]);
             colorCodes[2] = parseInt(parts[2]);
-            colorCodes[3] = 255;
+            colorCodes[3] = 255; //Alpha
         }
         else {
             throw new Error(`Malformed RGB structure "${color}". Expecting rgb(#,#,#) or rgba(#,#,#,#)`)
@@ -150,6 +203,17 @@ export class Color {
         return colorCodes;
     }
 
+    private static _parseColorName(color: string): Array<number> {
+        if (ColorMap[color] !== undefined) {
+            var colorCode: ColorCode = ColorMap[color];
+            var rgb: RGB = Color._parseHex(colorCode);
+            return [rgb.r, rgb.g, rgb.b, /*alpha*/255];
+        }
+        else {
+            throw new Error(`Invalid color "${color}"`);
+        }
+    }
+
     /**
      * 
      * @param color Accepted formats:
@@ -157,7 +221,6 @@ export class Color {
      * #FFF                 = rgba(255,255,255,1)
      * #FFF0                = rgba(255,255,255,0)
      * #FFFFFF              = rgba(255,255,255,1)
-     * #000000FF            = rgba(  0,  0,  0,1)
      * 
      * rgb(255,255,255)     = rgba(255,255,255,1)
      * rgba(255,255,255,1)  = rgba(255,255,255,1)
@@ -173,6 +236,9 @@ export class Color {
         else if (/rgba?/.test(color)) {
             colorCodes = Color._parseRGB(color);
         }
+        else {
+            colorCodes = Color._parseColorName(color);
+        }
 
         var r: number = colorCodes[0];
         var g: number = colorCodes[1];
@@ -184,14 +250,27 @@ export class Color {
 
     /**
      * 
-     * @param hex   Should be a 8 digit hex: 0x00000000 - 0xFFFFFFFF
-     *                                                      ^^^^^^^^
-     *                                                      | | | |>Alpha
+     * @param hex   Should be a 6 digit hex: 0x00000000 - 0xFFFFFF
+     *                                                      ^^^^^^
+     *                                                      | | |
      *                                                      | | |>Blue
      *                                                      | |>Green
      *                                                      |>Red                 
      */                         
-    public static fromHex(hex: number): Color {
-        return Color.fromString(`#${hex.toString(16)}`);
+    public static fromHex(hex: number | ColorCode): Color {
+        var rgb: RGB = Color._parseHex(hex);
+        return new Color(rgb.r, rgb.g, rgb.b);
+    }
+
+    public static fromColorCode(code: ColorCode): Color {
+        return Color.fromHex(code);
+    }
+
+    private static _parseHex(hex: number | ColorCode): RGB {
+        var r = hex >> 16;
+        var g = hex >> 8 & 0xFF;
+        var b = hex & 0xFF;
+
+        return {r,g,b};
     }
 }

@@ -2,7 +2,7 @@ import Engine from "../../src/core/src/Engine";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src";
 import {HTML5AudioEngine} from "../../src/audio/src";
 import {Entity, LocationUpdateEvent} from "../../src/entities/src";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils/src";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, ColorCode} from "../../src/utils/src";
 
 class RelativeDemo extends Engine {
     private _blocks : Entity[];
@@ -22,7 +22,8 @@ class RelativeDemo extends Engine {
         this._blockConfigs = {};
 
         this._container = new Entity();
-        this._container.setColor({r: 0, g: 0, b: 0});
+
+        this._container.setColor(Color.fromColorCode(ColorCode.BLACK));
         this._container.setWidth(1000);
         this._container.setHeight(1000);
 
@@ -76,7 +77,7 @@ class RelativeDemo extends Engine {
         block.setX(Math.floor((Math.random() * parent.getWidth()) + 1));
         block.setY(Math.floor((Math.random() * parent.getHeight()) + 1));
 
-        block.setColor({r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1)});
+        block.setColor(new Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
 
         this._blockConfigs[block.getID()] = {};
         this._blockConfigs[block.getID()]["x_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "right" : "left";

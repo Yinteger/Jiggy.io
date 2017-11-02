@@ -1,7 +1,7 @@
 import Engine from "../../src/core/src/Engine";
 import { TwoDimensionalRenderingEngine, GroupLogicEngine } from "../../src/engines/src";
 import { Entity, LocationUpdateEvent } from "../../src/entities/src";
-import { Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter } from "../../src/utils/src";
+import { Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color } from "../../src/utils/src";
 import { TouchListener, TouchListenerEvents, Touch, TouchEvents, TouchMoveEvent } from "../../src/inputs/src/";
 
 class TouchDemo extends Engine {
@@ -20,7 +20,7 @@ class TouchDemo extends Engine {
         this.setLogicEngine(new GroupLogicEngine());
 
         this._container = new Entity();
-        this._container.setColor({ r: 0, g: 0, b: 0 });
+        this._container.setColor(new Color(0,0,0));
         this._container.setWidth(1000);
         this._container.setHeight(1000);
 
@@ -38,7 +38,7 @@ class TouchDemo extends Engine {
             var block = new Entity();
             block.setX(touch.getX() - 25);
             block.setY(touch.getY() - 25);
-            block.setColor({ r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) });
+            block.setColor(new Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
             block.setWidth(50);
             block.setHeight(50);
             this._container.addChild(block);
