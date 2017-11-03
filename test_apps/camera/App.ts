@@ -2,7 +2,7 @@ import Engine from "../../src/core/src/Engine";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src/";
 import {HTML5AudioEngine} from "../../src/audio/src/";
 import {Entity, LocationUpdateEvent} from "../../src/entities/src/";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils/src/";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils/src/";
 import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets/src/";
 
 class CameraDemo extends Engine {
@@ -26,7 +26,7 @@ class CameraDemo extends Engine {
         this._blockConfigs = {};
 
         this._container = new Entity();
-        this._container.setColor({r: 0, g: 0, b: 0});
+        this._container.setColor(new Color(0,0,0));
         this._container.setWidth(1000);
         this._container.setHeight(1000);
 

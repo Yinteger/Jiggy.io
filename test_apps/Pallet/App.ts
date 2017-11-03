@@ -2,7 +2,7 @@ import Engine from "../../src/core/src/Engine";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src/";
 import {HTML5AudioEngine} from "../../src/audio/src/";
 import {Entity, GridMap} from "../../src/entities/src/";
-import {Iterator, Camera} from "../../src/utils/src/";
+import {Iterator, Camera, Color} from "../../src/utils/src/";
 //import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/src/';
 import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/src/";
 import Character from "./Character";
@@ -46,10 +46,12 @@ class PalletDemo extends Engine {
 		loadingText.setY((500 / 2) - 25);
 		hud.addChild(loadingText);
 
-		var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "black");
-		var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
-		var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
-		var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
+		var blackColor = Color.fromString('black');
+
+		var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, blackColor);
+		var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, blackColor);
+		var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, blackColor);
+		var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, blackColor);
 
 		var loadingAnim : Animation = new Animation(loadingText, [
 			{'asset': loading0,'delay': 250},
@@ -59,8 +61,7 @@ class PalletDemo extends Engine {
 		]);
 
 		loadingAnim.start();
-
-
+		
 		return hud;
 	}
 

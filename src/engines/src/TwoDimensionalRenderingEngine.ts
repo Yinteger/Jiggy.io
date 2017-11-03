@@ -1,5 +1,5 @@
 import {RenderingEngine} from "./";
-import {Camera, Iterator} from "@jiggy/utils";
+import {Camera, Iterator, Color} from "@jiggy/utils";
 import {Entity} from "@jiggy/entities";
 import {
 	Coordinate,
@@ -157,8 +157,8 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			//Rendering time!
 			if (entity.getColor()) {
 				//Draw a rect in its place...
-				var color = entity.getColor();
-				this.getViewPort().getContext().fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+				var color: Color = entity.getColor();
+				this.getViewPort().getContext().fillStyle = color.toString();
 				this.getViewPort().getContext().fillRect(x, y, w, h);
 			}
 
@@ -202,8 +202,8 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			//Rendering time!
 			if (entity.getColor()) {
 				//Draw a rect in its place...
-				var color = entity.getColor();
-				this.getViewPort().getContext().fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+				var color: Color = entity.getColor();
+				this.getViewPort().getContext().fillStyle = color.toString();
 				this.getViewPort().getContext().fillRect(x, y, w, h);
 			}
 
