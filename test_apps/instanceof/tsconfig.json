@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "moduleResolution": "node",
@@ -12,7 +13,7 @@
         "allowUnreachableCode": false,
         "baseUrl" : ".",
         "paths": {
-            "@jiggy/*" : ["../../src/*/src/"]
+            "@jiggy/*" : ["./dist/src/*/src/"]
         }
     },
     "files": [

@@ -1,7 +1,7 @@
 var Path = require('path');
 
 module.exports = {
-    entry: "./App.ts",
+    entry: "./dist/test_apps/instanceof/App.js",
     output: {
         filename: "./App.js",
     },
@@ -13,15 +13,25 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
         alias : {
-            "@jiggy/assets" : Path.resolve("../../src/assets/dist/assets/src/index.js"),
-            "@jiggy/audio" : Path.resolve("../../src/audio/dist/audio/src/index.js"),
-            "@jiggy/core" : Path.resolve("../../src/core/dist/core/src/index.js"),
-            "@jiggy/engines" : Path.resolve("../../src/engines/dist/engines/src/index.js"),
-            "@jiggy/entities" : Path.resolve("../../src/entities/dist/entities/src/index.js"),
-            "@jiggy/inputs" : Path.resolve("../../src/inputs/dist/inputs/src/index.js"),
-            "@jiggy/interfaces" : Path.resolve("../../src/interfaces/dist/index.js"),
-            "@jiggy/utils" : Path.resolve("../../src/utils/dist/utils/src/index.js")
+            "@jiggy/assets" : Path.resolve("./dist/src/assets/src/index.js"),
+            "@jiggy/audio" : Path.resolve("./dist/src/audio/src/index.js"),
+            "@jiggy/core" : Path.resolve("./dist/src/core/src/index.js"),
+            "@jiggy/engines" : Path.resolve("./dist/src/engines/src/index.js"),
+            "@jiggy/entities" : Path.resolve("./dist/src/entities/src/index.js"),
+            "@jiggy/inputs" : Path.resolve("./dist/src/inputs/src/index.js"),
+            "@jiggy/interfaces" : Path.resolve("./dist/src/interfaces/src/index.js"),
+            "@jiggy/utils" : Path.resolve("./dist/src/utils/src/index.js")
         }
+        // alias : {
+        //     "@jiggy/assets" : Path.resolve("../../src/assets/dist/assets/src/index.js"),
+        //     "@jiggy/audio" : Path.resolve("../../src/audio/dist/audio/src/index.js"),
+        //     "@jiggy/core" : Path.resolve("../../src/core/dist/core/src/index.js"),
+        //     "@jiggy/engines" : Path.resolve("../../src/engines/dist/engines/src/index.js"),
+        //     "@jiggy/entities" : Path.resolve("../../src/entities/dist/entities/src/index.js"),
+        //     "@jiggy/inputs" : Path.resolve("../../src/inputs/dist/inputs/src/index.js"),
+        //     "@jiggy/interfaces" : Path.resolve("../../src/interfaces/dist/index.js"),
+        //     "@jiggy/utils" : Path.resolve("../../src/utils/dist/utils/src/index.js")
+        // }
     },
 
     module: {
