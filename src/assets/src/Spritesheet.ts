@@ -1,9 +1,14 @@
 import {ViewPort} from "@jiggy/utils";
-import {
-	Asset,
-	AssetType,
-	SpritesheetDefinition
-} from './';
+// import {
+// 	Asset,
+// 	AssetType,
+// 	SpritesheetDefinition
+// } from './';
+
+import {Asset} from './Asset';
+import {AssetType} from './AssetType';
+import {AssetLoader} from './AssetLoader';
+import {SpritesheetDefinition} from './SpritesheetDefinition';
 
 export class Spritesheet {
 	private _spritesheetAsset : Asset;

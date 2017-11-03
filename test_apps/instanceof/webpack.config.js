@@ -1,7 +1,10 @@
 var Path = require('path');
 
+var ROOT_DIR = Path.resolve('../../');
+var DIST_DIR = Path.resolve(ROOT_DIR, 'dist/lib');
+
 module.exports = {
-    entry: "./dist/test_apps/instanceof/App.js",
+    entry: "./App.ts",
     output: {
         filename: "./App.js",
     },
@@ -13,14 +16,14 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
         alias : {
-            "@jiggy/assets" : Path.resolve("./dist/src/assets/src/index.js"),
-            "@jiggy/audio" : Path.resolve("./dist/src/audio/src/index.js"),
-            "@jiggy/core" : Path.resolve("./dist/src/core/src/index.js"),
-            "@jiggy/engines" : Path.resolve("./dist/src/engines/src/index.js"),
-            "@jiggy/entities" : Path.resolve("./dist/src/entities/src/index.js"),
-            "@jiggy/inputs" : Path.resolve("./dist/src/inputs/src/index.js"),
-            "@jiggy/interfaces" : Path.resolve("./dist/src/interfaces/src/index.js"),
-            "@jiggy/utils" : Path.resolve("./dist/src/utils/src/index.js")
+            "@jiggy/assets"     : Path.resolve(DIST_DIR, 'assets/index.js'),
+            "@jiggy/audio"      : Path.resolve(DIST_DIR, 'audio/index.js'),
+            "@jiggy/core"       : Path.resolve(DIST_DIR, 'core/index.js'),
+            "@jiggy/engines"    : Path.resolve(DIST_DIR, 'engines/index.js'),
+            "@jiggy/entities"   : Path.resolve(DIST_DIR, 'entities/index.js'),
+            "@jiggy/inputs"     : Path.resolve(DIST_DIR, 'inputs/index.js'),
+            "@jiggy/interfaces" : Path.resolve(DIST_DIR, 'interfaces/index.js'),
+            "@jiggy/utils"      : Path.resolve(DIST_DIR, 'utils/index.js'),
         }
         // alias : {
         //     "@jiggy/assets" : Path.resolve("../../src/assets/dist/assets/src/index.js"),

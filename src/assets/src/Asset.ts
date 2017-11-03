@@ -1,9 +1,20 @@
 import {IDGenerator} from '@jiggy/utils';
 import {
-	AssetState,
-	AssetType,
+	AssetState
+} from './AssetState';
+import {
+	AssetType
+} from './AssetType';
+
+import {
 	AssetLoader
-} from './';
+} from './AssetLoader';
+
+// import {
+// 	AssetState,
+// 	AssetType,
+// 	AssetLoader
+// } from './';
 
 export class Asset {
 	private _id: string;

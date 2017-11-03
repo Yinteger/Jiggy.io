@@ -2,14 +2,37 @@
     "extends": "../tsconfig.json",
 
     "compilerOptions": {
-        "outDir": "./dist/",
+        "declarationDir": "../../dist/lib/assets/",
+        "outDir": "../../dist/lib/assets",
         "baseUrl": ".",
+        "rootDir": "./src",
         "paths": {
-            "@jiggy/*" : ["../*/src"]
+            // "@jiggy/assets" : ["./src"]
         }
     },
 
     "files": [
-        "./src/index.ts"
+        // "./src/Animation.ts",
+        // "./src/Asset.ts",
+        // "./src/AssetFactory.ts",
+        // "./src/AssetLoader.ts",
+        // "./src/AssetState.ts",
+        // "./src/AssetType.ts",
+        // "./src/AudioLoader.ts",
+        // "./src/ImageLoader.ts",
+        // "./src/JSONLoader.ts",
+        // "./src/Spritesheet.ts",
+        // "./src/SpritesheetDefinition.ts",
+        // "./src/TextAssetBuilder.ts"
+        "./src/index.ts",
+        "../../dist/declarations/assets.d.ts",
+        "../../dist/declarations/audio.d.ts",
+        "../../dist/declarations/core.d.ts",
+        "../../dist/declarations/engines.d.ts",
+        "../../dist/declarations/entities.d.ts",
+        "../../dist/declarations/inputs.d.ts",
+        "../../dist/declarations/interfaces.d.ts",
+        "../../dist/declarations/utils.d.ts"
+        // "../api.d.ts"
     ]
 }

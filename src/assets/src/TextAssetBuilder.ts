@@ -1,4 +1,5 @@
-import {Asset, AssetType} from "./";
+import {Asset} from "./Asset";
+import {AssetType} from './AssetType';
 import {ViewPort, Color} from "@jiggy/utils";
 
 export class  TextAssetBuilder {

@@ -1,12 +1,21 @@
-import {
-	AssetLoader,
-	AudioLoader,
-	ImageLoader,
-	JSONLoader,
-	Asset,
-	AssetState,
-	AssetType
-} from './';
+import {AssetState} from './AssetState';
+import {AssetType} from './AssetType';
+import {AssetLoader} from './AssetLoader';
+import {Asset} from './Asset';
+import {AudioLoader} from './AudioLoader';
+import {JSONLoader} from './JSONLoader';
+import {ImageLoader} from './ImageLoader';
+
+
+// import {
+// 	AssetLoader,
+// 	AudioLoader,
+// 	ImageLoader,
+// 	JSONLoader,
+// 	Asset,
+// 	AssetState,
+// 	AssetType
+// } from './';
 
 interface AssetCache {
 	[url: string]: Asset;

@@ -2,14 +2,24 @@
     "extends": "../tsconfig.json",
 
     "compilerOptions": {
+        "declarationDir": "../../dist/lib/entities/",
+        "outDir": "../../dist/lib/entities",
         "baseUrl": ".",
-        "outDir": "./dist/",
+        "rootDir": "./src",
         "paths": {
-            "@jiggy/*" : ["../*/src"]
+            "@jiggy/entities" : ["./src"]
         }
     },
 
     "files": [
-        "./src/index.ts"
+        "./src/index.ts",
+        "../../dist/declarations/assets.d.ts",
+        "../../dist/declarations/audio.d.ts",
+        "../../dist/declarations/core.d.ts",
+        "../../dist/declarations/engines.d.ts",
+        "../../dist/declarations/entities.d.ts",
+        "../../dist/declarations/inputs.d.ts",
+        "../../dist/declarations/interfaces.d.ts",
+        "../../dist/declarations/utils.d.ts"
     ]
 }

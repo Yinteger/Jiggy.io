@@ -1,4 +1,4 @@
-import {Event, Coordinate} from "../../interfaces";
+import {Event, Coordinate} from "@jiggy/interfaces";
 import * as Events from 'events';
 
 export const enum MouseEvents {

@@ -1,7 +1,7 @@
 import * as Events from 'events';
 import {Dimension} from "@jiggy/interfaces";
 import {ViewPortEventTypes, DimensionUpdateEvent} from "./";
-import {Color} from '@jiggy/utils';
+import {Color} from './Color';
 
 export class ViewPort extends Events.EventEmitter {
 	private _canvas : HTMLCanvasElement;

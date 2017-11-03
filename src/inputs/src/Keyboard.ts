@@ -1,5 +1,5 @@
 import * as Events from 'events';
-import {Event} from "../../interfaces";
+import {Event} from "@jiggy/interfaces";
 
 
 //Keycode values taken from https://github.com/wesbos/keycodes

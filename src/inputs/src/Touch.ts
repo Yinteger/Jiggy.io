@@ -1,6 +1,6 @@
 import * as Events from 'events';
 import { NativeTouch, TouchList, TouchEvent } from "./NativeTouchEvent";
-import { Event, Coordinate } from "../../interfaces";
+import { Event, Coordinate } from "@jiggy/interfaces";
 
 export const enum TouchEvents {
     TouchMoved = "TOUCHMOVED",

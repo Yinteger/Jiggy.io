@@ -1,8 +1,12 @@
-import {
-	Asset,
-	AssetLoader,
-	AssetState
-} from './';
+// import {
+// 	Asset,
+// 	AssetLoader,
+// 	AssetState
+// } from './';
+
+import {Asset} from './Asset';
+import {AssetLoader} from './AssetLoader';
+import {AssetState} from './AssetState';
 
 export class AudioLoader extends AssetLoader {
 	public constructor() {

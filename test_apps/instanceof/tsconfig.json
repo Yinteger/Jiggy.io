@@ -13,10 +13,18 @@
         "allowUnreachableCode": false,
         "baseUrl" : ".",
         "paths": {
-            "@jiggy/*" : ["./dist/src/*/src/"]
+            // "@jiggy/*" : ["."]
         }
     },
     "files": [
-        "./App.ts"
+        "./App.ts",
+        "../../dist/declarations/assets.d.ts",
+        "../../dist/declarations/audio.d.ts",
+        "../../dist/declarations/core.d.ts",
+        "../../dist/declarations/engines.d.ts",
+        "../../dist/declarations/entities.d.ts",
+        "../../dist/declarations/inputs.d.ts",
+        "../../dist/declarations/interfaces.d.ts",
+        "../../dist/declarations/utils.d.ts"
     ]
 }

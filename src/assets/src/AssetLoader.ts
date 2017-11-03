@@ -1,7 +1,10 @@
-import {
-	Asset,
-	AssetState
-} from './';
+// import {
+// 	Asset,
+// 	AssetState
+// } from './';
+
+import {Asset} from './Asset';
+import {AssetState} from './AssetState';
 
 export class AssetLoader {
 

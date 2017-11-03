@@ -1,10 +1,10 @@
 //Global interface alias
-type NativeGamepadEvent = GamepadEvent;
-type NativeGamepad = Gamepad;
-type NativeGamepadButton = GamepadButton;
+export type NativeGamepadEvent = GamepadEvent;
+export type NativeGamepad = Gamepad;
+export type NativeGamepadButton = GamepadButton;
 
 import * as Events from 'events';
-import { Event, Coordinate } from "../../interfaces";
+import { Event, Coordinate } from "@jiggy/interfaces";
 
 export const enum GamePadEvents {
     ButtonValueChange = "BUTTONVALUECHANGE",
