@@ -398,8 +398,8 @@ export class Entity extends Events.EventEmitter {
 	 *         previous : function()
 	 * }
 	 */
-	 public iterator () : Iterator {
-		return new Iterator(this._children);
+	 public iterator () : Iterator<Entity> {
+		return new Iterator<Entity>(this._children);
 	 }
 
 	/**
@@ -421,7 +421,7 @@ export class Entity extends Events.EventEmitter {
 	 * creates a region to look for children instead of just a specific point
 	 * @return Iterator
 	 */
-	 public getChildren (startCoordinate? : Coordinate, endCoordinate? : Coordinate) : Iterator {
+	 public getChildren (startCoordinate? : Coordinate, endCoordinate? : Coordinate) : Iterator<Entity> {
 		if (startCoordinate && endCoordinate) { //Area Lookup
 			var startRegion = this._coordinateToRegion(startCoordinate);
 			var endRegion = this._coordinateToRegion(endCoordinate);
@@ -435,18 +435,18 @@ export class Entity extends Events.EventEmitter {
 				}
 			}
 
-			return new Iterator(children);
+			return new Iterator<Entity>(children);
 		} else if (startCoordinate) { //Point Lookup
 			var region = this._coordinateToRegion(startCoordinate);
 
 			//Loop through and determine who intersects with the point
 			var children : Entity[] = [];
 
-			var childrenIterator = new Iterator(this._getChildrenInRegion({x: region.x, y: region.y}));
+			var childrenIterator = new Iterator<Entity>(this._getChildrenInRegion({x: region.x, y: region.y}));
 			while(childrenIterator.hasNext()) {
-				var child = childrenIterator.next();
-				var childCoordinate = child.getCoordinate();
-				var childOuterCoordinate = child.getOuterCoordinate();
+				var child: Entity = childrenIterator.next();
+				var childCoordinate: Coordinate = child.getCoordinate();
+				var childOuterCoordinate: Coordinate = child.getOuterCoordinate();
 
 				if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
 					&& childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
@@ -455,9 +455,9 @@ export class Entity extends Events.EventEmitter {
 				}
 			}
 
-			return new Iterator(children);
+			return new Iterator<Entity>(children);
 		} else { //All Lookup
-			return new Iterator(this._children);
+			return new Iterator<Entity>(this._children);
 		}
 	 }
 
@@ -470,7 +470,7 @@ export class Entity extends Events.EventEmitter {
 				var region = this._coordinateToRegion(startCoordinate);
 				var regionChildren = this._getChildrenInRegion({x: region.x, y: region.y});
 				if (regionChildren.length > 0) {
-					var childrenIterator = new Iterator(regionChildren);
+					var childrenIterator = new Iterator<Entity>(regionChildren);
 					// var childrenIterator = new zen.util.Iterator(this.children);
 
 					//Loop through all children in that region to see if they intersect
@@ -550,17 +550,17 @@ export class Entity extends Events.EventEmitter {
 	 * @return Entity
 	 */
 	 public findTopChildAt (coordinate : Coordinate) : Entity|boolean {
-		var child = false;
+		var child: Entity;
 
 		//Find the Region the coordinates belond to
 		var region = this._coordinateToRegion(coordinate);
 		var regionChildren = this._getChildrenInRegion({x: region.x, y: region.y});
-		var childrenIterator = new Iterator(regionChildren);
+		var childrenIterator = new Iterator<Entity>(regionChildren);
 		childrenIterator.setToEnd();
 
 		//Loop through all children in that region to see if they intersect
 		while(childrenIterator.hasPrev() && !child) {
-			var iterChild = childrenIterator.prev();
+			var iterChild: Entity = childrenIterator.prev();
 			var childCoordinate = iterChild.getCoordinate();
 			var childOuterCoordinate = iterChild.getOuterCoordinate();
 
@@ -577,7 +577,7 @@ export class Entity extends Events.EventEmitter {
 			}
 		}
 		
-		return child;
+		return child || false;
 	 }
 
 	 public getCoordinate () : Coordinate {
