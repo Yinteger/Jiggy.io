@@ -18,7 +18,7 @@ function execBuild(done, args = '') {
         if (FileSystem.existsSync(Path.resolve(SRC_DIR, pkg, 'package.json'))) {
             console.log('Building', pkg, '...');
             
-            ChildProcess.spawnSync(`${BIN_DIR}/tsc`, {
+            ChildProcess.spawnSync(`${BIN_DIR}/tsc -p tsconfig-build.json`, {
                 cwd : Path.resolve(SRC_DIR, pkg),
                 shell : true,
                 stdio: 'inherit'

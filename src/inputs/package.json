@@ -16,6 +16,7 @@
         "@jiggy/utils": "0.0.4"
     },
     "dependencies": {
-        "@types/node": "^8.0.47"
+        "@types/node": "^8.0.47",
+        "@types/gamepad": "0.0.28"
     }
 }
