@@ -10,6 +10,7 @@
     },
 
     "files": [
-        "./src/index.ts"
+        "./src/index.ts",
+        "./typings/json.d.ts"
     ]
 }
