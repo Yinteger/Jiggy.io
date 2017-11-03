@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,18 +72,22 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(7);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(17);
+var Camera_1 = __webpack_require__(19);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(18);
+var IDGenerator_1 = __webpack_require__(20);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(19);
+var Iterator_1 = __webpack_require__(21);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(20);
+var LogManager_1 = __webpack_require__(22);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(21);
+var ViewPort_1 = __webpack_require__(23);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(22);
+var CollisionEmitter_1 = __webpack_require__(24);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+var Color_1 = __webpack_require__(25);
+exports.Color = Color_1.Color;
+var ColorCode_1 = __webpack_require__(8);
+exports.ColorCode = ColorCode_1.ColorCode;
 
 
 /***/ }),
@@ -401,27 +405,27 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(24);
+var Asset_1 = __webpack_require__(27);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(25);
+var AssetType_1 = __webpack_require__(28);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(26);
+var AssetState_1 = __webpack_require__(29);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(27);
+var AssetFactory_1 = __webpack_require__(30);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(28);
+var AssetLoader_1 = __webpack_require__(31);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(29);
+var AudioLoader_1 = __webpack_require__(32);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(30);
+var ImageLoader_1 = __webpack_require__(33);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(31);
+var JSONLoader_1 = __webpack_require__(34);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(32);
+var TextAssetBuilder_1 = __webpack_require__(35);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(33);
+var Spritesheet_1 = __webpack_require__(36);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(34);
+var Animation_1 = __webpack_require__(37);
 exports.Animation = Animation_1.Animation;
 
 
@@ -432,27 +436,27 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(49);
+var Asset_1 = __webpack_require__(53);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(50);
+var AssetType_1 = __webpack_require__(54);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(51);
+var AssetState_1 = __webpack_require__(55);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(52);
+var AssetFactory_1 = __webpack_require__(56);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(53);
+var AssetLoader_1 = __webpack_require__(57);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(54);
+var AudioLoader_1 = __webpack_require__(58);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(55);
+var ImageLoader_1 = __webpack_require__(59);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(56);
+var JSONLoader_1 = __webpack_require__(60);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(57);
+var TextAssetBuilder_1 = __webpack_require__(61);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(58);
+var Spritesheet_1 = __webpack_require__(62);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(59);
+var Animation_1 = __webpack_require__(63);
 exports.Animation = Animation_1.Animation;
 
 
@@ -463,13 +467,13 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(36);
+var LogicEngine_1 = __webpack_require__(39);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(37);
+var GroupLogicEngine_1 = __webpack_require__(40);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(38);
+var RenderingEngine_1 = __webpack_require__(41);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(39);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -480,15 +484,15 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
+var Entity_1 = __webpack_require__(11);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
+var EntityModel_1 = __webpack_require__(43);
 exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(11);
+var EntityView_1 = __webpack_require__(12);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
+var EntityView2D_1 = __webpack_require__(44);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
+var GridMap_1 = __webpack_require__(45);
 exports.GridMap = GridMap_1.GridMap;
 
 
@@ -500,9 +504,9 @@ exports.GridMap = GridMap_1.GridMap;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(23);
+var audio_1 = __webpack_require__(26);
 var assets_1 = __webpack_require__(2);
-var Instance_1 = __webpack_require__(9);
+var Instance_1 = __webpack_require__(10);
 var Engine = (function () {
     function Engine() {
         Instance_1.setInstance(this);
@@ -578,6 +582,314 @@ var SeverityEnum;
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ColorCode;
+(function (ColorCode) {
+    ColorCode[ColorCode["ALICE_BLUE"] = 15792383] = "ALICE_BLUE";
+    ColorCode[ColorCode["ANTIQUE_WHITE"] = 16444375] = "ANTIQUE_WHITE";
+    ColorCode[ColorCode["AQUA"] = 65535] = "AQUA";
+    ColorCode[ColorCode["AQUAMARINE"] = 8388564] = "AQUAMARINE";
+    ColorCode[ColorCode["AZURE"] = 15794175] = "AZURE";
+    ColorCode[ColorCode["BEIGE"] = 16119260] = "BEIGE";
+    ColorCode[ColorCode["BISQUE"] = 16770244] = "BISQUE";
+    ColorCode[ColorCode["BLACK"] = 0] = "BLACK";
+    ColorCode[ColorCode["BLANCHED_ALMOND"] = 16772045] = "BLANCHED_ALMOND";
+    ColorCode[ColorCode["BLUE"] = 255] = "BLUE";
+    ColorCode[ColorCode["BLUE_VIOLET"] = 9055202] = "BLUE_VIOLET";
+    ColorCode[ColorCode["BROWN"] = 10824234] = "BROWN";
+    ColorCode[ColorCode["BURLY_WOOD"] = 14596231] = "BURLY_WOOD";
+    ColorCode[ColorCode["CADET_BLUE"] = 6266528] = "CADET_BLUE";
+    ColorCode[ColorCode["CHART_REUSE"] = 8388352] = "CHART_REUSE";
+    ColorCode[ColorCode["CHOCOLATE"] = 13789470] = "CHOCOLATE";
+    ColorCode[ColorCode["CORAL"] = 16744272] = "CORAL";
+    ColorCode[ColorCode["CORNFLOWER_BLUE"] = 6591981] = "CORNFLOWER_BLUE";
+    ColorCode[ColorCode["CORN_SILK"] = 16775388] = "CORN_SILK";
+    ColorCode[ColorCode["CRIMSON"] = 14423100] = "CRIMSON";
+    ColorCode[ColorCode["CYAN"] = 65535] = "CYAN";
+    ColorCode[ColorCode["DARK_BLUE"] = 139] = "DARK_BLUE";
+    ColorCode[ColorCode["DARK_CYAN"] = 35723] = "DARK_CYAN";
+    ColorCode[ColorCode["DARK_GOLDENROD"] = 12092939] = "DARK_GOLDENROD";
+    ColorCode[ColorCode["DARK_GRAY"] = 11119017] = "DARK_GRAY";
+    ColorCode[ColorCode["DARK_GREY"] = 11119017] = "DARK_GREY";
+    ColorCode[ColorCode["DARK_GREEN"] = 25600] = "DARK_GREEN";
+    ColorCode[ColorCode["DARK_KHAKI"] = 12433259] = "DARK_KHAKI";
+    ColorCode[ColorCode["DARK_MAGENTA"] = 9109643] = "DARK_MAGENTA";
+    ColorCode[ColorCode["DARK_OLIVE_GREEN"] = 5597999] = "DARK_OLIVE_GREEN";
+    ColorCode[ColorCode["DARK_ORANGE"] = 16747520] = "DARK_ORANGE";
+    ColorCode[ColorCode["DARK_ORCHID"] = 10040012] = "DARK_ORCHID";
+    ColorCode[ColorCode["DARK_RED"] = 9109504] = "DARK_RED";
+    ColorCode[ColorCode["DARK_SALMON"] = 15308410] = "DARK_SALMON";
+    ColorCode[ColorCode["DARK_SEA_GREEN"] = 9419919] = "DARK_SEA_GREEN";
+    ColorCode[ColorCode["DARK_SLATE_BLUE"] = 4734347] = "DARK_SLATE_BLUE";
+    ColorCode[ColorCode["DARK_SLATE_GRAY"] = 3100495] = "DARK_SLATE_GRAY";
+    ColorCode[ColorCode["DARK_SLATE_GREY"] = 3100495] = "DARK_SLATE_GREY";
+    ColorCode[ColorCode["DARK_TORQUOISE"] = 52945] = "DARK_TORQUOISE";
+    ColorCode[ColorCode["DARK_VIOLET"] = 9699539] = "DARK_VIOLET";
+    ColorCode[ColorCode["DEEP_PINK"] = 16716947] = "DEEP_PINK";
+    ColorCode[ColorCode["DEEP_SKY_BLUE"] = 49151] = "DEEP_SKY_BLUE";
+    ColorCode[ColorCode["DIM_GRAY"] = 6908265] = "DIM_GRAY";
+    ColorCode[ColorCode["DIM_GREY"] = 6908265] = "DIM_GREY";
+    ColorCode[ColorCode["DODGER_BLUE"] = 2003199] = "DODGER_BLUE";
+    ColorCode[ColorCode["FIRE_BRICK"] = 11674146] = "FIRE_BRICK";
+    ColorCode[ColorCode["FLORAL_WHITE"] = 16775920] = "FLORAL_WHITE";
+    ColorCode[ColorCode["FOREST_GREEN"] = 2263842] = "FOREST_GREEN";
+    ColorCode[ColorCode["FUCHSIA"] = 16711935] = "FUCHSIA";
+    ColorCode[ColorCode["GAINSBORO"] = 14474460] = "GAINSBORO";
+    ColorCode[ColorCode["GHOST_WHITE"] = 16316671] = "GHOST_WHITE";
+    ColorCode[ColorCode["GOLD"] = 16766720] = "GOLD";
+    ColorCode[ColorCode["GOLDENROD"] = 14329120] = "GOLDENROD";
+    ColorCode[ColorCode["GRAY"] = 8421504] = "GRAY";
+    ColorCode[ColorCode["GREY"] = 8421504] = "GREY";
+    ColorCode[ColorCode["GREEN"] = 32768] = "GREEN";
+    ColorCode[ColorCode["GREEN_YELLOW"] = 11403055] = "GREEN_YELLOW";
+    ColorCode[ColorCode["HONEYDEW"] = 15794160] = "HONEYDEW";
+    ColorCode[ColorCode["HOT_PINK"] = 16738740] = "HOT_PINK";
+    ColorCode[ColorCode["INDIAN_RED"] = 13458524] = "INDIAN_RED";
+    ColorCode[ColorCode["INDIGO"] = 4915330] = "INDIGO";
+    ColorCode[ColorCode["IVORY"] = 16777200] = "IVORY";
+    ColorCode[ColorCode["KHAKI"] = 15787660] = "KHAKI";
+    ColorCode[ColorCode["LAVENDER"] = 15132410] = "LAVENDER";
+    ColorCode[ColorCode["LAVENDER_BLUSH"] = 16773365] = "LAVENDER_BLUSH";
+    ColorCode[ColorCode["LAWN_GREEN"] = 8190976] = "LAWN_GREEN";
+    ColorCode[ColorCode["LEMON_CHIFFON"] = 16775885] = "LEMON_CHIFFON";
+    ColorCode[ColorCode["LIGHT_BLUE"] = 11393254] = "LIGHT_BLUE";
+    ColorCode[ColorCode["LIGHT_CORAL"] = 14745599] = "LIGHT_CORAL";
+    ColorCode[ColorCode["LIGHT_CYAN"] = 14745599] = "LIGHT_CYAN";
+    ColorCode[ColorCode["LIGHT_GOLDENROD_YELLOW"] = 16448210] = "LIGHT_GOLDENROD_YELLOW";
+    ColorCode[ColorCode["LIGHT_GREEN"] = 9498256] = "LIGHT_GREEN";
+    ColorCode[ColorCode["LIGHT_GRAY"] = 13882323] = "LIGHT_GRAY";
+    ColorCode[ColorCode["LIGHT_GREY"] = 13882323] = "LIGHT_GREY";
+    ColorCode[ColorCode["LIGHT_PINK"] = 16758465] = "LIGHT_PINK";
+    ColorCode[ColorCode["LIGHT_SALMON"] = 16752762] = "LIGHT_SALMON";
+    ColorCode[ColorCode["LIGHT_SEA_GREEN"] = 2142890] = "LIGHT_SEA_GREEN";
+    ColorCode[ColorCode["LIGHT_SKY_BLUE"] = 8900346] = "LIGHT_SKY_BLUE";
+    ColorCode[ColorCode["LIGHT_SLATE_GRAY"] = 7833753] = "LIGHT_SLATE_GRAY";
+    ColorCode[ColorCode["LIGHT_SLATE_GREY"] = 7833753] = "LIGHT_SLATE_GREY";
+    ColorCode[ColorCode["LIGHT_STEEL_BLUE"] = 11584734] = "LIGHT_STEEL_BLUE";
+    ColorCode[ColorCode["LIGHT_YELLOW"] = 16777184] = "LIGHT_YELLOW";
+    ColorCode[ColorCode["LIME"] = 65280] = "LIME";
+    ColorCode[ColorCode["LIME_GREEN"] = 3329330] = "LIME_GREEN";
+    ColorCode[ColorCode["LINEN"] = 16445670] = "LINEN";
+    ColorCode[ColorCode["MAGENTA"] = 16711935] = "MAGENTA";
+    ColorCode[ColorCode["MAROON"] = 8388608] = "MAROON";
+    ColorCode[ColorCode["MEDIUM_AQUAMARINE"] = 6737322] = "MEDIUM_AQUAMARINE";
+    ColorCode[ColorCode["MEDIUM_BLUE"] = 205] = "MEDIUM_BLUE";
+    ColorCode[ColorCode["MEDIUM_ORCHID"] = 12211667] = "MEDIUM_ORCHID";
+    ColorCode[ColorCode["MEDIUM_PURPLE"] = 9662683] = "MEDIUM_PURPLE";
+    ColorCode[ColorCode["MEDIUM_SEA_GREEN"] = 3978097] = "MEDIUM_SEA_GREEN";
+    ColorCode[ColorCode["MEDIUM_SLATE_BLUE"] = 8087790] = "MEDIUM_SLATE_BLUE";
+    ColorCode[ColorCode["MEDIUM_SPRING_GREEN"] = 64154] = "MEDIUM_SPRING_GREEN";
+    ColorCode[ColorCode["MEDIUM_TURQUOISE"] = 4772300] = "MEDIUM_TURQUOISE";
+    ColorCode[ColorCode["MEDIUM_VIOLET_RED"] = 13047173] = "MEDIUM_VIOLET_RED";
+    ColorCode[ColorCode["MIDNIGHT_BLUE"] = 1644912] = "MIDNIGHT_BLUE";
+    ColorCode[ColorCode["MINT_CREAM"] = 16121850] = "MINT_CREAM";
+    ColorCode[ColorCode["MISTY_ROSE"] = 16770273] = "MISTY_ROSE";
+    ColorCode[ColorCode["MOCCASIN"] = 16770229] = "MOCCASIN";
+    ColorCode[ColorCode["NAVAJO_WHITE"] = 16768685] = "NAVAJO_WHITE";
+    ColorCode[ColorCode["NAVY"] = 128] = "NAVY";
+    ColorCode[ColorCode["OLD_LACE"] = 16643558] = "OLD_LACE";
+    ColorCode[ColorCode["OLIVE"] = 8421376] = "OLIVE";
+    ColorCode[ColorCode["OLIVE_DRAB"] = 7048739] = "OLIVE_DRAB";
+    ColorCode[ColorCode["ORANGE"] = 16753920] = "ORANGE";
+    ColorCode[ColorCode["ORANGE_RED"] = 16729344] = "ORANGE_RED";
+    ColorCode[ColorCode["ORCHID"] = 14315734] = "ORCHID";
+    ColorCode[ColorCode["PALE_GOLDENROD"] = 15657130] = "PALE_GOLDENROD";
+    ColorCode[ColorCode["PALE_GREEN"] = 10025880] = "PALE_GREEN";
+    ColorCode[ColorCode["PALE_TURQUOISE"] = 11529966] = "PALE_TURQUOISE";
+    ColorCode[ColorCode["PALE_VIOLET_RED"] = 14381203] = "PALE_VIOLET_RED";
+    ColorCode[ColorCode["PAPAYA_WHIP"] = 16773077] = "PAPAYA_WHIP";
+    ColorCode[ColorCode["PEACH_PUFF"] = 16767673] = "PEACH_PUFF";
+    ColorCode[ColorCode["PERU"] = 13468991] = "PERU";
+    ColorCode[ColorCode["PINK"] = 16761035] = "PINK";
+    ColorCode[ColorCode["PLUM"] = 14524637] = "PLUM";
+    ColorCode[ColorCode["POWDER_BLUE"] = 11591910] = "POWDER_BLUE";
+    ColorCode[ColorCode["PURPLE"] = 8388736] = "PURPLE";
+    ColorCode[ColorCode["RED"] = 16711680] = "RED";
+    ColorCode[ColorCode["ROSY_BROWN"] = 12357519] = "ROSY_BROWN";
+    ColorCode[ColorCode["ROYAL_BLUE"] = 4286945] = "ROYAL_BLUE";
+    ColorCode[ColorCode["SADDLE_BROWN"] = 9127187] = "SADDLE_BROWN";
+    ColorCode[ColorCode["SALMON"] = 16416882] = "SALMON";
+    ColorCode[ColorCode["SANDY_BROWN"] = 16426080] = "SANDY_BROWN";
+    ColorCode[ColorCode["SEA_GREEN"] = 3050327] = "SEA_GREEN";
+    ColorCode[ColorCode["SEA_SHELL"] = 16774638] = "SEA_SHELL";
+    ColorCode[ColorCode["SIENNA"] = 10506797] = "SIENNA";
+    ColorCode[ColorCode["SILVER"] = 12632256] = "SILVER";
+    ColorCode[ColorCode["SKY_BLUE"] = 8900331] = "SKY_BLUE";
+    ColorCode[ColorCode["SLATE_BLUE"] = 6970061] = "SLATE_BLUE";
+    ColorCode[ColorCode["SLATE_GRAY"] = 7372944] = "SLATE_GRAY";
+    ColorCode[ColorCode["SLATE_GREY"] = 7372944] = "SLATE_GREY";
+    ColorCode[ColorCode["SNOW"] = 16775930] = "SNOW";
+    ColorCode[ColorCode["SPRING_GREEN"] = 65407] = "SPRING_GREEN";
+    ColorCode[ColorCode["STEEL_BLUE"] = 4620980] = "STEEL_BLUE";
+    ColorCode[ColorCode["TAN"] = 13808780] = "TAN";
+    ColorCode[ColorCode["TEAL"] = 32896] = "TEAL";
+    ColorCode[ColorCode["THISTLE"] = 14204888] = "THISTLE";
+    ColorCode[ColorCode["TOMATO"] = 16737095] = "TOMATO";
+    ColorCode[ColorCode["TURQUOISE"] = 4251856] = "TURQUOISE";
+    ColorCode[ColorCode["VIOLET"] = 15631086] = "VIOLET";
+    ColorCode[ColorCode["WHEAT"] = 16113331] = "WHEAT";
+    ColorCode[ColorCode["WHITE"] = 16777215] = "WHITE";
+    ColorCode[ColorCode["WHITE_SMOKE"] = 16119285] = "WHITE_SMOKE";
+    ColorCode[ColorCode["YELLOW"] = 16776960] = "YELLOW";
+    ColorCode[ColorCode["YELLOW_GREEN"] = 10145074] = "YELLOW_GREEN";
+})(ColorCode = exports.ColorCode || (exports.ColorCode = {}));
+exports.ColorMap = {
+    "aliceblue": ColorCode.ALICE_BLUE,
+    "antiquewhite": ColorCode.ANTIQUE_WHITE,
+    "aqua": ColorCode.AQUA,
+    "aquamarine": ColorCode.AQUAMARINE,
+    "azure": ColorCode.AZURE,
+    "beige": ColorCode.BEIGE,
+    "bisque": ColorCode.BISQUE,
+    "black": ColorCode.BLACK,
+    "blanchedalmond": ColorCode.BLANCHED_ALMOND,
+    "blue": ColorCode.BLUE,
+    "blueviolet": ColorCode.BLUE_VIOLET,
+    "brown": ColorCode.BROWN,
+    "burlywood": ColorCode.BURLY_WOOD,
+    "cadetblue": ColorCode.CADET_BLUE,
+    "chartreuse": ColorCode.CHART_REUSE,
+    "chocolate": ColorCode.CHOCOLATE,
+    "coral": ColorCode.CORAL,
+    "cornflowerblue": ColorCode.CORNFLOWER_BLUE,
+    "cornsilk": ColorCode.CORN_SILK,
+    "crimson": ColorCode.CRIMSON,
+    "cyan": ColorCode.CYAN,
+    "darkblue": ColorCode.DARK_BLUE,
+    "darkcyan": ColorCode.DARK_CYAN,
+    "darkgoldenrod": ColorCode.DARK_GOLDENROD,
+    "darkgray": ColorCode.DARK_GRAY,
+    "darkgrey": ColorCode.DARK_GREY,
+    "darkgreen": ColorCode.DARK_GREEN,
+    "darkkhaki": ColorCode.DARK_KHAKI,
+    "darkmagenta": ColorCode.DARK_MAGENTA,
+    "darkolivegreen": ColorCode.DARK_OLIVE_GREEN,
+    "darkorange": ColorCode.DARK_ORANGE,
+    "darkorchid": ColorCode.DARK_ORCHID,
+    "darkred": ColorCode.DARK_RED,
+    "darksalmon": ColorCode.DARK_SALMON,
+    "darkseagreen": ColorCode.DARK_SEA_GREEN,
+    "darkslateblue": ColorCode.DARK_SLATE_BLUE,
+    "darkslategray": ColorCode.DARK_SLATE_GRAY,
+    "darkslategrey": ColorCode.DARK_SLATE_GREY,
+    "darktorquoise": ColorCode.DARK_TORQUOISE,
+    "darkviolet": ColorCode.DARK_VIOLET,
+    "deeppink": ColorCode.DEEP_PINK,
+    "deepskyblue": ColorCode.DEEP_SKY_BLUE,
+    "dimgray": ColorCode.DIM_GRAY,
+    "dimgrey": ColorCode.DIM_GREY,
+    "dodgerblue": ColorCode.DODGER_BLUE,
+    "firebrick": ColorCode.FIRE_BRICK,
+    "floralwhite": ColorCode.FLORAL_WHITE,
+    "forestgreen": ColorCode.FOREST_GREEN,
+    "fuchsia": ColorCode.FUCHSIA,
+    "gainsboro": ColorCode.GAINSBORO,
+    "ghostwhite": ColorCode.GHOST_WHITE,
+    "gold": ColorCode.GOLD,
+    "goldenrod": ColorCode.GOLDENROD,
+    "gray": ColorCode.GRAY,
+    "grey": ColorCode.GREY,
+    "green": ColorCode.GREEN,
+    "greenyellow": ColorCode.GREEN_YELLOW,
+    "honeydew": ColorCode.HONEYDEW,
+    "hotpink": ColorCode.HOT_PINK,
+    "indianred": ColorCode.INDIAN_RED,
+    "indigo": ColorCode.INDIGO,
+    "ivory": ColorCode.IVORY,
+    "khaki": ColorCode.KHAKI,
+    "lavender": ColorCode.LAVENDER,
+    "lavenderblush": ColorCode.LAVENDER_BLUSH,
+    "lawngreen": ColorCode.LAWN_GREEN,
+    "lemonchiffon": ColorCode.LEMON_CHIFFON,
+    "lightblue": ColorCode.LIGHT_BLUE,
+    "lightcoral": ColorCode.LIGHT_CORAL,
+    "lightcyan": ColorCode.LIGHT_CYAN,
+    "lightgoldenrodyellow": ColorCode.LIGHT_GOLDENROD_YELLOW,
+    "lightgreen": ColorCode.LIGHT_GREEN,
+    "lightgray": ColorCode.LIGHT_GRAY,
+    "lightgrey": ColorCode.LIGHT_GREY,
+    "lightpink": ColorCode.LIGHT_PINK,
+    "lightsalmon": ColorCode.LIGHT_SALMON,
+    "lightseagreen": ColorCode.LIGHT_SEA_GREEN,
+    "lightskyblue": ColorCode.LIGHT_SKY_BLUE,
+    "lightslategray": ColorCode.LIGHT_SLATE_GRAY,
+    "lightslategrey": ColorCode.LIGHT_SLATE_GREY,
+    "lightsteelblue": ColorCode.LIGHT_STEEL_BLUE,
+    "lightyellow": ColorCode.LIGHT_YELLOW,
+    "lime": ColorCode.LIME,
+    "limegreen": ColorCode.LIME_GREEN,
+    "linen": ColorCode.LINEN,
+    "magenta": ColorCode.MAGENTA,
+    "maroon": ColorCode.MAROON,
+    "mediumaquamarine": ColorCode.MEDIUM_AQUAMARINE,
+    "mediumblue": ColorCode.MEDIUM_BLUE,
+    "mediumorchid": ColorCode.MEDIUM_ORCHID,
+    "mediumpurple": ColorCode.MEDIUM_PURPLE,
+    "mediumseagreen": ColorCode.MEDIUM_SEA_GREEN,
+    "mediumslateblue": ColorCode.MEDIUM_SLATE_BLUE,
+    "mediumspringgreen": ColorCode.MEDIUM_SPRING_GREEN,
+    "mediumturquoise": ColorCode.MEDIUM_TURQUOISE,
+    "mediumvioletred": ColorCode.MEDIUM_VIOLET_RED,
+    "midnightblue": ColorCode.MIDNIGHT_BLUE,
+    "mintcream": ColorCode.MINT_CREAM,
+    "mistyrose": ColorCode.MISTY_ROSE,
+    "moccasin": ColorCode.MOCCASIN,
+    "navajowhite": ColorCode.NAVAJO_WHITE,
+    "navy": ColorCode.NAVY,
+    "oldlace": ColorCode.OLD_LACE,
+    "olive": ColorCode.OLIVE,
+    "olivedrab": ColorCode.OLIVE_DRAB,
+    "orange": ColorCode.ORANGE,
+    "orangered": ColorCode.ORANGE_RED,
+    "orchid": ColorCode.ORCHID,
+    "palegoldenrod": ColorCode.PALE_GOLDENROD,
+    "palegreen": ColorCode.PALE_GREEN,
+    "paleturquoise": ColorCode.PALE_TURQUOISE,
+    "palevioletred": ColorCode.PALE_VIOLET_RED,
+    "papayawhip": ColorCode.PAPAYA_WHIP,
+    "peachpuff": ColorCode.PEACH_PUFF,
+    "peru": ColorCode.PERU,
+    "pink": ColorCode.PINK,
+    "plum": ColorCode.PLUM,
+    "powderblue": ColorCode.POWDER_BLUE,
+    "purple": ColorCode.PURPLE,
+    "red": ColorCode.RED,
+    "rosybrown": ColorCode.ROSY_BROWN,
+    "royalblue": ColorCode.ROYAL_BLUE,
+    "saddlebrown": ColorCode.SADDLE_BROWN,
+    "salmon": ColorCode.SALMON,
+    "sandybrown": ColorCode.SANDY_BROWN,
+    "seagreen": ColorCode.SEA_GREEN,
+    "seashell": ColorCode.SEA_SHELL,
+    "sienna": ColorCode.SIENNA,
+    "silver": ColorCode.SILVER,
+    "skyblue": ColorCode.SKY_BLUE,
+    "slateblue": ColorCode.SLATE_BLUE,
+    "slategray": ColorCode.SLATE_GRAY,
+    "slategrey": ColorCode.SLATE_GREY,
+    "snow": ColorCode.SNOW,
+    "springgreen": ColorCode.SPRING_GREEN,
+    "steelblue": ColorCode.STEEL_BLUE,
+    "tan": ColorCode.TAN,
+    "teal": ColorCode.TEAL,
+    "thistle": ColorCode.THISTLE,
+    "tomato": ColorCode.TOMATO,
+    "turquoise": ColorCode.TURQUOISE,
+    "violet": ColorCode.VIOLET,
+    "wheat": ColorCode.WHEAT,
+    "white": ColorCode.WHITE,
+    "whitesmoke": ColorCode.WHITE_SMOKE,
+    "yellow": ColorCode.YELLOW,
+    "yellowgreen": ColorCode.YELLOW_GREEN
+};
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -768,7 +1080,7 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -790,7 +1102,7 @@ exports.getInstance = getInstance;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -975,8 +1287,7 @@ var Entity = (function (_super) {
         this._model.setAttribute('visible', state);
     };
     Entity.prototype.getColor = function () {
-        var data = this._model.getAttribute('color');
-        return data;
+        return this._model.getAttribute('color');
     };
     Entity.prototype.setColor = function (color) {
         this._model.setAttribute('color', color);
@@ -1283,7 +1594,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1337,30 +1648,34 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(13);
+var SeverityEnum_1 = __webpack_require__(14);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(43);
+var Camera_1 = __webpack_require__(46);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(44);
+var IDGenerator_1 = __webpack_require__(47);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(45);
+var Iterator_1 = __webpack_require__(48);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(46);
+var LogManager_1 = __webpack_require__(49);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(47);
+var ViewPort_1 = __webpack_require__(50);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(48);
+var CollisionEmitter_1 = __webpack_require__(51);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+var Color_1 = __webpack_require__(52);
+exports.Color = Color_1.Color;
+var ColorCode_1 = __webpack_require__(15);
+exports.ColorCode = ColorCode_1.ColorCode;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1377,7 +1692,315 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ColorCode;
+(function (ColorCode) {
+    ColorCode[ColorCode["ALICE_BLUE"] = 15792383] = "ALICE_BLUE";
+    ColorCode[ColorCode["ANTIQUE_WHITE"] = 16444375] = "ANTIQUE_WHITE";
+    ColorCode[ColorCode["AQUA"] = 65535] = "AQUA";
+    ColorCode[ColorCode["AQUAMARINE"] = 8388564] = "AQUAMARINE";
+    ColorCode[ColorCode["AZURE"] = 15794175] = "AZURE";
+    ColorCode[ColorCode["BEIGE"] = 16119260] = "BEIGE";
+    ColorCode[ColorCode["BISQUE"] = 16770244] = "BISQUE";
+    ColorCode[ColorCode["BLACK"] = 0] = "BLACK";
+    ColorCode[ColorCode["BLANCHED_ALMOND"] = 16772045] = "BLANCHED_ALMOND";
+    ColorCode[ColorCode["BLUE"] = 255] = "BLUE";
+    ColorCode[ColorCode["BLUE_VIOLET"] = 9055202] = "BLUE_VIOLET";
+    ColorCode[ColorCode["BROWN"] = 10824234] = "BROWN";
+    ColorCode[ColorCode["BURLY_WOOD"] = 14596231] = "BURLY_WOOD";
+    ColorCode[ColorCode["CADET_BLUE"] = 6266528] = "CADET_BLUE";
+    ColorCode[ColorCode["CHART_REUSE"] = 8388352] = "CHART_REUSE";
+    ColorCode[ColorCode["CHOCOLATE"] = 13789470] = "CHOCOLATE";
+    ColorCode[ColorCode["CORAL"] = 16744272] = "CORAL";
+    ColorCode[ColorCode["CORNFLOWER_BLUE"] = 6591981] = "CORNFLOWER_BLUE";
+    ColorCode[ColorCode["CORN_SILK"] = 16775388] = "CORN_SILK";
+    ColorCode[ColorCode["CRIMSON"] = 14423100] = "CRIMSON";
+    ColorCode[ColorCode["CYAN"] = 65535] = "CYAN";
+    ColorCode[ColorCode["DARK_BLUE"] = 139] = "DARK_BLUE";
+    ColorCode[ColorCode["DARK_CYAN"] = 35723] = "DARK_CYAN";
+    ColorCode[ColorCode["DARK_GOLDENROD"] = 12092939] = "DARK_GOLDENROD";
+    ColorCode[ColorCode["DARK_GRAY"] = 11119017] = "DARK_GRAY";
+    ColorCode[ColorCode["DARK_GREY"] = 11119017] = "DARK_GREY";
+    ColorCode[ColorCode["DARK_GREEN"] = 25600] = "DARK_GREEN";
+    ColorCode[ColorCode["DARK_KHAKI"] = 12433259] = "DARK_KHAKI";
+    ColorCode[ColorCode["DARK_MAGENTA"] = 9109643] = "DARK_MAGENTA";
+    ColorCode[ColorCode["DARK_OLIVE_GREEN"] = 5597999] = "DARK_OLIVE_GREEN";
+    ColorCode[ColorCode["DARK_ORANGE"] = 16747520] = "DARK_ORANGE";
+    ColorCode[ColorCode["DARK_ORCHID"] = 10040012] = "DARK_ORCHID";
+    ColorCode[ColorCode["DARK_RED"] = 9109504] = "DARK_RED";
+    ColorCode[ColorCode["DARK_SALMON"] = 15308410] = "DARK_SALMON";
+    ColorCode[ColorCode["DARK_SEA_GREEN"] = 9419919] = "DARK_SEA_GREEN";
+    ColorCode[ColorCode["DARK_SLATE_BLUE"] = 4734347] = "DARK_SLATE_BLUE";
+    ColorCode[ColorCode["DARK_SLATE_GRAY"] = 3100495] = "DARK_SLATE_GRAY";
+    ColorCode[ColorCode["DARK_SLATE_GREY"] = 3100495] = "DARK_SLATE_GREY";
+    ColorCode[ColorCode["DARK_TORQUOISE"] = 52945] = "DARK_TORQUOISE";
+    ColorCode[ColorCode["DARK_VIOLET"] = 9699539] = "DARK_VIOLET";
+    ColorCode[ColorCode["DEEP_PINK"] = 16716947] = "DEEP_PINK";
+    ColorCode[ColorCode["DEEP_SKY_BLUE"] = 49151] = "DEEP_SKY_BLUE";
+    ColorCode[ColorCode["DIM_GRAY"] = 6908265] = "DIM_GRAY";
+    ColorCode[ColorCode["DIM_GREY"] = 6908265] = "DIM_GREY";
+    ColorCode[ColorCode["DODGER_BLUE"] = 2003199] = "DODGER_BLUE";
+    ColorCode[ColorCode["FIRE_BRICK"] = 11674146] = "FIRE_BRICK";
+    ColorCode[ColorCode["FLORAL_WHITE"] = 16775920] = "FLORAL_WHITE";
+    ColorCode[ColorCode["FOREST_GREEN"] = 2263842] = "FOREST_GREEN";
+    ColorCode[ColorCode["FUCHSIA"] = 16711935] = "FUCHSIA";
+    ColorCode[ColorCode["GAINSBORO"] = 14474460] = "GAINSBORO";
+    ColorCode[ColorCode["GHOST_WHITE"] = 16316671] = "GHOST_WHITE";
+    ColorCode[ColorCode["GOLD"] = 16766720] = "GOLD";
+    ColorCode[ColorCode["GOLDENROD"] = 14329120] = "GOLDENROD";
+    ColorCode[ColorCode["GRAY"] = 8421504] = "GRAY";
+    ColorCode[ColorCode["GREY"] = 8421504] = "GREY";
+    ColorCode[ColorCode["GREEN"] = 32768] = "GREEN";
+    ColorCode[ColorCode["GREEN_YELLOW"] = 11403055] = "GREEN_YELLOW";
+    ColorCode[ColorCode["HONEYDEW"] = 15794160] = "HONEYDEW";
+    ColorCode[ColorCode["HOT_PINK"] = 16738740] = "HOT_PINK";
+    ColorCode[ColorCode["INDIAN_RED"] = 13458524] = "INDIAN_RED";
+    ColorCode[ColorCode["INDIGO"] = 4915330] = "INDIGO";
+    ColorCode[ColorCode["IVORY"] = 16777200] = "IVORY";
+    ColorCode[ColorCode["KHAKI"] = 15787660] = "KHAKI";
+    ColorCode[ColorCode["LAVENDER"] = 15132410] = "LAVENDER";
+    ColorCode[ColorCode["LAVENDER_BLUSH"] = 16773365] = "LAVENDER_BLUSH";
+    ColorCode[ColorCode["LAWN_GREEN"] = 8190976] = "LAWN_GREEN";
+    ColorCode[ColorCode["LEMON_CHIFFON"] = 16775885] = "LEMON_CHIFFON";
+    ColorCode[ColorCode["LIGHT_BLUE"] = 11393254] = "LIGHT_BLUE";
+    ColorCode[ColorCode["LIGHT_CORAL"] = 14745599] = "LIGHT_CORAL";
+    ColorCode[ColorCode["LIGHT_CYAN"] = 14745599] = "LIGHT_CYAN";
+    ColorCode[ColorCode["LIGHT_GOLDENROD_YELLOW"] = 16448210] = "LIGHT_GOLDENROD_YELLOW";
+    ColorCode[ColorCode["LIGHT_GREEN"] = 9498256] = "LIGHT_GREEN";
+    ColorCode[ColorCode["LIGHT_GRAY"] = 13882323] = "LIGHT_GRAY";
+    ColorCode[ColorCode["LIGHT_GREY"] = 13882323] = "LIGHT_GREY";
+    ColorCode[ColorCode["LIGHT_PINK"] = 16758465] = "LIGHT_PINK";
+    ColorCode[ColorCode["LIGHT_SALMON"] = 16752762] = "LIGHT_SALMON";
+    ColorCode[ColorCode["LIGHT_SEA_GREEN"] = 2142890] = "LIGHT_SEA_GREEN";
+    ColorCode[ColorCode["LIGHT_SKY_BLUE"] = 8900346] = "LIGHT_SKY_BLUE";
+    ColorCode[ColorCode["LIGHT_SLATE_GRAY"] = 7833753] = "LIGHT_SLATE_GRAY";
+    ColorCode[ColorCode["LIGHT_SLATE_GREY"] = 7833753] = "LIGHT_SLATE_GREY";
+    ColorCode[ColorCode["LIGHT_STEEL_BLUE"] = 11584734] = "LIGHT_STEEL_BLUE";
+    ColorCode[ColorCode["LIGHT_YELLOW"] = 16777184] = "LIGHT_YELLOW";
+    ColorCode[ColorCode["LIME"] = 65280] = "LIME";
+    ColorCode[ColorCode["LIME_GREEN"] = 3329330] = "LIME_GREEN";
+    ColorCode[ColorCode["LINEN"] = 16445670] = "LINEN";
+    ColorCode[ColorCode["MAGENTA"] = 16711935] = "MAGENTA";
+    ColorCode[ColorCode["MAROON"] = 8388608] = "MAROON";
+    ColorCode[ColorCode["MEDIUM_AQUAMARINE"] = 6737322] = "MEDIUM_AQUAMARINE";
+    ColorCode[ColorCode["MEDIUM_BLUE"] = 205] = "MEDIUM_BLUE";
+    ColorCode[ColorCode["MEDIUM_ORCHID"] = 12211667] = "MEDIUM_ORCHID";
+    ColorCode[ColorCode["MEDIUM_PURPLE"] = 9662683] = "MEDIUM_PURPLE";
+    ColorCode[ColorCode["MEDIUM_SEA_GREEN"] = 3978097] = "MEDIUM_SEA_GREEN";
+    ColorCode[ColorCode["MEDIUM_SLATE_BLUE"] = 8087790] = "MEDIUM_SLATE_BLUE";
+    ColorCode[ColorCode["MEDIUM_SPRING_GREEN"] = 64154] = "MEDIUM_SPRING_GREEN";
+    ColorCode[ColorCode["MEDIUM_TURQUOISE"] = 4772300] = "MEDIUM_TURQUOISE";
+    ColorCode[ColorCode["MEDIUM_VIOLET_RED"] = 13047173] = "MEDIUM_VIOLET_RED";
+    ColorCode[ColorCode["MIDNIGHT_BLUE"] = 1644912] = "MIDNIGHT_BLUE";
+    ColorCode[ColorCode["MINT_CREAM"] = 16121850] = "MINT_CREAM";
+    ColorCode[ColorCode["MISTY_ROSE"] = 16770273] = "MISTY_ROSE";
+    ColorCode[ColorCode["MOCCASIN"] = 16770229] = "MOCCASIN";
+    ColorCode[ColorCode["NAVAJO_WHITE"] = 16768685] = "NAVAJO_WHITE";
+    ColorCode[ColorCode["NAVY"] = 128] = "NAVY";
+    ColorCode[ColorCode["OLD_LACE"] = 16643558] = "OLD_LACE";
+    ColorCode[ColorCode["OLIVE"] = 8421376] = "OLIVE";
+    ColorCode[ColorCode["OLIVE_DRAB"] = 7048739] = "OLIVE_DRAB";
+    ColorCode[ColorCode["ORANGE"] = 16753920] = "ORANGE";
+    ColorCode[ColorCode["ORANGE_RED"] = 16729344] = "ORANGE_RED";
+    ColorCode[ColorCode["ORCHID"] = 14315734] = "ORCHID";
+    ColorCode[ColorCode["PALE_GOLDENROD"] = 15657130] = "PALE_GOLDENROD";
+    ColorCode[ColorCode["PALE_GREEN"] = 10025880] = "PALE_GREEN";
+    ColorCode[ColorCode["PALE_TURQUOISE"] = 11529966] = "PALE_TURQUOISE";
+    ColorCode[ColorCode["PALE_VIOLET_RED"] = 14381203] = "PALE_VIOLET_RED";
+    ColorCode[ColorCode["PAPAYA_WHIP"] = 16773077] = "PAPAYA_WHIP";
+    ColorCode[ColorCode["PEACH_PUFF"] = 16767673] = "PEACH_PUFF";
+    ColorCode[ColorCode["PERU"] = 13468991] = "PERU";
+    ColorCode[ColorCode["PINK"] = 16761035] = "PINK";
+    ColorCode[ColorCode["PLUM"] = 14524637] = "PLUM";
+    ColorCode[ColorCode["POWDER_BLUE"] = 11591910] = "POWDER_BLUE";
+    ColorCode[ColorCode["PURPLE"] = 8388736] = "PURPLE";
+    ColorCode[ColorCode["RED"] = 16711680] = "RED";
+    ColorCode[ColorCode["ROSY_BROWN"] = 12357519] = "ROSY_BROWN";
+    ColorCode[ColorCode["ROYAL_BLUE"] = 4286945] = "ROYAL_BLUE";
+    ColorCode[ColorCode["SADDLE_BROWN"] = 9127187] = "SADDLE_BROWN";
+    ColorCode[ColorCode["SALMON"] = 16416882] = "SALMON";
+    ColorCode[ColorCode["SANDY_BROWN"] = 16426080] = "SANDY_BROWN";
+    ColorCode[ColorCode["SEA_GREEN"] = 3050327] = "SEA_GREEN";
+    ColorCode[ColorCode["SEA_SHELL"] = 16774638] = "SEA_SHELL";
+    ColorCode[ColorCode["SIENNA"] = 10506797] = "SIENNA";
+    ColorCode[ColorCode["SILVER"] = 12632256] = "SILVER";
+    ColorCode[ColorCode["SKY_BLUE"] = 8900331] = "SKY_BLUE";
+    ColorCode[ColorCode["SLATE_BLUE"] = 6970061] = "SLATE_BLUE";
+    ColorCode[ColorCode["SLATE_GRAY"] = 7372944] = "SLATE_GRAY";
+    ColorCode[ColorCode["SLATE_GREY"] = 7372944] = "SLATE_GREY";
+    ColorCode[ColorCode["SNOW"] = 16775930] = "SNOW";
+    ColorCode[ColorCode["SPRING_GREEN"] = 65407] = "SPRING_GREEN";
+    ColorCode[ColorCode["STEEL_BLUE"] = 4620980] = "STEEL_BLUE";
+    ColorCode[ColorCode["TAN"] = 13808780] = "TAN";
+    ColorCode[ColorCode["TEAL"] = 32896] = "TEAL";
+    ColorCode[ColorCode["THISTLE"] = 14204888] = "THISTLE";
+    ColorCode[ColorCode["TOMATO"] = 16737095] = "TOMATO";
+    ColorCode[ColorCode["TURQUOISE"] = 4251856] = "TURQUOISE";
+    ColorCode[ColorCode["VIOLET"] = 15631086] = "VIOLET";
+    ColorCode[ColorCode["WHEAT"] = 16113331] = "WHEAT";
+    ColorCode[ColorCode["WHITE"] = 16777215] = "WHITE";
+    ColorCode[ColorCode["WHITE_SMOKE"] = 16119285] = "WHITE_SMOKE";
+    ColorCode[ColorCode["YELLOW"] = 16776960] = "YELLOW";
+    ColorCode[ColorCode["YELLOW_GREEN"] = 10145074] = "YELLOW_GREEN";
+})(ColorCode = exports.ColorCode || (exports.ColorCode = {}));
+exports.ColorMap = {
+    "aliceblue": ColorCode.ALICE_BLUE,
+    "antiquewhite": ColorCode.ANTIQUE_WHITE,
+    "aqua": ColorCode.AQUA,
+    "aquamarine": ColorCode.AQUAMARINE,
+    "azure": ColorCode.AZURE,
+    "beige": ColorCode.BEIGE,
+    "bisque": ColorCode.BISQUE,
+    "black": ColorCode.BLACK,
+    "blanchedalmond": ColorCode.BLANCHED_ALMOND,
+    "blue": ColorCode.BLUE,
+    "blueviolet": ColorCode.BLUE_VIOLET,
+    "brown": ColorCode.BROWN,
+    "burlywood": ColorCode.BURLY_WOOD,
+    "cadetblue": ColorCode.CADET_BLUE,
+    "chartreuse": ColorCode.CHART_REUSE,
+    "chocolate": ColorCode.CHOCOLATE,
+    "coral": ColorCode.CORAL,
+    "cornflowerblue": ColorCode.CORNFLOWER_BLUE,
+    "cornsilk": ColorCode.CORN_SILK,
+    "crimson": ColorCode.CRIMSON,
+    "cyan": ColorCode.CYAN,
+    "darkblue": ColorCode.DARK_BLUE,
+    "darkcyan": ColorCode.DARK_CYAN,
+    "darkgoldenrod": ColorCode.DARK_GOLDENROD,
+    "darkgray": ColorCode.DARK_GRAY,
+    "darkgrey": ColorCode.DARK_GREY,
+    "darkgreen": ColorCode.DARK_GREEN,
+    "darkkhaki": ColorCode.DARK_KHAKI,
+    "darkmagenta": ColorCode.DARK_MAGENTA,
+    "darkolivegreen": ColorCode.DARK_OLIVE_GREEN,
+    "darkorange": ColorCode.DARK_ORANGE,
+    "darkorchid": ColorCode.DARK_ORCHID,
+    "darkred": ColorCode.DARK_RED,
+    "darksalmon": ColorCode.DARK_SALMON,
+    "darkseagreen": ColorCode.DARK_SEA_GREEN,
+    "darkslateblue": ColorCode.DARK_SLATE_BLUE,
+    "darkslategray": ColorCode.DARK_SLATE_GRAY,
+    "darkslategrey": ColorCode.DARK_SLATE_GREY,
+    "darktorquoise": ColorCode.DARK_TORQUOISE,
+    "darkviolet": ColorCode.DARK_VIOLET,
+    "deeppink": ColorCode.DEEP_PINK,
+    "deepskyblue": ColorCode.DEEP_SKY_BLUE,
+    "dimgray": ColorCode.DIM_GRAY,
+    "dimgrey": ColorCode.DIM_GREY,
+    "dodgerblue": ColorCode.DODGER_BLUE,
+    "firebrick": ColorCode.FIRE_BRICK,
+    "floralwhite": ColorCode.FLORAL_WHITE,
+    "forestgreen": ColorCode.FOREST_GREEN,
+    "fuchsia": ColorCode.FUCHSIA,
+    "gainsboro": ColorCode.GAINSBORO,
+    "ghostwhite": ColorCode.GHOST_WHITE,
+    "gold": ColorCode.GOLD,
+    "goldenrod": ColorCode.GOLDENROD,
+    "gray": ColorCode.GRAY,
+    "grey": ColorCode.GREY,
+    "green": ColorCode.GREEN,
+    "greenyellow": ColorCode.GREEN_YELLOW,
+    "honeydew": ColorCode.HONEYDEW,
+    "hotpink": ColorCode.HOT_PINK,
+    "indianred": ColorCode.INDIAN_RED,
+    "indigo": ColorCode.INDIGO,
+    "ivory": ColorCode.IVORY,
+    "khaki": ColorCode.KHAKI,
+    "lavender": ColorCode.LAVENDER,
+    "lavenderblush": ColorCode.LAVENDER_BLUSH,
+    "lawngreen": ColorCode.LAWN_GREEN,
+    "lemonchiffon": ColorCode.LEMON_CHIFFON,
+    "lightblue": ColorCode.LIGHT_BLUE,
+    "lightcoral": ColorCode.LIGHT_CORAL,
+    "lightcyan": ColorCode.LIGHT_CYAN,
+    "lightgoldenrodyellow": ColorCode.LIGHT_GOLDENROD_YELLOW,
+    "lightgreen": ColorCode.LIGHT_GREEN,
+    "lightgray": ColorCode.LIGHT_GRAY,
+    "lightgrey": ColorCode.LIGHT_GREY,
+    "lightpink": ColorCode.LIGHT_PINK,
+    "lightsalmon": ColorCode.LIGHT_SALMON,
+    "lightseagreen": ColorCode.LIGHT_SEA_GREEN,
+    "lightskyblue": ColorCode.LIGHT_SKY_BLUE,
+    "lightslategray": ColorCode.LIGHT_SLATE_GRAY,
+    "lightslategrey": ColorCode.LIGHT_SLATE_GREY,
+    "lightsteelblue": ColorCode.LIGHT_STEEL_BLUE,
+    "lightyellow": ColorCode.LIGHT_YELLOW,
+    "lime": ColorCode.LIME,
+    "limegreen": ColorCode.LIME_GREEN,
+    "linen": ColorCode.LINEN,
+    "magenta": ColorCode.MAGENTA,
+    "maroon": ColorCode.MAROON,
+    "mediumaquamarine": ColorCode.MEDIUM_AQUAMARINE,
+    "mediumblue": ColorCode.MEDIUM_BLUE,
+    "mediumorchid": ColorCode.MEDIUM_ORCHID,
+    "mediumpurple": ColorCode.MEDIUM_PURPLE,
+    "mediumseagreen": ColorCode.MEDIUM_SEA_GREEN,
+    "mediumslateblue": ColorCode.MEDIUM_SLATE_BLUE,
+    "mediumspringgreen": ColorCode.MEDIUM_SPRING_GREEN,
+    "mediumturquoise": ColorCode.MEDIUM_TURQUOISE,
+    "mediumvioletred": ColorCode.MEDIUM_VIOLET_RED,
+    "midnightblue": ColorCode.MIDNIGHT_BLUE,
+    "mintcream": ColorCode.MINT_CREAM,
+    "mistyrose": ColorCode.MISTY_ROSE,
+    "moccasin": ColorCode.MOCCASIN,
+    "navajowhite": ColorCode.NAVAJO_WHITE,
+    "navy": ColorCode.NAVY,
+    "oldlace": ColorCode.OLD_LACE,
+    "olive": ColorCode.OLIVE,
+    "olivedrab": ColorCode.OLIVE_DRAB,
+    "orange": ColorCode.ORANGE,
+    "orangered": ColorCode.ORANGE_RED,
+    "orchid": ColorCode.ORCHID,
+    "palegoldenrod": ColorCode.PALE_GOLDENROD,
+    "palegreen": ColorCode.PALE_GREEN,
+    "paleturquoise": ColorCode.PALE_TURQUOISE,
+    "palevioletred": ColorCode.PALE_VIOLET_RED,
+    "papayawhip": ColorCode.PAPAYA_WHIP,
+    "peachpuff": ColorCode.PEACH_PUFF,
+    "peru": ColorCode.PERU,
+    "pink": ColorCode.PINK,
+    "plum": ColorCode.PLUM,
+    "powderblue": ColorCode.POWDER_BLUE,
+    "purple": ColorCode.PURPLE,
+    "red": ColorCode.RED,
+    "rosybrown": ColorCode.ROSY_BROWN,
+    "royalblue": ColorCode.ROYAL_BLUE,
+    "saddlebrown": ColorCode.SADDLE_BROWN,
+    "salmon": ColorCode.SALMON,
+    "sandybrown": ColorCode.SANDY_BROWN,
+    "seagreen": ColorCode.SEA_GREEN,
+    "seashell": ColorCode.SEA_SHELL,
+    "sienna": ColorCode.SIENNA,
+    "silver": ColorCode.SILVER,
+    "skyblue": ColorCode.SKY_BLUE,
+    "slateblue": ColorCode.SLATE_BLUE,
+    "slategray": ColorCode.SLATE_GRAY,
+    "slategrey": ColorCode.SLATE_GREY,
+    "snow": ColorCode.SNOW,
+    "springgreen": ColorCode.SPRING_GREEN,
+    "steelblue": ColorCode.STEEL_BLUE,
+    "tan": ColorCode.TAN,
+    "teal": ColorCode.TEAL,
+    "thistle": ColorCode.THISTLE,
+    "tomato": ColorCode.TOMATO,
+    "turquoise": ColorCode.TURQUOISE,
+    "violet": ColorCode.VIOLET,
+    "wheat": ColorCode.WHEAT,
+    "white": ColorCode.WHITE,
+    "whitesmoke": ColorCode.WHITE_SMOKE,
+    "yellow": ColorCode.YELLOW,
+    "yellowgreen": ColorCode.YELLOW_GREEN
+};
+
+
+/***/ }),
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1470,7 +2093,7 @@ exports.GamePad = GamePad;
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1550,7 +2173,7 @@ exports.Touch = Touch;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1569,10 +2192,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Engine_1 = __webpack_require__(6);
 var _1 = __webpack_require__(4);
 var _2 = __webpack_require__(5);
-var _3 = __webpack_require__(12);
+var _3 = __webpack_require__(13);
 var _4 = __webpack_require__(3);
-var Character_1 = __webpack_require__(60);
-var _5 = __webpack_require__(62);
+var Character_1 = __webpack_require__(64);
+var _5 = __webpack_require__(66);
 var PalletDemo = (function (_super) {
     __extends(PalletDemo, _super);
     function PalletDemo() {
@@ -1596,10 +2219,11 @@ var PalletDemo = (function (_super) {
         loadingText.setX((500 / 2) - 100);
         loadingText.setY((500 / 2) - 25);
         hud.addChild(loadingText);
-        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, "black");
-        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, "black");
-        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, "black");
-        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, "black");
+        var blackColor = _3.Color.fromString('black');
+        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, blackColor);
+        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, blackColor);
+        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, blackColor);
+        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, blackColor);
         var loadingAnim = new _4.Animation(loadingText, [
             { 'asset': loading0, 'delay': 250 },
             { 'asset': loading1, 'delay': 250 },
@@ -1989,7 +2613,7 @@ window._PalletDemo = new PalletDemo();
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2043,7 +2667,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2075,7 +2699,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2129,7 +2753,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2196,7 +2820,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2277,7 +2901,7 @@ var ViewPort = (function (_super) {
         this._context.font = font;
     };
     ViewPort.prototype.setColor = function (color) {
-        this._context.fillStyle = color;
+        this._context.fillStyle = color.toString();
     };
     ViewPort.prototype.measureText = function (text) {
         return this._context.measureText(text);
@@ -2314,7 +2938,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2388,20 +3012,195 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var ColorCode_1 = __webpack_require__(8);
+var Color = (function () {
+    function Color(r, g, b, a) {
+        if (r === void 0) { r = 0; }
+        if (g === void 0) { g = 0; }
+        if (b === void 0) { b = 0; }
+        if (a === void 0) { a = 1; }
+        this.setRed(r);
+        this.setGreen(g);
+        this.setBlue(b);
+        this.setAlpha(a);
+    }
+    Color.prototype.setRed = function (r) {
+        this._r = r;
+    };
+    Color.prototype.setGreen = function (g) {
+        this._g = g;
+    };
+    Color.prototype.setBlue = function (b) {
+        this._b = b;
+    };
+    Color.prototype.setAlpha = function (a) {
+        this._a = a * 255;
+    };
+    Color.prototype.getRed = function () {
+        return this._r;
+    };
+    Color.prototype.getGreen = function () {
+        return this._g;
+    };
+    Color.prototype.getBlue = function () {
+        return this._b;
+    };
+    Color.prototype.getAlpha = function () {
+        return this._a / 255;
+    };
+    Color.prototype.toRGB = function () {
+        return "rgb(" + this.getRed() + "," + this.getGreen() + "," + this.getBlue() + ")";
+    };
+    Color.prototype.toRGBA = function () {
+        return "rgba(" + this.getRed() + "," + this.getGreen() + "," + this.getBlue() + "," + this.getAlpha() + ")";
+    };
+    Color.prototype.toHex = function () {
+        return (this.getRed() << 16) + (this.getGreen() << 8) + this.getBlue();
+    };
+    Color.prototype.toHexString = function () {
+        var hex = "#";
+        hex += this._toHexString(this.getRed());
+        hex += this._toHexString(this.getGreen());
+        hex += this._toHexString(this.getBlue());
+        return hex.toUpperCase();
+    };
+    Color.prototype.valueOf = function () {
+        return this.toString();
+    };
+    Color.prototype.toString = function () {
+        return this.toRGBA();
+    };
+    Color.prototype._toHexString = function (value) {
+        var hex = value.toString(16);
+        if (hex.length === 1) {
+            hex = '0' + hex;
+        }
+        return hex;
+    };
+    Color._parseHexString = function (color) {
+        var colorCodes = [];
+        color = color.replace('#', '');
+        switch (color.length) {
+            case 3:
+                color = "" + color.charAt(0) + color.charAt(0) + color.charAt(1) + color.charAt(1) + color.charAt(2) + color.charAt(2);
+                break;
+            case 6:
+                break;
+            default:
+                throw new Error("Malformed hex code \"#" + color + "\". Expecting hex length of 3 or 6.");
+        }
+        var rHex = color.slice(0, 2);
+        var gHex = color.slice(2, 4);
+        var bHex = color.slice(4, 6);
+        colorCodes[0] = parseInt(rHex, 16);
+        colorCodes[1] = parseInt(gHex, 16);
+        colorCodes[2] = parseInt(bHex, 16);
+        colorCodes[3] = 255;
+        for (var i = 0; i < colorCodes.length; i++) {
+            if (isNaN(colorCodes[i])) {
+                throw new Error('Invalid hex code.');
+            }
+        }
+        return colorCodes;
+    };
+    Color._parseRGB = function (color) {
+        var colorCodes = [];
+        color = color.toLowerCase();
+        if (color.indexOf('rgba(') > -1) {
+            color = color.replace('rgba(', '');
+            color = color.replace(')', '');
+            var parts = color.split(',');
+            colorCodes[0] = parseInt(parts[0]);
+            colorCodes[1] = parseInt(parts[1]);
+            colorCodes[2] = parseInt(parts[2]);
+            colorCodes[3] = parseInt(parts[3]);
+        }
+        else if (color.indexOf('rgb(') > -1) {
+            color = color.replace('rgb(', '');
+            color = color.replace(')', '');
+            var parts = color.split(',');
+            colorCodes[0] = parseInt(parts[0]);
+            colorCodes[1] = parseInt(parts[1]);
+            colorCodes[2] = parseInt(parts[2]);
+            colorCodes[3] = 255;
+        }
+        else {
+            throw new Error("Malformed RGB structure \"" + color + "\". Expecting rgb(#,#,#) or rgba(#,#,#,#)");
+        }
+        for (var i = 0; i < colorCodes.length; i++) {
+            var code = colorCodes[i];
+            if (isNaN(code) || (code < 0 || code > 255)) {
+                throw new Error('Invalid code value in RGB');
+            }
+        }
+        return colorCodes;
+    };
+    Color._parseColorName = function (color) {
+        if (ColorCode_1.ColorMap[color] !== undefined) {
+            var colorCode = ColorCode_1.ColorMap[color];
+            var rgb = Color._parseHex(colorCode);
+            return [rgb.r, rgb.g, rgb.b, 255];
+        }
+        else {
+            throw new Error("Invalid color \"" + color + "\"");
+        }
+    };
+    Color.fromString = function (color) {
+        var colorCodes;
+        if (color.charAt(0) === '#') {
+            colorCodes = Color._parseHexString(color);
+        }
+        else if (/rgba?/.test(color)) {
+            colorCodes = Color._parseRGB(color);
+        }
+        else {
+            colorCodes = Color._parseColorName(color);
+        }
+        var r = colorCodes[0];
+        var g = colorCodes[1];
+        var b = colorCodes[2];
+        var a = colorCodes[3];
+        return new Color(r, g, b, a / 255);
+    };
+    Color.fromHex = function (hex) {
+        var rgb = Color._parseHex(hex);
+        return new Color(rgb.r, rgb.g, rgb.b);
+    };
+    Color.fromColorCode = function (code) {
+        return Color.fromHex(code);
+    };
+    Color._parseHex = function (hex) {
+        var r = hex >> 16;
+        var g = hex >> 8 & 0xFF;
+        var b = hex & 0xFF;
+        return { r: r, g: g, b: b };
+    };
+    return Color;
+}());
+exports.Color = Color;
+
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var AudioEngine_1 = __webpack_require__(9);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(35);
+var HTML5AudioEngine_1 = __webpack_require__(38);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2479,7 +3278,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2495,7 +3294,7 @@ var AssetType;
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2510,7 +3309,7 @@ var AssetState;
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2617,7 +3416,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2683,7 +3482,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2735,7 +3534,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2774,7 +3573,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2806,7 +3605,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2821,14 +3620,12 @@ var TextAssetBuilder = (function () {
         var textViewPort = new utils_1.ViewPort();
         var textAsset = new _1.Asset(_1.AssetType.IMAGE);
         textViewPort.setFont(font);
-        textViewPort.setColor(color || "green");
+        textViewPort.setColor(color || utils_1.Color.fromString("green"));
         textViewPort.setTextBaseline("hanging");
         if (!maxWidth) {
             maxWidth = textViewPort.measureText(text).width;
         }
         textViewPort.setSize({ width: maxWidth, height: height });
-        textViewPort.setFont(font);
-        textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
         textViewPort.drawText(text, 0, 0, maxWidth);
         textAsset.setData(textViewPort.getImage());
@@ -2840,7 +3637,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2879,7 +3676,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2975,7 +3772,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2991,7 +3788,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(9);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -3104,7 +3901,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3119,7 +3916,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3206,7 +4003,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3302,7 +4099,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3422,7 +4219,7 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             var h = clippedEntityHeight / yModifier;
             if (entity.getColor()) {
                 var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+                this.getViewPort().getContext().fillStyle = color.toString();
                 this.getViewPort().getContext().fillRect(x, y, w, h);
             }
             if (this.debugRegions) {
@@ -3452,7 +4249,7 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             var h = entity.getHeight();
             if (entity.getColor()) {
                 var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+                this.getViewPort().getContext().fillStyle = color.toString();
                 this.getViewPort().getContext().fillRect(x, y, w, h);
             }
             if (entity.getTexture()) {
@@ -3476,7 +4273,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3562,7 +4359,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3578,7 +4375,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(11);
+var EntityView_1 = __webpack_require__(12);
 var EntityView2D = (function (_super) {
     __extends(EntityView2D, _super);
     function EntityView2D() {
@@ -3590,7 +4387,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3606,7 +4403,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
+var Entity_1 = __webpack_require__(11);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -3644,7 +4441,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3698,13 +4495,13 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(12);
+var _1 = __webpack_require__(13);
 var IDGenerator = (function () {
     function IDGenerator() {
     }
@@ -3730,7 +4527,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3784,13 +4581,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(13);
+var SeverityEnum_1 = __webpack_require__(14);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -3851,7 +4648,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3932,7 +4729,7 @@ var ViewPort = (function (_super) {
         this._context.font = font;
     };
     ViewPort.prototype.setColor = function (color) {
-        this._context.fillStyle = color;
+        this._context.fillStyle = color.toString();
     };
     ViewPort.prototype.measureText = function (text) {
         return this._context.measureText(text);
@@ -3969,7 +4766,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4043,7 +4840,182 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 49 */
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ColorCode_1 = __webpack_require__(15);
+var Color = (function () {
+    function Color(r, g, b, a) {
+        if (r === void 0) { r = 0; }
+        if (g === void 0) { g = 0; }
+        if (b === void 0) { b = 0; }
+        if (a === void 0) { a = 1; }
+        this.setRed(r);
+        this.setGreen(g);
+        this.setBlue(b);
+        this.setAlpha(a);
+    }
+    Color.prototype.setRed = function (r) {
+        this._r = r;
+    };
+    Color.prototype.setGreen = function (g) {
+        this._g = g;
+    };
+    Color.prototype.setBlue = function (b) {
+        this._b = b;
+    };
+    Color.prototype.setAlpha = function (a) {
+        this._a = a * 255;
+    };
+    Color.prototype.getRed = function () {
+        return this._r;
+    };
+    Color.prototype.getGreen = function () {
+        return this._g;
+    };
+    Color.prototype.getBlue = function () {
+        return this._b;
+    };
+    Color.prototype.getAlpha = function () {
+        return this._a / 255;
+    };
+    Color.prototype.toRGB = function () {
+        return "rgb(" + this.getRed() + "," + this.getGreen() + "," + this.getBlue() + ")";
+    };
+    Color.prototype.toRGBA = function () {
+        return "rgba(" + this.getRed() + "," + this.getGreen() + "," + this.getBlue() + "," + this.getAlpha() + ")";
+    };
+    Color.prototype.toHex = function () {
+        return (this.getRed() << 16) + (this.getGreen() << 8) + this.getBlue();
+    };
+    Color.prototype.toHexString = function () {
+        var hex = "#";
+        hex += this._toHexString(this.getRed());
+        hex += this._toHexString(this.getGreen());
+        hex += this._toHexString(this.getBlue());
+        return hex.toUpperCase();
+    };
+    Color.prototype.valueOf = function () {
+        return this.toString();
+    };
+    Color.prototype.toString = function () {
+        return this.toRGBA();
+    };
+    Color.prototype._toHexString = function (value) {
+        var hex = value.toString(16);
+        if (hex.length === 1) {
+            hex = '0' + hex;
+        }
+        return hex;
+    };
+    Color._parseHexString = function (color) {
+        var colorCodes = [];
+        color = color.replace('#', '');
+        switch (color.length) {
+            case 3:
+                color = "" + color.charAt(0) + color.charAt(0) + color.charAt(1) + color.charAt(1) + color.charAt(2) + color.charAt(2);
+                break;
+            case 6:
+                break;
+            default:
+                throw new Error("Malformed hex code \"#" + color + "\". Expecting hex length of 3 or 6.");
+        }
+        var rHex = color.slice(0, 2);
+        var gHex = color.slice(2, 4);
+        var bHex = color.slice(4, 6);
+        colorCodes[0] = parseInt(rHex, 16);
+        colorCodes[1] = parseInt(gHex, 16);
+        colorCodes[2] = parseInt(bHex, 16);
+        colorCodes[3] = 255;
+        for (var i = 0; i < colorCodes.length; i++) {
+            if (isNaN(colorCodes[i])) {
+                throw new Error('Invalid hex code.');
+            }
+        }
+        return colorCodes;
+    };
+    Color._parseRGB = function (color) {
+        var colorCodes = [];
+        color = color.toLowerCase();
+        if (color.indexOf('rgba(') > -1) {
+            color = color.replace('rgba(', '');
+            color = color.replace(')', '');
+            var parts = color.split(',');
+            colorCodes[0] = parseInt(parts[0]);
+            colorCodes[1] = parseInt(parts[1]);
+            colorCodes[2] = parseInt(parts[2]);
+            colorCodes[3] = parseInt(parts[3]);
+        }
+        else if (color.indexOf('rgb(') > -1) {
+            color = color.replace('rgb(', '');
+            color = color.replace(')', '');
+            var parts = color.split(',');
+            colorCodes[0] = parseInt(parts[0]);
+            colorCodes[1] = parseInt(parts[1]);
+            colorCodes[2] = parseInt(parts[2]);
+            colorCodes[3] = 255;
+        }
+        else {
+            throw new Error("Malformed RGB structure \"" + color + "\". Expecting rgb(#,#,#) or rgba(#,#,#,#)");
+        }
+        for (var i = 0; i < colorCodes.length; i++) {
+            var code = colorCodes[i];
+            if (isNaN(code) || (code < 0 || code > 255)) {
+                throw new Error('Invalid code value in RGB');
+            }
+        }
+        return colorCodes;
+    };
+    Color._parseColorName = function (color) {
+        if (ColorCode_1.ColorMap[color] !== undefined) {
+            var colorCode = ColorCode_1.ColorMap[color];
+            var rgb = Color._parseHex(colorCode);
+            return [rgb.r, rgb.g, rgb.b, 255];
+        }
+        else {
+            throw new Error("Invalid color \"" + color + "\"");
+        }
+    };
+    Color.fromString = function (color) {
+        var colorCodes;
+        if (color.charAt(0) === '#') {
+            colorCodes = Color._parseHexString(color);
+        }
+        else if (/rgba?/.test(color)) {
+            colorCodes = Color._parseRGB(color);
+        }
+        else {
+            colorCodes = Color._parseColorName(color);
+        }
+        var r = colorCodes[0];
+        var g = colorCodes[1];
+        var b = colorCodes[2];
+        var a = colorCodes[3];
+        return new Color(r, g, b, a / 255);
+    };
+    Color.fromHex = function (hex) {
+        var rgb = Color._parseHex(hex);
+        return new Color(rgb.r, rgb.g, rgb.b);
+    };
+    Color.fromColorCode = function (code) {
+        return Color.fromHex(code);
+    };
+    Color._parseHex = function (hex) {
+        var r = hex >> 16;
+        var g = hex >> 8 & 0xFF;
+        var b = hex & 0xFF;
+        return { r: r, g: g, b: b };
+    };
+    return Color;
+}());
+exports.Color = Color;
+
+
+/***/ }),
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4121,7 +5093,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4137,7 +5109,7 @@ var AssetType;
 
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4152,7 +5124,7 @@ var AssetState;
 
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4259,7 +5231,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4325,7 +5297,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4377,7 +5349,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4416,7 +5388,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4448,7 +5420,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4463,14 +5435,12 @@ var TextAssetBuilder = (function () {
         var textViewPort = new utils_1.ViewPort();
         var textAsset = new _1.Asset(_1.AssetType.IMAGE);
         textViewPort.setFont(font);
-        textViewPort.setColor(color || "green");
+        textViewPort.setColor(color || utils_1.Color.fromString("green"));
         textViewPort.setTextBaseline("hanging");
         if (!maxWidth) {
             maxWidth = textViewPort.measureText(text).width;
         }
         textViewPort.setSize({ width: maxWidth, height: height });
-        textViewPort.setFont(font);
-        textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
         textViewPort.drawText(text, 0, 0, maxWidth);
         textAsset.setData(textViewPort.getImage());
@@ -4482,7 +5452,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4521,7 +5491,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4617,7 +5587,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4635,7 +5605,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(5);
 var _2 = __webpack_require__(3);
-var _3 = __webpack_require__(61);
+var _3 = __webpack_require__(65);
 var Character = (function (_super) {
     __extends(Character, _super);
     function Character(character_spritesheet) {
@@ -4791,7 +5761,7 @@ exports.default = Character;
 
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4799,34 +5769,34 @@ exports.default = Character;
 Object.defineProperty(exports, "__esModule", { value: true });
 var Engine_1 = __webpack_require__(6);
 exports.Engine = Engine_1.Engine;
-var Instance_1 = __webpack_require__(9);
+var Instance_1 = __webpack_require__(10);
 exports.getInstance = Instance_1.getInstance;
 
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(63);
+var GamePadListener_1 = __webpack_require__(67);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
-var GamePad_1 = __webpack_require__(14);
+var GamePad_1 = __webpack_require__(16);
 exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(64);
+var Keyboard_1 = __webpack_require__(68);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(65);
+var Mouse_1 = __webpack_require__(69);
 exports.Mouse = Mouse_1.Mouse;
-var Touch_1 = __webpack_require__(15);
+var Touch_1 = __webpack_require__(17);
 exports.Touch = Touch_1.Touch;
-var TouchListener_1 = __webpack_require__(66);
+var TouchListener_1 = __webpack_require__(70);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4842,7 +5812,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(14);
+var GamePad_1 = __webpack_require__(16);
 var Events = __webpack_require__(1);
 var GamePadListener = (function (_super) {
     __extends(GamePadListener, _super);
@@ -4900,7 +5870,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5087,7 +6057,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5238,7 +6208,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 66 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5254,7 +6224,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(15);
+var Touch_1 = __webpack_require__(17);
 var Events = __webpack_require__(1);
 var TouchListener = (function (_super) {
     __extends(TouchListener, _super);

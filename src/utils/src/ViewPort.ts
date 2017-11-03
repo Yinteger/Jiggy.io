@@ -1,6 +1,7 @@
 import * as Events from 'events';
 import {Dimension} from "@jiggy/interfaces";
 import {ViewPortEventTypes, DimensionUpdateEvent} from "./";
+import {Color} from '@jiggy/utils';
 
 export class ViewPort extends Events.EventEmitter {
 	private _canvas : HTMLCanvasElement;
@@ -89,8 +90,8 @@ export class ViewPort extends Events.EventEmitter {
 		this._context.font = font;
 	}
 
-	public setColor (color : string) : void {
-		this._context.fillStyle = color;
+	public setColor (color : Color) : void {
+		this._context.fillStyle = color.toString();
 	}
 
 	public measureText (text : string) : TextMetrics {

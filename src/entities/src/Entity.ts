@@ -1,9 +1,9 @@
 import * as Events from 'events';
-import {Dimension, Coordinate, Color} from '@jiggy/interfaces';
+import {Dimension, Coordinate} from '@jiggy/interfaces';
 import {Asset, AssetType} from '@jiggy/assets';
 import {EntityModel, ModelEventTypes, EntityView, EntityEventTypes, LocationUpdateEvent} from './';
 
-import {Iterator} from "@jiggy/utils";
+import {Iterator, Color} from "@jiggy/utils";
 
 export class Entity extends Events.EventEmitter {
 	protected _view : EntityView;
@@ -236,9 +236,7 @@ export class Entity extends Events.EventEmitter {
 	}
 
 	public getColor () : Color {
-		var data = this._model.getAttribute('color');
-		// return [data.r, data.g, data.b, data.r];
-		return data;
+		return <Color>this._model.getAttribute('color');
 	}
 
 	public setColor (color: Color): void {
