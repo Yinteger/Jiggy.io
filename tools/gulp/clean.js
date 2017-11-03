@@ -44,11 +44,12 @@ function execCleanTests(done, args = '') {
         if (FileSystem.existsSync(Path.resolve(TEST_DIR, testApp, 'webpack.config.js'))) {
             console.log('Cleaning', testApp, '...');
 
-            ChildProcess.spawnSync(`rm *.js *.js.map`, {
-                cwd : Path.resolve(TEST_DIR, testApp),
-                shell : true,
-                stdio: 'inherit'
-            });
+            //TODO: Make the test_apps build to another directory, so we don't generically delete the webpack config file.
+            // ChildProcess.spawnSync(`rm *.js *.js.map`, {
+            //     cwd : Path.resolve(TEST_DIR, testApp),
+            //     shell : true,
+            //     stdio: 'inherit'
+            // });
         }
     }
 
