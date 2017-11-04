@@ -1,18 +1,23 @@
 {
-    "extends": "../tsconfig-build.json",
-
     "compilerOptions": {
-        "declarationDir": "../../dist/lib/utils/",
-        "outDir": "../../dist/lib/utils",
-        "baseUrl": ".",
-        "rootDir": "./src",
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "removeComments": true,
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "pretty": true,
+        "allowUnreachableCode": false,
+        "baseUrl" : ".",
         "paths": {
-            "@jiggy/utils" : ["./src"]
+            // "@jiggy/*" : ["."]
         }
     },
-
     "files": [
-        "./src/index.ts",
+        "./App.ts",
         "../../dist/declarations/assets.d.ts",
         "../../dist/declarations/audio.d.ts",
         "../../dist/declarations/core.d.ts",

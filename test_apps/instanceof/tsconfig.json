@@ -1,8 +1,19 @@
+// This is a config purely used for development editors. Using this config to compile will not emit or compile files.
+// To actually build files, you must use the tsconfig-build configuration.
+//
+// $ tsc -p tsconfig-build.json
+//
+// OR
+//
+// gulp build 
+//
+
 {
     "compilerOptions": {
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
+        "noEmit": true,
         "moduleResolution": "node",
         "removeComments": true,
         "module": "commonjs",
@@ -13,18 +24,10 @@
         "allowUnreachableCode": false,
         "baseUrl" : ".",
         "paths": {
-            // "@jiggy/*" : ["."]
+            "@jiggy/*" : ["../../src/*/src"]
         }
     },
     "files": [
-        "./App.ts",
-        "../../dist/declarations/assets.d.ts",
-        "../../dist/declarations/audio.d.ts",
-        "../../dist/declarations/core.d.ts",
-        "../../dist/declarations/engines.d.ts",
-        "../../dist/declarations/entities.d.ts",
-        "../../dist/declarations/inputs.d.ts",
-        "../../dist/declarations/interfaces.d.ts",
-        "../../dist/declarations/utils.d.ts"
+        "./App.ts"
     ]
 }
