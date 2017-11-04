@@ -1,14 +1,9 @@
 import {IDGenerator} from '@jiggy/utils';
 import {
-	AssetState
-} from './AssetState';
-import {
-	AssetType
-} from './AssetType';
-
-import {
+	AssetState,
+	AssetType,
 	AssetLoader
-} from './AssetLoader';
+} from '@jiggy/assets';
 
 // import {
 // 	AssetState,

@@ -1,21 +1,12 @@
-import {AssetState} from './AssetState';
-import {AssetType} from './AssetType';
-import {AssetLoader} from './AssetLoader';
-import {Asset} from './Asset';
-import {AudioLoader} from './AudioLoader';
-import {JSONLoader} from './JSONLoader';
-import {ImageLoader} from './ImageLoader';
-
-
-// import {
-// 	AssetLoader,
-// 	AudioLoader,
-// 	ImageLoader,
-// 	JSONLoader,
-// 	Asset,
-// 	AssetState,
-// 	AssetType
-// } from './';
+import {
+	AssetState,
+	AssetType,
+	AssetLoader,
+	Asset,
+	AudioLoader,
+	JSONLoader,
+	ImageLoader
+} from '@jiggy/assets';
 
 interface AssetCache {
 	[url: string]: Asset;

@@ -3,8 +3,7 @@ import {
 	SeverityEnum
 } from '@jiggy/utils';
 import {Entity} from "@jiggy/entities";
-import {Spritesheet} from "./Spritesheet";
-import {Asset} from "@jiggy/assets";
+import {Asset, Spritesheet} from "@jiggy/assets";
 
 export class Animation {
 	public loop : boolean;

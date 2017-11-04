@@ -1,10 +1,7 @@
-// import {
-// 	Asset,
-// 	AssetState
-// } from './';
-
-import {Asset} from './Asset';
-import {AssetState} from './AssetState';
+import {
+	Asset,
+	AssetState
+} from '@jiggy/assets';
 
 export class AssetLoader {
 
