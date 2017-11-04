@@ -1,7 +1,7 @@
-import {Entity} from "../../src/entities/src/";
-import {Animation, Spritesheet, Asset} from "../../src/assets/src/";
-import {Coordinate} from "../../src/interfaces/src/";
-import {getInstance, Engine} from '../../src/core/src/';
+import {Entity} from "@jiggy/entities";
+import {Animation, Spritesheet, Asset} from "@jiggy/assets";
+import {Coordinate} from "@jiggy/interfaces";
+import {getInstance, Engine} from '@jiggy/core';
 
 export default class Character extends Entity {
 	public moving :  boolean;

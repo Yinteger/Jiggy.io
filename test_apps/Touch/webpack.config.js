@@ -1,9 +1,11 @@
 var Path = require('path');
+var ROOT_DIR = Path.resolve('../../');
+var DIST_DIR = Path.resolve(ROOT_DIR, 'dist/lib');
 
 module.exports = {
     entry: "./App.ts",
     output: {
-        filename: "./App.js",
+        filename: "./dist/App.js",
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -13,21 +15,27 @@ module.exports = {
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
         alias : {
-            "@jiggy/assets" : Path.resolve("../../src/assets/dist/assets/src/index.js"),
-            "@jiggy/audio" : Path.resolve("../../src/audio/dist/audio/src/index.js"),
-            "@jiggy/core" : Path.resolve("../../src/core/dist/core/src/index.js"),
-            "@jiggy/engines" : Path.resolve("../../src/engines/dist/engines/src/index.js"),
-            "@jiggy/entities" : Path.resolve("../../src/entities/dist/entities/src/index.js"),
-            "@jiggy/inputs" : Path.resolve("../../src/inputs/dist/index.js"), // This one is different, I think it is because it doesn't depend on other packages.
-            "@jiggy/interfaces" : Path.resolve("../../src/interfaces/dist/index.js"),
-            "@jiggy/utils" : Path.resolve("../../src/utils/dist/utils/src/index.js")
+            "@jiggy/assets"     : Path.resolve(DIST_DIR, 'assets/index.js'),
+            "@jiggy/audio"      : Path.resolve(DIST_DIR, 'audio/index.js'),
+            "@jiggy/core"       : Path.resolve(DIST_DIR, 'core/index.js'),
+            "@jiggy/engines"    : Path.resolve(DIST_DIR, 'engines/index.js'),
+            "@jiggy/entities"   : Path.resolve(DIST_DIR, 'entities/index.js'),
+            "@jiggy/inputs"     : Path.resolve(DIST_DIR, 'inputs/index.js'),
+            "@jiggy/interfaces" : Path.resolve(DIST_DIR, 'interfaces/index.js'),
+            "@jiggy/utils"      : Path.resolve(DIST_DIR, 'utils/index.js'),
         }
     },
 
     module: {
         rules: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            { test: /\.tsx?$/, loader: "ts-loader" },
+            { 
+                test: /\.tsx?$/, 
+                loader: "ts-loader",
+                options : {
+                    configFile : 'tsconfig-build.json'
+                }
+            },
             { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
         ]
     },
