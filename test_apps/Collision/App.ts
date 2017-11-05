@@ -1,8 +1,9 @@
-import Engine from "../../src/core/src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src";
-import {HTML5AudioEngine} from "../../src/audio/src";
-import {Entity, LocationUpdateEvent} from "../../src/entities/src";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter} from "../../src/utils/src";
+import {Engine} from "../../src/core";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
+import {HTML5AudioEngine} from "../../src/audio";
+import {Entity, LocationUpdateEvent} from "../../src/entities";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
+import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
 
 class CollisionDemo extends Engine {
 	private _minDimension : number;
@@ -15,9 +16,9 @@ class CollisionDemo extends Engine {
 
 	constructor () {
 		super();
-		this.renderingEngine = new TwoDimensionalRenderingEngine();
-		this.audioEngine = new HTML5AudioEngine();
-		this.logicEngine = new GroupLogicEngine();
+		this.setRenderingEngine(new TwoDimensionalRenderingEngine());
+		// this.setAudioEngine = new HTML5AudioEngine();
+		this.setLogicEngine(new GroupLogicEngine());
 		this._collisionEmitter = new CollisionEmitter();
 
 		this._minDimension = 5;
@@ -26,23 +27,22 @@ class CollisionDemo extends Engine {
 		this._blockConfigs = {};
 
 		this._container = new Entity();
-		this._container.color = {r: 0, g: 0, b: 0};
-		console.log(this.viewPort.canvas.offsetWidth);
-		this._container.width = 1000;
-		this._container.height = 1000;
+		this._container.setColor(new Color(0,0,0));
+		this._container.setWidth(1000);
+		this._container.setHeight(1000);
 
-		this._camera = new Camera(this._container, null, {width: this._container.width, height: this._container.height}, null, {height: this._container.height, width: this._container.width});
-		this.renderingEngine.addCamera(this._camera);
+		this._camera = new Camera(this._container, null, {width: this._container.getWidth(), height: this._container.getHeight()}, null, {height: this._container.getHeight(), width: this._container.getWidth()});
+		this.getRenderingEngine().addCamera(this._camera);
 
 		for (var i : number = 0; i < 750; i ++) {
 			this._generateBlock();
 		}
 
-        this.viewPort.on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
-        this.viewPort.fillPage(true);
+        this.getViewPort().on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
+        this.getViewPort().fillPage(true);
     
 		this._collisionEmitter.addCollisionListener(this._blockCollision.bind(this));
-		this.logicEngine.addLogic("collision", this._moveBlocks.bind(this), 25);
+		this.getLogicEngine().addLogic("collision", this._moveBlocks.bind(this), 25);
 	}
 
 	private _generateBlock () : void {
@@ -51,35 +51,35 @@ class CollisionDemo extends Engine {
 		this._collisionEmitter.addEntity(block);
 
 		let dimension = (Math.random() * this._maxDimension) + this._minDimension;
-		block.width = dimension;
-		block.height = dimension;
+		block.setWidth(dimension);
+		block.setHeight(dimension);
 
-		block.x = Math.floor((Math.random() * this._container.width) + 1);
-		block.y = Math.floor((Math.random() * this._container.height) + 1);
+		block.setX(Math.floor((Math.random() * this._container.getWidth()) + 1));
+		block.setY(Math.floor((Math.random() * this._container.getHeight()) + 1));
 
-		var collision : Entity[] = this._container.findChildren({x: block.x, y: block.y}, {x: block.x2, y: block.y2});
+		var collision : Entity[] = this._container.findChildren({x: block.getX(), y: block.getY()}, {x: block.getX2(), y: block.getY2()});
 
 		while (collision.length > 0) {
-			block.y = (Math.floor((Math.random()*this._container.height)+1));
-			block.x = (Math.floor((Math.random()*this._container.width)+1));
-			collision = this._container.findChildren({x: block.x, y: block.y}, {x: block.x2, y: block.y2});
+			block.setY(Math.floor((Math.random()*this._container.getHeight())+1));
+			block.setX(Math.floor((Math.random()*this._container.getWidth())+1));
+			collision = this._container.findChildren({x: block.getX(), y: block.getY()}, {x: block.getX2(), y: block.getY2()});
 		}
 
-		block.color = {r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1)};
+		block.setColor(new Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
 
-		this._blockConfigs[block.ID] = {};
-		this._blockConfigs[block.ID]["x_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "right" : "left";
-		this._blockConfigs[block.ID]["y_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "up" : "down";
-		this._blockConfigs[block.ID]["speed"] = Math.floor((Math.random()*2)+1) / 1.5;
+		this._blockConfigs[block.getID()] = {};
+		this._blockConfigs[block.getID()]["x_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "right" : "left";
+		this._blockConfigs[block.getID()]["y_dir"] = Math.floor((Math.random()*2)+1) === 2 ? "up" : "down";
+		this._blockConfigs[block.getID()]["speed"] = Math.floor((Math.random()*2)+1) / 1.5;
 
 		this._container.addChild(block);
 	}
 
 	private _viewPortUpdated (event: DimensionUpdateEvent) : void {
-		this._container.width = event.newDimensions.width;
-		this._container.height = event.newDimensions.height;
-		this._camera.fov = {width: event.newDimensions.width, height: event.newDimensions.height};
-		this._camera.renderDimension = {width: event.newDimensions.width, height: event.newDimensions.height};
+		this._container.setWidth(event.newDimensions.width);
+		this._container.setHeight(event.newDimensions.height);
+		this._camera.setFOV({width: event.newDimensions.width, height: event.newDimensions.height});
+		this._camera.setRenderDimension({width: event.newDimensions.width, height: event.newDimensions.height});
 
 	}
 
@@ -91,94 +91,89 @@ class CollisionDemo extends Engine {
 			let x2 : number;
 			let y2 : number;
 
-			if (this._blockConfigs[block.ID]["x_dir"] === "right") {
-				x = block.x + this._blockConfigs[block.ID]["speed"];
-				x2 = x + block.width;
+			if (this._blockConfigs[block.getID()]["x_dir"] === "right") {
+				x = block.getX() + this._blockConfigs[block.getID()]["speed"];
+				x2 = x + block.getWidth();
 
-				if (x2 >= this._container.width) {
-					x = this._container.width - block.width;
-					this._blockConfigs[block.ID]["x_dir"] = "left";
+				if (x2 >= this._container.getWidth()) {
+					x = this._container.getWidth() - block.getWidth();
+					this._blockConfigs[block.getID()]["x_dir"] = "left";
 				}
-			} else if (this._blockConfigs[block.ID]["x_dir"] === "left") {
-				x = block.x - this._blockConfigs[block.ID]["speed"];
-				x2 = x + block.width;
+			} else if (this._blockConfigs[block.getID()]["x_dir"] === "left") {
+				x = block.getX() - this._blockConfigs[block.getID()]["speed"];
+				x2 = x + block.getWidth();
 
 				if (x <= 0) {
 					x = 0;
-					this._blockConfigs[block.ID]["x_dir"] = "right";
+					this._blockConfigs[block.getID()]["x_dir"] = "right";
 				}
 			}
 
-			if (this._blockConfigs[block.ID]["y_dir"] === "down") {
-				y = block.y + this._blockConfigs[block.ID]["speed"];
-				y2 = y + block.height;
+			if (this._blockConfigs[block.getID()]["y_dir"] === "down") {
+				y = block.getY() + this._blockConfigs[block.getID()]["speed"];
+				y2 = y + block.getHeight();
 
-				if (y2 >= this._container.height) {
-					y = this._container.height - block.height;
-					this._blockConfigs[block.ID]["y_dir"] = "up";
+				if (y2 >= this._container.getHeight()) {
+					y = this._container.getHeight() - block.getHeight();
+					this._blockConfigs[block.getID()]["y_dir"] = "up";
 				}
-			} else if (this._blockConfigs[block.ID]["y_dir"] === "up") {
-				y = block.y - this._blockConfigs[block.ID]["speed"];
-				y2 = y + block.height;
+			} else if (this._blockConfigs[block.getID()]["y_dir"] === "up") {
+				y = block.getY() - this._blockConfigs[block.getID()]["speed"];
+				y2 = y + block.getHeight();
 
-				if (block.y <= 0) {
+				if (block.getY() <= 0) {
 					y = 0;
-					this._blockConfigs[block.ID]["y_dir"] = "down";
+					this._blockConfigs[block.getID()]["y_dir"] = "down";
 				}
 			}
 
-			block.coordinate = {x, y};		
+			block.setCoordinate({x, y});
 		}
 	}
 
 	private _blockCollision (entity1: Entity, entity2: Entity, event: LocationUpdateEvent) : void {
-		// console.log(entity1, entity2, event);
-
-		// entity1.coordinate = event.oldCoordinates;
-
-		let leftDif = entity1.x - entity2.x2;
+		let leftDif = entity1.getX() - entity2.getX2();
 		if (leftDif < 0) {
 			leftDif = leftDif * -1;
 		}
 
-		let rightDif = entity1.x2 - entity2.x;
+		let rightDif = entity1.getX2() - entity2.getX();
 		if (rightDif < 0) {
 			rightDif = rightDif * -1;
 		}
 
-		let topDif = entity1.y - entity2.y2;
+		let topDif = entity1.getY() - entity2.getY2();
 		if (topDif < 0) {
 			topDif = topDif * -1;
 		}
 
-		let bottomDif = entity1.y2 - entity2.y;
+		let bottomDif = entity1.getY2() - entity2.getY();
 		if (bottomDif < 0) {
 			bottomDif = bottomDif * -1;
 		}
 
-
 		if (leftDif <= rightDif && leftDif <= topDif && leftDif <= bottomDif) {
-			this._blockConfigs[entity1.ID]["x_dir"] = "right";
-			this._blockConfigs[entity2.ID]["x_dir"] = "left";
-			entity1.x = entity2.x2;
+			this._blockConfigs[entity1.getID()]["x_dir"] = "right";
+			this._blockConfigs[entity2.getID()]["x_dir"] = "left";
+			entity1.setX(entity2.getX2());
 		}
 
 		if (rightDif <= leftDif && rightDif <= topDif && rightDif <= bottomDif) {
-			this._blockConfigs[entity1.ID]["x_dir"] = "left";
-			this._blockConfigs[entity2.ID]["x_dir"] = "right";
-			entity1.x = (entity2.x - entity1.width);
+			this._blockConfigs[entity1.getID()]["x_dir"] = "left";
+			this._blockConfigs[entity2.getID()]["x_dir"] = "right";
+			entity1.setX(entity2.getX() - entity1.getWidth());
 		}
 
 		if (topDif <= bottomDif && topDif <= leftDif && topDif <= rightDif) {
-			this._blockConfigs[entity1.ID]["y_dir"] = "down";
-			this._blockConfigs[entity2.ID]["y_dir"] = "up";
-			entity1.y = entity2.y2;
+			this._blockConfigs[entity1.getID()]["y_dir"] = "down";
+			this._blockConfigs[entity2.getID()]["y_dir"] = "up";
+			entity1.setY(entity2.getY2());
 		}
 
 		if (bottomDif <= topDif && bottomDif <= leftDif && bottomDif <= rightDif) {
-			this._blockConfigs[entity1.ID]["y_dir"] = "up";
-			this._blockConfigs[entity2.ID]["y_dir"] = "down";
-			entity1.y = (entity2.y - entity1.height);
+			this._blockConfigs[entity1.getID()]["y_dir"] = "up";
+			this._blockConfigs[entity2.getID()]["y_dir"] = "down";
+			entity1.setY((entity2.getY() - entity1.getHeight()));
 		}
 	}
 

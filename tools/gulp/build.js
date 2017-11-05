@@ -7,51 +7,61 @@ const FileSystem = require('fs');
 const ROOT_DIR = Path.resolve(__dirname, '../../');
 const BIN_DIR = Path.resolve(ROOT_DIR, './node_modules/.bin/');
 const SRC_DIR = Path.resolve(ROOT_DIR, './src/');
-
-
+const TEST_DIR = Path.resolve(ROOT_DIR, './test_apps/');
 
 function execBuild(done, args = '') {
-    // var promise = new Promise((resolve, reject) => {
-        var packages = FileSystem.readdirSync(SRC_DIR);
+    // var packages = FileSystem.readdirSync(SRC_DIR);
 
-        for (var i = 0; i < packages.length; i++) {
-            var pkg = packages[i];
+    ChildProcess.spawnSync(`${BIN_DIR}/tsc`, {
+        cwd : Path.resolve(SRC_DIR),
+        shell : true,
+        stdio: 'inherit'
+    });
+
+    // for (var i = 0; i < packages.length; i++) {
+    //     var pkg = packages[i];
+        
+    //     if (FileSystem.existsSync(Path.resolve(SRC_DIR, pkg, 'package.json'))) {
+    //         console.log('Building', pkg, '...');
             
-            // console.log(pkg, Path.resolve(SRC_DIR, pkg, 'package.json'));
-            if (FileSystem.existsSync(Path.resolve(SRC_DIR, pkg, 'package.json'))) {
-                console.log('Building', pkg, '...');
-                
-                var buildProcess = ChildProcess.spawnSync(`${BIN_DIR}/tsc`, {
-                    cwd : Path.resolve(SRC_DIR, pkg),
-                    shell : true,
-                    stdio: 'inherit'
-                });
+    //         ChildProcess.spawnSync(`${BIN_DIR}/tsc -p tsconfig-build.json`, {
+    //             cwd : Path.resolve(SRC_DIR, pkg),
+    //             shell : true,
+    //             stdio: 'inherit'
+    //         });
 
-                // console.log(buildProcess);
+    //         ChildProcess.spawnSync(`node build.js`, {
+    //             cwd : Path.resolve(SRC_DIR, pkg),
+    //             shell : true,
+    //             stdio: 'inherit'
+    //         });
+    //     }
+    // }
 
-                // buildProcess.stdout.on('data', (data) => {
-                //     console.log(data);
-                // });
+    done();
+}
 
-                // buildProcess.stderr.on('data', (data) => {
-                //     console.log(data);
-                // });
+function execBuildTests(done, args = '') {
+    var testApps = FileSystem.readdirSync(TEST_DIR);
 
-                // buildProcess.stdout.pipe(process.stdout);
-                // buildProcess.stderr.pipe(process.stderr);
-            }
+    for (var i = 0; i < testApps.length; i++) {
+        var testApp = testApps[i];
+        
+        if (FileSystem.existsSync(Path.resolve(TEST_DIR, testApp, 'webpack.config.js'))) {
+            console.log('Building', testApp, '...');
+
+            ChildProcess.spawnSync(`${BIN_DIR}/webpack`, {
+                cwd : Path.resolve(TEST_DIR, testApp),
+                shell : true,
+                stdio: 'inherit'
+            });
         }
+    }
 
-        // console.log(packages);
-    // });
-
-    // promise.then(() => {
-    //     done();
-    // }).catch(() => {
-    //     done();
-    // });
+    done();
 }
 
 module.exports = {
-    'all' : (gulp) => (done) => execBuild(done)
+    'all' : (gulp) => (done) => execBuild(done),
+    'allTests' : (gulp) => (done) => execBuildTests(done)
 };
