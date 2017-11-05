@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,23 +72,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(5);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(14);
+var Camera_1 = __webpack_require__(16);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(15);
+var IDGenerator_1 = __webpack_require__(17);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(16);
+var Iterator_1 = __webpack_require__(18);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(17);
+var LogManager_1 = __webpack_require__(19);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(18);
+var ViewPort_1 = __webpack_require__(20);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(19);
+var CollisionEmitter_1 = __webpack_require__(21);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-var Color_1 = __webpack_require__(20);
+var Color_1 = __webpack_require__(22);
 exports.Color = Color_1.Color;
 var ColorCode_1 = __webpack_require__(6);
 exports.ColorCode = ColorCode_1.ColorCode;
-var Coordinate_1 = __webpack_require__(21);
+var Coordinate_1 = __webpack_require__(23);
 exports.Coordinate = Coordinate_1.Coordinate;
 
 
@@ -99,55 +99,32 @@ exports.Coordinate = Coordinate_1.Coordinate;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(23);
+var Asset_1 = __webpack_require__(25);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(24);
+var AssetType_1 = __webpack_require__(26);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(25);
+var AssetState_1 = __webpack_require__(27);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(26);
+var AssetFactory_1 = __webpack_require__(28);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(27);
+var AssetLoader_1 = __webpack_require__(29);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(28);
+var AudioLoader_1 = __webpack_require__(30);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(29);
+var ImageLoader_1 = __webpack_require__(31);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(30);
+var JSONLoader_1 = __webpack_require__(32);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(31);
+var TextAssetBuilder_1 = __webpack_require__(33);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(32);
+var Spritesheet_1 = __webpack_require__(34);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(33);
+var Animation_1 = __webpack_require__(35);
 exports.Animation = Animation_1.Animation;
 
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(9);
-exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
-exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(10);
-exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
-exports.GridMap = GridMap_1.GridMap;
-var IsometricGridMap_1 = __webpack_require__(43);
-exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
-var IsometricTile_1 = __webpack_require__(44);
-exports.IsometricTile = IsometricTile_1.IsometricTile;
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -455,21 +432,44 @@ function isUndefined(arg) {
 
 
 /***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(9);
+exports.Entity = Entity_1.Entity;
+var EntityModel_1 = __webpack_require__(42);
+exports.EntityModel = EntityModel_1.EntityModel;
+var EntityView_1 = __webpack_require__(10);
+exports.EntityView = EntityView_1.EntityView;
+var EntityView2D_1 = __webpack_require__(43);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+var GridMap_1 = __webpack_require__(44);
+exports.GridMap = GridMap_1.GridMap;
+var IsometricGridMap_1 = __webpack_require__(45);
+exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
+var IsometricTile_1 = __webpack_require__(46);
+exports.IsometricTile = IsometricTile_1.IsometricTile;
+
+
+/***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(35);
+var LogicEngine_1 = __webpack_require__(37);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(36);
+var GroupLogicEngine_1 = __webpack_require__(38);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(37);
+var RenderingEngine_1 = __webpack_require__(39);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(38);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(40);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
-var IsometricRenderingEngine_1 = __webpack_require__(39);
+var IsometricRenderingEngine_1 = __webpack_require__(41);
 exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
 
 
@@ -1028,10 +1028,10 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var assets_1 = __webpack_require__(1);
 var utils_1 = __webpack_require__(0);
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var utils_2 = __webpack_require__(0);
 var Entity = (function (_super) {
     __extends(Entity, _super);
@@ -1509,7 +1509,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var EntityView = (function (_super) {
     __extends(EntityView, _super);
     function EntityView(model) {
@@ -1563,155 +1563,80 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(12);
-var engines_1 = __webpack_require__(4);
-var entities_1 = __webpack_require__(2);
-var utils_1 = __webpack_require__(0);
-var assets_1 = __webpack_require__(1);
-var CameraDemo = (function (_super) {
-    __extends(CameraDemo, _super);
-    function CameraDemo() {
+var Events = __webpack_require__(2);
+var GamePad = (function (_super) {
+    __extends(GamePad, _super);
+    function GamePad(id) {
         var _this = _super.call(this) || this;
-        _this._mouseIsIn = false;
-        _this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
-        _this.setLogicEngine(new engines_1.GroupLogicEngine());
-        _this._blocks = [];
-        _this._blockConfigs = {};
-        _this._container = new entities_1.Entity();
-        _this._container.setColor(new utils_1.Color(0, 0, 0));
-        _this._container.setWidth(1000);
-        _this._container.setHeight(1000);
-        _this._camera = new utils_1.Camera(_this._container, null, { width: _this._container.getWidth(), height: _this._container.getHeight() }, null, { height: _this._container.getHeight(), width: _this._container.getWidth() });
-        _this.getRenderingEngine().addCamera(_this._camera);
-        _this._smallCamera = new utils_1.Camera(_this._container, { x: 450, y: 450 }, { width: 75, height: 75 }, { x: 35, y: 35 }, { width: 100, height: 100 });
-        _this.getRenderingEngine().addCamera(_this._smallCamera);
-        _this.getRenderingEngine().debugCamera = true;
-        var backgroundLoaded = false;
-        var pikachuLoaded = false;
-        _this.getViewPort().on(0..toString(), _this._viewPortUpdated.bind(_this));
-        _this.getViewPort().fillPage(true);
-        var background = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'resources/poke_background.jpg');
-        var pikachu = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'resources/pikachu_small.png');
-        var resourcesLoaded = function () {
-            for (var i = 0; i < 200; i++) {
-                console.log("Generate Pikachus");
-                _this._generatePikachu();
-            }
-            _this.getLogicEngine().addLogic("collision", _this._moveBlocks.bind(_this), 25);
-            _this.getViewPort().getCanvas().addEventListener('mouseover', function () {
-                console.log("OVER");
-                _this._mouseIsIn = true;
-            });
-            _this.getViewPort().getCanvas().addEventListener('mouseout', function () {
-                console.log("OUT");
-                _this._mouseIsIn = false;
-            });
-            _this.getViewPort().getCanvas().addEventListener('mousemove', function (e) {
-                var fov = _this._smallCamera.getFOV();
-                _this._smallCamera.setViewPoint({ x: e.clientX - _this.getViewPort().getCanvas().offsetLeft - (fov.width / 2), y: e.clientY - _this.getViewPort().getCanvas().offsetTop - (fov.height / 2) });
-            });
-            _this.getViewPort().getCanvas().addEventListener('mousewheel', function (e) {
-                var fov = _this._smallCamera.getFOV();
-                if (e.wheelDelta > 0) {
-                    _this._smallCamera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
-                }
-                else {
-                    _this._smallCamera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
-                }
-            });
-        };
-        _this._pikachuTexture = pikachu;
-        background.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                backgroundLoaded = true;
-                _this._container.setTexture(background);
-                if (backgroundLoaded && pikachuLoaded) {
-                    resourcesLoaded();
-                }
-            }
-        };
-        pikachu.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                pikachuLoaded = true;
-                if (backgroundLoaded && pikachuLoaded) {
-                    resourcesLoaded();
-                }
-            }
-        };
-        background.load();
-        pikachu.load();
+        _this._pollRate = 15;
+        _this._buttons = [];
+        _this._axes = [];
+        _this._gamePadID = id;
+        var gamePad = navigator.getGamepads()[id];
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            _this._buttons.push(gamePad.buttons[i].value);
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            _this._axes.push(gamePad.axes[i]);
+        }
+        _this._initializePolling();
         return _this;
     }
-    CameraDemo.prototype._generatePikachu = function () {
-        var block = new entities_1.Entity();
-        this._blocks.push(block);
-        block.setWidth(50);
-        block.setHeight(50);
-        block.setTexture(this._pikachuTexture);
-        block.setX(Math.floor((Math.random() * this._container.getWidth()) + 1));
-        block.setY(Math.floor((Math.random() * this._container.getHeight()) + 1));
-        this._blockConfigs[block.getID()] = {};
-        this._blockConfigs[block.getID()]["x_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "right" : "left";
-        this._blockConfigs[block.getID()]["y_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "up" : "down";
-        this._blockConfigs[block.getID()]["speed"] = Math.floor((Math.random() * 2) + 1) / 1.5;
-        this._container.addChild(block);
+    GamePad.prototype.getAxis = function (index) {
+        return this._axes[index];
     };
-    CameraDemo.prototype._viewPortUpdated = function (event) {
-        this._container.setWidth(event.newDimensions.width);
-        this._container.setHeight(event.newDimensions.height);
-        this._camera.setFOV({ width: event.newDimensions.width, height: event.newDimensions.height });
-        this._camera.setRenderDimension({ width: event.newDimensions.width, height: event.newDimensions.height });
+    GamePad.prototype.setPollRate = function (pollRate) {
+        this._pollRate = pollRate;
+        this._initializePolling();
     };
-    CameraDemo.prototype._moveBlocks = function () {
-        for (var i in this._blocks) {
-            var block = this._blocks[i];
-            var x = void 0;
-            var y = void 0;
-            var x2 = void 0;
-            var y2 = void 0;
-            if (this._blockConfigs[block.getID()]["x_dir"] === "right") {
-                x = block.getX() + this._blockConfigs[block.getID()]["speed"];
-                x2 = x + block.getWidth();
-                if (x2 >= this._container.getWidth()) {
-                    x = this._container.getWidth() - block.getWidth();
-                    this._blockConfigs[block.getID()]["x_dir"] = "left";
-                }
-            }
-            else if (this._blockConfigs[block.getID()]["x_dir"] === "left") {
-                x = block.getX() - this._blockConfigs[block.getID()]["speed"];
-                x2 = x + block.getWidth();
-                if (x <= 0) {
-                    x = 0;
-                    this._blockConfigs[block.getID()]["x_dir"] = "right";
-                }
-            }
-            if (this._blockConfigs[block.getID()]["y_dir"] === "down") {
-                y = block.getY() + this._blockConfigs[block.getID()]["speed"];
-                y2 = y + block.getHeight();
-                if (y2 >= this._container.getHeight()) {
-                    y = this._container.getHeight() - block.getHeight();
-                    this._blockConfigs[block.getID()]["y_dir"] = "up";
-                }
-            }
-            else if (this._blockConfigs[block.getID()]["y_dir"] === "up") {
-                y = block.getY() - this._blockConfigs[block.getID()]["speed"];
-                y2 = y + block.getHeight();
-                if (block.getY() <= 0) {
-                    y = 0;
-                    this._blockConfigs[block.getID()]["y_dir"] = "down";
-                }
-            }
-            block.setPosition(new utils_1.Coordinate(x, y));
+    GamePad.prototype._initializePolling = function () {
+        if (this._pollTimer) {
+            clearInterval(this._pollTimer);
         }
-        if (!this._mouseIsIn && this._blocks.length > 0) {
-            var picka = this._blocks[1];
-            var fov = this._smallCamera.getFOV();
-            this._smallCamera.setViewPoint({ x: picka.getX() + ((picka.getWidth() - fov.width) / 2), y: picka.getY() + ((picka.getHeight() - fov.height) / 2) });
+        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
+    };
+    GamePad.prototype._poll = function () {
+        var gamePad = navigator.getGamepads()[this._gamePadID];
+        if (!gamePad) {
+            this._disconnect();
+            return null;
+        }
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            if (gamePad.buttons[i].value != this._buttons[i]) {
+                this._buttons[i] = gamePad.buttons[i].value;
+                var e = {
+                    source: this,
+                    type: "BUTTONVALUECHANGE",
+                    value: gamePad.buttons[i].value,
+                    id: i
+                };
+                this.emit("BUTTONVALUECHANGE", e);
+            }
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            if (gamePad.axes[i] != this._axes[i]) {
+                this._axes[i] = gamePad.axes[i];
+                var e = {
+                    source: this,
+                    type: "AXISVALUECHANGE",
+                    value: gamePad.axes[i],
+                    id: i
+                };
+                this.emit("AXISVALUECHANGE", e);
+            }
         }
     };
-    return CameraDemo;
-}(core_1.Engine));
-window._CameraDemo = new CameraDemo();
+    GamePad.prototype._disconnect = function () {
+        clearInterval(this._pollTimer);
+        var e = {
+            source: this,
+            type: "AXISVALUECHANGE"
+        };
+        this.emit("DISCONNECT", e);
+    };
+    return GamePad;
+}(Events.EventEmitter));
+exports.GamePad = GamePad;
 
 
 /***/ }),
@@ -1720,11 +1645,78 @@ window._CameraDemo = new CameraDemo();
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(13);
-exports.Engine = Engine_1.Engine;
-var Instance_1 = __webpack_require__(8);
-exports.getInstance = Instance_1.getInstance;
+var Events = __webpack_require__(2);
+;
+;
+var Touch = (function (_super) {
+    __extends(Touch, _super);
+    function Touch(nTouch) {
+        var _this = _super.call(this) || this;
+        _this._id = nTouch.identifier;
+        _this._x = nTouch.pageX;
+        _this._y = nTouch.pageY;
+        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
+        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
+        return _this;
+    }
+    Touch.prototype.getID = function () {
+        return this._id;
+    };
+    Touch.prototype.getX = function () {
+        return this._x;
+    };
+    Touch.prototype.getY = function () {
+        return this._y;
+    };
+    Touch.prototype._onTouchEnd = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id) {
+                this._disconnect();
+            }
+        }
+    };
+    Touch.prototype._onTouchMove = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
+                this._x = nTouch.pageX;
+                this._y = nTouch.pageY;
+                var e_1 = {
+                    type: "TOUCHMOVED",
+                    source: this,
+                    position: {
+                        x: this._x,
+                        y: this._y
+                    }
+                };
+                this.emit("TOUCHMOVED", e_1);
+            }
+        }
+    };
+    Touch.prototype._disconnect = function () {
+        var e = {
+            source: this,
+            type: "TOUCHREMOVED"
+        };
+        this.emit("TOUCHREMOVED", e);
+        window.removeEventListener("touchmove", this._touchMoveListener);
+        window.removeEventListener("touchend", this._touchEndListener);
+    };
+    return Touch;
+}(Events.EventEmitter));
+exports.Touch = Touch;
 
 
 /***/ }),
@@ -1733,9 +1725,95 @@ exports.getInstance = Instance_1.getInstance;
 
 "use strict";
 
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(14);
+var engines_1 = __webpack_require__(4);
+var entities_1 = __webpack_require__(3);
+var utils_1 = __webpack_require__(0);
+var inputs_1 = __webpack_require__(47);
+var TouchDemo = (function (_super) {
+    __extends(TouchDemo, _super);
+    function TouchDemo() {
+        var _this = _super.call(this) || this;
+        _this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
+        _this.setLogicEngine(new engines_1.GroupLogicEngine());
+        _this._container = new entities_1.Entity();
+        _this._container.setColor(new utils_1.Color(0, 0, 0));
+        _this._container.setWidth(1000);
+        _this._container.setHeight(1000);
+        _this._camera = new utils_1.Camera(_this._container, null, { width: _this._container.getWidth(), height: _this._container.getHeight() }, null, { height: _this._container.getHeight(), width: _this._container.getWidth() });
+        _this.getRenderingEngine().addCamera(_this._camera);
+        _this.getViewPort().on(0..toString(), _this._viewPortUpdated.bind(_this));
+        _this.getViewPort().fillPage(true);
+        _this.getLogicEngine().addLogic("touch", _this._touch.bind(_this), 25);
+        var touchListener = inputs_1.TouchListener.getInstance();
+        touchListener.on("TOUCHADDED", function (touch) {
+            console.log("New Touch added with an ID of ", touch.getID());
+            var block = new entities_1.Entity();
+            block.setX(touch.getX() - 25);
+            block.setY(touch.getY() - 25);
+            block.setColor(new utils_1.Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
+            block.setWidth(50);
+            block.setHeight(50);
+            _this._container.addChild(block);
+            touch.on("TOUCHMOVED", function (e) {
+                console.log("Touch moved");
+                var position = e.position;
+                block.setX(position.x - 25);
+                block.setY(position.y - 25);
+            });
+            touch.on("TOUCHREMOVED", function (touch) {
+                console.log("Touch removed");
+                _this._container.removeChild(block);
+            });
+        });
+        return _this;
+    }
+    TouchDemo.prototype._viewPortUpdated = function (event) {
+        this._container.setWidth(event.newDimensions.width);
+        this._container.setHeight(event.newDimensions.height);
+        this._camera.setFOV({ width: event.newDimensions.width, height: event.newDimensions.height });
+        this._camera.setRenderDimension({ width: event.newDimensions.width, height: event.newDimensions.height });
+    };
+    TouchDemo.prototype._touch = function () {
+    };
+    return TouchDemo;
+}(core_1.Engine));
+window.TouchDemo = new TouchDemo();
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Engine_1 = __webpack_require__(15);
+exports.Engine = Engine_1.Engine;
+var Instance_1 = __webpack_require__(8);
+exports.getInstance = Instance_1.getInstance;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(0);
-var audio_1 = __webpack_require__(22);
+var audio_1 = __webpack_require__(24);
 var assets_1 = __webpack_require__(1);
 var Instance_1 = __webpack_require__(8);
 var Engine = (function () {
@@ -1795,7 +1873,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1849,7 +1927,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1881,7 +1959,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1935,7 +2013,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2002,7 +2080,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2018,7 +2096,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -2120,7 +2198,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2195,7 +2273,7 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2370,7 +2448,7 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2415,7 +2493,7 @@ exports.Coordinate = Coordinate;
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2423,12 +2501,12 @@ exports.Coordinate = Coordinate;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AudioEngine_1 = __webpack_require__(7);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(34);
+var HTML5AudioEngine_1 = __webpack_require__(36);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2506,7 +2584,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2522,7 +2600,7 @@ var AssetType;
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2537,7 +2615,7 @@ var AssetState;
 
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2644,7 +2722,7 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2710,7 +2788,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2762,7 +2840,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2801,7 +2879,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2833,7 +2911,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2865,7 +2943,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2904,7 +2982,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 33 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3000,7 +3078,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 34 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3129,7 +3207,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3144,7 +3222,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3231,7 +3309,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3327,7 +3405,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3501,7 +3579,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3518,7 +3596,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(4);
-var entities_1 = __webpack_require__(2);
+var entities_1 = __webpack_require__(3);
 var IsometricRenderingEngine = (function (_super) {
     __extends(IsometricRenderingEngine, _super);
     function IsometricRenderingEngine() {
@@ -3689,7 +3767,7 @@ exports.IsometricRenderingEngine = IsometricRenderingEngine;
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3705,7 +3783,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(3);
+var Events = __webpack_require__(2);
 var utils_1 = __webpack_require__(0);
 var utils_2 = __webpack_require__(0);
 var EntityModel = (function (_super) {
@@ -3795,7 +3873,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3823,7 +3901,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3881,7 +3959,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3897,7 +3975,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var IsometricGridMap = (function (_super) {
     __extends(IsometricGridMap, _super);
     function IsometricGridMap() {
@@ -3917,7 +3995,7 @@ exports.IsometricGridMap = IsometricGridMap;
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3933,7 +4011,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(2);
+var _1 = __webpack_require__(3);
 var IsometricTile = (function (_super) {
     __extends(IsometricTile, _super);
     function IsometricTile() {
@@ -3942,6 +4020,481 @@ var IsometricTile = (function (_super) {
     return IsometricTile;
 }(_1.Entity));
 exports.IsometricTile = IsometricTile;
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var GamePadListener_1 = __webpack_require__(48);
+exports.GamePadListener = GamePadListener_1.GamePadListener;
+var GamePad_1 = __webpack_require__(11);
+exports.GamePad = GamePad_1.GamePad;
+var Keyboard_1 = __webpack_require__(49);
+exports.Keyboard = Keyboard_1.Keyboard;
+exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
+var Mouse_1 = __webpack_require__(50);
+exports.Mouse = Mouse_1.Mouse;
+var Touch_1 = __webpack_require__(12);
+exports.Touch = Touch_1.Touch;
+var TouchListener_1 = __webpack_require__(51);
+exports.TouchListener = TouchListener_1.TouchListener;
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var GamePad_1 = __webpack_require__(11);
+var Events = __webpack_require__(2);
+var GamePadListener = (function (_super) {
+    __extends(GamePadListener, _super);
+    function GamePadListener() {
+        var _this = _super.call(this) || this;
+        if (navigator.getGamepads) {
+            _this._buildGamePads();
+            _this._gamePadPollTimer = window.setInterval(function () {
+                var gamePads = navigator.getGamepads();
+                for (var i = 0; i < gamePads.length; i++) {
+                    if (gamePads[i] && !_this._activeGamePads[i]) {
+                        var gamePad = _this._buildGamePad(i);
+                        _this.emit("GAMEPADADDED", gamePad);
+                    }
+                    else if (!gamePads[i] && _this._activeGamePads[i]) {
+                        var gamePad = _this._activeGamePads[i];
+                        delete _this._activeGamePads[i];
+                        _this.emit("GAMEPADREMOVED", gamePad);
+                    }
+                }
+            }, 15);
+        }
+        else {
+            console.log("Browser does not support GamePad API");
+        }
+        return _this;
+    }
+    GamePadListener.prototype._buildGamePads = function () {
+        var gamePads = navigator.getGamepads();
+        this._activeGamePads = [];
+        for (var i = 0; i < gamePads.length; i++) {
+            if (gamePads[i]) {
+                this._buildGamePad(i);
+            }
+        }
+    };
+    GamePadListener.prototype._buildGamePad = function (index) {
+        var gamePad = new GamePad_1.GamePad(index);
+        this._activeGamePads[index] = gamePad;
+        return gamePad;
+    };
+    GamePadListener.getInstance = function () {
+        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
+        return GamePadListener._instance;
+    };
+    GamePadListener.prototype.hasGamePads = function () {
+        return this._activeGamePads.length > 0;
+    };
+    GamePadListener.prototype.getGamePads = function () {
+        return this._activeGamePads;
+    };
+    return GamePadListener;
+}(Events.EventEmitter));
+exports.GamePadListener = GamePadListener;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(2);
+exports.KeyboardKeys = {
+    0: 48,
+    1: 49,
+    2: 50,
+    3: 51,
+    4: 52,
+    5: 53,
+    6: 54,
+    7: 55,
+    8: 56,
+    9: 57,
+    "BREAK": 3,
+    "BACKSPACE": 8,
+    "TAB": 9,
+    "CLEAR": 12,
+    "ENTER": 13,
+    "SHIFT": 16,
+    "CTRL": 17,
+    "ALT": 18,
+    "PAUSE": 19,
+    "CAPSLOCK": 20,
+    "ESCAPE": 27,
+    "SPACEBAR": 32,
+    "PAGEUP": 33,
+    "PAGEDOWN": 34,
+    "END": 35,
+    "HOME": 36,
+    "LEFTARROW": 37,
+    "UPARROW": 38,
+    "RIGHTARROW": 39,
+    "DOWNARROW": 40,
+    "SELECT": 41,
+    "PRINT": 42,
+    "EXECUTE": 43,
+    "PRINTSCREEN": 44,
+    "INSERT": 45,
+    "DELETE": 46,
+    "COLON": 58,
+    "SEMICOLON": 59,
+    "LESSTHAN": 60,
+    "EQUALS": 61,
+    "AMPERSAT": 64,
+    "A": 65,
+    "B": 66,
+    "C": 67,
+    "D": 68,
+    "E": 69,
+    "F": 70,
+    "G": 71,
+    "H": 72,
+    "I": 73,
+    "J": 74,
+    "K": 75,
+    "L": 76,
+    "M": 77,
+    "N": 78,
+    "O": 79,
+    "P": 80,
+    "Q": 81,
+    "R": 82,
+    "S": 83,
+    "T": 84,
+    "U": 85,
+    "V": 86,
+    "W": 87,
+    "X": 88,
+    "Y": 89,
+    "Z": 90,
+    "WINDOWSKEY": 91,
+    "RIGHTWINDOWSKEY": 92,
+    "WINDOWSMENU": 93,
+    "NUM0": 96,
+    "NUM1": 97,
+    "NUM2": 98,
+    "NUM3": 99,
+    "NUM4": 100,
+    "NUM5": 101,
+    "NUM6": 102,
+    "NUM7": 103,
+    "NUM8": 104,
+    "NUM9": 105,
+    "NUMMULTIPLY": 106,
+    "NUMADD": 107,
+    "NUMPERIOD": 108,
+    "NUMSUBTRACT": 109,
+    "DECIMALPOINT": 110,
+    "NUMDIVIDE": 111,
+    "F1": 112,
+    "F2": 113,
+    "F3": 114,
+    "F4": 115,
+    "F5": 116,
+    "F6": 117,
+    "F7": 118,
+    "F8": 119,
+    "F9": 120,
+    "F10": 121,
+    "F11": 122,
+    "F12": 123,
+    "F13": 124,
+    "F14": 125,
+    "F15": 126,
+    "F16": 127,
+    "F17": 128,
+    "F18": 129,
+    "F19": 130,
+    "F20": 131,
+    "F21": 132,
+    "F22": 133,
+    "F23": 134,
+    "F24": 135,
+    "NUMLOCK": 144,
+    "SCROLLLOCK": 145,
+    "CARET": 160,
+    "EXCLAMATION": 161,
+    "POUND": 163,
+    "MONEYSIGN": 164,
+};
+var Keyboard = (function (_super) {
+    __extends(Keyboard, _super);
+    function Keyboard() {
+        var _this = _super.call(this) || this;
+        _this._buttonMap = {};
+        _this._buttonsActive = {};
+        window.addEventListener("keydown", function (e) {
+            if (!_this.isButtonActive(e.which)) {
+                _this._setButtonActive(e.which, true);
+                _this._setButtonValue(e.which, true);
+                var event_1 = {
+                    type: "KEYDOWN",
+                    source: _this,
+                    key: e.which
+                };
+                _this.emit("KEYDOWN", event_1);
+            }
+        }, true);
+        window.addEventListener("keyup", function (e) {
+            _this._setButtonActive(e.which, false);
+            _this._setButtonValue(e.which, false);
+            var event = {
+                type: "KEYUP",
+                source: _this,
+                key: e.which
+            };
+            _this.emit("KEYUP", event);
+        }, true);
+        return _this;
+    }
+    Keyboard.prototype._setButtonActive = function (id, active) {
+        this._buttonsActive[id] = active;
+    };
+    Keyboard.prototype.isButtonActive = function (id) {
+        return this._buttonsActive[id] === true;
+    };
+    Keyboard.prototype.getButtonValue = function (id) {
+        return this._buttonMap[id];
+    };
+    Keyboard.prototype._setButtonValue = function (id, value) {
+        this._buttonMap[id] = value;
+    };
+    Keyboard.getInstance = function () {
+        Keyboard._instance = Keyboard._instance || new Keyboard();
+        return Keyboard._instance;
+    };
+    return Keyboard;
+}(Events.EventEmitter));
+exports.Keyboard = Keyboard;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(2);
+var Mouse = (function (_super) {
+    __extends(Mouse, _super);
+    function Mouse() {
+        var _this = _super.call(this) || this;
+        _this._leftButtonDown = false;
+        _this._rightButtonDown = false;
+        _this._scrollWheelDown = false;
+        _this._mouseCoords = { x: 0, y: 0 };
+        window.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
+        window.addEventListener("mousedown", function (e) {
+            if (e.button === 0) {
+                _this._leftButtonDown = true;
+                var event_1 = {
+                    type: "LEFTBUTTONDOWN",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("LEFTBUTTONDOWN", event_1);
+            }
+            else if (e.button === 1) {
+                _this._scrollWheelDown = true;
+                var event_2 = {
+                    type: "SCROLLWHEELDOWN",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("SCROLLWHEELDOWN", event_2);
+            }
+            else if (e.button === 2) {
+                _this._rightButtonDown = true;
+                var event_3 = {
+                    type: "RIGHTBUTTONDOWN",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("RIGHTBUTTONDOWN", event_3);
+            }
+        }, true);
+        window.addEventListener("mouseup", function (e) {
+            if (e.button === 0) {
+                _this._leftButtonDown = false;
+                var event_4 = {
+                    type: "LEFTBUTTONUP",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("LEFTBUTTONUP", event_4);
+            }
+            else if (e.button === 1) {
+                _this._scrollWheelDown = false;
+                var event_5 = {
+                    type: "SCROLLWHEELUP",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("SCROLLWHEELUP", event_5);
+            }
+            else if (e.button === 2) {
+                _this._rightButtonDown = false;
+                var event_6 = {
+                    type: "RIGHTBUTTONUP",
+                    source: _this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                _this.emit("RIGHTBUTTONUP", event_6);
+            }
+        }, true);
+        window.addEventListener("mousemove", function (e) {
+            _this._mouseCoords = { x: e.clientX, y: e.clientY };
+            var event = {
+                type: "MOUSEMOVE",
+                source: _this,
+                x: e.clientX,
+                y: e.clientY
+            };
+            _this.emit("MOUSEMOVE", event);
+        }, true);
+        window.addEventListener("wheel", function (e) {
+            var yDelta = 0;
+            var xDelta = 0;
+            if (e.wheelDeltaY > 0) {
+                yDelta = 1;
+            }
+            else if (e.wheelDeltaY < 0) {
+                yDelta = -1;
+            }
+            if (e.wheelDeltaX > 0) {
+                xDelta = 1;
+            }
+            else if (e.wheelDeltaX < 0) {
+                xDelta = -1;
+            }
+            var event = {
+                type: "SCROLLWHEELMOVE".toString(),
+                source: _this,
+                x: e.clientX,
+                y: e.clientY,
+                yDelta: yDelta,
+                xDelta: xDelta
+            };
+            _this.emit("SCROLLWHEELMOVE".toString(), event);
+        }, true);
+        return _this;
+    }
+    Mouse.prototype.getCurrentCoordinates = function () {
+        return this._mouseCoords;
+    };
+    Mouse.prototype.isLeftButtonClicked = function () {
+        return this._leftButtonDown;
+    };
+    Mouse.prototype.isMouseWheelClicked = function () {
+        return this._scrollWheelDown;
+    };
+    Mouse.prototype.isRightButtonClicked = function () {
+        return this._rightButtonDown;
+    };
+    Mouse.getInstance = function () {
+        Mouse._instance = Mouse._instance || new Mouse();
+        return Mouse._instance;
+    };
+    return Mouse;
+}(Events.EventEmitter));
+exports.Mouse = Mouse;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Touch_1 = __webpack_require__(12);
+var Events = __webpack_require__(2);
+var TouchListener = (function (_super) {
+    __extends(TouchListener, _super);
+    function TouchListener() {
+        var _this = _super.call(this) || this;
+        window.addEventListener("touchstart", function (e) {
+            e.preventDefault();
+            for (var i = 0; i < e.changedTouches.length; i++) {
+                var touch = new Touch_1.Touch(e.changedTouches.item(i));
+                _this.emit("TOUCHADDED", touch);
+            }
+        });
+        return _this;
+    }
+    TouchListener.getInstance = function () {
+        TouchListener._instance = TouchListener._instance || new TouchListener();
+        return TouchListener._instance;
+    };
+    return TouchListener;
+}(Events.EventEmitter));
+exports.TouchListener = TouchListener;
 
 
 /***/ })

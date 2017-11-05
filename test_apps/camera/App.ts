@@ -2,7 +2,7 @@ import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Coordinate} from "../../src/utils";
 import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
 
 class CameraDemo extends Engine {
@@ -189,7 +189,7 @@ class CameraDemo extends Engine {
                 }
             }
 
-            block.setCoordinate({x, y});
+            block.setPosition(new Coordinate(x, y));
         }
 
         if (!this._mouseIsIn && this._blocks.length > 0) {

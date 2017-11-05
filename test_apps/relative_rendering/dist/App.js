@@ -1567,102 +1567,72 @@ var core_1 = __webpack_require__(12);
 var engines_1 = __webpack_require__(4);
 var entities_1 = __webpack_require__(2);
 var utils_1 = __webpack_require__(0);
-var assets_1 = __webpack_require__(1);
-var CameraDemo = (function (_super) {
-    __extends(CameraDemo, _super);
-    function CameraDemo() {
+var RelativeDemo = (function (_super) {
+    __extends(RelativeDemo, _super);
+    function RelativeDemo() {
         var _this = _super.call(this) || this;
-        _this._mouseIsIn = false;
         _this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
         _this.setLogicEngine(new engines_1.GroupLogicEngine());
         _this._blocks = [];
         _this._blockConfigs = {};
         _this._container = new entities_1.Entity();
-        _this._container.setColor(new utils_1.Color(0, 0, 0));
+        _this._container.setColor(utils_1.Color.fromColorCode(utils_1.ColorCode.BLACK));
         _this._container.setWidth(1000);
         _this._container.setHeight(1000);
         _this._camera = new utils_1.Camera(_this._container, null, { width: _this._container.getWidth(), height: _this._container.getHeight() }, null, { height: _this._container.getHeight(), width: _this._container.getWidth() });
         _this.getRenderingEngine().addCamera(_this._camera);
-        _this._smallCamera = new utils_1.Camera(_this._container, { x: 450, y: 450 }, { width: 75, height: 75 }, { x: 35, y: 35 }, { width: 100, height: 100 });
-        _this.getRenderingEngine().addCamera(_this._smallCamera);
-        _this.getRenderingEngine().debugCamera = true;
-        var backgroundLoaded = false;
-        var pikachuLoaded = false;
+        for (var i = 0; i < 50; i++) {
+            var block = _this._generateBlock(0, _this._container);
+            _this._container.addChild(block);
+            var block2 = _this._generateBlock(1, block);
+            block.addChild(block2);
+            var block21 = _this._generateBlock(2, block2);
+            block2.addChild(block21);
+            var block22 = _this._generateBlock(2, block2);
+            block2.addChild(block22);
+            var block3 = _this._generateBlock(1, block);
+            block.addChild(block3);
+            var block31 = _this._generateBlock(2, block3);
+            block3.addChild(block31);
+            var block32 = _this._generateBlock(2, block3);
+            block3.addChild(block32);
+        }
         _this.getViewPort().on(0..toString(), _this._viewPortUpdated.bind(_this));
         _this.getViewPort().fillPage(true);
-        var background = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'resources/poke_background.jpg');
-        var pikachu = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'resources/pikachu_small.png');
-        var resourcesLoaded = function () {
-            for (var i = 0; i < 200; i++) {
-                console.log("Generate Pikachus");
-                _this._generatePikachu();
-            }
-            _this.getLogicEngine().addLogic("collision", _this._moveBlocks.bind(_this), 25);
-            _this.getViewPort().getCanvas().addEventListener('mouseover', function () {
-                console.log("OVER");
-                _this._mouseIsIn = true;
-            });
-            _this.getViewPort().getCanvas().addEventListener('mouseout', function () {
-                console.log("OUT");
-                _this._mouseIsIn = false;
-            });
-            _this.getViewPort().getCanvas().addEventListener('mousemove', function (e) {
-                var fov = _this._smallCamera.getFOV();
-                _this._smallCamera.setViewPoint({ x: e.clientX - _this.getViewPort().getCanvas().offsetLeft - (fov.width / 2), y: e.clientY - _this.getViewPort().getCanvas().offsetTop - (fov.height / 2) });
-            });
-            _this.getViewPort().getCanvas().addEventListener('mousewheel', function (e) {
-                var fov = _this._smallCamera.getFOV();
-                if (e.wheelDelta > 0) {
-                    _this._smallCamera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
-                }
-                else {
-                    _this._smallCamera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
-                }
-            });
-        };
-        _this._pikachuTexture = pikachu;
-        background.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                backgroundLoaded = true;
-                _this._container.setTexture(background);
-                if (backgroundLoaded && pikachuLoaded) {
-                    resourcesLoaded();
-                }
-            }
-        };
-        pikachu.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                pikachuLoaded = true;
-                if (backgroundLoaded && pikachuLoaded) {
-                    resourcesLoaded();
-                }
-            }
-        };
-        background.load();
-        pikachu.load();
+        _this.getLogicEngine().addLogic("collision", _this._moveBlocks.bind(_this), 25);
         return _this;
     }
-    CameraDemo.prototype._generatePikachu = function () {
+    RelativeDemo.prototype._generateBlock = function (level, parent) {
         var block = new entities_1.Entity();
         this._blocks.push(block);
-        block.setWidth(50);
-        block.setHeight(50);
-        block.setTexture(this._pikachuTexture);
-        block.setX(Math.floor((Math.random() * this._container.getWidth()) + 1));
-        block.setY(Math.floor((Math.random() * this._container.getHeight()) + 1));
+        var dimension;
+        if (level === 0) {
+            dimension = 100;
+        }
+        else if (level === 1) {
+            dimension = 40;
+        }
+        else if (level === 2) {
+            dimension = 15;
+        }
+        block.setWidth(dimension);
+        block.setHeight(dimension);
+        block.setX(Math.floor((Math.random() * parent.getWidth()) + 1));
+        block.setY(Math.floor((Math.random() * parent.getHeight()) + 1));
+        block.setColor(new utils_1.Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
         this._blockConfigs[block.getID()] = {};
         this._blockConfigs[block.getID()]["x_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "right" : "left";
         this._blockConfigs[block.getID()]["y_dir"] = Math.floor((Math.random() * 2) + 1) === 2 ? "up" : "down";
         this._blockConfigs[block.getID()]["speed"] = Math.floor((Math.random() * 2) + 1) / 1.5;
-        this._container.addChild(block);
+        return block;
     };
-    CameraDemo.prototype._viewPortUpdated = function (event) {
+    RelativeDemo.prototype._viewPortUpdated = function (event) {
         this._container.setWidth(event.newDimensions.width);
         this._container.setHeight(event.newDimensions.height);
         this._camera.setFOV({ width: event.newDimensions.width, height: event.newDimensions.height });
         this._camera.setRenderDimension({ width: event.newDimensions.width, height: event.newDimensions.height });
     };
-    CameraDemo.prototype._moveBlocks = function () {
+    RelativeDemo.prototype._moveBlocks = function () {
         for (var i in this._blocks) {
             var block = this._blocks[i];
             var x = void 0;
@@ -1672,8 +1642,8 @@ var CameraDemo = (function (_super) {
             if (this._blockConfigs[block.getID()]["x_dir"] === "right") {
                 x = block.getX() + this._blockConfigs[block.getID()]["speed"];
                 x2 = x + block.getWidth();
-                if (x2 >= this._container.getWidth()) {
-                    x = this._container.getWidth() - block.getWidth();
+                if (x2 >= block.getParent().getWidth()) {
+                    x = block.getParent().getWidth() - block.getWidth();
                     this._blockConfigs[block.getID()]["x_dir"] = "left";
                 }
             }
@@ -1688,8 +1658,8 @@ var CameraDemo = (function (_super) {
             if (this._blockConfigs[block.getID()]["y_dir"] === "down") {
                 y = block.getY() + this._blockConfigs[block.getID()]["speed"];
                 y2 = y + block.getHeight();
-                if (y2 >= this._container.getHeight()) {
-                    y = this._container.getHeight() - block.getHeight();
+                if (y2 >= block.getParent().getHeight()) {
+                    y = block.getParent().getHeight() - block.getHeight();
                     this._blockConfigs[block.getID()]["y_dir"] = "up";
                 }
             }
@@ -1703,15 +1673,10 @@ var CameraDemo = (function (_super) {
             }
             block.setPosition(new utils_1.Coordinate(x, y));
         }
-        if (!this._mouseIsIn && this._blocks.length > 0) {
-            var picka = this._blocks[1];
-            var fov = this._smallCamera.getFOV();
-            this._smallCamera.setViewPoint({ x: picka.getX() + ((picka.getWidth() - fov.width) / 2), y: picka.getY() + ((picka.getHeight() - fov.height) / 2) });
-        }
     };
-    return CameraDemo;
+    return RelativeDemo;
 }(core_1.Engine));
-window._CameraDemo = new CameraDemo();
+window._RelativeDemo = new RelativeDemo();
 
 
 /***/ }),

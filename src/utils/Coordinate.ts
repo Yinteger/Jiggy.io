@@ -27,7 +27,7 @@ export class Coordinate {
     }
 
     public getY(): number {
-        return this._x;
+        return this._y;
     }
 
     public getZ(): number {

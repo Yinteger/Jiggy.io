@@ -70,37 +70,6 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(22);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(23);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(24);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(25);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(26);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(27);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(28);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(29);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(30);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(31);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(32);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(5);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
 var Camera_1 = __webpack_require__(14);
@@ -119,6 +88,39 @@ var Color_1 = __webpack_require__(20);
 exports.Color = Color_1.Color;
 var ColorCode_1 = __webpack_require__(6);
 exports.ColorCode = ColorCode_1.ColorCode;
+var Coordinate_1 = __webpack_require__(21);
+exports.Coordinate = Coordinate_1.Coordinate;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Asset_1 = __webpack_require__(23);
+exports.Asset = Asset_1.Asset;
+var AssetType_1 = __webpack_require__(24);
+exports.AssetType = AssetType_1.AssetType;
+var AssetState_1 = __webpack_require__(25);
+exports.AssetState = AssetState_1.AssetState;
+var AssetFactory_1 = __webpack_require__(26);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+var AssetLoader_1 = __webpack_require__(27);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+var AudioLoader_1 = __webpack_require__(28);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+var ImageLoader_1 = __webpack_require__(29);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+var JSONLoader_1 = __webpack_require__(30);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+var TextAssetBuilder_1 = __webpack_require__(31);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+var Spritesheet_1 = __webpack_require__(32);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+var Animation_1 = __webpack_require__(33);
+exports.Animation = Animation_1.Animation;
 
 
 /***/ }),
@@ -438,17 +440,17 @@ function isUndefined(arg) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var Entity_1 = __webpack_require__(8);
 exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
+var EntityModel_1 = __webpack_require__(41);
 exports.EntityModel = EntityModel_1.EntityModel;
 var EntityView_1 = __webpack_require__(9);
 exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
+var EntityView2D_1 = __webpack_require__(42);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
+var GridMap_1 = __webpack_require__(43);
 exports.GridMap = GridMap_1.GridMap;
-var IsometricGridMap_1 = __webpack_require__(43);
+var IsometricGridMap_1 = __webpack_require__(44);
 exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
-var IsometricTile_1 = __webpack_require__(44);
+var IsometricTile_1 = __webpack_require__(45);
 exports.IsometricTile = IsometricTile_1.IsometricTile;
 
 
@@ -459,15 +461,15 @@ exports.IsometricTile = IsometricTile_1.IsometricTile;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(35);
+var LogicEngine_1 = __webpack_require__(36);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(36);
+var GroupLogicEngine_1 = __webpack_require__(37);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(37);
+var RenderingEngine_1 = __webpack_require__(38);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(38);
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(39);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
-var IsometricRenderingEngine_1 = __webpack_require__(39);
+var IsometricRenderingEngine_1 = __webpack_require__(40);
 exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
 
 
@@ -803,8 +805,8 @@ exports.ColorMap = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var assetFactory = assets_1.AssetFactory.getSingleton();
 var AudioEngine = (function () {
     function AudioEngine() {
@@ -1005,9 +1007,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Events = __webpack_require__(2);
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var _1 = __webpack_require__(3);
-var utils_1 = __webpack_require__(1);
+var utils_2 = __webpack_require__(0);
 var Entity = (function (_super) {
     __extends(Entity, _super);
     function Entity(model) {
@@ -1098,9 +1101,9 @@ var Entity = (function (_super) {
         return this._model.getAttribute('x');
     };
     Entity.prototype.setX = function (x) {
-        var oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('x', x);
-        var newCoordinates = { x: this.getX(), y: this.getY() };
+        var oldCoordinates = this.getPosition();
+        this._model.setX(x);
+        var newCoordinates = this.getPosition();
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1116,10 +1119,12 @@ var Entity = (function (_super) {
             this._eventEmitted = false;
         }
     };
-    Entity.prototype.setCoordinate = function (coordinate) {
-        var oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('x', coordinate.x);
-        this._model.setAttribute('y', coordinate.y);
+    Entity.prototype.getPosition = function () {
+        return this._model.getPosition();
+    };
+    Entity.prototype.setPosition = function (position) {
+        var oldCoordinates = this.getPosition();
+        this._model.setPosition(position);
         var newCoordinates = { x: this.getX(), y: this.getY() };
         if (this._parent) {
             this._parent._updateChildsRegion(this);
@@ -1127,7 +1132,7 @@ var Entity = (function (_super) {
         var eventData = {
             type: 0..toString(),
             oldCoordinates: oldCoordinates,
-            newCoordinates: newCoordinates,
+            newCoordinates: position,
             source: this
         };
         this.emit(0..toString(), eventData);
@@ -1139,9 +1144,9 @@ var Entity = (function (_super) {
         return this._model.getAttribute('y');
     };
     Entity.prototype.setY = function (y) {
-        var oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('y', y);
-        var newCoordinates = { x: this.getX(), y: this.getY() };
+        var oldCoordinates = this.getPosition();
+        this._model.setY(y);
+        var newCoordinates = this.getPosition();
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1233,37 +1238,37 @@ var Entity = (function (_super) {
         }
     };
     Entity.prototype.iterator = function () {
-        return new utils_1.Iterator(this._children);
+        return new utils_2.Iterator(this._children);
     };
     Entity.prototype.getChildren = function (startCoordinate, endCoordinate) {
         if (startCoordinate && endCoordinate) {
             var startRegion = this._coordinateToRegion(startCoordinate);
             var endRegion = this._coordinateToRegion(endCoordinate);
             var children = [];
-            for (var x = startRegion.x; x <= endRegion.x; x++) {
-                for (var y = startRegion.y; y <= endRegion.y; y++) {
-                    children = children.concat(this._getChildrenInRegion({ x: x, y: y }));
+            for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
+                for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
+                    children = children.concat(this._getChildrenInRegion(new utils_1.Coordinate(x, y)));
                 }
             }
-            return new utils_1.Iterator(children);
+            return new utils_2.Iterator(children);
         }
         else if (startCoordinate) {
             var region = this._coordinateToRegion(startCoordinate);
             var children = [];
-            var childrenIterator = new utils_1.Iterator(this._getChildrenInRegion({ x: region.x, y: region.y }));
+            var childrenIterator = new utils_2.Iterator(this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY())));
             while (childrenIterator.hasNext()) {
                 var child = childrenIterator.next();
                 var childCoordinate = child.getCoordinate();
                 var childOuterCoordinate = child.getOuterCoordinate();
-                if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-                    && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                if (childCoordinate.x <= startCoordinate.getX() && childCoordinate.y <= startCoordinate.getY()
+                    && childOuterCoordinate.x >= startCoordinate.getX() && childOuterCoordinate.y >= startCoordinate.getY()) {
                     children.push(child);
                 }
             }
-            return new utils_1.Iterator(children);
+            return new utils_2.Iterator(children);
         }
         else {
-            return new utils_1.Iterator(this._children);
+            return new utils_2.Iterator(this._children);
         }
     };
     Entity.prototype.findChildren = function (startCoordinate, endCoordinate) {
@@ -1271,17 +1276,17 @@ var Entity = (function (_super) {
         if (this._children.length > 0) {
             if (startCoordinate && !endCoordinate) {
                 var region = this._coordinateToRegion(startCoordinate);
-                var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+                var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
                 if (regionChildren.length > 0) {
-                    var childrenIterator = new utils_1.Iterator(regionChildren);
+                    var childrenIterator = new utils_2.Iterator(regionChildren);
                     while (childrenIterator.hasNext()) {
                         var iterChild = childrenIterator.next();
                         var childCoordinate = iterChild.getCoordinate();
                         var childOuterCoordinate = iterChild.getOuterCoordinate();
-                        if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-                            && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                        if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+                            && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                             children.push(iterChild);
-                            var deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
+                            var deeperChildren = iterChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()));
                             if (deeperChildren) {
                                 children = children.concat(deeperChildren);
                             }
@@ -1293,28 +1298,28 @@ var Entity = (function (_super) {
                 var startRegion = this._coordinateToRegion(startCoordinate);
                 var endRegion = this._coordinateToRegion(endCoordinate);
                 var childrenVisited = [];
-                for (var x = startRegion.x; x <= endRegion.x; x++) {
-                    for (var y = startRegion.y; y <= endRegion.y; y++) {
-                        var regionChildren = this._getChildrenInRegion({ x: x, y: y });
+                for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
+                    for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
+                        var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(x, y));
                         for (var regionChildI in regionChildren) {
                             var regionChild = regionChildren[regionChildI];
                             if (childrenVisited.indexOf(regionChild) === -1) {
                                 childrenVisited.push(regionChild);
-                                var childCoordinate = regionChild.getCoordinate();
+                                var childCoordinate = regionChild.getPosition();
                                 var childOuterCoordinate = regionChild.getOuterCoordinate();
                                 var xCollission = false;
                                 var yCollision = false;
-                                if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
-                                    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+                                if ((startCoordinate.getX() < childOuterCoordinate.getX() && endCoordinate.getX() > childCoordinate.getX())
+                                    || (endCoordinate.getX() > childCoordinate.getX() && startCoordinate.getX() < childOuterCoordinate.getX())) {
                                     xCollission = true;
                                 }
-                                if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
-                                    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+                                if ((startCoordinate.getY() < childOuterCoordinate.getY() && endCoordinate.getY() > childCoordinate.getY())
+                                    || (endCoordinate.getY() > childCoordinate.getY() && startCoordinate.getY() < childOuterCoordinate.getY())) {
                                     yCollision = true;
                                 }
                                 if (xCollission && yCollision) {
                                     children.push(regionChild);
-                                    var deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
+                                    var deeperChildren = regionChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()), new utils_1.Coordinate(endCoordinate.getX() - childOuterCoordinate.getX(), endCoordinate.getY() - childOuterCoordinate.getY()));
                                     if (deeperChildren) {
                                         children = children.concat(deeperChildren);
                                     }
@@ -1330,17 +1335,17 @@ var Entity = (function (_super) {
     Entity.prototype.findTopChildAt = function (coordinate) {
         var child = false;
         var region = this._coordinateToRegion(coordinate);
-        var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
-        var childrenIterator = new utils_1.Iterator(regionChildren);
+        var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
+        var childrenIterator = new utils_2.Iterator(regionChildren);
         childrenIterator.setToEnd();
         while (childrenIterator.hasPrev() && !child) {
             var iterChild = childrenIterator.prev();
             var childCoordinate = iterChild.getCoordinate();
             var childOuterCoordinate = iterChild.getOuterCoordinate();
-            if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
-                && childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+            if (childCoordinate.getX() <= coordinate.getX() && childCoordinate.getY() <= coordinate.getY()
+                && childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
                 child = iterChild;
-                var deeperChild = iterChild.findTopChildAt({ x: coordinate.x - childCoordinate.x, y: coordinate.y - childCoordinate.y });
+                var deeperChild = iterChild.findTopChildAt(new utils_1.Coordinate(coordinate.getX() - childCoordinate.getX(), coordinate.getY() - childCoordinate.getY()));
                 if (deeperChild) {
                     child = deeperChild;
                 }
@@ -1348,11 +1353,8 @@ var Entity = (function (_super) {
         }
         return child;
     };
-    Entity.prototype.getCoordinate = function () {
-        return { x: this.getX(), y: this.getY() };
-    };
     Entity.prototype.getOuterCoordinate = function () {
-        return { x: this.getX2(), y: this.getY2() };
+        return new utils_1.Coordinate(this.getX2(), this.getY2());
     };
     Entity.prototype.getAbsoluteY = function () {
         var entity = this;
@@ -1378,16 +1380,6 @@ var Entity = (function (_super) {
     Entity.prototype.getAbsoluteX2 = function () {
         return this.getAbsoluteX() + this.getWidth();
     };
-    Entity.prototype.setLocation = function (coordinate) {
-        this.setX(coordinate.x);
-        this.setY(coordinate.y);
-    };
-    Entity.prototype.getLocation = function () {
-        return {
-            x: this.getX(),
-            y: this.getY()
-        };
-    };
     Entity.prototype.setSize = function (dimension) {
         this._setModified(true);
         this.setWidth(dimension.width);
@@ -1397,7 +1389,7 @@ var Entity = (function (_super) {
         return { width: this.getWidth(), height: this.getHeight() };
     };
     Entity.prototype._setDefaults = function () {
-        this.setLocation({ x: 0, y: 0 });
+        this.setPosition(new utils_1.Coordinate(0, 0));
         this.setSize({ width: 0, height: 0 });
         this.setVisible(true);
     };
@@ -1431,16 +1423,16 @@ var Entity = (function (_super) {
         }
     };
     Entity.prototype._putChildInRegion = function (child) {
-        var startRegion = this._coordinateToRegion({ x: child.getX(), y: child.getY() });
-        var endRegion = this._coordinateToRegion({ x: child.getX2(), y: child.getY2() });
+        var startRegion = this._coordinateToRegion(child.getPosition());
+        var endRegion = this._coordinateToRegion(new utils_1.Coordinate(child.getX2(), child.getY2()));
         this._regionList[child.getID()] = [];
-        if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
-            for (var x = startRegion.x; x <= endRegion.x; x++) {
+        if (!isNaN(startRegion.getX()) && !isNaN(startRegion.getY()) && !isNaN(endRegion.getX()) && !isNaN(endRegion.getY())) {
+            for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
                 if (this._regions[x]) {
-                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                    for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
                         if (this._regions[x][y]) {
                             this._regions[x][y].push(child);
-                            this._regionList[child.getID()].push({ x: x, y: y });
+                            this._regionList[child.getID()].push(new utils_1.Coordinate(x, y));
                         }
                     }
                 }
@@ -1450,8 +1442,8 @@ var Entity = (function (_super) {
         }
     };
     Entity.prototype._getChildrenInRegion = function (regionCoordinate) {
-        if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
-            return this._regions[regionCoordinate.x][regionCoordinate.y];
+        if (this._regions[regionCoordinate.getX()] && this._regions[regionCoordinate.getX()][regionCoordinate.getY()]) {
+            return this._regions[regionCoordinate.getX()][regionCoordinate.getY()];
         }
         else {
             return [];
@@ -1461,7 +1453,7 @@ var Entity = (function (_super) {
         if (this._regionList[child.getID()]) {
             for (var i in this._regionList[child.getID()]) {
                 var coord = this._regionList[child.getID()][i];
-                this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
+                this._regions[coord.getX()][coord.getY()].splice(this._regions[coord.getX()][coord.getY()].indexOf(child), 1);
             }
         }
     };
@@ -1470,9 +1462,9 @@ var Entity = (function (_super) {
         this._putChildInRegion(child);
     };
     Entity.prototype._coordinateToRegion = function (coordinate) {
-        var x = Math.floor(coordinate.x / this._regionDimension.width);
-        var y = Math.floor(coordinate.y / this._regionDimension.height);
-        return { x: x, y: y };
+        var x = Math.floor(coordinate.getX() / this._regionDimension.width);
+        var y = Math.floor(coordinate.getY() / this._regionDimension.height);
+        return new utils_1.Coordinate(x, y);
     };
     return Entity;
 }(Events.EventEmitter));
@@ -1726,9 +1718,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Engine_1 = __webpack_require__(13);
 var engines_1 = __webpack_require__(4);
 var entities_1 = __webpack_require__(3);
-var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(0);
-var inputs_1 = __webpack_require__(45);
+var utils_1 = __webpack_require__(0);
+var _1 = __webpack_require__(1);
+var inputs_1 = __webpack_require__(46);
 var entities_2 = __webpack_require__(3);
 var IsoDemo = (function (_super) {
     __extends(IsoDemo, _super);
@@ -1840,10 +1832,10 @@ window.IsoDemo = new IsoDemo();
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var audio_1 = __webpack_require__(21);
-var assets_1 = __webpack_require__(0);
-var Instance_1 = __webpack_require__(34);
+var utils_1 = __webpack_require__(0);
+var audio_1 = __webpack_require__(22);
+var assets_1 = __webpack_require__(1);
+var Instance_1 = __webpack_require__(35);
 var Engine = (function () {
     function Engine() {
         Instance_1.setInstance(this);
@@ -1961,7 +1953,7 @@ exports.Camera = Camera;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(1);
+var _1 = __webpack_require__(0);
 var IDGenerator = (function () {
     function IDGenerator() {
     }
@@ -2232,6 +2224,7 @@ exports.ViewPort = ViewPort;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = __webpack_require__(0);
 var CollisionEmitter = (function () {
     function CollisionEmitter() {
         this._cbs = {};
@@ -2278,7 +2271,7 @@ var CollisionEmitter = (function () {
     CollisionEmitter.prototype._onEntityLocationUpdate = function (event) {
         var entity = event.source;
         if (entity.getParent()) {
-            var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
+            var potCollisions = entity.getParent().findChildren(new utils_1.Coordinate(entity.getX(), entity.getY()), new utils_1.Coordinate(entity.getX2(), entity.getY2()));
             var collisions = [];
             for (var i in potCollisions) {
                 var potEntity = potCollisions[i];
@@ -2481,10 +2474,42 @@ exports.Color = Color;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(7);
-exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(33);
-exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
+var Coordinate = (function () {
+    function Coordinate(x, y, z) {
+        this._x = x;
+        this._y = y;
+        this._z = z || 0;
+    }
+    Coordinate.prototype.toCartesian = function () {
+        return new Coordinate((2 * this._y + this._x) / 2, (2 * this._y - this._x) / 2);
+    };
+    Coordinate.fromIsometric = function (x, y) {
+        return new Coordinate((2 * y + x) / 2, (2 * y - x) / 2);
+    };
+    Coordinate.prototype.toIsometric = function () {
+        return new Coordinate(this._x - this._y, (this._x + this._y) / 2);
+    };
+    Coordinate.prototype.setX = function (x) {
+        this._x = x;
+    };
+    Coordinate.prototype.setY = function (y) {
+        this._y = y;
+    };
+    Coordinate.prototype.getX = function () {
+        return this._x;
+    };
+    Coordinate.prototype.getY = function () {
+        return this._x;
+    };
+    Coordinate.prototype.getZ = function () {
+        return this._z;
+    };
+    Coordinate.prototype.setZ = function (z) {
+        this._z = z;
+    };
+    return Coordinate;
+}());
+exports.Coordinate = Coordinate;
 
 
 /***/ }),
@@ -2494,8 +2519,21 @@ exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var AudioEngine_1 = __webpack_require__(7);
+exports.AudioEngine = AudioEngine_1.AudioEngine;
+var HTML5AudioEngine_1 = __webpack_require__(34);
+exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var Asset = (function () {
     function Asset(type, url) {
         this._id = utils_1.IDGenerator.getSingleton().generate();
@@ -2566,7 +2604,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2582,7 +2620,7 @@ var AssetType;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2597,13 +2635,13 @@ var AssetState;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var AssetFactory = (function () {
     function AssetFactory() {
         this._assetLoader = new assets_1.AssetLoader();
@@ -2704,13 +2742,13 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var AssetLoader = (function () {
     function AssetLoader() {
     }
@@ -2770,7 +2808,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2786,7 +2824,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var AudioLoader = (function (_super) {
     __extends(AudioLoader, _super);
     function AudioLoader() {
@@ -2822,7 +2860,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2838,7 +2876,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var ImageLoader = (function (_super) {
     __extends(ImageLoader, _super);
     function ImageLoader() {
@@ -2861,7 +2899,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2877,7 +2915,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var JSONLoader = (function (_super) {
     __extends(JSONLoader, _super);
     function JSONLoader() {
@@ -2893,14 +2931,14 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
     }
@@ -2925,14 +2963,14 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
@@ -2964,7 +3002,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3060,7 +3098,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3189,13 +3227,13 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var instance = null;
 var setInstance = function (game) {
     if (instance) {
@@ -3211,7 +3249,7 @@ exports.getInstance = getInstance;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3226,7 +3264,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3313,13 +3351,13 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var RenderingEngine = (function () {
     function RenderingEngine() {
         this._prerenderViewPort = new utils_1.ViewPort();
@@ -3409,7 +3447,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3583,7 +3621,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3771,7 +3809,7 @@ exports.IsometricRenderingEngine = IsometricRenderingEngine;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3788,7 +3826,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Events = __webpack_require__(2);
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
+var utils_2 = __webpack_require__(0);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
     function EntityModel() {
@@ -3796,6 +3835,7 @@ var EntityModel = (function (_super) {
         _this._attributes = {};
         _this._id = utils_1.IDGenerator.getSingleton().generate();
         _this._type = 'generic';
+        _this._position = new utils_2.Coordinate(0, 0);
         return _this;
     }
     EntityModel.prototype.getID = function () {
@@ -3851,13 +3891,31 @@ var EntityModel = (function (_super) {
     };
     EntityModel.prototype.sync = function (listener) {
     };
+    EntityModel.prototype.getX = function () {
+        return this._position.getX();
+    };
+    EntityModel.prototype.getY = function () {
+        return this._position.getY();
+    };
+    EntityModel.prototype.setX = function (x) {
+        this._position.setX(x);
+    };
+    EntityModel.prototype.setY = function (y) {
+        this._position.setY(y);
+    };
+    EntityModel.prototype.getPosition = function () {
+        return this._position;
+    };
+    EntityModel.prototype.setPosition = function (position) {
+        this._position = position;
+    };
     return EntityModel;
 }(Events.EventEmitter));
 exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3885,7 +3943,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3943,7 +4001,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3979,7 +4037,7 @@ exports.IsometricGridMap = IsometricGridMap;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4007,29 +4065,29 @@ exports.IsometricTile = IsometricTile;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(46);
+var GamePadListener_1 = __webpack_require__(47);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
 var GamePad_1 = __webpack_require__(10);
 exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(47);
+var Keyboard_1 = __webpack_require__(48);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(48);
+var Mouse_1 = __webpack_require__(49);
 exports.Mouse = Mouse_1.Mouse;
 var Touch_1 = __webpack_require__(11);
 exports.Touch = Touch_1.Touch;
-var TouchListener_1 = __webpack_require__(49);
+var TouchListener_1 = __webpack_require__(50);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4103,7 +4161,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4290,7 +4348,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4441,7 +4499,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

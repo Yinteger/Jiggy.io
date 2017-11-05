@@ -1,6 +1,7 @@
 import * as Events from 'events';
-import {Dimension, Coordinate} from '../interfaces';
-import {Asset, AssetType} from '../assets';
+import {Dimension} from '../interfaces';
+import { Asset, AssetType } from '../assets';
+import { Coordinate } from "../utils";
 import {EntityModel, ModelEventTypes, EntityView, EntityEventTypes, LocationUpdateEvent} from './';
 
 import {Iterator, Color} from "../utils";
@@ -138,13 +139,13 @@ export class Entity extends Events.EventEmitter {
 	}
 
 	public getX (): number {
-		return this._model.getAttribute('x');
+        return this._model.getX();
 	}
 
 	public setX (x : number): void {
-		let oldCoordinates = {x: this.getX(), y: this.getY()};
-		this._model.setAttribute('x', x);
-		let newCoordinates = {x: this.getX(), y: this.getY()};
+        let oldCoordinates = this.getPosition();
+        this._model.setX(x);
+        let newCoordinates = this.getPosition();
 
 		if (this._parent) {
 			this._parent._updateChildsRegion(this);
@@ -162,13 +163,15 @@ export class Entity extends Events.EventEmitter {
 			this.emit(EntityEventTypes.LOCATION_UPDATE.toString(), eventData);
 			this._eventEmitted = false;
 		}
-	}
+    }
 
-	public setCoordinate (coordinate: Coordinate): void {
-		let oldCoordinates = {x: this.getX(), y: this.getY()};
-		this._model.setAttribute('x', coordinate.x);
-		this._model.setAttribute('y', coordinate.y);
-		let newCoordinates = {x: this.getX(), y: this.getY()};
+    public getPosition(): Coordinate {
+        return this._model.getPosition();
+    }
+
+	public setPosition (position: Coordinate): void {
+        let oldCoordinates = this.getPosition();
+		this._model.setPosition(position)
 
 		if (this._parent) {
 			this._parent._updateChildsRegion(this);
@@ -176,8 +179,8 @@ export class Entity extends Events.EventEmitter {
 
 		let eventData : LocationUpdateEvent = {
 			type: EntityEventTypes.LOCATION_UPDATE.toString(),
-			oldCoordinates,
-			newCoordinates,
+            oldCoordinates,
+			newCoordinates: position,
 			source: this
 		} 
 
@@ -189,13 +192,13 @@ export class Entity extends Events.EventEmitter {
 	}
 
 	public getY (): number {
-		return this._model.getAttribute('y');
+        return this._model.getY();
 	}
 
 	public setY (y: number): void {
-		let oldCoordinates = {x: this.getX(), y: this.getY()};
-		this._model.setAttribute('y', y);
-		let newCoordinates = {x: this.getX(), y: this.getY()};
+        let oldCoordinates = this.getPosition();
+        this._model.setY(y);
+        let newCoordinates = this.getPosition();
 
 		if (this._parent) {
 			this._parent._updateChildsRegion(this);
@@ -421,33 +424,33 @@ export class Entity extends Events.EventEmitter {
 	 */
 	 public getChildren (startCoordinate? : Coordinate, endCoordinate? : Coordinate) : Iterator {
 		if (startCoordinate && endCoordinate) { //Area Lookup
-			var startRegion = this._coordinateToRegion(startCoordinate);
-			var endRegion = this._coordinateToRegion(endCoordinate);
+			var startRegion : Coordinate = this._coordinateToRegion(startCoordinate);
+			var endRegion : Coordinate = this._coordinateToRegion(endCoordinate);
 
 			//Loop through all regions in the coordinates and collect the children
 			var children : Entity[] = [];
 
-			for (var x = startRegion.x; x <= endRegion.x; x ++) {
-				for (var y = startRegion.y; y <= endRegion.y; y ++) {
-					children = children.concat(this._getChildrenInRegion({x, y}));
+			for (var x = startRegion.getX(); x <= endRegion.getX(); x ++) {
+				for (var y = startRegion.getY(); y <= endRegion.getY(); y ++) {
+					children = children.concat(this._getChildrenInRegion(new Coordinate(x, y)));
 				}
 			}
 
 			return new Iterator(children);
 		} else if (startCoordinate) { //Point Lookup
-			var region = this._coordinateToRegion(startCoordinate);
+			var region : Coordinate = this._coordinateToRegion(startCoordinate);
 
 			//Loop through and determine who intersects with the point
 			var children : Entity[] = [];
 
-			var childrenIterator = new Iterator(this._getChildrenInRegion({x: region.x, y: region.y}));
+			var childrenIterator = new Iterator(this._getChildrenInRegion(new Coordinate(region.getX(), region.getY())));
 			while(childrenIterator.hasNext()) {
 				var child = childrenIterator.next();
-				var childCoordinate = child.getCoordinate();
-				var childOuterCoordinate = child.getOuterCoordinate();
+				var childCoordinate : Coordinate = child.getPosition();
+				var childOuterCoordinate : Coordinate = child.getOuterCoordinate();
 
-				if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-					&& childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+				if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+					&& childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
 					//Intersects with the startCoordinate
 					children.push(child);
 				}
@@ -465,25 +468,25 @@ export class Entity extends Events.EventEmitter {
 		if (this._children.length > 0) {
 			//Find the Region the coordinates belond to
 			if (startCoordinate && !endCoordinate) {
-				var region = this._coordinateToRegion(startCoordinate);
-				var regionChildren = this._getChildrenInRegion({x: region.x, y: region.y});
+				var region : Coordinate = this._coordinateToRegion(startCoordinate);
+				var regionChildren : Entity[] = this._getChildrenInRegion(new Coordinate(region.getX(), region.getY()));
 				if (regionChildren.length > 0) {
 					var childrenIterator = new Iterator(regionChildren);
 					// var childrenIterator = new zen.util.Iterator(this.children);
 
 					//Loop through all children in that region to see if they intersect
 					while(childrenIterator.hasNext()) {
-						var iterChild = childrenIterator.next();
-						let childCoordinate = iterChild.getCoordinate();
-						let childOuterCoordinate = iterChild.getOuterCoordinate();
+						var iterChild : Entity = childrenIterator.next();
+						let childCoordinate : Coordinate = iterChild.getPosition();
+						let childOuterCoordinate : Coordinate = iterChild.getOuterCoordinate();
 
-						if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-							&& childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+						if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+							&& childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
 							//Intersects with the startCoordinate
 							children.push(iterChild);
 
 							//See if we can get a deeper child...
-							let deeperChildren = iterChild.findChildren({x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y});
+							let deeperChildren = iterChild.findChildren(new Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()));
 							if (deeperChildren) {
 								children = children.concat(deeperChildren);
 							}
@@ -495,35 +498,35 @@ export class Entity extends Events.EventEmitter {
 				var endRegion = this._coordinateToRegion(endCoordinate);
 				var childrenVisited : Entity[] = [];
 				//Loop through the regions
-				for (var x = startRegion.x; x <= endRegion.x; x ++) {
-					for (var y = startRegion.y; y <= endRegion.y; y ++) {
-						var regionChildren = this._getChildrenInRegion({x, y});
+				for (var x = startRegion.getX(); x <= endRegion.getX(); x ++) {
+					for (var y = startRegion.getY(); y <= endRegion.getY(); y ++) {
+						var regionChildren : Entity[] = this._getChildrenInRegion(new Coordinate(x, y));
 
 						for (var regionChildI in regionChildren) {
-							var regionChild = regionChildren[regionChildI];
+							var regionChild : Entity = regionChildren[regionChildI];
 
 							if (childrenVisited.indexOf(regionChild) === -1) {
 								childrenVisited.push(regionChild);
-								let childCoordinate = regionChild.getCoordinate();
-								let childOuterCoordinate = regionChild.getOuterCoordinate();
+								let childCoordinate : Coordinate = regionChild.getPosition();
+								let childOuterCoordinate : Coordinate = regionChild.getOuterCoordinate();
 
 								var xCollission = false;
 								var yCollision = false;
 
-								if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
-								    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+								if ((startCoordinate.getX() < childOuterCoordinate.getX() && endCoordinate.getX() > childCoordinate.getX())
+								    || (endCoordinate.getX() > childCoordinate.getX() && startCoordinate.getX() < childOuterCoordinate.getX())) {
 								    xCollission = true;
 								}
 
-								if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
-								    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+								if ((startCoordinate.getY() < childOuterCoordinate.getY() && endCoordinate.getY() > childCoordinate.getY())
+								    || (endCoordinate.getY() > childCoordinate.getY() && startCoordinate.getY() < childOuterCoordinate.getY())) {
 								     yCollision = true;
 								 }
 
 								if (xCollission && yCollision) {
 								    children.push(regionChild);	
 
-								    let deeperChildren = regionChild.findChildren({x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y}, {x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y})
+								    let deeperChildren = regionChild.findChildren(new Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()), new Coordinate(endCoordinate.getX() - childOuterCoordinate.getX(), endCoordinate.getY() - childOuterCoordinate.getY()))
 									if (deeperChildren) {
 										children = children.concat(deeperChildren);
 									}
@@ -548,27 +551,27 @@ export class Entity extends Events.EventEmitter {
 	 * @return Entity
 	 */
 	 public findTopChildAt (coordinate : Coordinate) : Entity|boolean {
-		var child = false;
+		var child : boolean|Entity;
 
 		//Find the Region the coordinates belond to
 		var region = this._coordinateToRegion(coordinate);
-		var regionChildren = this._getChildrenInRegion({x: region.x, y: region.y});
+		var regionChildren = this._getChildrenInRegion(new Coordinate(region.getX(), region.getY()));
 		var childrenIterator = new Iterator(regionChildren);
 		childrenIterator.setToEnd();
 
 		//Loop through all children in that region to see if they intersect
 		while(childrenIterator.hasPrev() && !child) {
-			var iterChild = childrenIterator.prev();
-			var childCoordinate = iterChild.getCoordinate();
-			var childOuterCoordinate = iterChild.getOuterCoordinate();
+			var iterChild : Entity = childrenIterator.prev();
+			var childCoordinate : Coordinate = iterChild.getPosition();
+			var childOuterCoordinate : Coordinate = iterChild.getOuterCoordinate();
 
-			if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
-				&& childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+			if (childCoordinate.getX() <= coordinate.getX() && childCoordinate.getY() <= coordinate.getY()
+				&& childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
 				//Intersects with the startCoordinate
 				child = iterChild;
 
 				//See if we can get a deeper child...
-				var deeperChild = iterChild.findTopChildAt({x: coordinate.x - childCoordinate.x, y: coordinate.y - childCoordinate.y});
+				var deeperChild : boolean|Entity = iterChild.findTopChildAt(new Coordinate(coordinate.getX() - childCoordinate.getX(), coordinate.getY() - childCoordinate.getY()));
 				if (deeperChild) {
 					child = deeperChild;
 				}
@@ -578,12 +581,8 @@ export class Entity extends Events.EventEmitter {
 		return child;
 	 }
 
-	 public getCoordinate () : Coordinate {
-	 	return {x: this.getX(), y: this.getY()};
-	 }
-
 	 public getOuterCoordinate () : Coordinate {
-	 	return {x: this.getX2(), y: this.getY2()};
+	 	return new Coordinate(this.getX2(), this.getY2());
 	 }
 
 	 public getAbsoluteY () : number {
@@ -614,38 +613,6 @@ export class Entity extends Events.EventEmitter {
 		return this.getAbsoluteX() + this.getWidth();
 	 }
 
-	/**
-	 * public setLocation
-	 *
-	 *	Sets the coordinates of this entity. All arguments are optional.
-	 * 
-	 * @param {Integer} x 
-	 * @param {Integer} y 
-	 * @param {Integer} z 
-	 */
-	 public setLocation (coordinate : Coordinate) : void {
-	 	this.setX(coordinate.x);
-	 	this.setY(coordinate.y);
-	 }
-
-	/**
-	 * public getLocation
-	 *
-	 *	Gets the coordinates of this entity.
-	 * 
-	 * @return {Object} {
-	 *         x : integer,
-	 *         y : integer,
-	 *         z : integer
-	 * }
-	 */
-	 public getLocation ()  : Coordinate {
-	 	return {
-	 		x: this.getX(),
-	 		y: this.getY()
-	 	};
-	 }
-
 	 public setSize (dimension : Dimension) : void {
 	 	this._setModified(true);
 	 	this.setWidth(dimension.width);
@@ -663,8 +630,8 @@ export class Entity extends Events.EventEmitter {
 	 * 
 	 * @return {void} 
 	 */
-	 private _setDefaults () : void {
-		this.setLocation({x: 0, y: 0});
+     private _setDefaults(): void {
+		this.setPosition(new Coordinate(0, 0));
 		this.setSize({width: 0, height: 0});
 		this.setVisible(true);
 		// this.setColor(0,0,0,0);
@@ -716,21 +683,21 @@ export class Entity extends Events.EventEmitter {
 	 }
 
 	 private _putChildInRegion (child: Entity) : void {
-		// console.log("Generating start region");
-		var startRegion = this._coordinateToRegion({x: child.getX(), y: child.getY()});
+         // console.log("Generating start region");
+         var startRegion = this._coordinateToRegion(child.getPosition());
 		// console.log("Generator end region");
-		var endRegion = this._coordinateToRegion({x: child.getX2(), y: child.getY2()});
+		var endRegion = this._coordinateToRegion(new Coordinate(child.getX2(), child.getY2()));
 
 		this._regionList[child.getID()] = [];
 
-		if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
+		if (!isNaN(startRegion.getX()) && !isNaN(startRegion.getY()) && !isNaN(endRegion.getX()) && !isNaN(endRegion.getY())) {
 			//Compare both Regions and add the entity to those regions, and all in between
-			for (var x = startRegion.x; x <= endRegion.x; x ++) {
+			for (var x = startRegion.getX(); x <= endRegion.getX(); x ++) {
 				if (this._regions[x]) { //Overflow protection
-					for (var y = startRegion.y; y <= endRegion.y; y ++) {
+					for (var y = startRegion.getY(); y <= endRegion.getY(); y ++) {
 						if (this._regions[x][y]) { //Overflow Protection
 							this._regions[x][y].push(child);
-							this._regionList[child.getID()].push({x, y});
+							this._regionList[child.getID()].push(new Coordinate(x, y));
 						}
 					}
 				}
@@ -741,8 +708,8 @@ export class Entity extends Events.EventEmitter {
 	 }
 
 	 private _getChildrenInRegion (regionCoordinate : Coordinate) : Entity[] {
-		if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
-			return this._regions[regionCoordinate.x][regionCoordinate.y];
+		if (this._regions[regionCoordinate.getX()] && this._regions[regionCoordinate.getX()][regionCoordinate.getY()]) {
+			return this._regions[regionCoordinate.getX()][regionCoordinate.getY()];
 		} else {
 			return [];
 		}
@@ -753,7 +720,7 @@ export class Entity extends Events.EventEmitter {
 		if (this._regionList[child.getID()])  {
 			for (var i in this._regionList[child.getID()]) {
 				var coord = this._regionList[child.getID()][i];
-				this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
+				this._regions[coord.getX()][coord.getY()].splice(this._regions[coord.getX()][coord.getY()].indexOf(child), 1);
 			}
 		}
 	 }
@@ -768,9 +735,9 @@ export class Entity extends Events.EventEmitter {
 	 private _coordinateToRegion (coordinate: Coordinate) : Coordinate {
 		// console.log('Coordinate To Region', coordinate);
 		// console.log('Region Dimension', this.regionDimension);
-		var x = Math.floor(coordinate.x / this._regionDimension.width);
-		var y = Math.floor(coordinate.y / this._regionDimension.height);
+		var x = Math.floor(coordinate.getX() / this._regionDimension.width);
+		var y = Math.floor(coordinate.getY() / this._regionDimension.height);
 		// console.log('Region Coordinates', new zen.data.Coordinate(x, y));
-		return {x, y};
+		return new Coordinate(x, y);
 	 }
 }

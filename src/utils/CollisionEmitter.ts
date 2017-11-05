@@ -1,5 +1,6 @@
 import {Entity, EntityEventTypes, LocationUpdateEvent} from "../entities";
-import {Event, Coordinate} from "../interfaces";
+import { Event } from "../interfaces";
+import { Coordinate } from "../utils";
 
 export class CollisionEmitter {
 	private _entities : Entity[];
@@ -65,7 +66,7 @@ export class CollisionEmitter {
 		let entity : Entity = event.source;
 
 		if (entity.getParent()) {
-			var potCollisions : Entity[] = entity.getParent().findChildren({x: entity.getX(), y: entity.getY()}, {x: entity.getX2(), y: entity.getY2()});
+			var potCollisions : Entity[] = entity.getParent().findChildren(new Coordinate(entity.getX(), entity.getY()), new Coordinate(entity.getX2(), entity.getY2()));
 			var collisions : Entity[] = [];
 
 			for (let i in potCollisions) {
