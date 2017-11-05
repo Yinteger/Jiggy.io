@@ -8,9 +8,9 @@ function loadTask(fileName, taskName) {
     return task(gulp);
 }
 
-gulp.task('init', loadTask('init', 'all'));
+// gulp.task('init', loadTask('init', 'all'));
 gulp.task('build', loadTask('build', 'all'));
 gulp.task('build:tests', loadTask('build', 'allTests'));
-gulp.task('publish', loadTask('publish', 'all'));
+// gulp.task('publish', loadTask('publish', 'all'));
 gulp.task('clean', loadTask('clean', 'all'))
 gulp.task('clean:tests', loadTask('clean', 'allTests'));
