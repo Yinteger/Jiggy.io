@@ -44,4 +44,5 @@ typings
 #Visual Studio
 .vs
 
-dist/
+/dist/
+!test_apps/**/*
