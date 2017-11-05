@@ -213,6 +213,11 @@ class CameraDemo extends Engine {
             this._smallCamera.setViewPoint({x: picka.getX() + ((picka.getWidth() - fov.width) / 2), y: picka.getY() + ((picka.getHeight() - fov.height) / 2)});
         }
     }
+
+    public unload(): void {
+        // THis is a test method
+        this._assetGroup.unload();
+    }
 }
 
 

@@ -30,6 +30,13 @@ export class AssetGroup {
         this._assets[name] = asset;
     }
 
+    /**
+     * Removes the asset from the group.
+     * 
+     * This will unload the asset if the asset is loaded.
+     * 
+     * @param name 
+     */
     public removeAsset(name: string): void {
         var asset: Asset = this._assets[name];
 
@@ -44,10 +51,20 @@ export class AssetGroup {
         delete this._assets[name];
     }
 
+    /**
+     * 
+     * Gets the asset by name.
+     * 
+     * @param name 
+     */
     public getAsset(name: string): Asset {
         return this._assets[name];
     }
 
+    /**
+     * Loads all assets in the NOT_LOADED state. Promise will return
+     * once all resources are loaded.
+     */
     public load(): Promise<void> {
         var promises: Promise<Asset>[] = [];
 
@@ -71,8 +88,11 @@ export class AssetGroup {
         });
     }
 
+    /**
+     * Unloads all assets in the LOADED state.
+     */
     public unload(): Promise<void> {
-        var promises: Promise<Asset>[];
+        var promises: Promise<Asset>[] = [];
 
         for (var name in this._assets) {
             var asset: Asset = this._assets[name];

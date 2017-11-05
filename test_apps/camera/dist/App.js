@@ -1121,7 +1121,7 @@ class AssetGroup {
         });
     }
     unload() {
-        var promises;
+        var promises = [];
         for (var name in this._assets) {
             var asset = this._assets[name];
             if (asset.getState() === AssetState_1.AssetState.LOADED) {
@@ -1816,6 +1816,9 @@ class CameraDemo extends core_1.Engine {
             var fov = this._smallCamera.getFOV();
             this._smallCamera.setViewPoint({ x: picka.getX() + ((picka.getWidth() - fov.width) / 2), y: picka.getY() + ((picka.getHeight() - fov.height) / 2) });
         }
+    }
+    unload() {
+        this._assetGroup.unload();
     }
 }
 window._CameraDemo = new CameraDemo();

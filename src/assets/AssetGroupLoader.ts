@@ -22,6 +22,24 @@ export class AssetGroupLoader {
         this._assetFactory = getInstance().getAssetFactory();
     }
 
+    /**
+     * Loads an AssetGroup defined by a JSON structure.
+     * 
+     * Expected JSON structure by using the interfaces above:
+     * {
+     *      assets [
+     *          {
+     *              name : string,
+     *              type : AssetType (use the string value),
+     *              source : string
+     *          }
+     *      ]
+     * }
+     * 
+     * Note, the returned AssetGroup will be in an unloaded state.
+     * 
+     * @param path 
+     */
     public load(path: string): Promise<AssetGroup> {
         return new Promise<AssetGroup>((resolve, reject) => {
             var json: Asset = this._assetFactory.build(AssetType.JSON, path);
