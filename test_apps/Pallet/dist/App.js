@@ -1929,17 +1929,17 @@ class PalletDemo extends core_1.Engine {
         return mapContainer;
     }
     _loadResources() {
-        var map_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/61816.png');
-        this._assetGroup.addAsset('map', map_asset);
-        var bg_music = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.AUDIO, 'Resources/music.mp3');
-        this._assetGroup.addAsset('bgMusic', bg_music);
-        var character_spritesheet = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/3698.png');
-        this._assetGroup.addAsset('character', character_spritesheet);
-        this._assetGroup.load().then(() => {
+        var assetGroupLoader = new assets_1.AssetGroupLoader();
+        assetGroupLoader.load('./resources.json').then((ag) => {
+            this._assetGroup = ag;
+            return this._assetGroup.load();
+        }).then(() => {
             this._loadMapSpritesheet();
             this._loadBackgroundMusic();
             this._loadCharacterSpritesheet();
             this._resourceLoaded();
+        }).catch((error) => {
+            console.error(error);
         });
     }
     _resourceLoaded() {
