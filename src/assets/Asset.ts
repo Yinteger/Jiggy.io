@@ -5,12 +5,6 @@ import {
 	AssetLoader
 } from '../assets';
 
-// import {
-// 	AssetState,
-// 	AssetType,
-// 	AssetLoader
-// } from './';
-
 export class Asset {
 	private _id: string;
 	private _type: AssetType;

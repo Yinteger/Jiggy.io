@@ -2814,7 +2814,6 @@ var Color = (function () {
     return Color;
 }());
 exports.Color = Color;
-window.testColor = new Color();
 
 
 /***/ }),
@@ -3257,6 +3256,8 @@ var TextAssetBuilder = (function () {
             maxWidth = textViewPort.measureText(text).width;
         }
         textViewPort.setSize({ width: maxWidth, height: height });
+        textViewPort.setFont(font);
+        textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
         textViewPort.drawText(text, 0, 0, maxWidth);
         textAsset.setData(textViewPort.getImage());

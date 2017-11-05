@@ -1,9 +1,17 @@
+/// <reference path="../../src/assets/WebpackModules.d.ts" />
+
 import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
 import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
 import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
+import pikachuSmall from './resources/pikachu_small.png';
+
+setTimeout(() => {
+    console.log(pikachuSmall);
+}, 1000);
+
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];
