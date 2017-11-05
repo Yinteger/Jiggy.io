@@ -2,7 +2,7 @@ import {Entity} from "./Entity";
 import {
 	Dimension,
 	Coordinate
-} from '@jiggy/interfaces';
+} from '../interfaces';
 
 export class GridMap extends Entity {
 	public tileSize : Dimension;
@@ -16,8 +16,8 @@ export class GridMap extends Entity {
 		this.tileCount = tileCount;
 		this._tiles = [];
 
-		this.width = (this.tileSize.width * this.tileCount.x);
-		this.height = (this.tileSize.height * this.tileCount.y);
+		this.setWidth(this.tileSize.width * this.tileCount.x);
+		this.setHeight(this.tileSize.height * this.tileCount.y);
 
 		for (var x = 0; x < this.tileCount.x; x ++) {
             for (var y = 0; y < this.tileCount.y; y++) {
@@ -36,10 +36,10 @@ export class GridMap extends Entity {
 
     protected _buildTile(x: number, y: number) : Entity {
         var tile = new Entity();
-        tile.width = this.tileSize.width;
-        tile.height = this.tileSize.height;
-        tile.x = ((x) * this.tileSize.width);
-        tile.y = ((y) * this.tileSize.height);
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
         return tile;
     }
 

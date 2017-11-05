@@ -3,10 +3,10 @@ import {GridMap, IsometricTile} from "./";
 export class IsometricGridMap extends GridMap {
     protected _buildTile(x: number, y: number): IsometricTile {
         var tile = new IsometricTile();
-        tile.width = this.tileSize.width;
-        tile.height = this.tileSize.height;
-        tile.x = ((x) * this.tileSize.width);
-        tile.y = ((y) * this.tileSize.height);
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
         return tile;
 	}
 }

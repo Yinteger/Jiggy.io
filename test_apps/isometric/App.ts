@@ -1,15 +1,15 @@
-import Engine from "../../src/core/src/Engine";
-import { IsometricRenderingEngineCool, TwoDimensionalRenderingEngine, GroupLogicEngine } from "../../src/engines/src";
-import { IsometricGridMap } from "../../src/entities/src/";
-import { Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter } from "../../src/utils/src";
-import { TouchListener, TouchListenerEvents, Touch, TouchEvents, TouchMoveEvent } from "../../src/inputs/src/";
-import { Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState } from "../../src/assets/src/";
+import Engine from "../../src/core/Engine";
+import { TwoDimensionalRenderingEngine, GroupLogicEngine, IsometricRenderingEngine } from "../../src/engines";
+import { IsometricGridMap } from "../../src/entities";
+import { Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color } from "../../src/utils";
+import { TouchListener, TouchListenerEvents, Touch, TouchEvents, TouchMoveEvent } from "../../src/inputs/";
+import { Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState } from "../../src/assets/";
 import {
     Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
     Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
     GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
-} from "../../src/inputs/src/";
-import { Entity, IsometricTile } from "@jiggy/entities";
+} from "../../src/inputs";
+import { Entity, IsometricTile } from "../../src/entities";
 
 class IsoDemo extends Engine {
     _characterSpritesheet: Spritesheet;
@@ -17,16 +17,16 @@ class IsoDemo extends Engine {
     _mainCamera: Camera;
     constructor() {
         super();
-        this.viewPort.size = ({ width: 500, height: 500 });
-        this.renderingEngine = new IsometricRenderingEngineCool();
+        this.getViewPort().setSize({ width: 500, height: 500 });
+        this.setRenderingEngine(new IsometricRenderingEngine());
 
 
         var layer1: IsometricGridMap = new IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
-        layer1.x = 0;
-        layer1.y = 0;
+        layer1.setX(0);
+        layer1.setY(0);
         var camera = new Camera(layer1, { x: -150, y: 0 }, { width: 500, height: 500 }, { x: 0, y: 0 }, { width: 500, height: 500 });
         this._mainCamera = camera;
-        this.renderingEngine.addCamera(camera);
+        this.getRenderingEngine().addCamera(camera);
 
         var map_asset: Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'grass_18x18_zps343999e6.png');
 
@@ -37,27 +37,27 @@ class IsoDemo extends Engine {
                 var count = 1;
                 for (var tile of tiles) {                    
                     //tile.color = { r: (222 / count), g: (222/count), b: (222/count) };
-                    tile.texture = map_asset;
+                    tile.setTexture(map_asset);
                     count += .25;
                     //tile.y -= Math.floor((Math.random() * 30) + 1);
-                    tile.depth = Math.floor((Math.random() * 30) + 1);
+                    //tile.depth = Math.floor((Math.random() * 30) + 1);
                     console.log(count);
-                    tile.tile = true;
+                    //tile.tile = true;
                 }
                 console.log(tiles);
                 this._loadCharacterSpriteSheet(() => {
                     var player: Entity = new Entity();
-                    player.height = 16;
-                    player.width = 16;
+                    player.setHeight(16);
+                    player.setWidth(16);
                     //player.texture = this._characterSpritesheet.getSprite("player_left");
                     //layer1.addChild(player);
 
                     let tile = layer1.getTile({ x: 2, y: 2 })
                     //tile.color = { r: 250, g: 0, b: 0 };
-                    player.x = tile.x + (tile.width / 2) - (player.width / 2)
-                    player.y = tile.y + (tile.height / 2) - (player.height / 2);
+                    player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getWidth() / 2));
+                    player.setY(tile.getY() + (tile.getHeight() / 2) - (player.getHeight() / 2));
                     this.player = player;
-                    player.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
+                    player.setColor(new Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
                 });
             }
         };
@@ -90,16 +90,16 @@ class IsoDemo extends Engine {
 
         mouse.on(MouseEvents.ScrollWheelMove, (e: ScrollWheelMove) => {
             // console.warn(e);
-            var fov = camera.fov;
-            var viewPoint = camera.viewPoint;
+            var fov = camera.getFOV();
+            var viewPoint = camera.getViewPoint();
             if (e.yDelta > 0) {
                 //Mouse wheel went up, zoom in by decreasing FOV
-                camera.viewPoint = ({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
-                camera.fov = ({ width: fov.width - 10, height: fov.height - 10 });
+                camera.setViewPoint({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
+                camera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
             } else {
                 //Zoom out
-                camera.viewPoint = ({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
-                camera.fov = ({ width: fov.width + 10, height: fov.height + 10 });
+                camera.setViewPoint({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
+                camera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
             }
         });
     }
@@ -122,18 +122,18 @@ class IsoDemo extends Engine {
         gamePad.on(GamePadEvents.AxisValueChange, (e: ValueChangeEvent) => {
             //console.log("Updating controller movement", gamePad.getAxis(0), gamePad.getAxis(1), axisId, newValue);
             if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                this.player.x += Math.floor(gamePad.getAxis(0) * 2);
+                this.player.setX(this.player.getX() + Math.floor(gamePad.getAxis(0) * 2));
             }
 
             if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                this.player.y += Math.floor(gamePad.getAxis(1) * 2);
+                this.player.setY(this.player.getY() + Math.floor(gamePad.getAxis(1) * 2));
             }
             if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
+                this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
             }
 
             if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
+                this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
             }
         });
     }
