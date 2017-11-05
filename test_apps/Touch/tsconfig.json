@@ -10,8 +10,7 @@
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true,
         "pretty": true,
-        "allowUnreachableCode": false,
-        "baseUrl" : "."
+        "allowUnreachableCode": false
     },
     "files": [
         "./App.ts"
