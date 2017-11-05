@@ -10,21 +10,33 @@ const SRC_DIR = Path.resolve(ROOT_DIR, './src/');
 const TEST_DIR = Path.resolve(ROOT_DIR, './test_apps/');
 
 function execBuild(done, args = '') {
-    var packages = FileSystem.readdirSync(SRC_DIR);
+    // var packages = FileSystem.readdirSync(SRC_DIR);
 
-    for (var i = 0; i < packages.length; i++) {
-        var pkg = packages[i];
+    ChildProcess.spawnSync(`${BIN_DIR}/tsc`, {
+        cwd : Path.resolve(SRC_DIR),
+        shell : true,
+        stdio: 'inherit'
+    });
+
+    // for (var i = 0; i < packages.length; i++) {
+    //     var pkg = packages[i];
         
-        if (FileSystem.existsSync(Path.resolve(SRC_DIR, pkg, 'package.json'))) {
-            console.log('Building', pkg, '...');
+    //     if (FileSystem.existsSync(Path.resolve(SRC_DIR, pkg, 'package.json'))) {
+    //         console.log('Building', pkg, '...');
             
-            var buildProcess = ChildProcess.spawnSync(`${BIN_DIR}/tsc`, {
-                cwd : Path.resolve(SRC_DIR, pkg),
-                shell : true,
-                stdio: 'inherit'
-            });
-        }
-    }
+    //         ChildProcess.spawnSync(`${BIN_DIR}/tsc -p tsconfig-build.json`, {
+    //             cwd : Path.resolve(SRC_DIR, pkg),
+    //             shell : true,
+    //             stdio: 'inherit'
+    //         });
+
+    //         ChildProcess.spawnSync(`node build.js`, {
+    //             cwd : Path.resolve(SRC_DIR, pkg),
+    //             shell : true,
+    //             stdio: 'inherit'
+    //         });
+    //     }
+    // }
 
     done();
 }
