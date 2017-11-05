@@ -9,11 +9,7 @@
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true,
         "pretty": true,
-        "allowUnreachableCode": false,
-        "baseUrl" : ".",
-        "paths": {
-            "@jiggy/*" : ["../../src/*/src/"]
-        }
+        "allowUnreachableCode": false
     },
     "files": [
         "./App.ts"

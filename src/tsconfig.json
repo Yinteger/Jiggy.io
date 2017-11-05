@@ -1,5 +1,8 @@
+// This is a config purely used for development editors. Using this config to compile will not emit or compile files.
+
 {
     "compilerOptions": {
+        "outDir": "../dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "moduleResolution": "node",
