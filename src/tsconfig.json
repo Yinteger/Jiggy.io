@@ -2,10 +2,9 @@
 
 {
     "compilerOptions": {
+        "outDir": "../dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "declaration": true,
-        "noEmit": true,
         "moduleResolution": "node",
         "removeComments": true,
         "module": "commonjs",
