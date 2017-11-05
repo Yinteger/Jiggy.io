@@ -548,7 +548,7 @@ export class Entity extends Events.EventEmitter {
 	 * @return Entity
 	 */
 	 public findTopChildAt (coordinate : Coordinate) : Entity|boolean {
-		var child: Entity;
+		var child: Entity | boolean = false;
 
 		//Find the Region the coordinates belond to
 		var region = this._coordinateToRegion(coordinate);
