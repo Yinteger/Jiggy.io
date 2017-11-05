@@ -7,8 +7,8 @@ import {Asset, AssetEvents} from './Asset';
 import {AssetType} from './AssetType';
 import {AssetState} from './AssetState';
 import {AssetFactory} from './AssetFactory';
-import {AssetGroup} from './AssetGroup';
-import {AssetGroupLoader} from './AssetGroupLoader';
+import {AssetGroup, AssetMap} from './AssetGroup';
+import {AssetGroupLoader, AssetDefinition, AssetGroupDefinition} from './AssetGroupLoader';
 
 import {AssetLoader} from './AssetLoader';
 import {AudioLoader} from './AudioLoader';
@@ -32,5 +32,7 @@ export {
     TextAssetBuilder,
     Spritesheet,
     SpritesheetDefinition,
-    Animation, AnimationFrame
+    Animation, AnimationFrame,
+    AssetGroup, AssetMap,
+    AssetGroupLoader, AssetDefinition, AssetGroupDefinition
 };

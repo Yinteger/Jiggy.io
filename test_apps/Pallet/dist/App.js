@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,27 +70,31 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(24);
+const Asset_1 = __webpack_require__(27);
 exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(25);
+const AssetType_1 = __webpack_require__(11);
 exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(26);
+const AssetState_1 = __webpack_require__(12);
 exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(27);
+const AssetFactory_1 = __webpack_require__(28);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(28);
+const AssetGroup_1 = __webpack_require__(13);
+exports.AssetGroup = AssetGroup_1.AssetGroup;
+const AssetGroupLoader_1 = __webpack_require__(29);
+exports.AssetGroupLoader = AssetGroupLoader_1.AssetGroupLoader;
+const AssetLoader_1 = __webpack_require__(30);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(29);
+const AudioLoader_1 = __webpack_require__(32);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(30);
+const ImageLoader_1 = __webpack_require__(33);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(31);
+const JSONLoader_1 = __webpack_require__(34);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(32);
+const TextAssetBuilder_1 = __webpack_require__(35);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(33);
+const Spritesheet_1 = __webpack_require__(36);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(34);
+const Animation_1 = __webpack_require__(37);
 exports.Animation = Animation_1.Animation;
 
 
@@ -101,23 +105,23 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
+const SeverityEnum_1 = __webpack_require__(7);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(16);
+const Camera_1 = __webpack_require__(20);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(17);
+const IDGenerator_1 = __webpack_require__(21);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(18);
+const Iterator_1 = __webpack_require__(8);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(19);
+const LogManager_1 = __webpack_require__(22);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(20);
+const ViewPort_1 = __webpack_require__(23);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(21);
+const CollisionEmitter_1 = __webpack_require__(24);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-var Color_1 = __webpack_require__(22);
+const Color_1 = __webpack_require__(25);
 exports.Color = Color_1.Color;
-var ColorCode_1 = __webpack_require__(7);
+const ColorCode_1 = __webpack_require__(9);
 exports.ColorCode = ColorCode_1.ColorCode;
 
 
@@ -436,14 +440,19 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(36);
-exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(37);
-exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(38);
-exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(39);
-exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
+const utils_1 = __webpack_require__(1);
+var instance = null;
+var setInstance = (game) => {
+    if (instance) {
+        instance.getLogManager().log(utils_1.SeverityEnum.WARNING, 'Instance has already been set! Are you instantiating more than one game?');
+    }
+    instance = game;
+};
+exports.setInstance = setInstance;
+var getInstance = () => {
+    return instance;
+};
+exports.getInstance = getInstance;
 
 
 /***/ }),
@@ -453,16 +462,14 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
-exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
-exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(11);
-exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
-exports.GridMap = GridMap_1.GridMap;
+const LogicEngine_1 = __webpack_require__(39);
+exports.LogicEngine = LogicEngine_1.LogicEngine;
+const GroupLogicEngine_1 = __webpack_require__(40);
+exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
+const RenderingEngine_1 = __webpack_require__(41);
+exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
+const TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
+exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
 /***/ }),
@@ -472,14 +479,33 @@ exports.GridMap = GridMap_1.GridMap;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(15);
-exports.Engine = Engine_1.Engine;
-var Instance_1 = __webpack_require__(9);
-exports.getInstance = Instance_1.getInstance;
+const Entity_1 = __webpack_require__(14);
+exports.Entity = Entity_1.Entity;
+const EntityModel_1 = __webpack_require__(43);
+exports.EntityModel = EntityModel_1.EntityModel;
+const EntityView_1 = __webpack_require__(15);
+exports.EntityView = EntityView_1.EntityView;
+const EntityView2D_1 = __webpack_require__(44);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+const GridMap_1 = __webpack_require__(45);
+exports.GridMap = GridMap_1.GridMap;
 
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Engine_1 = __webpack_require__(19);
+exports.Engine = Engine_1.Engine;
+const Instance_1 = __webpack_require__(3);
+exports.getInstance = Instance_1.getInstance;
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -496,7 +522,58 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class Iterator {
+    constructor(array) {
+        this._array = array;
+        this._index = -1;
+    }
+    hasNext() {
+        if (this._array[this._index + 1]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    next() {
+        this._index += 1;
+        return this._array[this._index];
+    }
+    hasPrev() {
+        if (this._array[this._index]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    prev() {
+        return this._array[this._index--];
+    }
+    setToBeginning() {
+        this._index = -1;
+    }
+    setToEnd() {
+        this._index = this._array.length;
+    }
+    getFirst() {
+        return this._array[0];
+    }
+    getLast() {
+        return this._array[this._array.length - 1];
+    }
+}
+exports.Iterator = Iterator;
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -804,117 +881,117 @@ exports.ColorMap = {
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+const utils_1 = __webpack_require__(1);
+const assets_1 = __webpack_require__(0);
 var assetFactory = assets_1.AssetFactory.getSingleton();
-var AudioEngine = (function () {
-    function AudioEngine() {
+class AudioEngine {
+    constructor() {
         this._audioMap = {};
         this._logManager = utils_1.LogManager.getSingleton();
     }
-    AudioEngine.prototype.addAudio = function (name, audio, channels) {
+    addAudio(name, audio, channels) {
         if (audio.getType() !== assets_1.AssetType.AUDIO) {
             throw 'AudioEngine.addAudio: Invalid Asset Type.';
         }
         this._setAudio(name, audio, channels);
-    };
-    AudioEngine.prototype.hasAudio = function (name) {
+    }
+    hasAudio(name) {
         var audio = this._getAudio(name);
         return (audio !== null);
-    };
-    AudioEngine.prototype.removeAudio = function (name) {
+    }
+    removeAudio(name) {
         var audio = this._getAudio(name);
         if (audio) {
             this._stopAudio(audio);
         }
         delete this._audioMap[name];
-    };
-    AudioEngine.prototype.releaseAssets = function () {
+    }
+    releaseAssets() {
         var keys = Object.keys(this._audioMap);
         for (var i = 0, len = keys.length; i < len; i++) {
             this.removeAudio(keys[i]);
         }
-    };
-    AudioEngine.prototype.playAudio = function (name) {
+    }
+    playAudio(name) {
         var audio = this._getAudio(name);
         if (audio) {
             this._playAudio(audio);
             audio.setAttribute('playing', true);
         }
-    };
-    AudioEngine.prototype.pauseAudio = function (name) {
+    }
+    pauseAudio(name) {
         var audio = this._getAudio(name);
         if (audio) {
             this._pauseAudio(audio);
             audio.setAttribute('playing', false);
         }
-    };
-    AudioEngine.prototype.stopAudio = function (name) {
+    }
+    stopAudio(name) {
         var audio = this._getAudio(name);
         if (audio) {
             this._stopAudio(audio);
             audio.setAttribute('playing', false);
         }
-    };
-    AudioEngine.prototype.isAudioLooping = function (name) {
+    }
+    isAudioLooping(name) {
         var audio = this._getAudio(name);
         if (audio) {
             return this._isAudioLooping(audio);
         }
         return false;
-    };
-    AudioEngine.prototype.loopAudio = function (name, state) {
+    }
+    loopAudio(name, state) {
         var audio = this._getAudio(name);
         if (audio) {
             this._loopAudio(audio, state);
         }
-    };
-    AudioEngine.prototype.isAudioMuted = function (name) {
+    }
+    isAudioMuted(name) {
         var audio = this._getAudio(name);
         if (audio) {
             return this._isAudioMuted(audio);
         }
         return false;
-    };
-    AudioEngine.prototype.muteAudio = function (name, state) {
+    }
+    muteAudio(name, state) {
         var audio = this._getAudio(name);
         if (audio) {
             this._muteAudio(audio, state);
         }
-    };
-    AudioEngine.prototype.getAudioDuration = function (name) {
+    }
+    getAudioDuration(name) {
         var audio = this._getAudio(name);
         if (audio) {
             return this._getAudioDuration(audio);
         }
         return 0;
-    };
-    AudioEngine.prototype.setTimeCursor = function (name, seconds) {
+    }
+    setTimeCursor(name, seconds) {
         var audio = this._getAudio(name);
         if (audio) {
             this._setTimeCursor(audio, seconds);
         }
-    };
-    AudioEngine.prototype.getTimeCursor = function (name) {
+    }
+    getTimeCursor(name) {
         var audio = this._getAudio(name);
         if (audio) {
             return this._getTimeCursor(audio);
         }
         return 0;
-    };
-    AudioEngine.prototype.setVolume = function (name, volume) {
+    }
+    setVolume(name, volume) {
         var audio = this._getAudio(name);
         if (audio) {
             this._setVolume(audio, volume);
         }
-    };
-    AudioEngine.prototype.getVolume = function (name) {
+    }
+    getVolume(name) {
         var audio = this._getAudio(name);
         if (audio) {
             return this._getVolume(audio);
@@ -922,8 +999,8 @@ var AudioEngine = (function () {
         else {
             return 0;
         }
-    };
-    AudioEngine.prototype._setAudio = function (name, audio, channels) {
+    }
+    _setAudio(name, audio, channels) {
         if (!audio) {
             this.removeAudio(name);
         }
@@ -939,11 +1016,11 @@ var AudioEngine = (function () {
             this._audioMap[name] = channelArr;
             this._registerEvents(channelArr);
         }
-    };
-    AudioEngine.prototype._warnMissingAudio = function (name) {
+    }
+    _warnMissingAudio(name) {
         this._logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
-    };
-    AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
+    }
+    _getAudio(name, justGiveChannel1) {
         if (this._audioMap[name]) {
             var channels = this._audioMap[name];
             if (justGiveChannel1) {
@@ -965,142 +1042,210 @@ var AudioEngine = (function () {
             this._warnMissingAudio(name);
             return null;
         }
-    };
-    AudioEngine.prototype._getData = function (audio) {
+    }
+    _getData(audio) {
         return audio.getData();
-    };
-    AudioEngine.prototype._attachStartEvent = function (asset) {
+    }
+    _attachStartEvent(asset) {
         if (!asset.getAttribute('startEvent')) {
             this._registerStartEvent(asset);
             asset.setAttribute('startEvent', true);
         }
-    };
-    AudioEngine.prototype._attachEndEvent = function (asset) {
+    }
+    _attachEndEvent(asset) {
         if (!asset.getAttribute('endEvent')) {
             this._registerEndEvent(asset);
             asset.setAttribute('endEvent', true);
         }
-    };
-    AudioEngine.prototype._registerEvents = function (channelArray) {
+    }
+    _registerEvents(channelArray) {
         var channel;
         for (var i = 0, len = channelArray.length; i < len; i++) {
             channel = channelArray[i];
             this._attachStartEvent(channel);
             this._attachEndEvent(channel);
         }
-    };
-    return AudioEngine;
-}());
+    }
+}
 exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var instance = null;
-var setInstance = function (game) {
-    if (instance) {
-        instance.getLogManager().log(utils_1.SeverityEnum.WARNING, 'Instance has already been set! Are you instantiating more than one game?');
-    }
-    instance = game;
-};
-exports.setInstance = setInstance;
-var getInstance = function () {
-    return instance;
-};
-exports.getInstance = getInstance;
+var AssetType;
+(function (AssetType) {
+    AssetType["RAW"] = "raw";
+    AssetType["IMAGE"] = "image";
+    AssetType["AUDIO"] = "audio";
+    AssetType["JSON"] = "json";
+})(AssetType = exports.AssetType || (exports.AssetType = {}));
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var assets_1 = __webpack_require__(0);
-var _1 = __webpack_require__(4);
-var utils_1 = __webpack_require__(1);
-var Entity = (function (_super) {
-    __extends(Entity, _super);
-    function Entity(model) {
-        var _this = _super.call(this) || this;
-        var useDefaults = false;
-        _this._modelCB = function (attribute, value, oldValue) {
-            if (_this._notifierKeys.indexOf(attribute) > -1) {
-                _this._setModified(true);
+var AssetState;
+(function (AssetState) {
+    AssetState[AssetState["NOT_LOADED"] = 0] = "NOT_LOADED";
+    AssetState[AssetState["LOADING"] = 1] = "LOADING";
+    AssetState[AssetState["LOADED"] = 2] = "LOADED";
+    AssetState[AssetState["UNLOADING"] = 3] = "UNLOADING";
+})(AssetState = exports.AssetState || (exports.AssetState = {}));
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const AssetState_1 = __webpack_require__(12);
+const Instance_1 = __webpack_require__(3);
+class AssetGroup {
+    constructor(assetMap = {}) {
+        this._assets = assetMap;
+    }
+    addAsset(name, asset) {
+        if (this._assets[name]) {
+            Instance_1.getInstance().getLogManager().warn(`Asset "${name}" already exists in Asset Group.`);
+            return;
+        }
+        this._assets[name] = asset;
+    }
+    removeAsset(name) {
+        var asset = this._assets[name];
+        if (!asset) {
+            return;
+        }
+        if (asset.getState() === AssetState_1.AssetState.LOADED) {
+            asset.unload();
+        }
+        delete this._assets[name];
+    }
+    getAsset(name) {
+        return this._assets[name];
+    }
+    load() {
+        var promises = [];
+        for (var name in this._assets) {
+            var asset = this._assets[name];
+            if (asset.getState() === AssetState_1.AssetState.NOT_LOADED) {
+                promises.push(asset.load());
             }
-            else if (_this._parent && _this._parentNotifierKeys.indexOf(attribute) > -1) {
-                _this._parent._setModified(true);
+        }
+        if (promises.length === 0) {
+            return Promise.resolve();
+        }
+        return new Promise((resolve, reject) => {
+            Promise.all(promises).then(() => {
+                resolve();
+            }).catch(reject);
+        });
+    }
+    unload() {
+        var promises;
+        for (var name in this._assets) {
+            var asset = this._assets[name];
+            if (asset.getState() === AssetState_1.AssetState.LOADED) {
+                promises.push(asset.unload());
+            }
+        }
+        if (promises.length === 0) {
+            return Promise.resolve();
+        }
+        return new Promise((resolve, reject) => {
+            Promise.all(promises).then(() => {
+                resolve();
+            }).catch(reject);
+        });
+    }
+}
+exports.AssetGroup = AssetGroup;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(2);
+const assets_1 = __webpack_require__(0);
+const _1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(1);
+class Entity extends Events.EventEmitter {
+    constructor(model) {
+        super();
+        var useDefaults = false;
+        this._modelCB = (attribute, value, oldValue) => {
+            if (this._notifierKeys.indexOf(attribute) > -1) {
+                this._setModified(true);
+            }
+            else if (this._parent && this._parentNotifierKeys.indexOf(attribute) > -1) {
+                this._parent._setModified(true);
             }
         };
         if (!model) {
             model = new _1.EntityModel();
             useDefaults = true;
         }
-        _this._view = new _1.EntityView(model);
-        _this._model = model;
-        _this._children = new Array();
-        _this._regions = [];
-        _this._regionDimension;
-        _this._regionList = {};
-        _this._collisionable = false;
-        _this._parent = null;
-        _this._modified = false;
-        _this._notifierKeys = ['width', 'height', 'color', 'texture', 'textures'];
-        _this._parentNotifierKeys = ['x', 'y'];
+        this._view = new _1.EntityView(model);
+        this._model = model;
+        this._children = new Array();
+        this._regions = [];
+        this._regionDimension;
+        this._regionList = {};
+        this._collisionable = false;
+        this._parent = null;
+        this._modified = false;
+        this._notifierKeys = ['width', 'height', 'color', 'texture', 'textures'];
+        this._parentNotifierKeys = ['x', 'y'];
         if (useDefaults) {
-            _this._setDefaults();
+            this._setDefaults();
         }
-        return _this;
     }
-    Entity.prototype.getID = function () {
+    getID() {
         return this._model.getID();
-    };
-    Entity.prototype.getParent = function () {
+    }
+    getParent() {
         return this._parent;
-    };
-    Entity.prototype.setParent = function (parent) {
+    }
+    setParent(parent) {
         this._parent = parent;
-    };
-    Entity.prototype.getRegions = function () {
+    }
+    getRegions() {
         return this._regions;
-    };
-    Entity.prototype.getRegionDimension = function () {
+    }
+    getRegionDimension() {
         return this._regionDimension;
-    };
-    Entity.prototype.getType = function () {
+    }
+    getType() {
         return this._model.getType();
-    };
-    Entity.prototype.setType = function (type) {
+    }
+    setType(type) {
         this._model.setType(type);
-    };
-    Entity.prototype.setCollisionable = function (collisionable) {
+    }
+    setCollisionable(collisionable) {
         this._collisionable = collisionable;
-    };
-    Entity.prototype.isCollisionable = function () {
+    }
+    isCollisionable() {
         return this._collisionable;
-    };
-    Entity.prototype.getModel = function () {
+    }
+    getModel() {
         return this._model;
-    };
-    Entity.prototype.setModel = function (model) {
+    }
+    setModel(model) {
         var view = this._view;
         var oldModel = this._model;
         if (oldModel) {
@@ -1108,35 +1253,35 @@ var Entity = (function (_super) {
         }
         this._model = model;
         model.on(1..toString(), this._modelCB);
-    };
-    Entity.prototype.getHeight = function () {
+    }
+    getHeight() {
         return this._model.getAttribute('height');
-    };
-    Entity.prototype.setHeight = function (height) {
+    }
+    setHeight(height) {
         this._model.setAttribute('height', height);
         this._generateRegions();
-    };
-    Entity.prototype.getWidth = function () {
+    }
+    getWidth() {
         return this._model.getAttribute('width');
-    };
-    Entity.prototype.setWidth = function (width) {
+    }
+    setWidth(width) {
         this._model.setAttribute('width', width);
         this._generateRegions();
-    };
-    Entity.prototype.getX = function () {
+    }
+    getX() {
         return this._model.getAttribute('x');
-    };
-    Entity.prototype.setX = function (x) {
-        var oldCoordinates = { x: this.getX(), y: this.getY() };
+    }
+    setX(x) {
+        let oldCoordinates = { x: this.getX(), y: this.getY() };
         this._model.setAttribute('x', x);
-        var newCoordinates = { x: this.getX(), y: this.getY() };
+        let newCoordinates = { x: this.getX(), y: this.getY() };
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
-        var eventData = {
+        let eventData = {
             type: 0..toString(),
-            oldCoordinates: oldCoordinates,
-            newCoordinates: newCoordinates,
+            oldCoordinates,
+            newCoordinates,
             source: this
         };
         if (!this._eventEmitted) {
@@ -1144,40 +1289,40 @@ var Entity = (function (_super) {
             this.emit(0..toString(), eventData);
             this._eventEmitted = false;
         }
-    };
-    Entity.prototype.setCoordinate = function (coordinate) {
-        var oldCoordinates = { x: this.getX(), y: this.getY() };
+    }
+    setCoordinate(coordinate) {
+        let oldCoordinates = { x: this.getX(), y: this.getY() };
         this._model.setAttribute('x', coordinate.x);
         this._model.setAttribute('y', coordinate.y);
-        var newCoordinates = { x: this.getX(), y: this.getY() };
+        let newCoordinates = { x: this.getX(), y: this.getY() };
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
-        var eventData = {
+        let eventData = {
             type: 0..toString(),
-            oldCoordinates: oldCoordinates,
-            newCoordinates: newCoordinates,
+            oldCoordinates,
+            newCoordinates,
             source: this
         };
         this.emit(0..toString(), eventData);
-    };
-    Entity.prototype.getX2 = function () {
+    }
+    getX2() {
         return this.getX() + this.getWidth();
-    };
-    Entity.prototype.getY = function () {
+    }
+    getY() {
         return this._model.getAttribute('y');
-    };
-    Entity.prototype.setY = function (y) {
-        var oldCoordinates = { x: this.getX(), y: this.getY() };
+    }
+    setY(y) {
+        let oldCoordinates = { x: this.getX(), y: this.getY() };
         this._model.setAttribute('y', y);
-        var newCoordinates = { x: this.getX(), y: this.getY() };
+        let newCoordinates = { x: this.getX(), y: this.getY() };
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
-        var eventData = {
+        let eventData = {
             type: 0..toString(),
-            oldCoordinates: oldCoordinates,
-            newCoordinates: newCoordinates,
+            oldCoordinates,
+            newCoordinates,
             source: this
         };
         if (!this._eventEmitted) {
@@ -1185,42 +1330,42 @@ var Entity = (function (_super) {
             this.emit(0..toString(), eventData);
             this._eventEmitted = false;
         }
-    };
-    Entity.prototype.getY2 = function () {
+    }
+    getY2() {
         return this.getY() + this.getHeight();
-    };
-    Entity.prototype.getZ = function () {
+    }
+    getZ() {
         return this._model.getAttribute('z');
-    };
-    Entity.prototype.setZ = function (z) {
+    }
+    setZ(z) {
         this._model.setAttribute('z', z);
-    };
-    Entity.prototype.getVisible = function () {
+    }
+    getVisible() {
         return this._model.getAttribute('visible');
-    };
-    Entity.prototype.setVisible = function (state) {
+    }
+    setVisible(state) {
         this._model.setAttribute('visible', state);
-    };
-    Entity.prototype.getColor = function () {
+    }
+    getColor() {
         return this._model.getAttribute('color');
-    };
-    Entity.prototype.setColor = function (color) {
+    }
+    setColor(color) {
         this._model.setAttribute('color', color);
-    };
-    Entity.prototype.getTexture = function () {
+    }
+    getTexture() {
         return this._model.getTexture();
-    };
-    Entity.prototype.setTexture = function (asset) {
+    }
+    setTexture(asset) {
         if (asset.getType() !== assets_1.AssetType.IMAGE) {
             throw new Error('Texture asset must be of type IMAGE.');
         }
         this._model.setTexture(asset);
         this._setModified(true);
-    };
-    Entity.prototype.isModified = function () {
+    }
+    isModified() {
         return this._modified;
-    };
-    Entity.prototype.addChild = function (child) {
+    }
+    addChild(child) {
         var parent = child._parent;
         if (parent) {
             parent.removeChild(child);
@@ -1228,50 +1373,50 @@ var Entity = (function (_super) {
         this._children.push(child);
         child._parent = this;
         this._putChildInRegion(child);
-    };
-    Entity.prototype.removeChild = function (child) {
+    }
+    removeChild(child) {
         if (this.isChild(child)) {
             var idx = this.indexOf(child);
             this._children.splice(idx, 1);
         }
         this._removeChildFromRegions(child);
         delete this._regionList[child.getID()];
-    };
-    Entity.prototype.removeAllChildren = function () {
+    }
+    removeAllChildren() {
         var child;
         while (child = this.getChildAt(0)) {
             this.removeChild(child);
         }
-    };
-    Entity.prototype.isChild = function (child) {
+    }
+    isChild(child) {
         return (this.indexOf(child) > -1);
-    };
-    Entity.prototype.indexOf = function (child) {
+    }
+    indexOf(child) {
         return this._children.indexOf(child);
-    };
-    Entity.prototype.childCount = function () {
+    }
+    childCount() {
         return this._children.length;
-    };
-    Entity.prototype.getChildAt = function (index) {
+    }
+    getChildAt(index) {
         return this._children[index];
-    };
-    Entity.prototype._setModified = function (state) {
+    }
+    _setModified(state) {
         this._modified = state;
         if (this._parent) {
             this._parent._setModified(state);
         }
-    };
-    Entity.prototype.iterator = function () {
+    }
+    iterator() {
         return new utils_1.Iterator(this._children);
-    };
-    Entity.prototype.getChildren = function (startCoordinate, endCoordinate) {
+    }
+    getChildren(startCoordinate, endCoordinate) {
         if (startCoordinate && endCoordinate) {
             var startRegion = this._coordinateToRegion(startCoordinate);
             var endRegion = this._coordinateToRegion(endCoordinate);
             var children = [];
             for (var x = startRegion.x; x <= endRegion.x; x++) {
                 for (var y = startRegion.y; y <= endRegion.y; y++) {
-                    children = children.concat(this._getChildrenInRegion({ x: x, y: y }));
+                    children = children.concat(this._getChildrenInRegion({ x, y }));
                 }
             }
             return new utils_1.Iterator(children);
@@ -1294,8 +1439,8 @@ var Entity = (function (_super) {
         else {
             return new utils_1.Iterator(this._children);
         }
-    };
-    Entity.prototype.findChildren = function (startCoordinate, endCoordinate) {
+    }
+    findChildren(startCoordinate, endCoordinate) {
         var children = [];
         if (this._children.length > 0) {
             if (startCoordinate && !endCoordinate) {
@@ -1305,12 +1450,12 @@ var Entity = (function (_super) {
                     var childrenIterator = new utils_1.Iterator(regionChildren);
                     while (childrenIterator.hasNext()) {
                         var iterChild = childrenIterator.next();
-                        var childCoordinate = iterChild.getCoordinate();
-                        var childOuterCoordinate = iterChild.getOuterCoordinate();
+                        let childCoordinate = iterChild.getCoordinate();
+                        let childOuterCoordinate = iterChild.getOuterCoordinate();
                         if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
                             && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
                             children.push(iterChild);
-                            var deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
+                            let deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
                             if (deeperChildren) {
                                 children = children.concat(deeperChildren);
                             }
@@ -1324,13 +1469,13 @@ var Entity = (function (_super) {
                 var childrenVisited = [];
                 for (var x = startRegion.x; x <= endRegion.x; x++) {
                     for (var y = startRegion.y; y <= endRegion.y; y++) {
-                        var regionChildren = this._getChildrenInRegion({ x: x, y: y });
+                        var regionChildren = this._getChildrenInRegion({ x, y });
                         for (var regionChildI in regionChildren) {
                             var regionChild = regionChildren[regionChildI];
                             if (childrenVisited.indexOf(regionChild) === -1) {
                                 childrenVisited.push(regionChild);
-                                var childCoordinate = regionChild.getCoordinate();
-                                var childOuterCoordinate = regionChild.getOuterCoordinate();
+                                let childCoordinate = regionChild.getCoordinate();
+                                let childOuterCoordinate = regionChild.getOuterCoordinate();
                                 var xCollission = false;
                                 var yCollision = false;
                                 if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
@@ -1343,7 +1488,7 @@ var Entity = (function (_super) {
                                 }
                                 if (xCollission && yCollision) {
                                     children.push(regionChild);
-                                    var deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
+                                    let deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
                                     if (deeperChildren) {
                                         children = children.concat(deeperChildren);
                                     }
@@ -1355,8 +1500,8 @@ var Entity = (function (_super) {
             }
         }
         return children;
-    };
-    Entity.prototype.findTopChildAt = function (coordinate) {
+    }
+    findTopChildAt(coordinate) {
         var child = false;
         var region = this._coordinateToRegion(coordinate);
         var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
@@ -1376,14 +1521,14 @@ var Entity = (function (_super) {
             }
         }
         return child || false;
-    };
-    Entity.prototype.getCoordinate = function () {
+    }
+    getCoordinate() {
         return { x: this.getX(), y: this.getY() };
-    };
-    Entity.prototype.getOuterCoordinate = function () {
+    }
+    getOuterCoordinate() {
         return { x: this.getX2(), y: this.getY2() };
-    };
-    Entity.prototype.getAbsoluteY = function () {
+    }
+    getAbsoluteY() {
         var entity = this;
         var y = 0;
         while (entity) {
@@ -1391,11 +1536,11 @@ var Entity = (function (_super) {
             entity = entity._parent;
         }
         return y;
-    };
-    Entity.prototype.getAbsoluteY2 = function () {
+    }
+    getAbsoluteY2() {
         return this.getAbsoluteY() + this.getHeight();
-    };
-    Entity.prototype.getAbsoluteX = function () {
+    }
+    getAbsoluteX() {
         var entity = this;
         var x = 0;
         while (entity) {
@@ -1403,34 +1548,34 @@ var Entity = (function (_super) {
             entity = entity._parent;
         }
         return x;
-    };
-    Entity.prototype.getAbsoluteX2 = function () {
+    }
+    getAbsoluteX2() {
         return this.getAbsoluteX() + this.getWidth();
-    };
-    Entity.prototype.setLocation = function (coordinate) {
+    }
+    setLocation(coordinate) {
         this.setX(coordinate.x);
         this.setY(coordinate.y);
-    };
-    Entity.prototype.getLocation = function () {
+    }
+    getLocation() {
         return {
             x: this.getX(),
             y: this.getY()
         };
-    };
-    Entity.prototype.setSize = function (dimension) {
+    }
+    setSize(dimension) {
         this._setModified(true);
         this.setWidth(dimension.width);
         this.setHeight(dimension.height);
-    };
-    Entity.prototype.getSize = function () {
+    }
+    getSize() {
         return { width: this.getWidth(), height: this.getHeight() };
-    };
-    Entity.prototype._setDefaults = function () {
+    }
+    _setDefaults() {
         this.setLocation({ x: 0, y: 0 });
         this.setSize({ width: 0, height: 0 });
         this.setVisible(true);
-    };
-    Entity.prototype._generateRegions = function () {
+    }
+    _generateRegions() {
         this._regions = [];
         this._regionList = {};
         if (this.getWidth() <= 100) {
@@ -1458,8 +1603,8 @@ var Entity = (function (_super) {
         while (childrenIterator.hasNext()) {
             this._putChildInRegion(childrenIterator.next());
         }
-    };
-    Entity.prototype._putChildInRegion = function (child) {
+    }
+    _putChildInRegion(child) {
         var startRegion = this._coordinateToRegion({ x: child.getX(), y: child.getY() });
         var endRegion = this._coordinateToRegion({ x: child.getX2(), y: child.getY2() });
         this._regionList[child.getID()] = [];
@@ -1469,7 +1614,7 @@ var Entity = (function (_super) {
                     for (var y = startRegion.y; y <= endRegion.y; y++) {
                         if (this._regions[x][y]) {
                             this._regions[x][y].push(child);
-                            this._regionList[child.getID()].push({ x: x, y: y });
+                            this._regionList[child.getID()].push({ x, y });
                         }
                     }
                 }
@@ -1477,142 +1622,116 @@ var Entity = (function (_super) {
         }
         else {
         }
-    };
-    Entity.prototype._getChildrenInRegion = function (regionCoordinate) {
+    }
+    _getChildrenInRegion(regionCoordinate) {
         if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
             return this._regions[regionCoordinate.x][regionCoordinate.y];
         }
         else {
             return [];
         }
-    };
-    Entity.prototype._removeChildFromRegions = function (child) {
+    }
+    _removeChildFromRegions(child) {
         if (this._regionList[child.getID()]) {
             for (var i in this._regionList[child.getID()]) {
                 var coord = this._regionList[child.getID()][i];
                 this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
             }
         }
-    };
-    Entity.prototype._updateChildsRegion = function (child) {
+    }
+    _updateChildsRegion(child) {
         this._removeChildFromRegions(child);
         this._putChildInRegion(child);
-    };
-    Entity.prototype._coordinateToRegion = function (coordinate) {
+    }
+    _coordinateToRegion(coordinate) {
         var x = Math.floor(coordinate.x / this._regionDimension.width);
         var y = Math.floor(coordinate.y / this._regionDimension.height);
-        return { x: x, y: y };
-    };
-    return Entity;
-}(Events.EventEmitter));
+        return { x, y };
+    }
+}
 exports.Entity = Entity;
 
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var EntityView = (function (_super) {
-    __extends(EntityView, _super);
-    function EntityView(model) {
-        var _this = _super.call(this) || this;
-        _this._visible = true;
-        _this._model = model;
-        _this._bindedFuncs = {};
-        _this._attachEvents();
-        return _this;
+const Events = __webpack_require__(2);
+class EntityView extends Events.EventEmitter {
+    constructor(model) {
+        super();
+        this._visible = true;
+        this._model = model;
+        this._bindedFuncs = {};
+        this._attachEvents();
     }
-    EntityView.prototype.setVisible = function (visible) {
+    setVisible(visible) {
         this._visible = visible;
-    };
-    EntityView.prototype.getVisible = function () {
+    }
+    getVisible() {
         return this._visible;
-    };
-    EntityView.prototype.setModel = function (model) {
+    }
+    setModel(model) {
         if (this._model) {
             this._detachEvents();
         }
         this._model = model;
         this._attachEvents();
-    };
-    EntityView.prototype._handleAttrChange = function (e) {
-    };
-    EntityView.prototype._attachEvents = function () {
+    }
+    _handleAttrChange(e) {
+    }
+    _attachEvents() {
         this._model.on(1..toString(), (this._bindedFuncs[1..toString()] = this._handleAttrChange.bind(this)));
-    };
-    EntityView.prototype._detachEvents = function () {
+    }
+    _detachEvents() {
         this._model.removeListener(1..toString(), this._bindedFuncs[1..toString()]);
-    };
-    return EntityView;
-}(Events.EventEmitter));
+    }
+}
 exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var GamePad = (function (_super) {
-    __extends(GamePad, _super);
-    function GamePad(id) {
-        var _this = _super.call(this) || this;
-        _this._pollRate = 15;
-        _this._buttons = [];
-        _this._axes = [];
-        _this._gamePadID = id;
-        var gamePad = navigator.getGamepads()[id];
+const Events = __webpack_require__(2);
+class GamePad extends Events.EventEmitter {
+    constructor(id) {
+        super();
+        this._pollRate = 15;
+        this._buttons = [];
+        this._axes = [];
+        this._gamePadID = id;
+        let gamePad = navigator.getGamepads()[id];
         for (var i = 0; i < gamePad.buttons.length; i++) {
-            _this._buttons.push(gamePad.buttons[i].value);
+            this._buttons.push(gamePad.buttons[i].value);
         }
         for (var i = 0; i < gamePad.axes.length; i++) {
-            _this._axes.push(gamePad.axes[i]);
+            this._axes.push(gamePad.axes[i]);
         }
-        _this._initializePolling();
-        return _this;
+        this._initializePolling();
     }
-    GamePad.prototype.getAxis = function (index) {
+    getAxis(index) {
         return this._axes[index];
-    };
-    GamePad.prototype.setPollRate = function (pollRate) {
+    }
+    setPollRate(pollRate) {
         this._pollRate = pollRate;
         this._initializePolling();
-    };
-    GamePad.prototype._initializePolling = function () {
+    }
+    _initializePolling() {
         if (this._pollTimer) {
             clearInterval(this._pollTimer);
         }
         this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
-    };
-    GamePad.prototype._poll = function () {
-        var gamePad = navigator.getGamepads()[this._gamePadID];
+    }
+    _poll() {
+        let gamePad = navigator.getGamepads()[this._gamePadID];
         if (!gamePad) {
             this._disconnect();
             return null;
@@ -1620,7 +1739,7 @@ var GamePad = (function (_super) {
         for (var i = 0; i < gamePad.buttons.length; i++) {
             if (gamePad.buttons[i].value != this._buttons[i]) {
                 this._buttons[i] = gamePad.buttons[i].value;
-                var e = {
+                let e = {
                     source: this,
                     type: "BUTTONVALUECHANGE",
                     value: gamePad.buttons[i].value,
@@ -1632,7 +1751,7 @@ var GamePad = (function (_super) {
         for (var i = 0; i < gamePad.axes.length; i++) {
             if (gamePad.axes[i] != this._axes[i]) {
                 this._axes[i] = gamePad.axes[i];
-                var e = {
+                let e = {
                     source: this,
                     type: "AXISVALUECHANGE",
                     value: gamePad.axes[i],
@@ -1641,75 +1760,62 @@ var GamePad = (function (_super) {
                 this.emit("AXISVALUECHANGE", e);
             }
         }
-    };
-    GamePad.prototype._disconnect = function () {
+    }
+    _disconnect() {
         clearInterval(this._pollTimer);
-        var e = {
+        let e = {
             source: this,
             type: "AXISVALUECHANGE"
         };
         this.emit("DISCONNECT", e);
-    };
-    return GamePad;
-}(Events.EventEmitter));
+    }
+}
 exports.GamePad = GamePad;
 
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+const Events = __webpack_require__(2);
 ;
 ;
-var Touch = (function (_super) {
-    __extends(Touch, _super);
-    function Touch(nTouch) {
-        var _this = _super.call(this) || this;
-        _this._id = nTouch.identifier;
-        _this._x = nTouch.pageX;
-        _this._y = nTouch.pageY;
-        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
-        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
-        return _this;
+class Touch extends Events.EventEmitter {
+    constructor(nTouch) {
+        super();
+        this._id = nTouch.identifier;
+        this._x = nTouch.pageX;
+        this._y = nTouch.pageY;
+        window.addEventListener("touchmove", this._touchMoveListener = this._onTouchMove.bind(this));
+        window.addEventListener("touchend", this._touchEndListener = this._onTouchEnd.bind(this));
     }
-    Touch.prototype.getID = function () {
+    getID() {
         return this._id;
-    };
-    Touch.prototype.getX = function () {
+    }
+    getX() {
         return this._x;
-    };
-    Touch.prototype.getY = function () {
+    }
+    getY() {
         return this._y;
-    };
-    Touch.prototype._onTouchEnd = function (e) {
+    }
+    _onTouchEnd(e) {
         for (var i = 0; i < e.changedTouches.length; i++) {
             var nTouch = e.changedTouches.item(i);
             if (nTouch.identifier === this._id) {
                 this._disconnect();
             }
         }
-    };
-    Touch.prototype._onTouchMove = function (e) {
+    }
+    _onTouchMove(e) {
         for (var i = 0; i < e.changedTouches.length; i++) {
             var nTouch = e.changedTouches.item(i);
             if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
                 this._x = nTouch.pageX;
                 this._y = nTouch.pageY;
-                var e_1 = {
+                let e = {
                     type: "TOUCHMOVED",
                     source: this,
                     position: {
@@ -1717,61 +1823,49 @@ var Touch = (function (_super) {
                         y: this._y
                     }
                 };
-                this.emit("TOUCHMOVED", e_1);
+                this.emit("TOUCHMOVED", e);
             }
         }
-    };
-    Touch.prototype._disconnect = function () {
-        var e = {
+    }
+    _disconnect() {
+        let e = {
             source: this,
             type: "TOUCHREMOVED"
         };
         this.emit("TOUCHREMOVED", e);
         window.removeEventListener("touchmove", this._touchMoveListener);
         window.removeEventListener("touchend", this._touchEndListener);
-    };
-    return Touch;
-}(Events.EventEmitter));
+    }
+}
 exports.Touch = Touch;
 
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(5);
-var engines_1 = __webpack_require__(3);
-var entities_1 = __webpack_require__(4);
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
-var Character_1 = __webpack_require__(43);
-var inputs_1 = __webpack_require__(44);
-var PalletDemo = (function (_super) {
-    __extends(PalletDemo, _super);
-    function PalletDemo() {
-        var _this = _super.call(this) || this;
-        _this._direction = "";
-        _this.getViewPort().setSize({ width: 500, height: 500 });
-        _this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
-        _this.setLogicEngine(new engines_1.GroupLogicEngine());
-        _this.getRenderingEngine().setHUD(_this._createLoadingScreen());
-        _this._loadResources();
-        return _this;
+const core_1 = __webpack_require__(6);
+const engines_1 = __webpack_require__(4);
+const entities_1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(1);
+const assets_1 = __webpack_require__(0);
+const Character_1 = __webpack_require__(46);
+const inputs_1 = __webpack_require__(47);
+class PalletDemo extends core_1.Engine {
+    constructor() {
+        super();
+        this._direction = "";
+        this._assetGroup = new assets_1.AssetGroup();
+        this.getViewPort().setSize({ width: 500, height: 500 });
+        this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
+        this.setLogicEngine(new engines_1.GroupLogicEngine());
+        this.getRenderingEngine().setHUD(this._createLoadingScreen());
+        this._loadResources();
     }
-    PalletDemo.prototype._createLoadingScreen = function () {
+    _createLoadingScreen() {
         var textAssetBuilder = new assets_1.TextAssetBuilder();
         var hud = new entities_1.Entity();
         hud.setWidth(500);
@@ -1795,8 +1889,8 @@ var PalletDemo = (function (_super) {
         ]);
         loadingAnim.start();
         return hud;
-    };
-    PalletDemo.prototype._createMainMap = function () {
+    }
+    _createMainMap() {
         var mapContainer = new entities_1.Entity();
         var layer1 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
         var layer2 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
@@ -1833,551 +1927,327 @@ var PalletDemo = (function (_super) {
         layer2.getTile({ x: 11, y: 13 }).setCollisionable(true);
         layer2.getTile({ x: 12, y: 13 }).setCollisionable(true);
         return mapContainer;
-    };
-    PalletDemo.prototype._loadResources = function () {
-        this._loadMapSpritesheet();
-        this._loadBackgroundMusic();
-        this._loadCharacterSpritesheet();
-    };
-    PalletDemo.prototype._resourceLoaded = function () {
-        var _this = this;
-        if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
-            console.log("Resources all loaded");
-            setTimeout(function () {
-                _this.getRenderingEngine().setHUD(null);
-                var map = _this._createMainMap();
-                var camera = new utils_1.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
-                _this._mainCamera = camera;
-                _this.getRenderingEngine().addCamera(camera);
-                var mouse = inputs_1.Mouse.getInstance();
-                mouse.on("SCROLLWHEELMOVE", function (e) {
-                    var fov = camera.getFOV();
-                    var viewPoint = camera.getViewPoint();
-                    if (e.yDelta > 0) {
-                        camera.setViewPoint({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
-                        camera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
-                    }
-                    else {
-                        camera.setViewPoint({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
-                        camera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
-                    }
-                });
-                _this.player = new Character_1.default(_this._characterSpritesheet);
-                _this.player.setTexture(_this._characterSpritesheet.getSprite("player_down"));
-                var layer = map.getChildAt(1);
-                var tile = layer.getTile({ x: 5, y: 5 });
-                layer.addChild(_this.player);
-                _this.player.tileX = 5;
-                _this.player.tileY = 5;
-                _this.player.setX(tile.getX());
-                _this.player.setY(tile.getY() - _this.player.getHeight() - tile.getHeight());
-                var pokeball = new entities_1.Entity();
-                pokeball.setWidth(25);
-                pokeball.setHeight(25);
-                var pokeball_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/pokeball.png');
-                pokeball_asset.onStateChange = function (state) {
-                    if (state === assets_1.AssetState.LOADED) {
-                        pokeball.setTexture(pokeball_asset);
-                        _this.getRenderingEngine().setHUD(pokeball);
-                    }
-                };
-                pokeball_asset.load();
-                mouse.on("MOUSEMOVE", function (e) {
-                    pokeball.setX(e.x - _this.getRenderingEngine().getViewPort().getCanvas().offsetLeft - 14);
-                    pokeball.setY(e.y - _this.getRenderingEngine().getViewPort().getCanvas().offsetTop - 14);
-                });
-                mouse.on("LEFTBUTTONDOWN", function (e) {
+    }
+    _loadResources() {
+        var map_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/61816.png');
+        this._assetGroup.addAsset('map', map_asset);
+        var bg_music = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.AUDIO, 'Resources/music.mp3');
+        this._assetGroup.addAsset('bgMusic', bg_music);
+        var character_spritesheet = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/3698.png');
+        this._assetGroup.addAsset('character', character_spritesheet);
+        this._assetGroup.load().then(() => {
+            this._loadMapSpritesheet();
+            this._loadBackgroundMusic();
+            this._loadCharacterSpritesheet();
+            this._resourceLoaded();
+        });
+    }
+    _resourceLoaded() {
+        console.log("Resources all loaded");
+        setTimeout(() => {
+            this.getRenderingEngine().setHUD(null);
+            var map = this._createMainMap();
+            var camera = new utils_1.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
+            this._mainCamera = camera;
+            this.getRenderingEngine().addCamera(camera);
+            var mouse = inputs_1.Mouse.getInstance();
+            mouse.on("SCROLLWHEELMOVE", (e) => {
+                var fov = camera.getFOV();
+                var viewPoint = camera.getViewPoint();
+                if (e.yDelta > 0) {
+                    camera.setViewPoint({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
+                    camera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
+                }
+                else {
+                    camera.setViewPoint({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
+                    camera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
+                }
+            });
+            this.player = new Character_1.default(this._characterSpritesheet);
+            this.player.setTexture(this._characterSpritesheet.getSprite("player_down"));
+            let layer = map.getChildAt(1);
+            let tile = layer.getTile({ x: 5, y: 5 });
+            layer.addChild(this.player);
+            this.player.tileX = 5;
+            this.player.tileY = 5;
+            this.player.setX(tile.getX());
+            this.player.setY(tile.getY() - this.player.getHeight() - tile.getHeight());
+            var pokeball = new entities_1.Entity();
+            pokeball.setWidth(25);
+            pokeball.setHeight(25);
+            var pokeball_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/pokeball.png');
+            pokeball_asset.onStateChange = (state) => {
+                if (state === assets_1.AssetState.LOADED) {
+                    pokeball.setTexture(pokeball_asset);
+                    this.getRenderingEngine().setHUD(pokeball);
+                }
+            };
+            pokeball_asset.load();
+            mouse.on("MOUSEMOVE", (e) => {
+                pokeball.setX(e.x - this.getRenderingEngine().getViewPort().getCanvas().offsetLeft - 14);
+                pokeball.setY(e.y - this.getRenderingEngine().getViewPort().getCanvas().offsetTop - 14);
+            });
+            mouse.on("LEFTBUTTONDOWN", (e) => {
+                var newPokeball = new entities_1.Entity();
+                console.log(e);
+                console.log(camera);
+                var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
+                var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
+                newPokeball.setWidth(25 * x_fov);
+                newPokeball.setHeight(25 * y_fov);
+                newPokeball.setX(camera.getViewPoint().x + ((e.x * x_fov) - (23 * x_fov)));
+                newPokeball.setY(camera.getViewPoint().y + ((e.y * y_fov) - (23 * y_fov)));
+                newPokeball.setTexture(pokeball_asset);
+                layer.addChild(newPokeball);
+            });
+            mouse.on("RIGHTBUTTONDOWN", (e) => {
+                alert("YOU SHALL NOT PASS");
+            });
+            this.player.on(0..toString(), () => {
+                var fov = camera.getFOV();
+                camera.setViewPoint({ x: this.player.getX() + ((this.player.getWidth() - fov.width) / 2), y: this.player.getY() + ((this.player.getHeight() - fov.height) / 2) });
+            });
+            this.getAudioEngine().addAudio('bg', this._assetGroup.getAsset('bgMusic'));
+            this.getAudioEngine().loopAudio('bg', true);
+            this.getAudioEngine().playAudio('bg');
+            this.getLogicEngine().addLogic('moveLogic', () => {
+                switch (this._direction) {
+                    case 'left':
+                        this.player.moveLeft();
+                        break;
+                    case 'up':
+                        this.player.moveUp();
+                        break;
+                    case 'down':
+                        this.player.moveDown();
+                        break;
+                    case 'right':
+                        this.player.moveRight();
+                        break;
+                }
+            }, 1);
+            this.getLogicEngine().addLogic('pokeballLogic', () => {
+                if (mouse.isLeftButtonClicked()) {
                     var newPokeball = new entities_1.Entity();
-                    console.log(e);
-                    console.log(camera);
                     var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
                     var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
                     newPokeball.setWidth(25 * x_fov);
                     newPokeball.setHeight(25 * y_fov);
-                    newPokeball.setX(camera.getViewPoint().x + ((e.x * x_fov) - (23 * x_fov)));
-                    newPokeball.setY(camera.getViewPoint().y + ((e.y * y_fov) - (23 * y_fov)));
+                    var mouseCoordinates = mouse.getCurrentCoordinates();
+                    newPokeball.setX(camera.getViewPoint().x + ((mouseCoordinates.x * x_fov) - (23 * x_fov)));
+                    newPokeball.setY(camera.getViewPoint().y + ((mouseCoordinates.y * y_fov) - (23 * y_fov)));
                     newPokeball.setTexture(pokeball_asset);
                     layer.addChild(newPokeball);
-                });
-                mouse.on("RIGHTBUTTONDOWN", function (e) {
-                    alert("YOU SHALL NOT PASS");
-                });
-                _this.player.on(0..toString(), function () {
-                    var fov = camera.getFOV();
-                    camera.setViewPoint({ x: _this.player.getX() + ((_this.player.getWidth() - fov.width) / 2), y: _this.player.getY() + ((_this.player.getHeight() - fov.height) / 2) });
-                });
-                _this.getAudioEngine().addAudio('bg', _this._bgMusic);
-                _this.getAudioEngine().loopAudio('bg', true);
-                _this.getAudioEngine().playAudio('bg');
-                _this.getLogicEngine().addLogic('moveLogic', function () {
-                    switch (_this._direction) {
-                        case 'left':
-                            _this.player.moveLeft();
-                            break;
-                        case 'up':
-                            _this.player.moveUp();
-                            break;
-                        case 'down':
-                            _this.player.moveDown();
-                            break;
-                        case 'right':
-                            _this.player.moveRight();
-                            break;
-                    }
-                }, 1);
-                _this.getLogicEngine().addLogic('pokeballLogic', function () {
-                    if (mouse.isLeftButtonClicked()) {
-                        var newPokeball = new entities_1.Entity();
-                        var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
-                        var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
-                        newPokeball.setWidth(25 * x_fov);
-                        newPokeball.setHeight(25 * y_fov);
-                        var mouseCoordinates = mouse.getCurrentCoordinates();
-                        newPokeball.setX(camera.getViewPoint().x + ((mouseCoordinates.x * x_fov) - (23 * x_fov)));
-                        newPokeball.setY(camera.getViewPoint().y + ((mouseCoordinates.y * y_fov) - (23 * y_fov)));
-                        newPokeball.setTexture(pokeball_asset);
-                        layer.addChild(newPokeball);
-                    }
-                }, 50);
-                var gamepadListener = inputs_1.GamePadListener.getInstance();
-                if (gamepadListener.hasGamePads()) {
-                    console.log("GamePadConnected");
-                    var gamePads = gamepadListener.getGamePads();
-                    gamePads.forEach(function (gamePad) {
-                        _this.attachGamepad(gamePad);
-                    });
                 }
-                gamepadListener.on("GAMEPADADDED", function (gamePad) {
-                    console.log("GamePadConnected");
-                    _this.attachGamepad(gamePad);
+            }, 50);
+            let gamepadListener = inputs_1.GamePadListener.getInstance();
+            if (gamepadListener.hasGamePads()) {
+                console.log("GamePadConnected");
+                var gamePads = gamepadListener.getGamePads();
+                gamePads.forEach((gamePad) => {
+                    this.attachGamepad(gamePad);
                 });
-                gamepadListener.on("GAMEPADREMOVED", function (gamePad) {
-                    console.log("GameaPad Disconnected");
-                });
-                var keyboard = inputs_1.Keyboard.getInstance();
-                keyboard.on("KEYDOWN", function (e) {
-                    switch (e.key) {
-                        case inputs_1.KeyboardKeys.W:
-                        case inputs_1.KeyboardKeys[0]:
-                            _this._direction = 'up';
-                            break;
-                        case inputs_1.KeyboardKeys.A:
-                        case inputs_1.KeyboardKeys[1]:
-                            _this._direction = "left";
-                            break;
-                        case inputs_1.KeyboardKeys.S:
-                        case inputs_1.KeyboardKeys[2]:
-                            _this._direction = "down";
-                            break;
-                        case inputs_1.KeyboardKeys.D:
-                        case inputs_1.KeyboardKeys[3]:
-                            _this._direction = "right";
-                            break;
-                    }
-                });
-                keyboard.on("KEYUP", function (e) {
-                    switch (e.key) {
-                        case inputs_1.KeyboardKeys.W:
-                        case inputs_1.KeyboardKeys.A:
-                        case inputs_1.KeyboardKeys.S:
-                        case inputs_1.KeyboardKeys.D:
-                            _this._direction = null;
-                            break;
-                    }
-                });
-            }, 1000);
-        }
-    };
-    PalletDemo.prototype.attachGamepad = function (gamePad) {
-        var _this = this;
-        gamePad.on("AXISVALUECHANGE", function (e) {
+            }
+            gamepadListener.on("GAMEPADADDED", (gamePad) => {
+                console.log("GamePadConnected");
+                this.attachGamepad(gamePad);
+            });
+            gamepadListener.on("GAMEPADREMOVED", (gamePad) => {
+                console.log("GameaPad Disconnected");
+            });
+            var keyboard = inputs_1.Keyboard.getInstance();
+            keyboard.on("KEYDOWN", (e) => {
+                switch (e.key) {
+                    case inputs_1.KeyboardKeys.W:
+                    case inputs_1.KeyboardKeys[0]:
+                        this._direction = 'up';
+                        break;
+                    case inputs_1.KeyboardKeys.A:
+                    case inputs_1.KeyboardKeys[1]:
+                        this._direction = "left";
+                        break;
+                    case inputs_1.KeyboardKeys.S:
+                    case inputs_1.KeyboardKeys[2]:
+                        this._direction = "down";
+                        break;
+                    case inputs_1.KeyboardKeys.D:
+                    case inputs_1.KeyboardKeys[3]:
+                        this._direction = "right";
+                        break;
+                }
+            });
+            keyboard.on("KEYUP", (e) => {
+                switch (e.key) {
+                    case inputs_1.KeyboardKeys.W:
+                    case inputs_1.KeyboardKeys.A:
+                    case inputs_1.KeyboardKeys.S:
+                    case inputs_1.KeyboardKeys.D:
+                        this._direction = null;
+                        break;
+                }
+            });
+        }, 1000);
+    }
+    attachGamepad(gamePad) {
+        gamePad.on("AXISVALUECHANGE", (e) => {
             if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                _this.player.setX(_this.player.getX() + Math.floor(gamePad.getAxis(0) * 10));
+                this.player.setX(this.player.getX() + Math.floor(gamePad.getAxis(0) * 10));
             }
             if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                _this.player.setY(_this.player.getY() + Math.floor(gamePad.getAxis(1) * 10));
+                this.player.setY(this.player.getY() + Math.floor(gamePad.getAxis(1) * 10));
             }
             if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                _this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
+                this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
             }
             if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                _this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
+                this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
             }
         });
-        gamePad.on("BUTTONVALUECHANGE", function (e) {
+        gamePad.on("BUTTONVALUECHANGE", (e) => {
             var buttonId = e.id;
             var newValue = e.value;
             console.log(buttonId);
             console.log(newValue);
             if (buttonId === 12) {
-                if (newValue === 0 && _this._direction === "up") {
-                    _this._direction = "";
+                if (newValue === 0 && this._direction === "up") {
+                    this._direction = "";
                 }
                 else {
-                    _this._direction = "up";
+                    this._direction = "up";
                 }
             }
             if (buttonId === 13) {
-                if (newValue === 0 && _this._direction === "down") {
-                    _this._direction = "";
+                if (newValue === 0 && this._direction === "down") {
+                    this._direction = "";
                 }
                 else {
-                    _this._direction = "down";
+                    this._direction = "down";
                 }
             }
             if (buttonId === 14) {
-                if (newValue === 0 && _this._direction === "left") {
-                    _this._direction = "";
+                if (newValue === 0 && this._direction === "left") {
+                    this._direction = "";
                 }
                 else {
-                    _this._direction = "left";
+                    this._direction = "left";
                 }
             }
             if (buttonId === 15) {
-                if (newValue === 0 && _this._direction === "right") {
-                    _this._direction = "";
+                if (newValue === 0 && this._direction === "right") {
+                    this._direction = "";
                 }
                 else {
-                    _this._direction = "right";
+                    this._direction = "right";
                 }
             }
         });
-    };
-    PalletDemo.prototype.detachGamePad = function (gamepad) {
-    };
-    PalletDemo.prototype._loadMapSpritesheet = function () {
-        var _this = this;
-        var map_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/61816.png');
-        map_asset.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._mapSpritesheet = new assets_1.Spritesheet(map_asset, {
-                    "grass": {
-                        x: 16,
-                        y: 0,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_11": {
-                        x: 0,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_12": {
-                        x: 16,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_13": {
-                        x: 32,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_21": {
-                        x: 0,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_22": {
-                        x: 16,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_23": {
-                        x: 32,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_31": {
-                        x: 0,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_32": {
-                        x: 16,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_33": {
-                        x: 32,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_41": {
-                        x: 0,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_42": {
-                        x: 16,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_43": {
-                        x: 32,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        map_asset.load();
-    };
-    PalletDemo.prototype._loadCharacterSpritesheet = function () {
-        var _this = this;
-        var character_spritesheet = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/3698.png');
-        character_spritesheet.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._characterSpritesheet = new assets_1.Spritesheet(character_spritesheet, {
-                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
-                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
-                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_left": { x: 36, y: 10, width: 14, height: 20 },
-                    "player_left_step1": { x: 81, y: 10, width: 14, height: 20 },
-                    "player_left_step2": { x: 95, y: 10, width: 14, height: 20 },
-                    "player_right": { x: 36, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step1": { x: 81, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step2": { x: 95, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_down": { x: 6, y: 10, width: 14, height: 20 },
-                    "player_down_step1": { x: 51, y: 10, width: 14, height: 20 },
-                    "player_down_step2": { x: 51, y: 10, width: 14, height: 20, "flipX": true }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        character_spritesheet.load();
-    };
-    PalletDemo.prototype._loadBackgroundMusic = function () {
-        var _this = this;
-        var bg_music = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.AUDIO, 'Resources/music.mp3');
-        bg_music.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._bgMusic = bg_music;
-                _this._resourceLoaded();
-            }
-        };
-        bg_music.load();
-    };
-    return PalletDemo;
-}(core_1.Engine));
-window._PalletDemo = new PalletDemo();
-
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var audio_1 = __webpack_require__(23);
-var assets_1 = __webpack_require__(0);
-var Instance_1 = __webpack_require__(9);
-var Engine = (function () {
-    function Engine() {
-        Instance_1.setInstance(this);
-        this._debugMode = false;
-        this._logManager = utils_1.LogManager.getSingleton();
-        this._assetFactory = assets_1.AssetFactory.getSingleton();
-        this._audioEngine = new audio_1.HTML5AudioEngine();
-        this._viewPort = new utils_1.ViewPort();
-        this._logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
     }
-    Engine.prototype.isDebugEnabled = function () {
-        return this._debugMode;
-    };
-    Engine.prototype.setRenderingEngine = function (renderingEngine) {
-        if (this._renderingEngine) {
-        }
-        this._renderingEngine = renderingEngine;
-        this._renderingEngine.setViewPort(this._viewPort);
-        this._renderingEngine.startRendering();
-    };
-    Engine.prototype.getRenderingEngine = function () {
-        return this._renderingEngine;
-    };
-    Engine.prototype.setLogManager = function (logManager) {
-        this._logManager = logManager;
-    };
-    Engine.prototype.getLogManager = function () {
-        return this._logManager;
-    };
-    Engine.prototype.setAssetFactory = function (assetFactory) {
-        this._assetFactory = assetFactory;
-    };
-    Engine.prototype.getAssetFactory = function () {
-        return this._assetFactory;
-    };
-    Engine.prototype.getViewPort = function () {
-        return this._viewPort;
-    };
-    Engine.prototype.setAudioEngine = function (audioEngine) {
-        this._audioEngine = audioEngine;
-    };
-    Engine.prototype.getAudioEngine = function () {
-        return this._audioEngine;
-    };
-    Engine.prototype.setLogicEngine = function (logicEngine) {
-        this._logicEngine = logicEngine;
-    };
-    Engine.prototype.getLogicEngine = function () {
-        return this._logicEngine;
-    };
-    return Engine;
-}());
-exports.Engine = Engine;
-exports.default = Engine;
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var DEFAULT_VIEWPOINT = { x: 0, y: 0 };
-var DEFAULT_FOV = { width: 100, height: 100 };
-var DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
-var DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
-var Camera = (function () {
-    function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
-        this.setScene(scene);
-        this.setViewPoint(viewPoint || DEFAULT_VIEWPOINT);
-        this.setFOV(fov || DEFAULT_FOV);
-        this.setRenderOrigin(renderOrigin || DEFAULT_RENDER_ORIGIN);
-        this.setRenderDimension(renderDimension || DEFAULT_RENDER_DIMENSION);
+    detachGamePad(gamepad) {
     }
-    Camera.prototype.setScene = function (scene) {
-        this._scene = scene;
-    };
-    Camera.prototype.getScene = function () {
-        return this._scene;
-    };
-    Camera.prototype.setViewPoint = function (viewPoint) {
-        this._viewPoint = viewPoint;
-    };
-    Camera.prototype.getViewPoint = function () {
-        return this._viewPoint;
-    };
-    Camera.prototype.setFOV = function (fov) {
-        this._fov = fov;
-    };
-    Camera.prototype.getFOV = function () {
-        return this._fov;
-    };
-    Camera.prototype.setRenderOrigin = function (origin) {
-        this._renderOrigin = origin;
-    };
-    Camera.prototype.getRenderOrigin = function () {
-        return this._renderOrigin;
-    };
-    Camera.prototype.setRenderDimension = function (dim) {
-        this._renderDimension = dim;
-    };
-    Camera.prototype.getRenderDimension = function () {
-        return this._renderDimension;
-    };
-    return Camera;
-}());
-exports.Camera = Camera;
-
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(1);
-var IDGenerator = (function () {
-    function IDGenerator() {
-    }
-    IDGenerator.prototype.generate = function () {
-        return IDGenerator.generate();
-    };
-    IDGenerator.generate = function () {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
+    _loadMapSpritesheet() {
+        var map_asset = this._assetGroup.getAsset('map');
+        this._mapSpritesheet = new assets_1.Spritesheet(map_asset, {
+            "grass": {
+                x: 16,
+                y: 0,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_11": {
+                x: 0,
+                y: 16,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_12": {
+                x: 16,
+                y: 16,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_13": {
+                x: 32,
+                y: 16,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_21": {
+                x: 0,
+                y: 32,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_22": {
+                x: 16,
+                y: 32,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_23": {
+                x: 32,
+                y: 32,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_31": {
+                x: 0,
+                y: 48,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_32": {
+                x: 16,
+                y: 48,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_33": {
+                x: 32,
+                y: 48,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_41": {
+                x: 0,
+                y: 64,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_42": {
+                x: 16,
+                y: 64,
+                width: 16,
+                height: 16
+            },
+            "house_1_roof_43": {
+                x: 32,
+                y: 64,
+                width: 16,
+                height: 16
+            }
         });
-    };
-    IDGenerator.getSingleton = function () {
-        _1.LogManager.getSingleton().deprecate('IDGenerator should no longer be used as a singleton anymore. Instead use IDGenerator.generate().');
-        if (!IDGenerator._instance) {
-            IDGenerator._instance = new IDGenerator();
-        }
-        return IDGenerator._instance;
-    };
-    return IDGenerator;
-}());
-exports.IDGenerator = IDGenerator;
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Iterator = (function () {
-    function Iterator(array) {
-        this._array = array;
-        this._index = -1;
     }
-    Iterator.prototype.hasNext = function () {
-        if (this._array[this._index + 1]) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    Iterator.prototype.next = function () {
-        this._index += 1;
-        return this._array[this._index];
-    };
-    Iterator.prototype.hasPrev = function () {
-        if (this._array[this._index]) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    Iterator.prototype.prev = function () {
-        return this._array[this._index--];
-    };
-    Iterator.prototype.setToBeginning = function () {
-        this._index = -1;
-    };
-    Iterator.prototype.setToEnd = function () {
-        this._index = this._array.length;
-    };
-    Iterator.prototype.getFirst = function () {
-        return this._array[0];
-    };
-    Iterator.prototype.getLast = function () {
-        return this._array[this._array.length - 1];
-    };
-    return Iterator;
-}());
-exports.Iterator = Iterator;
+    _loadCharacterSpritesheet() {
+        var character_spritesheet = this._assetGroup.getAsset('character');
+        this._characterSpritesheet = new assets_1.Spritesheet(character_spritesheet, {
+            "player_up": { x: 21, y: 10, width: 14, height: 20 },
+            "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
+            "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
+            "player_left": { x: 36, y: 10, width: 14, height: 20 },
+            "player_left_step1": { x: 81, y: 10, width: 14, height: 20 },
+            "player_left_step2": { x: 95, y: 10, width: 14, height: 20 },
+            "player_right": { x: 36, y: 10, width: 14, height: 20, "flipX": true },
+            "player_right_step1": { x: 81, y: 10, width: 14, height: 20, "flipX": true },
+            "player_right_step2": { x: 95, y: 10, width: 14, height: 20, "flipX": true },
+            "player_down": { x: 6, y: 10, width: 14, height: 20 },
+            "player_down_step1": { x: 51, y: 10, width: 14, height: 20 },
+            "player_down_step2": { x: 51, y: 10, width: 14, height: 20, "flipX": true }
+        });
+    }
+    _loadBackgroundMusic() {
+    }
+}
+window._PalletDemo = new PalletDemo();
 
 
 /***/ }),
@@ -2387,64 +2257,63 @@ exports.Iterator = Iterator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
-var LogManager = (function () {
-    function LogManager() {
-        this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
-        this._logLevel = this._logLevel | SeverityEnum_1.SeverityEnum.DEBUG | SeverityEnum_1.SeverityEnum.INFO;
+const utils_1 = __webpack_require__(1);
+const audio_1 = __webpack_require__(26);
+const assets_1 = __webpack_require__(0);
+const Instance_1 = __webpack_require__(3);
+class Engine {
+    constructor() {
+        Instance_1.setInstance(this);
+        this._debugMode = false;
+        this._logManager = utils_1.LogManager.getSingleton();
+        this._assetFactory = assets_1.AssetFactory.getSingleton();
+        this._audioEngine = new audio_1.HTML5AudioEngine();
+        this._viewPort = new utils_1.ViewPort();
+        this._logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
     }
-    LogManager.prototype.log = function (severity, message) {
-        if (this.getLogLevel() & severity) {
-            switch (severity) {
-                case SeverityEnum_1.SeverityEnum.DEBUG:
-                    console.debug("[DEBUG] " + message);
-                    break;
-                case SeverityEnum_1.SeverityEnum.INFO:
-                    console.info("[INFO] " + message);
-                    break;
-                case SeverityEnum_1.SeverityEnum.WARNING:
-                    console.warn("[WARN] " + message);
-                    break;
-                case SeverityEnum_1.SeverityEnum.ERROR:
-                    console.error("[ERROR] " + message);
-                    break;
-                case SeverityEnum_1.SeverityEnum.DEPRECATE:
-                    console.error("[DEPRECATE] " + message);
-            }
+    isDebugEnabled() {
+        return this._debugMode;
+    }
+    setRenderingEngine(renderingEngine) {
+        if (this._renderingEngine) {
         }
-    };
-    LogManager.prototype.debug = function (message) {
-        this.log(SeverityEnum_1.SeverityEnum.DEBUG, message);
-    };
-    LogManager.prototype.info = function (message) {
-        this.log(SeverityEnum_1.SeverityEnum.INFO, message);
-    };
-    LogManager.prototype.warn = function (message) {
-        this.log(SeverityEnum_1.SeverityEnum.WARNING, message);
-    };
-    LogManager.prototype.error = function (message) {
-        this.log(SeverityEnum_1.SeverityEnum.ERROR, message);
-    };
-    LogManager.prototype.deprecate = function (message) {
-        this.log(SeverityEnum_1.SeverityEnum.DEPRECATE, message);
-    };
-    LogManager.prototype.setLogLevel = function (severity) {
-        this._logLevel = severity;
-        this._logLevel = severity;
-    };
-    LogManager.prototype.getLogLevel = function () {
-        return this._logLevel;
-    };
-    LogManager.getSingleton = function () {
-        if (!LogManager._instance) {
-            LogManager._instance = new LogManager();
-        }
-        return LogManager._instance;
-    };
-    LogManager._instance = new LogManager();
-    return LogManager;
-}());
-exports.LogManager = LogManager;
+        this._renderingEngine = renderingEngine;
+        this._renderingEngine.setViewPort(this._viewPort);
+        this._renderingEngine.startRendering();
+    }
+    getRenderingEngine() {
+        return this._renderingEngine;
+    }
+    setLogManager(logManager) {
+        this._logManager = logManager;
+    }
+    getLogManager() {
+        return this._logManager;
+    }
+    setAssetFactory(assetFactory) {
+        this._assetFactory = assetFactory;
+    }
+    getAssetFactory() {
+        return this._assetFactory;
+    }
+    getViewPort() {
+        return this._viewPort;
+    }
+    setAudioEngine(audioEngine) {
+        this._audioEngine = audioEngine;
+    }
+    getAudioEngine() {
+        return this._audioEngine;
+    }
+    setLogicEngine(logicEngine) {
+        this._logicEngine = logicEngine;
+    }
+    getLogicEngine() {
+        return this._logicEngine;
+    }
+}
+exports.default = Engine;
+exports.Engine = Engine;
 
 
 /***/ }),
@@ -2453,45 +2322,182 @@ exports.LogManager = LogManager;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var ViewPort = (function (_super) {
-    __extends(ViewPort, _super);
-    function ViewPort() {
-        var _this = _super.call(this) || this;
-        _this._canvas = document.createElement('canvas');
-        _this._context = _this._canvas.getContext('2d');
-        _this._resizable = false;
-        _this._dimension = { width: 0, height: 0 };
-        _this._filledPage = false;
-        return _this;
+const DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+const DEFAULT_FOV = { width: 100, height: 100 };
+const DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+const DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
+class Camera {
+    constructor(scene, viewPoint, fov, renderOrigin, renderDimension) {
+        this.setScene(scene);
+        this.setViewPoint(viewPoint || DEFAULT_VIEWPOINT);
+        this.setFOV(fov || DEFAULT_FOV);
+        this.setRenderOrigin(renderOrigin || DEFAULT_RENDER_ORIGIN);
+        this.setRenderDimension(renderDimension || DEFAULT_RENDER_DIMENSION);
     }
-    ViewPort.prototype.getCanvas = function () {
+    setScene(scene) {
+        this._scene = scene;
+    }
+    getScene() {
+        return this._scene;
+    }
+    setViewPoint(viewPoint) {
+        this._viewPoint = viewPoint;
+    }
+    getViewPoint() {
+        return this._viewPoint;
+    }
+    setFOV(fov) {
+        this._fov = fov;
+    }
+    getFOV() {
+        return this._fov;
+    }
+    setRenderOrigin(origin) {
+        this._renderOrigin = origin;
+    }
+    getRenderOrigin() {
+        return this._renderOrigin;
+    }
+    setRenderDimension(dim) {
+        this._renderDimension = dim;
+    }
+    getRenderDimension() {
+        return this._renderDimension;
+    }
+}
+exports.Camera = Camera;
+
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(1);
+class IDGenerator {
+    constructor() { }
+    generate() {
+        return IDGenerator.generate();
+    }
+    static generate() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+    static getSingleton() {
+        _1.LogManager.getSingleton().deprecate('IDGenerator should no longer be used as a singleton anymore. Instead use IDGenerator.generate().');
+        if (!IDGenerator._instance) {
+            IDGenerator._instance = new IDGenerator();
+        }
+        return IDGenerator._instance;
+    }
+}
+exports.IDGenerator = IDGenerator;
+
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const SeverityEnum_1 = __webpack_require__(7);
+class LogManager {
+    constructor() {
+        this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
+        this._logLevel = this._logLevel | SeverityEnum_1.SeverityEnum.DEBUG | SeverityEnum_1.SeverityEnum.INFO;
+    }
+    log(severity, message) {
+        if (this.getLogLevel() & severity) {
+            switch (severity) {
+                case SeverityEnum_1.SeverityEnum.DEBUG:
+                    console.debug(`[DEBUG] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.INFO:
+                    console.info(`[INFO] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.WARNING:
+                    console.warn(`[WARN] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.ERROR:
+                    console.error(`[ERROR] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.DEPRECATE:
+                    console.error(`[DEPRECATE] ${message}`);
+            }
+        }
+    }
+    debug(message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEBUG, message);
+    }
+    info(message) {
+        this.log(SeverityEnum_1.SeverityEnum.INFO, message);
+    }
+    warn(message) {
+        this.log(SeverityEnum_1.SeverityEnum.WARNING, message);
+    }
+    error(message) {
+        this.log(SeverityEnum_1.SeverityEnum.ERROR, message);
+    }
+    deprecate(message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEPRECATE, message);
+    }
+    setLogLevel(severity) {
+        this._logLevel = severity;
+        this._logLevel = severity;
+    }
+    getLogLevel() {
+        return this._logLevel;
+    }
+    static getSingleton() {
+        if (!LogManager._instance) {
+            LogManager._instance = new LogManager();
+        }
+        return LogManager._instance;
+    }
+}
+LogManager._instance = new LogManager();
+exports.LogManager = LogManager;
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(2);
+class ViewPort extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._canvas = document.createElement('canvas');
+        this._context = this._canvas.getContext('2d');
+        this._resizable = false;
+        this._dimension = { width: 0, height: 0 };
+        this._filledPage = false;
+    }
+    getCanvas() {
         return this._canvas;
-    };
-    ViewPort.prototype.getContext = function () {
+    }
+    getContext() {
         return this._context;
-    };
-    ViewPort.prototype.setResizable = function (resizable) {
+    }
+    setResizable(resizable) {
         this._resizable = resizable;
-    };
-    ViewPort.prototype.isResizable = function () {
+    }
+    isResizable() {
         return this._resizable;
-    };
-    ViewPort.prototype.setScale = function (dimension) {
+    }
+    setScale(dimension) {
         this._context.scale(dimension.width, dimension.height);
-    };
-    ViewPort.prototype.fillPage = function (state) {
+    }
+    fillPage(state) {
         console.log("Test, ", state);
         this._filledPage = state;
         if (state) {
@@ -2506,52 +2512,52 @@ var ViewPort = (function (_super) {
             this._canvas.style.position = "";
             window.removeEventListener("reisze", this._resizeListener);
         }
-    };
-    ViewPort.prototype.isFilledPage = function () {
+    }
+    isFilledPage() {
         return this._filledPage;
-    };
-    ViewPort.prototype.getSize = function () {
+    }
+    getSize() {
         return { width: this._canvas.offsetWidth, height: this._canvas.offsetHeight };
-    };
-    ViewPort.prototype.setSize = function (dimension) {
+    }
+    setSize(dimension) {
         this._dimension = dimension;
         this._canvas.setAttribute('width', dimension.width + "px");
         this._canvas.setAttribute('height', dimension.height + "px");
         this.emit('resize', dimension);
-    };
-    ViewPort.prototype.clear = function () {
+    }
+    clear() {
         this._context.clearRect(0, 0, this._dimension.width, this._dimension.height);
-    };
-    ViewPort.prototype.drawImage = function (img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
+    }
+    drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
         this._context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
-    };
-    ViewPort.prototype.setFont = function (font) {
+    }
+    setFont(font) {
         this._context.font = font;
-    };
-    ViewPort.prototype.setColor = function (color) {
+    }
+    setColor(color) {
         this._context.fillStyle = color.toString();
-    };
-    ViewPort.prototype.measureText = function (text) {
+    }
+    measureText(text) {
         return this._context.measureText(text);
-    };
-    ViewPort.prototype.setTextBaseline = function (baseline) {
+    }
+    setTextBaseline(baseline) {
         this._context.textBaseline = baseline;
-    };
-    ViewPort.prototype.drawText = function (text, x, y, maxWidth) {
+    }
+    drawText(text, x, y, maxWidth) {
         this._context.fillText(text, x, y, maxWidth);
-    };
-    ViewPort.prototype.setHidden = function () {
+    }
+    setHidden() {
         this._canvas.style.position = "absolute";
         this._canvas.style.left = '110001px';
-    };
-    ViewPort.prototype.getImage = function () {
+    }
+    getImage() {
         var image = document.createElement('img');
         image.src = this._canvas.toDataURL("image/png");
         return image;
-    };
-    ViewPort.prototype._fillPage = function () {
+    }
+    _fillPage() {
         var newSize = { width: window.innerWidth, height: window.innerHeight };
-        var eventData = {
+        let eventData = {
             type: 0..toString(),
             oldDimensions: this.getSize(),
             newDimensions: newSize,
@@ -2559,169 +2565,163 @@ var ViewPort = (function (_super) {
         };
         this.setSize(newSize);
         this.emit(0..toString(), eventData);
-    };
-    return ViewPort;
-}(Events.EventEmitter));
+    }
+}
 exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var CollisionEmitter = (function () {
-    function CollisionEmitter() {
+class CollisionEmitter {
+    constructor() {
         this._cbs = {};
         this._entities = [];
         this._entitiesListeners = {};
         this._listeners = [];
         this._cbs[0] = this._onEntityLocationUpdate.bind(this);
     }
-    CollisionEmitter.prototype.addEntity = function (entity) {
+    addEntity(entity) {
         if (!this.hasEntity(entity)) {
             this._entities.push(entity);
             this._entitiesListeners[entity.getID()] = [];
             entity.on(0..toString(), this._cbs[0]);
         }
-    };
-    CollisionEmitter.prototype.removeEntity = function (entity) {
+    }
+    removeEntity(entity) {
         if (this.hasEntity(entity)) {
             this._entities.splice(this._entities.indexOf(entity), 1);
             delete this._entitiesListeners[entity.getID()];
         }
-    };
-    CollisionEmitter.prototype.hasEntity = function (entity) {
+    }
+    hasEntity(entity) {
         return this._entitiesListeners.hasOwnProperty(entity.getID());
-    };
-    CollisionEmitter.prototype.addEntityCollisionListener = function (entity, callback) {
+    }
+    addEntityCollisionListener(entity, callback) {
         if (!this.hasEntity(entity)) {
             this.addEntity(entity);
         }
         this._entitiesListeners[entity.getID()].push(callback);
-    };
-    CollisionEmitter.prototype.removeEntityCollisionListener = function (entity, callback) {
+    }
+    removeEntityCollisionListener(entity, callback) {
         if (this._entitiesListeners[entity.getID()].indexOf(callback) > -1) {
             this._entitiesListeners[entity.getID()].splice(this._entitiesListeners[entity.getID()].indexOf(callback), 1);
         }
-    };
-    CollisionEmitter.prototype.addCollisionListener = function (callback) {
+    }
+    addCollisionListener(callback) {
         this._listeners.push(callback);
-    };
-    CollisionEmitter.prototype.removeCollisionListener = function (callback) {
+    }
+    removeCollisionListener(callback) {
         if (this._listeners.indexOf(callback) > -1) {
             this._listeners.splice(this._listeners.indexOf(callback), 1);
         }
-    };
-    CollisionEmitter.prototype._onEntityLocationUpdate = function (event) {
-        var entity = event.source;
+    }
+    _onEntityLocationUpdate(event) {
+        let entity = event.source;
         if (entity.getParent()) {
             var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
             var collisions = [];
-            for (var i in potCollisions) {
-                var potEntity = potCollisions[i];
+            for (let i in potCollisions) {
+                let potEntity = potCollisions[i];
                 if (potEntity != entity && this.hasEntity(potEntity)) {
                     collisions.push(potEntity);
                 }
             }
             if (collisions.length > 0) {
-                for (var i in this._listeners) {
-                    var listener = this._listeners[i];
+                for (let i in this._listeners) {
+                    let listener = this._listeners[i];
                     listener(entity, collisions[0], event);
                 }
             }
         }
-    };
-    return CollisionEmitter;
-}());
+    }
+}
 exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ColorCode_1 = __webpack_require__(7);
-var Color = (function () {
-    function Color(r, g, b, a) {
-        if (r === void 0) { r = 0; }
-        if (g === void 0) { g = 0; }
-        if (b === void 0) { b = 0; }
-        if (a === void 0) { a = 1; }
+const ColorCode_1 = __webpack_require__(9);
+class Color {
+    constructor(r = 0, g = 0, b = 0, a = 1) {
         this.setRed(r);
         this.setGreen(g);
         this.setBlue(b);
         this.setAlpha(a);
     }
-    Color.prototype.setRed = function (r) {
+    setRed(r) {
         this._r = r;
-    };
-    Color.prototype.setGreen = function (g) {
+    }
+    setGreen(g) {
         this._g = g;
-    };
-    Color.prototype.setBlue = function (b) {
+    }
+    setBlue(b) {
         this._b = b;
-    };
-    Color.prototype.setAlpha = function (a) {
+    }
+    setAlpha(a) {
         this._a = a * 255;
-    };
-    Color.prototype.getRed = function () {
+    }
+    getRed() {
         return this._r;
-    };
-    Color.prototype.getGreen = function () {
+    }
+    getGreen() {
         return this._g;
-    };
-    Color.prototype.getBlue = function () {
+    }
+    getBlue() {
         return this._b;
-    };
-    Color.prototype.getAlpha = function () {
+    }
+    getAlpha() {
         return this._a / 255;
-    };
-    Color.prototype.toRGB = function () {
-        return "rgb(" + this.getRed() + "," + this.getGreen() + "," + this.getBlue() + ")";
-    };
-    Color.prototype.toRGBA = function () {
-        return "rgba(" + this.getRed() + "," + this.getGreen() + "," + this.getBlue() + "," + this.getAlpha() + ")";
-    };
-    Color.prototype.toHex = function () {
+    }
+    toRGB() {
+        return `rgb(${this.getRed()},${this.getGreen()},${this.getBlue()})`;
+    }
+    toRGBA() {
+        return `rgba(${this.getRed()},${this.getGreen()},${this.getBlue()},${this.getAlpha()})`;
+    }
+    toHex() {
         return (this.getRed() << 16) + (this.getGreen() << 8) + this.getBlue();
-    };
-    Color.prototype.toHexString = function () {
-        var hex = "#";
+    }
+    toHexString() {
+        var hex = `#`;
         hex += this._toHexString(this.getRed());
         hex += this._toHexString(this.getGreen());
         hex += this._toHexString(this.getBlue());
         return hex.toUpperCase();
-    };
-    Color.prototype.valueOf = function () {
+    }
+    valueOf() {
         return this.toString();
-    };
-    Color.prototype.toString = function () {
+    }
+    toString() {
         return this.toRGBA();
-    };
-    Color.prototype._toHexString = function (value) {
+    }
+    _toHexString(value) {
         var hex = value.toString(16);
         if (hex.length === 1) {
             hex = '0' + hex;
         }
         return hex;
-    };
-    Color._parseHexString = function (color) {
+    }
+    static _parseHexString(color) {
         var colorCodes = [];
         color = color.replace('#', '');
         switch (color.length) {
             case 3:
-                color = "" + color.charAt(0) + color.charAt(0) + color.charAt(1) + color.charAt(1) + color.charAt(2) + color.charAt(2);
+                color = `${color.charAt(0)}${color.charAt(0)}${color.charAt(1)}${color.charAt(1)}${color.charAt(2)}${color.charAt(2)}`;
                 break;
             case 6:
                 break;
             default:
-                throw new Error("Malformed hex code \"#" + color + "\". Expecting hex length of 3 or 6.");
+                throw new Error(`Malformed hex code "#${color}". Expecting hex length of 3 or 6.`);
         }
         var rHex = color.slice(0, 2);
         var gHex = color.slice(2, 4);
@@ -2736,8 +2736,8 @@ var Color = (function () {
             }
         }
         return colorCodes;
-    };
-    Color._parseRGB = function (color) {
+    }
+    static _parseRGB(color) {
         var colorCodes = [];
         color = color.toLowerCase();
         if (color.indexOf('rgba(') > -1) {
@@ -2759,7 +2759,7 @@ var Color = (function () {
             colorCodes[3] = 255;
         }
         else {
-            throw new Error("Malformed RGB structure \"" + color + "\". Expecting rgb(#,#,#) or rgba(#,#,#,#)");
+            throw new Error(`Malformed RGB structure "${color}". Expecting rgb(#,#,#) or rgba(#,#,#,#)`);
         }
         for (var i = 0; i < colorCodes.length; i++) {
             var code = colorCodes[i];
@@ -2768,18 +2768,18 @@ var Color = (function () {
             }
         }
         return colorCodes;
-    };
-    Color._parseColorName = function (color) {
+    }
+    static _parseColorName(color) {
         if (ColorCode_1.ColorMap[color] !== undefined) {
             var colorCode = ColorCode_1.ColorMap[color];
             var rgb = Color._parseHex(colorCode);
             return [rgb.r, rgb.g, rgb.b, 255];
         }
         else {
-            throw new Error("Invalid color \"" + color + "\"");
+            throw new Error(`Invalid color "${color}"`);
         }
-    };
-    Color.fromString = function (color) {
+    }
+    static fromString(color) {
         var colorCodes;
         if (color.charAt(0) === '#') {
             colorCodes = Color._parseHexString(color);
@@ -2795,130 +2795,22 @@ var Color = (function () {
         var b = colorCodes[2];
         var a = colorCodes[3];
         return new Color(r, g, b, a / 255);
-    };
-    Color.fromHex = function (hex) {
+    }
+    static fromHex(hex) {
         var rgb = Color._parseHex(hex);
         return new Color(rgb.r, rgb.g, rgb.b);
-    };
-    Color.fromColorCode = function (code) {
+    }
+    static fromColorCode(code) {
         return Color.fromHex(code);
-    };
-    Color._parseHex = function (hex) {
+    }
+    static _parseHex(hex) {
         var r = hex >> 16;
         var g = hex >> 8 & 0xFF;
         var b = hex & 0xFF;
-        return { r: r, g: g, b: b };
-    };
-    return Color;
-}());
-exports.Color = Color;
-
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
-exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(35);
-exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
-var Asset = (function () {
-    function Asset(type, url) {
-        this._id = utils_1.IDGenerator.getSingleton().generate();
-        this._type = type;
-        this._data = null;
-        this.setSource(url);
-        this._attributes = {};
+        return { r, g, b };
     }
-    Asset.prototype.setSource = function (source) {
-        if (source !== this.getSource()) {
-            this._url = source;
-            this.setData(null);
-            this.setState(assets_1.AssetState.NOT_LOADED);
-        }
-    };
-    Asset.prototype.getSource = function () {
-        return this._url;
-    };
-    Asset.prototype.setState = function (state) {
-        if (this._state !== state) {
-            this._state = state;
-            this.onStateChange(this._state);
-        }
-    };
-    Asset.prototype.getState = function () {
-        return this._state;
-    };
-    Asset.prototype.setData = function (data) {
-        this._data = data;
-        this.onDataChange(this._data);
-    };
-    Asset.prototype.getData = function () {
-        return this._data;
-    };
-    Asset.prototype.getType = function () {
-        return this._type;
-    };
-    Asset.prototype.setLoadStrategy = function (loadStrategy) {
-        this._loadStrategy = loadStrategy;
-    };
-    Asset.prototype.getLoadStrategy = function () {
-        return this._loadStrategy;
-    };
-    Asset.prototype.load = function () {
-        this._loadStrategy.load(this);
-    };
-    Asset.prototype.isReady = function () {
-        return (this.getState() === assets_1.AssetState.LOADED);
-    };
-    Asset.prototype.setAttribute = function (key, value) {
-        this._attributes[key] = value;
-    };
-    Asset.prototype.getAttribute = function (key) {
-        return this._attributes[key];
-    };
-    Asset.prototype.isAttribute = function (key) {
-        return !!this._attributes[key];
-    };
-    Asset.prototype.removeAttribute = function (key) {
-        delete this._attributes[key];
-    };
-    Asset.prototype.onStateChange = function (state) { };
-    Asset.prototype.onDataChange = function (data) { };
-    Asset.prototype.onError = function (error) { };
-    return Asset;
-}());
-exports.Asset = Asset;
-
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AssetType;
-(function (AssetType) {
-    AssetType[AssetType["RAW"] = 0] = "RAW";
-    AssetType[AssetType["IMAGE"] = 1] = "IMAGE";
-    AssetType[AssetType["AUDIO"] = 2] = "AUDIO";
-    AssetType[AssetType["JSON"] = 3] = "JSON";
-})(AssetType = exports.AssetType || (exports.AssetType = {}));
+}
+exports.Color = Color;
 
 
 /***/ }),
@@ -2928,12 +2820,10 @@ var AssetType;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AssetState;
-(function (AssetState) {
-    AssetState[AssetState["NOT_LOADED"] = 0] = "NOT_LOADED";
-    AssetState[AssetState["LOADING"] = 1] = "LOADING";
-    AssetState[AssetState["LOADED"] = 2] = "LOADED";
-})(AssetState = exports.AssetState || (exports.AssetState = {}));
+const AudioEngine_1 = __webpack_require__(10);
+exports.AudioEngine = AudioEngine_1.AudioEngine;
+const HTML5AudioEngine_1 = __webpack_require__(38);
+exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
@@ -2943,22 +2833,108 @@ var AssetState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
-var AssetFactory = (function () {
-    function AssetFactory() {
+const utils_1 = __webpack_require__(1);
+const assets_1 = __webpack_require__(0);
+const events_1 = __webpack_require__(2);
+class Asset extends events_1.EventEmitter {
+    constructor(type, url) {
+        super();
+        this._id = utils_1.IDGenerator.getSingleton().generate();
+        this._type = type;
+        this._data = null;
+        this.setSource(url);
+        this._attributes = {};
+    }
+    setSource(source) {
+        if (source !== this.getSource()) {
+            this._url = source;
+            this.setData(null);
+            this.setState(assets_1.AssetState.NOT_LOADED);
+        }
+    }
+    getSource() {
+        return this._url;
+    }
+    setState(state) {
+        if (this._state !== state) {
+            this._state = state;
+            this.onStateChange(this._state);
+            this.emit("state_change", this._state);
+        }
+    }
+    getState() {
+        return this._state;
+    }
+    setData(data) {
+        this._data = data;
+        this.onDataChange(this._data);
+        this.emit("data_change", this._data);
+    }
+    getData() {
+        return this._data;
+    }
+    getType() {
+        return this._type;
+    }
+    setLoadStrategy(loadStrategy) {
+        this._loadStrategy = loadStrategy;
+    }
+    getLoadStrategy() {
+        return this._loadStrategy;
+    }
+    load() {
+        return this._loadStrategy.load(this);
+    }
+    unload() {
+        return this._loadStrategy.unload(this);
+    }
+    isReady() {
+        return (this.getState() === assets_1.AssetState.LOADED);
+    }
+    setAttribute(key, value) {
+        this._attributes[key] = value;
+    }
+    getAttribute(key) {
+        return this._attributes[key];
+    }
+    isAttribute(key) {
+        return !!this._attributes[key];
+    }
+    removeAttribute(key) {
+        delete this._attributes[key];
+    }
+    onStateChange(state) { }
+    onDataChange(data) { }
+    onError(error) {
+        this.emit("error", error);
+    }
+}
+exports.Asset = Asset;
+
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const assets_1 = __webpack_require__(0);
+class AssetFactory {
+    constructor() {
         this._assetLoader = new assets_1.AssetLoader();
         this._audioLoader = new assets_1.AudioLoader();
         this._imageLoader = new assets_1.ImageLoader();
         this._jsonLoader = new assets_1.JSONLoader();
         this._cache = {};
     }
-    AssetFactory.getSingleton = function () {
+    static getSingleton() {
         if (!AssetFactory._instance) {
             AssetFactory._instance = new AssetFactory();
         }
         return AssetFactory._instance;
-    };
-    AssetFactory.prototype.build = function (type, url) {
+    }
+    build(type, url) {
         var asset;
         var cache = this._cache[url];
         if (cache) {
@@ -2991,30 +2967,30 @@ var AssetFactory = (function () {
             this._cache[url] = asset;
         }
         return asset;
-    };
-    AssetFactory.prototype._configureRawAsset = function (asset, url) { };
-    AssetFactory.prototype._configureImageAsset = function (asset, url) {
+    }
+    _configureRawAsset(asset, url) { }
+    _configureImageAsset(asset, url) {
         var img = document.createElement('img');
         img.addEventListener('load', function () {
             asset.setState(assets_1.AssetState.LOADED);
         });
         asset.setData(img);
-    };
-    AssetFactory.prototype._configureJSONAsset = function (asset, url) { };
-    AssetFactory.prototype._configureAudioAsset = function (asset, url) {
+    }
+    _configureJSONAsset(asset, url) { }
+    _configureAudioAsset(asset, url) {
         var audio = document.createElement('audio');
         audio.addEventListener('canplaythrough', function () {
             asset.setState(assets_1.AssetState.LOADED);
         });
         asset.setData(audio);
-    };
-    AssetFactory.prototype._clone = function (asset) {
+    }
+    _clone(asset) {
         var type = asset.getType();
         var clone = new assets_1.Asset(type, asset.getSource());
         this._cloneAssetData(clone, asset, type);
         return clone;
-    };
-    AssetFactory.prototype._cloneAssetData = function (clone, asset, type) {
+    }
+    _cloneAssetData(clone, asset, type) {
         var data = null;
         switch (type) {
             default:
@@ -3029,84 +3005,17 @@ var AssetFactory = (function () {
         }
         clone.setLoadStrategy(asset.getLoadStrategy());
         clone.setData(data);
-    };
-    AssetFactory.prototype._cloneNode = function (node) {
+    }
+    _cloneNode(node) {
         if (node) {
             return node.cloneNode(true);
         }
         else {
             return null;
         }
-    };
-    return AssetFactory;
-}());
-exports.AssetFactory = AssetFactory;
-
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
-var AssetLoader = (function () {
-    function AssetLoader() {
     }
-    AssetLoader.prototype.load = function (asset) {
-        var _this = this;
-        var request = new XMLHttpRequest();
-        var source = asset.getSource();
-        if (this._validateURL(source)) {
-            request.open(this._getMethod(), asset.getSource());
-            asset.setState(assets_1.AssetState.LOADING);
-            request.onreadystatechange = function (e) {
-                if (request.readyState === XMLHttpRequest.DONE) {
-                    if (request.status === 200) {
-                        _this._onSuccess(asset, request.responseText);
-                    }
-                    else {
-                        _this._onFail(asset, request);
-                    }
-                }
-                _this._postRequest();
-            };
-            this._preRequest();
-            request.send();
-        }
-        else {
-            this._onSuccess(asset, source);
-        }
-    };
-    AssetLoader.prototype.clone = function (asset, clone) {
-        clone.setData(asset.getData());
-    };
-    AssetLoader.prototype._validateURL = function (url) {
-        url = url.trim();
-        var type = url.substring(0, 5);
-        if (type === 'data:') {
-            return false;
-        }
-        return true;
-    };
-    AssetLoader.prototype._getMethod = function () {
-        return 'GET';
-    };
-    AssetLoader.prototype._preRequest = function () { };
-    AssetLoader.prototype._postRequest = function () { };
-    AssetLoader.prototype._onSuccess = function (asset, data) {
-        asset.setData(data);
-    };
-    AssetLoader.prototype._onFail = function (asset, request) {
-        asset.onError({
-            code: request.status,
-            message: 'Generic Error Message'
-        });
-    };
-    return AssetLoader;
-}());
-exports.AssetLoader = AssetLoader;
+}
+exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
@@ -3115,50 +3024,33 @@ exports.AssetLoader = AssetLoader;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
-var AudioLoader = (function (_super) {
-    __extends(AudioLoader, _super);
-    function AudioLoader() {
-        return _super.call(this) || this;
+const AssetType_1 = __webpack_require__(11);
+const AssetGroup_1 = __webpack_require__(13);
+const Instance_1 = __webpack_require__(3);
+const Iterator_1 = __webpack_require__(8);
+class AssetGroupLoader {
+    constructor() {
+        this._assetFactory = Instance_1.getInstance().getAssetFactory();
     }
-    AudioLoader.prototype.load = function (asset) {
-        asset.setState(assets_1.AssetState.LOADING);
-        var audio = asset.getData();
-        audio.setAttribute('preload', 'auto');
-        this._assignEvents(asset, audio);
-        audio.src = asset.getSource();
-    };
-    AudioLoader.prototype._assignEvents = function (asset, audio) {
-        var canPlay = function (e) {
-            asset.setData(audio);
-            audio.removeEventListener('canplaythrough', canPlay);
-        };
-        audio.addEventListener('canplaythrough', canPlay);
-        audio.addEventListener('error', function () {
-            asset.onError();
+    load(path) {
+        return new Promise((resolve, reject) => {
+            var json = this._assetFactory.build(AssetType_1.AssetType.JSON, path);
+            json.load().then((assetGroupDefs) => {
+                var data = assetGroupDefs.getData();
+                var iterator = new Iterator_1.Iterator(data.assets);
+                var group = new AssetGroup_1.AssetGroup();
+                while (iterator.hasNext()) {
+                    var assetDef = iterator.next();
+                    var asset = this._assetFactory.build(assetDef.type, assetDef.source);
+                    group.addAsset(assetDef.name, asset);
+                }
+                resolve(group);
+            }).catch(reject);
         });
-        audio.addEventListener('playing', function () {
-            asset.setAttribute('playing', true);
-        });
-        audio.addEventListener('ended', function () {
-            audio.currentTime = 0;
-            asset.setAttribute('playing', false);
-        });
-    };
-    return AudioLoader;
-}(assets_1.AssetLoader));
-exports.AudioLoader = AudioLoader;
+    }
+}
+exports.AssetGroupLoader = AssetGroupLoader;
 
 
 /***/ }),
@@ -3166,70 +3058,269 @@ exports.AudioLoader = AudioLoader;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/* WEBPACK VAR INJECTION */(function(process) {
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
-var ImageLoader = (function (_super) {
-    __extends(ImageLoader, _super);
-    function ImageLoader() {
-        return _super.call(this) || this;
+const assets_1 = __webpack_require__(0);
+class AssetLoader {
+    constructor() { }
+    load(asset) {
+        return new Promise((resolve, reject) => {
+            var request = new XMLHttpRequest();
+            var source = asset.getSource();
+            if (this._validateURL(source)) {
+                request.open(this._getMethod(), asset.getSource());
+                asset.setState(assets_1.AssetState.LOADING);
+                request.onreadystatechange = (e) => {
+                    if (request.readyState === XMLHttpRequest.DONE) {
+                        if (request.status === 200) {
+                            this._onSuccess(asset, request.responseText, resolve);
+                        }
+                        else {
+                            this._onFail(asset, request, reject);
+                            reject(asset);
+                        }
+                    }
+                    this._postRequest();
+                };
+                this._preRequest();
+                request.send();
+            }
+            else {
+                this._onSuccess(asset, source, resolve);
+            }
+        });
     }
-    ImageLoader.prototype.load = function (asset) {
-        asset.setState(assets_1.AssetState.LOADING);
-        var image = asset.getData();
-        image.onload = function (e) {
-            asset.setData(image);
-        };
-        image.onerror = function (e) {
-            asset.onError();
-        };
-        image.src = asset.getSource();
-    };
-    return ImageLoader;
-}(assets_1.AssetLoader));
-exports.ImageLoader = ImageLoader;
+    unload(asset) {
+        return new Promise((resolve, reject) => {
+            asset.setState(assets_1.AssetState.UNLOADING);
+            process.nextTick(() => {
+                asset.setData(null);
+                asset.setState(assets_1.AssetState.NOT_LOADED);
+                resolve(asset);
+            });
+        });
+    }
+    clone(asset, clone) {
+        clone.setData(asset.getData());
+    }
+    _validateURL(url) {
+        url = url.trim();
+        var type = url.substring(0, 5);
+        if (type === 'data:') {
+            return false;
+        }
+        return true;
+    }
+    _getMethod() {
+        return 'GET';
+    }
+    _preRequest() { }
+    _postRequest() { }
+    _onSuccess(asset, data, resolve) {
+        asset.setData(data);
+        asset.setState(assets_1.AssetState.LOADED);
+        resolve(asset);
+    }
+    _onFail(asset, error, reject) {
+        reject({
+            detailed: error,
+            message: 'Generic Error Message',
+            asset: asset
+        });
+    }
+}
+exports.AssetLoader = AssetLoader;
 
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
 
 /***/ }),
 /* 31 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+// shim for using process in browser
+var process = module.exports = {};
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
-var JSONLoader = (function (_super) {
-    __extends(JSONLoader, _super);
-    function JSONLoader() {
-        return _super.call(this) || this;
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
     }
-    JSONLoader.prototype._onSuccess = function (asset, data) {
-        var json = data;
-        asset.setData(JSON.parse(json));
-    };
-    return JSONLoader;
-}(assets_1.AssetLoader));
-exports.JSONLoader = JSONLoader;
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 
 /***/ }),
@@ -3239,29 +3330,52 @@ exports.JSONLoader = JSONLoader;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
-var TextAssetBuilder = (function () {
-    function TextAssetBuilder() {
+const assets_1 = __webpack_require__(0);
+class AudioLoader extends assets_1.AssetLoader {
+    constructor() {
+        super();
     }
-    TextAssetBuilder.prototype.build = function (font, text, maxWidth, height, color) {
-        var textViewPort = new utils_1.ViewPort();
-        var textAsset = new assets_1.Asset(assets_1.AssetType.IMAGE);
-        textViewPort.setFont(font);
-        textViewPort.setColor(color || utils_1.Color.fromString("green"));
-        textViewPort.setTextBaseline("hanging");
-        if (!maxWidth) {
-            maxWidth = textViewPort.measureText(text).width;
-        }
-        textViewPort.setSize({ width: maxWidth, height: height });
-        textViewPort.setTextBaseline("hanging");
-        textViewPort.drawText(text, 0, 0, maxWidth);
-        textAsset.setData(textViewPort.getImage());
-        return textAsset;
-    };
-    return TextAssetBuilder;
-}());
-exports.TextAssetBuilder = TextAssetBuilder;
+    load(asset) {
+        asset.setState(assets_1.AssetState.LOADING);
+        return new Promise((resolve, reject) => {
+            var audio = asset.getData();
+            audio.setAttribute('preload', 'auto');
+            this._assignEvents(asset, audio, resolve, reject);
+            audio.src = asset.getSource();
+        });
+    }
+    unload(asset) {
+        asset.setState(assets_1.AssetState.UNLOADING);
+        return new Promise((resolve, reject) => {
+            var audio = asset.getData();
+            audio.oncanplaythrough = null;
+            audio.onerror = null;
+            audio.onplaying = null;
+            audio.onended = null;
+            asset.setData(null);
+            asset.setState(assets_1.AssetState.NOT_LOADED);
+            resolve(asset);
+        });
+    }
+    _assignEvents(asset, audio, resolve, reject) {
+        var canPlay = (e) => {
+            audio.oncanplaythrough = null;
+            this._onSuccess(asset, audio, resolve);
+        };
+        audio.oncanplaythrough = canPlay;
+        audio.onerror = (e) => {
+            this._onFail(asset, e, reject);
+        };
+        audio.onplaying = (e) => {
+            asset.setAttribute('playing', true);
+        };
+        audio.onended = (e) => {
+            audio.currentTime = 0;
+            asset.setAttribute('playing', false);
+        };
+    }
+}
+exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
@@ -3271,15 +3385,107 @@ exports.TextAssetBuilder = TextAssetBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
-var Spritesheet = (function () {
-    function Spritesheet(spritesheetAsset, spritesheetDefinition) {
+const assets_1 = __webpack_require__(0);
+class ImageLoader extends assets_1.AssetLoader {
+    constructor() {
+        super();
+    }
+    load(asset) {
+        asset.setState(assets_1.AssetState.LOADING);
+        return new Promise((resolve, reject) => {
+            var image = asset.getData();
+            image.onload = (e) => {
+                this._onSuccess(asset, image, resolve);
+            };
+            image.onerror = (e) => {
+                this._onFail(asset, e, reject);
+            };
+            image.src = asset.getSource();
+        });
+    }
+    unload(asset) {
+        asset.setState(assets_1.AssetState.UNLOADING);
+        return new Promise((resolve, reject) => {
+            var image = asset.getData();
+            image.onload = null;
+            image.onerror = null;
+            image.src = null;
+            asset.setData(null);
+            asset.setState(assets_1.AssetState.NOT_LOADED);
+            resolve(asset);
+        });
+    }
+}
+exports.ImageLoader = ImageLoader;
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const assets_1 = __webpack_require__(0);
+class JSONLoader extends assets_1.AssetLoader {
+    constructor() {
+        super();
+    }
+    _onSuccess(asset, data, resolve) {
+        var json = data;
+        asset.setData(JSON.parse(json));
+        resolve(asset);
+    }
+}
+exports.JSONLoader = JSONLoader;
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __webpack_require__(1);
+const assets_1 = __webpack_require__(0);
+class TextAssetBuilder {
+    constructor() { }
+    build(font, text, maxWidth, height, color) {
+        var textViewPort = new utils_1.ViewPort();
+        var textAsset = new assets_1.Asset(assets_1.AssetType.IMAGE);
+        textViewPort.setFont(font);
+        textViewPort.setColor(color || utils_1.Color.fromString("green"));
+        textViewPort.setTextBaseline("hanging");
+        if (!maxWidth) {
+            maxWidth = textViewPort.measureText(text).width;
+        }
+        textViewPort.setSize({ width: maxWidth, height });
+        textViewPort.setTextBaseline("hanging");
+        textViewPort.drawText(text, 0, 0, maxWidth);
+        textAsset.setData(textViewPort.getImage());
+        return textAsset;
+    }
+}
+exports.TextAssetBuilder = TextAssetBuilder;
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __webpack_require__(1);
+const assets_1 = __webpack_require__(0);
+class Spritesheet {
+    constructor(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
         this._spritesheetDefinition = spritesheetDefinition;
         this._spriteCache = {};
     }
-    Spritesheet.prototype.getSprite = function (id) {
+    getSprite(id) {
         if (this._spriteCache[id]) {
             return this._spriteCache[id];
         }
@@ -3297,21 +3503,20 @@ var Spritesheet = (function () {
         else {
             return false;
         }
-    };
-    return Spritesheet;
-}());
+    }
+}
 exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Animation = (function () {
-    function Animation(entity, animationDefinitions) {
+class Animation {
+    constructor(entity, animationDefinitions) {
         this._entity = entity;
         this._animationDefinition = animationDefinitions;
         this.loop = true;
@@ -3320,23 +3525,22 @@ var Animation = (function () {
         this._animating = false;
         this._animation_index = -1;
     }
-    Animation.prototype.isAnimating = function () {
+    isAnimating() {
         return this._animating;
-    };
-    Animation.prototype.start = function () {
+    }
+    start() {
         if (!this._timeout) {
             this._direction = "forward";
             this._loadStep(0);
             this._animating = true;
         }
-    };
-    Animation.prototype.stop = function () {
+    }
+    stop() {
         clearTimeout(this._timeout);
         this._timeout = false;
         this._animating = false;
-    };
-    Animation.prototype._loadStep = function (stepIndex) {
-        var _this = this;
+    }
+    _loadStep(stepIndex) {
         var step = this._animationDefinition[stepIndex];
         var sprite = step.asset;
         this._entity.setTexture(sprite);
@@ -3369,265 +3573,33 @@ var Animation = (function () {
             nextStepIndex = stepIndex + 1;
         }
         if (this._animationDefinition[nextStepIndex]) {
-            this._timeout = setTimeout(function () {
-                _this._loadStep(nextStepIndex);
+            this._timeout = setTimeout(() => {
+                this._loadStep(nextStepIndex);
             }, step.delay);
         }
         else if (this.reverseLoop) {
-            this._timeout = setTimeout(function () {
-                if (_this._direction === "forward") {
-                    _this._direction = "reverse";
-                    _this._loadStep(stepIndex - 1);
+            this._timeout = setTimeout(() => {
+                if (this._direction === "forward") {
+                    this._direction = "reverse";
+                    this._loadStep(stepIndex - 1);
                 }
-                else if (_this._direction === "reverse") {
-                    _this._direction = "forward";
-                    _this._loadStep(stepIndex + 1);
+                else if (this._direction === "reverse") {
+                    this._direction = "forward";
+                    this._loadStep(stepIndex + 1);
                 }
             }, step.delay);
         }
         else if (this.loop) {
-            this._timeout = setTimeout(function () {
-                _this._loadStep(0);
+            this._timeout = setTimeout(() => {
+                this._loadStep(0);
             }, step.delay);
         }
         else {
             this.stop();
         }
-    };
-    return Animation;
-}());
+    }
+}
 exports.Animation = Animation;
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
-var HTML5AudioEngine = (function (_super) {
-    __extends(HTML5AudioEngine, _super);
-    function HTML5AudioEngine() {
-        var _this = _super.call(this) || this;
-        _this._backgroundVolume = 1.0;
-        _this._soundEffectVolume = 1.0;
-        _this._backgroundAudios = [];
-        _this._soundEffects = [];
-        return _this;
-    }
-    HTML5AudioEngine.prototype.addBackgroundMusic = function (name, audio) {
-        this.addAudio(name, audio);
-        this._backgroundAudios.push(audio);
-    };
-    HTML5AudioEngine.prototype.addSoundEffect = function (name, audio) {
-        this.addAudio(name, audio);
-        this._soundEffects.push(audio);
-    };
-    HTML5AudioEngine.prototype.setBackgroundVolume = function (volume) {
-        this._backgroundVolume = volume;
-        for (var i = 0, len = this._backgroundAudios.length; i < len; i++) {
-            this._setVolume(this._backgroundAudios[i], this._backgroundVolume);
-        }
-    };
-    HTML5AudioEngine.prototype.setSoundEffectVolume = function (volume) {
-        this._soundEffectVolume = volume;
-        for (var i = 0, len = this._soundEffects.length; i < len; i++) {
-            this._setVolume(this._soundEffects[i], this._soundEffectVolume);
-        }
-    };
-    HTML5AudioEngine.prototype.isBackgroundMusic = function (audio) {
-        return (this._backgroundAudios.indexOf(audio) > -1);
-    };
-    HTML5AudioEngine.prototype.isSoundEffect = function (audio) {
-        return (this._soundEffects.indexOf(audio) > -1);
-    };
-    HTML5AudioEngine.prototype._playAudio = function (audio) {
-        this._updateVolume(audio);
-        var data = this._getData(audio);
-        data.play();
-    };
-    HTML5AudioEngine.prototype._updateVolume = function (audio) {
-        if (this.isSoundEffect(audio)) {
-            this._setVolume(audio, this._soundEffectVolume);
-        }
-        else if (this.isBackgroundMusic(audio)) {
-            this._setVolume(audio, this._backgroundVolume);
-        }
-    };
-    HTML5AudioEngine.prototype._pauseAudio = function (audio) {
-        var data = this._getData(audio);
-        data.pause();
-    };
-    HTML5AudioEngine.prototype._stopAudio = function (audio) {
-        var data = this._getData(audio);
-        data.pause();
-        this._setTimeCursor(audio, 0);
-    };
-    HTML5AudioEngine.prototype._isAudioLooping = function (audio) {
-        var data = this._getData(audio);
-        return data.loop;
-    };
-    HTML5AudioEngine.prototype._loopAudio = function (audio, state) {
-        var data = this._getData(audio);
-        data.loop = state;
-    };
-    HTML5AudioEngine.prototype._isAudioMuted = function (audio) {
-        var data = this._getData(audio);
-        return data.muted;
-    };
-    HTML5AudioEngine.prototype._muteAudio = function (audio, state) {
-        var data = this._getData(audio);
-        data.muted = state;
-    };
-    HTML5AudioEngine.prototype._getAudioDuration = function (audio) {
-        var data = this._getData(audio);
-        return data.duration;
-    };
-    HTML5AudioEngine.prototype._setTimeCursor = function (audio, seconds) {
-        var data = this._getData(audio);
-        data.currentTime = seconds;
-    };
-    HTML5AudioEngine.prototype._getTimeCursor = function (audio) {
-        var data = this._getData(audio);
-        return data.currentTime;
-    };
-    HTML5AudioEngine.prototype._setVolume = function (audio, volume) {
-        var data = this._getData(audio);
-        data.volume = volume;
-    };
-    HTML5AudioEngine.prototype._getVolume = function (audio) {
-        var data = this._getData(audio);
-        return data.volume;
-    };
-    HTML5AudioEngine.prototype._registerStartEvent = function (audio) {
-        var data = audio.getData();
-        data.addEventListener('playing', function (e) {
-            audio.setAttribute('playing', true);
-        });
-    };
-    HTML5AudioEngine.prototype._registerEndEvent = function (audio) {
-        var data = audio.getData();
-        data.addEventListener('ended', function (e) {
-            audio.setAttribute('playing', false);
-        });
-    };
-    return HTML5AudioEngine;
-}(AudioEngine_1.AudioEngine));
-exports.HTML5AudioEngine = HTML5AudioEngine;
-
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine = (function () {
-    function LogicEngine() {
-    }
-    return LogicEngine;
-}());
-exports.LogicEngine = LogicEngine;
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var GroupLogicEngine = (function (_super) {
-    __extends(GroupLogicEngine, _super);
-    function GroupLogicEngine() {
-        var _this = _super.call(this) || this;
-        _this._logicCalls = {};
-        _this._intervals = {};
-        _this._interval = 10;
-        return _this;
-    }
-    GroupLogicEngine.prototype.addLogic = function (id, logicMethod, interval) {
-        this._logicCalls[id] = {
-            'method': logicMethod,
-            'interval': interval
-        };
-        if (!this._hasInterval(interval)) {
-            this._createInterval(interval);
-        }
-        this._addToInterval(id);
-    };
-    GroupLogicEngine.prototype.pauseLogic = function (id) {
-        this._removeFromInterval(id);
-    };
-    GroupLogicEngine.prototype.resumeLogic = function (id) {
-        this._addToInterval(id);
-    };
-    GroupLogicEngine.prototype.removeLogic = function (id) {
-        if (this._logicCalls[id]) {
-            this._removeFromInterval(id);
-            delete this._logicCalls[id];
-        }
-    };
-    GroupLogicEngine.prototype._createInterval = function (interval) {
-        var _this = this;
-        var self = this;
-        var methods = [];
-        this._intervals[interval] = {
-            'methods': methods,
-            'interval_id': setInterval(function () {
-                _this._processInterval(interval);
-            }, interval)
-        };
-    };
-    GroupLogicEngine.prototype._hasInterval = function (interval) {
-        return this._intervals[interval] != undefined;
-    };
-    GroupLogicEngine.prototype._removeInterval = function (interval) {
-        clearInterval(this._intervals[interval].interval_id);
-        delete this._intervals[interval];
-    };
-    GroupLogicEngine.prototype._addToInterval = function (id) {
-        this._intervals[this._logicCalls[id].interval].methods.push(this._logicCalls[id].method);
-    };
-    GroupLogicEngine.prototype._removeFromInterval = function (id) {
-        var interval = this._logicCalls[id].interval;
-        this._intervals[interval].methods.splice(this._intervals[interval].methods.indexOf(this._logicCalls[id].method), 1);
-        if (this._intervals[interval].methods.length === 0) {
-            this._removeInterval(interval);
-        }
-    };
-    GroupLogicEngine.prototype._processInterval = function (interval) {
-        for (var i in this._intervals[interval].methods) {
-            this._intervals[interval].methods[i]();
-        }
-    };
-    return GroupLogicEngine;
-}(_1.LogicEngine));
-exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
@@ -3637,9 +3609,210 @@ exports.GroupLogicEngine = GroupLogicEngine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var RenderingEngine = (function () {
-    function RenderingEngine() {
+const AudioEngine_1 = __webpack_require__(10);
+class HTML5AudioEngine extends AudioEngine_1.AudioEngine {
+    constructor() {
+        super();
+        this._backgroundVolume = 1.0;
+        this._soundEffectVolume = 1.0;
+        this._backgroundAudios = [];
+        this._soundEffects = [];
+    }
+    addBackgroundMusic(name, audio) {
+        this.addAudio(name, audio);
+        this._backgroundAudios.push(audio);
+    }
+    addSoundEffect(name, audio) {
+        this.addAudio(name, audio);
+        this._soundEffects.push(audio);
+    }
+    setBackgroundVolume(volume) {
+        this._backgroundVolume = volume;
+        for (var i = 0, len = this._backgroundAudios.length; i < len; i++) {
+            this._setVolume(this._backgroundAudios[i], this._backgroundVolume);
+        }
+    }
+    setSoundEffectVolume(volume) {
+        this._soundEffectVolume = volume;
+        for (var i = 0, len = this._soundEffects.length; i < len; i++) {
+            this._setVolume(this._soundEffects[i], this._soundEffectVolume);
+        }
+    }
+    isBackgroundMusic(audio) {
+        return (this._backgroundAudios.indexOf(audio) > -1);
+    }
+    isSoundEffect(audio) {
+        return (this._soundEffects.indexOf(audio) > -1);
+    }
+    _playAudio(audio) {
+        this._updateVolume(audio);
+        var data = this._getData(audio);
+        data.play();
+    }
+    _updateVolume(audio) {
+        if (this.isSoundEffect(audio)) {
+            this._setVolume(audio, this._soundEffectVolume);
+        }
+        else if (this.isBackgroundMusic(audio)) {
+            this._setVolume(audio, this._backgroundVolume);
+        }
+    }
+    _pauseAudio(audio) {
+        var data = this._getData(audio);
+        data.pause();
+    }
+    _stopAudio(audio) {
+        var data = this._getData(audio);
+        data.pause();
+        this._setTimeCursor(audio, 0);
+    }
+    _isAudioLooping(audio) {
+        var data = this._getData(audio);
+        return data.loop;
+    }
+    _loopAudio(audio, state) {
+        var data = this._getData(audio);
+        data.loop = state;
+    }
+    _isAudioMuted(audio) {
+        var data = this._getData(audio);
+        return data.muted;
+    }
+    _muteAudio(audio, state) {
+        var data = this._getData(audio);
+        data.muted = state;
+    }
+    _getAudioDuration(audio) {
+        var data = this._getData(audio);
+        return data.duration;
+    }
+    _setTimeCursor(audio, seconds) {
+        var data = this._getData(audio);
+        data.currentTime = seconds;
+    }
+    _getTimeCursor(audio) {
+        var data = this._getData(audio);
+        return data.currentTime;
+    }
+    _setVolume(audio, volume) {
+        var data = this._getData(audio);
+        data.volume = volume;
+    }
+    _getVolume(audio) {
+        var data = this._getData(audio);
+        return data.volume;
+    }
+    _registerStartEvent(audio) {
+        var data = audio.getData();
+        data.addEventListener('playing', function (e) {
+            audio.setAttribute('playing', true);
+        });
+    }
+    _registerEndEvent(audio) {
+        var data = audio.getData();
+        data.addEventListener('ended', function (e) {
+            audio.setAttribute('playing', false);
+        });
+    }
+}
+exports.HTML5AudioEngine = HTML5AudioEngine;
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class LogicEngine {
+}
+exports.LogicEngine = LogicEngine;
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(4);
+class GroupLogicEngine extends _1.LogicEngine {
+    constructor() {
+        super();
+        this._logicCalls = {};
+        this._intervals = {};
+        this._interval = 10;
+    }
+    addLogic(id, logicMethod, interval) {
+        this._logicCalls[id] = {
+            'method': logicMethod,
+            'interval': interval
+        };
+        if (!this._hasInterval(interval)) {
+            this._createInterval(interval);
+        }
+        this._addToInterval(id);
+    }
+    pauseLogic(id) {
+        this._removeFromInterval(id);
+    }
+    resumeLogic(id) {
+        this._addToInterval(id);
+    }
+    removeLogic(id) {
+        if (this._logicCalls[id]) {
+            this._removeFromInterval(id);
+            delete this._logicCalls[id];
+        }
+    }
+    _createInterval(interval) {
+        var self = this;
+        var methods = [];
+        this._intervals[interval] = {
+            'methods': methods,
+            'interval_id': setInterval(() => {
+                this._processInterval(interval);
+            }, interval)
+        };
+    }
+    _hasInterval(interval) {
+        return this._intervals[interval] != undefined;
+    }
+    _removeInterval(interval) {
+        clearInterval(this._intervals[interval].interval_id);
+        delete this._intervals[interval];
+    }
+    _addToInterval(id) {
+        this._intervals[this._logicCalls[id].interval].methods.push(this._logicCalls[id].method);
+    }
+    _removeFromInterval(id) {
+        var interval = this._logicCalls[id].interval;
+        this._intervals[interval].methods.splice(this._intervals[interval].methods.indexOf(this._logicCalls[id].method), 1);
+        if (this._intervals[interval].methods.length === 0) {
+            this._removeInterval(interval);
+        }
+    }
+    _processInterval(interval) {
+        for (var i in this._intervals[interval].methods) {
+            this._intervals[interval].methods[i]();
+        }
+    }
+}
+exports.GroupLogicEngine = GroupLogicEngine;
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __webpack_require__(1);
+class RenderingEngine {
+    constructor() {
         this._prerenderViewPort = new utils_1.ViewPort();
         this._rendering = false;
         this._fps = 0;
@@ -3647,25 +3820,25 @@ var RenderingEngine = (function () {
         this._showFPS = true;
         this._cameras = [];
     }
-    RenderingEngine.prototype.setViewPort = function (viewPort) {
+    setViewPort(viewPort) {
         this._viewPort = viewPort;
-    };
-    RenderingEngine.prototype.getViewPort = function () {
+    }
+    getViewPort() {
         return this._viewPort;
-    };
-    RenderingEngine.prototype.setHUD = function (hud) {
+    }
+    setHUD(hud) {
         this._HUDEntity = hud;
-    };
-    RenderingEngine.prototype.getHUD = function () {
+    }
+    getHUD() {
         return this._HUDEntity;
-    };
-    RenderingEngine.prototype.addCamera = function (camera) {
+    }
+    addCamera(camera) {
         this._cameras.push(camera);
-    };
-    RenderingEngine.prototype.removeCamera = function (camera) {
+    }
+    removeCamera(camera) {
         delete this._cameras[this._cameras.indexOf(camera)];
-    };
-    RenderingEngine.prototype.startRendering = function () {
+    }
+    startRendering() {
         if (this._viewPort) {
             var self = this;
             this._rendering = true;
@@ -3676,25 +3849,24 @@ var RenderingEngine = (function () {
             console.warn('Unable to begin rendering, no view port assigned to rendering engine.');
             return false;
         }
-    };
-    RenderingEngine.prototype.stopRendering = function () {
+    }
+    stopRendering() {
         window.cancelAnimationFrame(this._animationFrameID);
         this._animationFrameID = null;
         this._rendering = false;
-    };
-    RenderingEngine.prototype._requestFrame = function () {
-        var _this = this;
+    }
+    _requestFrame() {
         if (this._rendering) {
-            this._animationFrameID = window.requestAnimationFrame(function () {
-                _this._render();
-                _this._postRender();
+            this._animationFrameID = window.requestAnimationFrame(() => {
+                this._render();
+                this._postRender();
             });
         }
-    };
-    RenderingEngine.prototype._render = function () {
+    }
+    _render() {
         this._viewPort.clear();
-    };
-    RenderingEngine.prototype._calculateFPS = function () {
+    }
+    _calculateFPS() {
         var date = new Date();
         if (this._lastRender) {
             if (this._lastRender.getSeconds() != date.getSeconds()) {
@@ -3706,8 +3878,8 @@ var RenderingEngine = (function () {
             }
         }
         this._lastRender = date;
-    };
-    RenderingEngine.prototype._postRender = function () {
+    }
+    _postRender() {
         if (this._showFPS) {
             this._calculateFPS();
             var ctx = this._viewPort.getContext();
@@ -3720,37 +3892,22 @@ var RenderingEngine = (function () {
             ctx.fillText(this._fps + " FPS", 20, 25);
         }
         this._requestFrame();
-    };
-    return RenderingEngine;
-}());
+    }
+}
 exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var TwoDimensionalRenderingEngine = (function (_super) {
-    __extends(TwoDimensionalRenderingEngine, _super);
-    function TwoDimensionalRenderingEngine() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    TwoDimensionalRenderingEngine.prototype._render = function () {
-        _super.prototype._render.call(this);
+const _1 = __webpack_require__(4);
+class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
+    _render() {
+        super._render();
         var context = this.getViewPort().getContext();
         for (var i in this._cameras) {
             this._renderCamera(this._cameras[i]);
@@ -3758,8 +3915,8 @@ var TwoDimensionalRenderingEngine = (function (_super) {
         if (this.getHUD()) {
             this._renderEntity(this.getHUD(), null);
         }
-    };
-    TwoDimensionalRenderingEngine.prototype._renderCamera = function (camera) {
+    }
+    _renderCamera(camera) {
         var scene = camera.getScene();
         var context = this.getViewPort().getContext();
         if (this.debugCamera) {
@@ -3781,8 +3938,8 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             context.stroke();
         }
         this._renderEntity(scene, camera);
-    };
-    TwoDimensionalRenderingEngine.prototype._renderEntity = function (entity, camera) {
+    }
+    _renderEntity(entity, camera) {
         if (camera) {
             var viewPoint = camera.getViewPoint();
             var fov = camera.getFOV();
@@ -3894,61 +4051,48 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             this._renderEntity(children.next(), camera);
         }
         return true;
-    };
-    return TwoDimensionalRenderingEngine;
-}(_1.RenderingEngine));
+    }
+}
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var utils_1 = __webpack_require__(1);
-var EntityModel = (function (_super) {
-    __extends(EntityModel, _super);
-    function EntityModel() {
-        var _this = _super.call(this) || this;
-        _this._attributes = {};
-        _this._id = utils_1.IDGenerator.getSingleton().generate();
-        _this._type = 'generic';
-        return _this;
+const Events = __webpack_require__(2);
+const utils_1 = __webpack_require__(1);
+class EntityModel extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._attributes = {};
+        this._id = utils_1.IDGenerator.getSingleton().generate();
+        this._type = 'generic';
     }
-    EntityModel.prototype.getID = function () {
+    getID() {
         return this._id;
-    };
-    EntityModel.prototype.setType = function (type) {
+    }
+    setType(type) {
         this._type = type;
-    };
-    EntityModel.prototype.getType = function () {
+    }
+    getType() {
         return this._type;
-    };
-    EntityModel.prototype.setTexture = function (asset) {
+    }
+    setTexture(asset) {
         this._texture = asset;
         this.emit(3..toString(), {
             attribute: 'texture',
             name: name,
             value: asset
         });
-    };
-    EntityModel.prototype.getTexture = function () {
+    }
+    getTexture() {
         return this._texture;
-    };
-    EntityModel.prototype.setAttribute = function (key, value) {
+    }
+    setAttribute(key, value) {
         var oldValue = this.getAttribute(key);
         this._attributes[key] = value;
         this.emit(1..toString(), {
@@ -3956,8 +4100,8 @@ var EntityModel = (function (_super) {
             oldValue: oldValue,
             value: value
         });
-    };
-    EntityModel.prototype.removeAttribute = function (key) {
+    }
+    removeAttribute(key) {
         var value = this.getAttribute(key);
         delete this._attributes[key];
         var data = {
@@ -3967,162 +4111,120 @@ var EntityModel = (function (_super) {
             source: this
         };
         this.emit(2..toString(), data);
-    };
-    EntityModel.prototype.getAttribute = function (key) {
+    }
+    getAttribute(key) {
         return this._attributes[key];
-    };
-    EntityModel.prototype.hasAttribute = function (key) {
+    }
+    hasAttribute(key) {
         if (this._attributes[key]) {
             return true;
         }
         else {
             return false;
         }
-    };
-    EntityModel.prototype.sync = function (listener) {
-    };
-    return EntityModel;
-}(Events.EventEmitter));
+    }
+    sync(listener) {
+    }
+}
 exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 41 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(11);
-var EntityView2D = (function (_super) {
-    __extends(EntityView2D, _super);
-    function EntityView2D() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    return EntityView2D;
-}(EntityView_1.EntityView));
+const EntityView_1 = __webpack_require__(15);
+class EntityView2D extends EntityView_1.EntityView {
+}
 exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 42 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
-var GridMap = (function (_super) {
-    __extends(GridMap, _super);
-    function GridMap(tileSize, tileCount) {
-        var _this = _super.call(this) || this;
-        _this.tileSize = tileSize;
-        _this.tileCount = tileCount;
-        _this._tiles = [];
-        _this.setWidth(_this.tileSize.width * _this.tileCount.x);
-        _this.setHeight(_this.tileSize.height * _this.tileCount.y);
-        for (var x = 0; x < _this.tileCount.x; x++) {
-            for (var y = 0; y < _this.tileCount.y; y++) {
+const Entity_1 = __webpack_require__(14);
+class GridMap extends Entity_1.Entity {
+    constructor(tileSize, tileCount) {
+        super();
+        this.tileSize = tileSize;
+        this.tileCount = tileCount;
+        this._tiles = [];
+        this.setWidth(this.tileSize.width * this.tileCount.x);
+        this.setHeight(this.tileSize.height * this.tileCount.y);
+        for (var x = 0; x < this.tileCount.x; x++) {
+            for (var y = 0; y < this.tileCount.y; y++) {
                 var tile = new Entity_1.Entity();
-                tile.setWidth(_this.tileSize.width);
-                tile.setHeight(_this.tileSize.height);
-                tile.setX((x + 1) * _this.tileSize.width);
-                tile.setY((y + 1) * _this.tileSize.height);
-                _this.addChild(tile);
-                if (!_this._tiles[x]) {
-                    _this._tiles[x] = [];
+                tile.setWidth(this.tileSize.width);
+                tile.setHeight(this.tileSize.height);
+                tile.setX((x + 1) * this.tileSize.width);
+                tile.setY((y + 1) * this.tileSize.height);
+                this.addChild(tile);
+                if (!this._tiles[x]) {
+                    this._tiles[x] = [];
                 }
-                _this._tiles[x][y] = tile;
+                this._tiles[x][y] = tile;
             }
         }
-        return _this;
     }
-    GridMap.prototype.getTile = function (coordinate) {
+    getTile(coordinate) {
         return this._tiles[coordinate.x][coordinate.y];
-    };
-    GridMap.prototype.getTiles = function () {
+    }
+    getTiles() {
         return this._children;
-    };
-    return GridMap;
-}(Entity_1.Entity));
+    }
+}
 exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 43 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var entities_1 = __webpack_require__(4);
-var assets_1 = __webpack_require__(0);
-var core_1 = __webpack_require__(5);
-var Character = (function (_super) {
-    __extends(Character, _super);
-    function Character(character_spritesheet) {
-        var _this = _super.call(this) || this;
-        _this.setWidth(14);
-        _this.setHeight(21);
-        _this._characterSpritesheet = character_spritesheet;
-        _this._upAnim = new assets_1.Animation(_this, [
+const entities_1 = __webpack_require__(5);
+const assets_1 = __webpack_require__(0);
+const core_1 = __webpack_require__(6);
+class Character extends entities_1.Entity {
+    constructor(character_spritesheet) {
+        super();
+        this.setWidth(14);
+        this.setHeight(21);
+        this._characterSpritesheet = character_spritesheet;
+        this._upAnim = new assets_1.Animation(this, [
             { "asset": character_spritesheet.getSprite('player_up_step1'), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_up_step2"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 }
         ]);
-        _this._downAnim = new assets_1.Animation(_this, [
+        this._downAnim = new assets_1.Animation(this, [
             { "asset": character_spritesheet.getSprite("player_down_step1"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_down_step2"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 }
         ]);
-        _this._leftAnim = new assets_1.Animation(_this, [
+        this._leftAnim = new assets_1.Animation(this, [
             { "asset": character_spritesheet.getSprite("player_left_step2"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_left_step1"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 }
         ]);
-        _this._rightAnim = new assets_1.Animation(_this, [
+        this._rightAnim = new assets_1.Animation(this, [
             { "asset": character_spritesheet.getSprite("player_right_step2"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_right_step1"), "delay": 250 },
             { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 }
         ]);
-        return _this;
     }
-    Character.prototype._move = function (coordinates) {
-        var _this = this;
+    _move(coordinates) {
         var game = core_1.getInstance();
         game.getLogicEngine().removeLogic(this.getID() + "_endmove");
         var collision = false;
@@ -4136,48 +4238,48 @@ var Character = (function (_super) {
             }
         }
         if (!collision) {
-            game.getLogicEngine().addLogic(this.getID() + "_move", function () {
-                if (_this.getX() != x) {
-                    if (_this.getX() > x) {
-                        _this.setX(_this.getX() - 2);
+            game.getLogicEngine().addLogic(this.getID() + "_move", () => {
+                if (this.getX() != x) {
+                    if (this.getX() > x) {
+                        this.setX(this.getX() - 2);
                         if (!updatedCoordinates) {
-                            _this.tileX -= 1;
+                            this.tileX -= 1;
                             updatedCoordinates = true;
                         }
                     }
                     else {
-                        _this.setX(_this.getX() + 2);
+                        this.setX(this.getX() + 2);
                         if (!updatedCoordinates) {
-                            _this.tileX += 1;
+                            this.tileX += 1;
                             updatedCoordinates = true;
                         }
                     }
                 }
-                if (_this.getY() != y) {
-                    if (_this.getY() > y) {
-                        _this.setY(_this.getY() - 2);
+                if (this.getY() != y) {
+                    if (this.getY() > y) {
+                        this.setY(this.getY() - 2);
                         if (!updatedCoordinates) {
-                            _this.tileY -= 1;
+                            this.tileY -= 1;
                             updatedCoordinates = true;
                         }
                     }
                     else {
-                        _this.setY((_this.getY()) + 2);
+                        this.setY((this.getY()) + 2);
                         if (!updatedCoordinates) {
-                            _this.tileY += 1;
+                            this.tileY += 1;
                             updatedCoordinates = true;
                         }
                     }
                 }
                 ;
-                if (_this.getX() == x && _this.getY() == y || collision) {
-                    game.getLogicEngine().removeLogic(_this.getID() + "_move");
-                    _this.moving = false;
-                    game.getLogicEngine().addLogic(_this.getID() + "_endmove", function () {
-                        _this._activeAnim.stop();
-                        delete _this._activeAnim;
-                        _this.setTexture(_this._endTexture);
-                        game.getLogicEngine().removeLogic(_this.getID() + "_endmove");
+                if (this.getX() == x && this.getY() == y || collision) {
+                    game.getLogicEngine().removeLogic(this.getID() + "_move");
+                    this.moving = false;
+                    game.getLogicEngine().addLogic(this.getID() + "_endmove", () => {
+                        this._activeAnim.stop();
+                        delete this._activeAnim;
+                        this.setTexture(this._endTexture);
+                        game.getLogicEngine().removeLogic(this.getID() + "_endmove");
                     }, 50);
                 }
             }, 50);
@@ -4188,8 +4290,8 @@ var Character = (function (_super) {
             delete this._activeAnim;
             this.setTexture(this._endTexture);
         }
-    };
-    Character.prototype.moveLeft = function () {
+    }
+    moveLeft() {
         if (!this.moving) {
             if (this._activeAnim && this._activeAnim != this._leftAnim) {
                 this._activeAnim.stop();
@@ -4200,8 +4302,8 @@ var Character = (function (_super) {
             this.moving = true;
             this._move({ x: this.getX() - 16, y: this.getY() });
         }
-    };
-    Character.prototype.moveUp = function () {
+    }
+    moveUp() {
         if (!this.moving) {
             if (this._activeAnim && this._activeAnim != this._upAnim) {
                 this._activeAnim.stop();
@@ -4212,8 +4314,8 @@ var Character = (function (_super) {
             this.moving = true;
             this._move({ x: this.getX(), y: this.getY() - 16 });
         }
-    };
-    Character.prototype.moveRight = function () {
+    }
+    moveRight() {
         if (!this.moving) {
             if (this._activeAnim && this._activeAnim != this._rightAnim) {
                 this._activeAnim.stop();
@@ -4224,8 +4326,8 @@ var Character = (function (_super) {
             this.moving = true;
             this._move({ x: this.getX() + 16, y: this.getY() });
         }
-    };
-    Character.prototype.moveDown = function () {
+    }
+    moveDown() {
         if (!this.moving) {
             if (this._activeAnim && this._activeAnim != this._downAnim) {
                 this._activeAnim.stop();
@@ -4236,70 +4338,58 @@ var Character = (function (_super) {
             this.moving = true;
             this._move({ x: this.getX(), y: this.getY() + 16 });
         }
-    };
-    return Character;
-}(entities_1.Entity));
+    }
+}
 exports.default = Character;
 
 
 /***/ }),
-/* 44 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(45);
+const GamePadListener_1 = __webpack_require__(48);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
-var GamePad_1 = __webpack_require__(12);
+const GamePad_1 = __webpack_require__(16);
 exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(46);
+const Keyboard_1 = __webpack_require__(49);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(47);
+const Mouse_1 = __webpack_require__(50);
 exports.Mouse = Mouse_1.Mouse;
-var Touch_1 = __webpack_require__(13);
+const Touch_1 = __webpack_require__(17);
 exports.Touch = Touch_1.Touch;
-var TouchListener_1 = __webpack_require__(48);
+const TouchListener_1 = __webpack_require__(51);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 45 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(12);
-var Events = __webpack_require__(2);
-var GamePadListener = (function (_super) {
-    __extends(GamePadListener, _super);
-    function GamePadListener() {
-        var _this = _super.call(this) || this;
+const GamePad_1 = __webpack_require__(16);
+const Events = __webpack_require__(2);
+class GamePadListener extends Events.EventEmitter {
+    constructor() {
+        super();
         if (navigator.getGamepads) {
-            _this._buildGamePads();
-            _this._gamePadPollTimer = window.setInterval(function () {
+            this._buildGamePads();
+            this._gamePadPollTimer = window.setInterval(() => {
                 var gamePads = navigator.getGamepads();
                 for (var i = 0; i < gamePads.length; i++) {
-                    if (gamePads[i] && !_this._activeGamePads[i]) {
-                        var gamePad = _this._buildGamePad(i);
-                        _this.emit("GAMEPADADDED", gamePad);
+                    if (gamePads[i] && !this._activeGamePads[i]) {
+                        var gamePad = this._buildGamePad(i);
+                        this.emit("GAMEPADADDED", gamePad);
                     }
-                    else if (!gamePads[i] && _this._activeGamePads[i]) {
-                        var gamePad = _this._activeGamePads[i];
-                        delete _this._activeGamePads[i];
-                        _this.emit("GAMEPADREMOVED", gamePad);
+                    else if (!gamePads[i] && this._activeGamePads[i]) {
+                        var gamePad = this._activeGamePads[i];
+                        delete this._activeGamePads[i];
+                        this.emit("GAMEPADREMOVED", gamePad);
                     }
                 }
             }, 15);
@@ -4307,9 +4397,8 @@ var GamePadListener = (function (_super) {
         else {
             console.log("Browser does not support GamePad API");
         }
-        return _this;
     }
-    GamePadListener.prototype._buildGamePads = function () {
+    _buildGamePads() {
         var gamePads = navigator.getGamepads();
         this._activeGamePads = [];
         for (var i = 0; i < gamePads.length; i++) {
@@ -4317,45 +4406,34 @@ var GamePadListener = (function (_super) {
                 this._buildGamePad(i);
             }
         }
-    };
-    GamePadListener.prototype._buildGamePad = function (index) {
+    }
+    _buildGamePad(index) {
         var gamePad = new GamePad_1.GamePad(index);
         this._activeGamePads[index] = gamePad;
         return gamePad;
-    };
-    GamePadListener.getInstance = function () {
+    }
+    static getInstance() {
         GamePadListener._instance = GamePadListener._instance || new GamePadListener();
         return GamePadListener._instance;
-    };
-    GamePadListener.prototype.hasGamePads = function () {
+    }
+    hasGamePads() {
         return this._activeGamePads.length > 0;
-    };
-    GamePadListener.prototype.getGamePads = function () {
+    }
+    getGamePads() {
         return this._activeGamePads;
-    };
-    return GamePadListener;
-}(Events.EventEmitter));
+    }
+}
 exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 46 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+const Events = __webpack_require__(2);
 exports.KeyboardKeys = {
     0: 48,
     1: 49,
@@ -4474,163 +4552,149 @@ exports.KeyboardKeys = {
     "POUND": 163,
     "MONEYSIGN": 164,
 };
-var Keyboard = (function (_super) {
-    __extends(Keyboard, _super);
-    function Keyboard() {
-        var _this = _super.call(this) || this;
-        _this._buttonMap = {};
-        _this._buttonsActive = {};
-        window.addEventListener("keydown", function (e) {
-            if (!_this.isButtonActive(e.which)) {
-                _this._setButtonActive(e.which, true);
-                _this._setButtonValue(e.which, true);
-                var event_1 = {
+class Keyboard extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._buttonMap = {};
+        this._buttonsActive = {};
+        window.addEventListener("keydown", (e) => {
+            if (!this.isButtonActive(e.which)) {
+                this._setButtonActive(e.which, true);
+                this._setButtonValue(e.which, true);
+                let event = {
                     type: "KEYDOWN",
-                    source: _this,
+                    source: this,
                     key: e.which
                 };
-                _this.emit("KEYDOWN", event_1);
+                this.emit("KEYDOWN", event);
             }
         }, true);
-        window.addEventListener("keyup", function (e) {
-            _this._setButtonActive(e.which, false);
-            _this._setButtonValue(e.which, false);
-            var event = {
+        window.addEventListener("keyup", (e) => {
+            this._setButtonActive(e.which, false);
+            this._setButtonValue(e.which, false);
+            let event = {
                 type: "KEYUP",
-                source: _this,
+                source: this,
                 key: e.which
             };
-            _this.emit("KEYUP", event);
+            this.emit("KEYUP", event);
         }, true);
-        return _this;
     }
-    Keyboard.prototype._setButtonActive = function (id, active) {
+    _setButtonActive(id, active) {
         this._buttonsActive[id] = active;
-    };
-    Keyboard.prototype.isButtonActive = function (id) {
+    }
+    isButtonActive(id) {
         return this._buttonsActive[id] === true;
-    };
-    Keyboard.prototype.getButtonValue = function (id) {
+    }
+    getButtonValue(id) {
         return this._buttonMap[id];
-    };
-    Keyboard.prototype._setButtonValue = function (id, value) {
+    }
+    _setButtonValue(id, value) {
         this._buttonMap[id] = value;
-    };
-    Keyboard.getInstance = function () {
+    }
+    static getInstance() {
         Keyboard._instance = Keyboard._instance || new Keyboard();
         return Keyboard._instance;
-    };
-    return Keyboard;
-}(Events.EventEmitter));
+    }
+}
 exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 47 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var Mouse = (function (_super) {
-    __extends(Mouse, _super);
-    function Mouse() {
-        var _this = _super.call(this) || this;
-        _this._leftButtonDown = false;
-        _this._rightButtonDown = false;
-        _this._scrollWheelDown = false;
-        _this._mouseCoords = { x: 0, y: 0 };
-        window.addEventListener("contextmenu", function (e) {
+const Events = __webpack_require__(2);
+class Mouse extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._leftButtonDown = false;
+        this._rightButtonDown = false;
+        this._scrollWheelDown = false;
+        this._mouseCoords = { x: 0, y: 0 };
+        window.addEventListener("contextmenu", (e) => {
             e.preventDefault();
         });
-        window.addEventListener("mousedown", function (e) {
+        window.addEventListener("mousedown", (e) => {
             if (e.button === 0) {
-                _this._leftButtonDown = true;
-                var event_1 = {
+                this._leftButtonDown = true;
+                let event = {
                     type: "LEFTBUTTONDOWN",
-                    source: _this,
+                    source: this,
                     x: e.clientX,
                     y: e.clientY
                 };
-                _this.emit("LEFTBUTTONDOWN", event_1);
+                this.emit("LEFTBUTTONDOWN", event);
             }
             else if (e.button === 1) {
-                _this._scrollWheelDown = true;
-                var event_2 = {
+                this._scrollWheelDown = true;
+                let event = {
                     type: "SCROLLWHEELDOWN",
-                    source: _this,
+                    source: this,
                     x: e.clientX,
                     y: e.clientY
                 };
-                _this.emit("SCROLLWHEELDOWN", event_2);
+                this.emit("SCROLLWHEELDOWN", event);
             }
             else if (e.button === 2) {
-                _this._rightButtonDown = true;
-                var event_3 = {
+                this._rightButtonDown = true;
+                let event = {
                     type: "RIGHTBUTTONDOWN",
-                    source: _this,
+                    source: this,
                     x: e.clientX,
                     y: e.clientY
                 };
-                _this.emit("RIGHTBUTTONDOWN", event_3);
+                this.emit("RIGHTBUTTONDOWN", event);
             }
         }, true);
-        window.addEventListener("mouseup", function (e) {
+        window.addEventListener("mouseup", (e) => {
             if (e.button === 0) {
-                _this._leftButtonDown = false;
-                var event_4 = {
+                this._leftButtonDown = false;
+                let event = {
                     type: "LEFTBUTTONUP",
-                    source: _this,
+                    source: this,
                     x: e.clientX,
                     y: e.clientY
                 };
-                _this.emit("LEFTBUTTONUP", event_4);
+                this.emit("LEFTBUTTONUP", event);
             }
             else if (e.button === 1) {
-                _this._scrollWheelDown = false;
-                var event_5 = {
+                this._scrollWheelDown = false;
+                let event = {
                     type: "SCROLLWHEELUP",
-                    source: _this,
+                    source: this,
                     x: e.clientX,
                     y: e.clientY
                 };
-                _this.emit("SCROLLWHEELUP", event_5);
+                this.emit("SCROLLWHEELUP", event);
             }
             else if (e.button === 2) {
-                _this._rightButtonDown = false;
-                var event_6 = {
+                this._rightButtonDown = false;
+                let event = {
                     type: "RIGHTBUTTONUP",
-                    source: _this,
+                    source: this,
                     x: e.clientX,
                     y: e.clientY
                 };
-                _this.emit("RIGHTBUTTONUP", event_6);
+                this.emit("RIGHTBUTTONUP", event);
             }
         }, true);
-        window.addEventListener("mousemove", function (e) {
-            _this._mouseCoords = { x: e.clientX, y: e.clientY };
-            var event = {
+        window.addEventListener("mousemove", (e) => {
+            this._mouseCoords = { x: e.clientX, y: e.clientY };
+            let event = {
                 type: "MOUSEMOVE",
-                source: _this,
+                source: this,
                 x: e.clientX,
                 y: e.clientY
             };
-            _this.emit("MOUSEMOVE", event);
+            this.emit("MOUSEMOVE", event);
         }, true);
-        window.addEventListener("wheel", function (e) {
-            var yDelta = 0;
-            var xDelta = 0;
+        window.addEventListener("wheel", (e) => {
+            let yDelta = 0;
+            let xDelta = 0;
             if (e.wheelDeltaY > 0) {
                 yDelta = 1;
             }
@@ -4643,77 +4707,62 @@ var Mouse = (function (_super) {
             else if (e.wheelDeltaX < 0) {
                 xDelta = -1;
             }
-            var event = {
+            let event = {
                 type: "SCROLLWHEELMOVE".toString(),
-                source: _this,
+                source: this,
                 x: e.clientX,
                 y: e.clientY,
                 yDelta: yDelta,
                 xDelta: xDelta
             };
-            _this.emit("SCROLLWHEELMOVE".toString(), event);
+            this.emit("SCROLLWHEELMOVE".toString(), event);
         }, true);
-        return _this;
     }
-    Mouse.prototype.getCurrentCoordinates = function () {
+    getCurrentCoordinates() {
         return this._mouseCoords;
-    };
-    Mouse.prototype.isLeftButtonClicked = function () {
+    }
+    isLeftButtonClicked() {
         return this._leftButtonDown;
-    };
-    Mouse.prototype.isMouseWheelClicked = function () {
+    }
+    isMouseWheelClicked() {
         return this._scrollWheelDown;
-    };
-    Mouse.prototype.isRightButtonClicked = function () {
+    }
+    isRightButtonClicked() {
         return this._rightButtonDown;
-    };
-    Mouse.getInstance = function () {
+    }
+    static getInstance() {
         Mouse._instance = Mouse._instance || new Mouse();
         return Mouse._instance;
-    };
-    return Mouse;
-}(Events.EventEmitter));
+    }
+}
 exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 48 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(13);
-var Events = __webpack_require__(2);
-var TouchListener = (function (_super) {
-    __extends(TouchListener, _super);
-    function TouchListener() {
-        var _this = _super.call(this) || this;
-        window.addEventListener("touchstart", function (e) {
+const Touch_1 = __webpack_require__(17);
+const Events = __webpack_require__(2);
+class TouchListener extends Events.EventEmitter {
+    constructor() {
+        super();
+        window.addEventListener("touchstart", (e) => {
             e.preventDefault();
             for (var i = 0; i < e.changedTouches.length; i++) {
                 var touch = new Touch_1.Touch(e.changedTouches.item(i));
-                _this.emit("TOUCHADDED", touch);
+                this.emit("TOUCHADDED", touch);
             }
         });
-        return _this;
     }
-    TouchListener.getInstance = function () {
+    static getInstance() {
         TouchListener._instance = TouchListener._instance || new TouchListener();
         return TouchListener._instance;
-    };
-    return TouchListener;
-}(Events.EventEmitter));
+    }
+}
 exports.TouchListener = TouchListener;
 
 

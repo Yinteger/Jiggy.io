@@ -10,6 +10,7 @@ export interface AssetGroupDefinition {
 }
 
 export interface AssetDefinition {
+    name: string;
     type: AssetType;
     source: string;
 }
@@ -25,12 +26,20 @@ export class AssetGroupLoader {
         return new Promise<AssetGroup>((resolve, reject) => {
             var json: Asset = this._assetFactory.build(AssetType.JSON, path);
 
-            json.load().then((asset: Asset) => {
-                var data: AssetGroupDefinition = asset.getData();
+            json.load().then((assetGroupDefs: Asset) => {
+                var data: AssetGroupDefinition = assetGroupDefs.getData();
 
-                var iteartor = new Iterator<AssetDefinition>()
-            });
+                var iterator: Iterator<AssetDefinition> = new Iterator<AssetDefinition>(data.assets);
+                var group: AssetGroup = new AssetGroup();
+
+                while(iterator.hasNext()) {
+                    var assetDef: AssetDefinition = iterator.next();
+                    var asset: Asset = this._assetFactory.build(assetDef.type, assetDef.source);
+                    group.addAsset(assetDef.name, asset);
+                }
+
+                resolve(group);
+            }).catch(reject);
         });
     }
 }
-

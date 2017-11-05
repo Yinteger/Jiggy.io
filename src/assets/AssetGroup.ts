@@ -1,6 +1,6 @@
 import {Asset} from './Asset';
 import {AssetState} from './AssetState';
-import {getInstance} from '../core/instance';
+import {getInstance} from '../core/Instance';
 
 export interface AssetMap {
     [key: string]: Asset;
@@ -49,7 +49,7 @@ export class AssetGroup {
     }
 
     public load(): Promise<void> {
-        var promises: Promise<Asset>[];
+        var promises: Promise<Asset>[] = [];
 
         for (var name in this._assets) {
             var asset: Asset = this._assets[name];

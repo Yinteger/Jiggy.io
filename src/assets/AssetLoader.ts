@@ -137,6 +137,7 @@ export class AssetLoader {
 	 */
 	protected _onSuccess(asset: Asset, data: Object, resolve: ResolveFunction<Asset>): void {
 		asset.setData(data);
+		asset.setState(AssetState.LOADED);
 		resolve(asset);
 	}
 
@@ -149,10 +150,11 @@ export class AssetLoader {
 	 * @param  {XMLHttpRequest} request
 	 * @return {void}         
 	 */
-	protected _onFail(asset: Asset, request: XMLHttpRequest, reject: RejectFunction): void {
+	protected _onFail(asset: Asset, error: any, reject: RejectFunction): void {
 		reject({
-			code : request.status,
-			message : 'Generic Error Message'
+			detailed : error,
+			message : 'Generic Error Message',
+			asset : asset
 		});
 		// asset.onError({
 		// 	code : request.status,

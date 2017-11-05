@@ -3,7 +3,7 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, GridMap, EntityEventTypes, LocationUpdateEvent} from "../../src/entities";
 import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet} from "../../src/assets";
+import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet, AssetGroup} from "../../src/assets";
 import Character from "./Character";
 import {
     Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
@@ -13,17 +13,18 @@ import {
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
-	private _bgMusic : Asset;
+	// private _bgMusic : Asset;
 	private _characterSpritesheet : Spritesheet;
     public player: Character;
     private _mainCamera: Camera;
-    private _direction : String = "";
+	private _direction : String = "";
+	private _assetGroup: AssetGroup;
 
 	constructor () {
 		super();
+		this._assetGroup = new AssetGroup();
         this.getViewPort().setSize({ width: 500, height: 500 });
 		this.setRenderingEngine(new TwoDimensionalRenderingEngine());
-		// this.audioEngine = new HTML5AudioEngine();
 		this.setLogicEngine(new GroupLogicEngine());
 
 		this.getRenderingEngine().setHUD(this._createLoadingScreen());
@@ -79,6 +80,8 @@ class PalletDemo extends Engine {
 
 		//TODO: Framework Level Data Driven Map Generation
 
+		// var mapSpritesheet: Asset = this._assetGroup.getAsset('map');
+
 		//Set Grass Trails & Background Tiles
 		var layer1Iterator : Iterator<Entity> = layer1.iterator();
 		while(layer1Iterator.hasNext()) {
@@ -118,13 +121,25 @@ class PalletDemo extends Engine {
 	}
 
 	private _loadResources () : void {
-		this._loadMapSpritesheet();
-		this._loadBackgroundMusic();
-		this._loadCharacterSpritesheet();
+		var map_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/61816.png');
+		this._assetGroup.addAsset('map', map_asset);
+
+		var bg_music : Asset = AssetFactory.getSingleton().build(AssetType.AUDIO,  'Resources/music.mp3');
+		this._assetGroup.addAsset('bgMusic', bg_music);
+
+		var character_spritesheet : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'Resources/3698.png');
+		this._assetGroup.addAsset('character', character_spritesheet);
+
+		this._assetGroup.load().then(() => {
+			this._loadMapSpritesheet();
+			this._loadBackgroundMusic();
+			this._loadCharacterSpritesheet();
+			this._resourceLoaded();
+		});
 	}
 
 	private _resourceLoaded () : void {
-		if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
+		// if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
 			console.log("Resources all loaded");
 
 			//Artifical Delay to show loading animation
@@ -214,7 +229,7 @@ class PalletDemo extends Engine {
 				//Load NPC's
 
 				//Play Background Music
-				this.getAudioEngine().addAudio('bg', this._bgMusic);
+				this.getAudioEngine().addAudio('bg', this._assetGroup.getAsset('bgMusic'));
 				this.getAudioEngine().loopAudio('bg', true);
 				this.getAudioEngine().playAudio('bg');
 
@@ -310,7 +325,7 @@ class PalletDemo extends Engine {
 					}
 				});
 			}, 1000);			
-		}
+		// }
     }
 
     private attachGamepad(gamePad: GamePad): void {
@@ -377,135 +392,239 @@ class PalletDemo extends Engine {
     }
 
 	private _loadMapSpritesheet () : void {
-		var map_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/61816.png');
+		var map_asset: Asset = this._assetGroup.getAsset('map');
 
-		map_asset.onStateChange = (state : AssetState) => {
-			if (state === AssetState.LOADED) {
-				this._mapSpritesheet =  new Spritesheet(map_asset, 
-				{
-				"grass": {
-					x: 16,
-					y: 0,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_11": {
-					x: 0,
-					y: 16,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_12": {
-					x: 16,
-					y: 16,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_13": {
-					x: 32,
-					y: 16,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_21": {
-					x: 0,
-					y: 32,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_22": {
-					x: 16,
-					y: 32,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_23": {
-					x: 32,
-					y: 32,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_31": {
-					x: 0,
-					y: 48,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_32": {
-					x: 16,
-					y: 48,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_33": {
-					x: 32,
-					y: 48,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_41": {
-					x: 0,
-					y: 64,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_42": {
-					x: 16,
-					y: 64,
-					width: 16,
-					height: 16
-				},
-				"house_1_roof_43": {
-					x: 32,
-					y: 64,
-					width: 16,
-					height: 16
-				}});
-				this._resourceLoaded();
+		this._mapSpritesheet =  new Spritesheet(map_asset, {
+			"grass": {
+				x: 16,
+				y: 0,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_11": {
+				x: 0,
+				y: 16,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_12": {
+				x: 16,
+				y: 16,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_13": {
+				x: 32,
+				y: 16,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_21": {
+				x: 0,
+				y: 32,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_22": {
+				x: 16,
+				y: 32,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_23": {
+				x: 32,
+				y: 32,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_31": {
+				x: 0,
+				y: 48,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_32": {
+				x: 16,
+				y: 48,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_33": {
+				x: 32,
+				y: 48,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_41": {
+				x: 0,
+				y: 64,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_42": {
+				x: 16,
+				y: 64,
+				width: 16,
+				height: 16
+			},
+			"house_1_roof_43": {
+				x: 32,
+				y: 64,
+				width: 16,
+				height: 16
 			}
-		}
+		});
 
-		map_asset.load();
+		// var map_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/61816.png');
+
+		// map_asset.onStateChange = (state : AssetState) => {
+		// 	if (state === AssetState.LOADED) {
+		// 		this._mapSpritesheet =  new Spritesheet(map_asset, 
+		// 		{
+		// 		"grass": {
+		// 			x: 16,
+		// 			y: 0,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_11": {
+		// 			x: 0,
+		// 			y: 16,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_12": {
+		// 			x: 16,
+		// 			y: 16,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_13": {
+		// 			x: 32,
+		// 			y: 16,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_21": {
+		// 			x: 0,
+		// 			y: 32,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_22": {
+		// 			x: 16,
+		// 			y: 32,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_23": {
+		// 			x: 32,
+		// 			y: 32,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_31": {
+		// 			x: 0,
+		// 			y: 48,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_32": {
+		// 			x: 16,
+		// 			y: 48,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_33": {
+		// 			x: 32,
+		// 			y: 48,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_41": {
+		// 			x: 0,
+		// 			y: 64,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_42": {
+		// 			x: 16,
+		// 			y: 64,
+		// 			width: 16,
+		// 			height: 16
+		// 		},
+		// 		"house_1_roof_43": {
+		// 			x: 32,
+		// 			y: 64,
+		// 			width: 16,
+		// 			height: 16
+		// 		}});
+		// 		this._resourceLoaded();
+		// 	}
+		// }
+
+		// map_asset.load();
 	}
 
 	private _loadCharacterSpritesheet () : void {
-		var character_spritesheet : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'Resources/3698.png');
+		var character_spritesheet: Asset = this._assetGroup.getAsset('character');
 
-		character_spritesheet.onStateChange = (state : AssetState) => {
-			if (state === AssetState.LOADED) {
-				this._characterSpritesheet = new Spritesheet(character_spritesheet, {
-				"player_up": {x: 21, y: 10, width: 14, height: 20},
-				"player_up_step1": {x: 66, y: 10, width: 14, height: 20},
-				"player_up_step2": {x: 66, y: 10, width: 14, height: 20, "flipX": true},
-				"player_left": {x: 36, y: 10, width: 14, height: 20},
-				"player_left_step1": {x: 81, y: 10, width: 14, height: 20},
-				"player_left_step2": {x: 95, y: 10, width: 14, height: 20},
-				"player_right": {x: 36, y: 10, width: 14, height: 20, "flipX": true},
-				"player_right_step1": {x: 81, y: 10, width: 14, height: 20, "flipX": true},
-				"player_right_step2": {x: 95, y: 10, width: 14, height: 20, "flipX": true},
-				"player_down": {x: 6, y: 10, width: 14, height: 20},
-				"player_down_step1": {x: 51, y: 10, width: 14, height: 20},
-				"player_down_step2": {x: 51, y: 10, width: 14, height: 20, "flipX": true}
-				});
+		this._characterSpritesheet = new Spritesheet(character_spritesheet, {
+			"player_up": {x: 21, y: 10, width: 14, height: 20},
+			"player_up_step1": {x: 66, y: 10, width: 14, height: 20},
+			"player_up_step2": {x: 66, y: 10, width: 14, height: 20, "flipX": true},
+			"player_left": {x: 36, y: 10, width: 14, height: 20},
+			"player_left_step1": {x: 81, y: 10, width: 14, height: 20},
+			"player_left_step2": {x: 95, y: 10, width: 14, height: 20},
+			"player_right": {x: 36, y: 10, width: 14, height: 20, "flipX": true},
+			"player_right_step1": {x: 81, y: 10, width: 14, height: 20, "flipX": true},
+			"player_right_step2": {x: 95, y: 10, width: 14, height: 20, "flipX": true},
+			"player_down": {x: 6, y: 10, width: 14, height: 20},
+			"player_down_step1": {x: 51, y: 10, width: 14, height: 20},
+			"player_down_step2": {x: 51, y: 10, width: 14, height: 20, "flipX": true}
+		});
 
-				this._resourceLoaded();
-			}
-		}
+		// var character_spritesheet : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'Resources/3698.png');
 
-		character_spritesheet.load();
+		// character_spritesheet.onStateChange = (state : AssetState) => {
+		// 	if (state === AssetState.LOADED) {
+		// 		this._characterSpritesheet = new Spritesheet(character_spritesheet, {
+		// 		"player_up": {x: 21, y: 10, width: 14, height: 20},
+		// 		"player_up_step1": {x: 66, y: 10, width: 14, height: 20},
+		// 		"player_up_step2": {x: 66, y: 10, width: 14, height: 20, "flipX": true},
+		// 		"player_left": {x: 36, y: 10, width: 14, height: 20},
+		// 		"player_left_step1": {x: 81, y: 10, width: 14, height: 20},
+		// 		"player_left_step2": {x: 95, y: 10, width: 14, height: 20},
+		// 		"player_right": {x: 36, y: 10, width: 14, height: 20, "flipX": true},
+		// 		"player_right_step1": {x: 81, y: 10, width: 14, height: 20, "flipX": true},
+		// 		"player_right_step2": {x: 95, y: 10, width: 14, height: 20, "flipX": true},
+		// 		"player_down": {x: 6, y: 10, width: 14, height: 20},
+		// 		"player_down_step1": {x: 51, y: 10, width: 14, height: 20},
+		// 		"player_down_step2": {x: 51, y: 10, width: 14, height: 20, "flipX": true}
+		// 		});
+
+		// 		this._resourceLoaded();
+		// 	}
+		// }
+
+		// character_spritesheet.load();
 	}
 
 	private _loadBackgroundMusic () : void {
-		var bg_music : Asset = AssetFactory.getSingleton().build(AssetType.AUDIO,  'Resources/music.mp3');
+		// var music: Asset = this._assetGroup.getAsset('bgMusic');
 
-		bg_music.onStateChange = (state: AssetState) => {
-			if (state === AssetState.LOADED) {
-				this._bgMusic  = bg_music;
-				this._resourceLoaded();
-			}
-		}
+		// music.
 
-		bg_music.load();
+		// var bg_music : Asset = AssetFactory.getSingleton().build(AssetType.AUDIO,  'Resources/music.mp3');
+
+		// bg_music.onStateChange = (state: AssetState) => {
+		// 	if (state === AssetState.LOADED) {
+		// 		this._bgMusic  = bg_music;
+		// 		this._resourceLoaded();
+		// 	}
+		// }
+
+		// bg_music.load();
 	}
 }
 
