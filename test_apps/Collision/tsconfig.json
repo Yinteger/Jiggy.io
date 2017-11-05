@@ -10,10 +10,7 @@
         "forceConsistentCasingInFileNames": true,
         "pretty": true,
         "allowUnreachableCode": false,
-        "baseUrl" : ".",
-        "paths": {
-            "@jiggy/*" : ["../../src/*/src/"]
-        }
+        "baseUrl" : "."
     },
     "files": [
         "./App.ts"

@@ -1,9 +1,9 @@
-import {Engine} from "@jiggy/core";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "@jiggy/engines";
-import {HTML5AudioEngine} from "@jiggy/audio";
-import {Entity, LocationUpdateEvent} from "@jiggy/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "@jiggy/utils";
-import {Asset, AssetState, AssetFactory, AssetType} from "@jiggy/assets";
+import {Engine} from "../../src/core";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
+import {HTML5AudioEngine} from "../../src/audio";
+import {Entity, LocationUpdateEvent} from "../../src/entities";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
+import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];

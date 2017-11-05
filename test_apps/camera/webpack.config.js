@@ -14,17 +14,7 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"],
-        alias : {
-            "@jiggy/assets"     : Path.resolve(DIST_DIR, 'assets/index.js'),
-            "@jiggy/audio"      : Path.resolve(DIST_DIR, 'audio/index.js'),
-            "@jiggy/core"       : Path.resolve(DIST_DIR, 'core/index.js'),
-            "@jiggy/engines"    : Path.resolve(DIST_DIR, 'engines/index.js'),
-            "@jiggy/entities"   : Path.resolve(DIST_DIR, 'entities/index.js'),
-            "@jiggy/inputs"     : Path.resolve(DIST_DIR, 'inputs/index.js'),
-            "@jiggy/interfaces" : Path.resolve(DIST_DIR, 'interfaces/index.js'),
-            "@jiggy/utils"      : Path.resolve(DIST_DIR, 'utils/index.js'),
-        }
+        extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
     },
 
     module: {
@@ -34,7 +24,7 @@ module.exports = {
                 test: /\.tsx?$/, 
                 loader: "ts-loader",
                 options : {
-                    configFile : 'tsconfig-build.json'
+                    configFile : 'tsconfig.json'
                 }
             },
             { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }

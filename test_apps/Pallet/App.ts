@@ -1,15 +1,15 @@
-import {Engine} from "@jiggy/core";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "@jiggy/engines";
-import {HTML5AudioEngine} from "@jiggy/audio";
-import {Entity, GridMap, EntityEventTypes, LocationUpdateEvent} from "@jiggy/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator} from "@jiggy/utils";
-import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet} from "@jiggy/assets";
+import {Engine} from "../../src/core";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
+import {HTML5AudioEngine} from "../../src/audio";
+import {Entity, GridMap, EntityEventTypes, LocationUpdateEvent} from "../../src/entities";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator} from "../../src/utils";
+import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet} from "../../src/assets";
 import Character from "./Character";
 import {
     Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
     Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
     GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
-} from "@jiggy/inputs";
+} from "../../src/inputs";
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;

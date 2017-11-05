@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
         "moduleResolution": "node",
@@ -10,10 +11,7 @@
         "forceConsistentCasingInFileNames": true,
         "pretty": true,
         "allowUnreachableCode": false,
-        "baseUrl" : ".",
-        "paths": {
-            "@jiggy/*" : ["../../src/*/src/"]
-        }
+        "baseUrl" : "."
     },
     "files": [
         "./App.ts"
