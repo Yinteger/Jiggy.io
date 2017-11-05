@@ -1,4 +1,0 @@
-# @jiggy/assets
-
-Experimental
-
