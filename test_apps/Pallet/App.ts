@@ -80,7 +80,7 @@ class PalletDemo extends Engine {
 		//TODO: Framework Level Data Driven Map Generation
 
 		//Set Grass Trails & Background Tiles
-		var layer1Iterator : Iterator = layer1.iterator();
+		var layer1Iterator : Iterator<Entity> = layer1.iterator();
 		while(layer1Iterator.hasNext()) {
 			var tile : Entity = layer1Iterator.next();
 			tile.setTexture((this._mapSpritesheet.getSprite('grass')));
