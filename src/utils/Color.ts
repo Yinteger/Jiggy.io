@@ -274,5 +274,3 @@ export class Color {
         return {r,g,b};
     }
 }
-
-(<any>window).testColor = new Color();
