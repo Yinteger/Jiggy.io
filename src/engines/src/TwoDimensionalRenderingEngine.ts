@@ -45,7 +45,7 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 		this._renderEntity(scene, camera);	
 	}
 
-	private _renderEntity (entity: Entity, camera? : Camera) : boolean {
+	protected _renderEntity (entity: Entity, camera? : Camera) : boolean {
 		//Render this
 
 		//First, make sure it's in the camera...  Don't want to waste our time on things that are not..

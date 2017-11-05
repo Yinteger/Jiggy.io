@@ -60,65 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(19);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(20);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(21);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(22);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(23);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(24);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(25);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(26);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(27);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(28);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(29);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(4);
-exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(12);
-exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(13);
-exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(14);
-exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(15);
-exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(16);
-exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(17);
-exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -426,26 +372,157 @@ function isUndefined(arg) {
 
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum_1 = __webpack_require__(7);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+var Camera_1 = __webpack_require__(18);
+exports.Camera = Camera_1.Camera;
+var IDGenerator_1 = __webpack_require__(19);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+var Iterator_1 = __webpack_require__(20);
+exports.Iterator = Iterator_1.Iterator;
+var LogManager_1 = __webpack_require__(21);
+exports.LogManager = LogManager_1.LogManager;
+var ViewPort_1 = __webpack_require__(22);
+exports.ViewPort = ViewPort_1.ViewPort;
+var CollisionEmitter_1 = __webpack_require__(23);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Asset_1 = __webpack_require__(25);
+exports.Asset = Asset_1.Asset;
+var AssetType_1 = __webpack_require__(26);
+exports.AssetType = AssetType_1.AssetType;
+var AssetState_1 = __webpack_require__(27);
+exports.AssetState = AssetState_1.AssetState;
+var AssetFactory_1 = __webpack_require__(28);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+var AssetLoader_1 = __webpack_require__(29);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+var AudioLoader_1 = __webpack_require__(30);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+var ImageLoader_1 = __webpack_require__(31);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+var JSONLoader_1 = __webpack_require__(32);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+var TextAssetBuilder_1 = __webpack_require__(33);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+var Spritesheet_1 = __webpack_require__(34);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+var Animation_1 = __webpack_require__(35);
+exports.Animation = Animation_1.Animation;
+
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var LogicEngine_1 = __webpack_require__(31);
-exports.LogicEngine = LogicEngine_1.LogicEngine;
-var GroupLogicEngine_1 = __webpack_require__(32);
-exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-var RenderingEngine_1 = __webpack_require__(33);
-exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-var TwoDimensionalRenderingEngine_1 = __webpack_require__(34);
-exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
-var IsometricRenderingEngine_1 = __webpack_require__(45);
-exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
+var Asset_1 = __webpack_require__(54);
+exports.Asset = Asset_1.Asset;
+var AssetType_1 = __webpack_require__(55);
+exports.AssetType = AssetType_1.AssetType;
+var AssetState_1 = __webpack_require__(56);
+exports.AssetState = AssetState_1.AssetState;
+var AssetFactory_1 = __webpack_require__(57);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+var AssetLoader_1 = __webpack_require__(58);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+var AudioLoader_1 = __webpack_require__(59);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+var ImageLoader_1 = __webpack_require__(60);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+var JSONLoader_1 = __webpack_require__(61);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+var TextAssetBuilder_1 = __webpack_require__(62);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+var Spritesheet_1 = __webpack_require__(63);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+var Animation_1 = __webpack_require__(64);
+exports.Animation = Animation_1.Animation;
 
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var LogicEngine_1 = __webpack_require__(37);
+exports.LogicEngine = LogicEngine_1.LogicEngine;
+var GroupLogicEngine_1 = __webpack_require__(38);
+exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
+var RenderingEngine_1 = __webpack_require__(39);
+exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
+var TwoDimensionalRenderingEngine_1 = __webpack_require__(40);
+exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
+var IsometricRenderingEngineCool_1 = __webpack_require__(41);
+exports.IsometricRenderingEngineCool = IsometricRenderingEngineCool_1.IsometricRenderingEngineCool;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(9);
+exports.Entity = Entity_1.Entity;
+var EntityModel_1 = __webpack_require__(42);
+exports.EntityModel = EntityModel_1.EntityModel;
+var EntityView_1 = __webpack_require__(10);
+exports.EntityView = EntityView_1.EntityView;
+var EntityView2D_1 = __webpack_require__(43);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+var GridMap_1 = __webpack_require__(44);
+exports.GridMap = GridMap_1.GridMap;
+var IsometricGridMap_1 = __webpack_require__(45);
+exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
+var IsometricTile_1 = __webpack_require__(46);
+exports.IsometricTile = IsometricTile_1.IsometricTile;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(14);
+exports.Entity = Entity_1.Entity;
+var EntityModel_1 = __webpack_require__(70);
+exports.EntityModel = EntityModel_1.EntityModel;
+var EntityView_1 = __webpack_require__(15);
+exports.EntityView = EntityView_1.EntityView;
+var EntityView2D_1 = __webpack_require__(71);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+var GridMap_1 = __webpack_require__(72);
+exports.GridMap = GridMap_1.GridMap;
+var IsometricGridMap_1 = __webpack_require__(73);
+exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
+var IsometricTile_1 = __webpack_require__(74);
+exports.IsometricTile = IsometricTile_1.IsometricTile;
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -461,14 +538,14 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(2);
 var assetFactory = assets_1.AssetFactory.getSingleton();
 var AudioEngine = (function () {
     function AudioEngine() {
@@ -652,26 +729,7 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(7);
-exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(35);
-exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(8);
-exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(36);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(37);
-exports.GridMap = GridMap_1.GridMap;
-
-
-/***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -687,8 +745,814 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var assets_1 = __webpack_require__(0);
+var Events = __webpack_require__(0);
+var assets_1 = __webpack_require__(2);
+var _1 = __webpack_require__(5);
+var utils_1 = __webpack_require__(1);
+var Entity = (function (_super) {
+    __extends(Entity, _super);
+    function Entity(model) {
+        var _this = _super.call(this) || this;
+        var useDefaults = false;
+        _this._modelCB = function (attribute, value, oldValue) {
+            if (_this._notifierKeys.indexOf(attribute) > -1) {
+                _this._setModified(true);
+            }
+            else if (_this._parent && _this._parentNotifierKeys.indexOf(attribute) > -1) {
+                _this._parent._setModified(true);
+            }
+        };
+        if (!model) {
+            model = new _1.EntityModel();
+            useDefaults = true;
+        }
+        _this.view = new _1.EntityView(model);
+        _this.model = model;
+        _this._children = new Array();
+        _this._regions = [];
+        _this._regionDimension;
+        _this._regionList = {};
+        _this.collisionable = false;
+        _this._parent = null;
+        _this._modified = false;
+        _this._notifierKeys = ['width', 'height', 'color', 'texture', 'textures'];
+        _this._parentNotifierKeys = ['x', 'y'];
+        if (useDefaults) {
+            _this._setDefaults();
+        }
+        return _this;
+    }
+    Object.defineProperty(Entity.prototype, "ID", {
+        get: function () {
+            return this._model.ID;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "parent", {
+        get: function () {
+            return this._parent;
+        },
+        set: function (parent) {
+            this._parent = parent;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "regions", {
+        get: function () {
+            return this._regions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "regionDimension", {
+        get: function () {
+            return this._regionDimension;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "type", {
+        get: function () {
+            return this._model.type;
+        },
+        set: function (type) {
+            this._model.type = type;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "model", {
+        get: function () {
+            return this._model;
+        },
+        set: function (model) {
+            var view = this.view;
+            var oldModel = this.model;
+            if (oldModel) {
+                oldModel.removeListener(1..toString(), this._modelCB);
+            }
+            this._model = model;
+            model.on(1..toString(), this._modelCB);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "height", {
+        get: function () {
+            return this.model.getAttribute('height');
+        },
+        set: function (height) {
+            this.model.setAttribute('height', height);
+            this._generateRegions();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "width", {
+        get: function () {
+            return this.model.getAttribute('width');
+        },
+        set: function (width) {
+            this.model.setAttribute('width', width);
+            this._generateRegions();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "x", {
+        get: function () {
+            return this.model.getAttribute('x');
+        },
+        set: function (x) {
+            var oldCoordinates = { x: this.x, y: this.y };
+            this.model.setAttribute('x', x);
+            var newCoordinates = { x: this.x, y: this.y };
+            if (this.parent) {
+                this.parent._updateChildsRegion(this);
+            }
+            var eventData = {
+                type: 0..toString(),
+                oldCoordinates: oldCoordinates,
+                newCoordinates: newCoordinates,
+                source: this
+            };
+            if (!this._eventEmitted) {
+                this._eventEmitted = true;
+                this.emit(0..toString(), eventData);
+                this._eventEmitted = false;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "coordinate", {
+        set: function (coordinate) {
+            var oldCoordinates = { x: this.x, y: this.y };
+            this.model.setAttribute('x', coordinate.x);
+            this.model.setAttribute('y', coordinate.y);
+            var newCoordinates = { x: this.x, y: this.y };
+            if (this.parent) {
+                this.parent._updateChildsRegion(this);
+            }
+            var eventData = {
+                type: 0..toString(),
+                oldCoordinates: oldCoordinates,
+                newCoordinates: newCoordinates,
+                source: this
+            };
+            this.emit(0..toString(), eventData);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "x2", {
+        get: function () {
+            return this.x + this.width;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "y", {
+        get: function () {
+            return this.model.getAttribute('y');
+        },
+        set: function (y) {
+            var oldCoordinates = { x: this.x, y: this.y };
+            this.model.setAttribute('y', y);
+            var newCoordinates = { x: this.x, y: this.y };
+            if (this.parent) {
+                this.parent._updateChildsRegion(this);
+            }
+            var eventData = {
+                type: 0..toString(),
+                oldCoordinates: oldCoordinates,
+                newCoordinates: newCoordinates,
+                source: this
+            };
+            if (!this._eventEmitted) {
+                this._eventEmitted = true;
+                this.emit(0..toString(), eventData);
+                this._eventEmitted = false;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "y2", {
+        get: function () {
+            return this.y + this.height;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "z", {
+        get: function () {
+            return this.model.getAttribute('z');
+        },
+        set: function (z) {
+            this.model.setAttribute('z', z);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "visible", {
+        get: function () {
+            return this.model.getAttribute('visible');
+        },
+        set: function (state) {
+            this.model.setAttribute('visible', state);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "color", {
+        get: function () {
+            var data = this.model.getAttribute('color');
+            return data;
+        },
+        set: function (color) {
+            this.model.setAttribute('color', color);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Entity.prototype, "texture", {
+        get: function () {
+            return this.model.texture;
+        },
+        set: function (asset) {
+            if (asset.getType() !== assets_1.AssetType.IMAGE) {
+                throw new Error('Texture asset must be of type IMAGE.');
+            }
+            this.model.texture = asset;
+            this._setModified(true);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Entity.prototype.isModified = function () {
+        return this._modified;
+    };
+    Entity.prototype.addChild = function (child) {
+        var parent = child.parent;
+        if (parent) {
+            parent.removeChild(child);
+        }
+        this._children.push(child);
+        child.parent = this;
+        this._putChildInRegion(child);
+    };
+    Entity.prototype.removeChild = function (child) {
+        if (this.isChild(child)) {
+            var idx = this.indexOf(child);
+            this._children.splice(idx, 1);
+        }
+        this._removeChildFromRegions(child);
+        delete this._regionList[child.ID];
+    };
+    Entity.prototype.removeAllChildren = function () {
+        var child;
+        while (child = this.getChildAt(0)) {
+            this.removeChild(child);
+        }
+    };
+    Entity.prototype.isChild = function (child) {
+        return (this.indexOf(child) > -1);
+    };
+    Entity.prototype.indexOf = function (child) {
+        return this._children.indexOf(child);
+    };
+    Entity.prototype.childCount = function () {
+        return this._children.length;
+    };
+    Entity.prototype.getChildAt = function (index) {
+        return this._children[index];
+    };
+    Entity.prototype._setModified = function (state) {
+        this._modified = state;
+        if (this._parent) {
+            this._parent._setModified(state);
+        }
+    };
+    Entity.prototype.iterator = function () {
+        return new utils_1.Iterator(this._children);
+    };
+    Entity.prototype.getChildren = function (startCoordinate, endCoordinate) {
+        if (startCoordinate && endCoordinate) {
+            var startRegion = this._coordinateToRegion(startCoordinate);
+            var endRegion = this._coordinateToRegion(endCoordinate);
+            var children = [];
+            for (var x = startRegion.x; x <= endRegion.x; x++) {
+                for (var y = startRegion.y; y <= endRegion.y; y++) {
+                    children = children.concat(this._getChildrenInRegion({ x: x, y: y }));
+                }
+            }
+            return new utils_1.Iterator(children);
+        }
+        else if (startCoordinate) {
+            var region = this._coordinateToRegion(startCoordinate);
+            var children = [];
+            var childrenIterator = new utils_1.Iterator(this._getChildrenInRegion({ x: region.x, y: region.y }));
+            while (childrenIterator.hasNext()) {
+                var child = childrenIterator.next();
+                var childCoordinate = child.getCoordinate();
+                var childOuterCoordinate = child.getOuterCoordinate();
+                if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
+                    && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                    children.push(child);
+                }
+            }
+            return new utils_1.Iterator(children);
+        }
+        else {
+            return new utils_1.Iterator(this._children);
+        }
+    };
+    Entity.prototype.findChildren = function (startCoordinate, endCoordinate) {
+        var children = [];
+        if (this._children.length > 0) {
+            if (startCoordinate && !endCoordinate) {
+                var region = this._coordinateToRegion(startCoordinate);
+                var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+                if (regionChildren.length > 0) {
+                    var childrenIterator = new utils_1.Iterator(regionChildren);
+                    while (childrenIterator.hasNext()) {
+                        var iterChild = childrenIterator.next();
+                        var childCoordinate = iterChild.getCoordinate();
+                        var childOuterCoordinate = iterChild.getOuterCoordinate();
+                        if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
+                            && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                            children.push(iterChild);
+                            var deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
+                            if (deeperChildren) {
+                                children = children.concat(deeperChildren);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (startCoordinate && endCoordinate) {
+                var startRegion = this._coordinateToRegion(startCoordinate);
+                var endRegion = this._coordinateToRegion(endCoordinate);
+                var childrenVisited = [];
+                for (var x = startRegion.x; x <= endRegion.x; x++) {
+                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                        var regionChildren = this._getChildrenInRegion({ x: x, y: y });
+                        for (var regionChildI in regionChildren) {
+                            var regionChild = regionChildren[regionChildI];
+                            if (childrenVisited.indexOf(regionChild) === -1) {
+                                childrenVisited.push(regionChild);
+                                var childCoordinate = regionChild.getCoordinate();
+                                var childOuterCoordinate = regionChild.getOuterCoordinate();
+                                var xCollission = false;
+                                var yCollision = false;
+                                if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
+                                    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+                                    xCollission = true;
+                                }
+                                if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
+                                    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+                                    yCollision = true;
+                                }
+                                if (xCollission && yCollision) {
+                                    children.push(regionChild);
+                                    var deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
+                                    if (deeperChildren) {
+                                        children = children.concat(deeperChildren);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return children;
+    };
+    Entity.prototype.findTopChildAt = function (coordinate) {
+        var child = false;
+        var region = this._coordinateToRegion(coordinate);
+        var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+        var childrenIterator = new utils_1.Iterator(regionChildren);
+        childrenIterator.setToEnd();
+        while (childrenIterator.hasPrev() && !child) {
+            var iterChild = childrenIterator.prev();
+            var childCoordinate = iterChild.getCoordinate();
+            var childOuterCoordinate = iterChild.getOuterCoordinate();
+            if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
+                && childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+                child = iterChild;
+                var deeperChild = iterChild.findTopChildAt({ x: coordinate.x - childCoordinate.x, y: coordinate.y - childCoordinate.y });
+                if (deeperChild) {
+                    child = deeperChild;
+                }
+            }
+        }
+        return child;
+    };
+    Entity.prototype.getCoordinate = function () {
+        return { x: this.x, y: this.y };
+    };
+    Entity.prototype.getOuterCoordinate = function () {
+        return { x: this.x2, y: this.y2 };
+    };
+    Entity.prototype.getAbsoluteY = function () {
+        var entity = this;
+        var y = 0;
+        while (entity) {
+            y += entity.y;
+            entity = entity.parent;
+        }
+        return y;
+    };
+    Entity.prototype.getAbsoluteY2 = function () {
+        return this.getAbsoluteY() + this.height;
+    };
+    Entity.prototype.getAbsoluteX = function () {
+        var entity = this;
+        var x = 0;
+        while (entity) {
+            x += entity.x;
+            entity = entity.parent;
+        }
+        return x;
+    };
+    Entity.prototype.getAbsoluteX2 = function () {
+        return this.getAbsoluteX() + this.width;
+    };
+    Entity.prototype.setLocation = function (coordinate) {
+        this.x = coordinate.x;
+        this.y = coordinate.y;
+    };
+    Entity.prototype.getLocation = function () {
+        return {
+            x: this.x,
+            y: this.y
+        };
+    };
+    Entity.prototype.setSize = function (dimension) {
+        this._setModified(true);
+        this.width = dimension.width;
+        this.height = dimension.height;
+    };
+    Entity.prototype.getSize = function () {
+        return { width: this.width, height: this.height };
+    };
+    Entity.prototype._setDefaults = function () {
+        this.setLocation({ x: 0, y: 0 });
+        this.setSize({ width: 0, height: 0 });
+        this.visible = true;
+    };
+    Entity.prototype._generateRegions = function () {
+        this._regions = [];
+        this._regionList = {};
+        if (this.width <= 100) {
+            var regionWidth = this.width / 2;
+        }
+        else {
+            var regionWidth = 50;
+        }
+        if (this.height <= 100) {
+            var regionHeight = this.height / 2;
+        }
+        else {
+            var regionHeight = 50;
+        }
+        this._regionDimension = { width: regionWidth, height: regionHeight };
+        var xCount = Math.ceil(this.width / regionWidth);
+        var yCount = Math.ceil(this.height / regionHeight);
+        for (var x = 0; x < xCount; x++) {
+            this._regions[x] = [];
+            for (var y = 0; y < yCount; y++) {
+                this._regions[x][y] = [];
+            }
+        }
+        var childrenIterator = this.iterator();
+        while (childrenIterator.hasNext()) {
+            this._putChildInRegion(childrenIterator.next());
+        }
+    };
+    Entity.prototype._putChildInRegion = function (child) {
+        var startRegion = this._coordinateToRegion({ x: child.x, y: child.y });
+        var endRegion = this._coordinateToRegion({ x: child.x2, y: child.y2 });
+        this._regionList[child.ID] = [];
+        if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
+            for (var x = startRegion.x; x <= endRegion.x; x++) {
+                if (this._regions[x]) {
+                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                        if (this._regions[x][y]) {
+                            this._regions[x][y].push(child);
+                            this._regionList[child.ID].push({ x: x, y: y });
+                        }
+                    }
+                }
+            }
+        }
+        else {
+        }
+    };
+    Entity.prototype._getChildrenInRegion = function (regionCoordinate) {
+        if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
+            return this._regions[regionCoordinate.x][regionCoordinate.y];
+        }
+        else {
+            return [];
+        }
+    };
+    Entity.prototype._removeChildFromRegions = function (child) {
+        if (this._regionList[child.ID]) {
+            for (var i in this._regionList[child.ID]) {
+                var coord = this._regionList[child.ID][i];
+                this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
+            }
+        }
+    };
+    Entity.prototype._updateChildsRegion = function (child) {
+        this._removeChildFromRegions(child);
+        this._putChildInRegion(child);
+    };
+    Entity.prototype._coordinateToRegion = function (coordinate) {
+        var x = Math.floor(coordinate.x / this._regionDimension.width);
+        var y = Math.floor(coordinate.y / this._regionDimension.height);
+        return { x: x, y: y };
+    };
+    return Entity;
+}(Events.EventEmitter));
+exports.Entity = Entity;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+var EntityView = (function (_super) {
+    __extends(EntityView, _super);
+    function EntityView(model) {
+        var _this = _super.call(this) || this;
+        _this._visible = true;
+        _this._model = model;
+        _this._bindedFuncs = {};
+        _this._attachEvents();
+        return _this;
+    }
+    Object.defineProperty(EntityView.prototype, "visible", {
+        get: function () {
+            return this._visible;
+        },
+        set: function (visible) {
+            this._visible = visible;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(EntityView.prototype, "model", {
+        set: function (model) {
+            if (this._model) {
+                this._detachEvents();
+            }
+            this._model = model;
+            this._attachEvents();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    EntityView.prototype._handleAttrChange = function (e) {
+    };
+    EntityView.prototype._attachEvents = function () {
+        this._model.on(1..toString(), (this._bindedFuncs[1..toString()] = this._handleAttrChange.bind(this)));
+    };
+    EntityView.prototype._detachEvents = function () {
+        this._model.removeListener(1..toString(), this._bindedFuncs[1..toString()]);
+    };
+    return EntityView;
+}(Events.EventEmitter));
+exports.EntityView = EntityView;
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum;
+(function (SeverityEnum) {
+    SeverityEnum[SeverityEnum["DEBUG"] = 0] = "DEBUG";
+    SeverityEnum[SeverityEnum["INFO"] = 1] = "INFO";
+    SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
+    SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
+})(SeverityEnum = exports.SeverityEnum || (exports.SeverityEnum = {}));
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+var GamePad = (function (_super) {
+    __extends(GamePad, _super);
+    function GamePad(id) {
+        var _this = _super.call(this) || this;
+        _this._pollRate = 15;
+        _this._buttons = [];
+        _this._axes = [];
+        _this._gamePadID = id;
+        var gamePad = navigator.getGamepads()[id];
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            _this._buttons.push(gamePad.buttons[i].value);
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            _this._axes.push(gamePad.axes[i]);
+        }
+        _this._initializePolling();
+        return _this;
+    }
+    GamePad.prototype.getAxis = function (index) {
+        return this._axes[index];
+    };
+    GamePad.prototype.setPollRate = function (pollRate) {
+        this._pollRate = pollRate;
+        this._initializePolling();
+    };
+    GamePad.prototype._initializePolling = function () {
+        if (this._pollTimer) {
+            clearInterval(this._pollTimer);
+        }
+        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
+    };
+    GamePad.prototype._poll = function () {
+        var gamePad = navigator.getGamepads()[this._gamePadID];
+        if (!gamePad) {
+            this._disconnect();
+            return null;
+        }
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            if (gamePad.buttons[i].value != this._buttons[i]) {
+                this._buttons[i] = gamePad.buttons[i].value;
+                var e = {
+                    source: this,
+                    type: "BUTTONVALUECHANGE",
+                    value: gamePad.buttons[i].value,
+                    id: i
+                };
+                this.emit("BUTTONVALUECHANGE", e);
+            }
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            if (gamePad.axes[i] != this._axes[i]) {
+                this._axes[i] = gamePad.axes[i];
+                var e = {
+                    source: this,
+                    type: "AXISVALUECHANGE",
+                    value: gamePad.axes[i],
+                    id: i
+                };
+                this.emit("AXISVALUECHANGE", e);
+            }
+        }
+    };
+    GamePad.prototype._disconnect = function () {
+        clearInterval(this._pollTimer);
+        var e = {
+            source: this,
+            type: "AXISVALUECHANGE"
+        };
+        this.emit("DISCONNECT", e);
+    };
+    return GamePad;
+}(Events.EventEmitter));
+exports.GamePad = GamePad;
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+;
+;
+var Touch = (function (_super) {
+    __extends(Touch, _super);
+    function Touch(nTouch) {
+        var _this = _super.call(this) || this;
+        _this._id = nTouch.identifier;
+        _this._x = nTouch.pageX;
+        _this._y = nTouch.pageY;
+        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
+        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
+        return _this;
+    }
+    Touch.prototype.getID = function () {
+        return this._id;
+    };
+    Touch.prototype.getX = function () {
+        return this._x;
+    };
+    Touch.prototype.getY = function () {
+        return this._y;
+    };
+    Touch.prototype._onTouchEnd = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id) {
+                this._disconnect();
+            }
+        }
+    };
+    Touch.prototype._onTouchMove = function (e) {
+        for (var i = 0; i < e.changedTouches.length; i++) {
+            var nTouch = e.changedTouches.item(i);
+            if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
+                this._x = nTouch.pageX;
+                this._y = nTouch.pageY;
+                var e_1 = {
+                    type: "TOUCHMOVED",
+                    source: this,
+                    position: {
+                        x: this._x,
+                        y: this._y
+                    }
+                };
+                this.emit("TOUCHMOVED", e_1);
+            }
+        }
+    };
+    Touch.prototype._disconnect = function () {
+        var e = {
+            source: this,
+            type: "TOUCHREMOVED"
+        };
+        this.emit("TOUCHREMOVED", e);
+        window.removeEventListener("touchmove", this._touchMoveListener);
+        window.removeEventListener("touchend", this._touchEndListener);
+    };
+    return Touch;
+}(Events.EventEmitter));
+exports.Touch = Touch;
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+var assets_1 = __webpack_require__(2);
 var _1 = __webpack_require__(6);
 var utils_1 = __webpack_require__(1);
 var Entity = (function (_super) {
@@ -1226,7 +2090,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 8 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1242,7 +2106,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var EntityView = (function (_super) {
     __extends(EntityView, _super);
     function EntityView(model) {
@@ -1288,23 +2152,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum;
-(function (SeverityEnum) {
-    SeverityEnum[SeverityEnum["DEBUG"] = 0] = "DEBUG";
-    SeverityEnum[SeverityEnum["INFO"] = 1] = "INFO";
-    SeverityEnum[SeverityEnum["WARNING"] = 2] = "WARNING";
-    SeverityEnum[SeverityEnum["ERROR"] = 3] = "ERROR";
-})(SeverityEnum = exports.SeverityEnum || (exports.SeverityEnum = {}));
-
-
-/***/ }),
-/* 10 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1320,38 +2168,68 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(11);
-var src_1 = __webpack_require__(3);
-var _1 = __webpack_require__(6);
-var src_2 = __webpack_require__(38);
-var _2 = __webpack_require__(46);
-var _3 = __webpack_require__(60);
+var Engine_1 = __webpack_require__(17);
+var src_1 = __webpack_require__(4);
+var _1 = __webpack_require__(5);
+var src_2 = __webpack_require__(47);
+var _2 = __webpack_require__(3);
+var _3 = __webpack_require__(65);
+var entities_1 = __webpack_require__(6);
 var IsoDemo = (function (_super) {
     __extends(IsoDemo, _super);
     function IsoDemo() {
         var _this = _super.call(this) || this;
         _this.viewPort.size = ({ width: 500, height: 500 });
-        _this.renderingEngine = new src_1.TwoDimensionalRenderingEngine();
-        var layer1 = new _1.GridMap({ width: 16, height: 16 }, { x: 4, y: 4 });
-        layer1.x = 100;
+        _this.renderingEngine = new src_1.IsometricRenderingEngineCool();
+        var layer1 = new _1.IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
+        layer1.x = 0;
         layer1.y = 0;
-        var camera = new src_2.Camera(layer1, null, { width: 200, height: 200 }, null, { width: 500, height: 500 });
+        var camera = new src_2.Camera(layer1, { x: -150, y: 0 }, { width: 500, height: 500 }, { x: 0, y: 0 }, { width: 500, height: 500 });
+        _this._mainCamera = camera;
         _this.renderingEngine.addCamera(camera);
         var map_asset = _2.AssetFactory.getSingleton().build(_2.AssetType.IMAGE, 'grass_18x18_zps343999e6.png');
         map_asset.onStateChange = function (state) {
             if (state === _2.AssetState.LOADED) {
                 console.log("Asset loaded");
                 var tiles = layer1.getTiles();
+                var count = 1;
                 for (var _i = 0, tiles_1 = tiles; _i < tiles_1.length; _i++) {
                     var tile = tiles_1[_i];
                     tile.texture = map_asset;
-                    tile.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
+                    count += .25;
+                    tile.depth = Math.floor((Math.random() * 30) + 1);
+                    console.log(count);
+                    tile.tile = true;
                 }
+                console.log(tiles);
+                _this._loadCharacterSpriteSheet(function () {
+                    var player = new entities_1.Entity();
+                    player.height = 16;
+                    player.width = 16;
+                    var tile = layer1.getTile({ x: 2, y: 2 });
+                    player.x = tile.x + (tile.width / 2) - (player.width / 2);
+                    player.y = tile.y + (tile.height / 2) - (player.height / 2);
+                    _this.player = player;
+                    player.color = { r: Math.floor((Math.random() * 255) + 1), g: Math.floor((Math.random() * 255) + 1), b: Math.floor((Math.random() * 255) + 1) };
+                });
             }
         };
         map_asset.load();
-        setTimeout(function () {
-        }, 2500);
+        var gamepadListener = _3.GamePadListener.getInstance();
+        if (gamepadListener.hasGamePads()) {
+            console.log("GamePadConnected");
+            var gamePads = gamepadListener.getGamePads();
+            gamePads.forEach(function (gamePad) {
+                _this.attachGamepad(gamePad);
+            });
+        }
+        gamepadListener.on("GAMEPADADDED", function (gamePad) {
+            console.log("GamePadConnected");
+            _this.attachGamepad(gamePad);
+        });
+        gamepadListener.on("GAMEPADREMOVED", function (gamePad) {
+            console.log("GameaPad Disconnected");
+        });
         var mouse = _3.Mouse.getInstance();
         mouse.on("SCROLLWHEELMOVE", function (e) {
             var fov = camera.fov;
@@ -1367,21 +2245,51 @@ var IsoDemo = (function (_super) {
         });
         return _this;
     }
+    IsoDemo.prototype._loadCharacterSpriteSheet = function (cb) {
+        var _this = this;
+        var character_spritesheet = _2.AssetFactory.getSingleton().build(_2.AssetType.IMAGE, 'zombie_0.png');
+        character_spritesheet.onStateChange = function (state) {
+            if (state === _2.AssetState.LOADED) {
+                _this._characterSpritesheet = new _2.Spritesheet(character_spritesheet, {
+                    "player_left": { x: 54, y: 46, width: 25, height: 55 },
+                });
+                cb();
+            }
+        };
+        character_spritesheet.load();
+    };
+    IsoDemo.prototype.attachGamepad = function (gamePad) {
+        var _this = this;
+        gamePad.on("AXISVALUECHANGE", function (e) {
+            if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
+                _this.player.x += Math.floor(gamePad.getAxis(0) * 2);
+            }
+            if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
+                _this.player.y += Math.floor(gamePad.getAxis(1) * 2);
+            }
+            if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
+                _this._mainCamera.viewPoint.x += Math.floor(gamePad.getAxis(2) * 10);
+            }
+            if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
+                _this._mainCamera.viewPoint.y += Math.floor(gamePad.getAxis(3) * 10);
+            }
+        });
+    };
     return IsoDemo;
 }(Engine_1.default));
 window.IsoDemo = new IsoDemo();
 
 
 /***/ }),
-/* 11 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var audio_1 = __webpack_require__(18);
-var assets_1 = __webpack_require__(0);
+var audio_1 = __webpack_require__(24);
+var assets_1 = __webpack_require__(2);
 var Engine = (function () {
     function Engine() {
         this.debugMode = false;
@@ -1412,7 +2320,7 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 12 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1432,7 +2340,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 13 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1459,7 +2367,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 14 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1513,13 +2421,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 15 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(4);
+var SeverityEnum_1 = __webpack_require__(7);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -1563,7 +2471,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 16 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1579,7 +2487,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -1673,7 +2581,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 17 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1747,27 +2655,27 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 18 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(5);
+var AudioEngine_1 = __webpack_require__(8);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-var HTML5AudioEngine_1 = __webpack_require__(30);
+var HTML5AudioEngine_1 = __webpack_require__(36);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 19 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var Asset = (function () {
     function Asset(type, url) {
         this._id = utils_1.IDGenerator.getSingleton().generate();
@@ -1838,7 +2746,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 20 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1854,7 +2762,7 @@ var AssetType;
 
 
 /***/ }),
-/* 21 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1869,13 +2777,13 @@ var AssetState;
 
 
 /***/ }),
-/* 22 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var AssetFactory = (function () {
     function AssetFactory() {
         this._assetLoader = new _1.AssetLoader();
@@ -1976,13 +2884,13 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 23 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var AssetLoader = (function () {
     function AssetLoader() {
     }
@@ -2042,7 +2950,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 24 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2058,7 +2966,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var AudioLoader = (function (_super) {
     __extends(AudioLoader, _super);
     function AudioLoader() {
@@ -2094,7 +3002,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 25 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2110,7 +3018,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var ImageLoader = (function (_super) {
     __extends(ImageLoader, _super);
     function ImageLoader() {
@@ -2133,7 +3041,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 26 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2149,7 +3057,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var JSONLoader = (function (_super) {
     __extends(JSONLoader, _super);
     function JSONLoader() {
@@ -2165,13 +3073,13 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 27 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var utils_1 = __webpack_require__(1);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
@@ -2199,14 +3107,14 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 28 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(0);
+var _1 = __webpack_require__(2);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
@@ -2238,7 +3146,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 29 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2334,7 +3242,7 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 30 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2350,7 +3258,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(5);
+var AudioEngine_1 = __webpack_require__(8);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -2463,7 +3371,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 31 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2478,7 +3386,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 32 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2494,7 +3402,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
+var _1 = __webpack_require__(4);
 var GroupLogicEngine = (function (_super) {
     __extends(GroupLogicEngine, _super);
     function GroupLogicEngine() {
@@ -2565,7 +3473,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 33 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2649,7 +3557,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 34 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2665,7 +3573,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
+var _1 = __webpack_require__(4);
 var TwoDimensionalRenderingEngine = (function (_super) {
     __extends(TwoDimensionalRenderingEngine, _super);
     function TwoDimensionalRenderingEngine() {
@@ -2814,7 +3722,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 35 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2830,7 +3738,156 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var _1 = __webpack_require__(4);
+var IsometricRenderingEngineCool = (function (_super) {
+    __extends(IsometricRenderingEngineCool, _super);
+    function IsometricRenderingEngineCool() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IsometricRenderingEngineCool.prototype._renderEntity = function (entity, camera) {
+        if (camera) {
+            var collidesYAxis = false;
+            var collidesXAxis = false;
+            var cameraBounds = {
+                x: camera.viewPoint.x,
+                y: camera.viewPoint.y,
+                x2: camera.viewPoint.x + camera.fov.width,
+                y2: camera.viewPoint.y + camera.fov.height
+            };
+            var entityBounds = {
+                x: entity.getAbsoluteX(),
+                y: entity.getAbsoluteY(),
+                x2: entity.getAbsoluteX2(),
+                y2: entity.getAbsoluteY2()
+            };
+            if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
+                || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
+                collidesXAxis = true;
+            }
+            if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
+                || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
+                collidesYAxis = true;
+            }
+            if (!collidesYAxis || !collidesXAxis) {
+                return false;
+            }
+            var leftClip = 0;
+            if (entity.getAbsoluteX() < camera.viewPoint.x) {
+                leftClip = camera.viewPoint.x - entity.getAbsoluteX();
+            }
+            var rightClip = 0;
+            if (entity.getAbsoluteX2() > (camera.viewPoint.x + camera.fov.width)) {
+                rightClip = entity.getAbsoluteX2() - (camera.viewPoint.x + camera.fov.width);
+            }
+            var topClip = 0;
+            if (entity.getAbsoluteY() < camera.viewPoint.y) {
+                topClip = camera.viewPoint.y - entity.getAbsoluteY();
+            }
+            var bottomClip = 0;
+            if (entity.getAbsoluteY2() > (camera.viewPoint.y + camera.fov.height)) {
+                bottomClip = entity.getAbsoluteY2() - (camera.viewPoint.y + camera.fov.height);
+            }
+            var xModifier = camera.fov.width / camera.renderDimension.width;
+            var yModifier = camera.fov.height / camera.renderDimension.height;
+            var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
+            if (cameraRelativeY < 0) {
+                cameraRelativeY = 0;
+            }
+            var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
+            if (cameraRelativeX < 0) {
+                cameraRelativeX = 0;
+            }
+            var clippedEntityHeight = (entity.height - topClip - bottomClip);
+            var clippedEntityWidth = (entity.width - rightClip - leftClip);
+            var x = camera.renderOrigin.x + cameraRelativeX;
+            var y = camera.renderOrigin.y + cameraRelativeY;
+            var w = clippedEntityWidth / xModifier;
+            var h = clippedEntityHeight / yModifier;
+            if (entity.color) {
+                var color = entity.color;
+                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+                this.viewPort.context.fillRect(x, y, w, h);
+            }
+            if (this.debugRegions) {
+                for (var x_i in entity.regions) {
+                    for (var y_i in entity.regions[x]) {
+                        if (entity.regions[x_i][y_i].length > 0) {
+                            this.viewPort.context.strokeStyle = "red";
+                            this.viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * parseInt(x_i), entity.getAbsoluteY() + entity.regionDimension.height * parseInt(y_i), entity.regionDimension.width, entity.regionDimension.height);
+                        }
+                    }
+                }
+            }
+            var isoX = x - y;
+            var isoY = (x + y) / 2;
+            var isoX2 = (x + w * 3) - (y + h);
+            var isoY2 = (x + w + y + h) / 2;
+            if (entity.tile) {
+                this.viewPort.context.beginPath();
+                this.viewPort.context.moveTo(isoX, isoY + ((isoY2 - isoY) / 2));
+                this.viewPort.context.lineTo(isoX + ((isoX2 - isoX) / 2), isoY);
+                this.viewPort.context.lineTo(isoX2, isoY + ((isoY2 - isoY) / 2));
+                this.viewPort.context.lineTo(isoX + ((isoX2 - isoX) / 2), isoY2);
+                this.viewPort.context.closePath();
+                this.viewPort.context.stroke();
+            }
+            if (entity.texture) {
+                var imageData = entity.texture.getData();
+                var entityToImageYModifier = imageData.height / entity.height;
+                var entityToImageXModifier = imageData.width / entity.width;
+                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
+                this.viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, isoX, isoY, w * 2, h);
+            }
+        }
+        else {
+            var x = entity.x;
+            var y = entity.y;
+            var w = entity.width;
+            var h = entity.height;
+            if (entity.color) {
+                var color = entity.color;
+                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
+                this.viewPort.context.fillRect(x, y, w, h);
+            }
+            if (entity.texture) {
+                var imageData = entity.texture.getData();
+                var entityToImageYModifier = imageData.height / entity.height;
+                var entityToImageXModifier = imageData.width / entity.width;
+                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
+                this.viewPort.context.drawImage(imageData, x, y, w, h);
+            }
+        }
+        var children = entity.getChildren();
+        while (children.hasNext()) {
+            this._renderEntity(children.next(), camera);
+        }
+        return true;
+    };
+    return IsometricRenderingEngineCool;
+}(_1.TwoDimensionalRenderingEngine));
+exports.IsometricRenderingEngineCool = IsometricRenderingEngineCool;
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
 var utils_1 = __webpack_require__(1);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
@@ -2902,7 +3959,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 36 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2918,7 +3975,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(8);
+var EntityView_1 = __webpack_require__(10);
 var EntityView2D = (function (_super) {
     __extends(EntityView2D, _super);
     function EntityView2D() {
@@ -2930,7 +3987,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 37 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2946,7 +4003,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(7);
+var Entity_1 = __webpack_require__(9);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -2958,11 +4015,7 @@ var GridMap = (function (_super) {
         _this.height = (_this.tileSize.height * _this.tileCount.y);
         for (var x = 0; x < _this.tileCount.x; x++) {
             for (var y = 0; y < _this.tileCount.y; y++) {
-                var tile = new Entity_1.Entity();
-                tile.width = _this.tileSize.width;
-                tile.height = _this.tileSize.height;
-                tile.x = ((x + 1) * _this.tileSize.width);
-                tile.y = ((y + 1) * _this.tileSize.height);
+                var tile = _this._buildTile(x, y);
                 _this.addChild(tile);
                 if (!_this._tiles[x]) {
                     _this._tiles[x] = [];
@@ -2972,6 +4025,14 @@ var GridMap = (function (_super) {
         }
         return _this;
     }
+    GridMap.prototype._buildTile = function (x, y) {
+        var tile = new Entity_1.Entity();
+        tile.width = this.tileSize.width;
+        tile.height = this.tileSize.height;
+        tile.x = ((x) * this.tileSize.width);
+        tile.y = ((y) * this.tileSize.height);
+        return tile;
+    };
     GridMap.prototype.getTile = function (coordinate) {
         return this._tiles[coordinate.x][coordinate.y];
     };
@@ -2984,30 +4045,96 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 38 */
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var _1 = __webpack_require__(5);
+var IsometricGridMap = (function (_super) {
+    __extends(IsometricGridMap, _super);
+    function IsometricGridMap() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IsometricGridMap.prototype._buildTile = function (x, y) {
+        var tile = new _1.IsometricTile();
+        tile.width = this.tileSize.width;
+        tile.height = this.tileSize.height;
+        tile.x = ((x) * this.tileSize.width);
+        tile.y = ((y) * this.tileSize.height);
+        return tile;
+    };
+    return IsometricGridMap;
+}(_1.GridMap));
+exports.IsometricGridMap = IsometricGridMap;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var _1 = __webpack_require__(5);
+var IsometricTile = (function (_super) {
+    __extends(IsometricTile, _super);
+    function IsometricTile() {
+        var _this = _super.call(this) || this;
+        _this.tile = true;
+        return _this;
+    }
+    return IsometricTile;
+}(_1.Entity));
+exports.IsometricTile = IsometricTile;
+
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(9);
+var SeverityEnum_1 = __webpack_require__(11);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(39);
+var Camera_1 = __webpack_require__(48);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(40);
+var IDGenerator_1 = __webpack_require__(49);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(41);
+var Iterator_1 = __webpack_require__(50);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(42);
+var LogManager_1 = __webpack_require__(51);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(43);
+var ViewPort_1 = __webpack_require__(52);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(44);
+var CollisionEmitter_1 = __webpack_require__(53);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
 
 
 /***/ }),
-/* 39 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3027,7 +4154,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 40 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3054,7 +4181,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 41 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3108,13 +4235,13 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 42 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(9);
+var SeverityEnum_1 = __webpack_require__(11);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -3158,7 +4285,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 43 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3174,7 +4301,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var ViewPort = (function (_super) {
     __extends(ViewPort, _super);
     function ViewPort() {
@@ -3268,7 +4395,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 44 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3342,215 +4469,14 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(3);
-var IsometricRenderingEngine = (function (_super) {
-    __extends(IsometricRenderingEngine, _super);
-    function IsometricRenderingEngine() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    IsometricRenderingEngine.prototype._render = function () {
-        _super.prototype._render.call(this);
-        var context = this.viewPort.context;
-        for (var i in this._cameras) {
-            this._renderCamera(this._cameras[i]);
-        }
-        if (this.HUDEntity) {
-            this._renderEntity(this.HUDEntity, null);
-        }
-    };
-    IsometricRenderingEngine.prototype._renderCamera = function (camera) {
-        var scene = camera.scene;
-        var context = this.viewPort.context;
-        if (this.debugCamera) {
-            context.beginPath();
-            context.rect(camera.viewPoint.x, camera.viewPoint.y, camera.fov.width, camera.fov.height);
-            context.lineWidth = 7;
-            context.strokeStyle = 'red';
-            context.stroke();
-            context.beginPath();
-            context.rect(camera.renderOrigin.x, camera.renderOrigin.y, camera.renderDimension.width, camera.renderDimension.height);
-            context.lineWidth = 7;
-            context.fillStyle = 'black';
-            context.fill();
-            context.strokeStyle = 'green';
-            context.stroke();
-        }
-        this._renderEntity(scene, camera);
-    };
-    IsometricRenderingEngine.prototype._renderEntity = function (entity, camera) {
-        if (camera) {
-            var collidesYAxis = false;
-            var collidesXAxis = false;
-            var cameraBounds = {
-                x: camera.viewPoint.x,
-                y: camera.viewPoint.y,
-                x2: camera.viewPoint.x + camera.fov.width,
-                y2: camera.viewPoint.y + camera.fov.height
-            };
-            var entityBounds = {
-                x: entity.getAbsoluteX(),
-                y: entity.getAbsoluteY(),
-                x2: entity.getAbsoluteX2(),
-                y2: entity.getAbsoluteY2()
-            };
-            if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
-                || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
-                collidesXAxis = true;
-            }
-            if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
-                || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
-                collidesYAxis = true;
-            }
-            if (!collidesYAxis || !collidesXAxis) {
-                return false;
-            }
-            var leftClip = 0;
-            if (entity.getAbsoluteX() < camera.viewPoint.x) {
-                leftClip = camera.viewPoint.x - entity.getAbsoluteX();
-            }
-            var rightClip = 0;
-            if (entity.getAbsoluteX2() > (camera.viewPoint.x + camera.fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (camera.viewPoint.x + camera.fov.width);
-            }
-            var topClip = 0;
-            if (entity.getAbsoluteY() < camera.viewPoint.y) {
-                topClip = camera.viewPoint.y - entity.getAbsoluteY();
-            }
-            var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (camera.viewPoint.y + camera.fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (camera.viewPoint.y + camera.fov.height);
-            }
-            var xModifier = camera.fov.width / camera.renderDimension.width;
-            var yModifier = camera.fov.height / camera.renderDimension.height;
-            var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
-            if (cameraRelativeY < 0) {
-                cameraRelativeY = 0;
-            }
-            var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
-            if (cameraRelativeX < 0) {
-                cameraRelativeX = 0;
-            }
-            var clippedEntityHeight = (entity.height - topClip - bottomClip);
-            var clippedEntityWidth = ((entity.width - rightClip - leftClip));
-            var x = camera.renderOrigin.x + cameraRelativeX;
-            var y = camera.renderOrigin.y + cameraRelativeY;
-            var w = clippedEntityWidth / xModifier;
-            var h = clippedEntityHeight / yModifier;
-            this.viewPort.context.setTransform(1, 0, 0, 1, 0, 0);
-            if (entity.color) {
-                var isoX = x - y;
-                var isoY = (x + y) / 2;
-                var color = entity.color;
-                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-                this.viewPort.context.fillRect(isoX, isoY, w * 2, h);
-            }
-            if (this.debugRegions) {
-                for (var x_i in entity.regions) {
-                    for (var y_i in entity.regions[x]) {
-                        if (entity.regions[x_i][y_i].length > 0) {
-                            this.viewPort.context.strokeStyle = "red";
-                            this.viewPort.context.strokeRect(entity.getAbsoluteX() + entity.regionDimension.width * parseInt(x_i), entity.getAbsoluteY() + entity.regionDimension.height * parseInt(y_i), entity.regionDimension.width, entity.regionDimension.height);
-                        }
-                    }
-                }
-            }
-            if (entity.texture) {
-                var imageData = entity.texture.getData();
-                var entityToImageYModifier = imageData.height / entity.height;
-                var entityToImageXModifier = imageData.width / entity.width;
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                var isoX = x - y;
-                var isoY = ((x + y) / 2);
-                this.viewPort.context.drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, isoX, isoY, w * 2, h);
-            }
-        }
-        else {
-            var x = entity.x;
-            var y = entity.y;
-            var w = entity.width;
-            var h = entity.height;
-            if (entity.color) {
-                var color = entity.color;
-                this.viewPort.context.fillStyle = "rgb(" + color.r + ", " + color.g + ", " + color.b + ")";
-                this.viewPort.context.fillRect(x, y, w, h);
-            }
-            if (entity.texture) {
-                var imageData = entity.texture.getData();
-                var entityToImageYModifier = imageData.height / entity.height;
-                var entityToImageXModifier = imageData.width / entity.width;
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.viewPort.context.drawImage(imageData, x, y, w, h);
-            }
-        }
-        var children = entity.getChildren();
-        while (children.hasNext()) {
-            this._renderEntity(children.next(), camera);
-        }
-        return true;
-    };
-    return IsometricRenderingEngine;
-}(_1.RenderingEngine));
-exports.IsometricRenderingEngine = IsometricRenderingEngine;
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Asset_1 = __webpack_require__(47);
-exports.Asset = Asset_1.Asset;
-var AssetType_1 = __webpack_require__(48);
-exports.AssetType = AssetType_1.AssetType;
-var AssetState_1 = __webpack_require__(49);
-exports.AssetState = AssetState_1.AssetState;
-var AssetFactory_1 = __webpack_require__(50);
-exports.AssetFactory = AssetFactory_1.AssetFactory;
-var AssetLoader_1 = __webpack_require__(51);
-exports.AssetLoader = AssetLoader_1.AssetLoader;
-var AudioLoader_1 = __webpack_require__(52);
-exports.AudioLoader = AudioLoader_1.AudioLoader;
-var ImageLoader_1 = __webpack_require__(53);
-exports.ImageLoader = ImageLoader_1.ImageLoader;
-var JSONLoader_1 = __webpack_require__(54);
-exports.JSONLoader = JSONLoader_1.JSONLoader;
-var TextAssetBuilder_1 = __webpack_require__(55);
-exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-var Spritesheet_1 = __webpack_require__(56);
-exports.Spritesheet = Spritesheet_1.Spritesheet;
-var Animation_1 = __webpack_require__(57);
-exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 47 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var Asset = (function () {
     function Asset(type, url) {
         this._id = utils_1.IDGenerator.getSingleton().generate();
@@ -3621,7 +4547,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 48 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3637,7 +4563,7 @@ var AssetType;
 
 
 /***/ }),
-/* 49 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3652,13 +4578,13 @@ var AssetState;
 
 
 /***/ }),
-/* 50 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var AssetFactory = (function () {
     function AssetFactory() {
         this._assetLoader = new _1.AssetLoader();
@@ -3759,13 +4685,13 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 51 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var AssetLoader = (function () {
     function AssetLoader() {
     }
@@ -3825,7 +4751,7 @@ exports.AssetLoader = AssetLoader;
 
 
 /***/ }),
-/* 52 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3841,7 +4767,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var AudioLoader = (function (_super) {
     __extends(AudioLoader, _super);
     function AudioLoader() {
@@ -3877,7 +4803,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 53 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3893,7 +4819,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var ImageLoader = (function (_super) {
     __extends(ImageLoader, _super);
     function ImageLoader() {
@@ -3916,7 +4842,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 54 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3932,7 +4858,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var JSONLoader = (function (_super) {
     __extends(JSONLoader, _super);
     function JSONLoader() {
@@ -3948,13 +4874,13 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 55 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var utils_1 = __webpack_require__(1);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
@@ -3982,14 +4908,14 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 56 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var utils_1 = __webpack_require__(1);
-var _1 = __webpack_require__(46);
+var _1 = __webpack_require__(3);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
@@ -4021,7 +4947,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 57 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4117,202 +5043,29 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-var GamePad = (function (_super) {
-    __extends(GamePad, _super);
-    function GamePad(id) {
-        var _this = _super.call(this) || this;
-        _this._pollRate = 15;
-        _this._buttons = [];
-        _this._axes = [];
-        _this._gamePadID = id;
-        var gamePad = navigator.getGamepads()[id];
-        for (var i = 0; i < gamePad.buttons.length; i++) {
-            _this._buttons.push(gamePad.buttons[i].value);
-        }
-        for (var i = 0; i < gamePad.axes.length; i++) {
-            _this._axes.push(gamePad.axes[i]);
-        }
-        _this._initializePolling();
-        return _this;
-    }
-    GamePad.prototype.getAxis = function (index) {
-        return this._axes[index];
-    };
-    GamePad.prototype.setPollRate = function (pollRate) {
-        this._pollRate = pollRate;
-        this._initializePolling();
-    };
-    GamePad.prototype._initializePolling = function () {
-        if (this._pollTimer) {
-            clearInterval(this._pollTimer);
-        }
-        this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
-    };
-    GamePad.prototype._poll = function () {
-        var gamePad = navigator.getGamepads()[this._gamePadID];
-        if (!gamePad) {
-            this._disconnect();
-            return null;
-        }
-        for (var i = 0; i < gamePad.buttons.length; i++) {
-            if (gamePad.buttons[i].value != this._buttons[i]) {
-                this._buttons[i] = gamePad.buttons[i].value;
-                var e = {
-                    source: this,
-                    type: "BUTTONVALUECHANGE",
-                    value: gamePad.buttons[i].value,
-                    id: i
-                };
-                this.emit("BUTTONVALUECHANGE", e);
-            }
-        }
-        for (var i = 0; i < gamePad.axes.length; i++) {
-            if (gamePad.axes[i] != this._axes[i]) {
-                this._axes[i] = gamePad.axes[i];
-                var e = {
-                    source: this,
-                    type: "AXISVALUECHANGE",
-                    value: gamePad.axes[i],
-                    id: i
-                };
-                this.emit("AXISVALUECHANGE", e);
-            }
-        }
-    };
-    GamePad.prototype._disconnect = function () {
-        clearInterval(this._pollTimer);
-        var e = {
-            source: this,
-            type: "AXISVALUECHANGE"
-        };
-        this.emit("DISCONNECT", e);
-    };
-    return GamePad;
-}(Events.EventEmitter));
-exports.GamePad = GamePad;
-
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
-;
-;
-var Touch = (function (_super) {
-    __extends(Touch, _super);
-    function Touch(nTouch) {
-        var _this = _super.call(this) || this;
-        _this._id = nTouch.identifier;
-        _this._x = nTouch.pageX;
-        _this._y = nTouch.pageY;
-        window.addEventListener("touchmove", _this._touchMoveListener = _this._onTouchMove.bind(_this));
-        window.addEventListener("touchend", _this._touchEndListener = _this._onTouchEnd.bind(_this));
-        return _this;
-    }
-    Touch.prototype.getID = function () {
-        return this._id;
-    };
-    Touch.prototype.getX = function () {
-        return this._x;
-    };
-    Touch.prototype.getY = function () {
-        return this._y;
-    };
-    Touch.prototype._onTouchEnd = function (e) {
-        for (var i = 0; i < e.changedTouches.length; i++) {
-            var nTouch = e.changedTouches.item(i);
-            if (nTouch.identifier === this._id) {
-                this._disconnect();
-            }
-        }
-    };
-    Touch.prototype._onTouchMove = function (e) {
-        for (var i = 0; i < e.changedTouches.length; i++) {
-            var nTouch = e.changedTouches.item(i);
-            if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
-                this._x = nTouch.pageX;
-                this._y = nTouch.pageY;
-                var e_1 = {
-                    type: "TOUCHMOVED",
-                    source: this,
-                    position: {
-                        x: this._x,
-                        y: this._y
-                    }
-                };
-                this.emit("TOUCHMOVED", e_1);
-            }
-        }
-    };
-    Touch.prototype._disconnect = function () {
-        var e = {
-            source: this,
-            type: "TOUCHREMOVED"
-        };
-        this.emit("TOUCHREMOVED", e);
-        window.removeEventListener("touchmove", this._touchMoveListener);
-        window.removeEventListener("touchend", this._touchEndListener);
-    };
-    return Touch;
-}(Events.EventEmitter));
-exports.Touch = Touch;
-
-
-/***/ }),
-/* 60 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(61);
+var GamePadListener_1 = __webpack_require__(66);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
-var GamePad_1 = __webpack_require__(58);
+var GamePad_1 = __webpack_require__(12);
 exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(62);
+var Keyboard_1 = __webpack_require__(67);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(63);
+var Mouse_1 = __webpack_require__(68);
 exports.Mouse = Mouse_1.Mouse;
-var Touch_1 = __webpack_require__(59);
+var Touch_1 = __webpack_require__(13);
 exports.Touch = Touch_1.Touch;
-var TouchListener_1 = __webpack_require__(64);
+var TouchListener_1 = __webpack_require__(69);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 61 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4328,8 +5081,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(58);
-var Events = __webpack_require__(2);
+var GamePad_1 = __webpack_require__(12);
+var Events = __webpack_require__(0);
 var GamePadListener = (function (_super) {
     __extends(GamePadListener, _super);
     function GamePadListener() {
@@ -4386,7 +5139,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 62 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4402,7 +5155,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 exports.KeyboardKeys = {
     0: 48,
     1: 49,
@@ -4573,7 +5326,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 63 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4589,7 +5342,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Events = __webpack_require__(2);
+var Events = __webpack_require__(0);
 var Mouse = (function (_super) {
     __extends(Mouse, _super);
     function Mouse() {
@@ -4724,7 +5477,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 64 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4740,8 +5493,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(59);
-var Events = __webpack_require__(2);
+var Touch_1 = __webpack_require__(13);
+var Events = __webpack_require__(0);
 var TouchListener = (function (_super) {
     __extends(TouchListener, _super);
     function TouchListener() {
@@ -4762,6 +5515,244 @@ var TouchListener = (function (_super) {
     return TouchListener;
 }(Events.EventEmitter));
 exports.TouchListener = TouchListener;
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Events = __webpack_require__(0);
+var utils_1 = __webpack_require__(1);
+var EntityModel = (function (_super) {
+    __extends(EntityModel, _super);
+    function EntityModel() {
+        var _this = _super.call(this) || this;
+        _this._attributes = {};
+        _this._id = utils_1.IDGenerator.getSingleton().generate();
+        _this.type = 'generic';
+        return _this;
+    }
+    Object.defineProperty(EntityModel.prototype, "ID", {
+        get: function () {
+            return this._id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(EntityModel.prototype, "texture", {
+        get: function () {
+            return this._texture;
+        },
+        set: function (asset) {
+            this._texture = asset;
+            this.emit(3..toString(), {
+                attribute: 'texture',
+                name: name,
+                value: asset
+            });
+        },
+        enumerable: true,
+        configurable: true
+    });
+    EntityModel.prototype.setAttribute = function (key, value) {
+        var oldValue = this.getAttribute(key);
+        this._attributes[key] = value;
+        this.emit(1..toString(), {
+            attribute: key,
+            oldValue: oldValue,
+            value: value
+        });
+    };
+    EntityModel.prototype.removeAttribute = function (key) {
+        var value = this.getAttribute(key);
+        delete this._attributes[key];
+        var data = {
+            type: 2..toString(),
+            attribute: key,
+            value: value,
+            source: this
+        };
+        this.emit(2..toString(), data);
+    };
+    EntityModel.prototype.getAttribute = function (key) {
+        return this._attributes[key];
+    };
+    EntityModel.prototype.hasAttribute = function (key) {
+        if (this._attributes[key]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    EntityModel.prototype.sync = function (listener) {
+    };
+    return EntityModel;
+}(Events.EventEmitter));
+exports.EntityModel = EntityModel;
+
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var EntityView_1 = __webpack_require__(15);
+var EntityView2D = (function (_super) {
+    __extends(EntityView2D, _super);
+    function EntityView2D() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return EntityView2D;
+}(EntityView_1.EntityView));
+exports.EntityView2D = EntityView2D;
+
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(14);
+var GridMap = (function (_super) {
+    __extends(GridMap, _super);
+    function GridMap(tileSize, tileCount) {
+        var _this = _super.call(this) || this;
+        _this.tileSize = tileSize;
+        _this.tileCount = tileCount;
+        _this._tiles = [];
+        _this.width = (_this.tileSize.width * _this.tileCount.x);
+        _this.height = (_this.tileSize.height * _this.tileCount.y);
+        for (var x = 0; x < _this.tileCount.x; x++) {
+            for (var y = 0; y < _this.tileCount.y; y++) {
+                var tile = _this._buildTile(x, y);
+                _this.addChild(tile);
+                if (!_this._tiles[x]) {
+                    _this._tiles[x] = [];
+                }
+                _this._tiles[x][y] = tile;
+            }
+        }
+        return _this;
+    }
+    GridMap.prototype._buildTile = function (x, y) {
+        var tile = new Entity_1.Entity();
+        tile.width = this.tileSize.width;
+        tile.height = this.tileSize.height;
+        tile.x = ((x) * this.tileSize.width);
+        tile.y = ((y) * this.tileSize.height);
+        return tile;
+    };
+    GridMap.prototype.getTile = function (coordinate) {
+        return this._tiles[coordinate.x][coordinate.y];
+    };
+    GridMap.prototype.getTiles = function () {
+        return this._children;
+    };
+    return GridMap;
+}(Entity_1.Entity));
+exports.GridMap = GridMap;
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var _1 = __webpack_require__(6);
+var IsometricGridMap = (function (_super) {
+    __extends(IsometricGridMap, _super);
+    function IsometricGridMap() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IsometricGridMap.prototype._addTile = function (x, y) {
+        var tile = new _1.IsometricTile();
+        tile.width = this.tileSize.width;
+        tile.height = this.tileSize.height;
+        tile.x = ((x) * this.tileSize.width);
+        tile.y = ((y) * this.tileSize.height);
+        return tile;
+    };
+    return IsometricGridMap;
+}(_1.GridMap));
+exports.IsometricGridMap = IsometricGridMap;
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var _1 = __webpack_require__(6);
+var IsometricTile = (function (_super) {
+    __extends(IsometricTile, _super);
+    function IsometricTile() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return IsometricTile;
+}(_1.Entity));
+exports.IsometricTile = IsometricTile;
 
 
 /***/ })

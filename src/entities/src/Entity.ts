@@ -18,7 +18,9 @@ export class Entity extends Events.EventEmitter {
 	private _parentNotifierKeys : string[];
 	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
 	public collisionable : boolean;
-	private _eventEmitted : boolean;
+    private _eventEmitted: boolean;
+    public tile: boolean;
+    public depth: number;
 
 	public constructor (model? : EntityModel) {
 		super();
