@@ -1,7 +1,12 @@
+/// <reference path="../utils/Promise.d.ts" />
+
 import {
 	Asset,
 	AssetState
 } from '../assets';
+import {
+	LogManager
+} from '../utils/LogManager'
 
 export class AssetLoader {
 
@@ -15,29 +20,51 @@ export class AssetLoader {
 	 * @param  {Asset} asset 
 	 * @return {void}       
 	 */
-	public load(asset: Asset): void {
-		var request: XMLHttpRequest = new XMLHttpRequest();
-		var source = asset.getSource();
-		if (this._validateURL(source)) {
-			request.open(this._getMethod(), asset.getSource());
-			asset.setState(AssetState.LOADING);
-			request.onreadystatechange = (e: Event) => {
-				if (request.readyState === XMLHttpRequest.DONE) {
-					if (request.status === 200) {
-						this._onSuccess(asset, request.responseText);
+	public load(asset: Asset): Promise<Asset> {
+		return new Promise<Asset>((resolve, reject) => {
+			var request: XMLHttpRequest = new XMLHttpRequest();
+			var source = asset.getSource();
+			if (this._validateURL(source)) {
+				request.open(this._getMethod(), asset.getSource());
+				asset.setState(AssetState.LOADING);
+				request.onreadystatechange = (e: Event) => {
+					if (request.readyState === XMLHttpRequest.DONE) {
+						if (request.status === 200) {
+							this._onSuccess(asset, request.responseText, resolve);
+						}
+						else {
+							this._onFail(asset, request, reject);
+							reject(asset);
+						}
 					}
-					else {
-						this._onFail(asset, request);
-					}
-				}
-				this._postRequest();
-			};
-			this._preRequest();
-			request.send();
-		}
-		else {
-			this._onSuccess(asset, source);
-		}
+					this._postRequest();
+				};
+				this._preRequest();
+				request.send();
+			}
+			else {
+				this._onSuccess(asset, source, resolve);
+			}
+		});
+	}
+
+	/**
+	 * Unloads the given asset, making it no longer usable.
+	 * 
+	 * @param asset 
+	 */
+	public unload(asset: Asset): Promise<Asset> {
+		return new Promise<Asset>((resolve, reject) => {
+			asset.setState(AssetState.UNLOADING);
+
+			// While the API supports asynchronous methods, this particular implementation does require calling any
+			// asynchronous methods. However, we still want the API to behave like an asynchronous method.
+			process.nextTick(() => {
+				asset.setData(null);
+				asset.setState(AssetState.NOT_LOADED);
+				resolve(asset);
+			});
+		});
 	}
 
 	/**
@@ -108,8 +135,9 @@ export class AssetLoader {
 	 * @param  {Mixed} data  
 	 * @return {void}       
 	 */
-	protected _onSuccess(asset: Asset, data: Object): void {
+	protected _onSuccess(asset: Asset, data: Object, resolve: ResolveFunction<Asset>): void {
 		asset.setData(data);
+		resolve(asset);
 	}
 
 	/**
@@ -121,10 +149,14 @@ export class AssetLoader {
 	 * @param  {XMLHttpRequest} request
 	 * @return {void}         
 	 */
-	protected _onFail(asset: Asset, request: XMLHttpRequest): void {
-		asset.onError({
+	protected _onFail(asset: Asset, request: XMLHttpRequest, reject: RejectFunction): void {
+		reject({
 			code : request.status,
 			message : 'Generic Error Message'
 		});
+		// asset.onError({
+		// 	code : request.status,
+		// 	message : 'Generic Error Message'
+		// });
 	}
 }

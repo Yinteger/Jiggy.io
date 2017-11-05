@@ -8,7 +8,7 @@
         "moduleResolution": "node",
         "removeComments": true,
         "module": "commonjs",
-        "target": "es5",
+        "target": "es2015",
         "noImplicitReturns": true,
         "forceConsistentCasingInFileNames": true,
         "pretty": true,
