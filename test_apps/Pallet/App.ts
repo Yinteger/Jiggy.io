@@ -1,17 +1,15 @@
-import Engine from "../../src/core/src/Engine";
-import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines/src/";
-import {HTML5AudioEngine} from "../../src/audio/src/";
-import {Entity, GridMap} from "../../src/entities/src/";
-import {Iterator, Camera, Color} from "../../src/utils/src/";
-//import {InputManager, ControllerType, InputEvent, KeyboardEventDetail, KeyCode} from '../../src/inputs/src/';
-import {Animation, TextAssetBuilder, Spritesheet, Asset, AssetType, AssetFactory, AssetState} from "../../src/assets/src/";
+import {Engine} from "../../src/core";
+import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
+import {HTML5AudioEngine} from "../../src/audio";
+import {Entity, GridMap, EntityEventTypes, LocationUpdateEvent} from "../../src/entities";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator} from "../../src/utils";
+import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet} from "../../src/assets";
 import Character from "./Character";
-import { EntityEventTypes, LocationUpdateEvent } from "../../src/entities/src/";
 import {
     Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
     Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
     GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
-} from "../../src/inputs/src/";
+} from "../../src/inputs";
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;

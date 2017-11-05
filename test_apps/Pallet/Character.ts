@@ -1,7 +1,7 @@
-import {Entity} from "../../src/entities/src/";
-import {Animation, Spritesheet, Asset} from "../../src/assets/src/";
-import {Coordinate} from "../../src/interfaces/src/";
-import {getInstance, Engine} from '../../src/core/src/';
+import {Entity} from "../../src/entities";
+import {Animation, Spritesheet, Asset} from "../../src/assets";
+import {Coordinate} from "../../src/interfaces";
+import {getInstance, Engine} from '../../src/core';
 
 export default class Character extends Entity {
 	public moving :  boolean;
