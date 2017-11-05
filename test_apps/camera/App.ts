@@ -3,7 +3,7 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
 import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
+import {Asset, AssetState, AssetFactory, AssetType, AssetGroupLoader, AssetGroup} from "../../src/assets";
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];
@@ -12,8 +12,9 @@ class CameraDemo extends Engine {
     private _collisionEmitter : CollisionEmitter;
     private _camera : Camera;
     private _smallCamera : Camera;
-    private _pikachuTexture : Asset;
+    // private _pikachuTexture : Asset;
     private _mouseIsIn : boolean;
+    private _assetGroup: AssetGroup;
 
     constructor () {
         super();
@@ -38,15 +39,17 @@ class CameraDemo extends Engine {
 
         this.getRenderingEngine().debugCamera = true;
 
-        let backgroundLoaded : boolean = false;
-        let pikachuLoaded : boolean = false;
+        // let backgroundLoaded : boolean = false;
+        // let pikachuLoaded : boolean = false;
 
         this.getViewPort().on(ViewPortEventTypes.DIMENSION_UPDATE.toString(), this._viewPortUpdated.bind(this));
         this.getViewPort().fillPage(true);
-        var background : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'resources/poke_background.jpg');
-        var pikachu : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'resources/pikachu_small.png');
+        // var background : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'resources/poke_background.jpg');
+        // var pikachu : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'resources/pikachu_small.png');
 
         let resourcesLoaded = () => {
+            this._container.setTexture(this._assetGroup.getAsset('background'));
+
             for (var i : number = 0; i < 200; i ++) {
                 console.log("Generate Pikachus");
                 this._generatePikachu();
@@ -90,28 +93,38 @@ class CameraDemo extends Engine {
             });
         };
 
-        this._pikachuTexture = pikachu;
-        background.onStateChange = (state : AssetState) => {
-            if (state === AssetState.LOADED) {
-                backgroundLoaded = true;
-                this._container.setTexture(background);
-                if (backgroundLoaded && pikachuLoaded) {
-                    resourcesLoaded();
-                }
-            }
-        };
+        var loader: AssetGroupLoader = new AssetGroupLoader();
+        loader.load('resources.json').then((ag: AssetGroup) => {
+            this._assetGroup = ag;
+            return this._assetGroup.load();
+        }).then(() => {
+            resourcesLoaded();
+        }).catch((error: any) => {
+            console.error(error);
+        });
 
-        pikachu.onStateChange = (state: AssetState) => {
-            if (state === AssetState.LOADED) {
-                pikachuLoaded = true;
-                if (backgroundLoaded && pikachuLoaded) {
-                    resourcesLoaded();
-                }
-            }
-        };
+        // this._pikachuTexture = pikachu;
+        // background.onStateChange = (state : AssetState) => {
+        //     if (state === AssetState.LOADED) {
+        //         backgroundLoaded = true;
+        //         this._container.setTexture(background);
+        //         if (backgroundLoaded && pikachuLoaded) {
+        //             resourcesLoaded();
+        //         }
+        //     }
+        // };
 
-        background.load();
-        pikachu.load();
+        // pikachu.onStateChange = (state: AssetState) => {
+        //     if (state === AssetState.LOADED) {
+        //         pikachuLoaded = true;
+        //         if (backgroundLoaded && pikachuLoaded) {
+        //             resourcesLoaded();
+        //         }
+        //     }
+        // };
+
+        // background.load();
+        // pikachu.load();
     }
 
     private _generatePikachu () : void {
@@ -123,7 +136,7 @@ class CameraDemo extends Engine {
         block.setWidth(50);
         block.setHeight(50);
 
-        block.setTexture(this._pikachuTexture);
+        block.setTexture(this._assetGroup.getAsset('pikachu'));
 
         block.setX(Math.floor((Math.random() * this._container.getWidth()) + 1));
         block.setY(Math.floor((Math.random() * this._container.getHeight()) + 1));

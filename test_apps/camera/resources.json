@@ -1,0 +1,14 @@
+{
+    "assets": [
+        {
+            "name": "pikachu",
+            "type": "image",
+            "source": "./resources/pikachu_small.png"
+        },
+        {
+            "name": "background",
+            "type": "image",
+            "source": "./resources/poke_background.jpg"
+        }
+    ]
+}
