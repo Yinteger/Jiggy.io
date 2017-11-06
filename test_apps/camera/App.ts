@@ -6,7 +6,6 @@ import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
 import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
 import {Asset, AssetState, AssetFactory, AssetType, AssetGroupLoader, AssetGroup, AssetGroupDefinition} from "../../src/assets";
-// import * as pikachuSmall from './resources/pikachu_small.png';
 import {resources} from './resources';
 
 class CameraDemo extends Engine {

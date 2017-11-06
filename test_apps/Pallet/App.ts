@@ -10,6 +10,7 @@ import {
     Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
     GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
 } from "../../src/inputs";
+import {resources} from './resources';
 
 class PalletDemo extends Engine {
 	private _mapSpritesheet : Spritesheet;
@@ -140,16 +141,26 @@ class PalletDemo extends Engine {
 
 		// This is data-driven way
 		var assetGroupLoader: AssetGroupLoader = new AssetGroupLoader();
-		assetGroupLoader.load('./resources.json').then((ag: AssetGroup) => {
-			this._assetGroup = ag;
-			return this._assetGroup.load();
-		}).then(() => {
+		// assetGroupLoader.load('./resources.json').then((ag: AssetGroup) => {
+		// 	this._assetGroup = ag;
+		// 	return this._assetGroup.load();
+		// }).then(() => {
+		// 	this._loadMapSpritesheet();
+		// 	this._loadBackgroundMusic();
+		// 	this._loadCharacterSpritesheet();
+		// 	this._resourceLoaded();	
+		// }).catch((error) => {
+		// 	console.error(error);
+		// });
+
+		this._assetGroup = assetGroupLoader.loadFromMemory(resources);
+		this._assetGroup.load().then(() => {
 			this._loadMapSpritesheet();
 			this._loadBackgroundMusic();
 			this._loadCharacterSpritesheet();
 			this._resourceLoaded();	
 		}).catch((error) => {
-			console.error(error);
+			console.log(error);
 		});
 	}
 
