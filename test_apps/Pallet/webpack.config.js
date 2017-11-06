@@ -3,9 +3,13 @@ var ROOT_DIR = Path.resolve('../../');
 var DIST_DIR = Path.resolve(ROOT_DIR, 'dist/lib');
 
 module.exports = {
-    entry: "./App.ts",
+    entry: {
+        App : "./App.ts"
+        // resources : "./resources.ts"
+    },
     output: {
-        filename: "./dist/App.js",
+        filename: "./dist/[name].js",
+        chunkFilename: "./dist/[name].chunk.js"
     },
 
     // Enable sourcemaps for debugging webpack's output.

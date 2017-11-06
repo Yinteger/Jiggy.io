@@ -26,4 +26,7 @@ var resources: AssetGroupDefinition = {
     ]
 }
 
-export {resources};
+export = resources;
+
+// export {resources};
+// export default resources;
