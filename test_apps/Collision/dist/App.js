@@ -1362,7 +1362,7 @@ var Entity = (function (_super) {
                 }
             }
         }
-        return child;
+        return child || false;
     };
     Entity.prototype.getCoordinate = function () {
         return { x: this.getX(), y: this.getY() };
@@ -1886,7 +1886,6 @@ var Iterator = (function () {
     function Iterator(array) {
         this._array = array;
         this._index = -1;
-        this._length = array.length;
     }
     Iterator.prototype.hasNext = function () {
         if (this._array[this._index + 1]) {
@@ -1901,7 +1900,7 @@ var Iterator = (function () {
         return this._array[this._index];
     };
     Iterator.prototype.hasPrev = function () {
-        if (this._array[this._index - 1]) {
+        if (this._array[this._index]) {
             return true;
         }
         else {
@@ -1909,8 +1908,7 @@ var Iterator = (function () {
         }
     };
     Iterator.prototype.prev = function () {
-        this._index -= 1;
-        return this._array[this._index];
+        return this._array[this._index--];
     };
     Iterator.prototype.setToBeginning = function () {
         this._index = -1;
@@ -2361,7 +2359,6 @@ var Color = (function () {
     return Color;
 }());
 exports.Color = Color;
-window.testColor = new Color();
 
 
 /***/ }),

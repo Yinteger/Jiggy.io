@@ -60,11 +60,38 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SeverityEnum_1 = __webpack_require__(4);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+var Camera_1 = __webpack_require__(16);
+exports.Camera = Camera_1.Camera;
+var IDGenerator_1 = __webpack_require__(17);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+var Iterator_1 = __webpack_require__(18);
+exports.Iterator = Iterator_1.Iterator;
+var LogManager_1 = __webpack_require__(19);
+exports.LogManager = LogManager_1.LogManager;
+var ViewPort_1 = __webpack_require__(20);
+exports.ViewPort = ViewPort_1.ViewPort;
+var CollisionEmitter_1 = __webpack_require__(21);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+var Color_1 = __webpack_require__(22);
+exports.Color = Color_1.Color;
+var ColorCode_1 = __webpack_require__(5);
+exports.ColorCode = ColorCode_1.ColorCode;
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -92,33 +119,6 @@ var Spritesheet_1 = __webpack_require__(33);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
 var Animation_1 = __webpack_require__(34);
 exports.Animation = Animation_1.Animation;
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
-exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(16);
-exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(17);
-exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(18);
-exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(19);
-exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(20);
-exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(21);
-exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-var Color_1 = __webpack_require__(22);
-exports.Color = Color_1.Color;
-var ColorCode_1 = __webpack_require__(7);
-exports.ColorCode = ColorCode_1.ColorCode;
 
 
 /***/ }),
@@ -453,38 +453,6 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
-exports.Entity = Entity_1.Entity;
-var EntityModel_1 = __webpack_require__(40);
-exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(11);
-exports.EntityView = EntityView_1.EntityView;
-var EntityView2D_1 = __webpack_require__(41);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-var GridMap_1 = __webpack_require__(42);
-exports.GridMap = GridMap_1.GridMap;
-
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(15);
-exports.Engine = Engine_1.Engine;
-var Instance_1 = __webpack_require__(9);
-exports.getInstance = Instance_1.getInstance;
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum;
 (function (SeverityEnum) {
     SeverityEnum[SeverityEnum["DEBUG"] = 0] = "DEBUG";
@@ -496,7 +464,7 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -804,14 +772,14 @@ exports.ColorMap = {
 
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var assetFactory = assets_1.AssetFactory.getSingleton();
 var AudioEngine = (function () {
     function AudioEngine() {
@@ -995,13 +963,13 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var instance = null;
 var setInstance = function (game) {
     if (instance) {
@@ -1017,7 +985,26 @@ exports.getInstance = getInstance;
 
 
 /***/ }),
-/* 10 */
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Entity_1 = __webpack_require__(9);
+exports.Entity = Entity_1.Entity;
+var EntityModel_1 = __webpack_require__(40);
+exports.EntityModel = EntityModel_1.EntityModel;
+var EntityView_1 = __webpack_require__(10);
+exports.EntityView = EntityView_1.EntityView;
+var EntityView2D_1 = __webpack_require__(41);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+var GridMap_1 = __webpack_require__(42);
+exports.GridMap = GridMap_1.GridMap;
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1034,9 +1021,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Events = __webpack_require__(2);
-var assets_1 = __webpack_require__(0);
-var _1 = __webpack_require__(4);
-var utils_1 = __webpack_require__(1);
+var assets_1 = __webpack_require__(1);
+var _1 = __webpack_require__(8);
+var utils_1 = __webpack_require__(0);
 var Entity = (function (_super) {
     __extends(Entity, _super);
     function Entity(model) {
@@ -1509,7 +1496,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1563,7 +1550,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1656,7 +1643,7 @@ exports.GamePad = GamePad;
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1736,7 +1723,7 @@ exports.Touch = Touch;
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1752,427 +1739,73 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(5);
+var core_1 = __webpack_require__(14);
 var engines_1 = __webpack_require__(3);
-var entities_1 = __webpack_require__(4);
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
-var Character_1 = __webpack_require__(43);
-var inputs_1 = __webpack_require__(44);
-var PalletDemo = (function (_super) {
-    __extends(PalletDemo, _super);
-    function PalletDemo() {
+var entities_1 = __webpack_require__(8);
+var utils_1 = __webpack_require__(0);
+var inputs_1 = __webpack_require__(43);
+var TouchDemo = (function (_super) {
+    __extends(TouchDemo, _super);
+    function TouchDemo() {
         var _this = _super.call(this) || this;
-        _this._direction = "";
-        _this.getViewPort().setSize({ width: 500, height: 500 });
         _this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
         _this.setLogicEngine(new engines_1.GroupLogicEngine());
-        _this.getRenderingEngine().setHUD(_this._createLoadingScreen());
-        _this._loadResources();
+        _this._container = new entities_1.Entity();
+        _this._container.setColor(new utils_1.Color(0, 0, 0));
+        _this._container.setWidth(1000);
+        _this._container.setHeight(1000);
+        _this._camera = new utils_1.Camera(_this._container, null, { width: _this._container.getWidth(), height: _this._container.getHeight() }, null, { height: _this._container.getHeight(), width: _this._container.getWidth() });
+        _this.getRenderingEngine().addCamera(_this._camera);
+        _this.getViewPort().on(0..toString(), _this._viewPortUpdated.bind(_this));
+        _this.getViewPort().fillPage(true);
+        _this.getLogicEngine().addLogic("touch", _this._touch.bind(_this), 25);
+        var touchListener = inputs_1.TouchListener.getInstance();
+        touchListener.on("TOUCHADDED", function (touch) {
+            console.log("New Touch added with an ID of ", touch.getID());
+            var block = new entities_1.Entity();
+            block.setX(touch.getX() - 25);
+            block.setY(touch.getY() - 25);
+            block.setColor(new utils_1.Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
+            block.setWidth(50);
+            block.setHeight(50);
+            _this._container.addChild(block);
+            touch.on("TOUCHMOVED", function (e) {
+                console.log("Touch moved");
+                var position = e.position;
+                block.setX(position.x - 25);
+                block.setY(position.y - 25);
+            });
+            touch.on("TOUCHREMOVED", function (touch) {
+                console.log("Touch removed");
+                _this._container.removeChild(block);
+            });
+        });
         return _this;
     }
-    PalletDemo.prototype._createLoadingScreen = function () {
-        var textAssetBuilder = new assets_1.TextAssetBuilder();
-        var hud = new entities_1.Entity();
-        hud.setWidth(500);
-        hud.setHeight(500);
-        var loadingText = new entities_1.Entity();
-        loadingText.setWidth(165);
-        loadingText.setHeight(50);
-        loadingText.setX((500 / 2) - 100);
-        loadingText.setY((500 / 2) - 25);
-        hud.addChild(loadingText);
-        var blackColor = utils_1.Color.fromString('black');
-        var loading0 = textAssetBuilder.build("35px Georgia", "Loading", 165, 50, blackColor);
-        var loading1 = textAssetBuilder.build("35px Georgia", "Loading.", 165, 50, blackColor);
-        var loading2 = textAssetBuilder.build("35px Georgia", "Loading..", 165, 50, blackColor);
-        var loading3 = textAssetBuilder.build("35px Georgia", "Loading...", 165, 50, blackColor);
-        var loadingAnim = new assets_1.Animation(loadingText, [
-            { 'asset': loading0, 'delay': 250 },
-            { 'asset': loading1, 'delay': 250 },
-            { 'asset': loading2, 'delay': 250 },
-            { 'asset': loading3, 'delay': 250 }
-        ]);
-        loadingAnim.start();
-        return hud;
+    TouchDemo.prototype._viewPortUpdated = function (event) {
+        this._container.setWidth(event.newDimensions.width);
+        this._container.setHeight(event.newDimensions.height);
+        this._camera.setFOV({ width: event.newDimensions.width, height: event.newDimensions.height });
+        this._camera.setRenderDimension({ width: event.newDimensions.width, height: event.newDimensions.height });
     };
-    PalletDemo.prototype._createMainMap = function () {
-        var mapContainer = new entities_1.Entity();
-        var layer1 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer2 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer3 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        mapContainer.setWidth(layer1.getWidth());
-        mapContainer.setHeight(layer1.getHeight());
-        mapContainer.addChild(layer1);
-        mapContainer.addChild(layer2);
-        mapContainer.addChild(layer3);
-        var layer1Iterator = layer1.iterator();
-        while (layer1Iterator.hasNext()) {
-            var tile = layer1Iterator.next();
-            tile.setTexture((this._mapSpritesheet.getSprite('grass')));
-        }
-        layer3.getTile({ x: 10, y: 10 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_11'));
-        layer3.getTile({ x: 11, y: 10 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_12'));
-        layer3.getTile({ x: 12, y: 10 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_13'));
-        layer2.getTile({ x: 10, y: 11 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_21'));
-        layer2.getTile({ x: 11, y: 11 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_22'));
-        layer2.getTile({ x: 12, y: 11 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_23'));
-        layer2.getTile({ x: 10, y: 11 }).setCollisionable(true);
-        layer2.getTile({ x: 11, y: 11 }).setCollisionable(true);
-        layer2.getTile({ x: 12, y: 11 }).setCollisionable(true);
-        layer2.getTile({ x: 10, y: 12 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_31'));
-        layer2.getTile({ x: 11, y: 12 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_32'));
-        layer2.getTile({ x: 12, y: 12 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_33'));
-        layer2.getTile({ x: 10, y: 12 }).setCollisionable(true);
-        layer2.getTile({ x: 11, y: 12 }).setCollisionable(true);
-        layer2.getTile({ x: 12, y: 12 }).setCollisionable(true);
-        layer2.getTile({ x: 10, y: 13 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_41'));
-        layer2.getTile({ x: 11, y: 13 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_42'));
-        layer2.getTile({ x: 12, y: 13 }).setTexture(this._mapSpritesheet.getSprite('house_1_roof_43'));
-        layer2.getTile({ x: 10, y: 13 }).setCollisionable(true);
-        layer2.getTile({ x: 11, y: 13 }).setCollisionable(true);
-        layer2.getTile({ x: 12, y: 13 }).setCollisionable(true);
-        return mapContainer;
+    TouchDemo.prototype._touch = function () {
     };
-    PalletDemo.prototype._loadResources = function () {
-        this._loadMapSpritesheet();
-        this._loadBackgroundMusic();
-        this._loadCharacterSpritesheet();
-    };
-    PalletDemo.prototype._resourceLoaded = function () {
-        var _this = this;
-        if (this._mapSpritesheet && this._bgMusic && this._characterSpritesheet) {
-            console.log("Resources all loaded");
-            setTimeout(function () {
-                _this.getRenderingEngine().setHUD(null);
-                var map = _this._createMainMap();
-                var camera = new utils_1.Camera(map, null, { width: 250, height: 250 }, null, { width: 500, height: 500 });
-                _this._mainCamera = camera;
-                _this.getRenderingEngine().addCamera(camera);
-                var mouse = inputs_1.Mouse.getInstance();
-                mouse.on("SCROLLWHEELMOVE", function (e) {
-                    var fov = camera.getFOV();
-                    var viewPoint = camera.getViewPoint();
-                    if (e.yDelta > 0) {
-                        camera.setViewPoint({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
-                        camera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
-                    }
-                    else {
-                        camera.setViewPoint({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
-                        camera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
-                    }
-                });
-                _this.player = new Character_1.default(_this._characterSpritesheet);
-                _this.player.setTexture(_this._characterSpritesheet.getSprite("player_down"));
-                var layer = map.getChildAt(1);
-                var tile = layer.getTile({ x: 5, y: 5 });
-                layer.addChild(_this.player);
-                _this.player.tileX = 5;
-                _this.player.tileY = 5;
-                _this.player.setX(tile.getX());
-                _this.player.setY(tile.getY() - _this.player.getHeight() - tile.getHeight());
-                var pokeball = new entities_1.Entity();
-                pokeball.setWidth(25);
-                pokeball.setHeight(25);
-                var pokeball_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/pokeball.png');
-                pokeball_asset.onStateChange = function (state) {
-                    if (state === assets_1.AssetState.LOADED) {
-                        pokeball.setTexture(pokeball_asset);
-                        _this.getRenderingEngine().setHUD(pokeball);
-                    }
-                };
-                pokeball_asset.load();
-                mouse.on("MOUSEMOVE", function (e) {
-                    pokeball.setX(e.x - _this.getRenderingEngine().getViewPort().getCanvas().offsetLeft - 14);
-                    pokeball.setY(e.y - _this.getRenderingEngine().getViewPort().getCanvas().offsetTop - 14);
-                });
-                mouse.on("LEFTBUTTONDOWN", function (e) {
-                    var newPokeball = new entities_1.Entity();
-                    console.log(e);
-                    console.log(camera);
-                    var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
-                    var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
-                    newPokeball.setWidth(25 * x_fov);
-                    newPokeball.setHeight(25 * y_fov);
-                    newPokeball.setX(camera.getViewPoint().x + ((e.x * x_fov) - (23 * x_fov)));
-                    newPokeball.setY(camera.getViewPoint().y + ((e.y * y_fov) - (23 * y_fov)));
-                    newPokeball.setTexture(pokeball_asset);
-                    layer.addChild(newPokeball);
-                });
-                mouse.on("RIGHTBUTTONDOWN", function (e) {
-                    alert("YOU SHALL NOT PASS");
-                });
-                _this.player.on(0..toString(), function () {
-                    var fov = camera.getFOV();
-                    camera.setViewPoint({ x: _this.player.getX() + ((_this.player.getWidth() - fov.width) / 2), y: _this.player.getY() + ((_this.player.getHeight() - fov.height) / 2) });
-                });
-                _this.getAudioEngine().addAudio('bg', _this._bgMusic);
-                _this.getAudioEngine().loopAudio('bg', true);
-                _this.getAudioEngine().playAudio('bg');
-                _this.getLogicEngine().addLogic('moveLogic', function () {
-                    switch (_this._direction) {
-                        case 'left':
-                            _this.player.moveLeft();
-                            break;
-                        case 'up':
-                            _this.player.moveUp();
-                            break;
-                        case 'down':
-                            _this.player.moveDown();
-                            break;
-                        case 'right':
-                            _this.player.moveRight();
-                            break;
-                    }
-                }, 1);
-                _this.getLogicEngine().addLogic('pokeballLogic', function () {
-                    if (mouse.isLeftButtonClicked()) {
-                        var newPokeball = new entities_1.Entity();
-                        var x_fov = camera.getFOV().width / camera.getRenderDimension().width;
-                        var y_fov = camera.getFOV().height / camera.getRenderDimension().height;
-                        newPokeball.setWidth(25 * x_fov);
-                        newPokeball.setHeight(25 * y_fov);
-                        var mouseCoordinates = mouse.getCurrentCoordinates();
-                        newPokeball.setX(camera.getViewPoint().x + ((mouseCoordinates.x * x_fov) - (23 * x_fov)));
-                        newPokeball.setY(camera.getViewPoint().y + ((mouseCoordinates.y * y_fov) - (23 * y_fov)));
-                        newPokeball.setTexture(pokeball_asset);
-                        layer.addChild(newPokeball);
-                    }
-                }, 50);
-                var gamepadListener = inputs_1.GamePadListener.getInstance();
-                if (gamepadListener.hasGamePads()) {
-                    console.log("GamePadConnected");
-                    var gamePads = gamepadListener.getGamePads();
-                    gamePads.forEach(function (gamePad) {
-                        _this.attachGamepad(gamePad);
-                    });
-                }
-                gamepadListener.on("GAMEPADADDED", function (gamePad) {
-                    console.log("GamePadConnected");
-                    _this.attachGamepad(gamePad);
-                });
-                gamepadListener.on("GAMEPADREMOVED", function (gamePad) {
-                    console.log("GameaPad Disconnected");
-                });
-                var keyboard = inputs_1.Keyboard.getInstance();
-                keyboard.on("KEYDOWN", function (e) {
-                    switch (e.key) {
-                        case inputs_1.KeyboardKeys.W:
-                        case inputs_1.KeyboardKeys[0]:
-                            _this._direction = 'up';
-                            break;
-                        case inputs_1.KeyboardKeys.A:
-                        case inputs_1.KeyboardKeys[1]:
-                            _this._direction = "left";
-                            break;
-                        case inputs_1.KeyboardKeys.S:
-                        case inputs_1.KeyboardKeys[2]:
-                            _this._direction = "down";
-                            break;
-                        case inputs_1.KeyboardKeys.D:
-                        case inputs_1.KeyboardKeys[3]:
-                            _this._direction = "right";
-                            break;
-                    }
-                });
-                keyboard.on("KEYUP", function (e) {
-                    switch (e.key) {
-                        case inputs_1.KeyboardKeys.W:
-                        case inputs_1.KeyboardKeys.A:
-                        case inputs_1.KeyboardKeys.S:
-                        case inputs_1.KeyboardKeys.D:
-                            _this._direction = null;
-                            break;
-                    }
-                });
-            }, 1000);
-        }
-    };
-    PalletDemo.prototype.attachGamepad = function (gamePad) {
-        var _this = this;
-        gamePad.on("AXISVALUECHANGE", function (e) {
-            if (gamePad.getAxis(0) < -.1 || gamePad.getAxis(0) > .1) {
-                _this.player.setX(_this.player.getX() + Math.floor(gamePad.getAxis(0) * 10));
-            }
-            if (gamePad.getAxis(1) < -.1 || gamePad.getAxis(1) > .1) {
-                _this.player.setY(_this.player.getY() + Math.floor(gamePad.getAxis(1) * 10));
-            }
-            if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                _this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
-            }
-            if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                _this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
-            }
-        });
-        gamePad.on("BUTTONVALUECHANGE", function (e) {
-            var buttonId = e.id;
-            var newValue = e.value;
-            console.log(buttonId);
-            console.log(newValue);
-            if (buttonId === 12) {
-                if (newValue === 0 && _this._direction === "up") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "up";
-                }
-            }
-            if (buttonId === 13) {
-                if (newValue === 0 && _this._direction === "down") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "down";
-                }
-            }
-            if (buttonId === 14) {
-                if (newValue === 0 && _this._direction === "left") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "left";
-                }
-            }
-            if (buttonId === 15) {
-                if (newValue === 0 && _this._direction === "right") {
-                    _this._direction = "";
-                }
-                else {
-                    _this._direction = "right";
-                }
-            }
-        });
-    };
-    PalletDemo.prototype.detachGamePad = function (gamepad) {
-    };
-    PalletDemo.prototype._loadMapSpritesheet = function () {
-        var _this = this;
-        var map_asset = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/61816.png');
-        map_asset.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._mapSpritesheet = new assets_1.Spritesheet(map_asset, {
-                    "grass": {
-                        x: 16,
-                        y: 0,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_11": {
-                        x: 0,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_12": {
-                        x: 16,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_13": {
-                        x: 32,
-                        y: 16,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_21": {
-                        x: 0,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_22": {
-                        x: 16,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_23": {
-                        x: 32,
-                        y: 32,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_31": {
-                        x: 0,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_32": {
-                        x: 16,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_33": {
-                        x: 32,
-                        y: 48,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_41": {
-                        x: 0,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_42": {
-                        x: 16,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    },
-                    "house_1_roof_43": {
-                        x: 32,
-                        y: 64,
-                        width: 16,
-                        height: 16
-                    }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        map_asset.load();
-    };
-    PalletDemo.prototype._loadCharacterSpritesheet = function () {
-        var _this = this;
-        var character_spritesheet = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.IMAGE, 'Resources/3698.png');
-        character_spritesheet.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._characterSpritesheet = new assets_1.Spritesheet(character_spritesheet, {
-                    "player_up": { x: 21, y: 10, width: 14, height: 20 },
-                    "player_up_step1": { x: 66, y: 10, width: 14, height: 20 },
-                    "player_up_step2": { x: 66, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_left": { x: 36, y: 10, width: 14, height: 20 },
-                    "player_left_step1": { x: 81, y: 10, width: 14, height: 20 },
-                    "player_left_step2": { x: 95, y: 10, width: 14, height: 20 },
-                    "player_right": { x: 36, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step1": { x: 81, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_right_step2": { x: 95, y: 10, width: 14, height: 20, "flipX": true },
-                    "player_down": { x: 6, y: 10, width: 14, height: 20 },
-                    "player_down_step1": { x: 51, y: 10, width: 14, height: 20 },
-                    "player_down_step2": { x: 51, y: 10, width: 14, height: 20, "flipX": true }
-                });
-                _this._resourceLoaded();
-            }
-        };
-        character_spritesheet.load();
-    };
-    PalletDemo.prototype._loadBackgroundMusic = function () {
-        var _this = this;
-        var bg_music = assets_1.AssetFactory.getSingleton().build(assets_1.AssetType.AUDIO, 'Resources/music.mp3');
-        bg_music.onStateChange = function (state) {
-            if (state === assets_1.AssetState.LOADED) {
-                _this._bgMusic = bg_music;
-                _this._resourceLoaded();
-            }
-        };
-        bg_music.load();
-    };
-    return PalletDemo;
+    return TouchDemo;
 }(core_1.Engine));
-window._PalletDemo = new PalletDemo();
+window.TouchDemo = new TouchDemo();
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Engine_1 = __webpack_require__(15);
+exports.Engine = Engine_1.Engine;
+var Instance_1 = __webpack_require__(7);
+exports.getInstance = Instance_1.getInstance;
 
 
 /***/ }),
@@ -2182,10 +1815,10 @@ window._PalletDemo = new PalletDemo();
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var audio_1 = __webpack_require__(23);
-var assets_1 = __webpack_require__(0);
-var Instance_1 = __webpack_require__(9);
+var assets_1 = __webpack_require__(1);
+var Instance_1 = __webpack_require__(7);
 var Engine = (function () {
     function Engine() {
         Instance_1.setInstance(this);
@@ -2303,7 +1936,7 @@ exports.Camera = Camera;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = __webpack_require__(1);
+var _1 = __webpack_require__(0);
 var IDGenerator = (function () {
     function IDGenerator() {
     }
@@ -2387,7 +2020,7 @@ exports.Iterator = Iterator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SeverityEnum_1 = __webpack_require__(6);
+var SeverityEnum_1 = __webpack_require__(4);
 var LogManager = (function () {
     function LogManager() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -2646,7 +2279,7 @@ exports.CollisionEmitter = CollisionEmitter;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ColorCode_1 = __webpack_require__(7);
+var ColorCode_1 = __webpack_require__(5);
 var Color = (function () {
     function Color(r, g, b, a) {
         if (r === void 0) { r = 0; }
@@ -2821,7 +2454,7 @@ exports.Color = Color;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(6);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
 var HTML5AudioEngine_1 = __webpack_require__(35);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
@@ -2834,8 +2467,8 @@ exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var Asset = (function () {
     function Asset(type, url) {
         this._id = utils_1.IDGenerator.getSingleton().generate();
@@ -2943,7 +2576,7 @@ var AssetState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var AssetFactory = (function () {
     function AssetFactory() {
         this._assetLoader = new assets_1.AssetLoader();
@@ -3050,7 +2683,7 @@ exports.AssetFactory = AssetFactory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var AssetLoader = (function () {
     function AssetLoader() {
     }
@@ -3126,7 +2759,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var AudioLoader = (function (_super) {
     __extends(AudioLoader, _super);
     function AudioLoader() {
@@ -3178,7 +2811,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var ImageLoader = (function (_super) {
     __extends(ImageLoader, _super);
     function ImageLoader() {
@@ -3217,7 +2850,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var assets_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var JSONLoader = (function (_super) {
     __extends(JSONLoader, _super);
     function JSONLoader() {
@@ -3239,8 +2872,8 @@ exports.JSONLoader = JSONLoader;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
     }
@@ -3271,8 +2904,8 @@ exports.TextAssetBuilder = TextAssetBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
-var assets_1 = __webpack_require__(0);
+var utils_1 = __webpack_require__(0);
+var assets_1 = __webpack_require__(1);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
         this._spritesheetAsset = spritesheetAsset;
@@ -3416,7 +3049,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(8);
+var AudioEngine_1 = __webpack_require__(6);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -3637,7 +3270,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var RenderingEngine = (function () {
     function RenderingEngine() {
         this._prerenderViewPort = new utils_1.ViewPort();
@@ -3918,7 +3551,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Events = __webpack_require__(2);
-var utils_1 = __webpack_require__(1);
+var utils_1 = __webpack_require__(0);
 var EntityModel = (function (_super) {
     __extends(EntityModel, _super);
     function EntityModel() {
@@ -4003,7 +3636,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(11);
+var EntityView_1 = __webpack_require__(10);
 var EntityView2D = (function (_super) {
     __extends(EntityView2D, _super);
     function EntityView2D() {
@@ -4031,7 +3664,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(10);
+var Entity_1 = __webpack_require__(9);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -4074,172 +3707,20 @@ exports.GridMap = GridMap;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 Object.defineProperty(exports, "__esModule", { value: true });
-var entities_1 = __webpack_require__(4);
-var assets_1 = __webpack_require__(0);
-var core_1 = __webpack_require__(5);
-var Character = (function (_super) {
-    __extends(Character, _super);
-    function Character(character_spritesheet) {
-        var _this = _super.call(this) || this;
-        _this.setWidth(14);
-        _this.setHeight(21);
-        _this._characterSpritesheet = character_spritesheet;
-        _this._upAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite('player_up_step1'), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_up"), "delay": 250 }
-        ]);
-        _this._downAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_down_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_down"), "delay": 250 }
-        ]);
-        _this._leftAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_left_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_left"), "delay": 250 }
-        ]);
-        _this._rightAnim = new assets_1.Animation(_this, [
-            { "asset": character_spritesheet.getSprite("player_right_step2"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right_step1"), "delay": 250 },
-            { "asset": character_spritesheet.getSprite("player_right"), "delay": 250 }
-        ]);
-        return _this;
-    }
-    Character.prototype._move = function (coordinates) {
-        var _this = this;
-        var game = core_1.getInstance();
-        game.getLogicEngine().removeLogic(this.getID() + "_endmove");
-        var collision = false;
-        var updatedCoordinates = false;
-        var x = coordinates.x;
-        var y = coordinates.y;
-        var potCollisions = this.getParent().findChildren({ x: x + 1, y: y + 16 });
-        for (var i in potCollisions) {
-            if (potCollisions[i] != this && potCollisions[i].isCollisionable()) {
-                collision = true;
-            }
-        }
-        if (!collision) {
-            game.getLogicEngine().addLogic(this.getID() + "_move", function () {
-                if (_this.getX() != x) {
-                    if (_this.getX() > x) {
-                        _this.setX(_this.getX() - 2);
-                        if (!updatedCoordinates) {
-                            _this.tileX -= 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                    else {
-                        _this.setX(_this.getX() + 2);
-                        if (!updatedCoordinates) {
-                            _this.tileX += 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                }
-                if (_this.getY() != y) {
-                    if (_this.getY() > y) {
-                        _this.setY(_this.getY() - 2);
-                        if (!updatedCoordinates) {
-                            _this.tileY -= 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                    else {
-                        _this.setY((_this.getY()) + 2);
-                        if (!updatedCoordinates) {
-                            _this.tileY += 1;
-                            updatedCoordinates = true;
-                        }
-                    }
-                }
-                ;
-                if (_this.getX() == x && _this.getY() == y || collision) {
-                    game.getLogicEngine().removeLogic(_this.getID() + "_move");
-                    _this.moving = false;
-                    game.getLogicEngine().addLogic(_this.getID() + "_endmove", function () {
-                        _this._activeAnim.stop();
-                        delete _this._activeAnim;
-                        _this.setTexture(_this._endTexture);
-                        game.getLogicEngine().removeLogic(_this.getID() + "_endmove");
-                    }, 50);
-                }
-            }, 50);
-        }
-        else {
-            this.moving = false;
-            this._activeAnim.stop();
-            delete this._activeAnim;
-            this.setTexture(this._endTexture);
-        }
-    };
-    Character.prototype.moveLeft = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._leftAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_left");
-            this._leftAnim.start();
-            this._activeAnim = this._leftAnim;
-            this.moving = true;
-            this._move({ x: this.getX() - 16, y: this.getY() });
-        }
-    };
-    Character.prototype.moveUp = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._upAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_up");
-            this._upAnim.start();
-            this._activeAnim = this._upAnim;
-            this.moving = true;
-            this._move({ x: this.getX(), y: this.getY() - 16 });
-        }
-    };
-    Character.prototype.moveRight = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._rightAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_right");
-            this._rightAnim.start();
-            this._activeAnim = this._rightAnim;
-            this.moving = true;
-            this._move({ x: this.getX() + 16, y: this.getY() });
-        }
-    };
-    Character.prototype.moveDown = function () {
-        if (!this.moving) {
-            if (this._activeAnim && this._activeAnim != this._downAnim) {
-                this._activeAnim.stop();
-            }
-            this._endTexture = this._characterSpritesheet.getSprite("player_down");
-            this._downAnim.start();
-            this._activeAnim = this._downAnim;
-            this.moving = true;
-            this._move({ x: this.getX(), y: this.getY() + 16 });
-        }
-    };
-    return Character;
-}(entities_1.Entity));
-exports.default = Character;
+var GamePadListener_1 = __webpack_require__(44);
+exports.GamePadListener = GamePadListener_1.GamePadListener;
+var GamePad_1 = __webpack_require__(11);
+exports.GamePad = GamePad_1.GamePad;
+var Keyboard_1 = __webpack_require__(45);
+exports.Keyboard = Keyboard_1.Keyboard;
+exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
+var Mouse_1 = __webpack_require__(46);
+exports.Mouse = Mouse_1.Mouse;
+var Touch_1 = __webpack_require__(12);
+exports.Touch = Touch_1.Touch;
+var TouchListener_1 = __webpack_require__(47);
+exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
@@ -4248,28 +3729,6 @@ exports.default = Character;
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var GamePadListener_1 = __webpack_require__(45);
-exports.GamePadListener = GamePadListener_1.GamePadListener;
-var GamePad_1 = __webpack_require__(12);
-exports.GamePad = GamePad_1.GamePad;
-var Keyboard_1 = __webpack_require__(46);
-exports.Keyboard = Keyboard_1.Keyboard;
-exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-var Mouse_1 = __webpack_require__(47);
-exports.Mouse = Mouse_1.Mouse;
-var Touch_1 = __webpack_require__(13);
-exports.Touch = Touch_1.Touch;
-var TouchListener_1 = __webpack_require__(48);
-exports.TouchListener = TouchListener_1.TouchListener;
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4281,7 +3740,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(12);
+var GamePad_1 = __webpack_require__(11);
 var Events = __webpack_require__(2);
 var GamePadListener = (function (_super) {
     __extends(GamePadListener, _super);
@@ -4339,7 +3798,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4526,7 +3985,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4677,7 +4136,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4693,7 +4152,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(13);
+var Touch_1 = __webpack_require__(12);
 var Events = __webpack_require__(2);
 var TouchListener = (function (_super) {
     __extends(TouchListener, _super);
