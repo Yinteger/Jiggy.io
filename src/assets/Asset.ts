@@ -4,6 +4,13 @@ import {
 	AssetType,
 	AssetLoader
 } from '../assets';
+import {EventEmitter} from 'events';
+
+export const enum AssetEvents {
+	STATE_CHANGE 	= "state_change",
+	DATA_CHANGE 	= "data_change",
+	ERROR 			= "error"
+}
 
 // import {
 // 	AssetState,
@@ -11,7 +18,7 @@ import {
 // 	AssetLoader
 // } from './';
 
-export class Asset {
+export class Asset extends EventEmitter {
 	private _id: string;
 	private _type: AssetType;
 	private _data: Object;
@@ -27,10 +34,12 @@ export class Asset {
 	 *
 	 *	Represents an asset to a game.
 	 * 
-	 * @param {AssetFactory.TYPES} type Enumeration
+	 * @param {AssetType} type
 	 * @param {String} url  Location path.
 	 */
 	public constructor(type: AssetType, url?: string) {
+		super();
+
 		this._id = IDGenerator.getSingleton().generate();
 		this._type = type;
 		this._data = null;
@@ -70,15 +79,15 @@ export class Asset {
 	 * public setState
 	 *
 	 *	Sets the state of this asset.
-	 *
-	 * 	To be used internally only.
-	 * 
-	 * @param {zen.assets.Asset Enumeration} state 
+
+	 * @internal
+	 * @param {AssetState} state 
 	 */
 	public setState(state: AssetState): void {
 		if (this._state !== state) {
 			this._state = state;
 			this.onStateChange(this._state);
+			this.emit(AssetEvents.STATE_CHANGE, this._state);
 		}
 	}
 
@@ -87,7 +96,7 @@ export class Asset {
 	 *
 	 *	Returns the state of this asset.
 	 * 	
-	 * @return {zen.assets.Asset Enumeration}
+	 * @return {AssetState}
 	 */
 	 public getState(): AssetState {
 	 	return this._state;
@@ -103,6 +112,7 @@ export class Asset {
 	public setData(data: Object): void {
 		this._data = data;
 		this.onDataChange(this._data);
+		this.emit(AssetEvents.DATA_CHANGE, this._data);
 	}
 
 	/**
@@ -121,7 +131,7 @@ export class Asset {
 	 *
 	 *	Get the type of this asset.
 	 * 
-	 * @return {zen.assets.AssetFactory.TYPES} Enumeration
+	 * @return {AssetType}
 	 */
 	public getType(): AssetType {
 		return this._type;
@@ -132,7 +142,7 @@ export class Asset {
 	 *
 	 *	Sets the strategy class to be used for loading
 	 * 
-	 * @param {zen.assets.AssetLoader} loadStrategy 
+	 * @param {AssetLoader} loadStrategy 
 	 */
 	public setLoadStrategy(loadStrategy: AssetLoader): void {
 		this._loadStrategy = loadStrategy;
@@ -143,7 +153,7 @@ export class Asset {
 	 *
 	 *	Gets the strategy class used for loading.
 	 * 
-	 * @return {zen.assets.AssetLoader} 
+	 * @return {AssetLoader} 
 	 */
 	public getLoadStrategy(): AssetLoader {
 		return this._loadStrategy;
@@ -157,10 +167,17 @@ export class Asset {
 	 * 	Use onDataChange hook method to get notified when data has
 	 * 	finished loading.
 	 * 
-	 * @return {void} 
+	 * @return {Promise<Asset>} 
 	 */
-	public load(): void {
-		this._loadStrategy.load(this);
+	public load(): Promise<Asset> {
+		return this._loadStrategy.load(this);
+	}
+
+	/**
+	 * Unloads the asset data
+	 */
+	public unload(): Promise<Asset> {
+		return this._loadStrategy.unload(this);
 	}
 
 	/**
@@ -227,10 +244,11 @@ export class Asset {
 	 *
 	 * 	Invoked when state changes.
 	 * 
-	 * @param  {zen.assets.Asset Enumeration} state Possible values:
-	 *                                        			zen.assets.Asset.NOT_LOADED
-	 *                                        			zen.assets.Asset.LOADING
-	 *                                        			zen.assets.Asset.LOADED
+	 * @param  {AssetState} state Possible values:
+	 *                     			- AssetState.NOT_LOADED
+	 *                              - AssetState.LOADING
+	 *                              - AssetState.LOADED
+	 * @deprecated Use on(AssetEventType.STATE_CHANGE) instead.
 	 * @return {void}       
 	 */
 	public onStateChange(state: AssetState): void {}
@@ -241,6 +259,7 @@ export class Asset {
 	 *	Invoked when data changes.
 	 * 
 	 * @param  {Mixed} data Must be prepared to handle null.
+	 * @deprecated Use on(AssetEventType.DATA_CHANGE) instead.
 	 * @return {void}      
 	 */
 	public onDataChange(data: Object): void {}
@@ -249,9 +268,23 @@ export class Asset {
 	 * public onError
 	 *
 	 *	Invoked when there was an error while loading asset data.
+	 *  Note: Prior usage was a hook function. Now this should be treated as a protected method,
+	 *  however TypeScript doesn't have "friend" class support, and AssetLoader needs to invoke this method.
 	 * 
-	 * @param  {Object} error 
+	 *  Use 
+	 * 
+	 * 		on(AssetEvents.ERROR)
+	 * 
+	 *  OR
+	 * 
+	 * 		load().catch((error) => { ... })
+	 *  
+	 * to receive the error instead.
+	 * 
+	 * @param  {Object} error
 	 * @return {void}       
 	 */
-	public onError(error?: Object): void {}
+	public onError(error?: Object): void {
+		this.emit(AssetEvents.ERROR, error);
+	}
 }

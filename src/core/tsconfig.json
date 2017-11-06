@@ -1,0 +1,16 @@
+{
+    "extends": "../tsconfig.json",
+
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "./dist/",
+        "paths": {
+            "@jiggy/*" : ["../*/src"]
+        }
+    },
+
+    "files": [
+        "./src/index.ts",
+        "./typings/json.d.ts"
+    ]
+}

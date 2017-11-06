@@ -1,6 +1,6 @@
 export enum AssetType {
-	RAW,
-	IMAGE,
-	AUDIO,
-	JSON
+	RAW = "raw",
+	IMAGE = "image",
+	AUDIO = "audio",
+	JSON = "json"
 }

@@ -1,5 +1,6 @@
 export enum AssetState {
 	NOT_LOADED,
 	LOADING,
-	LOADED
+	LOADED,
+	UNLOADING
 }
