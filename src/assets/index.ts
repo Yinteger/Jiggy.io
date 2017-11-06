@@ -3,10 +3,12 @@
 
 // If a particular module exports multiple items, ensure to include all that should be exposed to the public API.
 
-import {Asset} from './Asset';
+import {Asset, AssetEvents} from './Asset';
 import {AssetType} from './AssetType';
 import {AssetState} from './AssetState';
 import {AssetFactory} from './AssetFactory';
+import {AssetGroup, AssetMap} from './AssetGroup';
+import {AssetGroupLoader, AssetDefinition, AssetGroupDefinition} from './AssetGroupLoader';
 
 import {AssetLoader} from './AssetLoader';
 import {AudioLoader} from './AudioLoader';
@@ -19,7 +21,7 @@ import {SpritesheetDefinition} from './SpritesheetDefinition';
 import {Animation, AnimationFrame} from './Animation';
 
 export {
-    Asset,
+    Asset, AssetEvents,
     AssetType,
     AssetState,
     AssetFactory,
@@ -30,5 +32,7 @@ export {
     TextAssetBuilder,
     Spritesheet,
     SpritesheetDefinition,
-    Animation, AnimationFrame
+    Animation, AnimationFrame,
+    AssetGroup, AssetMap,
+    AssetGroupLoader, AssetDefinition, AssetGroupDefinition
 };

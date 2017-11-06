@@ -1,3 +1,5 @@
+/// <reference path="../utils/Promise.d.ts" />
+
 import {
 	Asset,
 	AssetLoader,
@@ -12,14 +14,15 @@ export class JSONLoader extends AssetLoader {
 	/**
 	 * protected _onSuccess
 	 *
-	 *	See zen.assets.AssetLoader._onSuccess for more details.
+	 *	See AssetLoader._onSuccess for more details.
 	 * 
 	 * @param  {Asset} asset 
 	 * @param  {Stringified JSON} data  
 	 * @return {void}       
 	 */
-	protected _onSuccess(asset: Asset, data: Object): void {
+	protected _onSuccess(asset: Asset, data: Object, resolve: ResolveFunction<Asset>): void {
 		var json: string = <string>data;
 		asset.setData(JSON.parse(json));
+		resolve(asset);
 	}
 }

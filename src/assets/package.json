@@ -1,0 +1,19 @@
+{
+    "name": "@jiggy/assets",
+    "version": "0.0.4",
+    "description": "Assets package of the @jiggy engine",
+    "main": "./dist/assets/src/index.js",
+    "types": "./src/index.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Kyle Williams <kyle@kylewilliams.io",
+    "peerDependencies": {
+        "@jiggy/entities": "0.0.4",
+        "@jiggy/utils": "0.0.4",
+        "@jiggy/core": "0.0.4"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.47"
+    }
+}

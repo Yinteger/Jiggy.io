@@ -1,12 +1,10 @@
-export class Iterator {
-	private _array : any[];
+export class Iterator<T> {
+	private _array : T[];
 	private _index : number;
-	private _length : number;
 
-	public constructor (array : any[]) {
+	public constructor (array : T[]) {
 		this._array = array;
 		this._index = -1;
-		this._length = array.length;
 	}
 
 	public hasNext () : boolean {
@@ -17,22 +15,21 @@ export class Iterator {
 		}
 	}
 
-	public next () : any {
+	public next () : T {
 		this._index += 1;
 		return this._array[this._index];
 	}
 
 	public hasPrev () : boolean {
-		if (this._array[this._index - 1]) {
+		if (this._array[this._index]) {
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public prev () : any {
-		this._index -= 1;
-		return this._array[this._index];
+	public prev () : T {
+		return this._array[this._index--];
 	}
 
 	public setToBeginning () : void {
@@ -43,11 +40,11 @@ export class Iterator {
 		this._index = this._array.length;
 	}
 
-	public getFirst  () : any {
+	public getFirst  () : T {
 		return this._array[0];
 	}
 
-	public getLast () : any {
+	public getLast () : T {
 		return this._array[this._array.length - 1];
 	}
 }
