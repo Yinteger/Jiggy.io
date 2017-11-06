@@ -2628,16 +2628,28 @@ class AssetGroupLoader {
             var json = this._assetFactory.build(AssetType_1.AssetType.JSON, path);
             json.load().then((assetGroupDefs) => {
                 var data = assetGroupDefs.getData();
-                var iterator = new Iterator_1.Iterator(data.assets);
-                var group = new AssetGroup_1.AssetGroup();
-                while (iterator.hasNext()) {
-                    var assetDef = iterator.next();
-                    var asset = this._assetFactory.build(assetDef.type, assetDef.source);
-                    group.addAsset(assetDef.name, asset);
-                }
-                resolve(group);
+                resolve(this._createGroup(data));
             }).catch(reject);
         });
+    }
+    loadFromAsset(asset) {
+        if (asset.getType() !== AssetType_1.AssetType.JSON) {
+            throw new Error('loadFromAsset expects a JSON asset.');
+        }
+        return this._createGroup(asset.getData());
+    }
+    loadFromMemory(data) {
+        return this._createGroup(data);
+    }
+    _createGroup(data) {
+        var iterator = new Iterator_1.Iterator(data.assets);
+        var group = new AssetGroup_1.AssetGroup();
+        while (iterator.hasNext()) {
+            var assetDef = iterator.next();
+            var asset = this._assetFactory.build(assetDef.type, assetDef.source);
+            group.addAsset(assetDef.name, asset);
+        }
+        return group;
     }
 }
 exports.AssetGroupLoader = AssetGroupLoader;
@@ -3051,6 +3063,8 @@ class TextAssetBuilder {
             maxWidth = textViewPort.measureText(text).width;
         }
         textViewPort.setSize({ width: maxWidth, height });
+        textViewPort.setFont(font);
+        textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
         textViewPort.drawText(text, 0, 0, maxWidth);
         textAsset.setData(textViewPort.getImage());
