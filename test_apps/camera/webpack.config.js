@@ -29,7 +29,7 @@ module.exports = {
             },
             {
                 test :  /\.(jpe?g|png|gif|svg)$/i,
-                loader : "file-loader?name=./dist/res/[name].[ext]"
+                loader : "url-loader?name=./dist/res/[name].[ext]"
             },
             { enforce: 'pre', test: /\.js$/, loader: "source-map-loader" }
         ]

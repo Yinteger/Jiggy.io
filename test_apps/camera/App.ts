@@ -5,12 +5,9 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
 import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType, AssetGroupLoader, AssetGroup} from "../../src/assets";
-import pikachuSmall from './resources/pikachu_small.png';
-
-setTimeout(() => {
-    console.log(pikachuSmall);
-}, 1000);
+import {Asset, AssetState, AssetFactory, AssetType, AssetGroupLoader, AssetGroup, AssetGroupDefinition} from "../../src/assets";
+// import * as pikachuSmall from './resources/pikachu_small.png';
+import {resources} from './resources';
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];
@@ -101,14 +98,20 @@ class CameraDemo extends Engine {
         };
 
         var loader: AssetGroupLoader = new AssetGroupLoader();
-        loader.load('resources.json').then((ag: AssetGroup) => {
-            this._assetGroup = ag;
-            return this._assetGroup.load();
-        }).then(() => {
+        this._assetGroup = loader.loadFromMemory(resources);
+        this._assetGroup.load().then(() => {
             resourcesLoaded();
-        }).catch((error: any) => {
-            console.error(error);
+        }).catch((e: any) => {
+            console.log(e);
         });
+        // loader.load('resources.json').then((ag: AssetGroup) => {
+        //     this._assetGroup = ag;
+        //     return this._assetGroup.load();
+        // }).then(() => {
+        //     resourcesLoaded();
+        // }).catch((error: any) => {
+        //     console.error(error);
+        // });
 
         // this._pikachuTexture = pikachu;
         // background.onStateChange = (state : AssetState) => {
