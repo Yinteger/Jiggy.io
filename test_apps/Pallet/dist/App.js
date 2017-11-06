@@ -1153,7 +1153,7 @@ class AssetGroup {
         });
     }
     unload() {
-        var promises;
+        var promises = [];
         for (var name in this._assets) {
             var asset = this._assets[name];
             if (asset.getState() === AssetState_1.AssetState.LOADED) {
@@ -3461,6 +3461,8 @@ class TextAssetBuilder {
             maxWidth = textViewPort.measureText(text).width;
         }
         textViewPort.setSize({ width: maxWidth, height });
+        textViewPort.setFont(font);
+        textViewPort.setColor(color);
         textViewPort.setTextBaseline("hanging");
         textViewPort.drawText(text, 0, 0, maxWidth);
         textAsset.setData(textViewPort.getImage());
