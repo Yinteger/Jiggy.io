@@ -23,8 +23,9 @@ export class  TextAssetBuilder {
 		}
 
 		textViewPort.setSize({width: maxWidth, height});
-		// textViewPort.setFont(font);
-		// textViewPort.setColor(color);
+		// Something about setting the this a second time actually changes the way the text is drawn.
+		textViewPort.setFont(font);
+		textViewPort.setColor(color);
 		textViewPort.setTextBaseline("hanging");
 
 		textViewPort.drawText(text, 0, 0, maxWidth);
