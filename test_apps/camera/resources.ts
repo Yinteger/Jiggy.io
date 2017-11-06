@@ -1,4 +1,4 @@
-/// <reference path="../../src/assets/WebpackModules.d.ts" />
+/// <reference path="../../src/assets/WebpackAssetSupport.d.ts" />
 
 import {AssetType} from '../../src/assets/AssetType';
 import {AssetGroupDefinition} from '../../src/assets/AssetGroupLoader';
