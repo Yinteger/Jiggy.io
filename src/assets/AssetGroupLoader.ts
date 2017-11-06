@@ -1,3 +1,5 @@
+/// <reference path="../../src/core/CodeSplitSupport.d.ts" />
+
 import {Asset} from './Asset';
 import {AssetType} from './AssetType';
 import {AssetGroup} from './AssetGroup';
@@ -37,6 +39,8 @@ export class AssetGroupLoader {
      * }
      * 
      * Note, the returned AssetGroup will be in an unloaded state.
+     * 
+     * The file must be a JSON file.
      * 
      * @param path 
      */

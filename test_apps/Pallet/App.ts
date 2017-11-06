@@ -1,5 +1,3 @@
-/// <reference path="../../src/core/CodeSplitSupport.d.ts" />
-
 import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
 import {HTML5AudioEngine} from "../../src/audio";
