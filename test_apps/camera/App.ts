@@ -1,4 +1,4 @@
-/// <reference path="../../src/assets/WebpackModules.d.ts" />
+/// <reference path="../../src/assets/WebpackAssetSupport.d.ts" />
 
 import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
