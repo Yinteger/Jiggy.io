@@ -3,7 +3,7 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, GridMap, EntityEventTypes, LocationUpdateEvent} from "../../src/entities";
 import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet, AssetGroup, AssetGroupLoader} from "../../src/assets";
+import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet, AssetGroup, AssetGroupLoader, AssetGroupDefinition} from "../../src/assets";
 import Character from "./Character";
 import {
     Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
@@ -121,6 +121,7 @@ class PalletDemo extends Engine {
 	}
 
 	private _loadResources () : void {
+		
 		// This is the manual way.
 		// var map_asset : Asset = AssetFactory.getSingleton().build(AssetType.IMAGE,  'Resources/61816.png');
 		// this._assetGroup.addAsset('map', map_asset);
@@ -140,16 +141,40 @@ class PalletDemo extends Engine {
 
 		// This is data-driven way
 		var assetGroupLoader: AssetGroupLoader = new AssetGroupLoader();
-		assetGroupLoader.load('./resources.json').then((ag: AssetGroup) => {
-			this._assetGroup = ag;
-			return this._assetGroup.load();
-		}).then(() => {
-			this._loadMapSpritesheet();
-			this._loadBackgroundMusic();
-			this._loadCharacterSpritesheet();
-			this._resourceLoaded();	
-		}).catch((error) => {
-			console.error(error);
+		// assetGroupLoader.load('./resources.json').then((ag: AssetGroup) => {
+		// 	this._assetGroup = ag;
+		// 	return this._assetGroup.load();
+		// }).then(() => {
+		// 	this._loadMapSpritesheet();
+		// 	this._loadBackgroundMusic();
+		// 	this._loadCharacterSpritesheet();
+		// 	this._resourceLoaded();	
+		// }).catch((error) => {
+		// 	console.error(error);
+		// });
+
+		// Or from memory (resources is the already loaded JSON file)
+		// this._assetGroup = assetGroupLoader.loadFromMemory(resources);
+		// this._assetGroup.load().then(() => {
+		// 	this._loadMapSpritesheet();
+		// 	this._loadBackgroundMusic();
+		// 	this._loadCharacterSpritesheet();
+		// 	this._resourceLoaded();	
+		// }).catch((error) => {
+		// 	console.log(error);
+		// });
+
+		// Or from code-splitted bundle
+		require.ensure(['./resources.ts'], (require) => {
+			var resources: AssetGroupDefinition = require('./resources.ts');
+			console.log(resources);
+			this._assetGroup = assetGroupLoader.loadFromMemory(resources);
+			this._assetGroup.load().then(() => {
+				this._loadMapSpritesheet();
+				this._loadBackgroundMusic();
+				this._loadCharacterSpritesheet();
+				this._resourceLoaded();
+			});
 		});
 	}
 

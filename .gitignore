@@ -46,3 +46,4 @@ typings
 
 /dist/
 !test_apps/**/*
+test_apps/**/node_modules

@@ -1,6 +1,36 @@
 /******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	var parentJsonpFunction = window["webpackJsonp"];
+/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules, executeModules) {
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [], result;
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules, executeModules);
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 	};
+/******/
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
+/******/
+/******/ 	// objects to store loaded and loading chunks
+/******/ 	var installedChunks = {
+/******/ 		1: 0
+/******/ 	};
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -26,6 +56,55 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData === 0) {
+/******/ 			return new Promise(function(resolve) { resolve(); });
+/******/ 		}
+/******/
+/******/ 		// a Promise means "currently loading".
+/******/ 		if(installedChunkData) {
+/******/ 			return installedChunkData[2];
+/******/ 		}
+/******/
+/******/ 		// setup Promise in chunk cache
+/******/ 		var promise = new Promise(function(resolve, reject) {
+/******/ 			installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 		});
+/******/ 		installedChunkData[2] = promise;
+/******/
+/******/ 		// start chunk loading
+/******/ 		var head = document.getElementsByTagName('head')[0];
+/******/ 		var script = document.createElement('script');
+/******/ 		script.type = 'text/javascript';
+/******/ 		script.charset = 'utf-8';
+/******/ 		script.async = true;
+/******/ 		script.timeout = 120000;
+/******/
+/******/ 		if (__webpack_require__.nc) {
+/******/ 			script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 		}
+/******/ 		script.src = __webpack_require__.p + "./dist/" + ({}[chunkId]||chunkId) + ".chunk.js";
+/******/ 		var timeout = setTimeout(onScriptComplete, 120000);
+/******/ 		script.onerror = script.onload = onScriptComplete;
+/******/ 		function onScriptComplete() {
+/******/ 			// avoid mem leaks in IE.
+/******/ 			script.onerror = script.onload = null;
+/******/ 			clearTimeout(timeout);
+/******/ 			var chunk = installedChunks[chunkId];
+/******/ 			if(chunk !== 0) {
+/******/ 				if(chunk) {
+/******/ 					chunk[1](new Error('Loading chunk ' + chunkId + ' failed.'));
+/******/ 				}
+/******/ 				installedChunks[chunkId] = undefined;
+/******/ 			}
+/******/ 		};
+/******/ 		head.appendChild(script);
+/******/
+/******/ 		return promise;
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -59,8 +138,11 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 18);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,31 +152,31 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Asset_1 = __webpack_require__(27);
+const Asset_1 = __webpack_require__(28);
 exports.Asset = Asset_1.Asset;
-const AssetType_1 = __webpack_require__(11);
+const AssetType_1 = __webpack_require__(6);
 exports.AssetType = AssetType_1.AssetType;
 const AssetState_1 = __webpack_require__(12);
 exports.AssetState = AssetState_1.AssetState;
-const AssetFactory_1 = __webpack_require__(28);
+const AssetFactory_1 = __webpack_require__(29);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
 const AssetGroup_1 = __webpack_require__(13);
 exports.AssetGroup = AssetGroup_1.AssetGroup;
-const AssetGroupLoader_1 = __webpack_require__(29);
+const AssetGroupLoader_1 = __webpack_require__(30);
 exports.AssetGroupLoader = AssetGroupLoader_1.AssetGroupLoader;
-const AssetLoader_1 = __webpack_require__(30);
+const AssetLoader_1 = __webpack_require__(31);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-const AudioLoader_1 = __webpack_require__(32);
+const AudioLoader_1 = __webpack_require__(33);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-const ImageLoader_1 = __webpack_require__(33);
+const ImageLoader_1 = __webpack_require__(34);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-const JSONLoader_1 = __webpack_require__(34);
+const JSONLoader_1 = __webpack_require__(35);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-const TextAssetBuilder_1 = __webpack_require__(35);
+const TextAssetBuilder_1 = __webpack_require__(36);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-const Spritesheet_1 = __webpack_require__(36);
+const Spritesheet_1 = __webpack_require__(37);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-const Animation_1 = __webpack_require__(37);
+const Animation_1 = __webpack_require__(38);
 exports.Animation = Animation_1.Animation;
 
 
@@ -105,23 +187,23 @@ exports.Animation = Animation_1.Animation;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const SeverityEnum_1 = __webpack_require__(7);
+const SeverityEnum_1 = __webpack_require__(8);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-const Camera_1 = __webpack_require__(20);
+const Camera_1 = __webpack_require__(21);
 exports.Camera = Camera_1.Camera;
-const IDGenerator_1 = __webpack_require__(21);
+const IDGenerator_1 = __webpack_require__(22);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-const Iterator_1 = __webpack_require__(8);
+const Iterator_1 = __webpack_require__(9);
 exports.Iterator = Iterator_1.Iterator;
-const LogManager_1 = __webpack_require__(22);
+const LogManager_1 = __webpack_require__(23);
 exports.LogManager = LogManager_1.LogManager;
-const ViewPort_1 = __webpack_require__(23);
+const ViewPort_1 = __webpack_require__(24);
 exports.ViewPort = ViewPort_1.ViewPort;
-const CollisionEmitter_1 = __webpack_require__(24);
+const CollisionEmitter_1 = __webpack_require__(25);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-const Color_1 = __webpack_require__(25);
+const Color_1 = __webpack_require__(26);
 exports.Color = Color_1.Color;
-const ColorCode_1 = __webpack_require__(9);
+const ColorCode_1 = __webpack_require__(10);
 exports.ColorCode = ColorCode_1.ColorCode;
 
 
@@ -462,13 +544,13 @@ exports.getInstance = getInstance;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const LogicEngine_1 = __webpack_require__(39);
+const LogicEngine_1 = __webpack_require__(40);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-const GroupLogicEngine_1 = __webpack_require__(40);
+const GroupLogicEngine_1 = __webpack_require__(41);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-const RenderingEngine_1 = __webpack_require__(41);
+const RenderingEngine_1 = __webpack_require__(42);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-const TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
+const TwoDimensionalRenderingEngine_1 = __webpack_require__(43);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -481,13 +563,13 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimen
 Object.defineProperty(exports, "__esModule", { value: true });
 const Entity_1 = __webpack_require__(14);
 exports.Entity = Entity_1.Entity;
-const EntityModel_1 = __webpack_require__(43);
+const EntityModel_1 = __webpack_require__(44);
 exports.EntityModel = EntityModel_1.EntityModel;
 const EntityView_1 = __webpack_require__(15);
 exports.EntityView = EntityView_1.EntityView;
-const EntityView2D_1 = __webpack_require__(44);
+const EntityView2D_1 = __webpack_require__(45);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-const GridMap_1 = __webpack_require__(45);
+const GridMap_1 = __webpack_require__(46);
 exports.GridMap = GridMap_1.GridMap;
 
 
@@ -498,14 +580,30 @@ exports.GridMap = GridMap_1.GridMap;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Engine_1 = __webpack_require__(19);
+var AssetType;
+(function (AssetType) {
+    AssetType["RAW"] = "raw";
+    AssetType["IMAGE"] = "image";
+    AssetType["AUDIO"] = "audio";
+    AssetType["JSON"] = "json";
+})(AssetType = exports.AssetType || (exports.AssetType = {}));
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Engine_1 = __webpack_require__(20);
 exports.Engine = Engine_1.Engine;
 const Instance_1 = __webpack_require__(3);
 exports.getInstance = Instance_1.getInstance;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -522,7 +620,7 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -573,7 +671,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -881,7 +979,7 @@ exports.ColorMap = {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1068,22 +1166,6 @@ class AudioEngine {
     }
 }
 exports.AudioEngine = AudioEngine;
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var AssetType;
-(function (AssetType) {
-    AssetType["RAW"] = "raw";
-    AssetType["IMAGE"] = "image";
-    AssetType["AUDIO"] = "audio";
-    AssetType["JSON"] = "json";
-})(AssetType = exports.AssetType || (exports.AssetType = {}));
 
 
 /***/ }),
@@ -1841,19 +1923,20 @@ exports.Touch = Touch;
 
 
 /***/ }),
-/* 18 */
+/* 18 */,
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(6);
+const core_1 = __webpack_require__(7);
 const engines_1 = __webpack_require__(4);
 const entities_1 = __webpack_require__(5);
 const utils_1 = __webpack_require__(1);
 const assets_1 = __webpack_require__(0);
-const Character_1 = __webpack_require__(46);
-const inputs_1 = __webpack_require__(47);
+const Character_1 = __webpack_require__(47);
+const inputs_1 = __webpack_require__(48);
 class PalletDemo extends core_1.Engine {
     constructor() {
         super();
@@ -1930,17 +2013,17 @@ class PalletDemo extends core_1.Engine {
     }
     _loadResources() {
         var assetGroupLoader = new assets_1.AssetGroupLoader();
-        assetGroupLoader.load('./resources.json').then((ag) => {
-            this._assetGroup = ag;
-            return this._assetGroup.load();
-        }).then(() => {
-            this._loadMapSpritesheet();
-            this._loadBackgroundMusic();
-            this._loadCharacterSpritesheet();
-            this._resourceLoaded();
-        }).catch((error) => {
-            console.error(error);
-        });
+        __webpack_require__.e/* require.ensure */(0).then(((require) => {
+            var resources = __webpack_require__(18);
+            console.log(resources);
+            this._assetGroup = assetGroupLoader.loadFromMemory(resources);
+            this._assetGroup.load().then(() => {
+                this._loadMapSpritesheet();
+                this._loadBackgroundMusic();
+                this._loadCharacterSpritesheet();
+                this._resourceLoaded();
+            });
+        }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
     }
     _resourceLoaded() {
         console.log("Resources all loaded");
@@ -2251,14 +2334,14 @@ window._PalletDemo = new PalletDemo();
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(1);
-const audio_1 = __webpack_require__(26);
+const audio_1 = __webpack_require__(27);
 const assets_1 = __webpack_require__(0);
 const Instance_1 = __webpack_require__(3);
 class Engine {
@@ -2317,7 +2400,7 @@ exports.Engine = Engine;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2370,7 +2453,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2400,13 +2483,13 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const SeverityEnum_1 = __webpack_require__(7);
+const SeverityEnum_1 = __webpack_require__(8);
 class LogManager {
     constructor() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -2466,7 +2549,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2571,7 +2654,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2644,13 +2727,13 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const ColorCode_1 = __webpack_require__(9);
+const ColorCode_1 = __webpack_require__(10);
 class Color {
     constructor(r = 0, g = 0, b = 0, a = 1) {
         this.setRed(r);
@@ -2814,20 +2897,20 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AudioEngine_1 = __webpack_require__(10);
+const AudioEngine_1 = __webpack_require__(11);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-const HTML5AudioEngine_1 = __webpack_require__(38);
+const HTML5AudioEngine_1 = __webpack_require__(39);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2913,7 +2996,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3019,16 +3102,16 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AssetType_1 = __webpack_require__(11);
+const AssetType_1 = __webpack_require__(6);
 const AssetGroup_1 = __webpack_require__(13);
 const Instance_1 = __webpack_require__(3);
-const Iterator_1 = __webpack_require__(8);
+const Iterator_1 = __webpack_require__(9);
 class AssetGroupLoader {
     constructor() {
         this._assetFactory = Instance_1.getInstance().getAssetFactory();
@@ -3038,23 +3121,35 @@ class AssetGroupLoader {
             var json = this._assetFactory.build(AssetType_1.AssetType.JSON, path);
             json.load().then((assetGroupDefs) => {
                 var data = assetGroupDefs.getData();
-                var iterator = new Iterator_1.Iterator(data.assets);
-                var group = new AssetGroup_1.AssetGroup();
-                while (iterator.hasNext()) {
-                    var assetDef = iterator.next();
-                    var asset = this._assetFactory.build(assetDef.type, assetDef.source);
-                    group.addAsset(assetDef.name, asset);
-                }
-                resolve(group);
+                resolve(this._createGroup(data));
             }).catch(reject);
         });
+    }
+    loadFromAsset(asset) {
+        if (asset.getType() !== AssetType_1.AssetType.JSON) {
+            throw new Error('loadFromAsset expects a JSON asset.');
+        }
+        return this._createGroup(asset.getData());
+    }
+    loadFromMemory(data) {
+        return this._createGroup(data);
+    }
+    _createGroup(data) {
+        var iterator = new Iterator_1.Iterator(data.assets);
+        var group = new AssetGroup_1.AssetGroup();
+        while (iterator.hasNext()) {
+            var assetDef = iterator.next();
+            var asset = this._assetFactory.build(assetDef.type, assetDef.source);
+            group.addAsset(assetDef.name, asset);
+        }
+        return group;
     }
 }
 exports.AssetGroupLoader = AssetGroupLoader;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3131,10 +3226,10 @@ class AssetLoader {
 }
 exports.AssetLoader = AssetLoader;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -3324,7 +3419,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3379,7 +3474,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3420,7 +3515,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3441,7 +3536,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3473,7 +3568,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3511,7 +3606,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3605,13 +3700,13 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AudioEngine_1 = __webpack_require__(10);
+const AudioEngine_1 = __webpack_require__(11);
 class HTML5AudioEngine extends AudioEngine_1.AudioEngine {
     constructor() {
         super();
@@ -3721,7 +3816,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3733,7 +3828,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3806,7 +3901,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3900,7 +3995,7 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4059,7 +4154,7 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4132,7 +4227,7 @@ exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4145,7 +4240,7 @@ exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4186,7 +4281,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4194,7 +4289,7 @@ exports.GridMap = GridMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 const entities_1 = __webpack_require__(5);
 const assets_1 = __webpack_require__(0);
-const core_1 = __webpack_require__(6);
+const core_1 = __webpack_require__(7);
 class Character extends entities_1.Entity {
     constructor(character_spritesheet) {
         super();
@@ -4346,29 +4441,29 @@ exports.default = Character;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const GamePadListener_1 = __webpack_require__(48);
+const GamePadListener_1 = __webpack_require__(49);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
 const GamePad_1 = __webpack_require__(16);
 exports.GamePad = GamePad_1.GamePad;
-const Keyboard_1 = __webpack_require__(49);
+const Keyboard_1 = __webpack_require__(50);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-const Mouse_1 = __webpack_require__(50);
+const Mouse_1 = __webpack_require__(51);
 exports.Mouse = Mouse_1.Mouse;
 const Touch_1 = __webpack_require__(17);
 exports.Touch = Touch_1.Touch;
-const TouchListener_1 = __webpack_require__(51);
+const TouchListener_1 = __webpack_require__(52);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4429,7 +4524,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4603,7 +4698,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4741,7 +4836,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -1,3 +1,5 @@
+/// <reference path="../../src/core/CodeSplitSupport.d.ts" />
+
 import {Asset} from './Asset';
 import {AssetType} from './AssetType';
 import {AssetGroup} from './AssetGroup';
@@ -38,6 +40,8 @@ export class AssetGroupLoader {
      * 
      * Note, the returned AssetGroup will be in an unloaded state.
      * 
+     * The file must be a JSON file.
+     * 
      * @param path 
      */
     public load(path: string): Promise<AssetGroup> {
@@ -46,18 +50,33 @@ export class AssetGroupLoader {
 
             json.load().then((assetGroupDefs: Asset) => {
                 var data: AssetGroupDefinition = assetGroupDefs.getData();
-
-                var iterator: Iterator<AssetDefinition> = new Iterator<AssetDefinition>(data.assets);
-                var group: AssetGroup = new AssetGroup();
-
-                while(iterator.hasNext()) {
-                    var assetDef: AssetDefinition = iterator.next();
-                    var asset: Asset = this._assetFactory.build(assetDef.type, assetDef.source);
-                    group.addAsset(assetDef.name, asset);
-                }
-
-                resolve(group);
+                resolve(this._createGroup(data));
             }).catch(reject);
         });
+    }
+
+    public loadFromAsset(asset: Asset): AssetGroup {
+        if (asset.getType() !== AssetType.JSON) {
+            throw new Error('loadFromAsset expects a JSON asset.');
+        }
+
+        return this._createGroup(asset.getData());
+    }
+
+    public loadFromMemory(data: AssetGroupDefinition): AssetGroup {
+        return this._createGroup(data);
+    }
+
+    private _createGroup(data: AssetGroupDefinition): AssetGroup {
+        var iterator: Iterator<AssetDefinition> = new Iterator<AssetDefinition>(data.assets);
+        var group: AssetGroup = new AssetGroup();
+
+        while(iterator.hasNext()) {
+            var assetDef: AssetDefinition = iterator.next();
+            var asset: Asset = this._assetFactory.build(assetDef.type, assetDef.source);
+            group.addAsset(assetDef.name, asset);
+        }
+
+        return group;
     }
 }
