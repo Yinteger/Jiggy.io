@@ -1,58 +1,12 @@
-import {RenderingEngine} from "./";
-import {Camera, Iterator, Color} from "../utils";
+ import {RenderingEngine} from "./";
+import {Camera, Iterator, Color, Coordinate} from "../utils";
 import {Entity} from "../entities";
 import {
-	Coordinate,
 	Dimension
 } from '../interfaces';
 
 export class TwoDimensionalRenderingEngine extends RenderingEngine {
 	public debugRegions : boolean;
-
-	protected _render () : void {
-		super._render();
-
-		var context = this.getViewPort().getContext();
-
-		//TODO: Render Cameras in proper order
-		for (var i in this._cameras) {
-			this._renderCamera(this._cameras[i])
-		}
-
-		//Render HUD Entity
-		if (this.getHUD()) {
-			this._renderEntity(this.getHUD(), null);
-		}
-	}
-
-	private _renderCamera (camera : Camera) : void {
-		var scene = camera.getScene();
-		var context = this.getViewPort().getContext();
-
-		if (this.debugCamera) {
-			//For Debugging purposes.. Draw a rect where each camera should be
-			var viewPoint: Coordinate = camera.getViewPoint();
-			var fov: Dimension = camera.getFOV();
-			var renderOrigin: Coordinate = camera.getRenderOrigin();
-			var renderDimension: Dimension = camera.getRenderDimension();
-
-			context.beginPath();
-			context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
-			context.lineWidth = 7;
-			context.strokeStyle = 'red';
-			context.stroke();
-
-			context.beginPath();
-			context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
-			context.lineWidth = 7;
-			context.fillStyle = 'black';
-			context.fill();
-			context.strokeStyle = 'green';
-			context.stroke();
-		}
-
-		this._renderEntity(scene, camera);	
-	}
 
 	protected _renderEntity (entity: Entity, camera? : Camera) : boolean {
 		//Render this
@@ -69,10 +23,10 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			var collidesXAxis = false;
 
 			var cameraBounds = {
-				x: viewPoint.x,
-				y: viewPoint.y,
-				x2: viewPoint.x + fov.width,
-				y2: viewPoint.y + fov.height
+				x: viewPoint.getX(),
+				y: viewPoint.getY(),
+				x2: viewPoint.getX() + fov.width,
+				y2: viewPoint.getY() + fov.height
 			};
 
 			var entityBounds = {
@@ -82,53 +36,57 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 				y2: entity.getAbsoluteY2()
 			};
 
-		    if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
-		        || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
-		        collidesXAxis = true;
-		    }
+		    //if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
+		    //    || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
+		    //    collidesXAxis = true;
+		    //}
 
-		    if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
-		        || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
-		         collidesYAxis = true;
-		     }
+		    //if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
+		    //    || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
+		    //     collidesYAxis = true;
+		    // }
 
 
-			//We'll check to see if the entity collides in the cameras x and y axis, if both, it's visible.
-			if (!collidesYAxis || !collidesXAxis) {
-				// console.log("Found an entity outside the cameras view, ignoring!", entity);
-				//Not visible in the camera, do not continue rendering this entity or it's children
-				return false;
-			}
+			////We'll check to see if the entity collides in the cameras x and y axis, if both, it's visible.
+			//if (!collidesYAxis || !collidesXAxis) {
+			//	// console.log("Found an entity outside the cameras view, ignoring!", entity);
+			//	//Not visible in the camera, do not continue rendering this entity or it's children
+			//	return false;
+			//}
+
+            if (!this._entityInCamera(entity, camera)) {
+                return false;
+            }
 
 			// if (entity.collectTextures().length > 0) {
 			
 			//Next, we figure out what parts of it are in the camera, so we can clip it if need be
 			//Check for Left Clip
 			var leftClip = 0;
-			if (entity.getAbsoluteX() < viewPoint.x) {
-				leftClip = viewPoint.x - entity.getAbsoluteX();
+			if (entity.getAbsoluteX() < viewPoint.getX()) {
+				leftClip = viewPoint.getX() - entity.getAbsoluteX();
 			}
 			// console.log("Left Clip", leftClip);
 
 			//Check for Right Clip
 			var rightClip = 0;
-			if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
-				rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
+			if (entity.getAbsoluteX2() > (viewPoint.getX() + fov.width)) {
+				rightClip = entity.getAbsoluteX2() - (viewPoint.getX() + fov.width);
 			}
 			// console.log("Right Clip", rightClip);
 
 			//Check for Top Clip
 			var topClip = 0;
-			if (entity.getAbsoluteY() < viewPoint.y) {
-				topClip = viewPoint.y - entity.getAbsoluteY();
+			if (entity.getAbsoluteY() < viewPoint.getY()) {
+				topClip = viewPoint.getY() - entity.getAbsoluteY();
 			}
 			// console.log("Top Clip", topClip);
 
 
 			//Check for Bottom Clip
 			var bottomClip = 0;
-			if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
-				bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
+			if (entity.getAbsoluteY2() > (viewPoint.getY() + fov.height)) {
+				bottomClip = entity.getAbsoluteY2() - (viewPoint.getY() + fov.height);
 			}
 			// console.log("Bottom Clip", bottomClip);
 
@@ -149,8 +107,8 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
 			var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
 
-			var x = renderOrigin.x + cameraRelativeX;
-			var y = renderOrigin.y + cameraRelativeY;
+			var x = renderOrigin.getX() + cameraRelativeX;
+			var y = renderOrigin.getY() + cameraRelativeY;
 			var w = clippedEntityWidth / xModifier;
 			var h = clippedEntityHeight / yModifier;
 
@@ -231,5 +189,34 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 			this._renderEntity(children.next(), camera);
 		}
 		return true;
-	}
+    }
+
+    protected _entityInCamera(entity: Entity, camera: Camera): boolean {
+        var viewPoint: Coordinate = camera.getViewPoint();
+        var fov: Dimension = camera.getFOV();
+        var entityPosition : Coordinate = entity.getPosition();
+        var entityOuterPosition: Coordinate = entity.getOuterPosition();
+        var cameraBounds = {
+            x: viewPoint.getX(),
+            y: viewPoint.getY(),
+            x2: viewPoint.getX() + fov.width,
+            y2: viewPoint.getY() + fov.height
+        };
+        var collidesXAxis: boolean = false;
+        var collidesYAxis: boolean = false;
+
+        if ((entityPosition.getX() < cameraBounds.x2 && entityOuterPosition.getX() > cameraBounds.x)
+            || (entityOuterPosition.getX() > cameraBounds.x && entityPosition.getX() < cameraBounds.x2)) {
+		    collidesXAxis = true;
+	    }
+
+        if ((entityPosition.getY() < cameraBounds.y2 && entityOuterPosition.getY() > cameraBounds.y)
+            || (entityOuterPosition.getY() > cameraBounds.y && entityPosition.getY() < cameraBounds.y2)) {
+		        collidesYAxis = true;
+		    }
+
+
+	    //We'll check to see if the entity collides in the cameras x and y axis, if both, it's visible.
+        return collidesYAxis && collidesXAxis;
+    }
 }

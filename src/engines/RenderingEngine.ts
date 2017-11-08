@@ -1,13 +1,17 @@
-import {ViewPort, Camera} from "../utils";
+import { ViewPort, Camera, Color, Coordinate } from "../utils";
+import { Dimension } from "../interfaces";
 import {Entity} from "../entities";
 
-export class RenderingEngine {
+/**
+ * Abstract Rendering Engine class which at it's core is simply has a list of cameras to render on the screen, each of which may point to a 'scene' entity.
+ */
+export abstract class RenderingEngine {
 	private _viewPort : ViewPort;
-	protected _prerenderViewPort : ViewPort;
-	protected _rendering  : boolean;
-	protected _fps : number;
+	private _prerenderViewPort : ViewPort;
+	private _rendering  : boolean;
+	private _fps : number;
 	private _HUDEntity : Entity;
-	protected _cameras : Camera[];
+	private _cameras : Camera[];
 	private _animationFrameID : number;
 	private _frames : number;
 	private _lastRender : Date;
@@ -23,30 +27,55 @@ export class RenderingEngine {
 		this._cameras = [];
 	}
 
+    /**
+     * Sets the View Port to render into
+     * @param viewPort
+     */
 	public setViewPort(viewPort: ViewPort): void {
 		this._viewPort = viewPort;
 	}
 
+    /**
+     * Returns the View Port the rendering engine is rendering into
+     */
 	public getViewPort(): ViewPort {
 		return this._viewPort;
 	}
 
+    /**
+     * Sets an Entity to be rendered outside of a Camera relative to the view port as a HUD element.  Set a single HUD Entity that may contain your entire HUD.
+     * @param hud
+     */
 	public setHUD(hud: Entity): void {
 		this._HUDEntity = hud;
 	}
 
+    /**
+     * Returns the current HUD Element
+     */
 	public getHUD(): Entity {
 		return this._HUDEntity;
 	}
 
+    /**
+     * Adds a Camera to the list of Cameras to render every frame
+     * @param camera
+     */
 	public addCamera (camera : Camera) : void {
 		this._cameras.push(camera);
 	}
 
+    /**
+     * Removes a Camera from the Camera rendering list
+     * @param camera
+     */
 	public removeCamera (camera : Camera) : void {
 		delete this._cameras[this._cameras.indexOf(camera)];
 	}
 
+    /**
+     * Set the Engine to begin rendering into it's View Port
+     */
 	public startRendering () : boolean {
 		if (this._viewPort) {
 			var self = this;
@@ -59,12 +88,18 @@ export class RenderingEngine {
 		}
 	}
 
+    /**
+     * Stop rendering into the View Port
+     */
 	public stopRendering () : void {
 		window.cancelAnimationFrame(this._animationFrameID);
 		this._animationFrameID = null;
 		this._rendering = false;
 	}
 
+    /**
+     * Use the requestAnimationFrame API to create a render loop
+     */
 	private _requestFrame () : void {
 		if (this._rendering) {
 			this._animationFrameID = window.requestAnimationFrame(() => {
@@ -74,10 +109,84 @@ export class RenderingEngine {
 		}
 	}
 
+    /**
+     * Abstract method to render a frame
+     */
 	protected _render () : void {
-		this._viewPort.clear();
-	}
+        this._viewPort.clear();
 
+        for (var i in this._cameras) {
+            this._renderCamera(this._cameras[i])
+        }
+
+        //Render HUD Entity
+        if (this.getHUD()) {
+            this._renderHUDEntity(this.getHUD());
+        }
+    }
+
+    /**
+     * Render an Entity relative to the View Port to create a 'HUD' or 'Menus'
+     * @param hudEntity
+     */
+    protected _renderHUDEntity(hudEntity: Entity): void {
+        var x = hudEntity.getX();
+        var y = hudEntity.getY();
+        var w = hudEntity.getWidth();
+        var h = hudEntity.getHeight();
+
+        //Rendering time!
+        if (hudEntity.getColor()) {
+            //Draw a rect in its place...
+            var color: Color = hudEntity.getColor();
+            this.getViewPort().getContext().fillStyle = color.toString();
+            this.getViewPort().getContext().fillRect(x, y, w, h);
+        }
+
+        if (hudEntity.getTexture()) {
+            var imageData = hudEntity.getTexture().getData();
+            this.getViewPort().getContext().drawImage(imageData, x, y, w, h)
+        }
+    }
+
+    /**
+     * Render a single camera into the viewport
+     */
+    protected _renderCamera(camera: Camera): void {
+        var scene = camera.getScene();
+        var context = this.getViewPort().getContext();
+
+        if (this.debugCamera) {
+            //For Debugging purposes.. Draw a rect where each camera should be
+            var viewPoint: Coordinate = camera.getViewPoint();
+            var fov: Dimension = camera.getFOV();
+            var renderOrigin: Coordinate = camera.getRenderOrigin();
+            var renderDimension: Dimension = camera.getRenderDimension();
+
+            context.beginPath();
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
+            context.lineWidth = 7;
+            context.strokeStyle = 'red';
+            context.stroke();
+
+            context.beginPath();
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
+            context.lineWidth = 7;
+            context.fillStyle = 'black';
+            context.fill();
+            context.strokeStyle = 'green';
+            context.stroke();
+        }
+
+        this._renderEntity(scene, camera);
+    }
+
+    protected abstract _renderEntity(entity: Entity, camera: Camera): void;
+    protected abstract _entityInCamera(entity: Entity, camera: Camera): boolean;
+
+    /**
+     * Count every render loop in a second to show the FPS of the game
+     */
 	private _calculateFPS () : void {
 		var date = new Date(); //Get current Date/Time
 
@@ -98,6 +207,9 @@ export class RenderingEngine {
 		this._lastRender = date;
 	}
 
+    /**
+     * PostRender methods to modify the view and request the next animation frame
+     */
 	private _postRender () : void {
 		//TODO: Call PostProcessors here
 

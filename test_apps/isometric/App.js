@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -72,23 +72,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var SeverityEnum_1 = __webpack_require__(5);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-var Camera_1 = __webpack_require__(14);
+var Camera_1 = __webpack_require__(15);
 exports.Camera = Camera_1.Camera;
-var IDGenerator_1 = __webpack_require__(15);
+var IDGenerator_1 = __webpack_require__(16);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-var Iterator_1 = __webpack_require__(16);
+var Iterator_1 = __webpack_require__(17);
 exports.Iterator = Iterator_1.Iterator;
-var LogManager_1 = __webpack_require__(17);
+var LogManager_1 = __webpack_require__(18);
 exports.LogManager = LogManager_1.LogManager;
-var ViewPort_1 = __webpack_require__(18);
+var ViewPort_1 = __webpack_require__(19);
 exports.ViewPort = ViewPort_1.ViewPort;
-var CollisionEmitter_1 = __webpack_require__(19);
+var CollisionEmitter_1 = __webpack_require__(20);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-var Color_1 = __webpack_require__(20);
+var Color_1 = __webpack_require__(21);
 exports.Color = Color_1.Color;
-var ColorCode_1 = __webpack_require__(6);
+var ColorCode_1 = __webpack_require__(7);
 exports.ColorCode = ColorCode_1.ColorCode;
-var Coordinate_1 = __webpack_require__(21);
+var Coordinate_1 = __webpack_require__(6);
 exports.Coordinate = Coordinate_1.Coordinate;
 
 
@@ -438,11 +438,11 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(8);
+var Entity_1 = __webpack_require__(9);
 exports.Entity = Entity_1.Entity;
 var EntityModel_1 = __webpack_require__(41);
 exports.EntityModel = EntityModel_1.EntityModel;
-var EntityView_1 = __webpack_require__(9);
+var EntityView_1 = __webpack_require__(10);
 exports.EntityView = EntityView_1.EntityView;
 var EntityView2D_1 = __webpack_require__(42);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
@@ -492,6 +492,51 @@ var SeverityEnum;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Coordinate = (function () {
+    function Coordinate(x, y, z) {
+        this._x = x;
+        this._y = y;
+        this._z = z || 0;
+    }
+    Coordinate.prototype.toCartesian = function () {
+        return new Coordinate((2 * this._y + this._x) / 2, (2 * this._y - this._x) / 2);
+    };
+    Coordinate.fromIsometric = function (x, y) {
+        return new Coordinate((2 * y + x) / 2, (2 * y - x) / 2);
+    };
+    Coordinate.prototype.toIsometric = function () {
+        return new Coordinate(this._x - this._y, (this._x + this._y) / 2);
+    };
+    Coordinate.prototype.setX = function (x) {
+        this._x = x;
+    };
+    Coordinate.prototype.setY = function (y) {
+        this._y = y;
+    };
+    Coordinate.prototype.getX = function () {
+        return this._x;
+    };
+    Coordinate.prototype.getY = function () {
+        return this._y;
+    };
+    Coordinate.prototype.getZ = function () {
+        return this._z;
+    };
+    Coordinate.prototype.setZ = function (z) {
+        this._z = z;
+    };
+    return Coordinate;
+}());
+exports.Coordinate = Coordinate;
+
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -799,7 +844,7 @@ exports.ColorMap = {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -990,7 +1035,7 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1098,7 +1143,7 @@ var Entity = (function (_super) {
         this._generateRegions();
     };
     Entity.prototype.getX = function () {
-        return this._model.getAttribute('x');
+        return this._model.getX();
     };
     Entity.prototype.setX = function (x) {
         var oldCoordinates = this.getPosition();
@@ -1125,7 +1170,6 @@ var Entity = (function (_super) {
     Entity.prototype.setPosition = function (position) {
         var oldCoordinates = this.getPosition();
         this._model.setPosition(position);
-        var newCoordinates = { x: this.getX(), y: this.getY() };
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1141,7 +1185,7 @@ var Entity = (function (_super) {
         return this.getX() + this.getWidth();
     };
     Entity.prototype.getY = function () {
-        return this._model.getAttribute('y');
+        return this._model.getY();
     };
     Entity.prototype.setY = function (y) {
         var oldCoordinates = this.getPosition();
@@ -1166,10 +1210,10 @@ var Entity = (function (_super) {
         return this.getY() + this.getHeight();
     };
     Entity.prototype.getZ = function () {
-        return this._model.getAttribute('z');
+        return this._model.getZ();
     };
     Entity.prototype.setZ = function (z) {
-        this._model.setAttribute('z', z);
+        this._model.setZ(z);
     };
     Entity.prototype.getVisible = function () {
         return this._model.getAttribute('visible');
@@ -1258,10 +1302,10 @@ var Entity = (function (_super) {
             var childrenIterator = new utils_2.Iterator(this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY())));
             while (childrenIterator.hasNext()) {
                 var child = childrenIterator.next();
-                var childCoordinate = child.getCoordinate();
+                var childCoordinate = child.getPosition();
                 var childOuterCoordinate = child.getOuterCoordinate();
-                if (childCoordinate.x <= startCoordinate.getX() && childCoordinate.y <= startCoordinate.getY()
-                    && childOuterCoordinate.x >= startCoordinate.getX() && childOuterCoordinate.y >= startCoordinate.getY()) {
+                if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+                    && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                     children.push(child);
                 }
             }
@@ -1281,7 +1325,7 @@ var Entity = (function (_super) {
                     var childrenIterator = new utils_2.Iterator(regionChildren);
                     while (childrenIterator.hasNext()) {
                         var iterChild = childrenIterator.next();
-                        var childCoordinate = iterChild.getCoordinate();
+                        var childCoordinate = iterChild.getPosition();
                         var childOuterCoordinate = iterChild.getOuterCoordinate();
                         if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
                             && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
@@ -1333,14 +1377,14 @@ var Entity = (function (_super) {
         return children;
     };
     Entity.prototype.findTopChildAt = function (coordinate) {
-        var child = false;
+        var child;
         var region = this._coordinateToRegion(coordinate);
         var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
         var childrenIterator = new utils_2.Iterator(regionChildren);
         childrenIterator.setToEnd();
         while (childrenIterator.hasPrev() && !child) {
             var iterChild = childrenIterator.prev();
-            var childCoordinate = iterChild.getCoordinate();
+            var childCoordinate = iterChild.getPosition();
             var childOuterCoordinate = iterChild.getOuterCoordinate();
             if (childCoordinate.getX() <= coordinate.getX() && childCoordinate.getY() <= coordinate.getY()
                 && childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
@@ -1472,7 +1516,7 @@ exports.Entity = Entity;
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1526,7 +1570,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1619,7 +1663,7 @@ exports.GamePad = GamePad;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1699,7 +1743,7 @@ exports.Touch = Touch;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1715,7 +1759,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Engine_1 = __webpack_require__(13);
+var Engine_1 = __webpack_require__(14);
 var engines_1 = __webpack_require__(4);
 var entities_1 = __webpack_require__(3);
 var utils_1 = __webpack_require__(0);
@@ -1727,14 +1771,16 @@ var IsoDemo = (function (_super) {
     function IsoDemo() {
         var _this = _super.call(this) || this;
         _this.getViewPort().setSize({ width: 500, height: 500 });
+        _this.getViewPort().fillPage(true);
         _this.setRenderingEngine(new engines_1.IsometricRenderingEngine());
         var layer1 = new entities_1.IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
         layer1.setX(0);
         layer1.setY(0);
-        var camera = new utils_1.Camera(layer1, { x: -150, y: 0 }, { width: 500, height: 500 }, { x: 0, y: 0 }, { width: 500, height: 500 });
+        var camera = new utils_1.Camera(layer1, new utils_1.Coordinate(-150, 0), { width: 500, height: 500 }, new utils_1.Coordinate(0, 0), { width: 1000, height: 1000 });
         _this._mainCamera = camera;
         _this.getRenderingEngine().addCamera(camera);
         var map_asset = _1.AssetFactory.getSingleton().build(_1.AssetType.IMAGE, 'grass_18x18_zps343999e6.png');
+        var block_asset = _1.AssetFactory.getSingleton().build(_1.AssetType.IMAGE, 'isometric_00142.png');
         map_asset.onStateChange = function (state) {
             if (state === _1.AssetState.LOADED) {
                 console.log("Asset loaded");
@@ -1751,6 +1797,8 @@ var IsoDemo = (function (_super) {
                     var player = new entities_2.Entity();
                     player.setHeight(16);
                     player.setWidth(16);
+                    player.setZ(1);
+                    layer1.addChild(player);
                     var tile = layer1.getTile({ x: 2, y: 2 });
                     player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getWidth() / 2));
                     player.setY(tile.getY() + (tile.getHeight() / 2) - (player.getHeight() / 2));
@@ -1759,7 +1807,117 @@ var IsoDemo = (function (_super) {
                 });
             }
         };
+        block_asset.onStateChange = function (state) {
+            if (state === _1.AssetState.LOADED) {
+                var tile = layer1.getTile({ x: 2, y: 2 });
+                var tile2 = layer1.getTile({ x: 2, y: 3 });
+                var tile3 = layer1.getTile({ x: 2, y: 4 });
+                var tile4 = layer1.getTile({ x: 3, y: 2 });
+                var tile5 = layer1.getTile({ x: 4, y: 2 });
+                var tile6 = layer1.getTile({ x: 5, y: 2 });
+                var tile7 = layer1.getTile({ x: 5, y: 3 });
+                var tile8 = layer1.getTile({ x: 5, y: 4 });
+                console.log("Block loaded");
+                var block = new entities_2.Entity();
+                block.setTexture(block_asset);
+                block.setX(tile.getX());
+                block.setZ(1);
+                block.setY(tile.getY());
+                block.setWidth(tile.getWidth());
+                block.setHeight(tile.getHeight() * 2);
+                layer1.addChild(block);
+                var block2 = new entities_2.Entity();
+                block2.setTexture(block_asset);
+                block2.setX(tile.getX());
+                block2.setY(tile.getY());
+                block2.setZ(tile.getHeight());
+                block2.setWidth(tile.getWidth());
+                block2.setHeight(tile.getHeight() * 2);
+                layer1.addChild(block2);
+                var block3 = new entities_2.Entity();
+                block3.setTexture(block_asset);
+                block3.setX(tile2.getX());
+                block3.setY(tile2.getY());
+                block3.setZ(tile2.getHeight());
+                block3.setWidth(tile2.getWidth());
+                block3.setHeight(tile2.getHeight() * 2);
+                layer1.addChild(block3);
+                var block4 = new entities_2.Entity();
+                block4.setTexture(block_asset);
+                block4.setX(tile3.getX());
+                block4.setY(tile3.getY());
+                block4.setZ(1);
+                block4.setWidth(tile3.getWidth());
+                block4.setHeight(tile3.getHeight() * 2);
+                layer1.addChild(block4);
+                var block5 = new entities_2.Entity();
+                block5.setTexture(block_asset);
+                block5.setX(tile3.getX());
+                block5.setY(tile3.getY());
+                block5.setZ(tile3.getHeight());
+                block5.setWidth(tile3.getWidth());
+                block5.setHeight(tile3.getHeight() * 2);
+                layer1.addChild(block5);
+                var block6 = new entities_2.Entity();
+                block6.setTexture(block_asset);
+                block6.setX(tile4.getX());
+                block6.setY(tile4.getY());
+                block6.setZ(tile4.getHeight());
+                block6.setWidth(tile4.getWidth());
+                block6.setHeight(tile4.getHeight() * 2);
+                layer1.addChild(block6);
+                var block7 = new entities_2.Entity();
+                block7.setTexture(block_asset);
+                block7.setX(tile5.getX());
+                block7.setY(tile5.getY());
+                block7.setZ(tile5.getHeight());
+                block7.setWidth(tile5.getWidth());
+                block7.setHeight(tile5.getHeight() * 2);
+                layer1.addChild(block7);
+                var block8 = new entities_2.Entity();
+                block8.setTexture(block_asset);
+                block8.setX(tile6.getX());
+                block8.setY(tile6.getY());
+                block8.setZ(tile6.getHeight());
+                block8.setWidth(tile6.getWidth());
+                block8.setHeight(tile6.getHeight() * 2);
+                layer1.addChild(block8);
+                var block9 = new entities_2.Entity();
+                block9.setTexture(block_asset);
+                block9.setX(tile6.getX());
+                block9.setY(tile6.getY());
+                block9.setZ(1);
+                block9.setWidth(tile6.getWidth());
+                block9.setHeight(tile6.getHeight() * 2);
+                layer1.addChild(block9);
+                var block10 = new entities_2.Entity();
+                block10.setTexture(block_asset);
+                block10.setX(tile7.getX());
+                block10.setY(tile7.getY());
+                block10.setZ(tile7.getHeight());
+                block10.setWidth(tile7.getWidth());
+                block10.setHeight(tile7.getHeight() * 2);
+                layer1.addChild(block10);
+                var block11 = new entities_2.Entity();
+                block11.setTexture(block_asset);
+                block11.setX(tile8.getX());
+                block11.setY(tile8.getY());
+                block11.setZ(tile8.getHeight());
+                block11.setWidth(tile8.getWidth());
+                block11.setHeight(tile8.getHeight() * 2);
+                layer1.addChild(block11);
+                var block12 = new entities_2.Entity();
+                block12.setTexture(block_asset);
+                block12.setX(tile8.getX());
+                block12.setY(tile8.getY());
+                block12.setZ(1);
+                block12.setWidth(tile8.getWidth());
+                block12.setHeight(tile8.getHeight() * 2);
+                layer1.addChild(block12);
+            }
+        };
         map_asset.load();
+        block_asset.load();
         var gamepadListener = inputs_1.GamePadListener.getInstance();
         if (gamepadListener.hasGamePads()) {
             console.log("GamePadConnected");
@@ -1780,11 +1938,11 @@ var IsoDemo = (function (_super) {
             var fov = camera.getFOV();
             var viewPoint = camera.getViewPoint();
             if (e.yDelta > 0) {
-                camera.setViewPoint({ x: viewPoint.x + 5, y: viewPoint.y + 5 });
+                camera.setViewPoint(new utils_1.Coordinate(viewPoint.getX() + 5, viewPoint.getY() + 5));
                 camera.setFOV({ width: fov.width - 10, height: fov.height - 10 });
             }
             else {
-                camera.setViewPoint({ x: viewPoint.x - 5, y: viewPoint.y - 5 });
+                camera.setViewPoint(new utils_1.Coordinate(viewPoint.getX() - 5, viewPoint.getY() - 5));
                 camera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
             }
         });
@@ -1813,10 +1971,10 @@ var IsoDemo = (function (_super) {
                 _this.player.setY(_this.player.getY() + Math.floor(gamePad.getAxis(1) * 2));
             }
             if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                _this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
+                _this._mainCamera.getViewPoint().setX(_this._mainCamera.getViewPoint().getX() + Math.floor(gamePad.getAxis(2) * 10));
             }
             if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                _this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
+                _this._mainCamera.getViewPoint().setY(_this._mainCamera.getViewPoint().getY() + Math.floor(gamePad.getAxis(3) * 10));
             }
         });
     };
@@ -1826,7 +1984,7 @@ window.IsoDemo = new IsoDemo();
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1893,15 +2051,16 @@ exports.default = Engine;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+var Coordinate_1 = __webpack_require__(6);
+var DEFAULT_VIEWPOINT = new Coordinate_1.Coordinate(0, 0);
 var DEFAULT_FOV = { width: 100, height: 100 };
-var DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+var DEFAULT_RENDER_ORIGIN = new Coordinate_1.Coordinate(0, 0);
 var DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
 var Camera = (function () {
     function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
@@ -1947,7 +2106,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1979,7 +2138,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2033,7 +2192,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2100,7 +2259,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2218,7 +2377,7 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2293,13 +2452,13 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ColorCode_1 = __webpack_require__(6);
+var ColorCode_1 = __webpack_require__(7);
 var Color = (function () {
     function Color(r, g, b, a) {
         if (r === void 0) { r = 0; }
@@ -2468,58 +2627,13 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Coordinate = (function () {
-    function Coordinate(x, y, z) {
-        this._x = x;
-        this._y = y;
-        this._z = z || 0;
-    }
-    Coordinate.prototype.toCartesian = function () {
-        return new Coordinate((2 * this._y + this._x) / 2, (2 * this._y - this._x) / 2);
-    };
-    Coordinate.fromIsometric = function (x, y) {
-        return new Coordinate((2 * y + x) / 2, (2 * y - x) / 2);
-    };
-    Coordinate.prototype.toIsometric = function () {
-        return new Coordinate(this._x - this._y, (this._x + this._y) / 2);
-    };
-    Coordinate.prototype.setX = function (x) {
-        this._x = x;
-    };
-    Coordinate.prototype.setY = function (y) {
-        this._y = y;
-    };
-    Coordinate.prototype.getX = function () {
-        return this._x;
-    };
-    Coordinate.prototype.getY = function () {
-        return this._x;
-    };
-    Coordinate.prototype.getZ = function () {
-        return this._z;
-    };
-    Coordinate.prototype.setZ = function (z) {
-        this._z = z;
-    };
-    return Coordinate;
-}());
-exports.Coordinate = Coordinate;
-
-
-/***/ }),
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(7);
+var AudioEngine_1 = __webpack_require__(8);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
 var HTML5AudioEngine_1 = __webpack_require__(34);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
@@ -3114,7 +3228,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var AudioEngine_1 = __webpack_require__(7);
+var AudioEngine_1 = __webpack_require__(8);
 var HTML5AudioEngine = (function (_super) {
     __extends(HTML5AudioEngine, _super);
     function HTML5AudioEngine() {
@@ -3488,12 +3602,12 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             var renderOrigin = camera.getRenderOrigin();
             var renderDimension = camera.getRenderDimension();
             context.beginPath();
-            context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
             context.lineWidth = 7;
             context.strokeStyle = 'red';
             context.stroke();
             context.beginPath();
-            context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
             context.lineWidth = 7;
             context.fillStyle = 'black';
             context.fill();
@@ -3511,10 +3625,10 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             var collidesYAxis = false;
             var collidesXAxis = false;
             var cameraBounds = {
-                x: viewPoint.x,
-                y: viewPoint.y,
-                x2: viewPoint.x + fov.width,
-                y2: viewPoint.y + fov.height
+                x: viewPoint.getX(),
+                y: viewPoint.getY(),
+                x2: viewPoint.getX() + fov.width,
+                y2: viewPoint.getY() + fov.height
             };
             var entityBounds = {
                 x: entity.getAbsoluteX(),
@@ -3534,20 +3648,20 @@ var TwoDimensionalRenderingEngine = (function (_super) {
                 return false;
             }
             var leftClip = 0;
-            if (entity.getAbsoluteX() < viewPoint.x) {
-                leftClip = viewPoint.x - entity.getAbsoluteX();
+            if (entity.getAbsoluteX() < viewPoint.getX()) {
+                leftClip = viewPoint.getX() - entity.getAbsoluteX();
             }
             var rightClip = 0;
-            if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
+            if (entity.getAbsoluteX2() > (viewPoint.getX() + fov.width)) {
+                rightClip = entity.getAbsoluteX2() - (viewPoint.getX() + fov.width);
             }
             var topClip = 0;
-            if (entity.getAbsoluteY() < viewPoint.y) {
-                topClip = viewPoint.y - entity.getAbsoluteY();
+            if (entity.getAbsoluteY() < viewPoint.getY()) {
+                topClip = viewPoint.getY() - entity.getAbsoluteY();
             }
             var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
+            if (entity.getAbsoluteY2() > (viewPoint.getY() + fov.height)) {
+                bottomClip = entity.getAbsoluteY2() - (viewPoint.getY() + fov.height);
             }
             var xModifier = fov.width / renderDimension.width;
             var yModifier = fov.height / renderDimension.height;
@@ -3561,8 +3675,8 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             }
             var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
             var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-            var x = renderOrigin.x + cameraRelativeX;
-            var y = renderOrigin.y + cameraRelativeY;
+            var x = renderOrigin.getX() + cameraRelativeX;
+            var y = renderOrigin.getY() + cameraRelativeY;
             var w = clippedEntityWidth / xModifier;
             var h = clippedEntityHeight / yModifier;
             if (entity.getColor()) {
@@ -3638,6 +3752,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = __webpack_require__(4);
+var utils_1 = __webpack_require__(0);
 var entities_1 = __webpack_require__(3);
 var IsometricRenderingEngine = (function (_super) {
     __extends(IsometricRenderingEngine, _super);
@@ -3657,18 +3772,18 @@ var IsometricRenderingEngine = (function (_super) {
     IsometricRenderingEngine.prototype._renderCamera = function (camera) {
         var scene = camera.getScene();
         var context = this.getViewPort().getContext();
-        if (this.debugCamera) {
+        if (this.debugCamera || 1 == 1) {
             var viewPoint = camera.getViewPoint();
             var fov = camera.getFOV();
             var renderOrigin = camera.getRenderOrigin();
             var renderDimension = camera.getRenderDimension();
             context.beginPath();
-            context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
             context.lineWidth = 7;
             context.strokeStyle = 'red';
             context.stroke();
             context.beginPath();
-            context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
             context.lineWidth = 7;
             context.fillStyle = 'black';
             context.fill();
@@ -3686,16 +3801,26 @@ var IsometricRenderingEngine = (function (_super) {
             var collidesYAxis = false;
             var collidesXAxis = false;
             var cameraBounds = {
-                x: viewPoint.x,
-                y: viewPoint.y,
-                x2: viewPoint.x + fov.width,
-                y2: viewPoint.y + fov.height
+                x: viewPoint.getX(),
+                y: viewPoint.getY(),
+                x2: viewPoint.getX() + fov.width,
+                y2: viewPoint.getY() + fov.height
             };
-            var entityBounds = {
+            var cartEntityBounds = {
                 x: entity.getAbsoluteX(),
                 y: entity.getAbsoluteY(),
-                x2: entity.getAbsoluteX2(),
+                x2: entity.getAbsoluteX(),
                 y2: entity.getAbsoluteY2()
+            };
+            var topLeftCoord = new utils_1.Coordinate(cartEntityBounds.x, cartEntityBounds.y);
+            var topLeftCoordIso = topLeftCoord.toIsometric();
+            var bottomRightCoord = new utils_1.Coordinate(cartEntityBounds.x2, cartEntityBounds.y2);
+            var bottomRightCoordIso = bottomRightCoord.toIsometric();
+            var entityBounds = {
+                x: topLeftCoordIso.getX() - (entity.getWidth()),
+                y: topLeftCoordIso.getY() - (entity.getHeight()),
+                x2: bottomRightCoordIso.getX() + (entity.getWidth() * 2),
+                y2: bottomRightCoordIso.getY() + entity.getHeight()
             };
             if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
                 || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
@@ -3709,23 +3834,24 @@ var IsometricRenderingEngine = (function (_super) {
                 return false;
             }
             var leftClip = 0;
-            if (entity.getAbsoluteX() < viewPoint.x) {
-                leftClip = viewPoint.x - entity.getAbsoluteX();
+            if (entityBounds.x < viewPoint.getX()) {
+                leftClip = (viewPoint.getX() - entityBounds.x) / 2;
             }
             var rightClip = 0;
-            if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
+            if (entityBounds.x2 > (viewPoint.getX() + fov.width)) {
+                rightClip = (entityBounds.x2 - (viewPoint.getX() + fov.width)) / 2;
             }
             var topClip = 0;
-            if (entity.getAbsoluteY() < viewPoint.y) {
-                topClip = viewPoint.y - entity.getAbsoluteY();
+            if (entityBounds.y < viewPoint.getY()) {
+                topClip = viewPoint.getY() - entityBounds.y;
             }
             var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
+            if (entityBounds.y2 > (viewPoint.getY() + fov.height)) {
+                bottomClip = entityBounds.y2 - (viewPoint.getY() + fov.height);
             }
             var xModifier = fov.width / renderDimension.width;
             var yModifier = fov.height / renderDimension.height;
+            var zModifier = (xModifier + yModifier) / 2;
             var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
             if (cameraRelativeY < 0) {
                 cameraRelativeY = 0;
@@ -3736,14 +3862,19 @@ var IsometricRenderingEngine = (function (_super) {
             }
             var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
             var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-            var x = renderOrigin.x + cameraRelativeX;
-            var y = renderOrigin.y + cameraRelativeY;
+            var x = renderOrigin.getX() + cameraRelativeX;
+            var y = renderOrigin.getY() + cameraRelativeY;
+            var z = entity.getZ() / zModifier;
             var w = clippedEntityWidth / xModifier;
             var h = clippedEntityHeight / yModifier;
+            var x2 = x + (w * 2);
+            var y2 = y + h;
+            var cartCoords = utils_1.Coordinate.fromIsometric(x, y);
             if (entity.getColor()) {
                 var color = entity.getColor();
                 this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
+                this.getViewPort().getContext().fillRect(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
+                this.getViewPort().getContext().fillRect(x, y + z, w * 2, h);
             }
             if (this.debugRegions) {
                 var regions = entity.getRegions();
@@ -3756,26 +3887,23 @@ var IsometricRenderingEngine = (function (_super) {
                     }
                 }
             }
-            var isoX = x - y;
-            var isoY = (x + y) / 2;
-            var isoX2 = (x + w * 3) - (y + h);
-            var isoY2 = (x + w + y + h) / 2;
-            if (entity instanceof entities_1.IsometricTile) {
-                this.getViewPort().getContext().beginPath();
-                this.getViewPort().getContext().moveTo(isoX, isoY + ((isoY2 - isoY) / 2));
-                this.getViewPort().getContext().lineTo(isoX + ((isoX2 - isoX) / 2), isoY);
-                this.getViewPort().getContext().lineTo(isoX2, isoY + ((isoY2 - isoY) / 2));
-                this.getViewPort().getContext().lineTo(isoX + ((isoX2 - isoX) / 2), isoY2);
-                this.getViewPort().getContext().closePath();
-                this.getViewPort().getContext().stroke();
-            }
             if (entity.getTexture()) {
                 var imageData = entity.getTexture().getData();
                 var entityToImageYModifier = imageData.height / entity.getHeight();
                 var entityToImageXModifier = imageData.width / entity.getWidth();
                 var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, isoX, isoY, w * 2, h);
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y - z, w * 2, h);
+            }
+            if (entity instanceof entities_1.IsometricTile) {
+                this.getViewPort().getContext().beginPath();
+                this.getViewPort().getContext().moveTo(x, y + ((y2 - y) / 2));
+                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y);
+                this.getViewPort().getContext().lineTo(x2, y + ((y2 - y) / 2));
+                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y2);
+                this.getViewPort().getContext().closePath();
+                this.getViewPort().getContext().stroke();
             }
         }
         else {
@@ -3794,12 +3922,26 @@ var IsometricRenderingEngine = (function (_super) {
                 var entityToImageXModifier = imageData.width / entity.getWidth();
                 var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, x, y, w, h);
             }
         }
+        var index = {};
         var children = entity.getChildren();
         while (children.hasNext()) {
-            this._renderEntity(children.next(), camera);
+            var child = children.next();
+            if (!index[child.getZ()]) {
+                index[child.getZ()] = {};
+            }
+            if (!index[child.getZ()][child.getY()]) {
+                index[child.getZ()][child.getY()] = [];
+            }
+            index[child.getZ()][child.getY()].push(child);
+        }
+        for (var i in index) {
+            for (var i2 in index[i]) {
+                for (var i3 in index[i][i2]) {
+                    this._renderEntity(index[i][i2][i3], camera);
+                }
+            }
         }
         return true;
     };
@@ -3903,6 +4045,12 @@ var EntityModel = (function (_super) {
     EntityModel.prototype.setY = function (y) {
         this._position.setY(y);
     };
+    EntityModel.prototype.setZ = function (z) {
+        this._position.setZ(z);
+    };
+    EntityModel.prototype.getZ = function () {
+        return this._position.getZ();
+    };
     EntityModel.prototype.getPosition = function () {
         return this._position;
     };
@@ -3931,7 +4079,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var EntityView_1 = __webpack_require__(9);
+var EntityView_1 = __webpack_require__(10);
 var EntityView2D = (function (_super) {
     __extends(EntityView2D, _super);
     function EntityView2D() {
@@ -3959,7 +4107,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Entity_1 = __webpack_require__(8);
+var Entity_1 = __webpack_require__(9);
 var GridMap = (function (_super) {
     __extends(GridMap, _super);
     function GridMap(tileSize, tileCount) {
@@ -4073,14 +4221,14 @@ exports.IsometricTile = IsometricTile;
 Object.defineProperty(exports, "__esModule", { value: true });
 var GamePadListener_1 = __webpack_require__(47);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
-var GamePad_1 = __webpack_require__(10);
+var GamePad_1 = __webpack_require__(11);
 exports.GamePad = GamePad_1.GamePad;
 var Keyboard_1 = __webpack_require__(48);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
 var Mouse_1 = __webpack_require__(49);
 exports.Mouse = Mouse_1.Mouse;
-var Touch_1 = __webpack_require__(11);
+var Touch_1 = __webpack_require__(12);
 exports.Touch = Touch_1.Touch;
 var TouchListener_1 = __webpack_require__(50);
 exports.TouchListener = TouchListener_1.TouchListener;
@@ -4103,7 +4251,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var GamePad_1 = __webpack_require__(10);
+var GamePad_1 = __webpack_require__(11);
 var Events = __webpack_require__(2);
 var GamePadListener = (function (_super) {
     __extends(GamePadListener, _super);
@@ -4515,7 +4663,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var Touch_1 = __webpack_require__(11);
+var Touch_1 = __webpack_require__(12);
 var Events = __webpack_require__(2);
 var TouchListener = (function (_super) {
     __extends(TouchListener, _super);

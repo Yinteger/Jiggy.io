@@ -1,12 +1,12 @@
-import {Entity} from "../entities";
+import { Entity } from "../entities";
+import { Coordinate } from "./Coordinate";
 import {
-	Coordinate,
 	Dimension
 } from '../interfaces';
 
-const DEFAULT_VIEWPOINT: Coordinate = {x:0,y:0};
+const DEFAULT_VIEWPOINT: Coordinate = new Coordinate(0, 0);
 const DEFAULT_FOV: Dimension = {width:100,height:100};
-const DEFAULT_RENDER_ORIGIN: Coordinate = {x:0,y:0};
+const DEFAULT_RENDER_ORIGIN: Coordinate = new Coordinate(0, 0);
 const DEFAULT_RENDER_DIMENSION: Dimension = {width:100,height:100};
 
 export class Camera {

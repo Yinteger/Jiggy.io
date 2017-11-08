@@ -119,6 +119,12 @@ export class EntityModel extends Events.EventEmitter {
     public setY(y: number): void {
         this._position.setY(y);
     }
+    public setZ(z: number): void {
+        this._position.setZ(z);
+    }
+    public getZ(): number {
+        return this._position.getZ();
+    }
     public getPosition(): Coordinate {
         return this._position;
     }

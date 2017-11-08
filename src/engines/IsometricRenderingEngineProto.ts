@@ -2,7 +2,7 @@ import { RenderingEngine, TwoDimensionalRenderingEngine } from "./";
 import { Camera, Iterator } from "@jiggy/utils";
 import { Entity, IsometricTile } from "@jiggy/entities";
 
-export class IsometricRenderingEngine extends RenderingEngine {
+export class IsometricRenderingEngine extends TwoDimensionalRenderingEngine {
     public debugRegions: boolean;
 
     protected _render(): void {
@@ -22,7 +22,7 @@ export class IsometricRenderingEngine extends RenderingEngine {
 
     }
 
-    private _renderCamera(camera: Camera): void {
+    protected _renderCamera(camera: Camera): void {
         var scene = camera.scene;
         var context = this.viewPort.context;
 

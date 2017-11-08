@@ -1,35 +1,18 @@
-import { RenderingEngine } from "./";
-import { Camera, Iterator, Color } from "../utils";
+import { TwoDimensionalRenderingEngine } from "./";
+import { Camera, Iterator, Color, Coordinate } from "../utils";
 import { Entity, IsometricTile } from "../entities";
 import {
-    Coordinate,
     Dimension
 } from '../interfaces';
 
-export class IsometricRenderingEngine extends RenderingEngine {
+export class IsometricRenderingEngine extends TwoDimensionalRenderingEngine {
     public debugRegions: boolean;
 
-    protected _render(): void {
-        super._render();
-
-        var context = this.getViewPort().getContext();
-
-        //TODO: Render Cameras in proper order
-        for (var i in this._cameras) {
-            this._renderCamera(this._cameras[i])
-        }
-
-        //Render HUD Entity
-        if (this.getHUD()) {
-            this._renderEntity(this.getHUD(), null);
-        }
-    }
-
-    private _renderCamera(camera: Camera): void {
+    protected _renderCamera(camera: Camera): void {
         var scene = camera.getScene();
         var context = this.getViewPort().getContext();
 
-        if (this.debugCamera) {
+        if (this.debugCamera || 1==1) {
             //For Debugging purposes.. Draw a rect where each camera should be
             var viewPoint: Coordinate = camera.getViewPoint();
             var fov: Dimension = camera.getFOV();
@@ -37,13 +20,13 @@ export class IsometricRenderingEngine extends RenderingEngine {
             var renderDimension: Dimension = camera.getRenderDimension();
 
             context.beginPath();
-            context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
             context.lineWidth = 7;
             context.strokeStyle = 'red';
             context.stroke();
 
             context.beginPath();
-            context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
             context.lineWidth = 7;
             context.fillStyle = 'black';
             context.fill();
@@ -69,18 +52,31 @@ export class IsometricRenderingEngine extends RenderingEngine {
             var collidesXAxis = false;
 
             var cameraBounds = {
-                x: viewPoint.x,
-                y: viewPoint.y,
-                x2: viewPoint.x + fov.width,
-                y2: viewPoint.y + fov.height
+                x: viewPoint.getX(),
+                y: viewPoint.getY(),
+                x2: viewPoint.getX() + fov.width,
+                y2: viewPoint.getY() + fov.height
             };
 
-            var entityBounds = {
+            var cartEntityBounds = {
                 x: entity.getAbsoluteX(),
                 y: entity.getAbsoluteY(),
-                x2: entity.getAbsoluteX2(),
+                x2: entity.getAbsoluteX(),
                 y2: entity.getAbsoluteY2()
             };
+
+            var topLeftCoord = new Coordinate(cartEntityBounds.x, cartEntityBounds.y);
+            var topLeftCoordIso = topLeftCoord.toIsometric();
+            var bottomRightCoord = new Coordinate(cartEntityBounds.x2, cartEntityBounds.y2);
+            var bottomRightCoordIso = bottomRightCoord.toIsometric();
+
+            var entityBounds = {
+                x: topLeftCoordIso.getX() - (entity.getWidth()),
+                y: topLeftCoordIso.getY() - (entity.getHeight()),
+                x2: bottomRightCoordIso.getX() + (entity.getWidth()  * 2),
+                y2: bottomRightCoordIso.getY() + entity.getHeight()
+            };
+
 
             if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
                 || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
@@ -97,6 +93,8 @@ export class IsometricRenderingEngine extends RenderingEngine {
             if (!collidesYAxis || !collidesXAxis) {
                 // console.log("Found an entity outside the cameras view, ignoring!", entity);
                 //Not visible in the camera, do not continue rendering this entity or it's children
+                //this.getViewPort().getContext().fillStyle = new Color(255, 0, 0).toString();
+                //this.getViewPort().getContext().fillRect(entityBounds.x + 500, entityBounds.y, entity.getWidth() * 2, entity.getHeight());
                 return false;
             }
 
@@ -105,36 +103,37 @@ export class IsometricRenderingEngine extends RenderingEngine {
             //Next, we figure out what parts of it are in the camera, so we can clip it if need be
             //Check for Left Clip
             var leftClip = 0;
-            if (entity.getAbsoluteX() < viewPoint.x) {
-                leftClip = viewPoint.x - entity.getAbsoluteX();
+            if (entityBounds.x < viewPoint.getX()) {
+                leftClip = (viewPoint.getX() - entityBounds.x) / 2;
             }
             // console.log("Left Clip", leftClip);
 
             //Check for Right Clip
             var rightClip = 0;
-            if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
+            if (entityBounds.x2 > (viewPoint.getX() + fov.width)) {
+                rightClip = (entityBounds.x2 - (viewPoint.getX() + fov.width)) / 2;
             }
             // console.log("Right Clip", rightClip);
 
             //Check for Top Clip
             var topClip = 0;
-            if (entity.getAbsoluteY() < viewPoint.y) {
-                topClip = viewPoint.y - entity.getAbsoluteY();
+            if (entityBounds.y < viewPoint.getY()) {
+                topClip = viewPoint.getY() - entityBounds.y;
             }
             // console.log("Top Clip", topClip);
 
 
             //Check for Bottom Clip
             var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
+            if (entityBounds.y2 > (viewPoint.getY() + fov.height)) {
+                bottomClip = entityBounds.y2 - (viewPoint.getY() + fov.height);
             }
             // console.log("Bottom Clip", bottomClip);
 
             //Now we figure out how to skew the rendering, since the render dimensions of the camera may not match it's fov
             var xModifier = fov.width / renderDimension.width;
             var yModifier = fov.height / renderDimension.height;
+            var zModifier = (xModifier + yModifier) / 2;
 
             var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
             if (cameraRelativeY < 0) {
@@ -149,17 +148,22 @@ export class IsometricRenderingEngine extends RenderingEngine {
             var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
             var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
 
-            var x = renderOrigin.x + cameraRelativeX;
-            var y = renderOrigin.y + cameraRelativeY;
+            var x = renderOrigin.getX() + cameraRelativeX;
+            var y = renderOrigin.getY() + cameraRelativeY;
+            var z = entity.getZ() / zModifier;
             var w = clippedEntityWidth / xModifier;
             var h = clippedEntityHeight / yModifier;
+            var x2 = x + (w * 2);
+            var y2 = y + h;
+            var cartCoords = Coordinate.fromIsometric(x, y);
 
             //Rendering time!
             if (entity.getColor()) {
                 //Draw a rect in its place...
                 var color: Color = entity.getColor();
                 this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
+                this.getViewPort().getContext().fillRect(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
+                this.getViewPort().getContext().fillRect(x, y + z, w * 2, h);
             }
 
             //Debug Flag
@@ -177,25 +181,6 @@ export class IsometricRenderingEngine extends RenderingEngine {
                 // Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)
             }
 
-            var isoX = x - y;
-            var isoY = (x + y) / 2;
-            var isoX2 = (x + w * 3) - (y + h);
-            var isoY2 = (x + w + y + h) / 2;
-
-            if (entity instanceof IsometricTile) {
-
-                //console.log(isoX, isoY, isoX2, isoY2);
-                //this.viewPort.context.strokeRect(isoX, isoY, isoX2 - isoX, isoY2 - isoY);
-                //Draw Isometric Layout
-                this.getViewPort().getContext().beginPath();
-                this.getViewPort().getContext().moveTo(isoX, isoY + ((isoY2 - isoY) / 2));
-                this.getViewPort().getContext().lineTo(isoX + ((isoX2 - isoX) / 2), isoY);
-                this.getViewPort().getContext().lineTo(isoX2, isoY + ((isoY2 - isoY) / 2));
-                this.getViewPort().getContext().lineTo(isoX + ((isoX2 - isoX) / 2), isoY2);
-                this.getViewPort().getContext().closePath();
-                this.getViewPort().getContext().stroke();
-            }
-
             if (entity.getTexture()) {
                 //TODO: Grab the Cached version of it if available, 
                 var imageData = entity.getTexture().getData();
@@ -207,7 +192,25 @@ export class IsometricRenderingEngine extends RenderingEngine {
 
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
 
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, isoX, isoY, w * 2, h)
+                
+
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight())
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y - z, w * 2, h)
+            }
+
+
+            if (entity instanceof IsometricTile) {
+
+                //console.log(isoX, isoY, isoX2, isoY2);
+                //this.viewPort.context.strokeRect(isoX, isoY, isoX2 - isoX, isoY2 - isoY);
+                //Draw Isometric Layout
+                this.getViewPort().getContext().beginPath();
+                this.getViewPort().getContext().moveTo(x, y + ((y2 - y) / 2));
+                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y);
+                this.getViewPort().getContext().lineTo(x2, y + ((y2 - y) / 2));
+                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y2);
+                this.getViewPort().getContext().closePath();
+                this.getViewPort().getContext().stroke();
             }
 
         } else {
@@ -237,17 +240,38 @@ export class IsometricRenderingEngine extends RenderingEngine {
 
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
 
-                this.getViewPort().getContext().drawImage(imageData, x, y, w, h)
+                //this.getViewPort().getContext().drawImage(imageData, x, y, w, h)
             }
         }
 
 
         //TODO: Update this to render entities top-down
         //TODO: Only navigate if isModified
+        var index : any = {
+            
+        };
+
         var children = entity.getChildren();
 
         while (children.hasNext()) {
-            this._renderEntity(children.next(), camera);
+            var child = children.next();
+            if (!index[child.getZ()]) {
+                index[child.getZ()] = {};
+            }
+            if (!index[child.getZ()][child.getY()]) {
+                index[child.getZ()][child.getY()] = [];
+            }
+
+            index[child.getZ()][child.getY()].push(child);
+            //this._renderEntity(children.next(), camera);
+        }
+
+        for (var i in index) {
+            for (var i2 in index[i]) {
+                for (var i3 in index[i][i2]) {
+                    this._renderEntity(index[i][i2][i3], camera);
+                }
+            }
         }
         return true;
     }

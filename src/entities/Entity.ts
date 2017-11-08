@@ -223,11 +223,11 @@ export class Entity extends Events.EventEmitter {
 	}
 
 	public getZ (): number {
-		return this._model.getAttribute('z');
+        return this._model.getZ();
 	}
 
 	public setZ (z: number): void {
-		this._model.setAttribute('z', z);
+        this._model.setZ(z);
 	}
 
 	public getVisible () : boolean {
@@ -447,7 +447,7 @@ export class Entity extends Events.EventEmitter {
 			while(childrenIterator.hasNext()) {
 				var child = childrenIterator.next();
 				var childCoordinate : Coordinate = child.getPosition();
-				var childOuterCoordinate : Coordinate = child.getOuterCoordinate();
+				var childOuterCoordinate : Coordinate = child.getOuterPosition();
 
 				if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
 					&& childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
@@ -478,7 +478,7 @@ export class Entity extends Events.EventEmitter {
 					while(childrenIterator.hasNext()) {
 						var iterChild : Entity = childrenIterator.next();
 						let childCoordinate : Coordinate = iterChild.getPosition();
-						let childOuterCoordinate : Coordinate = iterChild.getOuterCoordinate();
+						let childOuterCoordinate : Coordinate = iterChild.getOuterPosition();
 
 						if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
 							&& childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
@@ -508,7 +508,7 @@ export class Entity extends Events.EventEmitter {
 							if (childrenVisited.indexOf(regionChild) === -1) {
 								childrenVisited.push(regionChild);
 								let childCoordinate : Coordinate = regionChild.getPosition();
-								let childOuterCoordinate : Coordinate = regionChild.getOuterCoordinate();
+								let childOuterCoordinate : Coordinate = regionChild.getOuterPosition();
 
 								var xCollission = false;
 								var yCollision = false;
@@ -563,7 +563,7 @@ export class Entity extends Events.EventEmitter {
 		while(childrenIterator.hasPrev() && !child) {
 			var iterChild : Entity = childrenIterator.prev();
 			var childCoordinate : Coordinate = iterChild.getPosition();
-			var childOuterCoordinate : Coordinate = iterChild.getOuterCoordinate();
+			var childOuterCoordinate : Coordinate = iterChild.getOuterPosition();
 
 			if (childCoordinate.getX() <= coordinate.getX() && childCoordinate.getY() <= coordinate.getY()
 				&& childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
@@ -581,7 +581,7 @@ export class Entity extends Events.EventEmitter {
 		return child;
 	 }
 
-	 public getOuterCoordinate () : Coordinate {
+	 public getOuterPosition () : Coordinate {
 	 	return new Coordinate(this.getX2(), this.getY2());
 	 }
 
