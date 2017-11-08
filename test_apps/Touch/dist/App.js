@@ -60,7 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 13);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+>>>>>>> master
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,6 +74,7 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var SeverityEnum_1 = __webpack_require__(5);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
 var Camera_1 = __webpack_require__(16);
@@ -90,10 +95,31 @@ var ColorCode_1 = __webpack_require__(6);
 exports.ColorCode = ColorCode_1.ColorCode;
 var Coordinate_1 = __webpack_require__(23);
 exports.Coordinate = Coordinate_1.Coordinate;
+=======
+const SeverityEnum_1 = __webpack_require__(5);
+exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
+const Camera_1 = __webpack_require__(20);
+exports.Camera = Camera_1.Camera;
+const IDGenerator_1 = __webpack_require__(21);
+exports.IDGenerator = IDGenerator_1.IDGenerator;
+const Iterator_1 = __webpack_require__(6);
+exports.Iterator = Iterator_1.Iterator;
+const LogManager_1 = __webpack_require__(22);
+exports.LogManager = LogManager_1.LogManager;
+const ViewPort_1 = __webpack_require__(23);
+exports.ViewPort = ViewPort_1.ViewPort;
+const CollisionEmitter_1 = __webpack_require__(24);
+exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
+const Color_1 = __webpack_require__(25);
+exports.Color = Color_1.Color;
+const ColorCode_1 = __webpack_require__(7);
+exports.ColorCode = ColorCode_1.ColorCode;
+>>>>>>> master
 
 
 /***/ }),
 /* 1 */
+<<<<<<< HEAD
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -125,6 +151,8 @@ exports.Animation = Animation_1.Animation;
 
 /***/ }),
 /* 2 */
+=======
+>>>>>>> master
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -432,12 +460,51 @@ function isUndefined(arg) {
 
 
 /***/ }),
+<<<<<<< HEAD
+=======
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Asset_1 = __webpack_require__(27);
+exports.Asset = Asset_1.Asset;
+const AssetType_1 = __webpack_require__(9);
+exports.AssetType = AssetType_1.AssetType;
+const AssetState_1 = __webpack_require__(10);
+exports.AssetState = AssetState_1.AssetState;
+const AssetFactory_1 = __webpack_require__(28);
+exports.AssetFactory = AssetFactory_1.AssetFactory;
+const AssetGroup_1 = __webpack_require__(11);
+exports.AssetGroup = AssetGroup_1.AssetGroup;
+const AssetGroupLoader_1 = __webpack_require__(29);
+exports.AssetGroupLoader = AssetGroupLoader_1.AssetGroupLoader;
+const AssetLoader_1 = __webpack_require__(30);
+exports.AssetLoader = AssetLoader_1.AssetLoader;
+const AudioLoader_1 = __webpack_require__(32);
+exports.AudioLoader = AudioLoader_1.AudioLoader;
+const ImageLoader_1 = __webpack_require__(33);
+exports.ImageLoader = ImageLoader_1.ImageLoader;
+const JSONLoader_1 = __webpack_require__(34);
+exports.JSONLoader = JSONLoader_1.JSONLoader;
+const TextAssetBuilder_1 = __webpack_require__(35);
+exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
+const Spritesheet_1 = __webpack_require__(36);
+exports.Spritesheet = Spritesheet_1.Spritesheet;
+const Animation_1 = __webpack_require__(37);
+exports.Animation = Animation_1.Animation;
+
+
+/***/ }),
+>>>>>>> master
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var Entity_1 = __webpack_require__(9);
 exports.Entity = Entity_1.Entity;
 var EntityModel_1 = __webpack_require__(42);
@@ -452,6 +519,21 @@ var IsometricGridMap_1 = __webpack_require__(45);
 exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
 var IsometricTile_1 = __webpack_require__(46);
 exports.IsometricTile = IsometricTile_1.IsometricTile;
+=======
+const utils_1 = __webpack_require__(0);
+var instance = null;
+var setInstance = (game) => {
+    if (instance) {
+        instance.getLogManager().log(utils_1.SeverityEnum.WARNING, 'Instance has already been set! Are you instantiating more than one game?');
+    }
+    instance = game;
+};
+exports.setInstance = setInstance;
+var getInstance = () => {
+    return instance;
+};
+exports.getInstance = getInstance;
+>>>>>>> master
 
 
 /***/ }),
@@ -461,6 +543,7 @@ exports.IsometricTile = IsometricTile_1.IsometricTile;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var LogicEngine_1 = __webpack_require__(37);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
 var GroupLogicEngine_1 = __webpack_require__(38);
@@ -471,6 +554,16 @@ var TwoDimensionalRenderingEngine_1 = __webpack_require__(40);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 var IsometricRenderingEngine_1 = __webpack_require__(41);
 exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
+=======
+const LogicEngine_1 = __webpack_require__(39);
+exports.LogicEngine = LogicEngine_1.LogicEngine;
+const GroupLogicEngine_1 = __webpack_require__(40);
+exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
+const RenderingEngine_1 = __webpack_require__(41);
+exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
+const TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
+exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
+>>>>>>> master
 
 
 /***/ }),
@@ -497,6 +590,60 @@ var SeverityEnum;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
+=======
+class Iterator {
+    constructor(array) {
+        this._array = array;
+        this._index = -1;
+    }
+    hasNext() {
+        if (this._array[this._index + 1]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    next() {
+        this._index += 1;
+        return this._array[this._index];
+    }
+    hasPrev() {
+        if (this._array[this._index]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    prev() {
+        return this._array[this._index--];
+    }
+    setToBeginning() {
+        this._index = -1;
+    }
+    setToEnd() {
+        this._index = this._array.length;
+    }
+    getFirst() {
+        return this._array[0];
+    }
+    getLast() {
+        return this._array[this._array.length - 1];
+    }
+}
+exports.Iterator = Iterator;
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+>>>>>>> master
 var ColorCode;
 (function (ColorCode) {
     ColorCode[ColorCode["ALICE_BLUE"] = 15792383] = "ALICE_BLUE";
@@ -799,12 +946,17 @@ exports.ColorMap = {
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 7 */
+=======
+/* 8 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var assets_1 = __webpack_require__(1);
 var assetFactory = assets_1.AssetFactory.getSingleton();
@@ -814,102 +966,187 @@ var AudioEngine = (function () {
         this._logManager = utils_1.LogManager.getSingleton();
     }
     AudioEngine.prototype.addAudio = function (name, audio, channels) {
+=======
+const utils_1 = __webpack_require__(0);
+const assets_1 = __webpack_require__(2);
+var assetFactory = assets_1.AssetFactory.getSingleton();
+class AudioEngine {
+    constructor() {
+        this._audioMap = {};
+        this._logManager = utils_1.LogManager.getSingleton();
+    }
+    addAudio(name, audio, channels) {
+>>>>>>> master
         if (audio.getType() !== assets_1.AssetType.AUDIO) {
             throw 'AudioEngine.addAudio: Invalid Asset Type.';
         }
         this._setAudio(name, audio, channels);
+<<<<<<< HEAD
     };
     AudioEngine.prototype.hasAudio = function (name) {
         var audio = this._getAudio(name);
         return (audio !== null);
     };
     AudioEngine.prototype.removeAudio = function (name) {
+=======
+    }
+    hasAudio(name) {
+        var audio = this._getAudio(name);
+        return (audio !== null);
+    }
+    removeAudio(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._stopAudio(audio);
         }
         delete this._audioMap[name];
+<<<<<<< HEAD
     };
     AudioEngine.prototype.releaseAssets = function () {
+=======
+    }
+    releaseAssets() {
+>>>>>>> master
         var keys = Object.keys(this._audioMap);
         for (var i = 0, len = keys.length; i < len; i++) {
             this.removeAudio(keys[i]);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.playAudio = function (name) {
+=======
+    }
+    playAudio(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._playAudio(audio);
             audio.setAttribute('playing', true);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.pauseAudio = function (name) {
+=======
+    }
+    pauseAudio(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._pauseAudio(audio);
             audio.setAttribute('playing', false);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.stopAudio = function (name) {
+=======
+    }
+    stopAudio(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._stopAudio(audio);
             audio.setAttribute('playing', false);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.isAudioLooping = function (name) {
+=======
+    }
+    isAudioLooping(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             return this._isAudioLooping(audio);
         }
         return false;
+<<<<<<< HEAD
     };
     AudioEngine.prototype.loopAudio = function (name, state) {
+=======
+    }
+    loopAudio(name, state) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._loopAudio(audio, state);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.isAudioMuted = function (name) {
+=======
+    }
+    isAudioMuted(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             return this._isAudioMuted(audio);
         }
         return false;
+<<<<<<< HEAD
     };
     AudioEngine.prototype.muteAudio = function (name, state) {
+=======
+    }
+    muteAudio(name, state) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._muteAudio(audio, state);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.getAudioDuration = function (name) {
+=======
+    }
+    getAudioDuration(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             return this._getAudioDuration(audio);
         }
         return 0;
+<<<<<<< HEAD
     };
     AudioEngine.prototype.setTimeCursor = function (name, seconds) {
+=======
+    }
+    setTimeCursor(name, seconds) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._setTimeCursor(audio, seconds);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.getTimeCursor = function (name) {
+=======
+    }
+    getTimeCursor(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             return this._getTimeCursor(audio);
         }
         return 0;
+<<<<<<< HEAD
     };
     AudioEngine.prototype.setVolume = function (name, volume) {
+=======
+    }
+    setVolume(name, volume) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             this._setVolume(audio, volume);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype.getVolume = function (name) {
+=======
+    }
+    getVolume(name) {
+>>>>>>> master
         var audio = this._getAudio(name);
         if (audio) {
             return this._getVolume(audio);
@@ -917,8 +1154,13 @@ var AudioEngine = (function () {
         else {
             return 0;
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype._setAudio = function (name, audio, channels) {
+=======
+    }
+    _setAudio(name, audio, channels) {
+>>>>>>> master
         if (!audio) {
             this.removeAudio(name);
         }
@@ -934,11 +1176,19 @@ var AudioEngine = (function () {
             this._audioMap[name] = channelArr;
             this._registerEvents(channelArr);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype._warnMissingAudio = function (name) {
         this._logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
     };
     AudioEngine.prototype._getAudio = function (name, justGiveChannel1) {
+=======
+    }
+    _warnMissingAudio(name) {
+        this._logManager.log(utils_1.SeverityEnum.WARNING, 'Audio ' + name + ' is missing from Audio Engine.');
+    }
+    _getAudio(name, justGiveChannel1) {
+>>>>>>> master
         if (this._audioMap[name]) {
             var channels = this._audioMap[name];
             if (justGiveChannel1) {
@@ -960,42 +1210,70 @@ var AudioEngine = (function () {
             this._warnMissingAudio(name);
             return null;
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype._getData = function (audio) {
         return audio.getData();
     };
     AudioEngine.prototype._attachStartEvent = function (asset) {
+=======
+    }
+    _getData(audio) {
+        return audio.getData();
+    }
+    _attachStartEvent(asset) {
+>>>>>>> master
         if (!asset.getAttribute('startEvent')) {
             this._registerStartEvent(asset);
             asset.setAttribute('startEvent', true);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype._attachEndEvent = function (asset) {
+=======
+    }
+    _attachEndEvent(asset) {
+>>>>>>> master
         if (!asset.getAttribute('endEvent')) {
             this._registerEndEvent(asset);
             asset.setAttribute('endEvent', true);
         }
+<<<<<<< HEAD
     };
     AudioEngine.prototype._registerEvents = function (channelArray) {
+=======
+    }
+    _registerEvents(channelArray) {
+>>>>>>> master
         var channel;
         for (var i = 0, len = channelArray.length; i < len; i++) {
             channel = channelArray[i];
             this._attachStartEvent(channel);
             this._attachEndEvent(channel);
         }
+<<<<<<< HEAD
     };
     return AudioEngine;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 8 */
+=======
+/* 9 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var instance = null;
 var setInstance = function (game) {
@@ -1013,10 +1291,130 @@ exports.getInstance = getInstance;
 
 /***/ }),
 /* 9 */
+=======
+var AssetType;
+(function (AssetType) {
+    AssetType["RAW"] = "raw";
+    AssetType["IMAGE"] = "image";
+    AssetType["AUDIO"] = "audio";
+    AssetType["JSON"] = "json";
+})(AssetType = exports.AssetType || (exports.AssetType = {}));
+
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+var AssetState;
+(function (AssetState) {
+    AssetState[AssetState["NOT_LOADED"] = 0] = "NOT_LOADED";
+    AssetState[AssetState["LOADING"] = 1] = "LOADING";
+    AssetState[AssetState["LOADED"] = 2] = "LOADED";
+    AssetState[AssetState["UNLOADING"] = 3] = "UNLOADING";
+})(AssetState = exports.AssetState || (exports.AssetState = {}));
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const AssetState_1 = __webpack_require__(10);
+const Instance_1 = __webpack_require__(3);
+class AssetGroup {
+    constructor(assetMap = {}) {
+        this._assets = assetMap;
+    }
+    addAsset(name, asset) {
+        if (this._assets[name]) {
+            Instance_1.getInstance().getLogManager().warn(`Asset "${name}" already exists in Asset Group.`);
+            return;
+        }
+        this._assets[name] = asset;
+    }
+    removeAsset(name) {
+        var asset = this._assets[name];
+        if (!asset) {
+            return;
+        }
+        if (asset.getState() === AssetState_1.AssetState.LOADED) {
+            asset.unload();
+        }
+        delete this._assets[name];
+    }
+    getAsset(name) {
+        return this._assets[name];
+    }
+    load() {
+        var promises = [];
+        for (var name in this._assets) {
+            var asset = this._assets[name];
+            if (asset.getState() === AssetState_1.AssetState.NOT_LOADED) {
+                promises.push(asset.load());
+            }
+        }
+        if (promises.length === 0) {
+            return Promise.resolve();
+        }
+        return new Promise((resolve, reject) => {
+            Promise.all(promises).then(() => {
+                resolve();
+            }).catch(reject);
+        });
+    }
+    unload() {
+        var promises = [];
+        for (var name in this._assets) {
+            var asset = this._assets[name];
+            if (asset.getState() === AssetState_1.AssetState.LOADED) {
+                promises.push(asset.unload());
+            }
+        }
+        if (promises.length === 0) {
+            return Promise.resolve();
+        }
+        return new Promise((resolve, reject) => {
+            Promise.all(promises).then(() => {
+                resolve();
+            }).catch(reject);
+        });
+    }
+}
+exports.AssetGroup = AssetGroup;
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Entity_1 = __webpack_require__(13);
+exports.Entity = Entity_1.Entity;
+const EntityModel_1 = __webpack_require__(43);
+exports.EntityModel = EntityModel_1.EntityModel;
+const EntityView_1 = __webpack_require__(14);
+exports.EntityView = EntityView_1.EntityView;
+const EntityView2D_1 = __webpack_require__(44);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+const GridMap_1 = __webpack_require__(45);
+exports.GridMap = GridMap_1.GridMap;
+
+
+/***/ }),
+/* 13 */
+>>>>>>> master
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1044,12 +1442,30 @@ var Entity = (function (_super) {
             }
             else if (_this._parent && _this._parentNotifierKeys.indexOf(attribute) > -1) {
                 _this._parent._setModified(true);
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+const assets_1 = __webpack_require__(2);
+const _1 = __webpack_require__(12);
+const utils_1 = __webpack_require__(0);
+class Entity extends Events.EventEmitter {
+    constructor(model) {
+        super();
+        var useDefaults = false;
+        this._modelCB = (attribute, value, oldValue) => {
+            if (this._notifierKeys.indexOf(attribute) > -1) {
+                this._setModified(true);
+            }
+            else if (this._parent && this._parentNotifierKeys.indexOf(attribute) > -1) {
+                this._parent._setModified(true);
+>>>>>>> master
             }
         };
         if (!model) {
             model = new _1.EntityModel();
             useDefaults = true;
         }
+<<<<<<< HEAD
         _this._view = new _1.EntityView(model);
         _this._model = model;
         _this._children = new Array();
@@ -1097,6 +1513,54 @@ var Entity = (function (_super) {
         return this._model;
     };
     Entity.prototype.setModel = function (model) {
+=======
+        this._view = new _1.EntityView(model);
+        this._model = model;
+        this._children = new Array();
+        this._regions = [];
+        this._regionDimension;
+        this._regionList = {};
+        this._collisionable = false;
+        this._parent = null;
+        this._modified = false;
+        this._notifierKeys = ['width', 'height', 'color', 'texture', 'textures'];
+        this._parentNotifierKeys = ['x', 'y'];
+        if (useDefaults) {
+            this._setDefaults();
+        }
+    }
+    getID() {
+        return this._model.getID();
+    }
+    getParent() {
+        return this._parent;
+    }
+    setParent(parent) {
+        this._parent = parent;
+    }
+    getRegions() {
+        return this._regions;
+    }
+    getRegionDimension() {
+        return this._regionDimension;
+    }
+    getType() {
+        return this._model.getType();
+    }
+    setType(type) {
+        this._model.setType(type);
+    }
+    setCollisionable(collisionable) {
+        this._collisionable = collisionable;
+    }
+    isCollisionable() {
+        return this._collisionable;
+    }
+    getModel() {
+        return this._model;
+    }
+    setModel(model) {
+>>>>>>> master
         var view = this._view;
         var oldModel = this._model;
         if (oldModel) {
@@ -1104,6 +1568,7 @@ var Entity = (function (_super) {
         }
         this._model = model;
         model.on(1..toString(), this._modelCB);
+<<<<<<< HEAD
     };
     Entity.prototype.getHeight = function () {
         return this._model.getAttribute('height');
@@ -1133,6 +1598,37 @@ var Entity = (function (_super) {
             type: 0..toString(),
             oldCoordinates: oldCoordinates,
             newCoordinates: newCoordinates,
+=======
+    }
+    getHeight() {
+        return this._model.getAttribute('height');
+    }
+    setHeight(height) {
+        this._model.setAttribute('height', height);
+        this._generateRegions();
+    }
+    getWidth() {
+        return this._model.getAttribute('width');
+    }
+    setWidth(width) {
+        this._model.setAttribute('width', width);
+        this._generateRegions();
+    }
+    getX() {
+        return this._model.getAttribute('x');
+    }
+    setX(x) {
+        let oldCoordinates = { x: this.getX(), y: this.getY() };
+        this._model.setAttribute('x', x);
+        let newCoordinates = { x: this.getX(), y: this.getY() };
+        if (this._parent) {
+            this._parent._updateChildsRegion(this);
+        }
+        let eventData = {
+            type: 0..toString(),
+            oldCoordinates,
+            newCoordinates,
+>>>>>>> master
             source: this
         };
         if (!this._eventEmitted) {
@@ -1140,6 +1636,7 @@ var Entity = (function (_super) {
             this.emit(0..toString(), eventData);
             this._eventEmitted = false;
         }
+<<<<<<< HEAD
     };
     Entity.prototype.getPosition = function () {
         return this._model.getPosition();
@@ -1175,6 +1672,42 @@ var Entity = (function (_super) {
             type: 0..toString(),
             oldCoordinates: oldCoordinates,
             newCoordinates: newCoordinates,
+=======
+    }
+    setCoordinate(coordinate) {
+        let oldCoordinates = { x: this.getX(), y: this.getY() };
+        this._model.setAttribute('x', coordinate.x);
+        this._model.setAttribute('y', coordinate.y);
+        let newCoordinates = { x: this.getX(), y: this.getY() };
+        if (this._parent) {
+            this._parent._updateChildsRegion(this);
+        }
+        let eventData = {
+            type: 0..toString(),
+            oldCoordinates,
+            newCoordinates,
+            source: this
+        };
+        this.emit(0..toString(), eventData);
+    }
+    getX2() {
+        return this.getX() + this.getWidth();
+    }
+    getY() {
+        return this._model.getAttribute('y');
+    }
+    setY(y) {
+        let oldCoordinates = { x: this.getX(), y: this.getY() };
+        this._model.setAttribute('y', y);
+        let newCoordinates = { x: this.getX(), y: this.getY() };
+        if (this._parent) {
+            this._parent._updateChildsRegion(this);
+        }
+        let eventData = {
+            type: 0..toString(),
+            oldCoordinates,
+            newCoordinates,
+>>>>>>> master
             source: this
         };
         if (!this._eventEmitted) {
@@ -1182,6 +1715,7 @@ var Entity = (function (_super) {
             this.emit(0..toString(), eventData);
             this._eventEmitted = false;
         }
+<<<<<<< HEAD
     };
     Entity.prototype.getY2 = function () {
         return this.getY() + this.getHeight();
@@ -1208,16 +1742,52 @@ var Entity = (function (_super) {
         return this._model.getTexture();
     };
     Entity.prototype.setTexture = function (asset) {
+=======
+    }
+    getY2() {
+        return this.getY() + this.getHeight();
+    }
+    getZ() {
+        return this._model.getAttribute('z');
+    }
+    setZ(z) {
+        this._model.setAttribute('z', z);
+    }
+    getVisible() {
+        return this._model.getAttribute('visible');
+    }
+    setVisible(state) {
+        this._model.setAttribute('visible', state);
+    }
+    getColor() {
+        return this._model.getAttribute('color');
+    }
+    setColor(color) {
+        this._model.setAttribute('color', color);
+    }
+    getTexture() {
+        return this._model.getTexture();
+    }
+    setTexture(asset) {
+>>>>>>> master
         if (asset.getType() !== assets_1.AssetType.IMAGE) {
             throw new Error('Texture asset must be of type IMAGE.');
         }
         this._model.setTexture(asset);
         this._setModified(true);
+<<<<<<< HEAD
     };
     Entity.prototype.isModified = function () {
         return this._modified;
     };
     Entity.prototype.addChild = function (child) {
+=======
+    }
+    isModified() {
+        return this._modified;
+    }
+    addChild(child) {
+>>>>>>> master
         var parent = child._parent;
         if (parent) {
             parent.removeChild(child);
@@ -1225,20 +1795,31 @@ var Entity = (function (_super) {
         this._children.push(child);
         child._parent = this;
         this._putChildInRegion(child);
+<<<<<<< HEAD
     };
     Entity.prototype.removeChild = function (child) {
+=======
+    }
+    removeChild(child) {
+>>>>>>> master
         if (this.isChild(child)) {
             var idx = this.indexOf(child);
             this._children.splice(idx, 1);
         }
         this._removeChildFromRegions(child);
         delete this._regionList[child.getID()];
+<<<<<<< HEAD
     };
     Entity.prototype.removeAllChildren = function () {
+=======
+    }
+    removeAllChildren() {
+>>>>>>> master
         var child;
         while (child = this.getChildAt(0)) {
             this.removeChild(child);
         }
+<<<<<<< HEAD
     };
     Entity.prototype.isChild = function (child) {
         return (this.indexOf(child) > -1);
@@ -1253,29 +1834,63 @@ var Entity = (function (_super) {
         return this._children[index];
     };
     Entity.prototype._setModified = function (state) {
+=======
+    }
+    isChild(child) {
+        return (this.indexOf(child) > -1);
+    }
+    indexOf(child) {
+        return this._children.indexOf(child);
+    }
+    childCount() {
+        return this._children.length;
+    }
+    getChildAt(index) {
+        return this._children[index];
+    }
+    _setModified(state) {
+>>>>>>> master
         this._modified = state;
         if (this._parent) {
             this._parent._setModified(state);
         }
+<<<<<<< HEAD
     };
     Entity.prototype.iterator = function () {
         return new utils_2.Iterator(this._children);
     };
     Entity.prototype.getChildren = function (startCoordinate, endCoordinate) {
+=======
+    }
+    iterator() {
+        return new utils_1.Iterator(this._children);
+    }
+    getChildren(startCoordinate, endCoordinate) {
+>>>>>>> master
         if (startCoordinate && endCoordinate) {
             var startRegion = this._coordinateToRegion(startCoordinate);
             var endRegion = this._coordinateToRegion(endCoordinate);
             var children = [];
+<<<<<<< HEAD
             for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
                 for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
                     children = children.concat(this._getChildrenInRegion(new utils_1.Coordinate(x, y)));
                 }
             }
             return new utils_2.Iterator(children);
+=======
+            for (var x = startRegion.x; x <= endRegion.x; x++) {
+                for (var y = startRegion.y; y <= endRegion.y; y++) {
+                    children = children.concat(this._getChildrenInRegion({ x, y }));
+                }
+            }
+            return new utils_1.Iterator(children);
+>>>>>>> master
         }
         else if (startCoordinate) {
             var region = this._coordinateToRegion(startCoordinate);
             var children = [];
+<<<<<<< HEAD
             var childrenIterator = new utils_2.Iterator(this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY())));
             while (childrenIterator.hasNext()) {
                 var child = childrenIterator.next();
@@ -1293,10 +1908,30 @@ var Entity = (function (_super) {
         }
     };
     Entity.prototype.findChildren = function (startCoordinate, endCoordinate) {
+=======
+            var childrenIterator = new utils_1.Iterator(this._getChildrenInRegion({ x: region.x, y: region.y }));
+            while (childrenIterator.hasNext()) {
+                var child = childrenIterator.next();
+                var childCoordinate = child.getCoordinate();
+                var childOuterCoordinate = child.getOuterCoordinate();
+                if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
+                    && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                    children.push(child);
+                }
+            }
+            return new utils_1.Iterator(children);
+        }
+        else {
+            return new utils_1.Iterator(this._children);
+        }
+    }
+    findChildren(startCoordinate, endCoordinate) {
+>>>>>>> master
         var children = [];
         if (this._children.length > 0) {
             if (startCoordinate && !endCoordinate) {
                 var region = this._coordinateToRegion(startCoordinate);
+<<<<<<< HEAD
                 var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
                 if (regionChildren.length > 0) {
                     var childrenIterator = new utils_2.Iterator(regionChildren);
@@ -1308,6 +1943,19 @@ var Entity = (function (_super) {
                             && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                             children.push(iterChild);
                             var deeperChildren = iterChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()));
+=======
+                var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+                if (regionChildren.length > 0) {
+                    var childrenIterator = new utils_1.Iterator(regionChildren);
+                    while (childrenIterator.hasNext()) {
+                        var iterChild = childrenIterator.next();
+                        let childCoordinate = iterChild.getCoordinate();
+                        let childOuterCoordinate = iterChild.getOuterCoordinate();
+                        if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
+                            && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                            children.push(iterChild);
+                            let deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
+>>>>>>> master
                             if (deeperChildren) {
                                 children = children.concat(deeperChildren);
                             }
@@ -1319,13 +1967,20 @@ var Entity = (function (_super) {
                 var startRegion = this._coordinateToRegion(startCoordinate);
                 var endRegion = this._coordinateToRegion(endCoordinate);
                 var childrenVisited = [];
+<<<<<<< HEAD
                 for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
                     for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
                         var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(x, y));
+=======
+                for (var x = startRegion.x; x <= endRegion.x; x++) {
+                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                        var regionChildren = this._getChildrenInRegion({ x, y });
+>>>>>>> master
                         for (var regionChildI in regionChildren) {
                             var regionChild = regionChildren[regionChildI];
                             if (childrenVisited.indexOf(regionChild) === -1) {
                                 childrenVisited.push(regionChild);
+<<<<<<< HEAD
                                 var childCoordinate = regionChild.getPosition();
                                 var childOuterCoordinate = regionChild.getOuterCoordinate();
                                 var xCollission = false;
@@ -1336,11 +1991,27 @@ var Entity = (function (_super) {
                                 }
                                 if ((startCoordinate.getY() < childOuterCoordinate.getY() && endCoordinate.getY() > childCoordinate.getY())
                                     || (endCoordinate.getY() > childCoordinate.getY() && startCoordinate.getY() < childOuterCoordinate.getY())) {
+=======
+                                let childCoordinate = regionChild.getCoordinate();
+                                let childOuterCoordinate = regionChild.getOuterCoordinate();
+                                var xCollission = false;
+                                var yCollision = false;
+                                if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
+                                    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+                                    xCollission = true;
+                                }
+                                if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
+                                    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+>>>>>>> master
                                     yCollision = true;
                                 }
                                 if (xCollission && yCollision) {
                                     children.push(regionChild);
+<<<<<<< HEAD
                                     var deeperChildren = regionChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()), new utils_1.Coordinate(endCoordinate.getX() - childOuterCoordinate.getX(), endCoordinate.getY() - childOuterCoordinate.getY()));
+=======
+                                    let deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
+>>>>>>> master
                                     if (deeperChildren) {
                                         children = children.concat(deeperChildren);
                                     }
@@ -1352,6 +2023,7 @@ var Entity = (function (_super) {
             }
         }
         return children;
+<<<<<<< HEAD
     };
     Entity.prototype.findTopChildAt = function (coordinate) {
         var child;
@@ -1367,17 +2039,46 @@ var Entity = (function (_super) {
                 && childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
                 child = iterChild;
                 var deeperChild = iterChild.findTopChildAt(new utils_1.Coordinate(coordinate.getX() - childCoordinate.getX(), coordinate.getY() - childCoordinate.getY()));
+=======
+    }
+    findTopChildAt(coordinate) {
+        var child = false;
+        var region = this._coordinateToRegion(coordinate);
+        var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+        var childrenIterator = new utils_1.Iterator(regionChildren);
+        childrenIterator.setToEnd();
+        while (childrenIterator.hasPrev() && !child) {
+            var iterChild = childrenIterator.prev();
+            var childCoordinate = iterChild.getCoordinate();
+            var childOuterCoordinate = iterChild.getOuterCoordinate();
+            if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
+                && childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+                child = iterChild;
+                var deeperChild = iterChild.findTopChildAt({ x: coordinate.x - childCoordinate.x, y: coordinate.y - childCoordinate.y });
+>>>>>>> master
                 if (deeperChild) {
                     child = deeperChild;
                 }
             }
         }
+<<<<<<< HEAD
         return child;
     };
     Entity.prototype.getOuterCoordinate = function () {
         return new utils_1.Coordinate(this.getX2(), this.getY2());
     };
     Entity.prototype.getAbsoluteY = function () {
+=======
+        return child || false;
+    }
+    getCoordinate() {
+        return { x: this.getX(), y: this.getY() };
+    }
+    getOuterCoordinate() {
+        return { x: this.getX2(), y: this.getY2() };
+    }
+    getAbsoluteY() {
+>>>>>>> master
         var entity = this;
         var y = 0;
         while (entity) {
@@ -1385,11 +2086,19 @@ var Entity = (function (_super) {
             entity = entity._parent;
         }
         return y;
+<<<<<<< HEAD
     };
     Entity.prototype.getAbsoluteY2 = function () {
         return this.getAbsoluteY() + this.getHeight();
     };
     Entity.prototype.getAbsoluteX = function () {
+=======
+    }
+    getAbsoluteY2() {
+        return this.getAbsoluteY() + this.getHeight();
+    }
+    getAbsoluteX() {
+>>>>>>> master
         var entity = this;
         var x = 0;
         while (entity) {
@@ -1397,6 +2106,7 @@ var Entity = (function (_super) {
             entity = entity._parent;
         }
         return x;
+<<<<<<< HEAD
     };
     Entity.prototype.getAbsoluteX2 = function () {
         return this.getAbsoluteX() + this.getWidth();
@@ -1415,6 +2125,36 @@ var Entity = (function (_super) {
         this.setVisible(true);
     };
     Entity.prototype._generateRegions = function () {
+=======
+    }
+    getAbsoluteX2() {
+        return this.getAbsoluteX() + this.getWidth();
+    }
+    setLocation(coordinate) {
+        this.setX(coordinate.x);
+        this.setY(coordinate.y);
+    }
+    getLocation() {
+        return {
+            x: this.getX(),
+            y: this.getY()
+        };
+    }
+    setSize(dimension) {
+        this._setModified(true);
+        this.setWidth(dimension.width);
+        this.setHeight(dimension.height);
+    }
+    getSize() {
+        return { width: this.getWidth(), height: this.getHeight() };
+    }
+    _setDefaults() {
+        this.setLocation({ x: 0, y: 0 });
+        this.setSize({ width: 0, height: 0 });
+        this.setVisible(true);
+    }
+    _generateRegions() {
+>>>>>>> master
         this._regions = [];
         this._regionList = {};
         if (this.getWidth() <= 100) {
@@ -1442,6 +2182,7 @@ var Entity = (function (_super) {
         while (childrenIterator.hasNext()) {
             this._putChildInRegion(childrenIterator.next());
         }
+<<<<<<< HEAD
     };
     Entity.prototype._putChildInRegion = function (child) {
         var startRegion = this._coordinateToRegion(child.getPosition());
@@ -1454,6 +2195,20 @@ var Entity = (function (_super) {
                         if (this._regions[x][y]) {
                             this._regions[x][y].push(child);
                             this._regionList[child.getID()].push(new utils_1.Coordinate(x, y));
+=======
+    }
+    _putChildInRegion(child) {
+        var startRegion = this._coordinateToRegion({ x: child.getX(), y: child.getY() });
+        var endRegion = this._coordinateToRegion({ x: child.getX2(), y: child.getY2() });
+        this._regionList[child.getID()] = [];
+        if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
+            for (var x = startRegion.x; x <= endRegion.x; x++) {
+                if (this._regions[x]) {
+                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                        if (this._regions[x][y]) {
+                            this._regions[x][y].push(child);
+                            this._regionList[child.getID()].push({ x, y });
+>>>>>>> master
                         }
                     }
                 }
@@ -1461,14 +2216,22 @@ var Entity = (function (_super) {
         }
         else {
         }
+<<<<<<< HEAD
     };
     Entity.prototype._getChildrenInRegion = function (regionCoordinate) {
         if (this._regions[regionCoordinate.getX()] && this._regions[regionCoordinate.getX()][regionCoordinate.getY()]) {
             return this._regions[regionCoordinate.getX()][regionCoordinate.getY()];
+=======
+    }
+    _getChildrenInRegion(regionCoordinate) {
+        if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
+            return this._regions[regionCoordinate.x][regionCoordinate.y];
+>>>>>>> master
         }
         else {
             return [];
         }
+<<<<<<< HEAD
     };
     Entity.prototype._removeChildFromRegions = function (child) {
         if (this._regionList[child.getID()]) {
@@ -1494,10 +2257,37 @@ exports.Entity = Entity;
 
 /***/ }),
 /* 10 */
+=======
+    }
+    _removeChildFromRegions(child) {
+        if (this._regionList[child.getID()]) {
+            for (var i in this._regionList[child.getID()]) {
+                var coord = this._regionList[child.getID()][i];
+                this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
+            }
+        }
+    }
+    _updateChildsRegion(child) {
+        this._removeChildFromRegions(child);
+        this._putChildInRegion(child);
+    }
+    _coordinateToRegion(coordinate) {
+        var x = Math.floor(coordinate.x / this._regionDimension.width);
+        var y = Math.floor(coordinate.y / this._regionDimension.height);
+        return { x, y };
+    }
+}
+exports.Entity = Entity;
+
+
+/***/ }),
+/* 14 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1527,11 +2317,31 @@ var EntityView = (function (_super) {
         return this._visible;
     };
     EntityView.prototype.setModel = function (model) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+class EntityView extends Events.EventEmitter {
+    constructor(model) {
+        super();
+        this._visible = true;
+        this._model = model;
+        this._bindedFuncs = {};
+        this._attachEvents();
+    }
+    setVisible(visible) {
+        this._visible = visible;
+    }
+    getVisible() {
+        return this._visible;
+    }
+    setModel(model) {
+>>>>>>> master
         if (this._model) {
             this._detachEvents();
         }
         this._model = model;
         this._attachEvents();
+<<<<<<< HEAD
     };
     EntityView.prototype._handleAttrChange = function (e) {
     };
@@ -1543,15 +2353,32 @@ var EntityView = (function (_super) {
     };
     return EntityView;
 }(Events.EventEmitter));
+=======
+    }
+    _handleAttrChange(e) {
+    }
+    _attachEvents() {
+        this._model.on(1..toString(), (this._bindedFuncs[1..toString()] = this._handleAttrChange.bind(this)));
+    }
+    _detachEvents() {
+        this._model.removeListener(1..toString(), this._bindedFuncs[1..toString()]);
+    }
+}
+>>>>>>> master
 exports.EntityView = EntityView;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 11 */
+=======
+/* 15 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1590,13 +2417,47 @@ var GamePad = (function (_super) {
         this._initializePolling();
     };
     GamePad.prototype._initializePolling = function () {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+class GamePad extends Events.EventEmitter {
+    constructor(id) {
+        super();
+        this._pollRate = 15;
+        this._buttons = [];
+        this._axes = [];
+        this._gamePadID = id;
+        let gamePad = navigator.getGamepads()[id];
+        for (var i = 0; i < gamePad.buttons.length; i++) {
+            this._buttons.push(gamePad.buttons[i].value);
+        }
+        for (var i = 0; i < gamePad.axes.length; i++) {
+            this._axes.push(gamePad.axes[i]);
+        }
+        this._initializePolling();
+    }
+    getAxis(index) {
+        return this._axes[index];
+    }
+    setPollRate(pollRate) {
+        this._pollRate = pollRate;
+        this._initializePolling();
+    }
+    _initializePolling() {
+>>>>>>> master
         if (this._pollTimer) {
             clearInterval(this._pollTimer);
         }
         this._pollTimer = setInterval(this._poll.bind(this), this._pollRate);
+<<<<<<< HEAD
     };
     GamePad.prototype._poll = function () {
         var gamePad = navigator.getGamepads()[this._gamePadID];
+=======
+    }
+    _poll() {
+        let gamePad = navigator.getGamepads()[this._gamePadID];
+>>>>>>> master
         if (!gamePad) {
             this._disconnect();
             return null;
@@ -1604,7 +2465,11 @@ var GamePad = (function (_super) {
         for (var i = 0; i < gamePad.buttons.length; i++) {
             if (gamePad.buttons[i].value != this._buttons[i]) {
                 this._buttons[i] = gamePad.buttons[i].value;
+<<<<<<< HEAD
                 var e = {
+=======
+                let e = {
+>>>>>>> master
                     source: this,
                     type: "BUTTONVALUECHANGE",
                     value: gamePad.buttons[i].value,
@@ -1616,7 +2481,11 @@ var GamePad = (function (_super) {
         for (var i = 0; i < gamePad.axes.length; i++) {
             if (gamePad.axes[i] != this._axes[i]) {
                 this._axes[i] = gamePad.axes[i];
+<<<<<<< HEAD
                 var e = {
+=======
+                let e = {
+>>>>>>> master
                     source: this,
                     type: "AXISVALUECHANGE",
                     value: gamePad.axes[i],
@@ -1625,26 +2494,43 @@ var GamePad = (function (_super) {
                 this.emit("AXISVALUECHANGE", e);
             }
         }
+<<<<<<< HEAD
     };
     GamePad.prototype._disconnect = function () {
         clearInterval(this._pollTimer);
         var e = {
+=======
+    }
+    _disconnect() {
+        clearInterval(this._pollTimer);
+        let e = {
+>>>>>>> master
             source: this,
             type: "AXISVALUECHANGE"
         };
         this.emit("DISCONNECT", e);
+<<<<<<< HEAD
     };
     return GamePad;
 }(Events.EventEmitter));
+=======
+    }
+}
+>>>>>>> master
 exports.GamePad = GamePad;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 12 */
+=======
+/* 16 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1680,20 +2566,54 @@ var Touch = (function (_super) {
         return this._y;
     };
     Touch.prototype._onTouchEnd = function (e) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+;
+;
+class Touch extends Events.EventEmitter {
+    constructor(nTouch) {
+        super();
+        this._id = nTouch.identifier;
+        this._x = nTouch.pageX;
+        this._y = nTouch.pageY;
+        window.addEventListener("touchmove", this._touchMoveListener = this._onTouchMove.bind(this));
+        window.addEventListener("touchend", this._touchEndListener = this._onTouchEnd.bind(this));
+    }
+    getID() {
+        return this._id;
+    }
+    getX() {
+        return this._x;
+    }
+    getY() {
+        return this._y;
+    }
+    _onTouchEnd(e) {
+>>>>>>> master
         for (var i = 0; i < e.changedTouches.length; i++) {
             var nTouch = e.changedTouches.item(i);
             if (nTouch.identifier === this._id) {
                 this._disconnect();
             }
         }
+<<<<<<< HEAD
     };
     Touch.prototype._onTouchMove = function (e) {
+=======
+    }
+    _onTouchMove(e) {
+>>>>>>> master
         for (var i = 0; i < e.changedTouches.length; i++) {
             var nTouch = e.changedTouches.item(i);
             if (nTouch.identifier === this._id && (nTouch.pageX != this._x || nTouch.pageY != this._y)) {
                 this._x = nTouch.pageX;
                 this._y = nTouch.pageY;
+<<<<<<< HEAD
                 var e_1 = {
+=======
+                let e = {
+>>>>>>> master
                     type: "TOUCHMOVED",
                     source: this,
                     position: {
@@ -1701,30 +2621,49 @@ var Touch = (function (_super) {
                         y: this._y
                     }
                 };
+<<<<<<< HEAD
                 this.emit("TOUCHMOVED", e_1);
             }
         }
     };
     Touch.prototype._disconnect = function () {
         var e = {
+=======
+                this.emit("TOUCHMOVED", e);
+            }
+        }
+    }
+    _disconnect() {
+        let e = {
+>>>>>>> master
             source: this,
             type: "TOUCHREMOVED"
         };
         this.emit("TOUCHREMOVED", e);
         window.removeEventListener("touchmove", this._touchMoveListener);
         window.removeEventListener("touchend", this._touchEndListener);
+<<<<<<< HEAD
     };
     return Touch;
 }(Events.EventEmitter));
+=======
+    }
+}
+>>>>>>> master
 exports.Touch = Touch;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 13 */
+=======
+/* 17 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1758,6 +2697,30 @@ var TouchDemo = (function (_super) {
         _this.getLogicEngine().addLogic("touch", _this._touch.bind(_this), 25);
         var touchListener = inputs_1.TouchListener.getInstance();
         touchListener.on("TOUCHADDED", function (touch) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = __webpack_require__(18);
+const engines_1 = __webpack_require__(4);
+const entities_1 = __webpack_require__(12);
+const utils_1 = __webpack_require__(0);
+const inputs_1 = __webpack_require__(46);
+class TouchDemo extends core_1.Engine {
+    constructor() {
+        super();
+        this.setRenderingEngine(new engines_1.TwoDimensionalRenderingEngine());
+        this.setLogicEngine(new engines_1.GroupLogicEngine());
+        this._container = new entities_1.Entity();
+        this._container.setColor(new utils_1.Color(0, 0, 0));
+        this._container.setWidth(1000);
+        this._container.setHeight(1000);
+        this._camera = new utils_1.Camera(this._container, null, { width: this._container.getWidth(), height: this._container.getHeight() }, null, { height: this._container.getHeight(), width: this._container.getWidth() });
+        this.getRenderingEngine().addCamera(this._camera);
+        this.getViewPort().on(0..toString(), this._viewPortUpdated.bind(this));
+        this.getViewPort().fillPage(true);
+        this.getLogicEngine().addLogic("touch", this._touch.bind(this), 25);
+        var touchListener = inputs_1.TouchListener.getInstance();
+        touchListener.on("TOUCHADDED", (touch) => {
+>>>>>>> master
             console.log("New Touch added with an ID of ", touch.getID());
             var block = new entities_1.Entity();
             block.setX(touch.getX() - 25);
@@ -1765,13 +2728,19 @@ var TouchDemo = (function (_super) {
             block.setColor(new utils_1.Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
             block.setWidth(50);
             block.setHeight(50);
+<<<<<<< HEAD
             _this._container.addChild(block);
             touch.on("TOUCHMOVED", function (e) {
+=======
+            this._container.addChild(block);
+            touch.on("TOUCHMOVED", (e) => {
+>>>>>>> master
                 console.log("Touch moved");
                 var position = e.position;
                 block.setX(position.x - 25);
                 block.setY(position.y - 25);
             });
+<<<<<<< HEAD
             touch.on("TOUCHREMOVED", function (touch) {
                 console.log("Touch removed");
                 _this._container.removeChild(block);
@@ -1780,44 +2749,83 @@ var TouchDemo = (function (_super) {
         return _this;
     }
     TouchDemo.prototype._viewPortUpdated = function (event) {
+=======
+            touch.on("TOUCHREMOVED", (touch) => {
+                console.log("Touch removed");
+                this._container.removeChild(block);
+            });
+        });
+    }
+    _viewPortUpdated(event) {
+>>>>>>> master
         this._container.setWidth(event.newDimensions.width);
         this._container.setHeight(event.newDimensions.height);
         this._camera.setFOV({ width: event.newDimensions.width, height: event.newDimensions.height });
         this._camera.setRenderDimension({ width: event.newDimensions.width, height: event.newDimensions.height });
+<<<<<<< HEAD
     };
     TouchDemo.prototype._touch = function () {
     };
     return TouchDemo;
 }(core_1.Engine));
+=======
+    }
+    _touch() {
+    }
+}
+>>>>>>> master
 window.TouchDemo = new TouchDemo();
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 14 */
+=======
+/* 18 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var Engine_1 = __webpack_require__(15);
 exports.Engine = Engine_1.Engine;
 var Instance_1 = __webpack_require__(8);
+=======
+const Engine_1 = __webpack_require__(19);
+exports.Engine = Engine_1.Engine;
+const Instance_1 = __webpack_require__(3);
+>>>>>>> master
 exports.getInstance = Instance_1.getInstance;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 15 */
+=======
+/* 19 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var audio_1 = __webpack_require__(24);
 var assets_1 = __webpack_require__(1);
 var Instance_1 = __webpack_require__(8);
 var Engine = (function () {
     function Engine() {
+=======
+const utils_1 = __webpack_require__(0);
+const audio_1 = __webpack_require__(26);
+const assets_1 = __webpack_require__(2);
+const Instance_1 = __webpack_require__(3);
+class Engine {
+    constructor() {
+>>>>>>> master
         Instance_1.setInstance(this);
         this._debugMode = false;
         this._logManager = utils_1.LogManager.getSingleton();
@@ -1826,15 +2834,23 @@ var Engine = (function () {
         this._viewPort = new utils_1.ViewPort();
         this._logManager.log(utils_1.SeverityEnum.INFO, 'Engine has started.');
     }
+<<<<<<< HEAD
     Engine.prototype.isDebugEnabled = function () {
         return this._debugMode;
     };
     Engine.prototype.setRenderingEngine = function (renderingEngine) {
+=======
+    isDebugEnabled() {
+        return this._debugMode;
+    }
+    setRenderingEngine(renderingEngine) {
+>>>>>>> master
         if (this._renderingEngine) {
         }
         this._renderingEngine = renderingEngine;
         this._renderingEngine.setViewPort(this._viewPort);
         this._renderingEngine.startRendering();
+<<<<<<< HEAD
     };
     Engine.prototype.getRenderingEngine = function () {
         return this._renderingEngine;
@@ -1874,23 +2890,73 @@ exports.default = Engine;
 
 /***/ }),
 /* 16 */
+=======
+    }
+    getRenderingEngine() {
+        return this._renderingEngine;
+    }
+    setLogManager(logManager) {
+        this._logManager = logManager;
+    }
+    getLogManager() {
+        return this._logManager;
+    }
+    setAssetFactory(assetFactory) {
+        this._assetFactory = assetFactory;
+    }
+    getAssetFactory() {
+        return this._assetFactory;
+    }
+    getViewPort() {
+        return this._viewPort;
+    }
+    setAudioEngine(audioEngine) {
+        this._audioEngine = audioEngine;
+    }
+    getAudioEngine() {
+        return this._audioEngine;
+    }
+    setLogicEngine(logicEngine) {
+        this._logicEngine = logicEngine;
+    }
+    getLogicEngine() {
+        return this._logicEngine;
+    }
+}
+exports.default = Engine;
+exports.Engine = Engine;
+
+
+/***/ }),
+/* 20 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var DEFAULT_VIEWPOINT = { x: 0, y: 0 };
 var DEFAULT_FOV = { width: 100, height: 100 };
 var DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
 var DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
 var Camera = (function () {
     function Camera(scene, viewPoint, fov, renderOrigin, renderDimension) {
+=======
+const DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+const DEFAULT_FOV = { width: 100, height: 100 };
+const DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+const DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
+class Camera {
+    constructor(scene, viewPoint, fov, renderOrigin, renderDimension) {
+>>>>>>> master
         this.setScene(scene);
         this.setViewPoint(viewPoint || DEFAULT_VIEWPOINT);
         this.setFOV(fov || DEFAULT_FOV);
         this.setRenderOrigin(renderOrigin || DEFAULT_RENDER_ORIGIN);
         this.setRenderDimension(renderDimension || DEFAULT_RENDER_DIMENSION);
     }
+<<<<<<< HEAD
     Camera.prototype.setScene = function (scene) {
         this._scene = scene;
     };
@@ -1923,16 +2989,54 @@ var Camera = (function () {
     };
     return Camera;
 }());
+=======
+    setScene(scene) {
+        this._scene = scene;
+    }
+    getScene() {
+        return this._scene;
+    }
+    setViewPoint(viewPoint) {
+        this._viewPoint = viewPoint;
+    }
+    getViewPoint() {
+        return this._viewPoint;
+    }
+    setFOV(fov) {
+        this._fov = fov;
+    }
+    getFOV() {
+        return this._fov;
+    }
+    setRenderOrigin(origin) {
+        this._renderOrigin = origin;
+    }
+    getRenderOrigin() {
+        return this._renderOrigin;
+    }
+    setRenderDimension(dim) {
+        this._renderDimension = dim;
+    }
+    getRenderDimension() {
+        return this._renderDimension;
+    }
+}
+>>>>>>> master
 exports.Camera = Camera;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 17 */
+=======
+/* 21 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var _1 = __webpack_require__(0);
 var IDGenerator = (function () {
     function IDGenerator() {
@@ -1941,17 +3045,32 @@ var IDGenerator = (function () {
         return IDGenerator.generate();
     };
     IDGenerator.generate = function () {
+=======
+const _1 = __webpack_require__(0);
+class IDGenerator {
+    constructor() { }
+    generate() {
+        return IDGenerator.generate();
+    }
+    static generate() {
+>>>>>>> master
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
+<<<<<<< HEAD
     };
     IDGenerator.getSingleton = function () {
+=======
+    }
+    static getSingleton() {
+>>>>>>> master
         _1.LogManager.getSingleton().deprecate('IDGenerator should no longer be used as a singleton anymore. Instead use IDGenerator.generate().');
         if (!IDGenerator._instance) {
             IDGenerator._instance = new IDGenerator();
         }
         return IDGenerator._instance;
+<<<<<<< HEAD
     };
     return IDGenerator;
 }());
@@ -2014,11 +3133,21 @@ exports.Iterator = Iterator;
 
 /***/ }),
 /* 19 */
+=======
+    }
+}
+exports.IDGenerator = IDGenerator;
+
+
+/***/ }),
+/* 22 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var SeverityEnum_1 = __webpack_require__(5);
 var LogManager = (function () {
     function LogManager() {
@@ -2068,23 +3197,85 @@ var LogManager = (function () {
         return this._logLevel;
     };
     LogManager.getSingleton = function () {
+=======
+const SeverityEnum_1 = __webpack_require__(5);
+class LogManager {
+    constructor() {
+        this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
+        this._logLevel = this._logLevel | SeverityEnum_1.SeverityEnum.DEBUG | SeverityEnum_1.SeverityEnum.INFO;
+    }
+    log(severity, message) {
+        if (this.getLogLevel() & severity) {
+            switch (severity) {
+                case SeverityEnum_1.SeverityEnum.DEBUG:
+                    console.debug(`[DEBUG] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.INFO:
+                    console.info(`[INFO] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.WARNING:
+                    console.warn(`[WARN] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.ERROR:
+                    console.error(`[ERROR] ${message}`);
+                    break;
+                case SeverityEnum_1.SeverityEnum.DEPRECATE:
+                    console.error(`[DEPRECATE] ${message}`);
+            }
+        }
+    }
+    debug(message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEBUG, message);
+    }
+    info(message) {
+        this.log(SeverityEnum_1.SeverityEnum.INFO, message);
+    }
+    warn(message) {
+        this.log(SeverityEnum_1.SeverityEnum.WARNING, message);
+    }
+    error(message) {
+        this.log(SeverityEnum_1.SeverityEnum.ERROR, message);
+    }
+    deprecate(message) {
+        this.log(SeverityEnum_1.SeverityEnum.DEPRECATE, message);
+    }
+    setLogLevel(severity) {
+        this._logLevel = severity;
+        this._logLevel = severity;
+    }
+    getLogLevel() {
+        return this._logLevel;
+    }
+    static getSingleton() {
+>>>>>>> master
         if (!LogManager._instance) {
             LogManager._instance = new LogManager();
         }
         return LogManager._instance;
+<<<<<<< HEAD
     };
     LogManager._instance = new LogManager();
     return LogManager;
 }());
+=======
+    }
+}
+LogManager._instance = new LogManager();
+>>>>>>> master
 exports.LogManager = LogManager;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 20 */
+=======
+/* 23 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2124,6 +3315,35 @@ var ViewPort = (function (_super) {
         this._context.scale(dimension.width, dimension.height);
     };
     ViewPort.prototype.fillPage = function (state) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+class ViewPort extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._canvas = document.createElement('canvas');
+        this._context = this._canvas.getContext('2d');
+        this._resizable = false;
+        this._dimension = { width: 0, height: 0 };
+        this._filledPage = false;
+    }
+    getCanvas() {
+        return this._canvas;
+    }
+    getContext() {
+        return this._context;
+    }
+    setResizable(resizable) {
+        this._resizable = resizable;
+    }
+    isResizable() {
+        return this._resizable;
+    }
+    setScale(dimension) {
+        this._context.scale(dimension.width, dimension.height);
+    }
+    fillPage(state) {
+>>>>>>> master
         console.log("Test, ", state);
         this._filledPage = state;
         if (state) {
@@ -2138,6 +3358,7 @@ var ViewPort = (function (_super) {
             this._canvas.style.position = "";
             window.removeEventListener("reisze", this._resizeListener);
         }
+<<<<<<< HEAD
     };
     ViewPort.prototype.isFilledPage = function () {
         return this._filledPage;
@@ -2146,10 +3367,21 @@ var ViewPort = (function (_super) {
         return { width: this._canvas.offsetWidth, height: this._canvas.offsetHeight };
     };
     ViewPort.prototype.setSize = function (dimension) {
+=======
+    }
+    isFilledPage() {
+        return this._filledPage;
+    }
+    getSize() {
+        return { width: this._canvas.offsetWidth, height: this._canvas.offsetHeight };
+    }
+    setSize(dimension) {
+>>>>>>> master
         this._dimension = dimension;
         this._canvas.setAttribute('width', dimension.width + "px");
         this._canvas.setAttribute('height', dimension.height + "px");
         this.emit('resize', dimension);
+<<<<<<< HEAD
     };
     ViewPort.prototype.clear = function () {
         this._context.clearRect(0, 0, this._dimension.width, this._dimension.height);
@@ -2184,6 +3416,42 @@ var ViewPort = (function (_super) {
     ViewPort.prototype._fillPage = function () {
         var newSize = { width: window.innerWidth, height: window.innerHeight };
         var eventData = {
+=======
+    }
+    clear() {
+        this._context.clearRect(0, 0, this._dimension.width, this._dimension.height);
+    }
+    drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height) {
+        this._context.drawImage(img, clip_x, clip_y, clip_width, clip_height, x, y, width, height);
+    }
+    setFont(font) {
+        this._context.font = font;
+    }
+    setColor(color) {
+        this._context.fillStyle = color.toString();
+    }
+    measureText(text) {
+        return this._context.measureText(text);
+    }
+    setTextBaseline(baseline) {
+        this._context.textBaseline = baseline;
+    }
+    drawText(text, x, y, maxWidth) {
+        this._context.fillText(text, x, y, maxWidth);
+    }
+    setHidden() {
+        this._canvas.style.position = "absolute";
+        this._canvas.style.left = '110001px';
+    }
+    getImage() {
+        var image = document.createElement('img');
+        image.src = this._canvas.toDataURL("image/png");
+        return image;
+    }
+    _fillPage() {
+        var newSize = { width: window.innerWidth, height: window.innerHeight };
+        let eventData = {
+>>>>>>> master
             type: 0..toString(),
             oldDimensions: this.getSize(),
             newDimensions: newSize,
@@ -2191,49 +3459,81 @@ var ViewPort = (function (_super) {
         };
         this.setSize(newSize);
         this.emit(0..toString(), eventData);
+<<<<<<< HEAD
     };
     return ViewPort;
 }(Events.EventEmitter));
+=======
+    }
+}
+>>>>>>> master
 exports.ViewPort = ViewPort;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 21 */
+=======
+/* 24 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var CollisionEmitter = (function () {
     function CollisionEmitter() {
+=======
+class CollisionEmitter {
+    constructor() {
+>>>>>>> master
         this._cbs = {};
         this._entities = [];
         this._entitiesListeners = {};
         this._listeners = [];
         this._cbs[0] = this._onEntityLocationUpdate.bind(this);
     }
+<<<<<<< HEAD
     CollisionEmitter.prototype.addEntity = function (entity) {
+=======
+    addEntity(entity) {
+>>>>>>> master
         if (!this.hasEntity(entity)) {
             this._entities.push(entity);
             this._entitiesListeners[entity.getID()] = [];
             entity.on(0..toString(), this._cbs[0]);
         }
+<<<<<<< HEAD
     };
     CollisionEmitter.prototype.removeEntity = function (entity) {
+=======
+    }
+    removeEntity(entity) {
+>>>>>>> master
         if (this.hasEntity(entity)) {
             this._entities.splice(this._entities.indexOf(entity), 1);
             delete this._entitiesListeners[entity.getID()];
         }
+<<<<<<< HEAD
     };
     CollisionEmitter.prototype.hasEntity = function (entity) {
         return this._entitiesListeners.hasOwnProperty(entity.getID());
     };
     CollisionEmitter.prototype.addEntityCollisionListener = function (entity, callback) {
+=======
+    }
+    hasEntity(entity) {
+        return this._entitiesListeners.hasOwnProperty(entity.getID());
+    }
+    addEntityCollisionListener(entity, callback) {
+>>>>>>> master
         if (!this.hasEntity(entity)) {
             this.addEntity(entity);
         }
         this._entitiesListeners[entity.getID()].push(callback);
+<<<<<<< HEAD
     };
     CollisionEmitter.prototype.removeEntityCollisionListener = function (entity, callback) {
         if (this._entitiesListeners[entity.getID()].indexOf(callback) > -1) {
@@ -2255,30 +3555,68 @@ var CollisionEmitter = (function () {
             var collisions = [];
             for (var i in potCollisions) {
                 var potEntity = potCollisions[i];
+=======
+    }
+    removeEntityCollisionListener(entity, callback) {
+        if (this._entitiesListeners[entity.getID()].indexOf(callback) > -1) {
+            this._entitiesListeners[entity.getID()].splice(this._entitiesListeners[entity.getID()].indexOf(callback), 1);
+        }
+    }
+    addCollisionListener(callback) {
+        this._listeners.push(callback);
+    }
+    removeCollisionListener(callback) {
+        if (this._listeners.indexOf(callback) > -1) {
+            this._listeners.splice(this._listeners.indexOf(callback), 1);
+        }
+    }
+    _onEntityLocationUpdate(event) {
+        let entity = event.source;
+        if (entity.getParent()) {
+            var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
+            var collisions = [];
+            for (let i in potCollisions) {
+                let potEntity = potCollisions[i];
+>>>>>>> master
                 if (potEntity != entity && this.hasEntity(potEntity)) {
                     collisions.push(potEntity);
                 }
             }
             if (collisions.length > 0) {
+<<<<<<< HEAD
                 for (var i in this._listeners) {
                     var listener = this._listeners[i];
+=======
+                for (let i in this._listeners) {
+                    let listener = this._listeners[i];
+>>>>>>> master
                     listener(entity, collisions[0], event);
                 }
             }
         }
+<<<<<<< HEAD
     };
     return CollisionEmitter;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 22 */
+=======
+/* 25 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var ColorCode_1 = __webpack_require__(6);
 var Color = (function () {
     function Color(r, g, b, a) {
@@ -2286,11 +3624,17 @@ var Color = (function () {
         if (g === void 0) { g = 0; }
         if (b === void 0) { b = 0; }
         if (a === void 0) { a = 1; }
+=======
+const ColorCode_1 = __webpack_require__(7);
+class Color {
+    constructor(r = 0, g = 0, b = 0, a = 1) {
+>>>>>>> master
         this.setRed(r);
         this.setGreen(g);
         this.setBlue(b);
         this.setAlpha(a);
     }
+<<<<<<< HEAD
     Color.prototype.setRed = function (r) {
         this._r = r;
     };
@@ -2326,10 +3670,48 @@ var Color = (function () {
     };
     Color.prototype.toHexString = function () {
         var hex = "#";
+=======
+    setRed(r) {
+        this._r = r;
+    }
+    setGreen(g) {
+        this._g = g;
+    }
+    setBlue(b) {
+        this._b = b;
+    }
+    setAlpha(a) {
+        this._a = a * 255;
+    }
+    getRed() {
+        return this._r;
+    }
+    getGreen() {
+        return this._g;
+    }
+    getBlue() {
+        return this._b;
+    }
+    getAlpha() {
+        return this._a / 255;
+    }
+    toRGB() {
+        return `rgb(${this.getRed()},${this.getGreen()},${this.getBlue()})`;
+    }
+    toRGBA() {
+        return `rgba(${this.getRed()},${this.getGreen()},${this.getBlue()},${this.getAlpha()})`;
+    }
+    toHex() {
+        return (this.getRed() << 16) + (this.getGreen() << 8) + this.getBlue();
+    }
+    toHexString() {
+        var hex = `#`;
+>>>>>>> master
         hex += this._toHexString(this.getRed());
         hex += this._toHexString(this.getGreen());
         hex += this._toHexString(this.getBlue());
         return hex.toUpperCase();
+<<<<<<< HEAD
     };
     Color.prototype.valueOf = function () {
         return this.toString();
@@ -2338,23 +3720,46 @@ var Color = (function () {
         return this.toRGBA();
     };
     Color.prototype._toHexString = function (value) {
+=======
+    }
+    valueOf() {
+        return this.toString();
+    }
+    toString() {
+        return this.toRGBA();
+    }
+    _toHexString(value) {
+>>>>>>> master
         var hex = value.toString(16);
         if (hex.length === 1) {
             hex = '0' + hex;
         }
         return hex;
+<<<<<<< HEAD
     };
     Color._parseHexString = function (color) {
+=======
+    }
+    static _parseHexString(color) {
+>>>>>>> master
         var colorCodes = [];
         color = color.replace('#', '');
         switch (color.length) {
             case 3:
+<<<<<<< HEAD
                 color = "" + color.charAt(0) + color.charAt(0) + color.charAt(1) + color.charAt(1) + color.charAt(2) + color.charAt(2);
+=======
+                color = `${color.charAt(0)}${color.charAt(0)}${color.charAt(1)}${color.charAt(1)}${color.charAt(2)}${color.charAt(2)}`;
+>>>>>>> master
                 break;
             case 6:
                 break;
             default:
+<<<<<<< HEAD
                 throw new Error("Malformed hex code \"#" + color + "\". Expecting hex length of 3 or 6.");
+=======
+                throw new Error(`Malformed hex code "#${color}". Expecting hex length of 3 or 6.`);
+>>>>>>> master
         }
         var rHex = color.slice(0, 2);
         var gHex = color.slice(2, 4);
@@ -2369,8 +3774,13 @@ var Color = (function () {
             }
         }
         return colorCodes;
+<<<<<<< HEAD
     };
     Color._parseRGB = function (color) {
+=======
+    }
+    static _parseRGB(color) {
+>>>>>>> master
         var colorCodes = [];
         color = color.toLowerCase();
         if (color.indexOf('rgba(') > -1) {
@@ -2392,7 +3802,11 @@ var Color = (function () {
             colorCodes[3] = 255;
         }
         else {
+<<<<<<< HEAD
             throw new Error("Malformed RGB structure \"" + color + "\". Expecting rgb(#,#,#) or rgba(#,#,#,#)");
+=======
+            throw new Error(`Malformed RGB structure "${color}". Expecting rgb(#,#,#) or rgba(#,#,#,#)`);
+>>>>>>> master
         }
         for (var i = 0; i < colorCodes.length; i++) {
             var code = colorCodes[i];
@@ -2401,18 +3815,30 @@ var Color = (function () {
             }
         }
         return colorCodes;
+<<<<<<< HEAD
     };
     Color._parseColorName = function (color) {
+=======
+    }
+    static _parseColorName(color) {
+>>>>>>> master
         if (ColorCode_1.ColorMap[color] !== undefined) {
             var colorCode = ColorCode_1.ColorMap[color];
             var rgb = Color._parseHex(colorCode);
             return [rgb.r, rgb.g, rgb.b, 255];
         }
         else {
+<<<<<<< HEAD
             throw new Error("Invalid color \"" + color + "\"");
         }
     };
     Color.fromString = function (color) {
+=======
+            throw new Error(`Invalid color "${color}"`);
+        }
+    }
+    static fromString(color) {
+>>>>>>> master
         var colorCodes;
         if (color.charAt(0) === '#') {
             colorCodes = Color._parseHexString(color);
@@ -2428,6 +3854,7 @@ var Color = (function () {
         var b = colorCodes[2];
         var a = colorCodes[3];
         return new Color(r, g, b, a / 255);
+<<<<<<< HEAD
     };
     Color.fromHex = function (hex) {
         var rgb = Color._parseHex(hex);
@@ -2444,10 +3871,28 @@ var Color = (function () {
     };
     return Color;
 }());
+=======
+    }
+    static fromHex(hex) {
+        var rgb = Color._parseHex(hex);
+        return new Color(rgb.r, rgb.g, rgb.b);
+    }
+    static fromColorCode(code) {
+        return Color.fromHex(code);
+    }
+    static _parseHex(hex) {
+        var r = hex >> 16;
+        var g = hex >> 8 & 0xFF;
+        var b = hex & 0xFF;
+        return { r, g, b };
+    }
+}
+>>>>>>> master
 exports.Color = Color;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2494,40 +3939,67 @@ exports.Coordinate = Coordinate;
 
 /***/ }),
 /* 24 */
+=======
+/* 26 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var AudioEngine_1 = __webpack_require__(7);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
 var HTML5AudioEngine_1 = __webpack_require__(36);
+=======
+const AudioEngine_1 = __webpack_require__(8);
+exports.AudioEngine = AudioEngine_1.AudioEngine;
+const HTML5AudioEngine_1 = __webpack_require__(38);
+>>>>>>> master
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 25 */
+=======
+/* 27 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var assets_1 = __webpack_require__(1);
 var Asset = (function () {
     function Asset(type, url) {
+=======
+const utils_1 = __webpack_require__(0);
+const assets_1 = __webpack_require__(2);
+const events_1 = __webpack_require__(1);
+class Asset extends events_1.EventEmitter {
+    constructor(type, url) {
+        super();
+>>>>>>> master
         this._id = utils_1.IDGenerator.getSingleton().generate();
         this._type = type;
         this._data = null;
         this.setSource(url);
         this._attributes = {};
     }
+<<<<<<< HEAD
     Asset.prototype.setSource = function (source) {
+=======
+    setSource(source) {
+>>>>>>> master
         if (source !== this.getSource()) {
             this._url = source;
             this.setData(null);
             this.setState(assets_1.AssetState.NOT_LOADED);
         }
+<<<<<<< HEAD
     };
     Asset.prototype.getSource = function () {
         return this._url;
@@ -2580,10 +4052,71 @@ var Asset = (function () {
     Asset.prototype.onError = function (error) { };
     return Asset;
 }());
+=======
+    }
+    getSource() {
+        return this._url;
+    }
+    setState(state) {
+        if (this._state !== state) {
+            this._state = state;
+            this.onStateChange(this._state);
+            this.emit("state_change", this._state);
+        }
+    }
+    getState() {
+        return this._state;
+    }
+    setData(data) {
+        this._data = data;
+        this.onDataChange(this._data);
+        this.emit("data_change", this._data);
+    }
+    getData() {
+        return this._data;
+    }
+    getType() {
+        return this._type;
+    }
+    setLoadStrategy(loadStrategy) {
+        this._loadStrategy = loadStrategy;
+    }
+    getLoadStrategy() {
+        return this._loadStrategy;
+    }
+    load() {
+        return this._loadStrategy.load(this);
+    }
+    unload() {
+        return this._loadStrategy.unload(this);
+    }
+    isReady() {
+        return (this.getState() === assets_1.AssetState.LOADED);
+    }
+    setAttribute(key, value) {
+        this._attributes[key] = value;
+    }
+    getAttribute(key) {
+        return this._attributes[key];
+    }
+    isAttribute(key) {
+        return !!this._attributes[key];
+    }
+    removeAttribute(key) {
+        delete this._attributes[key];
+    }
+    onStateChange(state) { }
+    onDataChange(data) { }
+    onError(error) {
+        this.emit("error", error);
+    }
+}
+>>>>>>> master
 exports.Asset = Asset;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2615,28 +4148,45 @@ var AssetState;
 
 
 /***/ }),
+=======
+>>>>>>> master
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var assets_1 = __webpack_require__(1);
 var AssetFactory = (function () {
     function AssetFactory() {
+=======
+const assets_1 = __webpack_require__(2);
+class AssetFactory {
+    constructor() {
+>>>>>>> master
         this._assetLoader = new assets_1.AssetLoader();
         this._audioLoader = new assets_1.AudioLoader();
         this._imageLoader = new assets_1.ImageLoader();
         this._jsonLoader = new assets_1.JSONLoader();
         this._cache = {};
     }
+<<<<<<< HEAD
     AssetFactory.getSingleton = function () {
+=======
+    static getSingleton() {
+>>>>>>> master
         if (!AssetFactory._instance) {
             AssetFactory._instance = new AssetFactory();
         }
         return AssetFactory._instance;
+<<<<<<< HEAD
     };
     AssetFactory.prototype.build = function (type, url) {
+=======
+    }
+    build(type, url) {
+>>>>>>> master
         var asset;
         var cache = this._cache[url];
         if (cache) {
@@ -2669,30 +4219,52 @@ var AssetFactory = (function () {
             this._cache[url] = asset;
         }
         return asset;
+<<<<<<< HEAD
     };
     AssetFactory.prototype._configureRawAsset = function (asset, url) { };
     AssetFactory.prototype._configureImageAsset = function (asset, url) {
+=======
+    }
+    _configureRawAsset(asset, url) { }
+    _configureImageAsset(asset, url) {
+>>>>>>> master
         var img = document.createElement('img');
         img.addEventListener('load', function () {
             asset.setState(assets_1.AssetState.LOADED);
         });
         asset.setData(img);
+<<<<<<< HEAD
     };
     AssetFactory.prototype._configureJSONAsset = function (asset, url) { };
     AssetFactory.prototype._configureAudioAsset = function (asset, url) {
+=======
+    }
+    _configureJSONAsset(asset, url) { }
+    _configureAudioAsset(asset, url) {
+>>>>>>> master
         var audio = document.createElement('audio');
         audio.addEventListener('canplaythrough', function () {
             asset.setState(assets_1.AssetState.LOADED);
         });
         asset.setData(audio);
+<<<<<<< HEAD
     };
     AssetFactory.prototype._clone = function (asset) {
+=======
+    }
+    _clone(asset) {
+>>>>>>> master
         var type = asset.getType();
         var clone = new assets_1.Asset(type, asset.getSource());
         this._cloneAssetData(clone, asset, type);
         return clone;
+<<<<<<< HEAD
     };
     AssetFactory.prototype._cloneAssetData = function (clone, asset, type) {
+=======
+    }
+    _cloneAssetData(clone, asset, type) {
+>>>>>>> master
         var data = null;
         switch (type) {
             default:
@@ -2707,17 +4279,27 @@ var AssetFactory = (function () {
         }
         clone.setLoadStrategy(asset.getLoadStrategy());
         clone.setData(data);
+<<<<<<< HEAD
     };
     AssetFactory.prototype._cloneNode = function (node) {
+=======
+    }
+    _cloneNode(node) {
+>>>>>>> master
         if (node) {
             return node.cloneNode(true);
         }
         else {
             return null;
         }
+<<<<<<< HEAD
     };
     return AssetFactory;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.AssetFactory = AssetFactory;
 
 
@@ -2728,6 +4310,7 @@ exports.AssetFactory = AssetFactory;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var assets_1 = __webpack_require__(1);
 var AssetLoader = (function () {
     function AssetLoader() {
@@ -2761,12 +4344,106 @@ var AssetLoader = (function () {
         clone.setData(asset.getData());
     };
     AssetLoader.prototype._validateURL = function (url) {
+=======
+const AssetType_1 = __webpack_require__(9);
+const AssetGroup_1 = __webpack_require__(11);
+const Instance_1 = __webpack_require__(3);
+const Iterator_1 = __webpack_require__(6);
+class AssetGroupLoader {
+    constructor() {
+        this._assetFactory = Instance_1.getInstance().getAssetFactory();
+    }
+    load(path) {
+        return new Promise((resolve, reject) => {
+            var json = this._assetFactory.build(AssetType_1.AssetType.JSON, path);
+            json.load().then((assetGroupDefs) => {
+                var data = assetGroupDefs.getData();
+                resolve(this._createGroup(data));
+            }).catch(reject);
+        });
+    }
+    loadFromAsset(asset) {
+        if (asset.getType() !== AssetType_1.AssetType.JSON) {
+            throw new Error('loadFromAsset expects a JSON asset.');
+        }
+        return this._createGroup(asset.getData());
+    }
+    loadFromMemory(data) {
+        return this._createGroup(data);
+    }
+    _createGroup(data) {
+        var iterator = new Iterator_1.Iterator(data.assets);
+        var group = new AssetGroup_1.AssetGroup();
+        while (iterator.hasNext()) {
+            var assetDef = iterator.next();
+            var asset = this._assetFactory.build(assetDef.type, assetDef.source);
+            group.addAsset(assetDef.name, asset);
+        }
+        return group;
+    }
+}
+exports.AssetGroupLoader = AssetGroupLoader;
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+Object.defineProperty(exports, "__esModule", { value: true });
+const assets_1 = __webpack_require__(2);
+class AssetLoader {
+    constructor() { }
+    load(asset) {
+        return new Promise((resolve, reject) => {
+            var request = new XMLHttpRequest();
+            var source = asset.getSource();
+            if (this._validateURL(source)) {
+                request.open(this._getMethod(), asset.getSource());
+                asset.setState(assets_1.AssetState.LOADING);
+                request.onreadystatechange = (e) => {
+                    if (request.readyState === XMLHttpRequest.DONE) {
+                        if (request.status === 200) {
+                            this._onSuccess(asset, request.responseText, resolve);
+                        }
+                        else {
+                            this._onFail(asset, request, reject);
+                            reject(asset);
+                        }
+                    }
+                    this._postRequest();
+                };
+                this._preRequest();
+                request.send();
+            }
+            else {
+                this._onSuccess(asset, source, resolve);
+            }
+        });
+    }
+    unload(asset) {
+        return new Promise((resolve, reject) => {
+            asset.setState(assets_1.AssetState.UNLOADING);
+            process.nextTick(() => {
+                asset.setData(null);
+                asset.setState(assets_1.AssetState.NOT_LOADED);
+                resolve(asset);
+            });
+        });
+    }
+    clone(asset, clone) {
+        clone.setData(asset.getData());
+    }
+    _validateURL(url) {
+>>>>>>> master
         url = url.trim();
         var type = url.substring(0, 5);
         if (type === 'data:') {
             return false;
         }
         return true;
+<<<<<<< HEAD
     };
     AssetLoader.prototype._getMethod = function () {
         return 'GET';
@@ -2789,10 +4466,228 @@ exports.AssetLoader = AssetLoader;
 
 /***/ }),
 /* 30 */
+=======
+    }
+    _getMethod() {
+        return 'GET';
+    }
+    _preRequest() { }
+    _postRequest() { }
+    _onSuccess(asset, data, resolve) {
+        asset.setData(data);
+        asset.setState(assets_1.AssetState.LOADED);
+        resolve(asset);
+    }
+    _onFail(asset, error, reject) {
+        reject({
+            detailed: error,
+            message: 'Generic Error Message',
+            asset: asset
+        });
+    }
+}
+exports.AssetLoader = AssetLoader;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 32 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2836,15 +4731,68 @@ var AudioLoader = (function (_super) {
     };
     return AudioLoader;
 }(assets_1.AssetLoader));
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const assets_1 = __webpack_require__(2);
+class AudioLoader extends assets_1.AssetLoader {
+    constructor() {
+        super();
+    }
+    load(asset) {
+        asset.setState(assets_1.AssetState.LOADING);
+        return new Promise((resolve, reject) => {
+            var audio = asset.getData();
+            audio.setAttribute('preload', 'auto');
+            this._assignEvents(asset, audio, resolve, reject);
+            audio.src = asset.getSource();
+        });
+    }
+    unload(asset) {
+        asset.setState(assets_1.AssetState.UNLOADING);
+        return new Promise((resolve, reject) => {
+            var audio = asset.getData();
+            audio.oncanplaythrough = null;
+            audio.onerror = null;
+            audio.onplaying = null;
+            audio.onended = null;
+            asset.setData(null);
+            asset.setState(assets_1.AssetState.NOT_LOADED);
+            resolve(asset);
+        });
+    }
+    _assignEvents(asset, audio, resolve, reject) {
+        var canPlay = (e) => {
+            audio.oncanplaythrough = null;
+            this._onSuccess(asset, audio, resolve);
+        };
+        audio.oncanplaythrough = canPlay;
+        audio.onerror = (e) => {
+            this._onFail(asset, e, reject);
+        };
+        audio.onplaying = (e) => {
+            asset.setAttribute('playing', true);
+        };
+        audio.onended = (e) => {
+            audio.currentTime = 0;
+            asset.setAttribute('playing', false);
+        };
+    }
+}
+>>>>>>> master
 exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 31 */
+=======
+/* 33 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2875,15 +4823,54 @@ var ImageLoader = (function (_super) {
     };
     return ImageLoader;
 }(assets_1.AssetLoader));
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const assets_1 = __webpack_require__(2);
+class ImageLoader extends assets_1.AssetLoader {
+    constructor() {
+        super();
+    }
+    load(asset) {
+        asset.setState(assets_1.AssetState.LOADING);
+        return new Promise((resolve, reject) => {
+            var image = asset.getData();
+            image.onload = (e) => {
+                this._onSuccess(asset, image, resolve);
+            };
+            image.onerror = (e) => {
+                this._onFail(asset, e, reject);
+            };
+            image.src = asset.getSource();
+        });
+    }
+    unload(asset) {
+        asset.setState(assets_1.AssetState.UNLOADING);
+        return new Promise((resolve, reject) => {
+            var image = asset.getData();
+            image.onload = null;
+            image.onerror = null;
+            image.src = null;
+            asset.setData(null);
+            asset.setState(assets_1.AssetState.NOT_LOADED);
+            resolve(asset);
+        });
+    }
+}
+>>>>>>> master
 exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 32 */
+=======
+/* 34 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -2907,22 +4894,48 @@ var JSONLoader = (function (_super) {
     };
     return JSONLoader;
 }(assets_1.AssetLoader));
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const assets_1 = __webpack_require__(2);
+class JSONLoader extends assets_1.AssetLoader {
+    constructor() {
+        super();
+    }
+    _onSuccess(asset, data, resolve) {
+        var json = data;
+        asset.setData(JSON.parse(json));
+        resolve(asset);
+    }
+}
+>>>>>>> master
 exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 33 */
+=======
+/* 35 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var assets_1 = __webpack_require__(1);
 var TextAssetBuilder = (function () {
     function TextAssetBuilder() {
     }
     TextAssetBuilder.prototype.build = function (font, text, maxWidth, height, color) {
+=======
+const utils_1 = __webpack_require__(0);
+const assets_1 = __webpack_require__(2);
+class TextAssetBuilder {
+    constructor() { }
+    build(font, text, maxWidth, height, color) {
+>>>>>>> master
         var textViewPort = new utils_1.ViewPort();
         var textAsset = new assets_1.Asset(assets_1.AssetType.IMAGE);
         textViewPort.setFont(font);
@@ -2931,33 +4944,59 @@ var TextAssetBuilder = (function () {
         if (!maxWidth) {
             maxWidth = textViewPort.measureText(text).width;
         }
+<<<<<<< HEAD
         textViewPort.setSize({ width: maxWidth, height: height });
+=======
+        textViewPort.setSize({ width: maxWidth, height });
+        textViewPort.setFont(font);
+        textViewPort.setColor(color);
+>>>>>>> master
         textViewPort.setTextBaseline("hanging");
         textViewPort.drawText(text, 0, 0, maxWidth);
         textAsset.setData(textViewPort.getImage());
         return textAsset;
+<<<<<<< HEAD
     };
     return TextAssetBuilder;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 34 */
+=======
+/* 36 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var assets_1 = __webpack_require__(1);
 var Spritesheet = (function () {
     function Spritesheet(spritesheetAsset, spritesheetDefinition) {
+=======
+const utils_1 = __webpack_require__(0);
+const assets_1 = __webpack_require__(2);
+class Spritesheet {
+    constructor(spritesheetAsset, spritesheetDefinition) {
+>>>>>>> master
         this._spritesheetAsset = spritesheetAsset;
         this._spritesheetDefinition = spritesheetDefinition;
         this._spriteCache = {};
     }
+<<<<<<< HEAD
     Spritesheet.prototype.getSprite = function (id) {
+=======
+    getSprite(id) {
+>>>>>>> master
         if (this._spriteCache[id]) {
             return this._spriteCache[id];
         }
@@ -2975,21 +5014,35 @@ var Spritesheet = (function () {
         else {
             return false;
         }
+<<<<<<< HEAD
     };
     return Spritesheet;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 35 */
+=======
+/* 37 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var Animation = (function () {
     function Animation(entity, animationDefinitions) {
+=======
+class Animation {
+    constructor(entity, animationDefinitions) {
+>>>>>>> master
         this._entity = entity;
         this._animationDefinition = animationDefinitions;
         this.loop = true;
@@ -2998,15 +5051,23 @@ var Animation = (function () {
         this._animating = false;
         this._animation_index = -1;
     }
+<<<<<<< HEAD
     Animation.prototype.isAnimating = function () {
         return this._animating;
     };
     Animation.prototype.start = function () {
+=======
+    isAnimating() {
+        return this._animating;
+    }
+    start() {
+>>>>>>> master
         if (!this._timeout) {
             this._direction = "forward";
             this._loadStep(0);
             this._animating = true;
         }
+<<<<<<< HEAD
     };
     Animation.prototype.stop = function () {
         clearTimeout(this._timeout);
@@ -3015,6 +5076,15 @@ var Animation = (function () {
     };
     Animation.prototype._loadStep = function (stepIndex) {
         var _this = this;
+=======
+    }
+    stop() {
+        clearTimeout(this._timeout);
+        this._timeout = false;
+        this._animating = false;
+    }
+    _loadStep(stepIndex) {
+>>>>>>> master
         var step = this._animationDefinition[stepIndex];
         var sprite = step.asset;
         this._entity.setTexture(sprite);
@@ -3047,6 +5117,7 @@ var Animation = (function () {
             nextStepIndex = stepIndex + 1;
         }
         if (this._animationDefinition[nextStepIndex]) {
+<<<<<<< HEAD
             this._timeout = setTimeout(function () {
                 _this._loadStep(nextStepIndex);
             }, step.delay);
@@ -3060,29 +5131,59 @@ var Animation = (function () {
                 else if (_this._direction === "reverse") {
                     _this._direction = "forward";
                     _this._loadStep(stepIndex + 1);
+=======
+            this._timeout = setTimeout(() => {
+                this._loadStep(nextStepIndex);
+            }, step.delay);
+        }
+        else if (this.reverseLoop) {
+            this._timeout = setTimeout(() => {
+                if (this._direction === "forward") {
+                    this._direction = "reverse";
+                    this._loadStep(stepIndex - 1);
+                }
+                else if (this._direction === "reverse") {
+                    this._direction = "forward";
+                    this._loadStep(stepIndex + 1);
+>>>>>>> master
                 }
             }, step.delay);
         }
         else if (this.loop) {
+<<<<<<< HEAD
             this._timeout = setTimeout(function () {
                 _this._loadStep(0);
+=======
+            this._timeout = setTimeout(() => {
+                this._loadStep(0);
+>>>>>>> master
             }, step.delay);
         }
         else {
             this.stop();
         }
+<<<<<<< HEAD
     };
     return Animation;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.Animation = Animation;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 36 */
+=======
+/* 38 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3114,16 +5215,43 @@ var HTML5AudioEngine = (function (_super) {
         this._soundEffects.push(audio);
     };
     HTML5AudioEngine.prototype.setBackgroundVolume = function (volume) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const AudioEngine_1 = __webpack_require__(8);
+class HTML5AudioEngine extends AudioEngine_1.AudioEngine {
+    constructor() {
+        super();
+        this._backgroundVolume = 1.0;
+        this._soundEffectVolume = 1.0;
+        this._backgroundAudios = [];
+        this._soundEffects = [];
+    }
+    addBackgroundMusic(name, audio) {
+        this.addAudio(name, audio);
+        this._backgroundAudios.push(audio);
+    }
+    addSoundEffect(name, audio) {
+        this.addAudio(name, audio);
+        this._soundEffects.push(audio);
+    }
+    setBackgroundVolume(volume) {
+>>>>>>> master
         this._backgroundVolume = volume;
         for (var i = 0, len = this._backgroundAudios.length; i < len; i++) {
             this._setVolume(this._backgroundAudios[i], this._backgroundVolume);
         }
+<<<<<<< HEAD
     };
     HTML5AudioEngine.prototype.setSoundEffectVolume = function (volume) {
+=======
+    }
+    setSoundEffectVolume(volume) {
+>>>>>>> master
         this._soundEffectVolume = volume;
         for (var i = 0, len = this._soundEffects.length; i < len; i++) {
             this._setVolume(this._soundEffects[i], this._soundEffectVolume);
         }
+<<<<<<< HEAD
     };
     HTML5AudioEngine.prototype.isBackgroundMusic = function (audio) {
         return (this._backgroundAudios.indexOf(audio) > -1);
@@ -3137,12 +5265,28 @@ var HTML5AudioEngine = (function (_super) {
         data.play();
     };
     HTML5AudioEngine.prototype._updateVolume = function (audio) {
+=======
+    }
+    isBackgroundMusic(audio) {
+        return (this._backgroundAudios.indexOf(audio) > -1);
+    }
+    isSoundEffect(audio) {
+        return (this._soundEffects.indexOf(audio) > -1);
+    }
+    _playAudio(audio) {
+        this._updateVolume(audio);
+        var data = this._getData(audio);
+        data.play();
+    }
+    _updateVolume(audio) {
+>>>>>>> master
         if (this.isSoundEffect(audio)) {
             this._setVolume(audio, this._soundEffectVolume);
         }
         else if (this.isBackgroundMusic(audio)) {
             this._setVolume(audio, this._backgroundVolume);
         }
+<<<<<<< HEAD
     };
     HTML5AudioEngine.prototype._pauseAudio = function (audio) {
         var data = this._getData(audio);
@@ -3190,43 +5334,116 @@ var HTML5AudioEngine = (function (_super) {
         return data.volume;
     };
     HTML5AudioEngine.prototype._registerStartEvent = function (audio) {
+=======
+    }
+    _pauseAudio(audio) {
+        var data = this._getData(audio);
+        data.pause();
+    }
+    _stopAudio(audio) {
+        var data = this._getData(audio);
+        data.pause();
+        this._setTimeCursor(audio, 0);
+    }
+    _isAudioLooping(audio) {
+        var data = this._getData(audio);
+        return data.loop;
+    }
+    _loopAudio(audio, state) {
+        var data = this._getData(audio);
+        data.loop = state;
+    }
+    _isAudioMuted(audio) {
+        var data = this._getData(audio);
+        return data.muted;
+    }
+    _muteAudio(audio, state) {
+        var data = this._getData(audio);
+        data.muted = state;
+    }
+    _getAudioDuration(audio) {
+        var data = this._getData(audio);
+        return data.duration;
+    }
+    _setTimeCursor(audio, seconds) {
+        var data = this._getData(audio);
+        data.currentTime = seconds;
+    }
+    _getTimeCursor(audio) {
+        var data = this._getData(audio);
+        return data.currentTime;
+    }
+    _setVolume(audio, volume) {
+        var data = this._getData(audio);
+        data.volume = volume;
+    }
+    _getVolume(audio) {
+        var data = this._getData(audio);
+        return data.volume;
+    }
+    _registerStartEvent(audio) {
+>>>>>>> master
         var data = audio.getData();
         data.addEventListener('playing', function (e) {
             audio.setAttribute('playing', true);
         });
+<<<<<<< HEAD
     };
     HTML5AudioEngine.prototype._registerEndEvent = function (audio) {
+=======
+    }
+    _registerEndEvent(audio) {
+>>>>>>> master
         var data = audio.getData();
         data.addEventListener('ended', function (e) {
             audio.setAttribute('playing', false);
         });
+<<<<<<< HEAD
     };
     return HTML5AudioEngine;
 }(AudioEngine_1.AudioEngine));
+=======
+    }
+}
+>>>>>>> master
 exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 37 */
+=======
+/* 39 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var LogicEngine = (function () {
     function LogicEngine() {
     }
     return LogicEngine;
 }());
+=======
+class LogicEngine {
+}
+>>>>>>> master
 exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 38 */
+=======
+/* 40 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3249,6 +5466,18 @@ var GroupLogicEngine = (function (_super) {
         return _this;
     }
     GroupLogicEngine.prototype.addLogic = function (id, logicMethod, interval) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(4);
+class GroupLogicEngine extends _1.LogicEngine {
+    constructor() {
+        super();
+        this._logicCalls = {};
+        this._intervals = {};
+        this._interval = 10;
+    }
+    addLogic(id, logicMethod, interval) {
+>>>>>>> master
         this._logicCalls[id] = {
             'method': logicMethod,
             'interval': interval
@@ -3257,6 +5486,7 @@ var GroupLogicEngine = (function (_super) {
             this._createInterval(interval);
         }
         this._addToInterval(id);
+<<<<<<< HEAD
     };
     GroupLogicEngine.prototype.pauseLogic = function (id) {
         this._removeFromInterval(id);
@@ -3265,17 +5495,33 @@ var GroupLogicEngine = (function (_super) {
         this._addToInterval(id);
     };
     GroupLogicEngine.prototype.removeLogic = function (id) {
+=======
+    }
+    pauseLogic(id) {
+        this._removeFromInterval(id);
+    }
+    resumeLogic(id) {
+        this._addToInterval(id);
+    }
+    removeLogic(id) {
+>>>>>>> master
         if (this._logicCalls[id]) {
             this._removeFromInterval(id);
             delete this._logicCalls[id];
         }
+<<<<<<< HEAD
     };
     GroupLogicEngine.prototype._createInterval = function (interval) {
         var _this = this;
+=======
+    }
+    _createInterval(interval) {
+>>>>>>> master
         var self = this;
         var methods = [];
         this._intervals[interval] = {
             'methods': methods,
+<<<<<<< HEAD
             'interval_id': setInterval(function () {
                 _this._processInterval(interval);
             }, interval)
@@ -3292,11 +5538,30 @@ var GroupLogicEngine = (function (_super) {
         this._intervals[this._logicCalls[id].interval].methods.push(this._logicCalls[id].method);
     };
     GroupLogicEngine.prototype._removeFromInterval = function (id) {
+=======
+            'interval_id': setInterval(() => {
+                this._processInterval(interval);
+            }, interval)
+        };
+    }
+    _hasInterval(interval) {
+        return this._intervals[interval] != undefined;
+    }
+    _removeInterval(interval) {
+        clearInterval(this._intervals[interval].interval_id);
+        delete this._intervals[interval];
+    }
+    _addToInterval(id) {
+        this._intervals[this._logicCalls[id].interval].methods.push(this._logicCalls[id].method);
+    }
+    _removeFromInterval(id) {
+>>>>>>> master
         var interval = this._logicCalls[id].interval;
         this._intervals[interval].methods.splice(this._intervals[interval].methods.indexOf(this._logicCalls[id].method), 1);
         if (this._intervals[interval].methods.length === 0) {
             this._removeInterval(interval);
         }
+<<<<<<< HEAD
     };
     GroupLogicEngine.prototype._processInterval = function (interval) {
         for (var i in this._intervals[interval].methods) {
@@ -3305,19 +5570,38 @@ var GroupLogicEngine = (function (_super) {
     };
     return GroupLogicEngine;
 }(_1.LogicEngine));
+=======
+    }
+    _processInterval(interval) {
+        for (var i in this._intervals[interval].methods) {
+            this._intervals[interval].methods[i]();
+        }
+    }
+}
+>>>>>>> master
 exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 39 */
+=======
+/* 41 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+<<<<<<< HEAD
 var utils_1 = __webpack_require__(0);
 var RenderingEngine = (function () {
     function RenderingEngine() {
+=======
+const utils_1 = __webpack_require__(0);
+class RenderingEngine {
+    constructor() {
+>>>>>>> master
         this._prerenderViewPort = new utils_1.ViewPort();
         this._rendering = false;
         this._fps = 0;
@@ -3325,6 +5609,7 @@ var RenderingEngine = (function () {
         this._showFPS = true;
         this._cameras = [];
     }
+<<<<<<< HEAD
     RenderingEngine.prototype.setViewPort = function (viewPort) {
         this._viewPort = viewPort;
     };
@@ -3344,6 +5629,27 @@ var RenderingEngine = (function () {
         delete this._cameras[this._cameras.indexOf(camera)];
     };
     RenderingEngine.prototype.startRendering = function () {
+=======
+    setViewPort(viewPort) {
+        this._viewPort = viewPort;
+    }
+    getViewPort() {
+        return this._viewPort;
+    }
+    setHUD(hud) {
+        this._HUDEntity = hud;
+    }
+    getHUD() {
+        return this._HUDEntity;
+    }
+    addCamera(camera) {
+        this._cameras.push(camera);
+    }
+    removeCamera(camera) {
+        delete this._cameras[this._cameras.indexOf(camera)];
+    }
+    startRendering() {
+>>>>>>> master
         if (this._viewPort) {
             var self = this;
             this._rendering = true;
@@ -3354,6 +5660,7 @@ var RenderingEngine = (function () {
             console.warn('Unable to begin rendering, no view port assigned to rendering engine.');
             return false;
         }
+<<<<<<< HEAD
     };
     RenderingEngine.prototype.stopRendering = function () {
         window.cancelAnimationFrame(this._animationFrameID);
@@ -3373,6 +5680,26 @@ var RenderingEngine = (function () {
         this._viewPort.clear();
     };
     RenderingEngine.prototype._calculateFPS = function () {
+=======
+    }
+    stopRendering() {
+        window.cancelAnimationFrame(this._animationFrameID);
+        this._animationFrameID = null;
+        this._rendering = false;
+    }
+    _requestFrame() {
+        if (this._rendering) {
+            this._animationFrameID = window.requestAnimationFrame(() => {
+                this._render();
+                this._postRender();
+            });
+        }
+    }
+    _render() {
+        this._viewPort.clear();
+    }
+    _calculateFPS() {
+>>>>>>> master
         var date = new Date();
         if (this._lastRender) {
             if (this._lastRender.getSeconds() != date.getSeconds()) {
@@ -3384,8 +5711,13 @@ var RenderingEngine = (function () {
             }
         }
         this._lastRender = date;
+<<<<<<< HEAD
     };
     RenderingEngine.prototype._postRender = function () {
+=======
+    }
+    _postRender() {
+>>>>>>> master
         if (this._showFPS) {
             this._calculateFPS();
             var ctx = this._viewPort.getContext();
@@ -3398,18 +5730,28 @@ var RenderingEngine = (function () {
             ctx.fillText(this._fps + " FPS", 20, 25);
         }
         this._requestFrame();
+<<<<<<< HEAD
     };
     return RenderingEngine;
 }());
+=======
+    }
+}
+>>>>>>> master
 exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 40 */
+=======
+/* 42 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3429,6 +5771,13 @@ var TwoDimensionalRenderingEngine = (function (_super) {
     }
     TwoDimensionalRenderingEngine.prototype._render = function () {
         _super.prototype._render.call(this);
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(4);
+class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
+    _render() {
+        super._render();
+>>>>>>> master
         var context = this.getViewPort().getContext();
         for (var i in this._cameras) {
             this._renderCamera(this._cameras[i]);
@@ -3436,8 +5785,13 @@ var TwoDimensionalRenderingEngine = (function (_super) {
         if (this.getHUD()) {
             this._renderEntity(this.getHUD(), null);
         }
+<<<<<<< HEAD
     };
     TwoDimensionalRenderingEngine.prototype._renderCamera = function (camera) {
+=======
+    }
+    _renderCamera(camera) {
+>>>>>>> master
         var scene = camera.getScene();
         var context = this.getViewPort().getContext();
         if (this.debugCamera) {
@@ -3459,8 +5813,13 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             context.stroke();
         }
         this._renderEntity(scene, camera);
+<<<<<<< HEAD
     };
     TwoDimensionalRenderingEngine.prototype._renderEntity = function (entity, camera) {
+=======
+    }
+    _renderEntity(entity, camera) {
+>>>>>>> master
         if (camera) {
             var viewPoint = camera.getViewPoint();
             var fov = camera.getFOV();
@@ -3572,13 +5931,19 @@ var TwoDimensionalRenderingEngine = (function (_super) {
             this._renderEntity(children.next(), camera);
         }
         return true;
+<<<<<<< HEAD
     };
     return TwoDimensionalRenderingEngine;
 }(_1.RenderingEngine));
+=======
+    }
+}
+>>>>>>> master
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3768,10 +6133,14 @@ exports.IsometricRenderingEngine = IsometricRenderingEngine;
 
 /***/ }),
 /* 42 */
+=======
+/* 43 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3806,17 +6175,47 @@ var EntityModel = (function (_super) {
         return this._type;
     };
     EntityModel.prototype.setTexture = function (asset) {
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+const utils_1 = __webpack_require__(0);
+class EntityModel extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._attributes = {};
+        this._id = utils_1.IDGenerator.getSingleton().generate();
+        this._type = 'generic';
+    }
+    getID() {
+        return this._id;
+    }
+    setType(type) {
+        this._type = type;
+    }
+    getType() {
+        return this._type;
+    }
+    setTexture(asset) {
+>>>>>>> master
         this._texture = asset;
         this.emit(3..toString(), {
             attribute: 'texture',
             name: name,
             value: asset
         });
+<<<<<<< HEAD
     };
     EntityModel.prototype.getTexture = function () {
         return this._texture;
     };
     EntityModel.prototype.setAttribute = function (key, value) {
+=======
+    }
+    getTexture() {
+        return this._texture;
+    }
+    setAttribute(key, value) {
+>>>>>>> master
         var oldValue = this.getAttribute(key);
         this._attributes[key] = value;
         this.emit(1..toString(), {
@@ -3824,8 +6223,13 @@ var EntityModel = (function (_super) {
             oldValue: oldValue,
             value: value
         });
+<<<<<<< HEAD
     };
     EntityModel.prototype.removeAttribute = function (key) {
+=======
+    }
+    removeAttribute(key) {
+>>>>>>> master
         var value = this.getAttribute(key);
         delete this._attributes[key];
         var data = {
@@ -3835,17 +6239,26 @@ var EntityModel = (function (_super) {
             source: this
         };
         this.emit(2..toString(), data);
+<<<<<<< HEAD
     };
     EntityModel.prototype.getAttribute = function (key) {
         return this._attributes[key];
     };
     EntityModel.prototype.hasAttribute = function (key) {
+=======
+    }
+    getAttribute(key) {
+        return this._attributes[key];
+    }
+    hasAttribute(key) {
+>>>>>>> master
         if (this._attributes[key]) {
             return true;
         }
         else {
             return false;
         }
+<<<<<<< HEAD
     };
     EntityModel.prototype.sync = function (listener) {
     };
@@ -3869,15 +6282,26 @@ var EntityModel = (function (_super) {
     };
     return EntityModel;
 }(Events.EventEmitter));
+=======
+    }
+    sync(listener) {
+    }
+}
+>>>>>>> master
 exports.EntityModel = EntityModel;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 43 */
+=======
+/* 44 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3897,15 +6321,26 @@ var EntityView2D = (function (_super) {
     }
     return EntityView2D;
 }(EntityView_1.EntityView));
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const EntityView_1 = __webpack_require__(14);
+class EntityView2D extends EntityView_1.EntityView {
+}
+>>>>>>> master
 exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 44 */
+=======
+/* 45 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -3955,10 +6390,45 @@ var GridMap = (function (_super) {
     };
     return GridMap;
 }(Entity_1.Entity));
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Entity_1 = __webpack_require__(13);
+class GridMap extends Entity_1.Entity {
+    constructor(tileSize, tileCount) {
+        super();
+        this.tileSize = tileSize;
+        this.tileCount = tileCount;
+        this._tiles = [];
+        this.setWidth(this.tileSize.width * this.tileCount.x);
+        this.setHeight(this.tileSize.height * this.tileCount.y);
+        for (var x = 0; x < this.tileCount.x; x++) {
+            for (var y = 0; y < this.tileCount.y; y++) {
+                var tile = new Entity_1.Entity();
+                tile.setWidth(this.tileSize.width);
+                tile.setHeight(this.tileSize.height);
+                tile.setX((x + 1) * this.tileSize.width);
+                tile.setY((y + 1) * this.tileSize.height);
+                this.addChild(tile);
+                if (!this._tiles[x]) {
+                    this._tiles[x] = [];
+                }
+                this._tiles[x][y] = tile;
+            }
+        }
+    }
+    getTile(coordinate) {
+        return this._tiles[coordinate.x][coordinate.y];
+    }
+    getTiles() {
+        return this._children;
+    }
+}
+>>>>>>> master
 exports.GridMap = GridMap;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3995,11 +6465,14 @@ exports.IsometricGridMap = IsometricGridMap;
 
 
 /***/ }),
+=======
+>>>>>>> master
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4041,15 +6514,35 @@ exports.Mouse = Mouse_1.Mouse;
 var Touch_1 = __webpack_require__(12);
 exports.Touch = Touch_1.Touch;
 var TouchListener_1 = __webpack_require__(51);
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const GamePadListener_1 = __webpack_require__(47);
+exports.GamePadListener = GamePadListener_1.GamePadListener;
+const GamePad_1 = __webpack_require__(15);
+exports.GamePad = GamePad_1.GamePad;
+const Keyboard_1 = __webpack_require__(48);
+exports.Keyboard = Keyboard_1.Keyboard;
+exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
+const Mouse_1 = __webpack_require__(49);
+exports.Mouse = Mouse_1.Mouse;
+const Touch_1 = __webpack_require__(16);
+exports.Touch = Touch_1.Touch;
+const TouchListener_1 = __webpack_require__(50);
+>>>>>>> master
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 48 */
+=======
+/* 47 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4080,6 +6573,27 @@ var GamePadListener = (function (_super) {
                         var gamePad = _this._activeGamePads[i];
                         delete _this._activeGamePads[i];
                         _this.emit("GAMEPADREMOVED", gamePad);
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const GamePad_1 = __webpack_require__(15);
+const Events = __webpack_require__(1);
+class GamePadListener extends Events.EventEmitter {
+    constructor() {
+        super();
+        if (navigator.getGamepads) {
+            this._buildGamePads();
+            this._gamePadPollTimer = window.setInterval(() => {
+                var gamePads = navigator.getGamepads();
+                for (var i = 0; i < gamePads.length; i++) {
+                    if (gamePads[i] && !this._activeGamePads[i]) {
+                        var gamePad = this._buildGamePad(i);
+                        this.emit("GAMEPADADDED", gamePad);
+                    }
+                    else if (!gamePads[i] && this._activeGamePads[i]) {
+                        var gamePad = this._activeGamePads[i];
+                        delete this._activeGamePads[i];
+                        this.emit("GAMEPADREMOVED", gamePad);
+>>>>>>> master
                     }
                 }
             }, 15);
@@ -4087,9 +6601,14 @@ var GamePadListener = (function (_super) {
         else {
             console.log("Browser does not support GamePad API");
         }
+<<<<<<< HEAD
         return _this;
     }
     GamePadListener.prototype._buildGamePads = function () {
+=======
+    }
+    _buildGamePads() {
+>>>>>>> master
         var gamePads = navigator.getGamepads();
         this._activeGamePads = [];
         for (var i = 0; i < gamePads.length; i++) {
@@ -4097,6 +6616,7 @@ var GamePadListener = (function (_super) {
                 this._buildGamePad(i);
             }
         }
+<<<<<<< HEAD
     };
     GamePadListener.prototype._buildGamePad = function (index) {
         var gamePad = new GamePad_1.GamePad(index);
@@ -4115,15 +6635,39 @@ var GamePadListener = (function (_super) {
     };
     return GamePadListener;
 }(Events.EventEmitter));
+=======
+    }
+    _buildGamePad(index) {
+        var gamePad = new GamePad_1.GamePad(index);
+        this._activeGamePads[index] = gamePad;
+        return gamePad;
+    }
+    static getInstance() {
+        GamePadListener._instance = GamePadListener._instance || new GamePadListener();
+        return GamePadListener._instance;
+    }
+    hasGamePads() {
+        return this._activeGamePads.length > 0;
+    }
+    getGamePads() {
+        return this._activeGamePads;
+    }
+}
+>>>>>>> master
 exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 49 */
+=======
+/* 48 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4136,6 +6680,10 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var Events = __webpack_require__(2);
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+>>>>>>> master
 exports.KeyboardKeys = {
     0: 48,
     1: 49,
@@ -4254,6 +6802,7 @@ exports.KeyboardKeys = {
     "POUND": 163,
     "MONEYSIGN": 164,
 };
+<<<<<<< HEAD
 var Keyboard = (function (_super) {
     __extends(Keyboard, _super);
     function Keyboard() {
@@ -4302,15 +6851,67 @@ var Keyboard = (function (_super) {
     };
     return Keyboard;
 }(Events.EventEmitter));
+=======
+class Keyboard extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._buttonMap = {};
+        this._buttonsActive = {};
+        window.addEventListener("keydown", (e) => {
+            if (!this.isButtonActive(e.which)) {
+                this._setButtonActive(e.which, true);
+                this._setButtonValue(e.which, true);
+                let event = {
+                    type: "KEYDOWN",
+                    source: this,
+                    key: e.which
+                };
+                this.emit("KEYDOWN", event);
+            }
+        }, true);
+        window.addEventListener("keyup", (e) => {
+            this._setButtonActive(e.which, false);
+            this._setButtonValue(e.which, false);
+            let event = {
+                type: "KEYUP",
+                source: this,
+                key: e.which
+            };
+            this.emit("KEYUP", event);
+        }, true);
+    }
+    _setButtonActive(id, active) {
+        this._buttonsActive[id] = active;
+    }
+    isButtonActive(id) {
+        return this._buttonsActive[id] === true;
+    }
+    getButtonValue(id) {
+        return this._buttonMap[id];
+    }
+    _setButtonValue(id, value) {
+        this._buttonMap[id] = value;
+    }
+    static getInstance() {
+        Keyboard._instance = Keyboard._instance || new Keyboard();
+        return Keyboard._instance;
+    }
+}
+>>>>>>> master
 exports.Keyboard = Keyboard;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 50 */
+=======
+/* 49 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4411,6 +7012,97 @@ var Mouse = (function (_super) {
         window.addEventListener("wheel", function (e) {
             var yDelta = 0;
             var xDelta = 0;
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(1);
+class Mouse extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._leftButtonDown = false;
+        this._rightButtonDown = false;
+        this._scrollWheelDown = false;
+        this._mouseCoords = { x: 0, y: 0 };
+        window.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener("mousedown", (e) => {
+            if (e.button === 0) {
+                this._leftButtonDown = true;
+                let event = {
+                    type: "LEFTBUTTONDOWN",
+                    source: this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                this.emit("LEFTBUTTONDOWN", event);
+            }
+            else if (e.button === 1) {
+                this._scrollWheelDown = true;
+                let event = {
+                    type: "SCROLLWHEELDOWN",
+                    source: this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                this.emit("SCROLLWHEELDOWN", event);
+            }
+            else if (e.button === 2) {
+                this._rightButtonDown = true;
+                let event = {
+                    type: "RIGHTBUTTONDOWN",
+                    source: this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                this.emit("RIGHTBUTTONDOWN", event);
+            }
+        }, true);
+        window.addEventListener("mouseup", (e) => {
+            if (e.button === 0) {
+                this._leftButtonDown = false;
+                let event = {
+                    type: "LEFTBUTTONUP",
+                    source: this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                this.emit("LEFTBUTTONUP", event);
+            }
+            else if (e.button === 1) {
+                this._scrollWheelDown = false;
+                let event = {
+                    type: "SCROLLWHEELUP",
+                    source: this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                this.emit("SCROLLWHEELUP", event);
+            }
+            else if (e.button === 2) {
+                this._rightButtonDown = false;
+                let event = {
+                    type: "RIGHTBUTTONUP",
+                    source: this,
+                    x: e.clientX,
+                    y: e.clientY
+                };
+                this.emit("RIGHTBUTTONUP", event);
+            }
+        }, true);
+        window.addEventListener("mousemove", (e) => {
+            this._mouseCoords = { x: e.clientX, y: e.clientY };
+            let event = {
+                type: "MOUSEMOVE",
+                source: this,
+                x: e.clientX,
+                y: e.clientY
+            };
+            this.emit("MOUSEMOVE", event);
+        }, true);
+        window.addEventListener("wheel", (e) => {
+            let yDelta = 0;
+            let xDelta = 0;
+>>>>>>> master
             if (e.wheelDeltaY > 0) {
                 yDelta = 1;
             }
@@ -4423,14 +7115,21 @@ var Mouse = (function (_super) {
             else if (e.wheelDeltaX < 0) {
                 xDelta = -1;
             }
+<<<<<<< HEAD
             var event = {
                 type: "SCROLLWHEELMOVE".toString(),
                 source: _this,
+=======
+            let event = {
+                type: "SCROLLWHEELMOVE".toString(),
+                source: this,
+>>>>>>> master
                 x: e.clientX,
                 y: e.clientY,
                 yDelta: yDelta,
                 xDelta: xDelta
             };
+<<<<<<< HEAD
             _this.emit("SCROLLWHEELMOVE".toString(), event);
         }, true);
         return _this;
@@ -4453,15 +7152,42 @@ var Mouse = (function (_super) {
     };
     return Mouse;
 }(Events.EventEmitter));
+=======
+            this.emit("SCROLLWHEELMOVE".toString(), event);
+        }, true);
+    }
+    getCurrentCoordinates() {
+        return this._mouseCoords;
+    }
+    isLeftButtonClicked() {
+        return this._leftButtonDown;
+    }
+    isMouseWheelClicked() {
+        return this._scrollWheelDown;
+    }
+    isRightButtonClicked() {
+        return this._rightButtonDown;
+    }
+    static getInstance() {
+        Mouse._instance = Mouse._instance || new Mouse();
+        return Mouse._instance;
+    }
+}
+>>>>>>> master
 exports.Mouse = Mouse;
 
 
 /***/ }),
+<<<<<<< HEAD
 /* 51 */
+=======
+/* 50 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+<<<<<<< HEAD
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -4494,6 +7220,27 @@ var TouchListener = (function (_super) {
     };
     return TouchListener;
 }(Events.EventEmitter));
+=======
+Object.defineProperty(exports, "__esModule", { value: true });
+const Touch_1 = __webpack_require__(16);
+const Events = __webpack_require__(1);
+class TouchListener extends Events.EventEmitter {
+    constructor() {
+        super();
+        window.addEventListener("touchstart", (e) => {
+            e.preventDefault();
+            for (var i = 0; i < e.changedTouches.length; i++) {
+                var touch = new Touch_1.Touch(e.changedTouches.item(i));
+                this.emit("TOUCHADDED", touch);
+            }
+        });
+    }
+    static getInstance() {
+        TouchListener._instance = TouchListener._instance || new TouchListener();
+        return TouchListener._instance;
+    }
+}
+>>>>>>> master
 exports.TouchListener = TouchListener;
 
 

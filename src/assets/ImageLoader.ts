@@ -17,15 +17,37 @@ export class ImageLoader extends AssetLoader {
 	 * @param  {Asset} asset 
 	 * @return {void}       
 	 */
-	public load(asset: Asset): void {
+	public load(asset: Asset): Promise<Asset> {
 		asset.setState(AssetState.LOADING);
-		var image: HTMLImageElement = <HTMLImageElement>asset.getData();
-		image.onload = (e: Event) => {
-			asset.setData(image);
-		};
-		image.onerror = (e: Event) => {
-			asset.onError();
-		};
-		image.src = asset.getSource();
+
+		return new Promise<Asset>((resolve, reject) => {	
+			var image: HTMLImageElement = <HTMLImageElement>asset.getData();
+			image.onload = (e: Event) => {
+				this._onSuccess(asset, image, resolve);
+			};
+			image.onerror = (e: Event) => {
+				this._onFail(asset, e, reject);
+			};
+			image.src = asset.getSource();
+		});
+	}
+
+	/**
+	 * Destroys the image asset.
+	 * 
+	 * @param asset 
+	 */
+	public unload(asset: Asset): Promise<Asset> {
+		asset.setState(AssetState.UNLOADING);
+
+		return new Promise<Asset>((resolve, reject) => {
+			var image: HTMLImageElement = <HTMLImageElement>asset.getData();
+			image.onload = null;
+			image.onerror = null;
+			image.src = null;
+			asset.setData(null);
+			asset.setState(AssetState.NOT_LOADED);
+			resolve(asset);
+		});
 	}
 }

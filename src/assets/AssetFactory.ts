@@ -39,11 +39,11 @@ export class AssetFactory {
 	 * public build
 	 *
 	 *	Builds an asset of the given type.
-	 *	See zen.assets.AssetFactory.TYPES enumeration.
+	 *	See AssetType.
 	 * 
-	 * @param  {zen.assets.AssetFactory.TYPES} type 
+	 * @param  {AssetType} type 
 	 * @param  {String} url  
-	 * @return {zen.assets.Asset}      
+	 * @return {Asset}      
 	 */
 	public build(type: AssetType, url: string): Asset {
 		var asset: Asset;

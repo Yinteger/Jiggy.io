@@ -1,0 +1,19 @@
+{
+    "assets": [
+        {
+            "name": "map",
+            "type": "image",
+            "source": "Resources/61816.png"
+        },
+        {
+            "name": "character",
+            "type": "image",
+            "source": "Resources/3698.png"
+        },
+        {
+            "name": "bgMusic",
+            "type": "audio",
+            "source": "Resources/music.mp3"
+        }
+    ]
+}

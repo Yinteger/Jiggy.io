@@ -1,0 +1,17 @@
+{
+  "name": "camera",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "file-loader": "^1.1.5",
+    "json-loader": "^0.5.7",
+    "url-loader": "^0.6.2"
+  }
+}
