@@ -7,6 +7,7 @@ import {
 	AssetFactory,
 	AssetType
 } from '../assets';
+import {EventEmitter} from 'events';
 
 var assetFactory: AssetFactory = AssetFactory.getSingleton();
 
@@ -26,11 +27,12 @@ interface AudioMap {
  * TODO: Make a way to mute/unmute All Audio
  */
 
-export abstract class AudioEngine {
+export abstract class AudioEngine extends EventEmitter {
 	private _logManager: LogManager;
 	private _audioMap: AudioMap;
 
 	public constructor() {
+		super();
 		this._audioMap = {};
 		this._logManager = LogManager.getSingleton();
 	}
@@ -108,6 +110,7 @@ export abstract class AudioEngine {
 		if (audio) {
 			this._playAudio(audio);
 			audio.setAttribute('playing', true);
+			this.emit('playing', name, audio);
 		}
 	}
 
@@ -124,6 +127,7 @@ export abstract class AudioEngine {
 		if (audio) {
 			this._pauseAudio(audio);
 			audio.setAttribute('playing', false);
+			this.emit('pause', name, audio);
 		}
 	}
 
@@ -140,6 +144,7 @@ export abstract class AudioEngine {
 		if (audio) {
 			this._stopAudio(audio);
 			audio.setAttribute('playing', false);
+			this.emit('stop', name, audio);
 		}
 	}
 

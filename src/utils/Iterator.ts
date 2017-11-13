@@ -37,7 +37,7 @@ export class Iterator<T> {
 	}
 
 	public setToEnd () : void {
-		this._index = this._array.length;
+		this._index = this._array.length - 1;
 	}
 
 	public getFirst  () : T {

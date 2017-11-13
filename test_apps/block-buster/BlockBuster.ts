@@ -1,4 +1,5 @@
 /// <reference path="../../src/assets/WebpackAssetSupport.d.ts" />
+/// <reference path="../../src/core/CodeSplitSupport.d.ts" />
 
 import {Engine} from '../../src/core';
 import {Entity, LocationUpdateEvent} from '../../src/entities';
@@ -6,28 +7,39 @@ import {TwoDimensionalRenderingEngine, GroupLogicEngine} from '../../src/engines
 import {Camera, CollisionEmitter, Color} from '../../src/utils';
 import {Mouse, MouseMoveEvent, MouseEvents} from '../../src/inputs';
 import {Coordinate} from '../../src/interfaces';
-import {Asset, AssetType} from '../../src/assets';
+import {Asset, AssetType, AssetGroupLoader, AssetGroupDefinition, AssetGroup} from '../../src/assets';
 import * as BallTexture from './resources/ball.png';
+import * as LoadingTexture from './resources/LoadingView.png';
 
 import {Map, MapItem} from './Map';
 import {Map1} from './Map1';
+import {Vector2D} from './Vector2D';
+import {PlayList} from './Playlist';
 
-const SPEED: number = 2;
+const DEFAULT_SPEED: number = 3;
+const DEFAULT_DIRECTION: Vector2D = new Vector2D(0, -1);
+const SPEED_STEP = 0.25;
 
 class BlockBuster extends Engine {
     private blocks: Array<Entity>;
     private collisionEmitter: CollisionEmitter;
     private ball: Entity;
     private player: Entity;
-    private scene: Entity;
+    private activeScene: Entity;
+    private gameScene: Entity;
     private camera: Camera;
-    private direction: number;
+    private direction: Vector2D;
     private speed: number;
     private paused: boolean; 
+    private blocksDestroyed: number;
+    private _gameAssets: AssetGroup;
+    private _playlist: PlayList;
+
     constructor() {
         super();
 
         this.paused = true;
+        this.blocksDestroyed = 0;
 
         this.getViewPort().setSize({
             width: 800,
@@ -39,14 +51,13 @@ class BlockBuster extends Engine {
         this.collisionEmitter = new CollisionEmitter();
         this.blocks = this._generateBlockMap(Map1);
         
-        this.ball = new Entity(); //TODO texture
+        this.ball = new Entity();
         this.ball.setWidth(16);
         this.ball.setHeight(16);
         
         var ballTexture: Asset = this.getAssetFactory().build(AssetType.IMAGE, BallTexture);
         ballTexture.load().then(() => {
             this.ball.setTexture(ballTexture);
-            this.paused = false;
         });
 
         this.player = new Entity();
@@ -60,26 +71,25 @@ class BlockBuster extends Engine {
         this.ball.setX(this.player.getX() + this.player.getWidth() /2);
         this.ball.setY(this.player.getY() - 50);
 
-        this.scene = new Entity();
-        this.scene.setColor(new Color(0,0,0));
-        this.scene.setWidth(800);
-        this.scene.setHeight(600);
+        this.gameScene = new Entity();
+        this.gameScene.setColor(new Color(0,0,0));
+        this.gameScene.setWidth(800);
+        this.gameScene.setHeight(600);
 
         for (var i: number = 0; i < this.blocks.length; i++) {
-            // console.log(i, this.blocks[i]);
-            // var block: Entity = this.blocks[i];
-            this.scene.addChild(this.blocks[i]);
+            this.gameScene.addChild(this.blocks[i]);
+            this.collisionEmitter.addEntity(this.blocks[i]);
         }
 
-        this.scene.addChild(this.player);
-        this.scene.addChild(this.ball);
+        this.gameScene.addChild(this.player);
+        this.gameScene.addChild(this.ball);
         
-        this.camera = new Camera(this.scene, null, {
-            width : this.scene.getWidth(),
-            height : this.scene.getHeight()
+        this.camera = new Camera(this._getLoadingScene(), null, {
+            width : this.gameScene.getWidth(),
+            height : this.gameScene.getHeight()
         }, null, {
-            width : this.scene.getWidth(),
-            height : this.scene.getHeight()
+            width : this.gameScene.getWidth(),
+            height : this.gameScene.getHeight()
         });
 
         this.getRenderingEngine().addCamera(this.camera);
@@ -88,11 +98,218 @@ class BlockBuster extends Engine {
         this.collisionEmitter.addEntity(this.player);
         this.collisionEmitter.addEntity(this.ball);
 
-        this.direction = 270;
-        this.speed = 2;
+        this.direction = DEFAULT_DIRECTION;
+        this.speed = DEFAULT_SPEED;
 
         this.getLogicEngine().addLogic('move_player', this._updatePlayerPosition.bind(this), 25);
         this.getLogicEngine().addLogic('ball_move', this._moveBall.bind(this), 25);
+    }
+
+    private _setPlaylist(playListAssets: Array<Asset>): void {
+        this._playlist = new PlayList('pl', playListAssets);
+        this._playlist.playNext();
+    }
+
+    private _getLoadingScene(): Entity {
+        var view: Entity = new Entity();
+        view.setSize({
+            width: 800,
+            height: 600
+        });
+
+        var asset: Asset = this.getAssetFactory().build(AssetType.IMAGE, LoadingTexture);
+        asset.load();
+
+        var loader: AssetGroupLoader = new AssetGroupLoader();
+        require.ensure(['./resources.ts'], (require) => {
+            var resources: AssetGroupDefinition = require('./resources.ts');
+            this._gameAssets = loader.loadFromMemory(resources);
+            this._gameAssets.load().then(() => {
+                this._setPlaylist([
+                    this._gameAssets.getAsset('bgm1'),
+                    this._gameAssets.getAsset('bgm2'),
+                    this._gameAssets.getAsset('bgm3')
+                ]);
+                this._setActiveScene(this._getStartScreen());
+            });
+        });
+
+        view.setTexture(asset);
+        return view;
+    }
+
+    private _getStartScreen(): Entity {
+        var view: Entity = new Entity();
+        view.setSize({
+            width: 800,
+            height: 600
+        });
+
+        view.setTexture(this._gameAssets.getAsset('startGameTexture'));
+
+        var startGameHotspot: Entity = new Entity();
+        // startGameHotspot.setColor(Color.fromString('red'));
+        startGameHotspot.setLocation({
+            x : 250,
+            y : 400
+        });
+        startGameHotspot.setSize({
+            width: 400,
+            height: 80
+        });
+
+        var onClick = (e: any) => {
+            var child: Entity | boolean = view.findTopChildAt({
+                x : e.x,
+                y : e.y
+            });
+
+            if (child instanceof Entity && child === startGameHotspot) {
+                Mouse.getInstance().removeListener(MouseEvents.LeftButtonUp, onClick);
+                this._setActiveScene(this.gameScene);
+                this.paused = false;
+            }
+            else {
+                // Do nothing
+            }
+        };
+
+        Mouse.getInstance().on(MouseEvents.LeftButtonUp, onClick);
+
+        view.addChild(startGameHotspot);
+
+        return view;
+    }
+
+    private _getGameWonScreen(): Entity {
+        var view: Entity = new Entity();
+        view.setSize({
+            width: 800,
+            height: 600
+        });
+
+        view.setTexture(this._gameAssets.getAsset('gameWonTexture'));
+
+        var startGameHotspot: Entity = new Entity();
+        // startGameHotspot.setColor(Color.fromString('red'));
+        startGameHotspot.setLocation({
+            x : 250,
+            y : 450
+        });
+        startGameHotspot.setSize({
+            width: 400,
+            height: 80
+        });
+
+        var onClick = (e: any) => {
+            var child: Entity | boolean = view.findTopChildAt({
+                x : e.x,
+                y : e.y
+            });
+
+            if (child instanceof Entity && child === startGameHotspot) {
+                Mouse.getInstance().removeListener(MouseEvents.LeftButtonUp, onClick);
+                this._reset();
+            }
+            else {
+                // Do nothing
+            }
+        };
+
+        Mouse.getInstance().on(MouseEvents.LeftButtonUp, onClick);
+
+        view.addChild(startGameHotspot);
+
+        return view;
+    }
+
+    private _getGameLostScreen(): Entity {
+        var view: Entity = new Entity();
+        view.setSize({
+            width: 800,
+            height: 600
+        });
+
+        view.setTexture(this._gameAssets.getAsset('gameLostTexture'));
+
+        var startGameHotspot: Entity = new Entity();
+        // startGameHotspot.setColor(Color.fromString('red'));
+        startGameHotspot.setLocation({
+            x : 250,
+            y : 450
+        });
+        startGameHotspot.setSize({
+            width: 400,
+            height: 80
+        });
+
+        var onClick = (e: any) => {
+            var child: Entity | boolean = view.findTopChildAt({
+                x : e.x,
+                y : e.y
+            });
+
+            if (child instanceof Entity && child === startGameHotspot) {
+                Mouse.getInstance().removeListener(MouseEvents.LeftButtonUp, onClick);
+                this._reset();
+            }
+            else {
+                // Do nothing
+            }
+        };
+
+        Mouse.getInstance().on(MouseEvents.LeftButtonUp, onClick);
+
+        view.addChild(startGameHotspot);
+
+        return view;
+    }
+
+    private _setActiveScene(view: Entity): void {
+        this.camera.setScene(view);
+    }
+
+    private _reset(): void {
+        this.blocksDestroyed = 0;
+        this.paused = true;
+        this.direction = DEFAULT_DIRECTION;
+        this.speed = DEFAULT_SPEED;
+
+        for (var i: number = 0; i < this.blocks.length; i++) {
+            this.gameScene.addChild(this.blocks[i]);
+            this.collisionEmitter.addEntity(this.blocks[i]);
+        }
+
+        if (this.player.getParent()) {
+            this.player.getParent().removeChild(this.player);
+        }
+
+        if (this.ball.getParent()) {
+            this.ball.getParent().removeChild(this.ball);
+        }
+
+        this.player.setY(600 - this.player.getHeight() - 50);
+        this.player.setX(800 / 2 - this.player.getWidth() / 2);
+
+        this.ball.setX(this.player.getX() + this.player.getWidth() /2);
+        this.ball.setY(this.player.getY() - 50);
+
+        this.gameScene.addChild(this.player);
+        this.gameScene.addChild(this.ball);
+
+        this._setActiveScene(this.gameScene);
+
+        this.paused = false;
+    }
+
+    private _onGameWin(): void {
+        this.paused = true;
+        this._setActiveScene(this._getGameWonScreen());
+    }
+
+    private _onGameOver(): void {
+        this.paused = true;
+        this._setActiveScene(this._getGameLostScreen());
     }
 
     private _moveBall(): void {
@@ -102,48 +319,34 @@ class BlockBuster extends Engine {
 
         var ballPos: Coordinate = this.ball.getLocation();
 
-        ballPos.x += this.speed * Math.cos(this.direction * Math.PI / 180);
-        ballPos.y += this.speed * Math.sin(this.direction * Math.PI / 180);
+        ballPos.x += this.speed * Math.cos(this.direction.getAngle());
+        ballPos.y += this.speed * Math.sin(this.direction.getAngle());
 
         if (ballPos.x < 0) {
             ballPos.x = 1;
-            if (this.direction > 180 && this.direction < 270) {
-                this.direction += 90;
-            }
-            else if (this.direction > 90 && this.direction < 180) {
-                this.direction -= 90;
-            } 
+
+            var normal: Vector2D = new Vector2D(0, 1);
+            var dirNormal: Vector2D = this.direction.normal();
+
+            this.direction = dirNormal.reflect(normal);
         }
         else if (ballPos.x + this.ball.getWidth() > this.getViewPort().getSize().width) {
             ballPos.x = this.getViewPort().getSize().width - this.ball.getWidth() - 1;
-            if (this.direction > 270 && this.direction < 359) {
-                this.direction -= 90;
-            }
-            else if (this.direction > 0 && this.direction < 90) {
-                this.direction += 90;
-            }
+            var normal: Vector2D = new Vector2D(0, 1);
+            var dirNormal: Vector2D = this.direction.normal();
+
+            this.direction = dirNormal.reflect(normal);            
         }
 
         if (ballPos.y < 0) {
             ballPos.y = 1;
-            if (this.direction > 180 && this.direction < 270) {
-                this.direction -= 90;
-            }
-            else if (this.direction > 270 && this.direction < 359) {
-                this.direction = (this.direction + 90) - 360;
-            }
+            var normal: Vector2D = new Vector2D(1, 0);
+            var dirNormal: Vector2D = this.direction.normal();
+
+            this.direction = dirNormal.reflect(normal);            
         }
         else if (ballPos.y > this.getViewPort().getSize().height) {
-            //game over
-            console.log('GAME OVER! TODO');
-
-            ballPos.y = this.getViewPort().getSize().height;
-            if (this.direction > 90 && this.direction < 180) {
-                this.direction += 90;
-            }
-            else if (this.direction > 0 && this.direction < 90) {
-                this.direction -= 90;
-            }
+            this._onGameOver();
         }
 
         this.ball.setLocation(ballPos);
@@ -153,24 +356,10 @@ class BlockBuster extends Engine {
         var coords: Coordinate = Mouse.getInstance().getCurrentCoordinates();
 
         var x: number = coords.x - (this.player.getWidth() / 2);
-        // this.player.setLocation(coords);
         this.player.setX(x);
     }
 
-    private _flipDirection(direction: number): number {
-        var out: number = direction + 180;
-
-        while (out > 360) {
-            out -= 360;
-        }
-
-        return out;
-    }
-
     private _ballCollide(e1: Entity, e2: Entity, event: LocationUpdateEvent): void {
-        // console.log(e1, e2, event);
-        // this.speed = 0;
-
         var ball: Entity;
         var block: Entity;
 
@@ -180,42 +369,61 @@ class BlockBuster extends Engine {
         }
         else {
             ball = e2;
-            block =  e1;
+            block = e1;
         }
 
         var ballX: number = ball.getX() + ball.getWidth() / 2;
-        var blockX1: number = block.getX();
-        var blockX2: number = block.getX2();
-
-        var ratio: number = (ballX - blockX1) / (blockX2 - blockX1);
-
-        console.log('ratio', ratio);
-
-        // Protect from a perfect horizontal direction
-        if (ratio === 0) {
-            ratio = 0.1;
-        }
-        else if (ratio === 1) {
-            ratio = 0.9;
-        }
-
-        this.direction = 180 * ratio;
+        var dirNormal: Vector2D = this.direction.normal();;
 
         if (this.player === block) {
-            this.speed++;
-            this.direction = this._flipDirection(this.direction);
+
+            var blockX1: number = block.getX();
+            var blockX2: number = block.getX2();
+    
+            var ratio: number = (ballX - blockX1) / (blockX2 - blockX1);
+            if (ratio < 0.1) {
+                ratio = 0.1;
+            }
+            else if (ratio > 0.9) {
+                ratio = 0.9;
+            }
+
+            var radians: number = ((180 * ratio) + 180) * Math.PI / 180;
+            
+            this.direction = new Vector2D(1, 0).rotate(radians);
         }
         else {
-            this.scene.removeChild(block);
+            var normal: Vector2D;
+
+            if (ballX >= block.getX() && ballX <= block.getX2()) {
+                normal = new Vector2D(1,0);
+            }
+            else {
+                normal = new Vector2D(0,1);
+            }
+
+            this.direction = dirNormal.reflect(normal);
+        
+            this.gameScene.removeChild(block);
             this.collisionEmitter.removeEntity(block);
+            this.blocksDestroyed++;
         }
 
-        // e1.setColor(new Color(255,0,0));
-        // e2.setColor(new Color(0,0,255));
+        if (this.blocksDestroyed === this.blocks.length) {
+            this._onGameWin();
+        }
+        else if (this.blocksDestroyed === 4) {
+            this._reset();
+        }
+        else {
+            console.log(this.blocksDestroyed, this.blocks.length);
+        }
+
+        // Every 3 blocks destroyed, increment speed by SPEED_STEP.
+        this.speed = DEFAULT_SPEED + (Math.floor(this.blocksDestroyed / 3) * SPEED_STEP);
     }
 
     private _generateBlockMap(map: Map): Array<Entity> {
-        // this.blocks = map.blocks;
         var blocks: Array<Entity> = [];
 
         for (var i: number = 0; i < map.blocks.length; i++) {
@@ -228,12 +436,17 @@ class BlockBuster extends Engine {
             entity.setWidth(block.width);
             entity.setHeight(block.height);
             blocks.push(entity);
-
-            this.collisionEmitter.addEntity(entity);
         }
 
         return blocks;
     }
 }
+
+// (<any>window).test = function(): void {
+//     var normal = new Vector2D(4, 0);
+//     var direction = new Vector2D(1, 1);
+
+//     var x = 2 * ()
+// };
 
 (<any>window).BlockBuster = new BlockBuster();
