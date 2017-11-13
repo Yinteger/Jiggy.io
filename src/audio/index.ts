@@ -5,8 +5,10 @@
 
 import {AudioEngine} from './AudioEngine';
 import {HTML5AudioEngine} from './HTML5AudioEngine';
+import {AudioEvents} from './AudioEvents';
 
 export {
     AudioEngine,
-    HTML5AudioEngine
+    HTML5AudioEngine,
+    AudioEvents
 };

@@ -317,7 +317,7 @@ export abstract class AudioEngine extends EventEmitter {
 				}
 			}
 			this._audioMap[name] = channelArr;
-			this._registerEvents(channelArr);
+			this._registerEvents(channelArr, name, audio);
 		}
 	}
 
@@ -388,9 +388,9 @@ export abstract class AudioEngine extends EventEmitter {
 	 * @param  {Asset} asset 
 	 * @return {void}       
 	 */
-	protected _attachStartEvent(asset: Asset): void {
+	protected _attachStartEvent(asset: Asset, name: string, audio: Asset): void {
 		if (!asset.getAttribute('startEvent')) {
-			this._registerStartEvent(asset);
+			this._registerStartEvent(asset, name, audio);
 			asset.setAttribute('startEvent', true);
 		}
 	}
@@ -403,9 +403,9 @@ export abstract class AudioEngine extends EventEmitter {
 	 * @param  {Asset} asset 
 	 * @return {void}       
 	 */
-	protected _attachEndEvent(asset: Asset): void {
+	protected _attachEndEvent(asset: Asset, name: string, audio: Asset): void {
 		if (!asset.getAttribute('endEvent')) {
-			this._registerEndEvent(asset);
+			this._registerEndEvent(asset, name, audio);
 			asset.setAttribute('endEvent', true);
 		}
 	}
@@ -418,12 +418,12 @@ export abstract class AudioEngine extends EventEmitter {
 	 * @param  {Array(Of Asset)} channelArray 
 	 * @return {void}              
 	 */
-	protected _registerEvents(channelArray: Asset[]): void {
+	protected _registerEvents(channelArray: Asset[], name: string, audio: Asset): void {
 		var channel: Asset;
 		for (var i = 0, len = channelArray.length; i < len; i++) {
 			channel = channelArray[i];
-			this._attachStartEvent(channel);
-			this._attachEndEvent(channel);
+			this._attachStartEvent(channel, name, audio);
+			this._attachEndEvent(channel, name, audio);
 		}
 	}
 
@@ -566,11 +566,13 @@ export abstract class AudioEngine extends EventEmitter {
 	 *	The logic for registering a callback mechanism for when audio
 	 *	begins playing. This callback should set tehe playing attribute
 	 *	on the asset to true.
+	 *
+	 * Name & audio fields are for event reporting.
 	 * 
 	 * @param  {Asset} audio 
 	 * @return {void}       
 	 */
-	protected abstract _registerStartEvent(audio: Asset): void;
+	protected abstract _registerStartEvent(asset: Asset, name: string, audio: Asset): void;
 
 	/**
 	 * protected abstract _registerEndEvent
@@ -578,10 +580,12 @@ export abstract class AudioEngine extends EventEmitter {
 	 *	The logic for registering a callback mechanism for when audio
 	 *	stops playing. This callback should reset the playing attribute 
 	 *	on the asset to false.
+	 *
+	 * Name & audio fields are for event reporting.
 	 * 
 	 * @param  {Asset} audio
 	 * @return {void}       
 	 */
-	protected abstract _registerEndEvent(audio: Asset): void;
+	protected abstract _registerEndEvent(asset: Asset, name: string, audio: Asset): void;
 }
 	

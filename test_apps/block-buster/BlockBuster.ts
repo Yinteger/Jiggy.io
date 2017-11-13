@@ -10,6 +10,7 @@ import {Coordinate} from '../../src/interfaces';
 import {Asset, AssetType, AssetGroupLoader, AssetGroupDefinition, AssetGroup} from '../../src/assets';
 import * as BallTexture from './resources/ball.png';
 import * as LoadingTexture from './resources/LoadingView.png';
+import * as boopSound from './resources/boop.mp3';
 
 import {Map, MapItem} from './Map';
 import {Map1} from './Map1';
@@ -18,7 +19,7 @@ import {PlayList} from './Playlist';
 
 const DEFAULT_SPEED: number = 3;
 const DEFAULT_DIRECTION: Vector2D = new Vector2D(0, -1);
-const SPEED_STEP = 0.25;
+const SPEED_STEP = 0.5;
 
 class BlockBuster extends Engine {
     private blocks: Array<Entity>;
@@ -103,6 +104,11 @@ class BlockBuster extends Engine {
 
         this.getLogicEngine().addLogic('move_player', this._updatePlayerPosition.bind(this), 25);
         this.getLogicEngine().addLogic('ball_move', this._moveBall.bind(this), 25);
+
+        var boop: Asset = this.getAssetFactory().build(AssetType.AUDIO, boopSound);
+        boop.load().then(() => {
+            this.getAudioEngine().addAudio('boop', boop, 8);
+        });
     }
 
     private _setPlaylist(playListAssets: Array<Asset>): void {
@@ -126,7 +132,7 @@ class BlockBuster extends Engine {
             this._gameAssets = loader.loadFromMemory(resources);
             this._gameAssets.load().then(() => {
                 this._setPlaylist([
-                    this._gameAssets.getAsset('bgm1'),
+                    // this._gameAssets.getAsset('bgm1'),
                     this._gameAssets.getAsset('bgm2'),
                     this._gameAssets.getAsset('bgm3')
                 ]);
@@ -393,6 +399,8 @@ class BlockBuster extends Engine {
             this.direction = new Vector2D(1, 0).rotate(radians);
         }
         else {
+            this.getAudioEngine().playAudio('boop');
+
             var normal: Vector2D;
 
             if (ballX >= block.getX() && ballX <= block.getX2()) {
@@ -411,9 +419,6 @@ class BlockBuster extends Engine {
 
         if (this.blocksDestroyed === this.blocks.length) {
             this._onGameWin();
-        }
-        else if (this.blocksDestroyed === 4) {
-            this._reset();
         }
         else {
             console.log(this.blocksDestroyed, this.blocks.length);

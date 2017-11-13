@@ -8,6 +8,7 @@ import * as gameLostTexture from './resources/gameLost.png';
 import * as bgm1 from './resources/TechLive.mp3';
 import * as bgm2 from './resources/TheLift.mp3';
 import * as bgm3 from './resources/Rhinoceros.mp3';
+import * as boopSound from './resources/boop.mp3';
 
 // import * as map from './Resources/61816.png';
 // import * as character from './Resources/3698.png';
@@ -44,6 +45,11 @@ var resources: AssetGroupDefinition = {
             name : "bgm3",
             type : AssetType.AUDIO,
             source : bgm3
+        },
+        {
+            name : "boop",
+            type : AssetType.AUDIO,
+            source : boopSound
         }
     ]
 }
