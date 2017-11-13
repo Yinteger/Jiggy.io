@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Entity | Jiggy.io</title>
+	<title>Entity | @jiggy/assets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Jiggy.io</a>
+					<a href="../index.html" class="title">@jiggy/assets</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -98,6 +98,7 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="entity.html#_children" class="tsd-kind-icon">_children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entity.html#_collisionable" class="tsd-kind-icon">_collisionable</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entity.html#_eventemitted" class="tsd-kind-icon">_event<wbr>Emitted</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="entity.html#_model" class="tsd-kind-icon">_model</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entity.html#_modelcb" class="tsd-kind-icon">_modelCB</a></li>
@@ -108,31 +109,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entity.html#_regiondimension" class="tsd-kind-icon">_region<wbr>Dimension</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entity.html#_regionlist" class="tsd-kind-icon">_region<wbr>List</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entity.html#_regions" class="tsd-kind-icon">_regions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="entity.html#collisionable" class="tsd-kind-icon">collisionable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="entity.html#view" class="tsd-kind-icon">view</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="entity.html#_view" class="tsd-kind-icon">_view</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="entity.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="entity.html#id" class="tsd-kind-icon">ID</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-set-signature tsd-parent-kind-class"><a href="entity.html#coordinate" class="tsd-kind-icon">coordinate</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#model" class="tsd-kind-icon">model</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#parent" class="tsd-kind-icon">parent</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="entity.html#regiondimension" class="tsd-kind-icon">region<wbr>Dimension</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="entity.html#regions" class="tsd-kind-icon">regions</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#texture" class="tsd-kind-icon">texture</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#type" class="tsd-kind-icon">type</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#visible" class="tsd-kind-icon">visible</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#width" class="tsd-kind-icon">width</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="entity.html#x2" class="tsd-kind-icon">x2</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#y" class="tsd-kind-icon">y</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="entity.html#y2" class="tsd-kind-icon">y2</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entity.html#z" class="tsd-kind-icon">z</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -159,13 +137,30 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getabsolutey2" class="tsd-kind-icon">get<wbr>Absolute<wbr>Y2</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getchildat" class="tsd-kind-icon">get<wbr>Child<wbr>At</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getchildren" class="tsd-kind-icon">get<wbr>Children</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getcolor" class="tsd-kind-icon">get<wbr>Color</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getcoordinate" class="tsd-kind-icon">get<wbr>Coordinate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getheight" class="tsd-kind-icon">get<wbr>Height</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getid" class="tsd-kind-icon">getID</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getlocation" class="tsd-kind-icon">get<wbr>Location</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entity.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getmodel" class="tsd-kind-icon">get<wbr>Model</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getoutercoordinate" class="tsd-kind-icon">get<wbr>Outer<wbr>Coordinate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getregiondimension" class="tsd-kind-icon">get<wbr>Region<wbr>Dimension</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getregions" class="tsd-kind-icon">get<wbr>Regions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getsize" class="tsd-kind-icon">get<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#gettexture" class="tsd-kind-icon">get<wbr>Texture</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getvisible" class="tsd-kind-icon">get<wbr>Visible</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getx" class="tsd-kind-icon">getX</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getx2" class="tsd-kind-icon">get<wbr>X2</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#gety" class="tsd-kind-icon">getY</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#gety2" class="tsd-kind-icon">get<wbr>Y2</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#getz" class="tsd-kind-icon">getZ</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#indexof" class="tsd-kind-icon">index<wbr>Of</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#ischild" class="tsd-kind-icon">is<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#iscollisionable" class="tsd-kind-icon">is<wbr>Collisionable</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#ismodified" class="tsd-kind-icon">is<wbr>Modified</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#iterator" class="tsd-kind-icon">iterator</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entity.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
@@ -178,9 +173,22 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entity.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entity.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setcollisionable" class="tsd-kind-icon">set<wbr>Collisionable</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setcolor" class="tsd-kind-icon">set<wbr>Color</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setcoordinate" class="tsd-kind-icon">set<wbr>Coordinate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setheight" class="tsd-kind-icon">set<wbr>Height</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setlocation" class="tsd-kind-icon">set<wbr>Location</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entity.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setmodel" class="tsd-kind-icon">set<wbr>Model</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setsize" class="tsd-kind-icon">set<wbr>Size</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#settexture" class="tsd-kind-icon">set<wbr>Texture</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#settype" class="tsd-kind-icon">set<wbr>Type</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setvisible" class="tsd-kind-icon">set<wbr>Visible</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setwidth" class="tsd-kind-icon">set<wbr>Width</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setx" class="tsd-kind-icon">setX</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#sety" class="tsd-kind-icon">setY</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entity.html#setz" class="tsd-kind-icon">setZ</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="entity.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
 							</ul>
 						</section>
@@ -222,6 +230,16 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L11">entities/Entity.ts:11</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_collisionable" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _collisionable</h3>
+					<div class="tsd-signature tsd-kind-icon">_collisionable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L20">entities/Entity.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -360,20 +378,10 @@
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="collisionable" class="tsd-anchor"></a>
-					<h3>collisionable</h3>
-					<div class="tsd-signature tsd-kind-icon">collisionable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L20">entities/Entity.ts:20</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="view" class="tsd-anchor"></a>
-					<h3>view</h3>
-					<div class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">:</span> <a href="entityview.html" class="tsd-signature-type">EntityView</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_view" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _view</h3>
+					<div class="tsd-signature tsd-kind-icon">_view<span class="tsd-signature-symbol">:</span> <a href="entityview.html" class="tsd-signature-type">EntityView</a></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L9">entities/Entity.ts:9</a></li>
@@ -393,469 +401,6 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>ID</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> ID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L68">entities/Entity.ts:68</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="color" class="tsd-anchor"></a>
-					<h3>color</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> color<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/color.html" class="tsd-signature-type">Color</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> color<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="../interfaces/color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L230">entities/Entity.ts:230</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/color.html" class="tsd-signature-type">Color</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L236">entities/Entity.ts:236</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>color: <a href="../interfaces/color.html" class="tsd-signature-type">Color</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-set-signature tsd-parent-kind-class">
-					<a name="coordinate" class="tsd-anchor"></a>
-					<h3>coordinate</h3>
-					<ul class="tsd-signatures tsd-kind-set-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> coordinate<span class="tsd-signature-symbol">(</span>coordinate<span class="tsd-signature-symbol">: </span><a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L159">entities/Entity.ts:159</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>coordinate: <a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="height" class="tsd-anchor"></a>
-					<h3>height</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> height<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> height<span class="tsd-signature-symbol">(</span>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L114">entities/Entity.ts:114</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L118">entities/Entity.ts:118</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>height: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="model" class="tsd-anchor"></a>
-					<h3>model</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> model<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entitymodel.html" class="tsd-signature-type">EntityModel</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> model<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="entitymodel.html" class="tsd-signature-type">EntityModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L96">entities/Entity.ts:96</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="entitymodel.html" class="tsd-signature-type">EntityModel</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L100">entities/Entity.ts:100</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>model: <a href="entitymodel.html" class="tsd-signature-type">EntityModel</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="parent" class="tsd-anchor"></a>
-					<h3>parent</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entity.html" class="tsd-signature-type">Entity</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> parent<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L72">entities/Entity.ts:72</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="entity.html" class="tsd-signature-type">Entity</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L76">entities/Entity.ts:76</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>parent: <a href="entity.html" class="tsd-signature-type">Entity</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="regiondimension" class="tsd-anchor"></a>
-					<h3>region<wbr>Dimension</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> regionDimension<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/dimension.html" class="tsd-signature-type">Dimension</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L84">entities/Entity.ts:84</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/dimension.html" class="tsd-signature-type">Dimension</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="regions" class="tsd-anchor"></a>
-					<h3>regions</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> regions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L80">entities/Entity.ts:80</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="texture" class="tsd-anchor"></a>
-					<h3>texture</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> texture<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> texture<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L240">entities/Entity.ts:240</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L244">entities/Entity.ts:244</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> type<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L88">entities/Entity.ts:88</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L92">entities/Entity.ts:92</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>type: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="visible" class="tsd-anchor"></a>
-					<h3>visible</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> visible<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> visible<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L222">entities/Entity.ts:222</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L226">entities/Entity.ts:226</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>state: <span class="tsd-signature-type">boolean</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="width" class="tsd-anchor"></a>
-					<h3>width</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> width<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> width<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L123">entities/Entity.ts:123</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L127">entities/Entity.ts:127</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>width: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="x" class="tsd-anchor"></a>
-					<h3>x</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> x<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> x<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L132">entities/Entity.ts:132</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L136">entities/Entity.ts:136</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>x: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="x2" class="tsd-anchor"></a>
-					<h3>x2</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> x2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L179">entities/Entity.ts:179</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="y" class="tsd-anchor"></a>
-					<h3>y</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> y<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> y<span class="tsd-signature-symbol">(</span>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L183">entities/Entity.ts:183</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L187">entities/Entity.ts:187</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>y: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="y2" class="tsd-anchor"></a>
-					<h3>y2</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> y2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L210">entities/Entity.ts:210</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="z" class="tsd-anchor"></a>
-					<h3>z</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> z<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> z<span class="tsd-signature-symbol">(</span>z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L214">entities/Entity.ts:214</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L218">entities/Entity.ts:218</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>z: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="_coordinatetoregion" class="tsd-anchor"></a>
@@ -867,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L762">entities/Entity.ts:762</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L768">entities/Entity.ts:768</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -890,7 +435,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L674">entities/Entity.ts:674</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L680">entities/Entity.ts:680</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -914,7 +459,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L737">entities/Entity.ts:737</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L743">entities/Entity.ts:743</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -937,7 +482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L712">entities/Entity.ts:712</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L718">entities/Entity.ts:718</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -960,7 +505,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L745">entities/Entity.ts:745</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L751">entities/Entity.ts:751</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -983,7 +528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L660">entities/Entity.ts:660</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L666">entities/Entity.ts:666</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1007,7 +552,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L374">entities/Entity.ts:374</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L380">entities/Entity.ts:380</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1040,7 +585,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L755">entities/Entity.ts:755</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L761">entities/Entity.ts:761</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1063,7 +608,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L273">entities/Entity.ts:273</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L279">entities/Entity.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1139,7 +684,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L350">entities/Entity.ts:350</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L356">entities/Entity.ts:356</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1210,7 +755,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L456">entities/Entity.ts:456</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L462">entities/Entity.ts:462</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1236,7 +781,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L544">entities/Entity.ts:544</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L550">entities/Entity.ts:550</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1270,7 +815,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L597">entities/Entity.ts:597</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L603">entities/Entity.ts:603</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1287,7 +832,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L607">entities/Entity.ts:607</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L613">entities/Entity.ts:613</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1304,7 +849,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L583">entities/Entity.ts:583</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L589">entities/Entity.ts:589</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1321,7 +866,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L593">entities/Entity.ts:593</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L599">entities/Entity.ts:599</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1338,7 +883,7 @@ frame.
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L362">entities/Entity.ts:362</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L368">entities/Entity.ts:368</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1362,13 +907,13 @@ frame.
 					<a name="getchildren" class="tsd-anchor"></a>
 					<h3>get<wbr>Children</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Children<span class="tsd-signature-symbol">(</span>startCoordinate<span class="tsd-signature-symbol">?: </span><a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a>, endCoordinate<span class="tsd-signature-symbol">?: </span><a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iterator.html" class="tsd-signature-type">Iterator</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Children<span class="tsd-signature-symbol">(</span>startCoordinate<span class="tsd-signature-symbol">?: </span><a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a>, endCoordinate<span class="tsd-signature-symbol">?: </span><a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iterator.html" class="tsd-signature-type">Iterator</a><span class="tsd-signature-symbol">&lt;</span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L416">entities/Entity.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L422">entities/Entity.ts:422</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1392,8 +937,25 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> endCoordinate: <a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="iterator.html" class="tsd-signature-type">Iterator</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="iterator.html" class="tsd-signature-type">Iterator</a><span class="tsd-signature-symbol">&lt;</span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Iterator</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getcolor" class="tsd-anchor"></a>
+					<h3>get<wbr>Color</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Color<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="color.html" class="tsd-signature-type">Color</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L238">entities/Entity.ts:238</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="color.html" class="tsd-signature-type">Color</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -1407,10 +969,44 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L575">entities/Entity.ts:575</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L581">entities/Entity.ts:581</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getheight" class="tsd-anchor"></a>
+					<h3>get<wbr>Height</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Height<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L122">entities/Entity.ts:122</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getid" class="tsd-anchor"></a>
+					<h3>getID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L68">entities/Entity.ts:68</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1424,7 +1020,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L636">entities/Entity.ts:636</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L642">entities/Entity.ts:642</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1463,6 +1059,23 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getmodel" class="tsd-anchor"></a>
+					<h3>get<wbr>Model</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Model<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entitymodel.html" class="tsd-signature-type">EntityModel</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L104">entities/Entity.ts:104</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="entitymodel.html" class="tsd-signature-type">EntityModel</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getoutercoordinate" class="tsd-anchor"></a>
 					<h3>get<wbr>Outer<wbr>Coordinate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1472,10 +1085,61 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L579">entities/Entity.ts:579</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L585">entities/Entity.ts:585</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getparent" class="tsd-anchor"></a>
+					<h3>get<wbr>Parent</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entity.html" class="tsd-signature-type">Entity</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L72">entities/Entity.ts:72</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="entity.html" class="tsd-signature-type">Entity</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getregiondimension" class="tsd-anchor"></a>
+					<h3>get<wbr>Region<wbr>Dimension</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Region<wbr>Dimension<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/dimension.html" class="tsd-signature-type">Dimension</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L84">entities/Entity.ts:84</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/dimension.html" class="tsd-signature-type">Dimension</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getregions" class="tsd-anchor"></a>
+					<h3>get<wbr>Regions</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Regions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L80">entities/Entity.ts:80</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1489,10 +1153,163 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L649">entities/Entity.ts:649</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L655">entities/Entity.ts:655</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/dimension.html" class="tsd-signature-type">Dimension</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettexture" class="tsd-anchor"></a>
+					<h3>get<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Texture<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L246">entities/Entity.ts:246</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettype" class="tsd-anchor"></a>
+					<h3>get<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L88">entities/Entity.ts:88</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getvisible" class="tsd-anchor"></a>
+					<h3>get<wbr>Visible</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Visible<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L230">entities/Entity.ts:230</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getwidth" class="tsd-anchor"></a>
+					<h3>get<wbr>Width</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Width<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L131">entities/Entity.ts:131</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getx" class="tsd-anchor"></a>
+					<h3>getX</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getX<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L140">entities/Entity.ts:140</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getx2" class="tsd-anchor"></a>
+					<h3>get<wbr>X2</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>X2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L187">entities/Entity.ts:187</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gety" class="tsd-anchor"></a>
+					<h3>getY</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getY<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L191">entities/Entity.ts:191</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gety2" class="tsd-anchor"></a>
+					<h3>get<wbr>Y2</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Y2<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L218">entities/Entity.ts:218</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getz" class="tsd-anchor"></a>
+					<h3>getZ</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getZ<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L222">entities/Entity.ts:222</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1506,7 +1323,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L339">entities/Entity.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L345">entities/Entity.ts:345</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1536,7 +1353,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L327">entities/Entity.ts:327</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L333">entities/Entity.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1558,6 +1375,23 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="iscollisionable" class="tsd-anchor"></a>
+					<h3>is<wbr>Collisionable</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Collisionable<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L100">entities/Entity.ts:100</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="ismodified" class="tsd-anchor"></a>
 					<h3>is<wbr>Modified</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1567,7 +1401,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L261">entities/Entity.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L267">entities/Entity.ts:267</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1585,13 +1419,13 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 					<a name="iterator" class="tsd-anchor"></a>
 					<h3>iterator</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iterator.html" class="tsd-signature-type">Iterator</a></li>
+						<li class="tsd-signature tsd-kind-icon">iterator<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="iterator.html" class="tsd-signature-type">Iterator</a><span class="tsd-signature-symbol">&lt;</span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L393">entities/Entity.ts:393</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L399">entities/Entity.ts:399</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1601,7 +1435,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 								<pre><code>Creates a child <span class="hljs-keyword">node</span> <span class="hljs-title">iterator</span> for this entity.
 </code></pre>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="iterator.html" class="tsd-signature-type">Iterator</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="iterator.html" class="tsd-signature-type">Iterator</a><span class="tsd-signature-symbol">&lt;</span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>{
 								hasNext : function()
 								next : function()
@@ -1855,7 +1689,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L311">entities/Entity.ts:311</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L317">entities/Entity.ts:317</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1904,7 +1738,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L293">entities/Entity.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L299">entities/Entity.ts:299</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1971,6 +1805,98 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setcollisionable" class="tsd-anchor"></a>
+					<h3>set<wbr>Collisionable</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Collisionable<span class="tsd-signature-symbol">(</span>collisionable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L96">entities/Entity.ts:96</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>collisionable: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setcolor" class="tsd-anchor"></a>
+					<h3>set<wbr>Color</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Color<span class="tsd-signature-symbol">(</span>color<span class="tsd-signature-symbol">: </span><a href="color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L242">entities/Entity.ts:242</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>color: <a href="color.html" class="tsd-signature-type">Color</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setcoordinate" class="tsd-anchor"></a>
+					<h3>set<wbr>Coordinate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Coordinate<span class="tsd-signature-symbol">(</span>coordinate<span class="tsd-signature-symbol">: </span><a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L167">entities/Entity.ts:167</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>coordinate: <a href="../interfaces/coordinate.html" class="tsd-signature-type">Coordinate</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setheight" class="tsd-anchor"></a>
+					<h3>set<wbr>Height</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Height<span class="tsd-signature-symbol">(</span>height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L126">entities/Entity.ts:126</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>height: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setlocation" class="tsd-anchor"></a>
 					<h3>set<wbr>Location</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1980,7 +1906,7 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L620">entities/Entity.ts:620</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L626">entities/Entity.ts:626</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2026,6 +1952,52 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setmodel" class="tsd-anchor"></a>
+					<h3>set<wbr>Model</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Model<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="entitymodel.html" class="tsd-signature-type">EntityModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L108">entities/Entity.ts:108</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <a href="entitymodel.html" class="tsd-signature-type">EntityModel</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setparent" class="tsd-anchor"></a>
+					<h3>set<wbr>Parent</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Parent<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><a href="entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L76">entities/Entity.ts:76</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>parent: <a href="entity.html" class="tsd-signature-type">Entity</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setsize" class="tsd-anchor"></a>
 					<h3>set<wbr>Size</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -2035,13 +2007,174 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L643">entities/Entity.ts:643</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L649">entities/Entity.ts:649</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>dimension: <a href="../interfaces/dimension.html" class="tsd-signature-type">Dimension</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="settexture" class="tsd-anchor"></a>
+					<h3>set<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Texture<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L250">entities/Entity.ts:250</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="settype" class="tsd-anchor"></a>
+					<h3>set<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Type<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L92">entities/Entity.ts:92</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setvisible" class="tsd-anchor"></a>
+					<h3>set<wbr>Visible</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Visible<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L234">entities/Entity.ts:234</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setwidth" class="tsd-anchor"></a>
+					<h3>set<wbr>Width</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Width<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L135">entities/Entity.ts:135</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>width: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setx" class="tsd-anchor"></a>
+					<h3>setX</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">setX<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L144">entities/Entity.ts:144</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sety" class="tsd-anchor"></a>
+					<h3>setY</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">setY<span class="tsd-signature-symbol">(</span>y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L195">entities/Entity.ts:195</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setz" class="tsd-anchor"></a>
+					<h3>setZ</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">setZ<span class="tsd-signature-symbol">(</span>z<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/Entity.ts#L226">entities/Entity.ts:226</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>z: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2099,6 +2232,9 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 								<a href="entity.html#_children" class="tsd-kind-icon">_children</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="entity.html#_collisionable" class="tsd-kind-icon">_collisionable</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="entity.html#_eventemitted" class="tsd-kind-icon">_event<wbr>Emitted</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
@@ -2128,65 +2264,11 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="entity.html#_regions" class="tsd-kind-icon">_regions</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="entity.html#collisionable" class="tsd-kind-icon">collisionable</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="entity.html#view" class="tsd-kind-icon">view</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="entity.html#_view" class="tsd-kind-icon">_view</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="entity.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="entity.html#id" class="tsd-kind-icon">ID</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#color" class="tsd-kind-icon">color</a>
-							</li>
-							<li class=" tsd-kind-set-signature tsd-parent-kind-class">
-								<a href="entity.html#coordinate" class="tsd-kind-icon">coordinate</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#model" class="tsd-kind-icon">model</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#parent" class="tsd-kind-icon">parent</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="entity.html#regiondimension" class="tsd-kind-icon">region<wbr>Dimension</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="entity.html#regions" class="tsd-kind-icon">regions</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#texture" class="tsd-kind-icon">texture</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#type" class="tsd-kind-icon">type</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#visible" class="tsd-kind-icon">visible</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#width" class="tsd-kind-icon">width</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#x" class="tsd-kind-icon">x</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="entity.html#x2" class="tsd-kind-icon">x2</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#y" class="tsd-kind-icon">y</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="entity.html#y2" class="tsd-kind-icon">y2</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entity.html#z" class="tsd-kind-icon">z</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="entity.html#_coordinatetoregion" class="tsd-kind-icon">_coordinate<wbr>ToRegion</a>
@@ -2252,7 +2334,16 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 								<a href="entity.html#getchildren" class="tsd-kind-icon">get<wbr>Children</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getcolor" class="tsd-kind-icon">get<wbr>Color</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#getcoordinate" class="tsd-kind-icon">get<wbr>Coordinate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getheight" class="tsd-kind-icon">get<wbr>Height</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getid" class="tsd-kind-icon">getID</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#getlocation" class="tsd-kind-icon">get<wbr>Location</a>
@@ -2261,16 +2352,58 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 								<a href="entity.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getmodel" class="tsd-kind-icon">get<wbr>Model</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#getoutercoordinate" class="tsd-kind-icon">get<wbr>Outer<wbr>Coordinate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getparent" class="tsd-kind-icon">get<wbr>Parent</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getregiondimension" class="tsd-kind-icon">get<wbr>Region<wbr>Dimension</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getregions" class="tsd-kind-icon">get<wbr>Regions</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#getsize" class="tsd-kind-icon">get<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#gettexture" class="tsd-kind-icon">get<wbr>Texture</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getvisible" class="tsd-kind-icon">get<wbr>Visible</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getx" class="tsd-kind-icon">getX</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getx2" class="tsd-kind-icon">get<wbr>X2</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#gety" class="tsd-kind-icon">getY</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#gety2" class="tsd-kind-icon">get<wbr>Y2</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#getz" class="tsd-kind-icon">getZ</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#indexof" class="tsd-kind-icon">index<wbr>Of</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#ischild" class="tsd-kind-icon">is<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#iscollisionable" class="tsd-kind-icon">is<wbr>Collisionable</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#ismodified" class="tsd-kind-icon">is<wbr>Modified</a>
@@ -2309,13 +2442,52 @@ If neither are provided, just returns <span class="hljs-keyword">an</span> itera
 								<a href="entity.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setcollisionable" class="tsd-kind-icon">set<wbr>Collisionable</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setcolor" class="tsd-kind-icon">set<wbr>Color</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setcoordinate" class="tsd-kind-icon">set<wbr>Coordinate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setheight" class="tsd-kind-icon">set<wbr>Height</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#setlocation" class="tsd-kind-icon">set<wbr>Location</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="entity.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setmodel" class="tsd-kind-icon">set<wbr>Model</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setparent" class="tsd-kind-icon">set<wbr>Parent</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entity.html#setsize" class="tsd-kind-icon">set<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#settexture" class="tsd-kind-icon">set<wbr>Texture</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#settype" class="tsd-kind-icon">set<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setvisible" class="tsd-kind-icon">set<wbr>Visible</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setwidth" class="tsd-kind-icon">set<wbr>Width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setx" class="tsd-kind-icon">setX</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#sety" class="tsd-kind-icon">setY</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entity.html#setz" class="tsd-kind-icon">setZ</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="entity.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a>

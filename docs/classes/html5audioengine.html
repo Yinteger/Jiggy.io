@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HTML5AudioEngine | Jiggy.io</title>
+	<title>HTML5AudioEngine | @jiggy/assets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Jiggy.io</a>
+					<a href="../index.html" class="title">@jiggy/assets</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -96,7 +96,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="html5audioengine.html#_backgroundvolume" class="tsd-kind-icon">_background<wbr>Volume</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="html5audioengine.html#_soundeffectvolume" class="tsd-kind-icon">_sound<wbr>Effect<wbr>Volume</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="html5audioengine.html#_soundeffects" class="tsd-kind-icon">_sound<wbr>Effects</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#logmanager" class="tsd-kind-icon">log<wbr>Manager</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="html5audioengine.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -126,8 +126,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="html5audioengine.html#_warnmissingaudio" class="tsd-kind-icon">_warn<wbr>Missing<wbr>Audio</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#addaudio" class="tsd-kind-icon">add<wbr>Audio</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="html5audioengine.html#addbackgroundmusic" class="tsd-kind-icon">add<wbr>Background<wbr>Music</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="html5audioengine.html#addsoundeffect" class="tsd-kind-icon">add<wbr>Sound<wbr>Effect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#getaudioduration" class="tsd-kind-icon">get<wbr>Audio<wbr>Duration</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#gettimecursor" class="tsd-kind-icon">get<wbr>Time<wbr>Cursor</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#getvolume" class="tsd-kind-icon">get<wbr>Volume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#hasaudio" class="tsd-kind-icon">has<wbr>Audio</a></li>
@@ -135,17 +139,27 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#isaudiomuted" class="tsd-kind-icon">is<wbr>Audio<wbr>Muted</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="html5audioengine.html#isbackgroundmusic" class="tsd-kind-icon">is<wbr>Background<wbr>Music</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="html5audioengine.html#issoundeffect" class="tsd-kind-icon">is<wbr>Sound<wbr>Effect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#loopaudio" class="tsd-kind-icon">loop<wbr>Audio</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#muteaudio" class="tsd-kind-icon">mute<wbr>Audio</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#pauseaudio" class="tsd-kind-icon">pause<wbr>Audio</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#playaudio" class="tsd-kind-icon">play<wbr>Audio</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#releaseassets" class="tsd-kind-icon">release<wbr>Assets</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#removeaudio" class="tsd-kind-icon">remove<wbr>Audio</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="html5audioengine.html#setbackgroundvolume" class="tsd-kind-icon">set<wbr>Background<wbr>Volume</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="html5audioengine.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="html5audioengine.html#setsoundeffectvolume" class="tsd-kind-icon">set<wbr>Sound<wbr>Effect<wbr>Volume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#settimecursor" class="tsd-kind-icon">set<wbr>Time<wbr>Cursor</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#setvolume" class="tsd-kind-icon">set<wbr>Volume</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="html5audioengine.html#stopaudio" class="tsd-kind-icon">stop<wbr>Audio</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="html5audioengine.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
 							</ul>
 						</section>
 					</div>
@@ -164,7 +178,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L8">audio/HTML5AudioEngine.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L9">audio/HTML5AudioEngine.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="html5audioengine.html" class="tsd-signature-type">HTML5AudioEngine</a></h4>
@@ -180,7 +194,7 @@
 					<div class="tsd-signature tsd-kind-icon">_background<wbr>Audios<span class="tsd-signature-symbol">:</span> <a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L5">audio/HTML5AudioEngine.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L6">audio/HTML5AudioEngine.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">_background<wbr>Volume<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L7">audio/HTML5AudioEngine.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L8">audio/HTML5AudioEngine.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">_sound<wbr>Effect<wbr>Volume<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L8">audio/HTML5AudioEngine.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L9">audio/HTML5AudioEngine.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,18 +224,18 @@
 					<div class="tsd-signature tsd-kind-icon">_sound<wbr>Effects<span class="tsd-signature-symbol">:</span> <a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L6">audio/HTML5AudioEngine.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L7">audio/HTML5AudioEngine.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="logmanager" class="tsd-anchor"></a>
-					<h3>log<wbr>Manager</h3>
-					<div class="tsd-signature tsd-kind-icon">log<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="logmanager.html" class="tsd-signature-type">LogManager</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="defaultmaxlisteners" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> default<wbr>Max<wbr>Listeners</h3>
+					<div class="tsd-signature tsd-kind-icon">default<wbr>Max<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#logmanager">logManager</a></p>
+						<p>Inherited from EventEmitter.defaultMaxListeners</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L30">audio/AudioEngine.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L812">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:812</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -232,14 +246,14 @@
 					<a name="_attachendevent" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _attach<wbr>End<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_attach<wbr>End<wbr>Event<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_attach<wbr>End<wbr>Event<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_attachendevent">_attachEndEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L401">audio/AudioEngine.ts:401</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L403">audio/AudioEngine.ts:403</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,6 +268,12 @@
 								<li>
 									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
 								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>audio: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -263,14 +283,14 @@
 					<a name="_attachstartevent" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _attach<wbr>Start<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_attach<wbr>Start<wbr>Event<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_attach<wbr>Start<wbr>Event<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_attachstartevent">_attachStartEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L386">audio/AudioEngine.ts:386</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L388">audio/AudioEngine.ts:388</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -284,6 +304,12 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>audio: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -301,7 +327,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_getaudio">_getAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L340">audio/AudioEngine.ts:340</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L342">audio/AudioEngine.ts:342</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,7 +367,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_getaudioduration">_getAudioDuration</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L96">audio/HTML5AudioEngine.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L97">audio/HTML5AudioEngine.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -365,7 +391,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_getdata">_getData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L374">audio/AudioEngine.ts:374</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L376">audio/AudioEngine.ts:376</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,7 +422,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_gettimecursor">_getTimeCursor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L106">audio/HTML5AudioEngine.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L107">audio/HTML5AudioEngine.ts:107</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -420,7 +446,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_getvolume">_getVolume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L116">audio/HTML5AudioEngine.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L117">audio/HTML5AudioEngine.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -444,7 +470,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_isaudiolooping">_isAudioLooping</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L76">audio/HTML5AudioEngine.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L77">audio/HTML5AudioEngine.ts:77</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -468,7 +494,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_isaudiomuted">_isAudioMuted</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L86">audio/HTML5AudioEngine.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L87">audio/HTML5AudioEngine.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -492,7 +518,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_loopaudio">_loopAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L81">audio/HTML5AudioEngine.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L82">audio/HTML5AudioEngine.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -519,7 +545,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_muteaudio">_muteAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L91">audio/HTML5AudioEngine.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L92">audio/HTML5AudioEngine.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -546,7 +572,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_pauseaudio">_pauseAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L65">audio/HTML5AudioEngine.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L66">audio/HTML5AudioEngine.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -570,7 +596,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_playaudio">_playAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L50">audio/HTML5AudioEngine.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L51">audio/HTML5AudioEngine.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -587,18 +613,24 @@
 					<a name="_registerendevent" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _register<wbr>End<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_register<wbr>End<wbr>Event<span class="tsd-signature-symbol">(</span>audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_register<wbr>End<wbr>Event<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_registerendevent">_registerEndEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L128">audio/HTML5AudioEngine.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L130">audio/HTML5AudioEngine.ts:130</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
 								<li>
 									<h5>audio: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
 								</li>
@@ -611,14 +643,14 @@
 					<a name="_registerevents" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _register<wbr>Events</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_register<wbr>Events<span class="tsd-signature-symbol">(</span>channelArray<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_register<wbr>Events<span class="tsd-signature-symbol">(</span>channelArray<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">[]</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_registerevents">_registerEvents</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L416">audio/AudioEngine.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L418">audio/AudioEngine.ts:418</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -633,6 +665,12 @@
 								<li>
 									<h5>channelArray: <a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>audio: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -642,18 +680,24 @@
 					<a name="_registerstartevent" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _register<wbr>Start<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_register<wbr>Start<wbr>Event<span class="tsd-signature-symbol">(</span>audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_register<wbr>Start<wbr>Event<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, audio<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_registerstartevent">_registerStartEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L121">audio/HTML5AudioEngine.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L122">audio/HTML5AudioEngine.ts:122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
+								<li>
+									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
 								<li>
 									<h5>audio: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
 								</li>
@@ -673,7 +717,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_setaudio">_setAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L301">audio/AudioEngine.ts:301</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L303">audio/AudioEngine.ts:303</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -716,7 +760,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_settimecursor">_setTimeCursor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L101">audio/HTML5AudioEngine.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L102">audio/HTML5AudioEngine.ts:102</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -743,7 +787,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_setvolume">_setVolume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L111">audio/HTML5AudioEngine.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L112">audio/HTML5AudioEngine.ts:112</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -770,7 +814,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_stopaudio">_stopAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L70">audio/HTML5AudioEngine.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L71">audio/HTML5AudioEngine.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -793,7 +837,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L56">audio/HTML5AudioEngine.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L57">audio/HTML5AudioEngine.ts:57</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -817,7 +861,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#_warnmissingaudio">_warnMissingAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L327">audio/AudioEngine.ts:327</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L329">audio/AudioEngine.ts:329</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -851,7 +895,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#addaudio">addAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L47">audio/AudioEngine.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L49">audio/AudioEngine.ts:49</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -895,7 +939,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L18">audio/HTML5AudioEngine.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L19">audio/HTML5AudioEngine.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -911,6 +955,52 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="addlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Listener<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.addListener</p>
+								<p>Overrides EventEmitter.addListener</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L814">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:814</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addsoundeffect" class="tsd-anchor"></a>
 					<h3>add<wbr>Sound<wbr>Effect</h3>
@@ -921,7 +1011,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L23">audio/HTML5AudioEngine.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L24">audio/HTML5AudioEngine.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -934,6 +1024,53 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="emit" class="tsd-anchor"></a>
+					<h3>emit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, <span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.emit</p>
+								<p>Overrides EventEmitter.emit</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L824">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:824</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="eventnames" class="tsd-anchor"></a>
+					<h3>event<wbr>Names</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">event<wbr>Names<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.eventNames</p>
+								<p>Overrides EventEmitter.eventNames</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L825">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:825</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -948,7 +1085,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#getaudioduration">getAudioDuration</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L218">audio/AudioEngine.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L220">audio/AudioEngine.ts:220</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -971,6 +1108,25 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="getmaxlisteners" class="tsd-anchor"></a>
+					<h3>get<wbr>Max<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Max<wbr>Listeners<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.getMaxListeners</p>
+								<p>Overrides EventEmitter.getMaxListeners</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L822">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:822</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="gettimecursor" class="tsd-anchor"></a>
 					<h3>get<wbr>Time<wbr>Cursor</h3>
@@ -982,7 +1138,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#gettimecursor">getTimeCursor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L251">audio/AudioEngine.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L253">audio/AudioEngine.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1017,7 +1173,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#getvolume">getVolume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L282">audio/AudioEngine.ts:282</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L284">audio/AudioEngine.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1051,7 +1207,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#hasaudio">hasAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L62">audio/AudioEngine.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L64">audio/AudioEngine.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1085,7 +1241,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#isaudiolooping">isAudioLooping</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L154">audio/AudioEngine.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L156">audio/AudioEngine.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1119,7 +1275,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#isaudiomuted">isAudioMuted</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L186">audio/AudioEngine.ts:186</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L188">audio/AudioEngine.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1152,7 +1308,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L42">audio/HTML5AudioEngine.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L43">audio/HTML5AudioEngine.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1175,7 +1331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L46">audio/HTML5AudioEngine.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L47">audio/HTML5AudioEngine.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1185,6 +1341,56 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="listenercount" class="tsd-anchor"></a>
+					<h3>listener<wbr>Count</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">listener<wbr>Count<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.listenerCount</p>
+								<p>Overrides EventEmitter.listenerCount</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L826">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:826</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="listeners" class="tsd-anchor"></a>
+					<h3>listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.listeners</p>
+								<p>Overrides EventEmitter.listeners</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L823">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:823</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1199,7 +1405,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#loopaudio">loopAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L171">audio/AudioEngine.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L173">audio/AudioEngine.ts:173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1239,7 +1445,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#muteaudio">muteAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L203">audio/AudioEngine.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L205">audio/AudioEngine.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1262,6 +1468,98 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="on" class="tsd-anchor"></a>
+					<h3>on</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.on</p>
+								<p>Overrides EventEmitter.on</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L815">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:815</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="once" class="tsd-anchor"></a>
+					<h3>once</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.once</p>
+								<p>Overrides EventEmitter.once</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L816">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:816</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="pauseaudio" class="tsd-anchor"></a>
 					<h3>pause<wbr>Audio</h3>
@@ -1273,7 +1571,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#pauseaudio">pauseAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L122">audio/AudioEngine.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L124">audio/AudioEngine.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1307,7 +1605,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#playaudio">playAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L106">audio/AudioEngine.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L108">audio/AudioEngine.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1330,6 +1628,98 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="prependlistener" class="tsd-anchor"></a>
+					<h3>prepend<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">prepend<wbr>Listener<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.prependListener</p>
+								<p>Overrides EventEmitter.prependListener</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L817">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:817</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="prependoncelistener" class="tsd-anchor"></a>
+					<h3>prepend<wbr>Once<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">prepend<wbr>Once<wbr>Listener<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.prependOnceListener</p>
+								<p>Overrides EventEmitter.prependOnceListener</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L818">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:818</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="releaseassets" class="tsd-anchor"></a>
 					<h3>release<wbr>Assets</h3>
@@ -1341,7 +1731,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#releaseassets">releaseAssets</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L91">audio/AudioEngine.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L93">audio/AudioEngine.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1352,6 +1742,31 @@
 </code></pre>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="removealllisteners" class="tsd-anchor"></a>
+					<h3>remove<wbr>All<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>All<wbr>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.removeAllListeners</p>
+								<p>Overrides EventEmitter.removeAllListeners</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L820">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:820</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1366,7 +1781,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#removeaudio">removeAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L76">audio/AudioEngine.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L78">audio/AudioEngine.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1390,6 +1805,52 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="removelistener" class="tsd-anchor"></a>
+					<h3>remove<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Listener<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.removeListener</p>
+								<p>Overrides EventEmitter.removeListener</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L819">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:819</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setbackgroundvolume" class="tsd-anchor"></a>
 					<h3>set<wbr>Background<wbr>Volume</h3>
@@ -1400,7 +1861,7 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L28">audio/HTML5AudioEngine.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L29">audio/HTML5AudioEngine.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1410,6 +1871,31 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="setmaxlisteners" class="tsd-anchor"></a>
+					<h3>set<wbr>Max<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Max<wbr>Listeners<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.setMaxListeners</p>
+								<p>Overrides EventEmitter.setMaxListeners</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L821">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:821</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1423,7 +1909,7 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L35">audio/HTML5AudioEngine.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/HTML5AudioEngine.ts#L36">audio/HTML5AudioEngine.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1447,7 +1933,7 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#settimecursor">setTimeCursor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L235">audio/AudioEngine.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L237">audio/AudioEngine.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1487,7 +1973,7 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#setvolume">setVolume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L267">audio/AudioEngine.ts:267</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L269">audio/AudioEngine.ts:269</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1526,7 +2012,7 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="audioengine.html">AudioEngine</a>.<a href="audioengine.html#stopaudio">stopAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L138">audio/AudioEngine.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/audio/AudioEngine.ts#L140">audio/AudioEngine.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1546,6 +2032,33 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="listenercount-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> listener<wbr>Count</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">listener<wbr>Count<span class="tsd-signature-symbol">(</span>emitter<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">EventEmitter</span>, event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.listenerCount</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L811">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:811</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>emitter: <span class="tsd-signature-type">EventEmitter</span></h5>
+								</li>
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1581,8 +2094,8 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="html5audioengine.html#_soundeffects" class="tsd-kind-icon">_sound<wbr>Effects</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="html5audioengine.html#logmanager" class="tsd-kind-icon">log<wbr>Manager</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="html5audioengine.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="html5audioengine.html#_attachendevent" class="tsd-kind-icon">_attach<wbr>End<wbr>Event</a>
@@ -1656,11 +2169,23 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="html5audioengine.html#addbackgroundmusic" class="tsd-kind-icon">add<wbr>Background<wbr>Music</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="html5audioengine.html#addsoundeffect" class="tsd-kind-icon">add<wbr>Sound<wbr>Effect</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#emit" class="tsd-kind-icon">emit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#getaudioduration" class="tsd-kind-icon">get<wbr>Audio<wbr>Duration</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#gettimecursor" class="tsd-kind-icon">get<wbr>Time<wbr>Cursor</a>
@@ -1683,11 +2208,23 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="html5audioengine.html#issoundeffect" class="tsd-kind-icon">is<wbr>Sound<wbr>Effect</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#listeners" class="tsd-kind-icon">listeners</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#loopaudio" class="tsd-kind-icon">loop<wbr>Audio</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#muteaudio" class="tsd-kind-icon">mute<wbr>Audio</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#on" class="tsd-kind-icon">on</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#pauseaudio" class="tsd-kind-icon">pause<wbr>Audio</a>
@@ -1695,14 +2232,29 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#playaudio" class="tsd-kind-icon">play<wbr>Audio</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#releaseassets" class="tsd-kind-icon">release<wbr>Assets</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#removeaudio" class="tsd-kind-icon">remove<wbr>Audio</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="html5audioengine.html#setbackgroundvolume" class="tsd-kind-icon">set<wbr>Background<wbr>Volume</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="html5audioengine.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="html5audioengine.html#setsoundeffectvolume" class="tsd-kind-icon">set<wbr>Sound<wbr>Effect<wbr>Volume</a>
@@ -1715,6 +2267,9 @@ Will stop the <span class="hljs-selector-tag">audio</span> <span class="hljs-key
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="html5audioengine.html#stopaudio" class="tsd-kind-icon">stop<wbr>Audio</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="html5audioengine.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a>
 							</li>
 						</ul>
 					</li>

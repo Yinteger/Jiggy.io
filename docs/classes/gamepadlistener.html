@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>KeyboardController | Jiggy.io</title>
+	<title>GamePadListener | @jiggy/assets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Jiggy.io</a>
+					<a href="../index.html" class="title">@jiggy/assets</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,24 +56,31 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="keyboardcontroller.html">KeyboardController</a>
+					<a href="gamepadlistener.html">GamePadListener</a>
 				</li>
 			</ul>
-			<h1>Class KeyboardController</h1>
+			<h1>Class GamePadListener</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Listens to the window and detects any new gamePads plugged in.  GamePads may only be detected once a button is clicked.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="controller.html" class="tsd-signature-type">Controller</a>
+						<span class="tsd-signature-type">EventEmitter</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">KeyboardController</span>
+								<span class="target">GamePadListener</span>
 							</li>
 						</ul>
 					</li>
@@ -83,68 +90,64 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="keyboardcontroller.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-private"><a href="gamepadlistener.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_eventdetail" class="tsd-kind-icon">_event<wbr>Detail</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_keycodes" class="tsd-kind-icon">_key<wbr>Codes</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="keyboardcontroller.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="gamepadlistener.html#_activegamepads" class="tsd-kind-icon">_active<wbr>Game<wbr>Pads</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="gamepadlistener.html#_gamepadpolltimer" class="tsd-kind-icon">_game<wbr>Pad<wbr>Poll<wbr>Timer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="gamepadlistener.html#_instance" class="tsd-kind-icon">_instance</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="gamepadlistener.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected"><a href="keyboardcontroller.html#_attachevents" class="tsd-kind-icon">_attach<wbr>Events</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="keyboardcontroller.html#_fireevent" class="tsd-kind-icon">_fire<wbr>Event</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_keydownhandler" class="tsd-kind-icon">_key<wbr>Down<wbr>Handler</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_keyuphandler" class="tsd-kind-icon">_key<wbr>UpHandler</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_onkeydown" class="tsd-kind-icon">_on<wbr>Key<wbr>Down</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_onkeyup" class="tsd-kind-icon">_on<wbr>Key<wbr>Up</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="keyboardcontroller.html#_updateeventdetail" class="tsd-kind-icon">_update<wbr>Event<wbr>Detail</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="keyboardcontroller.html#destroy" class="tsd-kind-icon">destroy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#emit" class="tsd-kind-icon">emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="keyboardcontroller.html#initialize" class="tsd-kind-icon">initialize</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#listeners" class="tsd-kind-icon">listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#once" class="tsd-kind-icon">once</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="keyboardcontroller.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="keyboardcontroller.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gamepadlistener.html#_buildgamepad" class="tsd-kind-icon">_build<wbr>Game<wbr>Pad</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="gamepadlistener.html#_buildgamepads" class="tsd-kind-icon">_build<wbr>Game<wbr>Pads</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gamepadlistener.html#getgamepads" class="tsd-kind-icon">get<wbr>Game<wbr>Pads</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gamepadlistener.html#hasgamepads" class="tsd-kind-icon">has<wbr>Game<wbr>Pads</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#listeners" class="tsd-kind-icon">listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="gamepadlistener.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gamepadlistener.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="gamepadlistener.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
 					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Keyboard<wbr>Controller<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="keyboardcontroller.html" class="tsd-signature-type">KeyboardController</a></li>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Game<wbr>Pad<wbr>Listener<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gamepadlistener.html" class="tsd-signature-type">GamePadListener</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="controller.html">Controller</a>.<a href="controller.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L12">inputs/KeyboardController.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L20">inputs/GamePadListener.ts:20</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="keyboardcontroller.html" class="tsd-signature-type">KeyboardController</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="gamepadlistener.html" class="tsd-signature-type">GamePadListener</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -152,22 +155,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_eventdetail" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _event<wbr>Detail</h3>
-					<div class="tsd-signature tsd-kind-icon">_event<wbr>Detail<span class="tsd-signature-symbol">:</span> <a href="../interfaces/keyboardeventdetail.html" class="tsd-signature-type">KeyboardEventDetail</a></div>
+					<a name="_activegamepads" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _active<wbr>Game<wbr>Pads</h3>
+					<div class="tsd-signature tsd-kind-icon">_active<wbr>Game<wbr>Pads<span class="tsd-signature-symbol">:</span> <a href="gamepad.html" class="tsd-signature-type">GamePad</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L12">inputs/KeyboardController.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L19">inputs/GamePadListener.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_keycodes" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _key<wbr>Codes</h3>
-					<div class="tsd-signature tsd-kind-icon">_key<wbr>Codes<span class="tsd-signature-symbol">:</span> <a href="../enums/keycode.html" class="tsd-signature-type">KeyCode</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="_gamepadpolltimer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _game<wbr>Pad<wbr>Poll<wbr>Timer</h3>
+					<div class="tsd-signature tsd-kind-icon">_game<wbr>Pad<wbr>Poll<wbr>Timer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L11">inputs/KeyboardController.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L20">inputs/GamePadListener.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="_instance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _instance</h3>
+					<div class="tsd-signature tsd-kind-icon">_instance<span class="tsd-signature-symbol">:</span> <a href="gamepadlistener.html" class="tsd-signature-type">GamePadListener</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L18">inputs/GamePadListener.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -185,150 +198,47 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-					<a name="_attachevents" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _attach<wbr>Events</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_attach<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_buildgamepad" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _build<wbr>Game<wbr>Pad</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_build<wbr>Game<wbr>Pad<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gamepad.html" class="tsd-signature-type">GamePad</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="controller.html">Controller</a>.<a href="controller.html#_attachevents">_attachEvents</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L45">inputs/KeyboardController.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L90">inputs/GamePadListener.ts:90</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a name="_fireevent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _fire<wbr>Event</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-						<li class="tsd-signature tsd-kind-icon">_fire<wbr>Event<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="../enums/inputevent.html" class="tsd-signature-type">InputEvent</a>, data<span class="tsd-signature-symbol">: </span><a href="../interfaces/controllereventdetail.html" class="tsd-signature-type">ControllerEventDetail</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="controller.html">Controller</a>.<a href="controller.html#_fireevent">_fireEvent</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/Controller.ts#L15">inputs/Controller.ts:15</a></li>
-								</ul>
-							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>event: <a href="../enums/inputevent.html" class="tsd-signature-type">InputEvent</a></h5>
-								</li>
-								<li>
-									<h5>data: <a href="../interfaces/controllereventdetail.html" class="tsd-signature-type">ControllerEventDetail</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_keydownhandler" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _key<wbr>Down<wbr>Handler</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_key<wbr>Down<wbr>Handler<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L31">inputs/KeyboardController.ts:31</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>e: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index in the HTML5 gamePad API that this GamePad represents.  An index is used over the object so polling update checks can be done.</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="gamepad.html" class="tsd-signature-type">GamePad</a></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_keyuphandler" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _key<wbr>UpHandler</h3>
+					<a name="_buildgamepads" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _build<wbr>Game<wbr>Pads</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_key<wbr>UpHandler<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">_build<wbr>Game<wbr>Pads<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L39">inputs/KeyboardController.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L75">inputs/GamePadListener.ts:75</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>e: <span class="tsd-signature-type">KeyboardEvent</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_onkeydown" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Key<wbr>Down</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_on<wbr>Key<wbr>Down<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L52">inputs/KeyboardController.ts:52</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_onkeyup" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _on<wbr>Key<wbr>Up</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_on<wbr>Key<wbr>Up<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L56">inputs/KeyboardController.ts:56</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="_updateeventdetail" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _update<wbr>Event<wbr>Detail</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">_update<wbr>Event<wbr>Detail<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L60">inputs/KeyboardController.ts:60</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>e: <span class="tsd-signature-type">KeyboardEvent</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -379,24 +289,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="destroy" class="tsd-anchor"></a>
-					<h3>destroy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides <a href="controller.html">Controller</a>.<a href="controller.html#destroy">destroy</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L26">inputs/KeyboardController.ts:26</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="emit" class="tsd-anchor"></a>
 					<h3>emit</h3>
@@ -444,6 +336,23 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getgamepads" class="tsd-anchor"></a>
+					<h3>get<wbr>Game<wbr>Pads</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Game<wbr>Pads<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gamepad.html" class="tsd-signature-type">GamePad</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L105">inputs/GamePadListener.ts:105</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="gamepad.html" class="tsd-signature-type">GamePad</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="getmaxlisteners" class="tsd-anchor"></a>
 					<h3>get<wbr>Max<wbr>Listeners</h3>
@@ -463,27 +372,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a name="initialize" class="tsd-anchor"></a>
-					<h3>initialize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">initialize<span class="tsd-signature-symbol">(</span>inputManager<span class="tsd-signature-symbol">: </span><a href="inputmanager.html" class="tsd-signature-type">InputManager</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="hasgamepads" class="tsd-anchor"></a>
+					<h3>has<wbr>Game<wbr>Pads</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Game<wbr>Pads<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="controller.html">Controller</a>.<a href="controller.html#initialize">initialize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/KeyboardController.ts#L77">inputs/KeyboardController.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L101">inputs/GamePadListener.ts:101</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>inputManager: <a href="inputmanager.html" class="tsd-signature-type">InputManager</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -817,6 +719,23 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="getinstance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> get<wbr>Instance</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Instance<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gamepadlistener.html" class="tsd-signature-type">GamePadListener</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/inputs/GamePadListener.ts#L96">inputs/GamePadListener.ts:96</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="gamepadlistener.html" class="tsd-signature-type">GamePadListener</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="listenercount-1" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> listener<wbr>Count</h3>
@@ -859,88 +778,79 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="keyboardcontroller.html" class="tsd-kind-icon">Keyboard<wbr>Controller</a>
+						<a href="gamepadlistener.html" class="tsd-kind-icon">Game<wbr>Pad<wbr>Listener</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="keyboardcontroller.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
+								<a href="gamepadlistener.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_eventdetail" class="tsd-kind-icon">_event<wbr>Detail</a>
+								<a href="gamepadlistener.html#_activegamepads" class="tsd-kind-icon">_active<wbr>Game<wbr>Pads</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_keycodes" class="tsd-kind-icon">_key<wbr>Codes</a>
+								<a href="gamepadlistener.html#_gamepadpolltimer" class="tsd-kind-icon">_game<wbr>Pad<wbr>Poll<wbr>Timer</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="gamepadlistener.html#_instance" class="tsd-kind-icon">_instance</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="keyboardcontroller.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected">
-								<a href="keyboardcontroller.html#_attachevents" class="tsd-kind-icon">_attach<wbr>Events</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="keyboardcontroller.html#_fireevent" class="tsd-kind-icon">_fire<wbr>Event</a>
+								<a href="gamepadlistener.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_keydownhandler" class="tsd-kind-icon">_key<wbr>Down<wbr>Handler</a>
+								<a href="gamepadlistener.html#_buildgamepad" class="tsd-kind-icon">_build<wbr>Game<wbr>Pad</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_keyuphandler" class="tsd-kind-icon">_key<wbr>UpHandler</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_onkeydown" class="tsd-kind-icon">_on<wbr>Key<wbr>Down</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_onkeyup" class="tsd-kind-icon">_on<wbr>Key<wbr>Up</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="keyboardcontroller.html#_updateeventdetail" class="tsd-kind-icon">_update<wbr>Event<wbr>Detail</a>
+								<a href="gamepadlistener.html#_buildgamepads" class="tsd-kind-icon">_build<wbr>Game<wbr>Pads</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="keyboardcontroller.html#destroy" class="tsd-kind-icon">destroy</a>
+								<a href="gamepadlistener.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#emit" class="tsd-kind-icon">emit</a>
+								<a href="gamepadlistener.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a>
+								<a href="gamepadlistener.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gamepadlistener.html#getgamepads" class="tsd-kind-icon">get<wbr>Game<wbr>Pads</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
+								<a href="gamepadlistener.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="keyboardcontroller.html#initialize" class="tsd-kind-icon">initialize</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gamepadlistener.html#hasgamepads" class="tsd-kind-icon">has<wbr>Game<wbr>Pads</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#listeners" class="tsd-kind-icon">listeners</a>
+								<a href="gamepadlistener.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#on" class="tsd-kind-icon">on</a>
+								<a href="gamepadlistener.html#listeners" class="tsd-kind-icon">listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#once" class="tsd-kind-icon">once</a>
+								<a href="gamepadlistener.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a>
+								<a href="gamepadlistener.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a>
+								<a href="gamepadlistener.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
+								<a href="gamepadlistener.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a>
+								<a href="gamepadlistener.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="keyboardcontroller.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
+								<a href="gamepadlistener.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="gamepadlistener.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gamepadlistener.html#getinstance" class="tsd-kind-icon">get<wbr>Instance</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="keyboardcontroller.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a>
+								<a href="gamepadlistener.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a>
 							</li>
 						</ul>
 					</li>
