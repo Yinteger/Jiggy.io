@@ -178,11 +178,14 @@ export abstract class RenderingEngine {
             context.stroke();
         }
 
+        var color: Color = new Color(255, 255, 0);
+        this.getViewPort().getContext().fillStyle = color.toString();
+        this.getViewPort().getContext().fillRect(camera.getRenderOrigin().getX(), camera.getRenderOrigin().getY(), camera.getRenderDimension().width, camera.getRenderDimension().height);
+
         this._renderEntity(scene, camera);
     }
 
     protected abstract _renderEntity(entity: Entity, camera: Camera): void;
-    protected abstract _entityInCamera(entity: Entity, camera: Camera): boolean;
 
     /**
      * Count every render loop in a second to show the FPS of the game

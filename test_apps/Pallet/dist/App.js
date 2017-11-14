@@ -667,6 +667,15 @@ class Coordinate {
     setZ(z) {
         this._z = z;
     }
+    incrementX(x) {
+        this._x += x;
+    }
+    incrementY(y) {
+        this._y += y;
+    }
+    incrementZ(z) {
+        this._z += z;
+    }
 }
 exports.Coordinate = Coordinate;
 
@@ -2016,9 +2025,9 @@ class PalletDemo extends core_1.Engine {
     }
     _createMainMap() {
         var mapContainer = new entities_1.Entity();
-        var layer1 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer2 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
-        var layer3 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 50, y: 50 });
+        var layer1 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 15, y: 15 });
+        var layer2 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 15, y: 15 });
+        var layer3 = new entities_1.GridMap({ width: 16, height: 16 }, { x: 15, y: 15 });
         mapContainer.setWidth(layer1.getWidth());
         mapContainer.setHeight(layer1.getHeight());
         mapContainer.addChild(layer1);
@@ -4048,6 +4057,9 @@ class RenderingEngine {
             context.strokeStyle = 'green';
             context.stroke();
         }
+        var color = new utils_1.Color(255, 255, 0);
+        this.getViewPort().getContext().fillStyle = color.toString();
+        this.getViewPort().getContext().fillRect(camera.getRenderOrigin().getX(), camera.getRenderOrigin().getY(), camera.getRenderDimension().width, camera.getRenderDimension().height);
         this._renderEntity(scene, camera);
     }
     _calculateFPS() {
@@ -4089,134 +4101,138 @@ exports.RenderingEngine = RenderingEngine;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const _1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(0);
 class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
+    constructor() {
+        super(...arguments);
+        this._isometricRendering = false;
+    }
     _renderEntity(entity, camera) {
-        if (camera) {
-            var viewPoint = camera.getViewPoint();
-            var fov = camera.getFOV();
-            var renderOrigin = camera.getRenderOrigin();
-            var renderDimension = camera.getRenderDimension();
-            var collidesYAxis = false;
-            var collidesXAxis = false;
-            var cameraBounds = {
-                x: viewPoint.getX(),
-                y: viewPoint.getY(),
-                x2: viewPoint.getX() + fov.width,
-                y2: viewPoint.getY() + fov.height
-            };
-            var entityBounds = {
-                x: entity.getAbsoluteX(),
-                y: entity.getAbsoluteY(),
-                x2: entity.getAbsoluteX2(),
-                y2: entity.getAbsoluteY2()
-            };
-            if (!this._entityInCamera(entity, camera)) {
-                return false;
-            }
-            var leftClip = 0;
-            if (entity.getAbsoluteX() < viewPoint.getX()) {
-                leftClip = viewPoint.getX() - entity.getAbsoluteX();
-            }
-            var rightClip = 0;
-            if (entity.getAbsoluteX2() > (viewPoint.getX() + fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (viewPoint.getX() + fov.width);
-            }
-            var topClip = 0;
-            if (entity.getAbsoluteY() < viewPoint.getY()) {
-                topClip = viewPoint.getY() - entity.getAbsoluteY();
-            }
-            var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (viewPoint.getY() + fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (viewPoint.getY() + fov.height);
-            }
-            var xModifier = fov.width / renderDimension.width;
-            var yModifier = fov.height / renderDimension.height;
-            var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
-            if (cameraRelativeY < 0) {
-                cameraRelativeY = 0;
-            }
-            var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
-            if (cameraRelativeX < 0) {
-                cameraRelativeX = 0;
-            }
-            var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
-            var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-            var x = renderOrigin.getX() + cameraRelativeX;
-            var y = renderOrigin.getY() + cameraRelativeY;
-            var w = clippedEntityWidth / xModifier;
-            var h = clippedEntityHeight / yModifier;
-            if (entity.getColor()) {
-                var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
-            }
-            if (this.debugRegions) {
-                var regions = entity.getRegions();
-                for (var x_i in regions) {
-                    for (var y_i in regions[x]) {
-                        if (regions[x_i][y_i].length > 0) {
-                            this.getViewPort().getContext().strokeStyle = "red";
-                            this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
-                        }
+        var renderOrigin = camera.getRenderOrigin();
+        var renderDimension = camera.getRenderDimension();
+        var cameraFOV = camera.getFOV();
+        var entityAbsolutePosition = new utils_1.Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY());
+        if (this._isometricRendering && entity.getParent()) {
+            entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2) + (entity.getHeight() / 2));
+            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2) - (entity.getWidth() / 2));
+        }
+        var entityAbsoluteOuterPosition = new utils_1.Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
+        var cameraPosition = camera.getViewPoint();
+        var cameraOuterPosition = new utils_1.Coordinate(cameraPosition.getX() + camera.getFOV().width, cameraPosition.getY() + camera.getFOV().height);
+        if (this._isometricRendering) {
+            entityAbsoluteOuterPosition.incrementX(entity.getWidth() * 2);
+            entityAbsolutePosition = entityAbsolutePosition.toIsometric();
+            entityAbsoluteOuterPosition = entityAbsoluteOuterPosition.toIsometric();
+        }
+        if (!this._isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition)) {
+            return false;
+        }
+        var entityClippings = this._calculateEntityClipping(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition);
+        var xModifier = cameraFOV.width / renderDimension.width;
+        var yModifier = cameraFOV.height / renderDimension.height;
+        var zModifier = (xModifier + yModifier) / 2;
+        var cameraRelativeY = (entityAbsolutePosition.getY() - cameraPosition.getY()) / yModifier;
+        if (cameraRelativeY < 0) {
+            cameraRelativeY = 0;
+        }
+        var cameraRelativeX = (entityAbsolutePosition.getX() - cameraPosition.getX()) / xModifier;
+        if (cameraRelativeX < 0) {
+            cameraRelativeX = 0;
+        }
+        var clippedEntityHeight = (entity.getHeight() - entityClippings.topClip - entityClippings.bottomClip);
+        var clippedEntityWidth = (entity.getWidth() - entityClippings.rightClip - entityClippings.leftClip);
+        var x = renderOrigin.getX() + cameraRelativeX;
+        var y = renderOrigin.getY() + cameraRelativeY;
+        var z = entity.getZ() / zModifier;
+        var w = clippedEntityWidth / xModifier;
+        var h = clippedEntityHeight / yModifier;
+        if (this._isometricRendering) {
+            w = w * 2;
+            y -= z;
+        }
+        if (entity.getColor()) {
+            var color = entity.getColor();
+            this.getViewPort().getContext().fillStyle = color.toString();
+            this.getViewPort().getContext().fillRect(x, y, w, h);
+        }
+        if (this.debugRegions) {
+            var regions = entity.getRegions();
+            for (var x_i in regions) {
+                for (var y_i in regions[x]) {
+                    if (regions[x_i][y_i].length > 0) {
+                        this.getViewPort().getContext().strokeStyle = "red";
+                        this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
                     }
                 }
             }
-            if (entity.getTexture()) {
-                var imageData = entity.getTexture().getData();
-                var entityToImageYModifier = imageData.height / entity.getHeight();
-                var entityToImageXModifier = imageData.width / entity.getWidth();
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h);
-            }
         }
-        else {
-            var x = entity.getX();
-            var y = entity.getY();
-            var w = entity.getWidth();
-            var h = entity.getHeight();
-            if (entity.getColor()) {
-                var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
-            }
-            if (entity.getTexture()) {
-                var imageData = entity.getTexture().getData();
-                var entityToImageYModifier = imageData.height / entity.getHeight();
-                var entityToImageXModifier = imageData.width / entity.getWidth();
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, x, y, w, h);
-            }
+        if (entity.getTexture()) {
+            var imageData = entity.getTexture().getData();
+            var entityToImageYModifier = imageData.height / entity.getHeight();
+            var entityToImageXModifier = imageData.width / entity.getWidth();
+            var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+            var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
+            this.getViewPort().getContext().drawImage(imageData, entityClippings.leftClip * entityToImageXModifier, entityClippings.topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y - z, w, h);
         }
+        var index = {};
         var children = entity.getChildren();
         while (children.hasNext()) {
-            this._renderEntity(children.next(), camera);
+            var child = children.next();
+            if (!index[child.getZ()]) {
+                index[child.getZ()] = {};
+            }
+            if (!index[child.getZ()][child.getY()]) {
+                index[child.getZ()][child.getY()] = [];
+            }
+            index[child.getZ()][child.getY()].push(child);
+        }
+        for (var i in index) {
+            for (var i2 in index[i]) {
+                for (var i3 in index[i][i2]) {
+                    this._renderEntity(index[i][i2][i3], camera);
+                }
+            }
         }
         return true;
     }
-    _entityInCamera(entity, camera) {
-        var viewPoint = camera.getViewPoint();
-        var fov = camera.getFOV();
-        var entityPosition = entity.getPosition();
-        var entityOuterPosition = entity.getOuterPosition();
-        var cameraBounds = {
-            x: viewPoint.getX(),
-            y: viewPoint.getY(),
-            x2: viewPoint.getX() + fov.width,
-            y2: viewPoint.getY() + fov.height
-        };
+    setIsometricRendering(state) {
+        this._isometricRendering = state;
+    }
+    _isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition) {
         var collidesXAxis = false;
         var collidesYAxis = false;
-        if ((entityPosition.getX() < cameraBounds.x2 && entityOuterPosition.getX() > cameraBounds.x)
-            || (entityOuterPosition.getX() > cameraBounds.x && entityPosition.getX() < cameraBounds.x2)) {
+        if ((entityAbsolutePosition.getX() < cameraOuterPosition.getX() && entityAbsoluteOuterPosition.getX() > cameraPosition.getX())
+            || (entityAbsoluteOuterPosition.getX() > cameraPosition.getX() && entityAbsolutePosition.getX() < cameraOuterPosition.getX())) {
             collidesXAxis = true;
         }
-        if ((entityPosition.getY() < cameraBounds.y2 && entityOuterPosition.getY() > cameraBounds.y)
-            || (entityOuterPosition.getY() > cameraBounds.y && entityPosition.getY() < cameraBounds.y2)) {
+        if ((entityAbsolutePosition.getY() < cameraOuterPosition.getY() && entityAbsoluteOuterPosition.getY() > cameraPosition.getY())
+            || (entityAbsoluteOuterPosition.getY() > cameraPosition.getY() && entityAbsolutePosition.getY() < cameraOuterPosition.getY())) {
             collidesYAxis = true;
         }
-        return collidesYAxis && collidesXAxis;
+        return true;
+    }
+    _calculateEntityClipping(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition) {
+        var leftClip = 0;
+        if (entityAbsolutePosition.getX() < cameraPosition.getX()) {
+            leftClip = cameraPosition.getX() - entityAbsolutePosition.getX();
+        }
+        var rightClip = 0;
+        if (entityAbsoluteOuterPosition.getX() > cameraOuterPosition.getX()) {
+            rightClip = entityAbsoluteOuterPosition.getX() - cameraOuterPosition.getX();
+        }
+        if (this._isometricRendering) {
+            leftClip = leftClip / 2;
+            rightClip = rightClip / 2;
+        }
+        var topClip = 0;
+        if (entityAbsolutePosition.getY() < cameraPosition.getY()) {
+            topClip = cameraPosition.getY() - entityAbsolutePosition.getY();
+        }
+        var bottomClip = 0;
+        if (entityAbsoluteOuterPosition.getY() > cameraOuterPosition.getY()) {
+            bottomClip = entityAbsoluteOuterPosition.getY() - cameraOuterPosition.getY();
+        }
+        return { leftClip, rightClip, topClip, bottomClip };
     }
 }
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
@@ -4310,8 +4326,8 @@ class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
                 topClip = viewPoint.getY() - entityBounds.y;
             }
             var bottomClip = 0;
-            if (entityBounds.y2 > (viewPoint.getY() + fov.height)) {
-                bottomClip = entityBounds.y2 - (viewPoint.getY() + fov.height);
+            if ((entityBounds.y2 / 2) > (viewPoint.getY() + fov.height)) {
+                bottomClip = (entityBounds.y2 / 2) - (viewPoint.getY() + fov.height);
             }
             var xModifier = fov.width / renderDimension.width;
             var yModifier = fov.height / renderDimension.height;
@@ -4337,8 +4353,7 @@ class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
             if (entity.getColor()) {
                 var color = entity.getColor();
                 this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
-                this.getViewPort().getContext().fillRect(x, y + z, w * 2, h);
+                this.getViewPort().getContext().fillRect(x, y, w * 2, h);
             }
             if (this.debugRegions) {
                 var regions = entity.getRegions();
@@ -4358,7 +4373,7 @@ class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
                 var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
                 var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
                 this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y - z, w * 2, h);
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w * 2, h);
             }
             if (entity instanceof entities_1.IsometricTile) {
                 this.getViewPort().getContext().beginPath();

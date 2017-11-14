@@ -9,28 +9,40 @@ import {
     Keyboard, KeyboardEvents, KeyDown, KeyUp, KeyboardKeys,
     GamePadListener, GamePadListenerEvents, GamePad, GamePadEvents, ValueChangeEvent
 } from "../../src/inputs";
-import { Entity, IsometricTile } from "../../src/entities";
+import { Entity, EntityEventTypes, IsometricTile } from "../../src/entities";
 
 class IsoDemo extends Engine {
     _characterSpritesheet: Spritesheet;
     player: Entity;
     _mainCamera: Camera;
+    _direction: string;
     constructor() {
         super();
-        this.getViewPort().setSize({ width: 500, height: 500 });
+        this.setLogicEngine(new GroupLogicEngine());
+        this.getViewPort().setSize({ width: 300, height: 300 });
         this.getViewPort().fillPage(true);
+        var engine: TwoDimensionalRenderingEngine = new TwoDimensionalRenderingEngine();
+        engine.setIsometricRendering(true);
         this.setRenderingEngine(new IsometricRenderingEngine());
+        this.setRenderingEngine(engine);
 
 
         var layer1: IsometricGridMap = new IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
         layer1.setX(0);
         layer1.setY(0);
-        var camera = new Camera(layer1, new Coordinate(-150, 0 ), { width: 500, height: 500 }, new Coordinate(0, 0), { width: 1000, height: 1000 });
+        //layer1.setColor(new Color(255, 0, 0));
+        var camera = new Camera(layer1, new Coordinate(0, 0), { width: 500, height: 500 }, new Coordinate(123, 123), { width: 300, height: 300 });
         this._mainCamera = camera;
         this.getRenderingEngine().addCamera(camera);
 
+        this.getViewPort().on("resize", (dimension) => {
+            console.log(dimension);
+            camera.setRenderDimension(dimension);
+        });
+
         var map_asset: Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'grass_18x18_zps343999e6.png');
         var block_asset: Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'isometric_00142.png');
+        var bg_asset: Asset = AssetFactory.getSingleton().build(AssetType.IMAGE, 'Sky.jpg');
 
         map_asset.onStateChange = (state: AssetState) => {
             if (state === AssetState.LOADED) {
@@ -50,7 +62,7 @@ class IsoDemo extends Engine {
                 this._loadCharacterSpriteSheet(() => {
                     var player: Entity = new Entity();
                     player.setHeight(16);
-                    player.setWidth(16);
+                    player.setWidth(8);
                     player.setZ(1);
                     //player.texture = this._characterSpritesheet.getSprite("player_left");
                     layer1.addChild(player);
@@ -61,7 +73,19 @@ class IsoDemo extends Engine {
                     player.setY(tile.getY() + (tile.getHeight() / 2) - (player.getHeight() / 2));
                     this.player = player;
                     player.setColor(new Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
+
+                    player.on(EntityEventTypes.LOCATION_UPDATE.toString(), () => {
+                        console.log("blah");
+                        var fov = camera.getFOV();
+                        //camera.setViewPoint(new Coordinate(this.player.getAbsoluteX() + ((this.player.getWidth() - fov.width) / 4), this.player.getY() + ((this.player.getHeight() - fov.height) / 2)));
+                    });
                 });
+            }
+        };
+
+        bg_asset.onStateChange = (state: AssetState) => {
+            if (state === AssetState.LOADED) {
+                layer1.setTexture(bg_asset);
             }
         };
 
@@ -189,6 +213,7 @@ class IsoDemo extends Engine {
 
         map_asset.load();
         block_asset.load();
+        bg_asset.load();
 
         let gamepadListener: GamePadListener = GamePadListener.getInstance();
         if (gamepadListener.hasGamePads()) {
@@ -226,6 +251,56 @@ class IsoDemo extends Engine {
                 //Zoom out
                 camera.setViewPoint(new Coordinate(viewPoint.getX() - 5, viewPoint.getY() - 5));
                 camera.setFOV({ width: fov.width + 10, height: fov.height + 10 });
+            }
+        });
+
+        this.getLogicEngine().addLogic('moveLogic', () => {
+            switch (this._direction) {
+                case 'left':
+                    this.player.setX(this.player.getX() - 1);
+                    break;
+                case 'up':
+                    this.player.setY(this.player.getY() - 1);
+                    break;
+                case 'down':
+                    this.player.setY(this.player.getY() + 1);
+                    break;
+                case 'right':
+                    this.player.setX(this.player.getX() + 1);
+                    break;
+            }
+        }, 1);
+
+        var keyboard = Keyboard.getInstance();
+        keyboard.on(KeyboardEvents.KeyDown, (e: KeyDown) => {
+            switch (e.key) {
+                case KeyboardKeys.W:
+                case KeyboardKeys[0]:
+                    this._direction = 'up';
+                    break;
+                case KeyboardKeys.A:
+                case KeyboardKeys[1]:
+                    this._direction = "left";
+                    break;
+                case KeyboardKeys.S:
+                case KeyboardKeys[2]:
+                    this._direction = "down"
+                    break;
+                case KeyboardKeys.D:
+                case KeyboardKeys[3]:
+                    this._direction = "right";
+                    break;
+            }
+        });
+
+        keyboard.on(KeyboardEvents.KeyUp, (e: KeyUp) => {
+            switch (e.key) {
+                case KeyboardKeys.W:
+                case KeyboardKeys.A:
+                case KeyboardKeys.S:
+                case KeyboardKeys.D:
+                    this._direction = null;
+                    break;
             }
         });
     }

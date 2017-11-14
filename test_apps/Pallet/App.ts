@@ -67,9 +67,9 @@ class PalletDemo extends Engine {
 	private _createMainMap () : Entity {
 		var mapContainer : Entity = new Entity();
 
-		var layer1 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
-		var layer2 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
-		var layer3 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
+		var layer1 : GridMap = new GridMap({width: 16, height: 16}, {x: 15, y: 15});
+		var layer2 : GridMap = new GridMap({width: 16, height: 16}, {x: 15, y: 15});
+		var layer3 : GridMap = new GridMap({width: 16, height: 16}, {x: 15, y: 15});
 
 		mapContainer.setWidth(layer1.getWidth());
 		mapContainer.setHeight(layer1.getHeight());
