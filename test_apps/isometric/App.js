@@ -444,17 +444,17 @@ function isUndefined(arg) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Entity_1 = __webpack_require__(14);
 exports.Entity = Entity_1.Entity;
-const EntityModel_1 = __webpack_require__(44);
+const EntityModel_1 = __webpack_require__(43);
 exports.EntityModel = EntityModel_1.EntityModel;
 const EntityView_1 = __webpack_require__(15);
 exports.EntityView = EntityView_1.EntityView;
-const EntityView2D_1 = __webpack_require__(45);
+const EntityView2D_1 = __webpack_require__(44);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-const GridMap_1 = __webpack_require__(46);
+const GridMap_1 = __webpack_require__(45);
 exports.GridMap = GridMap_1.GridMap;
-const IsometricGridMap_1 = __webpack_require__(47);
+const IsometricGridMap_1 = __webpack_require__(46);
 exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
-const IsometricTile_1 = __webpack_require__(48);
+const IsometricTile_1 = __webpack_require__(47);
 exports.IsometricTile = IsometricTile_1.IsometricTile;
 
 
@@ -473,7 +473,7 @@ const RenderingEngine_1 = __webpack_require__(41);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
 const TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
-const IsometricRenderingEngine_1 = __webpack_require__(43);
+const IsometricRenderingEngine_1 = __webpack_require__(48);
 exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
 
 
@@ -1901,10 +1901,19 @@ class IsoDemo extends Engine_1.default {
         engine.setIsometricRendering(true);
         this.setRenderingEngine(new engines_1.IsometricRenderingEngine());
         this.setRenderingEngine(engine);
+        var map = new entities_2.Entity();
+        map.setWidth(320);
+        map.setHeight(320);
         var layer1 = new entities_1.IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
+        var layer2 = new entities_1.IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
         layer1.setX(0);
         layer1.setY(0);
-        var camera = new utils_1.Camera(layer1, new utils_1.Coordinate(0, 0), { width: 500, height: 500 }, new utils_1.Coordinate(123, 123), { width: 300, height: 300 });
+        layer2.setX(0);
+        layer2.setY(0);
+        layer2.setZ(64);
+        map.addChild(layer1);
+        map.addChild(layer2);
+        var camera = new utils_1.Camera(map, new utils_1.Coordinate(0, 0), { width: 500, height: 500 }, new utils_1.Coordinate(123, 123), { width: 300, height: 300 });
         this._mainCamera = camera;
         this.getRenderingEngine().addCamera(camera);
         this.getViewPort().on("resize", (dimension) => {
@@ -1920,18 +1929,17 @@ class IsoDemo extends Engine_1.default {
                 var tiles = layer1.getTiles();
                 var count = 1;
                 for (var tile of tiles) {
-                    tile.setTexture(map_asset);
                     count += .25;
                     console.log(count);
                 }
                 console.log(tiles);
                 this._loadCharacterSpriteSheet(() => {
                     var player = new entities_2.Entity();
-                    player.setHeight(16);
+                    player.setHeight(32);
                     player.setWidth(8);
-                    player.setZ(1);
-                    layer1.addChild(player);
+                    layer2.addChild(player);
                     let tile = layer1.getTile({ x: 2, y: 2 });
+                    player.id = "player";
                     player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getWidth() / 2));
                     player.setY(tile.getY() + (tile.getHeight() / 2) - (player.getHeight() / 2));
                     this.player = player;
@@ -1950,6 +1958,24 @@ class IsoDemo extends Engine_1.default {
         };
         block_asset.onStateChange = (state) => {
             if (state === _1.AssetState.LOADED) {
+                var tiles = layer1.getTiles();
+                var count = 1;
+                var blocks = [];
+                for (var tile of tiles) {
+                    count += .25;
+                    console.log(count);
+                    var block = new entities_2.Entity();
+                    block.setTexture(block_asset);
+                    block.setX(tile.getX());
+                    block.id = "Block1";
+                    block.setY(tile.getY());
+                    block.setWidth(tile.getWidth());
+                    block.setHeight(tile.getHeight() * 2);
+                    blocks.push(block);
+                }
+                for (var i in blocks) {
+                    layer1.addChild(blocks[i]);
+                }
                 var tile = layer1.getTile({ x: 2, y: 2 });
                 var tile2 = layer1.getTile({ x: 2, y: 3 });
                 var tile3 = layer1.getTile({ x: 2, y: 4 });
@@ -1962,11 +1988,11 @@ class IsoDemo extends Engine_1.default {
                 var block = new entities_2.Entity();
                 block.setTexture(block_asset);
                 block.setX(tile.getX());
-                block.setZ(1);
+                block.id = "Block1";
                 block.setY(tile.getY());
                 block.setWidth(tile.getWidth());
                 block.setHeight(tile.getHeight() * 2);
-                layer1.addChild(block);
+                layer2.addChild(block);
                 var block2 = new entities_2.Entity();
                 block2.setTexture(block_asset);
                 block2.setX(tile.getX());
@@ -1974,7 +2000,7 @@ class IsoDemo extends Engine_1.default {
                 block2.setZ(tile.getHeight());
                 block2.setWidth(tile.getWidth());
                 block2.setHeight(tile.getHeight() * 2);
-                layer1.addChild(block2);
+                layer2.addChild(block2);
                 var block3 = new entities_2.Entity();
                 block3.setTexture(block_asset);
                 block3.setX(tile2.getX());
@@ -1982,15 +2008,15 @@ class IsoDemo extends Engine_1.default {
                 block3.setZ(tile2.getHeight());
                 block3.setWidth(tile2.getWidth());
                 block3.setHeight(tile2.getHeight() * 2);
-                layer1.addChild(block3);
+                layer2.addChild(block3);
                 var block4 = new entities_2.Entity();
                 block4.setTexture(block_asset);
                 block4.setX(tile3.getX());
                 block4.setY(tile3.getY());
-                block4.setZ(1);
+                block4.id = "Block4";
                 block4.setWidth(tile3.getWidth());
                 block4.setHeight(tile3.getHeight() * 2);
-                layer1.addChild(block4);
+                layer2.addChild(block4);
                 var block5 = new entities_2.Entity();
                 block5.setTexture(block_asset);
                 block5.setX(tile3.getX());
@@ -1998,7 +2024,7 @@ class IsoDemo extends Engine_1.default {
                 block5.setZ(tile3.getHeight());
                 block5.setWidth(tile3.getWidth());
                 block5.setHeight(tile3.getHeight() * 2);
-                layer1.addChild(block5);
+                layer2.addChild(block5);
                 var block6 = new entities_2.Entity();
                 block6.setTexture(block_asset);
                 block6.setX(tile4.getX());
@@ -2006,31 +2032,7 @@ class IsoDemo extends Engine_1.default {
                 block6.setZ(tile4.getHeight());
                 block6.setWidth(tile4.getWidth());
                 block6.setHeight(tile4.getHeight() * 2);
-                layer1.addChild(block6);
-                var block7 = new entities_2.Entity();
-                block7.setTexture(block_asset);
-                block7.setX(tile5.getX());
-                block7.setY(tile5.getY());
-                block7.setZ(tile5.getHeight());
-                block7.setWidth(tile5.getWidth());
-                block7.setHeight(tile5.getHeight() * 2);
-                layer1.addChild(block7);
-                var block8 = new entities_2.Entity();
-                block8.setTexture(block_asset);
-                block8.setX(tile6.getX());
-                block8.setY(tile6.getY());
-                block8.setZ(tile6.getHeight());
-                block8.setWidth(tile6.getWidth());
-                block8.setHeight(tile6.getHeight() * 2);
-                layer1.addChild(block8);
-                var block9 = new entities_2.Entity();
-                block9.setTexture(block_asset);
-                block9.setX(tile6.getX());
-                block9.setY(tile6.getY());
-                block9.setZ(1);
-                block9.setWidth(tile6.getWidth());
-                block9.setHeight(tile6.getHeight() * 2);
-                layer1.addChild(block9);
+                layer2.addChild(block6);
                 var block10 = new entities_2.Entity();
                 block10.setTexture(block_asset);
                 block10.setX(tile7.getX());
@@ -2038,7 +2040,23 @@ class IsoDemo extends Engine_1.default {
                 block10.setZ(tile7.getHeight());
                 block10.setWidth(tile7.getWidth());
                 block10.setHeight(tile7.getHeight() * 2);
-                layer1.addChild(block10);
+                layer2.addChild(block10);
+                var block7 = new entities_2.Entity();
+                block7.setTexture(block_asset);
+                block7.setX(tile5.getX());
+                block7.setY(tile5.getY());
+                block7.setZ(tile5.getHeight());
+                block7.setWidth(tile5.getWidth());
+                block7.setHeight(tile5.getHeight() * 2);
+                layer2.addChild(block7);
+                var block8 = new entities_2.Entity();
+                block8.setTexture(block_asset);
+                block8.setX(tile6.getX());
+                block8.setY(tile6.getY());
+                block8.setZ(tile6.getHeight());
+                block8.setWidth(tile6.getWidth());
+                block8.setHeight(tile6.getHeight() * 2);
+                layer2.addChild(block8);
                 var block11 = new entities_2.Entity();
                 block11.setTexture(block_asset);
                 block11.setX(tile8.getX());
@@ -2046,15 +2064,42 @@ class IsoDemo extends Engine_1.default {
                 block11.setZ(tile8.getHeight());
                 block11.setWidth(tile8.getWidth());
                 block11.setHeight(tile8.getHeight() * 2);
-                layer1.addChild(block11);
+                layer2.addChild(block11);
+                var block9 = new entities_2.Entity();
+                block9.setTexture(block_asset);
+                block9.setX(tile6.getX() + 32);
+                block9.setY(tile6.getY() + 32);
+                block9.id = "Block9";
+                block9.setWidth(tile6.getWidth());
+                block9.setHeight(tile6.getHeight() * 2);
+                layer2.addChild(block9);
                 var block12 = new entities_2.Entity();
                 block12.setTexture(block_asset);
                 block12.setX(tile8.getX());
                 block12.setY(tile8.getY());
-                block12.setZ(1);
+                block12.id = "Block12";
                 block12.setWidth(tile8.getWidth());
                 block12.setHeight(tile8.getHeight() * 2);
-                layer1.addChild(block12);
+                layer2.addChild(block12);
+                var direction = "up";
+                this.getLogicEngine().addLogic('blockmove', () => {
+                    if (block9.getZ() >= 32) {
+                        direction = "down";
+                    }
+                    else if (block9.getZ() <= 0) {
+                        direction = "up";
+                    }
+                    if (direction === "down") {
+                        block9.setZ(block9.getZ() - 2);
+                    }
+                    else {
+                        block9.setZ(block9.getZ() + 2);
+                    }
+                }, 50);
+                this.getLogicEngine().addLogic('gravity', () => {
+                    if (!this._playerJumping) {
+                    }
+                }, 25);
             }
         };
         map_asset.load();
@@ -2123,6 +2168,23 @@ class IsoDemo extends Engine_1.default {
                 case inputs_1.KeyboardKeys[3]:
                     this._direction = "right";
                     break;
+                case inputs_1.KeyboardKeys.SPACEBAR:
+                    if (!this._playerJumping) {
+                        this._playerJumping = true;
+                        var distance = 0;
+                        var interval = window.setInterval(() => {
+                            if (distance >= 50) {
+                                this._playerJumping = false;
+                                window.clearInterval(interval);
+                            }
+                            else {
+                                var newDistance = Math.ceil((50 - distance) / 5);
+                                this.player.setZ(this.player.getZ() + newDistance);
+                                distance += newDistance;
+                            }
+                        }, 20);
+                    }
+                    break;
             }
         });
         keyboard.on("KEYUP", (e) => {
@@ -2141,7 +2203,7 @@ class IsoDemo extends Engine_1.default {
         character_spritesheet.onStateChange = (state) => {
             if (state === _1.AssetState.LOADED) {
                 this._characterSpritesheet = new _1.Spritesheet(character_spritesheet, {
-                    "player_left": { x: 54, y: 46, width: 25, height: 55 },
+                    "player_left": { x: 54, y: 46, width: 15, height: 55 },
                 });
                 cb();
             }
@@ -3887,11 +3949,11 @@ exports.RenderingEngine = RenderingEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 const _1 = __webpack_require__(4);
 const utils_1 = __webpack_require__(0);
-const entities_1 = __webpack_require__(3);
 class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
     constructor() {
         super(...arguments);
         this._isometricRendering = false;
+        this._rotation = 0;
     }
     _renderEntity(entity, camera) {
         var renderOrigin = camera.getRenderOrigin();
@@ -3903,7 +3965,10 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
             entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
         }
         var entityAbsoluteOuterPosition = new utils_1.Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
-        var cameraPosition = camera.getViewPoint().toIsometric();
+        var cameraPosition = camera.getViewPoint();
+        if (this._isometricRendering) {
+            cameraPosition = cameraPosition.toIsometric();
+        }
         var cameraOuterPosition = new utils_1.Coordinate(cameraPosition.getX() + camera.getFOV().width, cameraPosition.getY() + camera.getFOV().height);
         if (this._isometricRendering) {
             entityAbsoluteOuterPosition.incrementX(entity.getWidth());
@@ -3961,43 +4026,64 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
             var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
             this.getViewPort().getContext().drawImage(imageData, entityClippings.leftClip * entityToImageXModifier, entityClippings.topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h);
         }
-        if (this._isometricRendering) {
-            if (entity instanceof entities_1.IsometricTile) {
-                var tileX = x - (w / 2);
-                var y2 = y + h;
-                var x2 = tileX + (w * 2);
-                this.getViewPort().getContext().beginPath();
-                this.getViewPort().getContext().moveTo(tileX + (w / 2), y + ((y2 - y) / 2));
-                this.getViewPort().getContext().lineTo(tileX + ((x2 - tileX) / 2), y);
-                this.getViewPort().getContext().lineTo(x2 - (w / 2), y + ((y2 - y) / 2));
-                this.getViewPort().getContext().lineTo(tileX + ((x2 - tileX) / 2), y2);
-                this.getViewPort().getContext().closePath();
-                this.getViewPort().getContext().stroke();
-            }
-        }
-        var index = {};
+        var index = [];
         var children = entity.getChildren();
         while (children.hasNext()) {
             var child = children.next();
-            if (!index[child.getZ()]) {
-                index[child.getZ()] = {};
-            }
-            if (!index[child.getZ()][child.getY()]) {
-                index[child.getZ()][child.getY()] = [];
-            }
-            index[child.getZ()][child.getY()].push(child);
-        }
-        for (var i in index) {
-            for (var i2 in index[i]) {
-                for (var i3 in index[i][i2]) {
-                    this._renderEntity(index[i][i2][i3], camera);
+            var childCoords = this.getEntityCoordinates(child);
+            var inner = childCoords.inner;
+            var outer = childCoords.outer;
+            var added = false;
+            for (var i in index) {
+                if (!added) {
+                    var otherChild = index[i];
+                    var otherChildCoords = this.getEntityCoordinates(otherChild);
+                    inner.incrementY(inner.getZ());
+                    outer.incrementY(outer.getZ());
+                    otherChildCoords.inner.incrementY(otherChildCoords.inner.getZ());
+                    otherChildCoords.outer.incrementY(otherChildCoords.outer.getZ());
+                    if (inner.getY() < otherChildCoords.inner.getY() ||
+                        (inner.getY() > otherChildCoords.inner.getY() &&
+                            outer.getY() < otherChildCoords.outer.getY() &&
+                            inner.getX() < otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2))
+                        || (inner.getY() > otherChildCoords.inner.getY() &&
+                            outer.getY() < otherChildCoords.outer.getY() &&
+                            inner.getX() > otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2)
+                            && inner.getY() < (otherChildCoords.inner.getY() + (otherChildCoords.outer.getY() - otherChildCoords.inner.getY()) / 2))) {
+                        index.splice(i, 0, child);
+                        added = true;
+                        if (child.id === "player") {
+                            console.log(i);
+                        }
+                    }
                 }
             }
+            if (!added) {
+                index.push(child);
+            }
+        }
+        for (var i in index) {
+            this._renderEntity(index[i], camera);
         }
         return true;
     }
     setIsometricRendering(state) {
         this._isometricRendering = state;
+    }
+    getEntityCoordinates(entity) {
+        var entityAbsolutePosition = new utils_1.Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ());
+        if (this._isometricRendering && entity.getParent()) {
+            entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2));
+            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
+        }
+        var entityAbsoluteOuterPosition = new utils_1.Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
+        if (this._isometricRendering) {
+            entityAbsoluteOuterPosition.incrementX(entity.getWidth());
+            entityAbsoluteOuterPosition.incrementY(0 - entity.getHeight());
+            entityAbsolutePosition = entityAbsolutePosition.toIsometric();
+            entityAbsoluteOuterPosition = entityAbsoluteOuterPosition.toIsometric();
+        }
+        return { inner: entityAbsolutePosition, outer: entityAbsoluteOuterPosition };
     }
     _isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition) {
         var collidesXAxis = false;
@@ -4035,12 +4121,212 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
         }
         return { leftClip, rightClip, topClip, bottomClip };
     }
+    rotate() {
+        this._rotation += 1;
+        if (this._rotation > 3) {
+            this._rotation = 0;
+        }
+    }
 }
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
 /* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Events = __webpack_require__(2);
+const utils_1 = __webpack_require__(0);
+const utils_2 = __webpack_require__(0);
+class EntityModel extends Events.EventEmitter {
+    constructor() {
+        super();
+        this._attributes = {};
+        this._id = utils_1.IDGenerator.getSingleton().generate();
+        this._type = 'generic';
+        this._position = new utils_2.Coordinate(0, 0);
+    }
+    getID() {
+        return this._id;
+    }
+    setType(type) {
+        this._type = type;
+    }
+    getType() {
+        return this._type;
+    }
+    setTexture(asset) {
+        this._texture = asset;
+        this.emit(3..toString(), {
+            attribute: 'texture',
+            name: name,
+            value: asset
+        });
+    }
+    getTexture() {
+        return this._texture;
+    }
+    setAttribute(key, value) {
+        var oldValue = this.getAttribute(key);
+        this._attributes[key] = value;
+        this.emit(1..toString(), {
+            attribute: key,
+            oldValue: oldValue,
+            value: value
+        });
+    }
+    removeAttribute(key) {
+        var value = this.getAttribute(key);
+        delete this._attributes[key];
+        var data = {
+            type: 2..toString(),
+            attribute: key,
+            value: value,
+            source: this
+        };
+        this.emit(2..toString(), data);
+    }
+    getAttribute(key) {
+        return this._attributes[key];
+    }
+    hasAttribute(key) {
+        if (this._attributes[key]) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    sync(listener) {
+    }
+    getX() {
+        return this._position.getX();
+    }
+    getY() {
+        return this._position.getY();
+    }
+    setX(x) {
+        this._position.setX(x);
+    }
+    setY(y) {
+        this._position.setY(y);
+    }
+    setZ(z) {
+        this._position.setZ(z);
+    }
+    getZ() {
+        return this._position.getZ();
+    }
+    getPosition() {
+        return this._position;
+    }
+    setPosition(position) {
+        this._position = position;
+    }
+}
+exports.EntityModel = EntityModel;
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const EntityView_1 = __webpack_require__(15);
+class EntityView2D extends EntityView_1.EntityView {
+}
+exports.EntityView2D = EntityView2D;
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Entity_1 = __webpack_require__(14);
+class GridMap extends Entity_1.Entity {
+    constructor(tileSize, tileCount) {
+        super();
+        this.tileSize = tileSize;
+        this.tileCount = tileCount;
+        this._tiles = [];
+        this.setWidth(this.tileSize.width * this.tileCount.x);
+        this.setHeight(this.tileSize.height * this.tileCount.y);
+        for (var x = 0; x < this.tileCount.x; x++) {
+            for (var y = 0; y < this.tileCount.y; y++) {
+                var tile = this._buildTile(x, y);
+                this.addChild(tile);
+                if (!this._tiles[x]) {
+                    this._tiles[x] = [];
+                }
+                this._tiles[x][y] = tile;
+            }
+        }
+    }
+    _buildTile(x, y) {
+        var tile = new Entity_1.Entity();
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
+        return tile;
+    }
+    getTile(coordinate) {
+        return this._tiles[coordinate.x][coordinate.y];
+    }
+    getTiles() {
+        return this._children;
+    }
+}
+exports.GridMap = GridMap;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(3);
+class IsometricGridMap extends _1.GridMap {
+    _buildTile(x, y) {
+        var tile = new _1.IsometricTile();
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
+        return tile;
+    }
+}
+exports.IsometricGridMap = IsometricGridMap;
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(3);
+class IsometricTile extends _1.Entity {
+    constructor() {
+        super();
+    }
+}
+exports.IsometricTile = IsometricTile;
+
+
+/***/ }),
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4075,7 +4361,7 @@ class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
     }
     _renderEntity(entity, camera) {
         if (camera) {
-            var viewPoint = camera.getViewPoint().toIsometric();
+            var viewPoint = camera.getViewPoint();
             var fov = camera.getFOV();
             var renderOrigin = camera.getRenderOrigin();
             var renderDimension = camera.getRenderDimension();
@@ -4228,200 +4514,6 @@ class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
     }
 }
 exports.IsometricRenderingEngine = IsometricRenderingEngine;
-
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Events = __webpack_require__(2);
-const utils_1 = __webpack_require__(0);
-const utils_2 = __webpack_require__(0);
-class EntityModel extends Events.EventEmitter {
-    constructor() {
-        super();
-        this._attributes = {};
-        this._id = utils_1.IDGenerator.getSingleton().generate();
-        this._type = 'generic';
-        this._position = new utils_2.Coordinate(0, 0);
-    }
-    getID() {
-        return this._id;
-    }
-    setType(type) {
-        this._type = type;
-    }
-    getType() {
-        return this._type;
-    }
-    setTexture(asset) {
-        this._texture = asset;
-        this.emit(3..toString(), {
-            attribute: 'texture',
-            name: name,
-            value: asset
-        });
-    }
-    getTexture() {
-        return this._texture;
-    }
-    setAttribute(key, value) {
-        var oldValue = this.getAttribute(key);
-        this._attributes[key] = value;
-        this.emit(1..toString(), {
-            attribute: key,
-            oldValue: oldValue,
-            value: value
-        });
-    }
-    removeAttribute(key) {
-        var value = this.getAttribute(key);
-        delete this._attributes[key];
-        var data = {
-            type: 2..toString(),
-            attribute: key,
-            value: value,
-            source: this
-        };
-        this.emit(2..toString(), data);
-    }
-    getAttribute(key) {
-        return this._attributes[key];
-    }
-    hasAttribute(key) {
-        if (this._attributes[key]) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    sync(listener) {
-    }
-    getX() {
-        return this._position.getX();
-    }
-    getY() {
-        return this._position.getY();
-    }
-    setX(x) {
-        this._position.setX(x);
-    }
-    setY(y) {
-        this._position.setY(y);
-    }
-    setZ(z) {
-        this._position.setZ(z);
-    }
-    getZ() {
-        return this._position.getZ();
-    }
-    getPosition() {
-        return this._position;
-    }
-    setPosition(position) {
-        this._position = position;
-    }
-}
-exports.EntityModel = EntityModel;
-
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const EntityView_1 = __webpack_require__(15);
-class EntityView2D extends EntityView_1.EntityView {
-}
-exports.EntityView2D = EntityView2D;
-
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Entity_1 = __webpack_require__(14);
-class GridMap extends Entity_1.Entity {
-    constructor(tileSize, tileCount) {
-        super();
-        this.tileSize = tileSize;
-        this.tileCount = tileCount;
-        this._tiles = [];
-        this.setWidth(this.tileSize.width * this.tileCount.x);
-        this.setHeight(this.tileSize.height * this.tileCount.y);
-        for (var x = 0; x < this.tileCount.x; x++) {
-            for (var y = 0; y < this.tileCount.y; y++) {
-                var tile = this._buildTile(x, y);
-                this.addChild(tile);
-                if (!this._tiles[x]) {
-                    this._tiles[x] = [];
-                }
-                this._tiles[x][y] = tile;
-            }
-        }
-    }
-    _buildTile(x, y) {
-        var tile = new Entity_1.Entity();
-        tile.setWidth(this.tileSize.width);
-        tile.setHeight(this.tileSize.height);
-        tile.setX((x) * this.tileSize.width);
-        tile.setY((y) * this.tileSize.height);
-        return tile;
-    }
-    getTile(coordinate) {
-        return this._tiles[coordinate.x][coordinate.y];
-    }
-    getTiles() {
-        return this._children;
-    }
-}
-exports.GridMap = GridMap;
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(3);
-class IsometricGridMap extends _1.GridMap {
-    _buildTile(x, y) {
-        var tile = new _1.IsometricTile();
-        tile.setWidth(this.tileSize.width);
-        tile.setHeight(this.tileSize.height);
-        tile.setX((x) * this.tileSize.width);
-        tile.setY((y) * this.tileSize.height);
-        return tile;
-    }
-}
-exports.IsometricGridMap = IsometricGridMap;
-
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(3);
-class IsometricTile extends _1.Entity {
-    constructor() {
-        super();
-    }
-}
-exports.IsometricTile = IsometricTile;
 
 
 /***/ }),

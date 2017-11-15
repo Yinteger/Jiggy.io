@@ -16,6 +16,8 @@ class IsoDemo extends Engine {
     player: Entity;
     _mainCamera: Camera;
     _direction: string;
+    _playerJumping: boolean;
+
     constructor() {
         super();
         this.setLogicEngine(new GroupLogicEngine());
@@ -26,12 +28,21 @@ class IsoDemo extends Engine {
         this.setRenderingEngine(new IsometricRenderingEngine());
         this.setRenderingEngine(engine);
 
-
+        var map = new Entity();
+        map.setWidth(320);
+        map.setHeight(320);
         var layer1: IsometricGridMap = new IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
+        var layer2: IsometricGridMap = new IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
+
         layer1.setX(0);
         layer1.setY(0);
+        layer2.setX(0);
+        layer2.setY(0);
+        layer2.setZ(64)
+        map.addChild(layer1);
+        map.addChild(layer2);
         //layer1.setColor(new Color(255, 0, 0));
-        var camera = new Camera(layer1, new Coordinate(0, 0), { width: 500, height: 500 }, new Coordinate(123, 123), { width: 300, height: 300 });
+        var camera = new Camera(map, new Coordinate(0, 0), { width: 500, height: 500 }, new Coordinate(123, 123), { width: 300, height: 300 });
         this._mainCamera = camera;
         this.getRenderingEngine().addCamera(camera);
 
@@ -51,7 +62,7 @@ class IsoDemo extends Engine {
                 var count = 1;
                 for (var tile of tiles) {                    
                     //tile.setColor(new Color((222 / count), (222/count), (222/count)));
-                    tile.setTexture(map_asset);
+                    //tile.setTexture(map_asset);
                     count += .25;
                     //tile.y -= Math.floor((Math.random() * 30) + 1);
                     //tile.depth = Math.floor((Math.random() * 30) + 1);
@@ -61,14 +72,14 @@ class IsoDemo extends Engine {
                 console.log(tiles);
                 this._loadCharacterSpriteSheet(() => {
                     var player: Entity = new Entity();
-                    player.setHeight(16);
+                    player.setHeight(32);
                     player.setWidth(8);
-                    player.setZ(1);
-                    //player.texture = this._characterSpritesheet.getSprite("player_left");
-                    layer1.addChild(player);
+                    //player.setTexture(this._characterSpritesheet.getSprite("player_left"));
+                    layer2.addChild(player);
 
                     let tile = layer1.getTile({ x: 2, y: 2 })
                     //tile.color = { r: 250, g: 0, b: 0 };
+                    player.id = "player";
                     player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getWidth() / 2));
                     player.setY(tile.getY() + (tile.getHeight() / 2) - (player.getHeight() / 2));
                     this.player = player;
@@ -91,6 +102,33 @@ class IsoDemo extends Engine {
 
         block_asset.onStateChange = (state: AssetState) => {
             if (state === AssetState.LOADED) {
+
+                var tiles = layer1.getTiles();
+                var count = 1;
+                var blocks = [];
+                for (var tile of tiles) {
+                    //tile.setColor(new Color((222 / count), (222/count), (222/count)));
+                    //tile.setTexture(map_asset);
+                    count += .25;
+                    //tile.y -= Math.floor((Math.random() * 30) + 1);
+                    //tile.depth = Math.floor((Math.random() * 30) + 1);
+                    console.log(count);
+                    //tile.tile = true;
+                    var block = new Entity();
+                    block.setTexture(block_asset);
+                    block.setX(tile.getX());
+                    block.id = "Block1";
+                    block.setY(tile.getY());
+                    //block.setZ(0-(tile.getHeight() * 2));
+                    block.setWidth(tile.getWidth());
+                    block.setHeight(tile.getHeight() * 2);
+                    blocks.push(block);
+                }
+
+                for (var i in blocks) {
+                    layer1.addChild(blocks[i]);
+                }
+
                 var tile = layer1.getTile({ x: 2, y: 2 });
                 var tile2 = layer1.getTile({ x: 2, y: 3 });
                 var tile3 = layer1.getTile({ x: 2, y: 4 });
@@ -104,11 +142,11 @@ class IsoDemo extends Engine {
                 var block = new Entity();
                 block.setTexture(block_asset);
                 block.setX(tile.getX());
-                block.setZ(1);
+                block.id = "Block1";
                 block.setY(tile.getY());
                 block.setWidth(tile.getWidth());
                 block.setHeight(tile.getHeight() * 2);
-                layer1.addChild(block);
+                layer2.addChild(block);
 
                 var block2 = new Entity();
                 block2.setTexture(block_asset);
@@ -117,7 +155,7 @@ class IsoDemo extends Engine {
                 block2.setZ(tile.getHeight());
                 block2.setWidth(tile.getWidth());
                 block2.setHeight(tile.getHeight() * 2);
-                layer1.addChild(block2);
+                layer2.addChild(block2);
 
                 var block3 = new Entity();
                 block3.setTexture(block_asset);
@@ -126,16 +164,16 @@ class IsoDemo extends Engine {
                 block3.setZ(tile2.getHeight());
                 block3.setWidth(tile2.getWidth());
                 block3.setHeight(tile2.getHeight() * 2);
-                layer1.addChild(block3);
+                layer2.addChild(block3);
 
                 var block4 = new Entity();
                 block4.setTexture(block_asset);
                 block4.setX(tile3.getX());
                 block4.setY(tile3.getY());
-                block4.setZ(1);
+                block4.id = "Block4";
                 block4.setWidth(tile3.getWidth());
                 block4.setHeight(tile3.getHeight() * 2);
-                layer1.addChild(block4);
+                layer2.addChild(block4);
 
                 var block5 = new Entity();
                 block5.setTexture(block_asset);
@@ -144,7 +182,7 @@ class IsoDemo extends Engine {
                 block5.setZ(tile3.getHeight());
                 block5.setWidth(tile3.getWidth());
                 block5.setHeight(tile3.getHeight() * 2);
-                layer1.addChild(block5);
+                layer2.addChild(block5);
 
                 var block6 = new Entity();
                 block6.setTexture(block_asset);
@@ -153,34 +191,7 @@ class IsoDemo extends Engine {
                 block6.setZ(tile4.getHeight());
                 block6.setWidth(tile4.getWidth());
                 block6.setHeight(tile4.getHeight() * 2);
-                layer1.addChild(block6);
-
-                var block7 = new Entity();
-                block7.setTexture(block_asset);
-                block7.setX(tile5.getX());
-                block7.setY(tile5.getY());
-                block7.setZ(tile5.getHeight());
-                block7.setWidth(tile5.getWidth());
-                block7.setHeight(tile5.getHeight() * 2);
-                layer1.addChild(block7);
-
-                var block8 = new Entity();
-                block8.setTexture(block_asset);
-                block8.setX(tile6.getX());
-                block8.setY(tile6.getY());
-                block8.setZ(tile6.getHeight());
-                block8.setWidth(tile6.getWidth());
-                block8.setHeight(tile6.getHeight() * 2);
-                layer1.addChild(block8);
-
-                var block9 = new Entity();
-                block9.setTexture(block_asset);
-                block9.setX(tile6.getX());
-                block9.setY(tile6.getY());
-                block9.setZ(1);
-                block9.setWidth(tile6.getWidth());
-                block9.setHeight(tile6.getHeight() * 2);
-                layer1.addChild(block9);
+                layer2.addChild(block6);
 
                 var block10 = new Entity();
                 block10.setTexture(block_asset);
@@ -189,7 +200,27 @@ class IsoDemo extends Engine {
                 block10.setZ(tile7.getHeight());
                 block10.setWidth(tile7.getWidth());
                 block10.setHeight(tile7.getHeight() * 2);
-                layer1.addChild(block10);
+                layer2.addChild(block10);
+
+                var block7 = new Entity();
+                block7.setTexture(block_asset);
+                block7.setX(tile5.getX());
+                block7.setY(tile5.getY());
+                block7.setZ(tile5.getHeight());
+                block7.setWidth(tile5.getWidth());
+                block7.setHeight(tile5.getHeight() * 2);
+                layer2.addChild(block7);
+
+                var block8 = new Entity();
+                block8.setTexture(block_asset);
+                block8.setX(tile6.getX());
+                block8.setY(tile6.getY());
+                block8.setZ(tile6.getHeight());
+                block8.setWidth(tile6.getWidth());
+                block8.setHeight(tile6.getHeight() * 2);
+                layer2.addChild(block8);
+
+
 
                 var block11 = new Entity();
                 block11.setTexture(block_asset);
@@ -198,16 +229,47 @@ class IsoDemo extends Engine {
                 block11.setZ(tile8.getHeight());
                 block11.setWidth(tile8.getWidth());
                 block11.setHeight(tile8.getHeight() * 2);
-                layer1.addChild(block11);
+                layer2.addChild(block11);
+
+
+                var block9 = new Entity();
+                block9.setTexture(block_asset);
+                block9.setX(tile6.getX() + 32);
+                block9.setY(tile6.getY() + 32);
+                block9.id = "Block9";
+                block9.setWidth(tile6.getWidth());
+                block9.setHeight(tile6.getHeight() * 2);
+                layer2.addChild(block9);
 
                 var block12 = new Entity();
                 block12.setTexture(block_asset);
                 block12.setX(tile8.getX());
                 block12.setY(tile8.getY());
-                block12.setZ(1);
+                block12.id = "Block12";
                 block12.setWidth(tile8.getWidth());
                 block12.setHeight(tile8.getHeight() * 2);
-                layer1.addChild(block12);
+                layer2.addChild(block12);
+
+                var direction = "up";
+                this.getLogicEngine().addLogic('blockmove', () => {
+                    if (block9.getZ() >= 32) {
+                        direction = "down";
+                    } else if (block9.getZ() <= 0) {
+                        direction = "up";
+                    }
+                    if (direction === "down") {
+                        block9.setZ(block9.getZ() - 2);
+                    } else {
+                        block9.setZ(block9.getZ() + 2);
+                    }
+
+                }, 50);
+
+                this.getLogicEngine().addLogic('gravity', () => {
+                    if (!this._playerJumping) {
+                        //Check if player can fall...
+                    }
+                }, 25);
             }
         };
 
@@ -290,6 +352,23 @@ class IsoDemo extends Engine {
                 case KeyboardKeys[3]:
                     this._direction = "right";
                     break;
+                case KeyboardKeys.SPACEBAR:
+                    if (!this._playerJumping) {
+                        this._playerJumping = true;
+                        var distance = 0;
+                        var interval = window.setInterval(() => {
+                            if (distance >= 50) {
+                                //Stop the jump!
+                                this._playerJumping = false;
+                                window.clearInterval(interval);
+                            } else {
+                                var newDistance = Math.ceil((50 - distance) / 5);
+                                this.player.setZ(this.player.getZ() + newDistance);
+                                distance += newDistance;
+                            }
+                        }, 20);
+                    }
+                    break;
             }
         });
 
@@ -310,7 +389,7 @@ class IsoDemo extends Engine {
         character_spritesheet.onStateChange = (state: AssetState) => {
             if (state === AssetState.LOADED) {
                 this._characterSpritesheet = new Spritesheet(character_spritesheet, {
-                    "player_left": { x: 54, y: 46, width: 25, height: 55 },
+                    "player_left": { x: 54, y: 46, width: 15, height: 55 },
                 });
 
                 cb();

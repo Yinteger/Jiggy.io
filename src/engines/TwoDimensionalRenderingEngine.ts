@@ -15,6 +15,7 @@ interface entityClippings {
 export class TwoDimensionalRenderingEngine extends RenderingEngine {
     public debugRegions: boolean;
     private _isometricRendering: boolean = false;
+    private _rotation = 0;
 
 	protected _renderEntity (entity: Entity, camera? : Camera) : boolean {
         //Positions & Dimensions to work with for the render
@@ -28,7 +29,10 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
             entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
         }
         var entityAbsoluteOuterPosition = new Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
-        var cameraPosition: Coordinate = camera.getViewPoint().toIsometric(); //The camera's absolute position in the game
+        var cameraPosition: Coordinate = camera.getViewPoint(); //The camera's absolute position in the game
+        if (this._isometricRendering) {
+            cameraPosition = cameraPosition.toIsometric();
+        }
         var cameraOuterPosition: Coordinate = new Coordinate(cameraPosition.getX() + camera.getFOV().width, cameraPosition.getY() + camera.getFOV().height);
 
         if (this._isometricRendering) {
@@ -86,6 +90,28 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
         }
 
 		//Begin rendering the Entity
+        //if (this._isometricRendering) {
+        //    if (entity instanceof IsometricTile) {
+        //        var tileX = x - (w / 2);
+        //        var y2 = y + h;
+        //        var x2 = tileX + (w * 2);
+        //        //console.log(isoX, isoY, isoX2, isoY2);
+        //        //this.viewPort.context.strokeRect(isoX, isoY, isoX2 - isoX, isoY2 - isoY);
+        //        //Draw Isometric Layout
+        //        this.getViewPort().getContext().beginPath();
+        //        //Left Middle
+        //        this.getViewPort().getContext().moveTo(tileX + (w / 2), y + ((y2 - y) / 2));
+        //        //Top middle
+        //        this.getViewPort().getContext().lineTo(tileX + ((x2 - tileX) / 2), y);
+        //        //Right Middle
+        //        this.getViewPort().getContext().lineTo(x2 - (w / 2), y + ((y2 - y) / 2));
+        //        //Bottom Middle
+        //        this.getViewPort().getContext().lineTo(tileX + ((x2 - tileX) / 2), y2);
+        //        //Left Middle
+        //        this.getViewPort().getContext().closePath();
+        //        this.getViewPort().getContext().stroke();
+        //    }
+        //}
 
         //If the Entity has a 'Color', render it
         //@todo: Rendering should always be simply rendering an 'asset', which may have been a generated asset of a color
@@ -124,62 +150,87 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
             this.getViewPort().getContext().drawImage(imageData, entityClippings.leftClip * entityToImageXModifier, entityClippings.topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h)
         }
 
-        if (this._isometricRendering) {
-            if (entity instanceof IsometricTile) {
-                var tileX = x - (w / 2);
-                var y2 = y + h;
-                var x2 = tileX + (w * 2);
-                //console.log(isoX, isoY, isoX2, isoY2);
-                //this.viewPort.context.strokeRect(isoX, isoY, isoX2 - isoX, isoY2 - isoY);
-                //Draw Isometric Layout
-                this.getViewPort().getContext().beginPath();
-                //Left Middle
-                this.getViewPort().getContext().moveTo(tileX + (w / 2), y + ((y2 - y) / 2));
-                //Top middle
-                this.getViewPort().getContext().lineTo(tileX + ((x2 - tileX) / 2), y);
-                //Right Middle
-                this.getViewPort().getContext().lineTo(x2 - (w/2), y + ((y2 - y) / 2));
-                //Bottom Middle
-                this.getViewPort().getContext().lineTo(tileX + ((x2 - tileX) / 2), y2);
-                //Left Middle
-                this.getViewPort().getContext().closePath();
-                this.getViewPort().getContext().stroke();
-            }
-        }
+
 
         //Render Entities from Lowest Z & Y upwards
         //@todo: This index should be built outside the engine and not recreated every render
         //@todo: Don't continue traversing children if 'cached' and not dirty
-        var index: any = {
-
-        };
+        var index: any = [];
 
         var children = entity.getChildren();
 
         while (children.hasNext()) {
             var child = children.next();
-            if (!index[child.getZ()]) {
-                index[child.getZ()] = {};
-            }
-            if (!index[child.getZ()][child.getY()]) {
-                index[child.getZ()][child.getY()] = [];
-            }
+            var childCoords = this.getEntityCoordinates(child);
+            var inner = childCoords.inner;
+            var outer = childCoords.outer;
 
-            index[child.getZ()][child.getY()].push(child);
+
+                var added = false;
+                for (var i in index) {
+                    if (!added) {
+                        var otherChild = index[i];
+                        var otherChildCoords = this.getEntityCoordinates(otherChild);
+                        //Checks if the Child has less Y, or if it has more Y, if it has less y2 and on the left side of the other child
+                        //or if it has more y but is on the right half of other child but the y is less then other childs middle y
+                        inner.incrementY(inner.getZ());
+                        outer.incrementY(outer.getZ());
+                        otherChildCoords.inner.incrementY(otherChildCoords.inner.getZ());
+                        otherChildCoords.outer.incrementY(otherChildCoords.outer.getZ());
+
+                        if (inner.getY() < otherChildCoords.inner.getY() ||
+                            (inner.getY() > otherChildCoords.inner.getY() &&
+                                outer.getY() < otherChildCoords.outer.getY() &&
+                                inner.getX() < otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2))
+                            || (inner.getY() > otherChildCoords.inner.getY() &&
+                                outer.getY() < otherChildCoords.outer.getY() &&
+                                inner.getX() > otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2)
+                                && inner.getY() < (otherChildCoords.inner.getY() + (otherChildCoords.outer.getY() - otherChildCoords.inner.getY()) / 2))) {
+                            index.splice(i, 0, child);
+                            added = true;
+                            if (child.id === "player") {
+                                console.log(i);
+                            }
+                        }
+                    }
+                }
+
+            if (!added) {
+                index.push(child);
+            }
         }
 
         for (var i in index) {
-            for (var i2 in index[i]) {
-                for (var i3 in index[i][i2]) {
-                    this._renderEntity(index[i][i2][i3], camera);
-                }
-            }
+                this._renderEntity(index[i], camera);
         }
         return true;
     }
 
     public setIsometricRendering(state: boolean) {
         this._isometricRendering = state;
+    }
+
+    protected getEntityCoordinates(entity: Entity) : any {
+        var entityAbsolutePosition = new Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ()); //The absolute position of the entity in the game
+        if (this._isometricRendering && entity.getParent()) {
+            //Recenter coordinates inside isometric parent so it isn't overflowing inside render
+            entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2));
+            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
+        }
+        var entityAbsoluteOuterPosition = new Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
+
+        if (this._isometricRendering) {
+            //Convert to Iso Coordinates
+            //We stretch isometric entities to x2 width, so add to the outer positions x
+            entityAbsoluteOuterPosition.incrementX(entity.getWidth());
+            entityAbsoluteOuterPosition.incrementY(0 - entity.getHeight());
+
+            entityAbsolutePosition = entityAbsolutePosition.toIsometric();
+            entityAbsoluteOuterPosition = entityAbsoluteOuterPosition.toIsometric();
+
+        }
+
+        return { inner: entityAbsolutePosition, outer: entityAbsoluteOuterPosition };
     }
 
     protected _isEntityInCamera(entityAbsolutePosition: Coordinate, entityAbsoluteOuterPosition: Coordinate, cameraPosition: Coordinate, cameraOuterPosition: Coordinate) {
@@ -234,5 +285,12 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
         }
 
         return { leftClip, rightClip, topClip, bottomClip };
+    }
+
+    public rotate() {
+        this._rotation += 1;
+        if (this._rotation > 3) {
+            this._rotation = 0;
+        }
     }
 }
