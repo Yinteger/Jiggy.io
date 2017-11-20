@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "removeComments": true,
+        "module": "commonjs",
+        "target": "es2015",
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "pretty": true,
+        "allowUnreachableCode": false
+    },
+    "files": [
+        "./BlockBuster.ts"
+    ]
+}

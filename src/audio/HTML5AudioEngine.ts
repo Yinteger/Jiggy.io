@@ -1,5 +1,6 @@
 import {AudioEngine} from './AudioEngine';
 import {Asset} from '../assets';
+import {AudioEvents} from './AudioEvents';
 
 export class HTML5AudioEngine extends AudioEngine {
 	private _backgroundAudios: Asset[];
@@ -118,17 +119,19 @@ export class HTML5AudioEngine extends AudioEngine {
 		return data.volume;
 	}
 
-	protected _registerStartEvent(audio: Asset): void {
-		var data: HTMLAudioElement = <HTMLAudioElement>audio.getData();
-		data.addEventListener('playing', function(e: Event) {
-			audio.setAttribute('playing', true);
+	protected _registerStartEvent(asset: Asset, name: string, audio: Asset): void {
+		var data: HTMLAudioElement = <HTMLAudioElement>asset.getData();
+		data.addEventListener('playing', (e: Event) => {
+			asset.setAttribute('playing', true);
+			this.emit(AudioEvents.STARTED, name, audio);
 		});
 	}
 
-	protected _registerEndEvent(audio: Asset): void {
-		var data: HTMLAudioElement = <HTMLAudioElement>audio.getData();
-		data.addEventListener('ended', function(e: Event) {
-			audio.setAttribute('playing', false);
+	protected _registerEndEvent(asset: Asset, name: string, audio: Asset): void {
+		var data: HTMLAudioElement = <HTMLAudioElement>asset.getData();
+		data.addEventListener('ended', (e: Event) => {
+			asset.setAttribute('playing', false);
+			this.emit(AudioEvents.ENDED, name, audio);
 		});
 	}
 }
