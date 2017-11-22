@@ -15,8 +15,6 @@ import {EntityModel} from './EntityModel';
 import {EntityView} from './EntityView';
 import {EntityView2D} from './EntityView2D';
 import { GridMap } from './GridMap';
-import { IsometricGridMap } from "./IsometricGridMap";
-import { IsometricTile } from "./IsometricTile";
 
 export {
     ModelEventTypes,
@@ -30,7 +28,5 @@ export {
     EntityModel,
     EntityView,
     EntityView2D,
-    GridMap,
-    IsometricGridMap,
-    IsometricTile
+    GridMap
 };

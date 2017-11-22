@@ -452,33 +452,10 @@ const EntityView2D_1 = __webpack_require__(44);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
 const GridMap_1 = __webpack_require__(45);
 exports.GridMap = GridMap_1.GridMap;
-const IsometricGridMap_1 = __webpack_require__(46);
-exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
-const IsometricTile_1 = __webpack_require__(47);
-exports.IsometricTile = IsometricTile_1.IsometricTile;
 
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const LogicEngine_1 = __webpack_require__(39);
-exports.LogicEngine = LogicEngine_1.LogicEngine;
-const GroupLogicEngine_1 = __webpack_require__(40);
-exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-const RenderingEngine_1 = __webpack_require__(41);
-exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-const TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
-exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
-const IsometricRenderingEngine_1 = __webpack_require__(48);
-exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -497,6 +474,23 @@ var getInstance = () => {
     return instance;
 };
 exports.getInstance = getInstance;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const LogicEngine_1 = __webpack_require__(39);
+exports.LogicEngine = LogicEngine_1.LogicEngine;
+const GroupLogicEngine_1 = __webpack_require__(40);
+exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
+const RenderingEngine_1 = __webpack_require__(41);
+exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
+const TwoDimensionalRenderingEngine_1 = __webpack_require__(42);
+exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
 /***/ }),
@@ -1158,7 +1152,7 @@ var AssetState;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const AssetState_1 = __webpack_require__(12);
-const Instance_1 = __webpack_require__(5);
+const Instance_1 = __webpack_require__(4);
 class AssetGroup {
     constructor(assetMap = {}) {
         this._assets = assetMap;
@@ -1885,11 +1879,11 @@ exports.Touch = Touch;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const Engine_1 = __webpack_require__(19);
-const engines_1 = __webpack_require__(4);
+const engines_1 = __webpack_require__(5);
 const entities_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(0);
 const _1 = __webpack_require__(1);
-const inputs_1 = __webpack_require__(49);
+const inputs_1 = __webpack_require__(48);
 const entities_2 = __webpack_require__(3);
 class IsoDemo extends Engine_1.default {
     constructor() {
@@ -1899,22 +1893,19 @@ class IsoDemo extends Engine_1.default {
         this.getViewPort().fillPage(true);
         var engine = new engines_1.TwoDimensionalRenderingEngine();
         engine.setIsometricRendering(true);
-        this.setRenderingEngine(new engines_1.IsometricRenderingEngine());
         this.setRenderingEngine(engine);
         var map = new entities_2.Entity();
         map.setWidth(320);
         map.setHeight(320);
-        var layer1 = new entities_1.IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
-        var layer2 = new entities_1.IsometricGridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
-        layer1.setX(0);
-        layer1.setY(0);
-        layer2.setX(0);
-        layer2.setY(0);
-        layer2.setZ(64);
+        var layer1 = new entities_1.GridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
+        var layer1 = new entities_1.GridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
+        layer1.id = "layer1";
+        layer1.setX(160 - 16);
+        layer1.setY(-160 + 16);
         map.addChild(layer1);
-        map.addChild(layer2);
-        var camera = new utils_1.Camera(map, new utils_1.Coordinate(0, 0), { width: 500, height: 500 }, new utils_1.Coordinate(123, 123), { width: 300, height: 300 });
+        var camera = new utils_1.Camera(map, new utils_1.Coordinate(0, 0), { width: 500, height: 500 }, new utils_1.Coordinate(0, 0), { width: 300, height: 300 });
         this._mainCamera = camera;
+        camera.setRenderDimension(this.getViewPort().getSize());
         this.getRenderingEngine().addCamera(camera);
         this.getViewPort().on("resize", (dimension) => {
             console.log(dimension);
@@ -1935,17 +1926,17 @@ class IsoDemo extends Engine_1.default {
                 console.log(tiles);
                 this._loadCharacterSpriteSheet(() => {
                     var player = new entities_2.Entity();
-                    player.setHeight(32);
+                    player.setHeight(16);
                     player.setWidth(8);
-                    layer2.addChild(player);
-                    let tile = layer1.getTile({ x: 2, y: 2 });
+                    layer1.addChild(player);
+                    let tile = layer1.getTile({ x: 6, y: 6 });
                     player.id = "player";
-                    player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getWidth() / 2));
-                    player.setY(tile.getY() + (tile.getHeight() / 2) - (player.getHeight() / 2));
+                    player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getHeight() / 2));
+                    player.setY(tile.getY() - (tile.getHeight() / 2));
+                    player.setZ(32 + player.getHeight());
                     this.player = player;
                     player.setColor(new utils_1.Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
                     player.on(0..toString(), () => {
-                        console.log("blah");
                         var fov = camera.getFOV();
                     });
                 });
@@ -1953,7 +1944,7 @@ class IsoDemo extends Engine_1.default {
         };
         bg_asset.onStateChange = (state) => {
             if (state === _1.AssetState.LOADED) {
-                layer1.setTexture(bg_asset);
+                map.setTexture(bg_asset);
             }
         };
         block_asset.onStateChange = (state) => {
@@ -1969,6 +1960,7 @@ class IsoDemo extends Engine_1.default {
                     block.setX(tile.getX());
                     block.id = "Block1";
                     block.setY(tile.getY());
+                    block.setZ(tile.getHeight());
                     block.setWidth(tile.getWidth());
                     block.setHeight(tile.getHeight() * 2);
                     blocks.push(block);
@@ -1988,105 +1980,117 @@ class IsoDemo extends Engine_1.default {
                 var block = new entities_2.Entity();
                 block.setTexture(block_asset);
                 block.setX(tile.getX());
+                block.setZ(tile4.getHeight() * 2);
                 block.id = "Block1";
                 block.setY(tile.getY());
                 block.setWidth(tile.getWidth());
                 block.setHeight(tile.getHeight() * 2);
-                layer2.addChild(block);
+                layer1.addChild(block);
                 var block2 = new entities_2.Entity();
                 block2.setTexture(block_asset);
                 block2.setX(tile.getX());
                 block2.setY(tile.getY());
-                block2.setZ(tile.getHeight());
+                block2.id = "Block2";
+                block2.setZ(tile.getHeight() * 3);
                 block2.setWidth(tile.getWidth());
                 block2.setHeight(tile.getHeight() * 2);
-                layer2.addChild(block2);
+                layer1.addChild(block2);
                 var block3 = new entities_2.Entity();
                 block3.setTexture(block_asset);
                 block3.setX(tile2.getX());
                 block3.setY(tile2.getY());
-                block3.setZ(tile2.getHeight());
+                block3.id = "Block3";
+                block3.setZ(tile2.getHeight() * 3);
                 block3.setWidth(tile2.getWidth());
                 block3.setHeight(tile2.getHeight() * 2);
-                layer2.addChild(block3);
+                layer1.addChild(block3);
                 var block4 = new entities_2.Entity();
                 block4.setTexture(block_asset);
                 block4.setX(tile3.getX());
                 block4.setY(tile3.getY());
+                block4.setZ(tile4.getHeight() * 2);
                 block4.id = "Block4";
                 block4.setWidth(tile3.getWidth());
                 block4.setHeight(tile3.getHeight() * 2);
-                layer2.addChild(block4);
+                layer1.addChild(block4);
                 var block5 = new entities_2.Entity();
                 block5.setTexture(block_asset);
                 block5.setX(tile3.getX());
                 block5.setY(tile3.getY());
-                block5.setZ(tile3.getHeight());
+                block5.setZ(tile3.getHeight() * 3);
                 block5.setWidth(tile3.getWidth());
                 block5.setHeight(tile3.getHeight() * 2);
-                layer2.addChild(block5);
+                layer1.addChild(block5);
+                block5.id = "Block5";
                 var block6 = new entities_2.Entity();
                 block6.setTexture(block_asset);
                 block6.setX(tile4.getX());
                 block6.setY(tile4.getY());
-                block6.setZ(tile4.getHeight());
+                block6.setZ(tile4.getHeight() * 3);
                 block6.setWidth(tile4.getWidth());
                 block6.setHeight(tile4.getHeight() * 2);
-                layer2.addChild(block6);
+                layer1.addChild(block6);
+                block6.id = "Block6";
                 var block10 = new entities_2.Entity();
                 block10.setTexture(block_asset);
                 block10.setX(tile7.getX());
                 block10.setY(tile7.getY());
-                block10.setZ(tile7.getHeight());
+                block10.setZ(tile7.getHeight() * 3);
                 block10.setWidth(tile7.getWidth());
                 block10.setHeight(tile7.getHeight() * 2);
-                layer2.addChild(block10);
+                layer1.addChild(block10);
+                block10.id = "Block10";
                 var block7 = new entities_2.Entity();
                 block7.setTexture(block_asset);
                 block7.setX(tile5.getX());
                 block7.setY(tile5.getY());
-                block7.setZ(tile5.getHeight());
+                block7.setZ(tile5.getHeight() * 3);
                 block7.setWidth(tile5.getWidth());
                 block7.setHeight(tile5.getHeight() * 2);
-                layer2.addChild(block7);
+                layer1.addChild(block7);
+                block7.id = "Block7";
                 var block8 = new entities_2.Entity();
                 block8.setTexture(block_asset);
                 block8.setX(tile6.getX());
                 block8.setY(tile6.getY());
-                block8.setZ(tile6.getHeight());
+                block8.setZ(tile6.getHeight() * 3);
                 block8.setWidth(tile6.getWidth());
                 block8.setHeight(tile6.getHeight() * 2);
-                layer2.addChild(block8);
+                layer1.addChild(block8);
+                block8.id = "Block8";
                 var block11 = new entities_2.Entity();
                 block11.setTexture(block_asset);
                 block11.setX(tile8.getX());
                 block11.setY(tile8.getY());
-                block11.setZ(tile8.getHeight());
+                block11.setZ(tile8.getHeight() * 3);
                 block11.setWidth(tile8.getWidth());
                 block11.setHeight(tile8.getHeight() * 2);
-                layer2.addChild(block11);
+                layer1.addChild(block11);
+                block11.id = "Block11";
                 var block9 = new entities_2.Entity();
                 block9.setTexture(block_asset);
                 block9.setX(tile6.getX() + 32);
                 block9.setY(tile6.getY() + 32);
+                block9.setZ(tile4.getHeight() * 2);
                 block9.id = "Block9";
                 block9.setWidth(tile6.getWidth());
                 block9.setHeight(tile6.getHeight() * 2);
-                layer2.addChild(block9);
+                layer1.addChild(block9);
                 var block12 = new entities_2.Entity();
                 block12.setTexture(block_asset);
                 block12.setX(tile8.getX());
                 block12.setY(tile8.getY());
+                block12.setZ(tile4.getHeight() * 2);
                 block12.id = "Block12";
                 block12.setWidth(tile8.getWidth());
                 block12.setHeight(tile8.getHeight() * 2);
-                layer2.addChild(block12);
+                layer1.addChild(block12);
                 var direction = "up";
                 this.getLogicEngine().addLogic('blockmove', () => {
-                    if (block9.getZ() >= 32) {
+                    if (block9.getZ() >= 96) {
                         direction = "down";
                     }
-                    else if (block9.getZ() <= 0) {
+                    else if (block9.getZ() <= 64) {
                         direction = "up";
                     }
                     if (direction === "down") {
@@ -2094,6 +2098,8 @@ class IsoDemo extends Engine_1.default {
                     }
                     else {
                         block9.setZ(block9.getZ() + 2);
+                    }
+                    if (this.player) {
                     }
                 }, 50);
                 this.getLogicEngine().addLogic('gravity', () => {
@@ -2240,7 +2246,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(0);
 const audio_1 = __webpack_require__(26);
 const assets_1 = __webpack_require__(1);
-const Instance_1 = __webpack_require__(5);
+const Instance_1 = __webpack_require__(4);
 class Engine {
     constructor() {
         Instance_1.setInstance(this);
@@ -3009,7 +3015,7 @@ exports.AssetFactory = AssetFactory;
 Object.defineProperty(exports, "__esModule", { value: true });
 const AssetType_1 = __webpack_require__(11);
 const AssetGroup_1 = __webpack_require__(13);
-const Instance_1 = __webpack_require__(5);
+const Instance_1 = __webpack_require__(4);
 const Iterator_1 = __webpack_require__(8);
 class AssetGroupLoader {
     constructor() {
@@ -3733,7 +3739,7 @@ exports.LogicEngine = LogicEngine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(4);
+const _1 = __webpack_require__(5);
 class GroupLogicEngine extends _1.LogicEngine {
     constructor() {
         super();
@@ -3947,7 +3953,7 @@ exports.RenderingEngine = RenderingEngine;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(4);
+const _1 = __webpack_require__(5);
 const utils_1 = __webpack_require__(0);
 class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
     constructor() {
@@ -3959,23 +3965,14 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
         var renderOrigin = camera.getRenderOrigin();
         var renderDimension = camera.getRenderDimension();
         var cameraFOV = camera.getFOV();
-        var entityAbsolutePosition = new utils_1.Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ());
-        if (this._isometricRendering && entity.getParent()) {
-            entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2));
-            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
-        }
-        var entityAbsoluteOuterPosition = new utils_1.Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
+        var entityPosition = this._getEntityCoordinates(entity);
+        var entityAbsolutePosition = entityPosition.inner;
+        var entityAbsoluteOuterPosition = entityPosition.outer;
         var cameraPosition = camera.getViewPoint();
         if (this._isometricRendering) {
             cameraPosition = cameraPosition.toIsometric();
         }
         var cameraOuterPosition = new utils_1.Coordinate(cameraPosition.getX() + camera.getFOV().width, cameraPosition.getY() + camera.getFOV().height);
-        if (this._isometricRendering) {
-            entityAbsoluteOuterPosition.incrementX(entity.getWidth());
-            entityAbsoluteOuterPosition.incrementY(0 - entity.getHeight());
-            entityAbsolutePosition = entityAbsolutePosition.toIsometric();
-            entityAbsoluteOuterPosition = entityAbsoluteOuterPosition.toIsometric();
-        }
         if (!this._isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition)) {
             return false;
         }
@@ -4030,35 +4027,32 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
         var children = entity.getChildren();
         while (children.hasNext()) {
             var child = children.next();
-            var childCoords = this.getEntityCoordinates(child);
+            var childCoords = this._getEntityCoordinates(child);
             var inner = childCoords.inner;
             var outer = childCoords.outer;
             var added = false;
             for (var i in index) {
-                if (!added) {
-                    var otherChild = index[i];
-                    var otherChildCoords = this.getEntityCoordinates(otherChild);
-                    inner.incrementY(inner.getZ());
-                    outer.incrementY(outer.getZ());
-                    otherChildCoords.inner.incrementY(otherChildCoords.inner.getZ());
-                    otherChildCoords.outer.incrementY(otherChildCoords.outer.getZ());
-                    if (inner.getY() < otherChildCoords.inner.getY() ||
-                        (inner.getY() > otherChildCoords.inner.getY() &&
-                            outer.getY() < otherChildCoords.outer.getY() &&
-                            inner.getX() < otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2))
-                        || (inner.getY() > otherChildCoords.inner.getY() &&
-                            outer.getY() < otherChildCoords.outer.getY() &&
-                            inner.getX() > otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2)
-                            && inner.getY() < (otherChildCoords.inner.getY() + (otherChildCoords.outer.getY() - otherChildCoords.inner.getY()) / 2))) {
+                var otherChild = index[i];
+                var otherChildCoords = this._getEntityCoordinates(otherChild);
+                if (!added && child.id && otherChild.id) {
+                    var myTotal = (inner.getZ() + (inner.getX() / 2) + inner.getY());
+                    var theirTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.inner.getX() / 2) + otherChildCoords.inner.getY());
+                    var myOuterTotal = (inner.getZ() + (outer.getX() / 2) + outer.getY());
+                    var theirOuterTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.outer.getX() / 2) + otherChildCoords.outer.getY());
+                    if (myTotal < theirTotal) {
+                        if (myOuterTotal < theirOuterTotal) {
+                            index.splice(i, 0, child);
+                            added = true;
+                        }
+                    }
+                    else if (myTotal === theirTotal && inner.getY() < otherChildCoords.inner.getY()) {
                         index.splice(i, 0, child);
                         added = true;
-                        if (child.id === "player") {
-                            console.log(i);
-                        }
                     }
                 }
             }
-            if (!added) {
+            if (!added && child.id) {
+                added = true;
                 index.push(child);
             }
         }
@@ -4070,11 +4064,9 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
     setIsometricRendering(state) {
         this._isometricRendering = state;
     }
-    getEntityCoordinates(entity) {
+    _getEntityCoordinates(entity) {
         var entityAbsolutePosition = new utils_1.Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ());
         if (this._isometricRendering && entity.getParent()) {
-            entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2));
-            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
         }
         var entityAbsoluteOuterPosition = new utils_1.Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
         if (this._isometricRendering) {
@@ -4289,257 +4281,31 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(3);
-class IsometricGridMap extends _1.GridMap {
-    _buildTile(x, y) {
-        var tile = new _1.IsometricTile();
-        tile.setWidth(this.tileSize.width);
-        tile.setHeight(this.tileSize.height);
-        tile.setX((x) * this.tileSize.width);
-        tile.setY((y) * this.tileSize.height);
-        return tile;
-    }
-}
-exports.IsometricGridMap = IsometricGridMap;
-
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(3);
-class IsometricTile extends _1.Entity {
-    constructor() {
-        super();
-    }
-}
-exports.IsometricTile = IsometricTile;
-
-
-/***/ }),
+/* 46 */,
+/* 47 */,
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(4);
-const utils_1 = __webpack_require__(0);
-const entities_1 = __webpack_require__(3);
-class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
-    _renderCamera(camera) {
-        var scene = camera.getScene();
-        var context = this.getViewPort().getContext();
-        if (this.debugCamera || 1 == 1) {
-            var viewPoint = camera.getViewPoint();
-            var fov = camera.getFOV();
-            var renderOrigin = camera.getRenderOrigin();
-            var renderDimension = camera.getRenderDimension();
-            context.beginPath();
-            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
-            context.lineWidth = 7;
-            context.strokeStyle = 'red';
-            context.stroke();
-            context.beginPath();
-            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
-            context.lineWidth = 7;
-            context.fillStyle = 'black';
-            context.fill();
-            context.strokeStyle = 'green';
-            context.stroke();
-        }
-        this._renderEntity(scene, camera);
-    }
-    _renderEntity(entity, camera) {
-        if (camera) {
-            var viewPoint = camera.getViewPoint();
-            var fov = camera.getFOV();
-            var renderOrigin = camera.getRenderOrigin();
-            var renderDimension = camera.getRenderDimension();
-            var collidesYAxis = false;
-            var collidesXAxis = false;
-            var cameraBounds = {
-                x: viewPoint.getX(),
-                y: viewPoint.getY(),
-                x2: viewPoint.getX() + fov.width,
-                y2: viewPoint.getY() + fov.height
-            };
-            var cartEntityBounds = {
-                x: entity.getAbsoluteX(),
-                y: entity.getAbsoluteY(),
-                x2: entity.getAbsoluteX(),
-                y2: entity.getAbsoluteY2()
-            };
-            var topLeftCoord = new utils_1.Coordinate(cartEntityBounds.x, cartEntityBounds.y);
-            var topLeftCoordIso = topLeftCoord.toIsometric();
-            var bottomRightCoord = new utils_1.Coordinate(cartEntityBounds.x2, cartEntityBounds.y2);
-            var bottomRightCoordIso = bottomRightCoord.toIsometric();
-            var entityBounds = {
-                x: topLeftCoordIso.getX() - (entity.getWidth()),
-                y: topLeftCoordIso.getY() - (entity.getHeight()),
-                x2: bottomRightCoordIso.getX() + (entity.getWidth() * 2),
-                y2: bottomRightCoordIso.getY() + entity.getHeight()
-            };
-            if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
-                || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
-                collidesXAxis = true;
-            }
-            if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
-                || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
-                collidesYAxis = true;
-            }
-            if (!collidesYAxis || !collidesXAxis) {
-                return false;
-            }
-            var leftClip = 0;
-            if (entityBounds.x < viewPoint.getX()) {
-                leftClip = (viewPoint.getX() - entityBounds.x) / 2;
-            }
-            var rightClip = 0;
-            if (entityBounds.x2 > (viewPoint.getX() + fov.width)) {
-                rightClip = (entityBounds.x2 - (viewPoint.getX() + fov.width)) / 2;
-            }
-            var topClip = 0;
-            if (entityBounds.y < viewPoint.getY()) {
-                topClip = viewPoint.getY() - entityBounds.y;
-            }
-            var bottomClip = 0;
-            if (entityBounds.y2 > (viewPoint.getY() + fov.height)) {
-                bottomClip = entityBounds.y2 - (viewPoint.getY() + fov.height);
-            }
-            var xModifier = fov.width / renderDimension.width;
-            var yModifier = fov.height / renderDimension.height;
-            var zModifier = (xModifier + yModifier) / 2;
-            var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
-            if (cameraRelativeY < 0) {
-                cameraRelativeY = 0;
-            }
-            var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
-            if (cameraRelativeX < 0) {
-                cameraRelativeX = 0;
-            }
-            var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
-            var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-            var x = renderOrigin.getX() + cameraRelativeX;
-            var y = renderOrigin.getY() + cameraRelativeY;
-            var z = entity.getZ() / zModifier;
-            var w = clippedEntityWidth / xModifier;
-            var h = clippedEntityHeight / yModifier;
-            var x2 = x + (w * 2);
-            var y2 = y + h;
-            var cartCoords = utils_1.Coordinate.fromIsometric(x, y);
-            if (entity.getColor()) {
-                var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
-                this.getViewPort().getContext().fillRect(x, y + z, w * 2, h);
-            }
-            if (this.debugRegions) {
-                var regions = entity.getRegions();
-                for (var x_i in regions) {
-                    for (var y_i in regions[x]) {
-                        if (regions[x_i][y_i].length > 0) {
-                            this.getViewPort().getContext().strokeStyle = "red";
-                            this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
-                        }
-                    }
-                }
-            }
-            if (entity.getTexture()) {
-                var imageData = entity.getTexture().getData();
-                var entityToImageYModifier = imageData.height / entity.getHeight();
-                var entityToImageXModifier = imageData.width / entity.getWidth();
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y - z, w * 2, h);
-            }
-            if (entity instanceof entities_1.IsometricTile) {
-                this.getViewPort().getContext().beginPath();
-                this.getViewPort().getContext().moveTo(x, y + ((y2 - y) / 2));
-                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y);
-                this.getViewPort().getContext().lineTo(x2, y + ((y2 - y) / 2));
-                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y2);
-                this.getViewPort().getContext().closePath();
-                this.getViewPort().getContext().stroke();
-            }
-        }
-        else {
-            var x = entity.getX();
-            var y = entity.getY();
-            var w = entity.getWidth();
-            var h = entity.getHeight();
-            if (entity.getColor()) {
-                var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
-            }
-            if (entity.getTexture()) {
-                var imageData = entity.getTexture().getData();
-                var entityToImageYModifier = imageData.height / entity.getHeight();
-                var entityToImageXModifier = imageData.width / entity.getWidth();
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-            }
-        }
-        var index = {};
-        var children = entity.getChildren();
-        while (children.hasNext()) {
-            var child = children.next();
-            if (!index[child.getZ()]) {
-                index[child.getZ()] = {};
-            }
-            if (!index[child.getZ()][child.getY()]) {
-                index[child.getZ()][child.getY()] = [];
-            }
-            index[child.getZ()][child.getY()].push(child);
-        }
-        for (var i in index) {
-            for (var i2 in index[i]) {
-                for (var i3 in index[i][i2]) {
-                    this._renderEntity(index[i][i2][i3], camera);
-                }
-            }
-        }
-        return true;
-    }
-}
-exports.IsometricRenderingEngine = IsometricRenderingEngine;
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const GamePadListener_1 = __webpack_require__(50);
+const GamePadListener_1 = __webpack_require__(49);
 exports.GamePadListener = GamePadListener_1.GamePadListener;
 const GamePad_1 = __webpack_require__(16);
 exports.GamePad = GamePad_1.GamePad;
-const Keyboard_1 = __webpack_require__(51);
+const Keyboard_1 = __webpack_require__(50);
 exports.Keyboard = Keyboard_1.Keyboard;
 exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-const Mouse_1 = __webpack_require__(52);
+const Mouse_1 = __webpack_require__(51);
 exports.Mouse = Mouse_1.Mouse;
 const Touch_1 = __webpack_require__(17);
 exports.Touch = Touch_1.Touch;
-const TouchListener_1 = __webpack_require__(53);
+const TouchListener_1 = __webpack_require__(52);
 exports.TouchListener = TouchListener_1.TouchListener;
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4600,7 +4366,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4774,7 +4540,7 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4912,7 +4678,7 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

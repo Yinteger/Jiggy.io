@@ -1,6 +1,6 @@
  import {RenderingEngine} from "./";
 import {Camera, Iterator, Color, Coordinate} from "../utils";
-import { Entity, IsometricTile} from "../entities";
+import { Entity} from "../entities";
 import {
 	Dimension
 } from '../interfaces';
@@ -22,28 +22,14 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
         var renderOrigin: Coordinate = camera.getRenderOrigin(); //The origin coordinates in the canvas to render this camera from
         var renderDimension: Dimension = camera.getRenderDimension(); //The origin dimensions in the canvas to render the canvas to
         var cameraFOV = camera.getFOV(); //The current field of view of the Camera
-        var entityAbsolutePosition = new Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ()); //The absolute position of the entity in the game
-        if (this._isometricRendering && entity.getParent()) {
-            //Recenter coordinates inside isometric parent so it isn't overflowing inside render
-            entityAbsolutePosition.incrementY(0-(entity.getParent().getHeight() / 2));
-            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
-        }
-        var entityAbsoluteOuterPosition = new Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
+        var entityPosition = this._getEntityCoordinates(entity);
+        var entityAbsolutePosition = entityPosition.inner;
+        var entityAbsoluteOuterPosition = entityPosition.outer;
         var cameraPosition: Coordinate = camera.getViewPoint(); //The camera's absolute position in the game
         if (this._isometricRendering) {
             cameraPosition = cameraPosition.toIsometric();
         }
         var cameraOuterPosition: Coordinate = new Coordinate(cameraPosition.getX() + camera.getFOV().width, cameraPosition.getY() + camera.getFOV().height);
-
-        if (this._isometricRendering) {
-            //Convert to Iso Coordinates
-            //We stretch isometric entities to x2 width, so add to the outer positions x
-            entityAbsoluteOuterPosition.incrementX(entity.getWidth());
-            entityAbsoluteOuterPosition.incrementY(0-entity.getHeight());
-
-            entityAbsolutePosition = entityAbsolutePosition.toIsometric();
-            entityAbsoluteOuterPosition = entityAbsoluteOuterPosition.toIsometric();
-        }
 
         //Check if Entity is in the camera's view to continue rendering or discontinue here
         if (!this._isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition)) {
@@ -87,6 +73,9 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
         if (this._isometricRendering) {
             w = w * 2;
             y -= z;
+            //if (entity.getParent()) {
+            //    x += (entity.getParent().getWidth() / 2) * xModifier;
+            //}
         }
 
 		//Begin rendering the Entity
@@ -161,48 +150,87 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
 
         while (children.hasNext()) {
             var child = children.next();
-            var childCoords = this.getEntityCoordinates(child);
+            var childCoords = this._getEntityCoordinates(child);
             var inner = childCoords.inner;
             var outer = childCoords.outer;
 
 
                 var added = false;
                 for (var i in index) {
-                    if (!added) {
-                        var otherChild = index[i];
-                        var otherChildCoords = this.getEntityCoordinates(otherChild);
+                    var otherChild = index[i];
+                    var otherChildCoords = this._getEntityCoordinates(otherChild);
+                    if (!added && child.id && otherChild.id) {
+   
                         //Checks if the Child has less Y, or if it has more Y, if it has less y2 and on the left side of the other child
                         //or if it has more y but is on the right half of other child but the y is less then other childs middle y
-                        inner.incrementY(inner.getZ());
-                        outer.incrementY(outer.getZ());
-                        otherChildCoords.inner.incrementY(otherChildCoords.inner.getZ());
-                        otherChildCoords.outer.incrementY(otherChildCoords.outer.getZ());
+                        //inner.incrementY(inner.getZ());
+                        //outer.incrementY(outer.getZ());
+                        //otherChildCoords.inner.incrementY(otherChildCoords.inner.getZ());
+                        //otherChildCoords.outer.incrementY(otherChildCoords.outer.getZ());
 
-                        if (inner.getY() < otherChildCoords.inner.getY() ||
-                            (inner.getY() > otherChildCoords.inner.getY() &&
-                                outer.getY() < otherChildCoords.outer.getY() &&
-                                inner.getX() < otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2))
-                            || (inner.getY() > otherChildCoords.inner.getY() &&
-                                outer.getY() < otherChildCoords.outer.getY() &&
-                                inner.getX() > otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2)
-                                && inner.getY() < (otherChildCoords.inner.getY() + (otherChildCoords.outer.getY() - otherChildCoords.inner.getY()) / 2))) {
+                        var myTotal = (inner.getZ() + (inner.getX() / 2) + inner.getY());
+                        var theirTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.inner.getX() / 2) + otherChildCoords.inner.getY());
+
+                        var myOuterTotal = (inner.getZ() + (outer.getX() / 2) + outer.getY());
+                        var theirOuterTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.outer.getX() / 2) + otherChildCoords.outer.getY());
+
+                        //if (child.id === "player" && otherChild.id === "Block12") {
+                        //        console.log(myTotal, theirTotal);
+                        //}
+
+                        if (myTotal < theirTotal) {
+                            if (myOuterTotal < theirOuterTotal) {
+                                index.splice(i, 0, child);
+                                added = true;
+                            }
+                        } else if (myTotal === theirTotal && inner.getY() < otherChildCoords.inner.getY()) {
                             index.splice(i, 0, child);
                             added = true;
-                            if (child.id === "player") {
-                                console.log(i);
-                            }
                         }
+
+                        //if (inner.getZ() < otherChildCoords.outer.getZ()) {
+                        //    index.splice(i, 0, child);
+                        //    added = true;
+                        //} else if (inner.getY() < otherChildCoords.inner.getY() ||
+                        //    (inner.getY() > otherChildCoords.inner.getY() &&
+                        //        outer.getY() < otherChildCoords.outer.getY() &&
+                        //        inner.getX() < otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2))
+                        //    || (inner.getY() > otherChildCoords.inner.getY() &&
+                        //        outer.getY() < otherChildCoords.outer.getY() &&
+                        //        inner.getX() > otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2)
+                        //        && inner.getY() < (otherChildCoords.inner.getY() + (otherChildCoords.outer.getY() - otherChildCoords.inner.getY()) / 2))) {
+                        //    index.splice(i, 0, child);
+                        //    added = true;
+                        //}
+
+                        //if (
+                        //    inner.getY() < otherChildCoords.inner.getY() ||
+                        //    (inner.getY() > otherChildCoords.inner.getY() &&
+                        //        outer.getY() < otherChildCoords.outer.getY() &&
+                        //        inner.getX() < otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2))
+                        //    || (inner.getY() > otherChildCoords.inner.getY() &&
+                        //        outer.getY() < otherChildCoords.outer.getY() &&
+                        //        inner.getX() > otherChildCoords.inner.getX() + ((otherChildCoords.outer.getX() - otherChildCoords.inner.getX()) / 2)
+                        //        && inner.getY() < (otherChildCoords.inner.getY() + (otherChildCoords.outer.getY() - otherChildCoords.inner.getY()) / 2))) {
+                        //    index.splice(i, 0, child);
+                        //    added = true;
+                        //    if (child.id === "player") {
+                        //        console.log(i);
+                        //    }
+                        //}
                     }
                 }
 
-            if (!added) {
-                index.push(child);
+                if (!added && child.id) {
+                    added = true;
+                    index.push(child);
+                }
             }
-        }
 
         for (var i in index) {
                 this._renderEntity(index[i], camera);
         }
+
         return true;
     }
 
@@ -210,12 +238,12 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
         this._isometricRendering = state;
     }
 
-    protected getEntityCoordinates(entity: Entity) : any {
+    private _getEntityCoordinates(entity: Entity) : any {
         var entityAbsolutePosition = new Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ()); //The absolute position of the entity in the game
         if (this._isometricRendering && entity.getParent()) {
             //Recenter coordinates inside isometric parent so it isn't overflowing inside render
-            entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2));
-            entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
+            //entityAbsolutePosition.incrementY(0 - (entity.getParent().getHeight() / 2));
+            //entityAbsolutePosition.incrementX((entity.getParent().getWidth() / 2));
         }
         var entityAbsoluteOuterPosition = new Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
 
