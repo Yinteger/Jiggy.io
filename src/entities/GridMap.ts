@@ -20,23 +20,28 @@ export class GridMap extends Entity {
 		this.setHeight(this.tileSize.height * this.tileCount.y);
 
 		for (var x = 0; x < this.tileCount.x; x ++) {
-			for (var y = 0; y < this.tileCount.y; y ++) {
-				var tile = new Entity();
-				tile.setWidth(this.tileSize.width);
-				tile.setHeight(this.tileSize.height);
-				tile.setX((x + 1) * this.tileSize.width);
-				tile.setY((y + 1) * this.tileSize.height);
+            for (var y = 0; y < this.tileCount.y; y++) {
+                var tile = this._buildTile(x, y);
 
-				this.addChild(tile);
+                this.addChild(tile);
 
-				if (!this._tiles[x]) {
-					this._tiles[x] = [];
-				}
+                if (!this._tiles[x]) {
+                    this._tiles[x] = [];
+                }
 
-				this._tiles[x][y] = tile;
+                this._tiles[x][y] = tile;
 			}
 		}
-	}
+    }
+
+    protected _buildTile(x: number, y: number) : Entity {
+        var tile = new Entity();
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
+        return tile;
+    }
 
 	public getTile (coordinate: Coordinate) : Entity {
 		return this._tiles[coordinate.x][coordinate.y];

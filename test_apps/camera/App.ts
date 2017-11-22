@@ -4,9 +4,9 @@ import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType, AssetGroupLoader, AssetGroup, AssetGroupDefinition} from "../../src/assets";
-import {resources} from './resources';
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Coordinate} from "../../src/utils";
+import { Asset, AssetState, AssetFactory, AssetType, AssetGroupLoader, AssetGroup, AssetGroupDefinition } from "../../src/assets";
+import { resources } from './resources';
 
 class CameraDemo extends Engine {
     private _blocks : Entity[];
@@ -37,7 +37,7 @@ class CameraDemo extends Engine {
         this._camera = new Camera(this._container, null, {width: this._container.getWidth(), height: this._container.getHeight()}, null, {height: this._container.getHeight(), width: this._container.getWidth()});
         this.getRenderingEngine().addCamera(this._camera);
 
-        this._smallCamera = new Camera(this._container, {x: 450, y: 450}, {width: 75, height: 75}, {x: 35, y: 35}, {width: 100, height: 100});
+        this._smallCamera = new Camera(this._container, new Coordinate(450, 450), {width: 75, height: 75}, new Coordinate(35, 35), {width: 100, height: 100});
         this.getRenderingEngine().addCamera(this._smallCamera);
 
         this.getRenderingEngine().debugCamera = true;
@@ -80,7 +80,7 @@ class CameraDemo extends Engine {
 
             this.getViewPort().getCanvas().addEventListener('mousemove', (e: MouseEvent) => {
                 var fov = this._smallCamera.getFOV();
-                this._smallCamera.setViewPoint({x: e.clientX - this.getViewPort().getCanvas().offsetLeft - (fov.width / 2), y: e.clientY - this.getViewPort().getCanvas().offsetTop - (fov.height / 2)});
+                this._smallCamera.setViewPoint(new Coordinate(e.clientX - this.getViewPort().getCanvas().offsetLeft - (fov.width / 2), e.clientY - this.getViewPort().getCanvas().offsetTop - (fov.height / 2)));
             });
 
             this.getViewPort().getCanvas().addEventListener('mousewheel', (e: MouseWheelEvent) => {
@@ -211,7 +211,7 @@ class CameraDemo extends Engine {
                 }
             }
 
-            block.setCoordinate({x, y});
+            block.setPosition(new Coordinate(x, y));
         }
 
         if (!this._mouseIsIn && this._blocks.length > 0) {
@@ -219,7 +219,7 @@ class CameraDemo extends Engine {
             var picka = this._blocks[1];
             var fov = this._smallCamera.getFOV();
 
-            this._smallCamera.setViewPoint({x: picka.getX() + ((picka.getWidth() - fov.width) / 2), y: picka.getY() + ((picka.getHeight() - fov.height) / 2)});
+            this._smallCamera.setViewPoint(new Coordinate(picka.getX() + ((picka.getWidth() - fov.width) / 2), picka.getY() + ((picka.getHeight() - fov.height) / 2)));
         }
     }
 

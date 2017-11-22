@@ -64,7 +64,7 @@ export class ViewPort extends Events.EventEmitter {
 	}
 
 	public getSize () : Dimension {
-		return {width: this._canvas.offsetWidth, height: this._canvas.offsetHeight};
+        return this._dimension;
 	}
 
 	public setSize (dimension : Dimension) {

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,24 +70,26 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const SeverityEnum_1 = __webpack_require__(5);
+const SeverityEnum_1 = __webpack_require__(6);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-const Camera_1 = __webpack_require__(18);
+const Camera_1 = __webpack_require__(19);
 exports.Camera = Camera_1.Camera;
-const IDGenerator_1 = __webpack_require__(19);
+const IDGenerator_1 = __webpack_require__(20);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
-const Iterator_1 = __webpack_require__(6);
+const Iterator_1 = __webpack_require__(8);
 exports.Iterator = Iterator_1.Iterator;
-const LogManager_1 = __webpack_require__(20);
+const LogManager_1 = __webpack_require__(21);
 exports.LogManager = LogManager_1.LogManager;
-const ViewPort_1 = __webpack_require__(21);
+const ViewPort_1 = __webpack_require__(22);
 exports.ViewPort = ViewPort_1.ViewPort;
-const CollisionEmitter_1 = __webpack_require__(22);
+const CollisionEmitter_1 = __webpack_require__(23);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-const Color_1 = __webpack_require__(23);
+const Color_1 = __webpack_require__(24);
 exports.Color = Color_1.Color;
-const ColorCode_1 = __webpack_require__(7);
+const ColorCode_1 = __webpack_require__(9);
 exports.ColorCode = ColorCode_1.ColorCode;
+const Coordinate_1 = __webpack_require__(7);
+exports.Coordinate = Coordinate_1.Coordinate;
 
 
 /***/ }),
@@ -97,31 +99,31 @@ exports.ColorCode = ColorCode_1.ColorCode;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Asset_1 = __webpack_require__(25);
+const Asset_1 = __webpack_require__(26);
 exports.Asset = Asset_1.Asset;
-const AssetType_1 = __webpack_require__(9);
+const AssetType_1 = __webpack_require__(11);
 exports.AssetType = AssetType_1.AssetType;
-const AssetState_1 = __webpack_require__(10);
+const AssetState_1 = __webpack_require__(12);
 exports.AssetState = AssetState_1.AssetState;
-const AssetFactory_1 = __webpack_require__(26);
+const AssetFactory_1 = __webpack_require__(27);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-const AssetGroup_1 = __webpack_require__(11);
+const AssetGroup_1 = __webpack_require__(13);
 exports.AssetGroup = AssetGroup_1.AssetGroup;
-const AssetGroupLoader_1 = __webpack_require__(27);
+const AssetGroupLoader_1 = __webpack_require__(28);
 exports.AssetGroupLoader = AssetGroupLoader_1.AssetGroupLoader;
-const AssetLoader_1 = __webpack_require__(28);
+const AssetLoader_1 = __webpack_require__(29);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-const AudioLoader_1 = __webpack_require__(30);
+const AudioLoader_1 = __webpack_require__(31);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-const ImageLoader_1 = __webpack_require__(31);
+const ImageLoader_1 = __webpack_require__(32);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-const JSONLoader_1 = __webpack_require__(32);
+const JSONLoader_1 = __webpack_require__(33);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-const TextAssetBuilder_1 = __webpack_require__(33);
+const TextAssetBuilder_1 = __webpack_require__(34);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-const Spritesheet_1 = __webpack_require__(34);
+const Spritesheet_1 = __webpack_require__(35);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-const Animation_1 = __webpack_require__(35);
+const Animation_1 = __webpack_require__(36);
 exports.Animation = Animation_1.Animation;
 
 
@@ -440,6 +442,29 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const Entity_1 = __webpack_require__(14);
+exports.Entity = Entity_1.Entity;
+const EntityModel_1 = __webpack_require__(43);
+exports.EntityModel = EntityModel_1.EntityModel;
+const EntityView_1 = __webpack_require__(15);
+exports.EntityView = EntityView_1.EntityView;
+const EntityView2D_1 = __webpack_require__(44);
+exports.EntityView2D = EntityView2D_1.EntityView2D;
+const GridMap_1 = __webpack_require__(45);
+exports.GridMap = GridMap_1.GridMap;
+const IsometricGridMap_1 = __webpack_require__(46);
+exports.IsometricGridMap = IsometricGridMap_1.IsometricGridMap;
+const IsometricTile_1 = __webpack_require__(47);
+exports.IsometricTile = IsometricTile_1.IsometricTile;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(0);
 var instance = null;
 var setInstance = (game) => {
@@ -456,24 +481,26 @@ exports.getInstance = getInstance;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const LogicEngine_1 = __webpack_require__(37);
+const LogicEngine_1 = __webpack_require__(38);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-const GroupLogicEngine_1 = __webpack_require__(38);
+const GroupLogicEngine_1 = __webpack_require__(39);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-const RenderingEngine_1 = __webpack_require__(39);
+const RenderingEngine_1 = __webpack_require__(40);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-const TwoDimensionalRenderingEngine_1 = __webpack_require__(40);
+const TwoDimensionalRenderingEngine_1 = __webpack_require__(41);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
+const IsometricRenderingEngine_1 = __webpack_require__(42);
+exports.IsometricRenderingEngine = IsometricRenderingEngine_1.IsometricRenderingEngine;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -490,7 +517,51 @@ var SeverityEnum;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class Coordinate {
+    constructor(x, y, z) {
+        this._x = x;
+        this._y = y;
+        this._z = z || 0;
+    }
+    toCartesian() {
+        return new Coordinate((2 * this._y + this._x) / 2, (2 * this._y - this._x) / 2);
+    }
+    static fromIsometric(x, y) {
+        return new Coordinate((2 * y + x) / 2, (2 * y - x) / 2);
+    }
+    toIsometric() {
+        return new Coordinate(this._x - this._y, (this._x + this._y) / 2);
+    }
+    setX(x) {
+        this._x = x;
+    }
+    setY(y) {
+        this._y = y;
+    }
+    getX() {
+        return this._x;
+    }
+    getY() {
+        return this._y;
+    }
+    getZ() {
+        return this._z;
+    }
+    setZ(z) {
+        this._z = z;
+    }
+}
+exports.Coordinate = Coordinate;
+
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -541,7 +612,7 @@ exports.Iterator = Iterator;
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -849,7 +920,7 @@ exports.ColorMap = {
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1039,7 +1110,7 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1055,7 +1126,7 @@ var AssetType;
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1071,14 +1142,14 @@ var AssetState;
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AssetState_1 = __webpack_require__(10);
-const Instance_1 = __webpack_require__(3);
+const AssetState_1 = __webpack_require__(12);
+const Instance_1 = __webpack_require__(4);
 class AssetGroup {
     constructor(assetMap = {}) {
         this._assets = assetMap;
@@ -1142,26 +1213,7 @@ exports.AssetGroup = AssetGroup;
 
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Entity_1 = __webpack_require__(13);
-exports.Entity = Entity_1.Entity;
-const EntityModel_1 = __webpack_require__(41);
-exports.EntityModel = EntityModel_1.EntityModel;
-const EntityView_1 = __webpack_require__(14);
-exports.EntityView = EntityView_1.EntityView;
-const EntityView2D_1 = __webpack_require__(42);
-exports.EntityView2D = EntityView2D_1.EntityView2D;
-const GridMap_1 = __webpack_require__(43);
-exports.GridMap = GridMap_1.GridMap;
-
-
-/***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1169,8 +1221,9 @@ exports.GridMap = GridMap_1.GridMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Events = __webpack_require__(2);
 const assets_1 = __webpack_require__(1);
-const _1 = __webpack_require__(12);
 const utils_1 = __webpack_require__(0);
+const _1 = __webpack_require__(3);
+const utils_2 = __webpack_require__(0);
 class Entity extends Events.EventEmitter {
     constructor(model) {
         super();
@@ -1256,12 +1309,12 @@ class Entity extends Events.EventEmitter {
         this._generateRegions();
     }
     getX() {
-        return this._model.getAttribute('x');
+        return this._model.getX();
     }
     setX(x) {
-        let oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('x', x);
-        let newCoordinates = { x: this.getX(), y: this.getY() };
+        let oldCoordinates = this.getPosition();
+        this._model.setX(x);
+        let newCoordinates = this.getPosition();
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1277,18 +1330,19 @@ class Entity extends Events.EventEmitter {
             this._eventEmitted = false;
         }
     }
-    setCoordinate(coordinate) {
-        let oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('x', coordinate.x);
-        this._model.setAttribute('y', coordinate.y);
-        let newCoordinates = { x: this.getX(), y: this.getY() };
+    getPosition() {
+        return this._model.getPosition();
+    }
+    setPosition(position) {
+        let oldCoordinates = this.getPosition();
+        this._model.setPosition(position);
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
         let eventData = {
             type: 0..toString(),
             oldCoordinates,
-            newCoordinates,
+            newCoordinates: position,
             source: this
         };
         this.emit(0..toString(), eventData);
@@ -1297,12 +1351,12 @@ class Entity extends Events.EventEmitter {
         return this.getX() + this.getWidth();
     }
     getY() {
-        return this._model.getAttribute('y');
+        return this._model.getY();
     }
     setY(y) {
-        let oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('y', y);
-        let newCoordinates = { x: this.getX(), y: this.getY() };
+        let oldCoordinates = this.getPosition();
+        this._model.setY(y);
+        let newCoordinates = this.getPosition();
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1322,10 +1376,10 @@ class Entity extends Events.EventEmitter {
         return this.getY() + this.getHeight();
     }
     getZ() {
-        return this._model.getAttribute('z');
+        return this._model.getZ();
     }
     setZ(z) {
-        this._model.setAttribute('z', z);
+        this._model.setZ(z);
     }
     getVisible() {
         return this._model.getAttribute('visible');
@@ -1394,37 +1448,37 @@ class Entity extends Events.EventEmitter {
         }
     }
     iterator() {
-        return new utils_1.Iterator(this._children);
+        return new utils_2.Iterator(this._children);
     }
     getChildren(startCoordinate, endCoordinate) {
         if (startCoordinate && endCoordinate) {
             var startRegion = this._coordinateToRegion(startCoordinate);
             var endRegion = this._coordinateToRegion(endCoordinate);
             var children = [];
-            for (var x = startRegion.x; x <= endRegion.x; x++) {
-                for (var y = startRegion.y; y <= endRegion.y; y++) {
-                    children = children.concat(this._getChildrenInRegion({ x, y }));
+            for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
+                for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
+                    children = children.concat(this._getChildrenInRegion(new utils_1.Coordinate(x, y)));
                 }
             }
-            return new utils_1.Iterator(children);
+            return new utils_2.Iterator(children);
         }
         else if (startCoordinate) {
             var region = this._coordinateToRegion(startCoordinate);
             var children = [];
-            var childrenIterator = new utils_1.Iterator(this._getChildrenInRegion({ x: region.x, y: region.y }));
+            var childrenIterator = new utils_2.Iterator(this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY())));
             while (childrenIterator.hasNext()) {
                 var child = childrenIterator.next();
-                var childCoordinate = child.getCoordinate();
-                var childOuterCoordinate = child.getOuterCoordinate();
-                if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-                    && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                var childCoordinate = child.getPosition();
+                var childOuterCoordinate = child.getOuterPosition();
+                if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+                    && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                     children.push(child);
                 }
             }
-            return new utils_1.Iterator(children);
+            return new utils_2.Iterator(children);
         }
         else {
-            return new utils_1.Iterator(this._children);
+            return new utils_2.Iterator(this._children);
         }
     }
     findChildren(startCoordinate, endCoordinate) {
@@ -1432,17 +1486,17 @@ class Entity extends Events.EventEmitter {
         if (this._children.length > 0) {
             if (startCoordinate && !endCoordinate) {
                 var region = this._coordinateToRegion(startCoordinate);
-                var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+                var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
                 if (regionChildren.length > 0) {
-                    var childrenIterator = new utils_1.Iterator(regionChildren);
+                    var childrenIterator = new utils_2.Iterator(regionChildren);
                     while (childrenIterator.hasNext()) {
                         var iterChild = childrenIterator.next();
-                        let childCoordinate = iterChild.getCoordinate();
-                        let childOuterCoordinate = iterChild.getOuterCoordinate();
-                        if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-                            && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                        let childCoordinate = iterChild.getPosition();
+                        let childOuterCoordinate = iterChild.getOuterPosition();
+                        if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+                            && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                             children.push(iterChild);
-                            let deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
+                            let deeperChildren = iterChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()));
                             if (deeperChildren) {
                                 children = children.concat(deeperChildren);
                             }
@@ -1454,28 +1508,28 @@ class Entity extends Events.EventEmitter {
                 var startRegion = this._coordinateToRegion(startCoordinate);
                 var endRegion = this._coordinateToRegion(endCoordinate);
                 var childrenVisited = [];
-                for (var x = startRegion.x; x <= endRegion.x; x++) {
-                    for (var y = startRegion.y; y <= endRegion.y; y++) {
-                        var regionChildren = this._getChildrenInRegion({ x, y });
+                for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
+                    for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
+                        var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(x, y));
                         for (var regionChildI in regionChildren) {
                             var regionChild = regionChildren[regionChildI];
                             if (childrenVisited.indexOf(regionChild) === -1) {
                                 childrenVisited.push(regionChild);
-                                let childCoordinate = regionChild.getCoordinate();
-                                let childOuterCoordinate = regionChild.getOuterCoordinate();
+                                let childCoordinate = regionChild.getPosition();
+                                let childOuterCoordinate = regionChild.getOuterPosition();
                                 var xCollission = false;
                                 var yCollision = false;
-                                if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
-                                    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+                                if ((startCoordinate.getX() < childOuterCoordinate.getX() && endCoordinate.getX() > childCoordinate.getX())
+                                    || (endCoordinate.getX() > childCoordinate.getX() && startCoordinate.getX() < childOuterCoordinate.getX())) {
                                     xCollission = true;
                                 }
-                                if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
-                                    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+                                if ((startCoordinate.getY() < childOuterCoordinate.getY() && endCoordinate.getY() > childCoordinate.getY())
+                                    || (endCoordinate.getY() > childCoordinate.getY() && startCoordinate.getY() < childOuterCoordinate.getY())) {
                                     yCollision = true;
                                 }
                                 if (xCollission && yCollision) {
                                     children.push(regionChild);
-                                    let deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
+                                    let deeperChildren = regionChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()), new utils_1.Coordinate(endCoordinate.getX() - childOuterCoordinate.getX(), endCoordinate.getY() - childOuterCoordinate.getY()));
                                     if (deeperChildren) {
                                         children = children.concat(deeperChildren);
                                     }
@@ -1491,17 +1545,17 @@ class Entity extends Events.EventEmitter {
     findTopChildAt(coordinate) {
         var child = false;
         var region = this._coordinateToRegion(coordinate);
-        var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
-        var childrenIterator = new utils_1.Iterator(regionChildren);
+        var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
+        var childrenIterator = new utils_2.Iterator(regionChildren);
         childrenIterator.setToEnd();
         while (childrenIterator.hasPrev() && !child) {
             var iterChild = childrenIterator.prev();
-            var childCoordinate = iterChild.getCoordinate();
-            var childOuterCoordinate = iterChild.getOuterCoordinate();
-            if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
-                && childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+            var childCoordinate = iterChild.getPosition();
+            var childOuterCoordinate = iterChild.getOuterPosition();
+            if (childCoordinate.getX() <= coordinate.getX() && childCoordinate.getY() <= coordinate.getY()
+                && childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
                 child = iterChild;
-                var deeperChild = iterChild.findTopChildAt({ x: coordinate.x - childCoordinate.x, y: coordinate.y - childCoordinate.y });
+                var deeperChild = iterChild.findTopChildAt(new utils_1.Coordinate(coordinate.getX() - childCoordinate.getX(), coordinate.getY() - childCoordinate.getY()));
                 if (deeperChild) {
                     child = deeperChild;
                 }
@@ -1509,11 +1563,8 @@ class Entity extends Events.EventEmitter {
         }
         return child || false;
     }
-    getCoordinate() {
-        return { x: this.getX(), y: this.getY() };
-    }
-    getOuterCoordinate() {
-        return { x: this.getX2(), y: this.getY2() };
+    getOuterPosition() {
+        return new utils_1.Coordinate(this.getX2(), this.getY2());
     }
     getAbsoluteY() {
         var entity = this;
@@ -1539,16 +1590,6 @@ class Entity extends Events.EventEmitter {
     getAbsoluteX2() {
         return this.getAbsoluteX() + this.getWidth();
     }
-    setLocation(coordinate) {
-        this.setX(coordinate.x);
-        this.setY(coordinate.y);
-    }
-    getLocation() {
-        return {
-            x: this.getX(),
-            y: this.getY()
-        };
-    }
     setSize(dimension) {
         this._setModified(true);
         this.setWidth(dimension.width);
@@ -1558,7 +1599,7 @@ class Entity extends Events.EventEmitter {
         return { width: this.getWidth(), height: this.getHeight() };
     }
     _setDefaults() {
-        this.setLocation({ x: 0, y: 0 });
+        this.setPosition(new utils_1.Coordinate(0, 0));
         this.setSize({ width: 0, height: 0 });
         this.setVisible(true);
     }
@@ -1592,16 +1633,16 @@ class Entity extends Events.EventEmitter {
         }
     }
     _putChildInRegion(child) {
-        var startRegion = this._coordinateToRegion({ x: child.getX(), y: child.getY() });
-        var endRegion = this._coordinateToRegion({ x: child.getX2(), y: child.getY2() });
+        var startRegion = this._coordinateToRegion(child.getPosition());
+        var endRegion = this._coordinateToRegion(new utils_1.Coordinate(child.getX2(), child.getY2()));
         this._regionList[child.getID()] = [];
-        if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
-            for (var x = startRegion.x; x <= endRegion.x; x++) {
+        if (!isNaN(startRegion.getX()) && !isNaN(startRegion.getY()) && !isNaN(endRegion.getX()) && !isNaN(endRegion.getY())) {
+            for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
                 if (this._regions[x]) {
-                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                    for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
                         if (this._regions[x][y]) {
                             this._regions[x][y].push(child);
-                            this._regionList[child.getID()].push({ x, y });
+                            this._regionList[child.getID()].push(new utils_1.Coordinate(x, y));
                         }
                     }
                 }
@@ -1611,8 +1652,8 @@ class Entity extends Events.EventEmitter {
         }
     }
     _getChildrenInRegion(regionCoordinate) {
-        if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
-            return this._regions[regionCoordinate.x][regionCoordinate.y];
+        if (this._regions[regionCoordinate.getX()] && this._regions[regionCoordinate.getX()][regionCoordinate.getY()]) {
+            return this._regions[regionCoordinate.getX()][regionCoordinate.getY()];
         }
         else {
             return [];
@@ -1622,7 +1663,7 @@ class Entity extends Events.EventEmitter {
         if (this._regionList[child.getID()]) {
             for (var i in this._regionList[child.getID()]) {
                 var coord = this._regionList[child.getID()][i];
-                this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
+                this._regions[coord.getX()][coord.getY()].splice(this._regions[coord.getX()][coord.getY()].indexOf(child), 1);
             }
         }
     }
@@ -1631,16 +1672,16 @@ class Entity extends Events.EventEmitter {
         this._putChildInRegion(child);
     }
     _coordinateToRegion(coordinate) {
-        var x = Math.floor(coordinate.x / this._regionDimension.width);
-        var y = Math.floor(coordinate.y / this._regionDimension.height);
-        return { x, y };
+        var x = Math.floor(coordinate.getX() / this._regionDimension.width);
+        var y = Math.floor(coordinate.getY() / this._regionDimension.height);
+        return new utils_1.Coordinate(x, y);
     }
 }
 exports.Entity = Entity;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1681,15 +1722,15 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const core_1 = __webpack_require__(16);
-const engines_1 = __webpack_require__(4);
-const entities_1 = __webpack_require__(12);
+const core_1 = __webpack_require__(17);
+const engines_1 = __webpack_require__(5);
+const entities_1 = __webpack_require__(3);
 const utils_1 = __webpack_require__(0);
 class RelativeDemo extends core_1.Engine {
     constructor() {
@@ -1793,24 +1834,11 @@ class RelativeDemo extends core_1.Engine {
                     this._blockConfigs[block.getID()]["y_dir"] = "down";
                 }
             }
-            block.setCoordinate({ x, y });
+            block.setPosition(new utils_1.Coordinate(x, y));
         }
     }
 }
 window._RelativeDemo = new RelativeDemo();
-
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const Engine_1 = __webpack_require__(17);
-exports.Engine = Engine_1.Engine;
-const Instance_1 = __webpack_require__(3);
-exports.getInstance = Instance_1.getInstance;
 
 
 /***/ }),
@@ -1820,10 +1848,23 @@ exports.getInstance = Instance_1.getInstance;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const Engine_1 = __webpack_require__(18);
+exports.Engine = Engine_1.Engine;
+const Instance_1 = __webpack_require__(4);
+exports.getInstance = Instance_1.getInstance;
+
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(0);
-const audio_1 = __webpack_require__(24);
+const audio_1 = __webpack_require__(25);
 const assets_1 = __webpack_require__(1);
-const Instance_1 = __webpack_require__(3);
+const Instance_1 = __webpack_require__(4);
 class Engine {
     constructor() {
         Instance_1.setInstance(this);
@@ -1880,15 +1921,16 @@ exports.Engine = Engine;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+const Coordinate_1 = __webpack_require__(7);
+const DEFAULT_VIEWPOINT = new Coordinate_1.Coordinate(0, 0);
 const DEFAULT_FOV = { width: 100, height: 100 };
-const DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+const DEFAULT_RENDER_ORIGIN = new Coordinate_1.Coordinate(0, 0);
 const DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
 class Camera {
     constructor(scene, viewPoint, fov, renderOrigin, renderDimension) {
@@ -1933,7 +1975,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1963,13 +2005,13 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const SeverityEnum_1 = __webpack_require__(5);
+const SeverityEnum_1 = __webpack_require__(6);
 class LogManager {
     constructor() {
         this._logLevel = SeverityEnum_1.SeverityEnum.WARNING | SeverityEnum_1.SeverityEnum.ERROR;
@@ -2029,7 +2071,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2134,12 +2176,13 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __webpack_require__(0);
 class CollisionEmitter {
     constructor() {
         this._cbs = {};
@@ -2186,7 +2229,7 @@ class CollisionEmitter {
     _onEntityLocationUpdate(event) {
         let entity = event.source;
         if (entity.getParent()) {
-            var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
+            var potCollisions = entity.getParent().findChildren(new utils_1.Coordinate(entity.getX(), entity.getY()), new utils_1.Coordinate(entity.getX2(), entity.getY2()));
             var collisions = [];
             for (let i in potCollisions) {
                 let potEntity = potCollisions[i];
@@ -2207,13 +2250,13 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const ColorCode_1 = __webpack_require__(7);
+const ColorCode_1 = __webpack_require__(9);
 class Color {
     constructor(r = 0, g = 0, b = 0, a = 1) {
         this.setRed(r);
@@ -2377,20 +2420,20 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AudioEngine_1 = __webpack_require__(8);
+const AudioEngine_1 = __webpack_require__(10);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-const HTML5AudioEngine_1 = __webpack_require__(36);
+const HTML5AudioEngine_1 = __webpack_require__(37);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2476,7 +2519,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2582,16 +2625,16 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AssetType_1 = __webpack_require__(9);
-const AssetGroup_1 = __webpack_require__(11);
-const Instance_1 = __webpack_require__(3);
-const Iterator_1 = __webpack_require__(6);
+const AssetType_1 = __webpack_require__(11);
+const AssetGroup_1 = __webpack_require__(13);
+const Instance_1 = __webpack_require__(4);
+const Iterator_1 = __webpack_require__(8);
 class AssetGroupLoader {
     constructor() {
         this._assetFactory = Instance_1.getInstance().getAssetFactory();
@@ -2629,7 +2672,7 @@ exports.AssetGroupLoader = AssetGroupLoader;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2706,10 +2749,10 @@ class AssetLoader {
 }
 exports.AssetLoader = AssetLoader;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(30)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -2899,7 +2942,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2954,7 +2997,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2995,7 +3038,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3016,7 +3059,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3048,7 +3091,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3086,7 +3129,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3180,13 +3223,13 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AudioEngine_1 = __webpack_require__(8);
+const AudioEngine_1 = __webpack_require__(10);
 class HTML5AudioEngine extends AudioEngine_1.AudioEngine {
     constructor() {
         super();
@@ -3296,7 +3339,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3308,13 +3351,13 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(4);
+const _1 = __webpack_require__(5);
 class GroupLogicEngine extends _1.LogicEngine {
     constructor() {
         super();
@@ -3381,7 +3424,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3442,6 +3485,50 @@ class RenderingEngine {
     }
     _render() {
         this._viewPort.clear();
+        for (var i in this._cameras) {
+            this._renderCamera(this._cameras[i]);
+        }
+        if (this.getHUD()) {
+            this._renderHUDEntity(this.getHUD());
+        }
+    }
+    _renderHUDEntity(hudEntity) {
+        var x = hudEntity.getX();
+        var y = hudEntity.getY();
+        var w = hudEntity.getWidth();
+        var h = hudEntity.getHeight();
+        if (hudEntity.getColor()) {
+            var color = hudEntity.getColor();
+            this.getViewPort().getContext().fillStyle = color.toString();
+            this.getViewPort().getContext().fillRect(x, y, w, h);
+        }
+        if (hudEntity.getTexture()) {
+            var imageData = hudEntity.getTexture().getData();
+            this.getViewPort().getContext().drawImage(imageData, x, y, w, h);
+        }
+    }
+    _renderCamera(camera) {
+        var scene = camera.getScene();
+        var context = this.getViewPort().getContext();
+        if (this.debugCamera) {
+            var viewPoint = camera.getViewPoint();
+            var fov = camera.getFOV();
+            var renderOrigin = camera.getRenderOrigin();
+            var renderDimension = camera.getRenderDimension();
+            context.beginPath();
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
+            context.lineWidth = 7;
+            context.strokeStyle = 'red';
+            context.stroke();
+            context.beginPath();
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
+            context.lineWidth = 7;
+            context.fillStyle = 'black';
+            context.fill();
+            context.strokeStyle = 'green';
+            context.stroke();
+        }
+        this._renderEntity(scene, camera);
     }
     _calculateFPS() {
         var date = new Date();
@@ -3475,47 +3562,14 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(4);
+const _1 = __webpack_require__(5);
 class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
-    _render() {
-        super._render();
-        var context = this.getViewPort().getContext();
-        for (var i in this._cameras) {
-            this._renderCamera(this._cameras[i]);
-        }
-        if (this.getHUD()) {
-            this._renderEntity(this.getHUD(), null);
-        }
-    }
-    _renderCamera(camera) {
-        var scene = camera.getScene();
-        var context = this.getViewPort().getContext();
-        if (this.debugCamera) {
-            var viewPoint = camera.getViewPoint();
-            var fov = camera.getFOV();
-            var renderOrigin = camera.getRenderOrigin();
-            var renderDimension = camera.getRenderDimension();
-            context.beginPath();
-            context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
-            context.lineWidth = 7;
-            context.strokeStyle = 'red';
-            context.stroke();
-            context.beginPath();
-            context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
-            context.lineWidth = 7;
-            context.fillStyle = 'black';
-            context.fill();
-            context.strokeStyle = 'green';
-            context.stroke();
-        }
-        this._renderEntity(scene, camera);
-    }
     _renderEntity(entity, camera) {
         if (camera) {
             var viewPoint = camera.getViewPoint();
@@ -3525,10 +3579,10 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
             var collidesYAxis = false;
             var collidesXAxis = false;
             var cameraBounds = {
-                x: viewPoint.x,
-                y: viewPoint.y,
-                x2: viewPoint.x + fov.width,
-                y2: viewPoint.y + fov.height
+                x: viewPoint.getX(),
+                y: viewPoint.getY(),
+                x2: viewPoint.getX() + fov.width,
+                y2: viewPoint.getY() + fov.height
             };
             var entityBounds = {
                 x: entity.getAbsoluteX(),
@@ -3536,32 +3590,24 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
                 x2: entity.getAbsoluteX2(),
                 y2: entity.getAbsoluteY2()
             };
-            if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
-                || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
-                collidesXAxis = true;
-            }
-            if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
-                || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
-                collidesYAxis = true;
-            }
-            if (!collidesYAxis || !collidesXAxis) {
+            if (!this._entityInCamera(entity, camera)) {
                 return false;
             }
             var leftClip = 0;
-            if (entity.getAbsoluteX() < viewPoint.x) {
-                leftClip = viewPoint.x - entity.getAbsoluteX();
+            if (entity.getAbsoluteX() < viewPoint.getX()) {
+                leftClip = viewPoint.getX() - entity.getAbsoluteX();
             }
             var rightClip = 0;
-            if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
+            if (entity.getAbsoluteX2() > (viewPoint.getX() + fov.width)) {
+                rightClip = entity.getAbsoluteX2() - (viewPoint.getX() + fov.width);
             }
             var topClip = 0;
-            if (entity.getAbsoluteY() < viewPoint.y) {
-                topClip = viewPoint.y - entity.getAbsoluteY();
+            if (entity.getAbsoluteY() < viewPoint.getY()) {
+                topClip = viewPoint.getY() - entity.getAbsoluteY();
             }
             var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
+            if (entity.getAbsoluteY2() > (viewPoint.getY() + fov.height)) {
+                bottomClip = entity.getAbsoluteY2() - (viewPoint.getY() + fov.height);
             }
             var xModifier = fov.width / renderDimension.width;
             var yModifier = fov.height / renderDimension.height;
@@ -3575,8 +3621,8 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
             }
             var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
             var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-            var x = renderOrigin.x + cameraRelativeX;
-            var y = renderOrigin.y + cameraRelativeY;
+            var x = renderOrigin.getX() + cameraRelativeX;
+            var y = renderOrigin.getY() + cameraRelativeY;
             var w = clippedEntityWidth / xModifier;
             var h = clippedEntityHeight / yModifier;
             if (entity.getColor()) {
@@ -3629,12 +3675,226 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
         }
         return true;
     }
+    _entityInCamera(entity, camera) {
+        var viewPoint = camera.getViewPoint();
+        var fov = camera.getFOV();
+        var entityPosition = entity.getPosition();
+        var entityOuterPosition = entity.getOuterPosition();
+        var cameraBounds = {
+            x: viewPoint.getX(),
+            y: viewPoint.getY(),
+            x2: viewPoint.getX() + fov.width,
+            y2: viewPoint.getY() + fov.height
+        };
+        var collidesXAxis = false;
+        var collidesYAxis = false;
+        if ((entityPosition.getX() < cameraBounds.x2 && entityOuterPosition.getX() > cameraBounds.x)
+            || (entityOuterPosition.getX() > cameraBounds.x && entityPosition.getX() < cameraBounds.x2)) {
+            collidesXAxis = true;
+        }
+        if ((entityPosition.getY() < cameraBounds.y2 && entityOuterPosition.getY() > cameraBounds.y)
+            || (entityOuterPosition.getY() > cameraBounds.y && entityPosition.getY() < cameraBounds.y2)) {
+            collidesYAxis = true;
+        }
+        return collidesYAxis && collidesXAxis;
+    }
 }
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(0);
+const entities_1 = __webpack_require__(3);
+class IsometricRenderingEngine extends _1.TwoDimensionalRenderingEngine {
+    _renderCamera(camera) {
+        var scene = camera.getScene();
+        var context = this.getViewPort().getContext();
+        if (this.debugCamera || 1 == 1) {
+            var viewPoint = camera.getViewPoint();
+            var fov = camera.getFOV();
+            var renderOrigin = camera.getRenderOrigin();
+            var renderDimension = camera.getRenderDimension();
+            context.beginPath();
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
+            context.lineWidth = 7;
+            context.strokeStyle = 'red';
+            context.stroke();
+            context.beginPath();
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
+            context.lineWidth = 7;
+            context.fillStyle = 'black';
+            context.fill();
+            context.strokeStyle = 'green';
+            context.stroke();
+        }
+        this._renderEntity(scene, camera);
+    }
+    _renderEntity(entity, camera) {
+        if (camera) {
+            var viewPoint = camera.getViewPoint();
+            var fov = camera.getFOV();
+            var renderOrigin = camera.getRenderOrigin();
+            var renderDimension = camera.getRenderDimension();
+            var collidesYAxis = false;
+            var collidesXAxis = false;
+            var cameraBounds = {
+                x: viewPoint.getX(),
+                y: viewPoint.getY(),
+                x2: viewPoint.getX() + fov.width,
+                y2: viewPoint.getY() + fov.height
+            };
+            var cartEntityBounds = {
+                x: entity.getAbsoluteX(),
+                y: entity.getAbsoluteY(),
+                x2: entity.getAbsoluteX(),
+                y2: entity.getAbsoluteY2()
+            };
+            var topLeftCoord = new utils_1.Coordinate(cartEntityBounds.x, cartEntityBounds.y);
+            var topLeftCoordIso = topLeftCoord.toIsometric();
+            var bottomRightCoord = new utils_1.Coordinate(cartEntityBounds.x2, cartEntityBounds.y2);
+            var bottomRightCoordIso = bottomRightCoord.toIsometric();
+            var entityBounds = {
+                x: topLeftCoordIso.getX() - (entity.getWidth()),
+                y: topLeftCoordIso.getY() - (entity.getHeight()),
+                x2: bottomRightCoordIso.getX() + (entity.getWidth() * 2),
+                y2: bottomRightCoordIso.getY() + entity.getHeight()
+            };
+            if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
+                || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
+                collidesXAxis = true;
+            }
+            if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
+                || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
+                collidesYAxis = true;
+            }
+            if (!collidesYAxis || !collidesXAxis) {
+                return false;
+            }
+            var leftClip = 0;
+            if (entityBounds.x < viewPoint.getX()) {
+                leftClip = (viewPoint.getX() - entityBounds.x) / 2;
+            }
+            var rightClip = 0;
+            if (entityBounds.x2 > (viewPoint.getX() + fov.width)) {
+                rightClip = (entityBounds.x2 - (viewPoint.getX() + fov.width)) / 2;
+            }
+            var topClip = 0;
+            if (entityBounds.y < viewPoint.getY()) {
+                topClip = viewPoint.getY() - entityBounds.y;
+            }
+            var bottomClip = 0;
+            if (entityBounds.y2 > (viewPoint.getY() + fov.height)) {
+                bottomClip = entityBounds.y2 - (viewPoint.getY() + fov.height);
+            }
+            var xModifier = fov.width / renderDimension.width;
+            var yModifier = fov.height / renderDimension.height;
+            var zModifier = (xModifier + yModifier) / 2;
+            var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
+            if (cameraRelativeY < 0) {
+                cameraRelativeY = 0;
+            }
+            var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
+            if (cameraRelativeX < 0) {
+                cameraRelativeX = 0;
+            }
+            var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
+            var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
+            var x = renderOrigin.getX() + cameraRelativeX;
+            var y = renderOrigin.getY() + cameraRelativeY;
+            var z = entity.getZ() / zModifier;
+            var w = clippedEntityWidth / xModifier;
+            var h = clippedEntityHeight / yModifier;
+            var x2 = x + (w * 2);
+            var y2 = y + h;
+            var cartCoords = utils_1.Coordinate.fromIsometric(x, y);
+            if (entity.getColor()) {
+                var color = entity.getColor();
+                this.getViewPort().getContext().fillStyle = color.toString();
+                this.getViewPort().getContext().fillRect(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
+                this.getViewPort().getContext().fillRect(x, y + z, w * 2, h);
+            }
+            if (this.debugRegions) {
+                var regions = entity.getRegions();
+                for (var x_i in regions) {
+                    for (var y_i in regions[x]) {
+                        if (regions[x_i][y_i].length > 0) {
+                            this.getViewPort().getContext().strokeStyle = "red";
+                            this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
+                        }
+                    }
+                }
+            }
+            if (entity.getTexture()) {
+                var imageData = entity.getTexture().getData();
+                var entityToImageYModifier = imageData.height / entity.getHeight();
+                var entityToImageXModifier = imageData.width / entity.getWidth();
+                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getWidth(), entity.getHeight());
+                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y - z, w * 2, h);
+            }
+            if (entity instanceof entities_1.IsometricTile) {
+                this.getViewPort().getContext().beginPath();
+                this.getViewPort().getContext().moveTo(x, y + ((y2 - y) / 2));
+                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y);
+                this.getViewPort().getContext().lineTo(x2, y + ((y2 - y) / 2));
+                this.getViewPort().getContext().lineTo(x + ((x2 - x) / 2), y2);
+                this.getViewPort().getContext().closePath();
+                this.getViewPort().getContext().stroke();
+            }
+        }
+        else {
+            var x = entity.getX();
+            var y = entity.getY();
+            var w = entity.getWidth();
+            var h = entity.getHeight();
+            if (entity.getColor()) {
+                var color = entity.getColor();
+                this.getViewPort().getContext().fillStyle = color.toString();
+                this.getViewPort().getContext().fillRect(x, y, w, h);
+            }
+            if (entity.getTexture()) {
+                var imageData = entity.getTexture().getData();
+                var entityToImageYModifier = imageData.height / entity.getHeight();
+                var entityToImageXModifier = imageData.width / entity.getWidth();
+                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
+            }
+        }
+        var index = {};
+        var children = entity.getChildren();
+        while (children.hasNext()) {
+            var child = children.next();
+            if (!index[child.getZ()]) {
+                index[child.getZ()] = {};
+            }
+            if (!index[child.getZ()][child.getY()]) {
+                index[child.getZ()][child.getY()] = [];
+            }
+            index[child.getZ()][child.getY()].push(child);
+        }
+        for (var i in index) {
+            for (var i2 in index[i]) {
+                for (var i3 in index[i][i2]) {
+                    this._renderEntity(index[i][i2][i3], camera);
+                }
+            }
+        }
+        return true;
+    }
+}
+exports.IsometricRenderingEngine = IsometricRenderingEngine;
+
+
+/***/ }),
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3642,12 +3902,14 @@ exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Events = __webpack_require__(2);
 const utils_1 = __webpack_require__(0);
+const utils_2 = __webpack_require__(0);
 class EntityModel extends Events.EventEmitter {
     constructor() {
         super();
         this._attributes = {};
         this._id = utils_1.IDGenerator.getSingleton().generate();
         this._type = 'generic';
+        this._position = new utils_2.Coordinate(0, 0);
     }
     getID() {
         return this._id;
@@ -3702,31 +3964,55 @@ class EntityModel extends Events.EventEmitter {
     }
     sync(listener) {
     }
+    getX() {
+        return this._position.getX();
+    }
+    getY() {
+        return this._position.getY();
+    }
+    setX(x) {
+        this._position.setX(x);
+    }
+    setY(y) {
+        this._position.setY(y);
+    }
+    setZ(z) {
+        this._position.setZ(z);
+    }
+    getZ() {
+        return this._position.getZ();
+    }
+    getPosition() {
+        return this._position;
+    }
+    setPosition(position) {
+        this._position = position;
+    }
 }
 exports.EntityModel = EntityModel;
 
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const EntityView_1 = __webpack_require__(14);
+const EntityView_1 = __webpack_require__(15);
 class EntityView2D extends EntityView_1.EntityView {
 }
 exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Entity_1 = __webpack_require__(13);
+const Entity_1 = __webpack_require__(14);
 class GridMap extends Entity_1.Entity {
     constructor(tileSize, tileCount) {
         super();
@@ -3737,11 +4023,7 @@ class GridMap extends Entity_1.Entity {
         this.setHeight(this.tileSize.height * this.tileCount.y);
         for (var x = 0; x < this.tileCount.x; x++) {
             for (var y = 0; y < this.tileCount.y; y++) {
-                var tile = new Entity_1.Entity();
-                tile.setWidth(this.tileSize.width);
-                tile.setHeight(this.tileSize.height);
-                tile.setX((x + 1) * this.tileSize.width);
-                tile.setY((y + 1) * this.tileSize.height);
+                var tile = this._buildTile(x, y);
                 this.addChild(tile);
                 if (!this._tiles[x]) {
                     this._tiles[x] = [];
@@ -3749,6 +4031,14 @@ class GridMap extends Entity_1.Entity {
                 this._tiles[x][y] = tile;
             }
         }
+    }
+    _buildTile(x, y) {
+        var tile = new Entity_1.Entity();
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
+        return tile;
     }
     getTile(coordinate) {
         return this._tiles[coordinate.x][coordinate.y];
@@ -3758,6 +4048,43 @@ class GridMap extends Entity_1.Entity {
     }
 }
 exports.GridMap = GridMap;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(3);
+class IsometricGridMap extends _1.GridMap {
+    _buildTile(x, y) {
+        var tile = new _1.IsometricTile();
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
+        return tile;
+    }
+}
+exports.IsometricGridMap = IsometricGridMap;
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const _1 = __webpack_require__(3);
+class IsometricTile extends _1.Entity {
+    constructor() {
+        super();
+    }
+}
+exports.IsometricTile = IsometricTile;
 
 
 /***/ })

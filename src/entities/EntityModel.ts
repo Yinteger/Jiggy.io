@@ -1,6 +1,7 @@
 import * as Events from 'events';
 import {Iterator, IDGenerator} from "../utils";
-import {Asset} from "../assets";
+import { Asset } from "../assets";
+import { Coordinate } from "../utils";
 import {
 	ModelEventTypes,
 	ShortAttrChangeEvent,
@@ -11,14 +12,16 @@ import {
 export class EntityModel extends Events.EventEmitter {
 	private _attributes : {[key: string]: any};
 	private _id : string;
-	private _type : string;
+    private _type: string;
+    private _position: Coordinate;
 	private _texture : Asset;
 
 	public constructor () {
 		super();
 		this._attributes = {};
 		this._id = IDGenerator.getSingleton().generate();
-		this._type = 'generic';
+        this._type = 'generic';
+        this._position = new Coordinate(0, 0);
 	}
 
 	public getID () : string {
@@ -104,5 +107,28 @@ export class EntityModel extends Events.EventEmitter {
 		// 	value 		: this.collectTextures()
 		// });
 	}
-
+    public getX(): number {
+        return this._position.getX();
+    }
+    public getY(): number {
+        return this._position.getY();
+    }
+    public setX(x: number): void {
+        this._position.setX(x);
+    }
+    public setY(y: number): void {
+        this._position.setY(y);
+    }
+    public setZ(z: number): void {
+        this._position.setZ(z);
+    }
+    public getZ(): number {
+        return this._position.getZ();
+    }
+    public getPosition(): Coordinate {
+        return this._position;
+    }
+    public setPosition(position: Coordinate): void {
+        this._position = position;
+    }
 }

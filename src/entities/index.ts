@@ -14,7 +14,7 @@ import {Entity} from './Entity';
 import {EntityModel} from './EntityModel';
 import {EntityView} from './EntityView';
 import {EntityView2D} from './EntityView2D';
-import {GridMap} from './GridMap';
+import { GridMap } from './GridMap';
 
 export {
     ModelEventTypes,

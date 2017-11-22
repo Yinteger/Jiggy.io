@@ -1,6 +1,6 @@
 import {Entity} from "../../src/entities";
 import {Animation, Spritesheet, Asset} from "../../src/assets";
-import {Coordinate} from "../../src/interfaces";
+import {Coordinate} from "../../src/utils";
 import {getInstance, Engine} from '../../src/core';
 
 export default class Character extends Entity {
@@ -48,18 +48,19 @@ export default class Character extends Entity {
 			{"asset": character_spritesheet.getSprite("player_right"), "delay": 250}]);
 	}
 
-	private _move (coordinates : Coordinate) : void {
+    private _move(coordinates: Coordinate): void {
+        console.log("Setting player pos to", coordinates);
 		var game: Engine = getInstance();
 		// var Engine: Core.Engine = (<any>window)._PalletDemo;
 		game.getLogicEngine().removeLogic(this.getID() + "_endmove");
 		// var collision =  mapl2.findChildren(new zen.data.Coordinate(player.getX2() + 3, player.getY2() - 5),  new zen.data.Coordinate(player.getX2() + 3, player.getY2()));
 		var collision = false;
 		var updatedCoordinates = false;
-		var x = coordinates.x;
-		var y = coordinates.y;
+		var x = coordinates.getX();
+		var y = coordinates.getY();
 
 		//TODO: Fix Magic Numbers... 16 is so only the bottom balf of the sprite is collision but the +1 is fixing it to check rpoper tile...
-		var potCollisions = this.getParent().findChildren({x: x + 1, y: y + 	16});
+		var potCollisions = this.getParent().findChildren(new Coordinate(x + 1, y + 16));
 		for (var i in potCollisions) {
 			if (potCollisions[i] != this && potCollisions[i].isCollisionable()) {
 				collision = true;
@@ -141,7 +142,7 @@ export default class Character extends Entity {
 			this._leftAnim.start();
 			this._activeAnim = this._leftAnim;
 			this.moving = true;
-			this._move({x:  this.getX() - 16, y: this.getY()});
+			this._move(new Coordinate(this.getX() - 16, this.getY()));
 		}
 	}
 
@@ -155,7 +156,7 @@ export default class Character extends Entity {
 			this._upAnim.start();
 			this._activeAnim = this._upAnim;
 			this.moving = true;
-			this._move({x:  this.getX(), y: this.getY() - 16});
+			this._move(new Coordinate(this.getX(), this.getY() - 16));
 
 		}
 	}
@@ -170,7 +171,7 @@ export default class Character extends Entity {
 			this._rightAnim.start();
 			this._activeAnim = this._rightAnim;
 			this.moving = true;
-			this._move({x: this.getX() + 16, y: this.getY()});
+			this._move(new Coordinate(this.getX() + 16, this.getY()));
 		}
 	}
 
@@ -184,7 +185,7 @@ export default class Character extends Entity {
 			this._downAnim.start();
 			this._activeAnim = this._downAnim;
 			this.moving = true;
-			this._move({x: this.getX(), y: this.getY() + 16});
+			this._move(new Coordinate(this.getX(), this.getY() + 16));
 		}
 	}
 

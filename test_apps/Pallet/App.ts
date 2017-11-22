@@ -2,8 +2,8 @@ import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, GridMap, EntityEventTypes, LocationUpdateEvent} from "../../src/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator} from "../../src/utils";
-import {Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet, AssetGroup, AssetGroupLoader, AssetGroupDefinition} from "../../src/assets";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Iterator, Coordinate} from "../../src/utils";
+import { Asset, AssetState, AssetFactory, AssetType, Animation, TextAssetBuilder, Spritesheet, AssetGroup, AssetGroupLoader, AssetGroupDefinition } from "../../src/assets";
 import Character from "./Character";
 import {
     Mouse, MouseEvents, MouseMoveEvent, MouseClickEvent, ScrollWheelMove,
@@ -67,9 +67,9 @@ class PalletDemo extends Engine {
 	private _createMainMap () : Entity {
 		var mapContainer : Entity = new Entity();
 
-		var layer1 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
-		var layer2 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
-		var layer3 : GridMap = new GridMap({width: 16, height: 16}, {x: 50, y: 50});
+		var layer1 : GridMap = new GridMap({width: 16, height: 16}, {x: 15, y: 15});
+		var layer2 : GridMap = new GridMap({width: 16, height: 16}, {x: 15, y: 15});
+		var layer3 : GridMap = new GridMap({width: 16, height: 16}, {x: 15, y: 15});
 
 		mapContainer.setWidth(layer1.getWidth());
 		mapContainer.setHeight(layer1.getHeight());
@@ -201,11 +201,11 @@ class PalletDemo extends Engine {
 					var viewPoint = camera.getViewPoint();
 					if (e.yDelta > 0) {
 						//Mouse wheel went up, zoom in by decreasing FOV
-						camera.setViewPoint({x: viewPoint.x + 5, y: viewPoint.y + 5});
+						camera.setViewPoint(new Coordinate(viewPoint.getX() + 5, viewPoint.getY() + 5));
 						camera.setFOV({width: fov.width - 10, height: fov.height - 10});
 					} else {
 						//Zoom out
-						camera.setViewPoint({x: viewPoint.x - 5, y: viewPoint.y - 5});
+						camera.setViewPoint(new Coordinate(viewPoint.getX() - 5, viewPoint.getY() - 5));
 						camera.setFOV({width: fov.width + 10, height: fov.height + 10});
 					}
                 });
@@ -251,8 +251,8 @@ class PalletDemo extends Engine {
                     newPokeball.setWidth(25 * x_fov);
                     newPokeball.setHeight(25 * y_fov);
                     //23 is a magic number, this demo seems to be rendering at an offset...
-                    newPokeball.setX(camera.getViewPoint().x + ((e.x * x_fov) - (23 * x_fov)));
-                    newPokeball.setY(camera.getViewPoint().y + ((e.y * y_fov) - (23 * y_fov)));
+                    newPokeball.setX(camera.getViewPoint().getX() + ((e.x * x_fov) - (23 * x_fov)));
+                    newPokeball.setY(camera.getViewPoint().getY() + ((e.y * y_fov) - (23 * y_fov)));
                     newPokeball.setTexture(pokeball_asset);
                     layer.addChild(newPokeball);
                 });
@@ -263,7 +263,7 @@ class PalletDemo extends Engine {
 
 				this.player.on(EntityEventTypes.LOCATION_UPDATE.toString(), () => {
 					var fov = camera.getFOV();
-					camera.setViewPoint({x: this.player.getX() + ((this.player.getWidth() - fov.width) / 2), y: this.player.getY() + ((this.player.getHeight() - fov.height) / 2)});
+					camera.setViewPoint(new Coordinate(this.player.getX() + ((this.player.getWidth() - fov.width) / 2), this.player.getY() + ((this.player.getHeight() - fov.height) / 2)));
 				});
 
 				//Load NPC's
@@ -303,8 +303,8 @@ class PalletDemo extends Engine {
                         newPokeball.setHeight(25 * y_fov);
                         var mouseCoordinates = mouse.getCurrentCoordinates();
                         //23 is a magic number, this demo seems to be rendering at an offset...
-                        newPokeball.setX(camera.getViewPoint().x + ((mouseCoordinates.x * x_fov) - (23 * x_fov)));
-                        newPokeball.setY(camera.getViewPoint().y + ((mouseCoordinates.y * y_fov) - (23 * y_fov)));
+                        newPokeball.setX(camera.getViewPoint().getX() + ((mouseCoordinates.x * x_fov) - (23 * x_fov)));
+                        newPokeball.setY(camera.getViewPoint().getY() + ((mouseCoordinates.y * y_fov) - (23 * y_fov)));
                         newPokeball.setTexture(pokeball_asset);
                         layer.addChild(newPokeball);
                     }
@@ -380,11 +380,11 @@ class PalletDemo extends Engine {
             }
 
             if (gamePad.getAxis(2) < -.1 || gamePad.getAxis(2) > .1) {
-                this._mainCamera.getViewPoint().x += Math.floor(gamePad.getAxis(2) * 10);
+                this._mainCamera.getViewPoint().setX(this._mainCamera.getViewPoint().getX() + Math.floor(gamePad.getAxis(2) * 10));
             }
 
             if (gamePad.getAxis(3) < -.1 || gamePad.getAxis(3) > .1) {
-                this._mainCamera.getViewPoint().y += Math.floor(gamePad.getAxis(3) * 10);
+                this._mainCamera.getViewPoint().setY(this._mainCamera.getViewPoint().getY() + Math.floor(gamePad.getAxis(3) * 10));
             }
         });
 

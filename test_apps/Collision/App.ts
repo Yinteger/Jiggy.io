@@ -2,7 +2,7 @@ import {Engine} from "../../src/core";
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from "../../src/engines";
 import {HTML5AudioEngine} from "../../src/audio";
 import {Entity, LocationUpdateEvent} from "../../src/entities";
-import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color} from "../../src/utils";
+import {Camera, ViewPortEventTypes, DimensionUpdateEvent, CollisionEmitter, Color, Coordinate} from "../../src/utils";
 import {Asset, AssetState, AssetFactory, AssetType} from "../../src/assets";
 
 class CollisionDemo extends Engine {
@@ -57,12 +57,12 @@ class CollisionDemo extends Engine {
 		block.setX(Math.floor((Math.random() * this._container.getWidth()) + 1));
 		block.setY(Math.floor((Math.random() * this._container.getHeight()) + 1));
 
-		var collision : Entity[] = this._container.findChildren({x: block.getX(), y: block.getY()}, {x: block.getX2(), y: block.getY2()});
+		var collision : Entity[] = this._container.findChildren(new Coordinate(block.getX(), block.getY()), new Coordinate(block.getX2(), block.getY2()));
 
 		while (collision.length > 0) {
 			block.setY(Math.floor((Math.random()*this._container.getHeight())+1));
 			block.setX(Math.floor((Math.random()*this._container.getWidth())+1));
-			collision = this._container.findChildren({x: block.getX(), y: block.getY()}, {x: block.getX2(), y: block.getY2()});
+			collision = this._container.findChildren(new Coordinate(block.getX(), block.getY()), new Coordinate(block.getX2(), block.getY2()));
 		}
 
 		block.setColor(new Color(Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1), Math.floor((Math.random() * 255) + 1)));
@@ -127,7 +127,7 @@ class CollisionDemo extends Engine {
 				}
 			}
 
-			block.setCoordinate({x, y});
+            block.setPosition(new Coordinate(x, y));
 		}
 	}
 
