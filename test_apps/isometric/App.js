@@ -1899,7 +1899,6 @@ class IsoDemo extends Engine_1.default {
         map.setHeight(320);
         var layer1 = new entities_1.GridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
         var layer1 = new entities_1.GridMap({ width: 32, height: 32 }, { x: 10, y: 10 });
-        layer1.id = "layer1";
         layer1.setX(160 - 16);
         layer1.setY(-160 + 16);
         map.addChild(layer1);
@@ -1930,7 +1929,6 @@ class IsoDemo extends Engine_1.default {
                     player.setWidth(8);
                     layer1.addChild(player);
                     let tile = layer1.getTile({ x: 6, y: 6 });
-                    player.id = "player";
                     player.setX(tile.getX() + (tile.getWidth() / 2) - (player.getHeight() / 2));
                     player.setY(tile.getY() - (tile.getHeight() / 2));
                     player.setZ(32 + player.getHeight());
@@ -1958,7 +1956,6 @@ class IsoDemo extends Engine_1.default {
                     var block = new entities_2.Entity();
                     block.setTexture(block_asset);
                     block.setX(tile.getX());
-                    block.id = "Block1";
                     block.setY(tile.getY());
                     block.setZ(tile.getHeight());
                     block.setWidth(tile.getWidth());
@@ -1981,7 +1978,6 @@ class IsoDemo extends Engine_1.default {
                 block.setTexture(block_asset);
                 block.setX(tile.getX());
                 block.setZ(tile4.getHeight() * 2);
-                block.id = "Block1";
                 block.setY(tile.getY());
                 block.setWidth(tile.getWidth());
                 block.setHeight(tile.getHeight() * 2);
@@ -1990,7 +1986,6 @@ class IsoDemo extends Engine_1.default {
                 block2.setTexture(block_asset);
                 block2.setX(tile.getX());
                 block2.setY(tile.getY());
-                block2.id = "Block2";
                 block2.setZ(tile.getHeight() * 3);
                 block2.setWidth(tile.getWidth());
                 block2.setHeight(tile.getHeight() * 2);
@@ -1999,7 +1994,6 @@ class IsoDemo extends Engine_1.default {
                 block3.setTexture(block_asset);
                 block3.setX(tile2.getX());
                 block3.setY(tile2.getY());
-                block3.id = "Block3";
                 block3.setZ(tile2.getHeight() * 3);
                 block3.setWidth(tile2.getWidth());
                 block3.setHeight(tile2.getHeight() * 2);
@@ -2009,7 +2003,6 @@ class IsoDemo extends Engine_1.default {
                 block4.setX(tile3.getX());
                 block4.setY(tile3.getY());
                 block4.setZ(tile4.getHeight() * 2);
-                block4.id = "Block4";
                 block4.setWidth(tile3.getWidth());
                 block4.setHeight(tile3.getHeight() * 2);
                 layer1.addChild(block4);
@@ -2021,7 +2014,6 @@ class IsoDemo extends Engine_1.default {
                 block5.setWidth(tile3.getWidth());
                 block5.setHeight(tile3.getHeight() * 2);
                 layer1.addChild(block5);
-                block5.id = "Block5";
                 var block6 = new entities_2.Entity();
                 block6.setTexture(block_asset);
                 block6.setX(tile4.getX());
@@ -2030,7 +2022,6 @@ class IsoDemo extends Engine_1.default {
                 block6.setWidth(tile4.getWidth());
                 block6.setHeight(tile4.getHeight() * 2);
                 layer1.addChild(block6);
-                block6.id = "Block6";
                 var block10 = new entities_2.Entity();
                 block10.setTexture(block_asset);
                 block10.setX(tile7.getX());
@@ -2039,7 +2030,6 @@ class IsoDemo extends Engine_1.default {
                 block10.setWidth(tile7.getWidth());
                 block10.setHeight(tile7.getHeight() * 2);
                 layer1.addChild(block10);
-                block10.id = "Block10";
                 var block7 = new entities_2.Entity();
                 block7.setTexture(block_asset);
                 block7.setX(tile5.getX());
@@ -2048,7 +2038,6 @@ class IsoDemo extends Engine_1.default {
                 block7.setWidth(tile5.getWidth());
                 block7.setHeight(tile5.getHeight() * 2);
                 layer1.addChild(block7);
-                block7.id = "Block7";
                 var block8 = new entities_2.Entity();
                 block8.setTexture(block_asset);
                 block8.setX(tile6.getX());
@@ -2057,7 +2046,6 @@ class IsoDemo extends Engine_1.default {
                 block8.setWidth(tile6.getWidth());
                 block8.setHeight(tile6.getHeight() * 2);
                 layer1.addChild(block8);
-                block8.id = "Block8";
                 var block11 = new entities_2.Entity();
                 block11.setTexture(block_asset);
                 block11.setX(tile8.getX());
@@ -2066,13 +2054,11 @@ class IsoDemo extends Engine_1.default {
                 block11.setWidth(tile8.getWidth());
                 block11.setHeight(tile8.getHeight() * 2);
                 layer1.addChild(block11);
-                block11.id = "Block11";
                 var block9 = new entities_2.Entity();
                 block9.setTexture(block_asset);
                 block9.setX(tile6.getX() + 32);
                 block9.setY(tile6.getY() + 32);
                 block9.setZ(tile4.getHeight() * 2);
-                block9.id = "Block9";
                 block9.setWidth(tile6.getWidth());
                 block9.setHeight(tile6.getHeight() * 2);
                 layer1.addChild(block9);
@@ -2081,7 +2067,6 @@ class IsoDemo extends Engine_1.default {
                 block12.setX(tile8.getX());
                 block12.setY(tile8.getY());
                 block12.setZ(tile4.getHeight() * 2);
-                block12.id = "Block12";
                 block12.setWidth(tile8.getWidth());
                 block12.setHeight(tile8.getHeight() * 2);
                 layer1.addChild(block12);
@@ -4034,7 +4019,7 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
             for (var i in index) {
                 var otherChild = index[i];
                 var otherChildCoords = this._getEntityCoordinates(otherChild);
-                if (!added && child.id && otherChild.id) {
+                if (!added) {
                     var myTotal = (inner.getZ() + (inner.getX() / 2) + inner.getY());
                     var theirTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.inner.getX() / 2) + otherChildCoords.inner.getY());
                     var myOuterTotal = (inner.getZ() + (outer.getX() / 2) + outer.getY());
@@ -4051,7 +4036,7 @@ class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
                     }
                 }
             }
-            if (!added && child.id) {
+            if (!added) {
                 added = true;
                 index.push(child);
             }

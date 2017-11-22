@@ -159,7 +159,7 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
                 for (var i in index) {
                     var otherChild = index[i];
                     var otherChildCoords = this._getEntityCoordinates(otherChild);
-                    if (!added && child.id && otherChild.id) {
+                    if (!added) {
    
                         //Checks if the Child has less Y, or if it has more Y, if it has less y2 and on the left side of the other child
                         //or if it has more y but is on the right half of other child but the y is less then other childs middle y
@@ -221,7 +221,7 @@ export class TwoDimensionalRenderingEngine extends RenderingEngine {
                     }
                 }
 
-                if (!added && child.id) {
+                if (!added) {
                     added = true;
                     index.push(child);
                 }

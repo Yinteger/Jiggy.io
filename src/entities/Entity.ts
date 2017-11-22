@@ -20,7 +20,6 @@ export class Entity extends Events.EventEmitter {
 	private _modelCB : {(attribute: string, value: any, oldValue: any) : void}
 	private _collisionable : boolean;
     private _eventEmitted: boolean;
-    public id: string;
 
 	public constructor (model? : EntityModel) {
 		super();
