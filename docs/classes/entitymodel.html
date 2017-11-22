@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EntityModel | Jiggy.io</title>
+	<title>EntityModel | @jiggy/assets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Jiggy.io</a>
+					<a href="../index.html" class="title">@jiggy/assets</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -95,15 +95,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entitymodel.html#_attributes" class="tsd-kind-icon">_attributes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entitymodel.html#_id" class="tsd-kind-icon">_id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entitymodel.html#_texture" class="tsd-kind-icon">_texture</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="entitymodel.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="entitymodel.html#_type" class="tsd-kind-icon">_type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="entitymodel.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Accessors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="entitymodel.html#id" class="tsd-kind-icon">ID</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="entitymodel.html#texture" class="tsd-kind-icon">texture</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -113,7 +106,10 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#getid" class="tsd-kind-icon">getID</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#gettexture" class="tsd-kind-icon">get<wbr>Texture</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#gettype" class="tsd-kind-icon">get<wbr>Type</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#hasattribute" class="tsd-kind-icon">has<wbr>Attribute</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#listeners" class="tsd-kind-icon">listeners</a></li>
@@ -126,6 +122,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#setattribute" class="tsd-kind-icon">set<wbr>Attribute</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="entitymodel.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#settexture" class="tsd-kind-icon">set<wbr>Texture</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#settype" class="tsd-kind-icon">set<wbr>Type</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitymodel.html#sync" class="tsd-kind-icon">sync</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="entitymodel.html#listenercount-1" class="tsd-kind-icon">listener<wbr>Count</a></li>
 							</ul>
@@ -193,10 +191,10 @@
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="type" class="tsd-anchor"></a>
-					<h3>type</h3>
-					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _type</h3>
+					<div class="tsd-signature tsd-kind-icon">_type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L14">entities/EntityModel.ts:14</a></li>
@@ -213,58 +211,6 @@
 							<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src//mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts#L812">/mnt/c/Users/norman/development/Jiggy.io/node_modules/@types/node/index.d.ts:812</a></li>
 						</ul>
 					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>ID</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> ID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L24">entities/EntityModel.ts:24</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
-					<a name="texture" class="tsd-anchor"></a>
-					<h3>texture</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> texture<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a></li>
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> texture<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L37">entities/EntityModel.ts:37</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L28">entities/EntityModel.ts:28</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -372,7 +318,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L66">entities/EntityModel.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L74">entities/EntityModel.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -382,6 +328,23 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getid" class="tsd-anchor"></a>
+					<h3>getID</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">getID<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L24">entities/EntityModel.ts:24</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -405,6 +368,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettexture" class="tsd-anchor"></a>
+					<h3>get<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Texture<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L45">entities/EntityModel.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="asset.html" class="tsd-signature-type">Asset</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gettype" class="tsd-anchor"></a>
+					<h3>get<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L32">entities/EntityModel.ts:32</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="hasattribute" class="tsd-anchor"></a>
 					<h3>has<wbr>Attribute</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -414,7 +411,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L70">entities/EntityModel.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L78">entities/EntityModel.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -696,7 +693,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L51">entities/EntityModel.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L59">entities/EntityModel.ts:59</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -765,7 +762,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L41">entities/EntityModel.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L49">entities/EntityModel.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -807,6 +804,52 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="settexture" class="tsd-anchor"></a>
+					<h3>set<wbr>Texture</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Texture<span class="tsd-signature-symbol">(</span>asset<span class="tsd-signature-symbol">: </span><a href="asset.html" class="tsd-signature-type">Asset</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L36">entities/EntityModel.ts:36</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>asset: <a href="asset.html" class="tsd-signature-type">Asset</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="settype" class="tsd-anchor"></a>
+					<h3>set<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Type<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L28">entities/EntityModel.ts:28</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="sync" class="tsd-anchor"></a>
 					<h3>sync</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -816,7 +859,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L83">entities/EntityModel.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/YuniYasha/Jiggy.io/blob/master/src/entities/EntityModel.ts#L91">entities/EntityModel.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -885,17 +928,11 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="entitymodel.html#_texture" class="tsd-kind-icon">_texture</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="entitymodel.html#type" class="tsd-kind-icon">type</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="entitymodel.html#_type" class="tsd-kind-icon">_type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="entitymodel.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
-								<a href="entitymodel.html#id" class="tsd-kind-icon">ID</a>
-							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class">
-								<a href="entitymodel.html#texture" class="tsd-kind-icon">texture</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="entitymodel.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
@@ -909,8 +946,17 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entitymodel.html#getattribute" class="tsd-kind-icon">get<wbr>Attribute</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitymodel.html#getid" class="tsd-kind-icon">getID</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="entitymodel.html#getmaxlisteners" class="tsd-kind-icon">get<wbr>Max<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitymodel.html#gettexture" class="tsd-kind-icon">get<wbr>Texture</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitymodel.html#gettype" class="tsd-kind-icon">get<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entitymodel.html#hasattribute" class="tsd-kind-icon">has<wbr>Attribute</a>
@@ -947,6 +993,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="entitymodel.html#setmaxlisteners" class="tsd-kind-icon">set<wbr>Max<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitymodel.html#settexture" class="tsd-kind-icon">set<wbr>Texture</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitymodel.html#settype" class="tsd-kind-icon">set<wbr>Type</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="entitymodel.html#sync" class="tsd-kind-icon">sync</a>

@@ -14,3 +14,4 @@ declare module '*.json';
 
 //Audio
 declare module '*.mp3';
+declare module "*.mid";

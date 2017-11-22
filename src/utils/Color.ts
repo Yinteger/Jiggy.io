@@ -25,7 +25,7 @@ export class Color {
      * @param r Number between 0-255
      */
     public setRed(r: number): void {
-        this._r = r;
+        this._r = parseInt(r.toString());
     }
 
     /**
@@ -33,7 +33,7 @@ export class Color {
      * @param g Number between 0-255
      */
     public setGreen(g: number): void {
-        this._g = g;
+        this._g = parseInt(g.toString());
     }
 
     /**
@@ -41,7 +41,7 @@ export class Color {
      * @param b Number between 0-255
      */
     public setBlue(b: number): void {
-        this._b = b;
+        this._b = parseInt(b.toString());
     }
 
     /**
