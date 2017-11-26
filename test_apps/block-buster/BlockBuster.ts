@@ -4,9 +4,8 @@
 import {Engine} from '../../src/core';
 import {Entity, LocationUpdateEvent} from '../../src/entities';
 import {TwoDimensionalRenderingEngine, GroupLogicEngine} from '../../src/engines';
-import {Camera, CollisionEmitter, Color} from '../../src/utils';
+import {Camera, CollisionEmitter, Color, Coordinate} from '../../src/utils';
 import {Mouse, MouseMoveEvent, MouseEvents} from '../../src/inputs';
-import {Coordinate} from '../../src/interfaces';
 import {Asset, AssetType, AssetGroupLoader, AssetGroupDefinition, AssetGroup} from '../../src/assets';
 import * as BallTexture from './resources/ball.png';
 import * as LoadingTexture from './resources/LoadingView.png';
@@ -155,20 +154,14 @@ class BlockBuster extends Engine {
 
         var startGameHotspot: Entity = new Entity();
         // startGameHotspot.setColor(Color.fromString('red'));
-        startGameHotspot.setLocation({
-            x : 250,
-            y : 400
-        });
+        startGameHotspot.setPosition(new Coordinate(250, 500));
         startGameHotspot.setSize({
             width: 400,
             height: 80
         });
 
         var onClick = (e: any) => {
-            var child: Entity | boolean = view.findTopChildAt({
-                x : e.x,
-                y : e.y
-            });
+            var child: Entity | boolean = view.findTopChildAt(new Coordinate(e.x, e.y));
 
             if (child instanceof Entity && child === startGameHotspot) {
                 Mouse.getInstance().removeListener(MouseEvents.LeftButtonUp, onClick);
@@ -198,20 +191,14 @@ class BlockBuster extends Engine {
 
         var startGameHotspot: Entity = new Entity();
         // startGameHotspot.setColor(Color.fromString('red'));
-        startGameHotspot.setLocation({
-            x : 250,
-            y : 450
-        });
+        startGameHotspot.setPosition(new Coordinate(250, 450));
         startGameHotspot.setSize({
             width: 400,
             height: 80
         });
 
         var onClick = (e: any) => {
-            var child: Entity | boolean = view.findTopChildAt({
-                x : e.x,
-                y : e.y
-            });
+            var child: Entity | boolean = view.findTopChildAt(new Coordinate(e.x, e.y));
 
             if (child instanceof Entity && child === startGameHotspot) {
                 Mouse.getInstance().removeListener(MouseEvents.LeftButtonUp, onClick);
@@ -240,20 +227,14 @@ class BlockBuster extends Engine {
 
         var startGameHotspot: Entity = new Entity();
         // startGameHotspot.setColor(Color.fromString('red'));
-        startGameHotspot.setLocation({
-            x : 250,
-            y : 450
-        });
+        startGameHotspot.setPosition(new Coordinate(250, 450));
         startGameHotspot.setSize({
             width: 400,
             height: 80
         });
 
         var onClick = (e: any) => {
-            var child: Entity | boolean = view.findTopChildAt({
-                x : e.x,
-                y : e.y
-            });
+            var child: Entity | boolean = view.findTopChildAt(new Coordinate(e.x, e.y));
 
             if (child instanceof Entity && child === startGameHotspot) {
                 Mouse.getInstance().removeListener(MouseEvents.LeftButtonUp, onClick);
@@ -323,45 +304,45 @@ class BlockBuster extends Engine {
             return;
         }
 
-        var ballPos: Coordinate = this.ball.getLocation();
+        var ballPos: Coordinate = this.ball.getPosition();
 
-        ballPos.x += this.speed * Math.cos(this.direction.getAngle());
-        ballPos.y += this.speed * Math.sin(this.direction.getAngle());
+        ballPos.incrementX(this.speed * Math.cos(this.direction.getAngle()));
+        ballPos.incrementY(this.speed * Math.sin(this.direction.getAngle()));
 
-        if (ballPos.x < 0) {
-            ballPos.x = 1;
+        if (ballPos.getX() < 0) {
+            ballPos.setX(1);
 
             var normal: Vector2D = new Vector2D(0, 1);
             var dirNormal: Vector2D = this.direction.normal();
 
             this.direction = dirNormal.reflect(normal);
         }
-        else if (ballPos.x + this.ball.getWidth() > this.getViewPort().getSize().width) {
-            ballPos.x = this.getViewPort().getSize().width - this.ball.getWidth() - 1;
+        else if (ballPos.getX() + this.ball.getWidth() > this.getViewPort().getSize().width) {
+            ballPos.setX(this.getViewPort().getSize().width - this.ball.getWidth() - 1);
             var normal: Vector2D = new Vector2D(0, 1);
             var dirNormal: Vector2D = this.direction.normal();
 
             this.direction = dirNormal.reflect(normal);            
         }
 
-        if (ballPos.y < 0) {
-            ballPos.y = 1;
+        if (ballPos.getY() < 0) {
+            ballPos.setY(1);
             var normal: Vector2D = new Vector2D(1, 0);
             var dirNormal: Vector2D = this.direction.normal();
 
             this.direction = dirNormal.reflect(normal);            
         }
-        else if (ballPos.y > this.getViewPort().getSize().height) {
+        else if (ballPos.getY() > this.getViewPort().getSize().height) {
             this._onGameOver();
         }
 
-        this.ball.setLocation(ballPos);
+        this.ball.setPosition(ballPos);
     }
 
     private _updatePlayerPosition(): void {
         var coords: Coordinate = Mouse.getInstance().getCurrentCoordinates();
 
-        var x: number = coords.x - (this.player.getWidth() / 2);
+        var x: number = coords.getX() - (this.player.getWidth() / 2);
         this.player.setX(x);
     }
 

@@ -142,7 +142,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 22);
+/******/ 	return __webpack_require__(__webpack_require__.s = 23);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -154,22 +154,24 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const SeverityEnum_1 = __webpack_require__(8);
 exports.SeverityEnum = SeverityEnum_1.SeverityEnum;
-const Camera_1 = __webpack_require__(24);
+const Camera_1 = __webpack_require__(25);
 exports.Camera = Camera_1.Camera;
-const IDGenerator_1 = __webpack_require__(25);
+const IDGenerator_1 = __webpack_require__(26);
 exports.IDGenerator = IDGenerator_1.IDGenerator;
 const Iterator_1 = __webpack_require__(4);
 exports.Iterator = Iterator_1.Iterator;
-const LogManager_1 = __webpack_require__(26);
+const LogManager_1 = __webpack_require__(27);
 exports.LogManager = LogManager_1.LogManager;
-const ViewPort_1 = __webpack_require__(27);
+const ViewPort_1 = __webpack_require__(28);
 exports.ViewPort = ViewPort_1.ViewPort;
-const CollisionEmitter_1 = __webpack_require__(28);
+const CollisionEmitter_1 = __webpack_require__(29);
 exports.CollisionEmitter = CollisionEmitter_1.CollisionEmitter;
-const Color_1 = __webpack_require__(29);
+const Color_1 = __webpack_require__(30);
 exports.Color = Color_1.Color;
-const ColorCode_1 = __webpack_require__(9);
+const ColorCode_1 = __webpack_require__(10);
 exports.ColorCode = ColorCode_1.ColorCode;
+const Coordinate_1 = __webpack_require__(9);
+exports.Coordinate = Coordinate_1.Coordinate;
 
 
 /***/ }),
@@ -487,31 +489,31 @@ function isUndefined(arg) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Asset_1 = __webpack_require__(30);
+const Asset_1 = __webpack_require__(31);
 exports.Asset = Asset_1.Asset;
 const AssetType_1 = __webpack_require__(6);
 exports.AssetType = AssetType_1.AssetType;
-const AssetState_1 = __webpack_require__(12);
+const AssetState_1 = __webpack_require__(13);
 exports.AssetState = AssetState_1.AssetState;
-const AssetFactory_1 = __webpack_require__(31);
+const AssetFactory_1 = __webpack_require__(32);
 exports.AssetFactory = AssetFactory_1.AssetFactory;
-const AssetGroup_1 = __webpack_require__(13);
+const AssetGroup_1 = __webpack_require__(14);
 exports.AssetGroup = AssetGroup_1.AssetGroup;
-const AssetGroupLoader_1 = __webpack_require__(32);
+const AssetGroupLoader_1 = __webpack_require__(33);
 exports.AssetGroupLoader = AssetGroupLoader_1.AssetGroupLoader;
-const AssetLoader_1 = __webpack_require__(33);
+const AssetLoader_1 = __webpack_require__(34);
 exports.AssetLoader = AssetLoader_1.AssetLoader;
-const AudioLoader_1 = __webpack_require__(35);
+const AudioLoader_1 = __webpack_require__(36);
 exports.AudioLoader = AudioLoader_1.AudioLoader;
-const ImageLoader_1 = __webpack_require__(36);
+const ImageLoader_1 = __webpack_require__(37);
 exports.ImageLoader = ImageLoader_1.ImageLoader;
-const JSONLoader_1 = __webpack_require__(37);
+const JSONLoader_1 = __webpack_require__(38);
 exports.JSONLoader = JSONLoader_1.JSONLoader;
-const TextAssetBuilder_1 = __webpack_require__(38);
+const TextAssetBuilder_1 = __webpack_require__(39);
 exports.TextAssetBuilder = TextAssetBuilder_1.TextAssetBuilder;
-const Spritesheet_1 = __webpack_require__(39);
+const Spritesheet_1 = __webpack_require__(40);
 exports.Spritesheet = Spritesheet_1.Spritesheet;
-const Animation_1 = __webpack_require__(40);
+const Animation_1 = __webpack_require__(41);
 exports.Animation = Animation_1.Animation;
 
 
@@ -595,13 +597,13 @@ exports.Iterator = Iterator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const LogicEngine_1 = __webpack_require__(45);
+const LogicEngine_1 = __webpack_require__(46);
 exports.LogicEngine = LogicEngine_1.LogicEngine;
-const GroupLogicEngine_1 = __webpack_require__(46);
+const GroupLogicEngine_1 = __webpack_require__(47);
 exports.GroupLogicEngine = GroupLogicEngine_1.GroupLogicEngine;
-const RenderingEngine_1 = __webpack_require__(47);
+const RenderingEngine_1 = __webpack_require__(48);
 exports.RenderingEngine = RenderingEngine_1.RenderingEngine;
-const TwoDimensionalRenderingEngine_1 = __webpack_require__(48);
+const TwoDimensionalRenderingEngine_1 = __webpack_require__(49);
 exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine_1.TwoDimensionalRenderingEngine;
 
 
@@ -628,7 +630,7 @@ var AssetType;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Engine_1 = __webpack_require__(23);
+const Engine_1 = __webpack_require__(24);
 exports.Engine = Engine_1.Engine;
 const Instance_1 = __webpack_require__(3);
 exports.getInstance = Instance_1.getInstance;
@@ -653,6 +655,59 @@ var SeverityEnum;
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class Coordinate {
+    constructor(x, y, z) {
+        this._x = x;
+        this._y = y;
+        this._z = z || 0;
+    }
+    toCartesian() {
+        return new Coordinate((2 * this._y + this._x) / 2, (2 * this._y - this._x) / 2, this._z);
+    }
+    static fromIsometric(x, y) {
+        return new Coordinate((2 * y + x) / 2, (2 * y - x) / 2);
+    }
+    toIsometric() {
+        return new Coordinate(this._x - this._y, (this._x + this._y) / 2, this._z);
+    }
+    setX(x) {
+        this._x = x;
+    }
+    setY(y) {
+        this._y = y;
+    }
+    getX() {
+        return this._x;
+    }
+    getY() {
+        return this._y;
+    }
+    getZ() {
+        return this._z;
+    }
+    setZ(z) {
+        this._z = z;
+    }
+    incrementX(x) {
+        this._x += x;
+    }
+    incrementY(y) {
+        this._y += y;
+    }
+    incrementZ(z) {
+        this._z += z;
+    }
+}
+exports.Coordinate = Coordinate;
+
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -960,22 +1015,22 @@ exports.ColorMap = {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AudioEngine_1 = __webpack_require__(11);
+const AudioEngine_1 = __webpack_require__(12);
 exports.AudioEngine = AudioEngine_1.AudioEngine;
-const HTML5AudioEngine_1 = __webpack_require__(41);
+const HTML5AudioEngine_1 = __webpack_require__(42);
 exports.HTML5AudioEngine = HTML5AudioEngine_1.HTML5AudioEngine;
-const AudioEvents_1 = __webpack_require__(14);
+const AudioEvents_1 = __webpack_require__(15);
 exports.AudioEvents = AudioEvents_1.AudioEvents;
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1019,7 +1074,6 @@ class AudioEngine extends events_1.EventEmitter {
         if (audio) {
             this._playAudio(audio);
             audio.setAttribute('playing', true);
-            this.emit('playing', name, audio);
         }
     }
     pauseAudio(name) {
@@ -1027,7 +1081,6 @@ class AudioEngine extends events_1.EventEmitter {
         if (audio) {
             this._pauseAudio(audio);
             audio.setAttribute('playing', false);
-            this.emit('pause', name, audio);
         }
     }
     stopAudio(name) {
@@ -1035,7 +1088,6 @@ class AudioEngine extends events_1.EventEmitter {
         if (audio) {
             this._stopAudio(audio);
             audio.setAttribute('playing', false);
-            this.emit('stop', name, audio);
         }
     }
     isAudioLooping(name) {
@@ -1170,7 +1222,7 @@ exports.AudioEngine = AudioEngine;
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1186,13 +1238,13 @@ var AssetState;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AssetState_1 = __webpack_require__(12);
+const AssetState_1 = __webpack_require__(13);
 const Instance_1 = __webpack_require__(3);
 class AssetGroup {
     constructor(assetMap = {}) {
@@ -1257,7 +1309,7 @@ exports.AssetGroup = AssetGroup;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1271,26 +1323,26 @@ var AudioEvents;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Entity_1 = __webpack_require__(16);
+const Entity_1 = __webpack_require__(17);
 exports.Entity = Entity_1.Entity;
-const EntityModel_1 = __webpack_require__(42);
+const EntityModel_1 = __webpack_require__(43);
 exports.EntityModel = EntityModel_1.EntityModel;
-const EntityView_1 = __webpack_require__(17);
+const EntityView_1 = __webpack_require__(18);
 exports.EntityView = EntityView_1.EntityView;
-const EntityView2D_1 = __webpack_require__(43);
+const EntityView2D_1 = __webpack_require__(44);
 exports.EntityView2D = EntityView2D_1.EntityView2D;
-const GridMap_1 = __webpack_require__(44);
+const GridMap_1 = __webpack_require__(45);
 exports.GridMap = GridMap_1.GridMap;
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1298,8 +1350,9 @@ exports.GridMap = GridMap_1.GridMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Events = __webpack_require__(1);
 const assets_1 = __webpack_require__(2);
-const _1 = __webpack_require__(15);
 const utils_1 = __webpack_require__(0);
+const _1 = __webpack_require__(16);
+const utils_2 = __webpack_require__(0);
 class Entity extends Events.EventEmitter {
     constructor(model) {
         super();
@@ -1385,12 +1438,12 @@ class Entity extends Events.EventEmitter {
         this._generateRegions();
     }
     getX() {
-        return this._model.getAttribute('x');
+        return this._model.getX();
     }
     setX(x) {
-        let oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('x', x);
-        let newCoordinates = { x: this.getX(), y: this.getY() };
+        let oldCoordinates = this.getPosition();
+        this._model.setX(x);
+        let newCoordinates = this.getPosition();
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1406,18 +1459,19 @@ class Entity extends Events.EventEmitter {
             this._eventEmitted = false;
         }
     }
-    setCoordinate(coordinate) {
-        let oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('x', coordinate.x);
-        this._model.setAttribute('y', coordinate.y);
-        let newCoordinates = { x: this.getX(), y: this.getY() };
+    getPosition() {
+        return this._model.getPosition();
+    }
+    setPosition(position) {
+        let oldCoordinates = this.getPosition();
+        this._model.setPosition(position);
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
         let eventData = {
             type: 0..toString(),
             oldCoordinates,
-            newCoordinates,
+            newCoordinates: position,
             source: this
         };
         this.emit(0..toString(), eventData);
@@ -1426,12 +1480,12 @@ class Entity extends Events.EventEmitter {
         return this.getX() + this.getWidth();
     }
     getY() {
-        return this._model.getAttribute('y');
+        return this._model.getY();
     }
     setY(y) {
-        let oldCoordinates = { x: this.getX(), y: this.getY() };
-        this._model.setAttribute('y', y);
-        let newCoordinates = { x: this.getX(), y: this.getY() };
+        let oldCoordinates = this.getPosition();
+        this._model.setY(y);
+        let newCoordinates = this.getPosition();
         if (this._parent) {
             this._parent._updateChildsRegion(this);
         }
@@ -1451,10 +1505,10 @@ class Entity extends Events.EventEmitter {
         return this.getY() + this.getHeight();
     }
     getZ() {
-        return this._model.getAttribute('z');
+        return this._model.getZ();
     }
     setZ(z) {
-        this._model.setAttribute('z', z);
+        this._model.setZ(z);
     }
     getVisible() {
         return this._model.getAttribute('visible');
@@ -1523,37 +1577,37 @@ class Entity extends Events.EventEmitter {
         }
     }
     iterator() {
-        return new utils_1.Iterator(this._children);
+        return new utils_2.Iterator(this._children);
     }
     getChildren(startCoordinate, endCoordinate) {
         if (startCoordinate && endCoordinate) {
             var startRegion = this._coordinateToRegion(startCoordinate);
             var endRegion = this._coordinateToRegion(endCoordinate);
             var children = [];
-            for (var x = startRegion.x; x <= endRegion.x; x++) {
-                for (var y = startRegion.y; y <= endRegion.y; y++) {
-                    children = children.concat(this._getChildrenInRegion({ x, y }));
+            for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
+                for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
+                    children = children.concat(this._getChildrenInRegion(new utils_1.Coordinate(x, y)));
                 }
             }
-            return new utils_1.Iterator(children);
+            return new utils_2.Iterator(children);
         }
         else if (startCoordinate) {
             var region = this._coordinateToRegion(startCoordinate);
             var children = [];
-            var childrenIterator = new utils_1.Iterator(this._getChildrenInRegion({ x: region.x, y: region.y }));
+            var childrenIterator = new utils_2.Iterator(this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY())));
             while (childrenIterator.hasNext()) {
                 var child = childrenIterator.next();
-                var childCoordinate = child.getCoordinate();
-                var childOuterCoordinate = child.getOuterCoordinate();
-                if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-                    && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                var childCoordinate = child.getPosition();
+                var childOuterCoordinate = child.getOuterPosition();
+                if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+                    && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                     children.push(child);
                 }
             }
-            return new utils_1.Iterator(children);
+            return new utils_2.Iterator(children);
         }
         else {
-            return new utils_1.Iterator(this._children);
+            return new utils_2.Iterator(this._children);
         }
     }
     findChildren(startCoordinate, endCoordinate) {
@@ -1561,17 +1615,17 @@ class Entity extends Events.EventEmitter {
         if (this._children.length > 0) {
             if (startCoordinate && !endCoordinate) {
                 var region = this._coordinateToRegion(startCoordinate);
-                var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
+                var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
                 if (regionChildren.length > 0) {
-                    var childrenIterator = new utils_1.Iterator(regionChildren);
+                    var childrenIterator = new utils_2.Iterator(regionChildren);
                     while (childrenIterator.hasNext()) {
                         var iterChild = childrenIterator.next();
-                        let childCoordinate = iterChild.getCoordinate();
-                        let childOuterCoordinate = iterChild.getOuterCoordinate();
-                        if (childCoordinate.x <= startCoordinate.x && childCoordinate.y <= startCoordinate.y
-                            && childOuterCoordinate.x >= startCoordinate.x && childOuterCoordinate.y >= startCoordinate.y) {
+                        let childCoordinate = iterChild.getPosition();
+                        let childOuterCoordinate = iterChild.getOuterPosition();
+                        if (childCoordinate.getX() <= startCoordinate.getX() && childCoordinate.getY() <= startCoordinate.getY()
+                            && childOuterCoordinate.getX() >= startCoordinate.getX() && childOuterCoordinate.getY() >= startCoordinate.getY()) {
                             children.push(iterChild);
-                            let deeperChildren = iterChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y });
+                            let deeperChildren = iterChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()));
                             if (deeperChildren) {
                                 children = children.concat(deeperChildren);
                             }
@@ -1583,28 +1637,28 @@ class Entity extends Events.EventEmitter {
                 var startRegion = this._coordinateToRegion(startCoordinate);
                 var endRegion = this._coordinateToRegion(endCoordinate);
                 var childrenVisited = [];
-                for (var x = startRegion.x; x <= endRegion.x; x++) {
-                    for (var y = startRegion.y; y <= endRegion.y; y++) {
-                        var regionChildren = this._getChildrenInRegion({ x, y });
+                for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
+                    for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
+                        var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(x, y));
                         for (var regionChildI in regionChildren) {
                             var regionChild = regionChildren[regionChildI];
                             if (childrenVisited.indexOf(regionChild) === -1) {
                                 childrenVisited.push(regionChild);
-                                let childCoordinate = regionChild.getCoordinate();
-                                let childOuterCoordinate = regionChild.getOuterCoordinate();
+                                let childCoordinate = regionChild.getPosition();
+                                let childOuterCoordinate = regionChild.getOuterPosition();
                                 var xCollission = false;
                                 var yCollision = false;
-                                if ((startCoordinate.x < childOuterCoordinate.x && endCoordinate.x > childCoordinate.x)
-                                    || (endCoordinate.x > childCoordinate.x && startCoordinate.x < childOuterCoordinate.x)) {
+                                if ((startCoordinate.getX() < childOuterCoordinate.getX() && endCoordinate.getX() > childCoordinate.getX())
+                                    || (endCoordinate.getX() > childCoordinate.getX() && startCoordinate.getX() < childOuterCoordinate.getX())) {
                                     xCollission = true;
                                 }
-                                if ((startCoordinate.y < childOuterCoordinate.y && endCoordinate.y > childCoordinate.y)
-                                    || (endCoordinate.y > childCoordinate.y && startCoordinate.y < childOuterCoordinate.y)) {
+                                if ((startCoordinate.getY() < childOuterCoordinate.getY() && endCoordinate.getY() > childCoordinate.getY())
+                                    || (endCoordinate.getY() > childCoordinate.getY() && startCoordinate.getY() < childOuterCoordinate.getY())) {
                                     yCollision = true;
                                 }
                                 if (xCollission && yCollision) {
                                     children.push(regionChild);
-                                    let deeperChildren = regionChild.findChildren({ x: startCoordinate.x - childCoordinate.x, y: startCoordinate.y - childCoordinate.y }, { x: endCoordinate.x - childOuterCoordinate.x, y: endCoordinate.y - childOuterCoordinate.y });
+                                    let deeperChildren = regionChild.findChildren(new utils_1.Coordinate(startCoordinate.getX() - childCoordinate.getX(), startCoordinate.getY() - childCoordinate.getY()), new utils_1.Coordinate(endCoordinate.getX() - childOuterCoordinate.getX(), endCoordinate.getY() - childOuterCoordinate.getY()));
                                     if (deeperChildren) {
                                         children = children.concat(deeperChildren);
                                     }
@@ -1620,17 +1674,17 @@ class Entity extends Events.EventEmitter {
     findTopChildAt(coordinate) {
         var child = false;
         var region = this._coordinateToRegion(coordinate);
-        var regionChildren = this._getChildrenInRegion({ x: region.x, y: region.y });
-        var childrenIterator = new utils_1.Iterator(regionChildren);
+        var regionChildren = this._getChildrenInRegion(new utils_1.Coordinate(region.getX(), region.getY()));
+        var childrenIterator = new utils_2.Iterator(regionChildren);
         childrenIterator.setToEnd();
         while (childrenIterator.hasPrev() && !child) {
             var iterChild = childrenIterator.prev();
-            var childCoordinate = iterChild.getCoordinate();
-            var childOuterCoordinate = iterChild.getOuterCoordinate();
-            if (childCoordinate.x <= coordinate.x && childCoordinate.y <= coordinate.y
-                && childOuterCoordinate.x >= coordinate.x && childOuterCoordinate.y >= coordinate.y) {
+            var childCoordinate = iterChild.getPosition();
+            var childOuterCoordinate = iterChild.getOuterPosition();
+            if (childCoordinate.getX() <= coordinate.getX() && childCoordinate.getY() <= coordinate.getY()
+                && childOuterCoordinate.getX() >= coordinate.getX() && childOuterCoordinate.getY() >= coordinate.getY()) {
                 child = iterChild;
-                var deeperChild = iterChild.findTopChildAt({ x: coordinate.x - childCoordinate.x, y: coordinate.y - childCoordinate.y });
+                var deeperChild = iterChild.findTopChildAt(new utils_1.Coordinate(coordinate.getX() - childCoordinate.getX(), coordinate.getY() - childCoordinate.getY()));
                 if (deeperChild) {
                     child = deeperChild;
                 }
@@ -1638,11 +1692,8 @@ class Entity extends Events.EventEmitter {
         }
         return child || false;
     }
-    getCoordinate() {
-        return { x: this.getX(), y: this.getY() };
-    }
-    getOuterCoordinate() {
-        return { x: this.getX2(), y: this.getY2() };
+    getOuterPosition() {
+        return new utils_1.Coordinate(this.getX2(), this.getY2());
     }
     getAbsoluteY() {
         var entity = this;
@@ -1668,16 +1719,6 @@ class Entity extends Events.EventEmitter {
     getAbsoluteX2() {
         return this.getAbsoluteX() + this.getWidth();
     }
-    setLocation(coordinate) {
-        this.setX(coordinate.x);
-        this.setY(coordinate.y);
-    }
-    getLocation() {
-        return {
-            x: this.getX(),
-            y: this.getY()
-        };
-    }
     setSize(dimension) {
         this._setModified(true);
         this.setWidth(dimension.width);
@@ -1687,7 +1728,7 @@ class Entity extends Events.EventEmitter {
         return { width: this.getWidth(), height: this.getHeight() };
     }
     _setDefaults() {
-        this.setLocation({ x: 0, y: 0 });
+        this.setPosition(new utils_1.Coordinate(0, 0));
         this.setSize({ width: 0, height: 0 });
         this.setVisible(true);
     }
@@ -1721,16 +1762,16 @@ class Entity extends Events.EventEmitter {
         }
     }
     _putChildInRegion(child) {
-        var startRegion = this._coordinateToRegion({ x: child.getX(), y: child.getY() });
-        var endRegion = this._coordinateToRegion({ x: child.getX2(), y: child.getY2() });
+        var startRegion = this._coordinateToRegion(child.getPosition());
+        var endRegion = this._coordinateToRegion(new utils_1.Coordinate(child.getX2(), child.getY2()));
         this._regionList[child.getID()] = [];
-        if (!isNaN(startRegion.x) && !isNaN(startRegion.y) && !isNaN(endRegion.x) && !isNaN(endRegion.y)) {
-            for (var x = startRegion.x; x <= endRegion.x; x++) {
+        if (!isNaN(startRegion.getX()) && !isNaN(startRegion.getY()) && !isNaN(endRegion.getX()) && !isNaN(endRegion.getY())) {
+            for (var x = startRegion.getX(); x <= endRegion.getX(); x++) {
                 if (this._regions[x]) {
-                    for (var y = startRegion.y; y <= endRegion.y; y++) {
+                    for (var y = startRegion.getY(); y <= endRegion.getY(); y++) {
                         if (this._regions[x][y]) {
                             this._regions[x][y].push(child);
-                            this._regionList[child.getID()].push({ x, y });
+                            this._regionList[child.getID()].push(new utils_1.Coordinate(x, y));
                         }
                     }
                 }
@@ -1740,8 +1781,8 @@ class Entity extends Events.EventEmitter {
         }
     }
     _getChildrenInRegion(regionCoordinate) {
-        if (this._regions[regionCoordinate.x] && this._regions[regionCoordinate.x][regionCoordinate.y]) {
-            return this._regions[regionCoordinate.x][regionCoordinate.y];
+        if (this._regions[regionCoordinate.getX()] && this._regions[regionCoordinate.getX()][regionCoordinate.getY()]) {
+            return this._regions[regionCoordinate.getX()][regionCoordinate.getY()];
         }
         else {
             return [];
@@ -1751,7 +1792,7 @@ class Entity extends Events.EventEmitter {
         if (this._regionList[child.getID()]) {
             for (var i in this._regionList[child.getID()]) {
                 var coord = this._regionList[child.getID()][i];
-                this._regions[coord.x][coord.y].splice(this._regions[coord.x][coord.y].indexOf(child), 1);
+                this._regions[coord.getX()][coord.getY()].splice(this._regions[coord.getX()][coord.getY()].indexOf(child), 1);
             }
         }
     }
@@ -1760,16 +1801,16 @@ class Entity extends Events.EventEmitter {
         this._putChildInRegion(child);
     }
     _coordinateToRegion(coordinate) {
-        var x = Math.floor(coordinate.x / this._regionDimension.width);
-        var y = Math.floor(coordinate.y / this._regionDimension.height);
-        return { x, y };
+        var x = Math.floor(coordinate.getX() / this._regionDimension.width);
+        var y = Math.floor(coordinate.getY() / this._regionDimension.height);
+        return new utils_1.Coordinate(x, y);
     }
 }
 exports.Entity = Entity;
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1810,7 +1851,7 @@ exports.EntityView = EntityView;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1890,7 +1931,7 @@ exports.GamePad = GamePad;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1957,31 +1998,31 @@ exports.Touch = Touch;
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = "data:audio/mpeg;base64,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"
 
 /***/ }),
-/* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = __webpack_require__(7);
-const entities_1 = __webpack_require__(15);
+const entities_1 = __webpack_require__(16);
 const engines_1 = __webpack_require__(5);
 const utils_1 = __webpack_require__(0);
-const inputs_1 = __webpack_require__(49);
+const inputs_1 = __webpack_require__(50);
 const assets_1 = __webpack_require__(2);
-const BallTexture = __webpack_require__(54);
-const LoadingTexture = __webpack_require__(55);
-const boopSound = __webpack_require__(20);
-const Map1_1 = __webpack_require__(56);
-const Vector2D_1 = __webpack_require__(58);
-const Playlist_1 = __webpack_require__(59);
+const BallTexture = __webpack_require__(55);
+const LoadingTexture = __webpack_require__(56);
+const boopSound = __webpack_require__(21);
+const Map1_1 = __webpack_require__(57);
+const Vector2D_1 = __webpack_require__(59);
+const Playlist_1 = __webpack_require__(60);
 const DEFAULT_SPEED = 3;
 const DEFAULT_DIRECTION = new Vector2D_1.Vector2D(0, -1);
 const SPEED_STEP = 0.5;
@@ -2057,7 +2098,7 @@ class BlockBuster extends core_1.Engine {
         asset.load();
         var loader = new assets_1.AssetGroupLoader();
         __webpack_require__.e/* require.ensure */(0).then(((require) => {
-            var resources = __webpack_require__(21);
+            var resources = __webpack_require__(22);
             this._gameAssets = loader.loadFromMemory(resources);
             this._gameAssets.load().then(() => {
                 this._setPlaylist([
@@ -2078,19 +2119,13 @@ class BlockBuster extends core_1.Engine {
         });
         view.setTexture(this._gameAssets.getAsset('startGameTexture'));
         var startGameHotspot = new entities_1.Entity();
-        startGameHotspot.setLocation({
-            x: 250,
-            y: 400
-        });
+        startGameHotspot.setPosition(new utils_1.Coordinate(250, 500));
         startGameHotspot.setSize({
             width: 400,
             height: 80
         });
         var onClick = (e) => {
-            var child = view.findTopChildAt({
-                x: e.x,
-                y: e.y
-            });
+            var child = view.findTopChildAt(new utils_1.Coordinate(e.x, e.y));
             if (child instanceof entities_1.Entity && child === startGameHotspot) {
                 inputs_1.Mouse.getInstance().removeListener("LEFTBUTTONUP", onClick);
                 this._setActiveScene(this.gameScene);
@@ -2111,19 +2146,13 @@ class BlockBuster extends core_1.Engine {
         });
         view.setTexture(this._gameAssets.getAsset('gameWonTexture'));
         var startGameHotspot = new entities_1.Entity();
-        startGameHotspot.setLocation({
-            x: 250,
-            y: 450
-        });
+        startGameHotspot.setPosition(new utils_1.Coordinate(250, 450));
         startGameHotspot.setSize({
             width: 400,
             height: 80
         });
         var onClick = (e) => {
-            var child = view.findTopChildAt({
-                x: e.x,
-                y: e.y
-            });
+            var child = view.findTopChildAt(new utils_1.Coordinate(e.x, e.y));
             if (child instanceof entities_1.Entity && child === startGameHotspot) {
                 inputs_1.Mouse.getInstance().removeListener("LEFTBUTTONUP", onClick);
                 this._reset();
@@ -2143,19 +2172,13 @@ class BlockBuster extends core_1.Engine {
         });
         view.setTexture(this._gameAssets.getAsset('gameLostTexture'));
         var startGameHotspot = new entities_1.Entity();
-        startGameHotspot.setLocation({
-            x: 250,
-            y: 450
-        });
+        startGameHotspot.setPosition(new utils_1.Coordinate(250, 450));
         startGameHotspot.setSize({
             width: 400,
             height: 80
         });
         var onClick = (e) => {
-            var child = view.findTopChildAt({
-                x: e.x,
-                y: e.y
-            });
+            var child = view.findTopChildAt(new utils_1.Coordinate(e.x, e.y));
             if (child instanceof entities_1.Entity && child === startGameHotspot) {
                 inputs_1.Mouse.getInstance().removeListener("LEFTBUTTONUP", onClick);
                 this._reset();
@@ -2206,35 +2229,35 @@ class BlockBuster extends core_1.Engine {
         if (this.paused) {
             return;
         }
-        var ballPos = this.ball.getLocation();
-        ballPos.x += this.speed * Math.cos(this.direction.getAngle());
-        ballPos.y += this.speed * Math.sin(this.direction.getAngle());
-        if (ballPos.x < 0) {
-            ballPos.x = 1;
+        var ballPos = this.ball.getPosition();
+        ballPos.incrementX(this.speed * Math.cos(this.direction.getAngle()));
+        ballPos.incrementY(this.speed * Math.sin(this.direction.getAngle()));
+        if (ballPos.getX() < 0) {
+            ballPos.setX(1);
             var normal = new Vector2D_1.Vector2D(0, 1);
             var dirNormal = this.direction.normal();
             this.direction = dirNormal.reflect(normal);
         }
-        else if (ballPos.x + this.ball.getWidth() > this.getViewPort().getSize().width) {
-            ballPos.x = this.getViewPort().getSize().width - this.ball.getWidth() - 1;
+        else if (ballPos.getX() + this.ball.getWidth() > this.getViewPort().getSize().width) {
+            ballPos.setX(this.getViewPort().getSize().width - this.ball.getWidth() - 1);
             var normal = new Vector2D_1.Vector2D(0, 1);
             var dirNormal = this.direction.normal();
             this.direction = dirNormal.reflect(normal);
         }
-        if (ballPos.y < 0) {
-            ballPos.y = 1;
+        if (ballPos.getY() < 0) {
+            ballPos.setY(1);
             var normal = new Vector2D_1.Vector2D(1, 0);
             var dirNormal = this.direction.normal();
             this.direction = dirNormal.reflect(normal);
         }
-        else if (ballPos.y > this.getViewPort().getSize().height) {
+        else if (ballPos.getY() > this.getViewPort().getSize().height) {
             this._onGameOver();
         }
-        this.ball.setLocation(ballPos);
+        this.ball.setPosition(ballPos);
     }
     _updatePlayerPosition() {
         var coords = inputs_1.Mouse.getInstance().getCurrentCoordinates();
-        var x = coords.x - (this.player.getWidth() / 2);
+        var x = coords.getX() - (this.player.getWidth() / 2);
         this.player.setX(x);
     }
     _ballCollide(e1, e2, event) {
@@ -2305,14 +2328,14 @@ window.BlockBuster = new BlockBuster();
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = __webpack_require__(0);
-const audio_1 = __webpack_require__(10);
+const audio_1 = __webpack_require__(11);
 const assets_1 = __webpack_require__(2);
 const Instance_1 = __webpack_require__(3);
 class Engine {
@@ -2371,15 +2394,16 @@ exports.Engine = Engine;
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const DEFAULT_VIEWPOINT = { x: 0, y: 0 };
+const Coordinate_1 = __webpack_require__(9);
+const DEFAULT_VIEWPOINT = new Coordinate_1.Coordinate(0, 0);
 const DEFAULT_FOV = { width: 100, height: 100 };
-const DEFAULT_RENDER_ORIGIN = { x: 0, y: 0 };
+const DEFAULT_RENDER_ORIGIN = new Coordinate_1.Coordinate(0, 0);
 const DEFAULT_RENDER_DIMENSION = { width: 100, height: 100 };
 class Camera {
     constructor(scene, viewPoint, fov, renderOrigin, renderDimension) {
@@ -2424,7 +2448,7 @@ exports.Camera = Camera;
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2454,7 +2478,7 @@ exports.IDGenerator = IDGenerator;
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2520,7 +2544,7 @@ exports.LogManager = LogManager;
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2571,7 +2595,7 @@ class ViewPort extends Events.EventEmitter {
         return this._filledPage;
     }
     getSize() {
-        return { width: this._canvas.offsetWidth, height: this._canvas.offsetHeight };
+        return this._dimension;
     }
     setSize(dimension) {
         this._dimension = dimension;
@@ -2625,12 +2649,13 @@ exports.ViewPort = ViewPort;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __webpack_require__(0);
 class CollisionEmitter {
     constructor() {
         this._cbs = {};
@@ -2677,7 +2702,7 @@ class CollisionEmitter {
     _onEntityLocationUpdate(event) {
         let entity = event.source;
         if (entity.getParent()) {
-            var potCollisions = entity.getParent().findChildren({ x: entity.getX(), y: entity.getY() }, { x: entity.getX2(), y: entity.getY2() });
+            var potCollisions = entity.getParent().findChildren(new utils_1.Coordinate(entity.getX(), entity.getY()), new utils_1.Coordinate(entity.getX2(), entity.getY2()));
             var collisions = [];
             for (let i in potCollisions) {
                 let potEntity = potCollisions[i];
@@ -2698,13 +2723,13 @@ exports.CollisionEmitter = CollisionEmitter;
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const ColorCode_1 = __webpack_require__(9);
+const ColorCode_1 = __webpack_require__(10);
 class Color {
     constructor(r = 0, g = 0, b = 0, a = 1) {
         this.setRed(r);
@@ -2868,7 +2893,7 @@ exports.Color = Color;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2954,7 +2979,7 @@ exports.Asset = Asset;
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3060,14 +3085,14 @@ exports.AssetFactory = AssetFactory;
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const AssetType_1 = __webpack_require__(6);
-const AssetGroup_1 = __webpack_require__(13);
+const AssetGroup_1 = __webpack_require__(14);
 const Instance_1 = __webpack_require__(3);
 const Iterator_1 = __webpack_require__(4);
 class AssetGroupLoader {
@@ -3107,7 +3132,7 @@ exports.AssetGroupLoader = AssetGroupLoader;
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3184,10 +3209,10 @@ class AssetLoader {
 }
 exports.AssetLoader = AssetLoader;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -3377,7 +3402,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3432,7 +3457,7 @@ exports.AudioLoader = AudioLoader;
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3473,7 +3498,7 @@ exports.ImageLoader = ImageLoader;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3494,7 +3519,7 @@ exports.JSONLoader = JSONLoader;
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3526,7 +3551,7 @@ exports.TextAssetBuilder = TextAssetBuilder;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3564,7 +3589,7 @@ exports.Spritesheet = Spritesheet;
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3658,14 +3683,14 @@ exports.Animation = Animation;
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const AudioEngine_1 = __webpack_require__(11);
-const AudioEvents_1 = __webpack_require__(14);
+const AudioEngine_1 = __webpack_require__(12);
+const AudioEvents_1 = __webpack_require__(15);
 class HTML5AudioEngine extends AudioEngine_1.AudioEngine {
     constructor() {
         super();
@@ -3777,7 +3802,7 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3785,12 +3810,14 @@ exports.HTML5AudioEngine = HTML5AudioEngine;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Events = __webpack_require__(1);
 const utils_1 = __webpack_require__(0);
+const utils_2 = __webpack_require__(0);
 class EntityModel extends Events.EventEmitter {
     constructor() {
         super();
         this._attributes = {};
         this._id = utils_1.IDGenerator.getSingleton().generate();
         this._type = 'generic';
+        this._position = new utils_2.Coordinate(0, 0);
     }
     getID() {
         return this._id;
@@ -3845,21 +3872,32 @@ class EntityModel extends Events.EventEmitter {
     }
     sync(listener) {
     }
+    getX() {
+        return this._position.getX();
+    }
+    getY() {
+        return this._position.getY();
+    }
+    setX(x) {
+        this._position.setX(x);
+    }
+    setY(y) {
+        this._position.setY(y);
+    }
+    setZ(z) {
+        this._position.setZ(z);
+    }
+    getZ() {
+        return this._position.getZ();
+    }
+    getPosition() {
+        return this._position;
+    }
+    setPosition(position) {
+        this._position = position;
+    }
 }
 exports.EntityModel = EntityModel;
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const EntityView_1 = __webpack_require__(17);
-class EntityView2D extends EntityView_1.EntityView {
-}
-exports.EntityView2D = EntityView2D;
 
 
 /***/ }),
@@ -3869,7 +3907,20 @@ exports.EntityView2D = EntityView2D;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Entity_1 = __webpack_require__(16);
+const EntityView_1 = __webpack_require__(18);
+class EntityView2D extends EntityView_1.EntityView {
+}
+exports.EntityView2D = EntityView2D;
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const Entity_1 = __webpack_require__(17);
 class GridMap extends Entity_1.Entity {
     constructor(tileSize, tileCount) {
         super();
@@ -3880,11 +3931,7 @@ class GridMap extends Entity_1.Entity {
         this.setHeight(this.tileSize.height * this.tileCount.y);
         for (var x = 0; x < this.tileCount.x; x++) {
             for (var y = 0; y < this.tileCount.y; y++) {
-                var tile = new Entity_1.Entity();
-                tile.setWidth(this.tileSize.width);
-                tile.setHeight(this.tileSize.height);
-                tile.setX((x + 1) * this.tileSize.width);
-                tile.setY((y + 1) * this.tileSize.height);
+                var tile = this._buildTile(x, y);
                 this.addChild(tile);
                 if (!this._tiles[x]) {
                     this._tiles[x] = [];
@@ -3892,6 +3939,14 @@ class GridMap extends Entity_1.Entity {
                 this._tiles[x][y] = tile;
             }
         }
+    }
+    _buildTile(x, y) {
+        var tile = new Entity_1.Entity();
+        tile.setWidth(this.tileSize.width);
+        tile.setHeight(this.tileSize.height);
+        tile.setX((x) * this.tileSize.width);
+        tile.setY((y) * this.tileSize.height);
+        return tile;
     }
     getTile(coordinate) {
         return this._tiles[coordinate.x][coordinate.y];
@@ -3904,7 +3959,7 @@ exports.GridMap = GridMap;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3916,7 +3971,7 @@ exports.LogicEngine = LogicEngine;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3989,7 +4044,7 @@ exports.GroupLogicEngine = GroupLogicEngine;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4050,6 +4105,53 @@ class RenderingEngine {
     }
     _render() {
         this._viewPort.clear();
+        for (var i in this._cameras) {
+            this._renderCamera(this._cameras[i]);
+        }
+        if (this.getHUD()) {
+            this._renderHUDEntity(this.getHUD());
+        }
+    }
+    _renderHUDEntity(hudEntity) {
+        var x = hudEntity.getX();
+        var y = hudEntity.getY();
+        var w = hudEntity.getWidth();
+        var h = hudEntity.getHeight();
+        if (hudEntity.getColor()) {
+            var color = hudEntity.getColor();
+            this.getViewPort().getContext().fillStyle = color.toString();
+            this.getViewPort().getContext().fillRect(x, y, w, h);
+        }
+        if (hudEntity.getTexture()) {
+            var imageData = hudEntity.getTexture().getData();
+            this.getViewPort().getContext().drawImage(imageData, x, y, w, h);
+        }
+    }
+    _renderCamera(camera) {
+        var scene = camera.getScene();
+        var context = this.getViewPort().getContext();
+        if (this.debugCamera) {
+            var viewPoint = camera.getViewPoint();
+            var fov = camera.getFOV();
+            var renderOrigin = camera.getRenderOrigin();
+            var renderDimension = camera.getRenderDimension();
+            context.beginPath();
+            context.rect(viewPoint.getX(), viewPoint.getY(), fov.width, fov.height);
+            context.lineWidth = 7;
+            context.strokeStyle = 'red';
+            context.stroke();
+            context.beginPath();
+            context.rect(renderOrigin.getX(), renderOrigin.getY(), renderDimension.width, renderDimension.height);
+            context.lineWidth = 7;
+            context.fillStyle = 'black';
+            context.fill();
+            context.strokeStyle = 'green';
+            context.stroke();
+        }
+        var color = new utils_1.Color(255, 255, 0);
+        this.getViewPort().getContext().fillStyle = color.toString();
+        this.getViewPort().getContext().fillRect(camera.getRenderOrigin().getX(), camera.getRenderOrigin().getY(), camera.getRenderDimension().width, camera.getRenderDimension().height);
+        this._renderEntity(scene, camera);
     }
     _calculateFPS() {
         var date = new Date();
@@ -4083,184 +4185,180 @@ exports.RenderingEngine = RenderingEngine;
 
 
 /***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = __webpack_require__(5);
-class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
-    _render() {
-        super._render();
-        var context = this.getViewPort().getContext();
-        for (var i in this._cameras) {
-            this._renderCamera(this._cameras[i]);
-        }
-        if (this.getHUD()) {
-            this._renderEntity(this.getHUD(), null);
-        }
-    }
-    _renderCamera(camera) {
-        var scene = camera.getScene();
-        var context = this.getViewPort().getContext();
-        if (this.debugCamera) {
-            var viewPoint = camera.getViewPoint();
-            var fov = camera.getFOV();
-            var renderOrigin = camera.getRenderOrigin();
-            var renderDimension = camera.getRenderDimension();
-            context.beginPath();
-            context.rect(viewPoint.x, viewPoint.y, fov.width, fov.height);
-            context.lineWidth = 7;
-            context.strokeStyle = 'red';
-            context.stroke();
-            context.beginPath();
-            context.rect(renderOrigin.x, renderOrigin.y, renderDimension.width, renderDimension.height);
-            context.lineWidth = 7;
-            context.fillStyle = 'black';
-            context.fill();
-            context.strokeStyle = 'green';
-            context.stroke();
-        }
-        this._renderEntity(scene, camera);
-    }
-    _renderEntity(entity, camera) {
-        if (camera) {
-            var viewPoint = camera.getViewPoint();
-            var fov = camera.getFOV();
-            var renderOrigin = camera.getRenderOrigin();
-            var renderDimension = camera.getRenderDimension();
-            var collidesYAxis = false;
-            var collidesXAxis = false;
-            var cameraBounds = {
-                x: viewPoint.x,
-                y: viewPoint.y,
-                x2: viewPoint.x + fov.width,
-                y2: viewPoint.y + fov.height
-            };
-            var entityBounds = {
-                x: entity.getAbsoluteX(),
-                y: entity.getAbsoluteY(),
-                x2: entity.getAbsoluteX2(),
-                y2: entity.getAbsoluteY2()
-            };
-            if ((entityBounds.x < cameraBounds.x2 && entityBounds.x2 > cameraBounds.x)
-                || (entityBounds.x2 > cameraBounds.x && entityBounds.x < cameraBounds.x2)) {
-                collidesXAxis = true;
-            }
-            if ((entityBounds.y < cameraBounds.y2 && entityBounds.y2 > cameraBounds.y)
-                || (entityBounds.y2 > cameraBounds.y && entityBounds.y < cameraBounds.y2)) {
-                collidesYAxis = true;
-            }
-            if (!collidesYAxis || !collidesXAxis) {
-                return false;
-            }
-            var leftClip = 0;
-            if (entity.getAbsoluteX() < viewPoint.x) {
-                leftClip = viewPoint.x - entity.getAbsoluteX();
-            }
-            var rightClip = 0;
-            if (entity.getAbsoluteX2() > (viewPoint.x + fov.width)) {
-                rightClip = entity.getAbsoluteX2() - (viewPoint.x + fov.width);
-            }
-            var topClip = 0;
-            if (entity.getAbsoluteY() < viewPoint.y) {
-                topClip = viewPoint.y - entity.getAbsoluteY();
-            }
-            var bottomClip = 0;
-            if (entity.getAbsoluteY2() > (viewPoint.y + fov.height)) {
-                bottomClip = entity.getAbsoluteY2() - (viewPoint.y + fov.height);
-            }
-            var xModifier = fov.width / renderDimension.width;
-            var yModifier = fov.height / renderDimension.height;
-            var cameraRelativeY = (entityBounds.y - cameraBounds.y) / yModifier;
-            if (cameraRelativeY < 0) {
-                cameraRelativeY = 0;
-            }
-            var cameraRelativeX = (entityBounds.x - cameraBounds.x) / xModifier;
-            if (cameraRelativeX < 0) {
-                cameraRelativeX = 0;
-            }
-            var clippedEntityHeight = (entity.getHeight() - topClip - bottomClip);
-            var clippedEntityWidth = (entity.getWidth() - rightClip - leftClip);
-            var x = renderOrigin.x + cameraRelativeX;
-            var y = renderOrigin.y + cameraRelativeY;
-            var w = clippedEntityWidth / xModifier;
-            var h = clippedEntityHeight / yModifier;
-            if (entity.getColor()) {
-                var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
-            }
-            if (this.debugRegions) {
-                var regions = entity.getRegions();
-                for (var x_i in regions) {
-                    for (var y_i in regions[x]) {
-                        if (regions[x_i][y_i].length > 0) {
-                            this.getViewPort().getContext().strokeStyle = "red";
-                            this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
-                        }
-                    }
-                }
-            }
-            if (entity.getTexture()) {
-                var imageData = entity.getTexture().getData();
-                var entityToImageYModifier = imageData.height / entity.getHeight();
-                var entityToImageXModifier = imageData.width / entity.getWidth();
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, leftClip * entityToImageXModifier, topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h);
-            }
-        }
-        else {
-            var x = entity.getX();
-            var y = entity.getY();
-            var w = entity.getWidth();
-            var h = entity.getHeight();
-            if (entity.getColor()) {
-                var color = entity.getColor();
-                this.getViewPort().getContext().fillStyle = color.toString();
-                this.getViewPort().getContext().fillRect(x, y, w, h);
-            }
-            if (entity.getTexture()) {
-                var imageData = entity.getTexture().getData();
-                var entityToImageYModifier = imageData.height / entity.getHeight();
-                var entityToImageXModifier = imageData.width / entity.getWidth();
-                var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
-                var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
-                this.getViewPort().getContext().drawImage(imageData, x, y, w, h);
-            }
-        }
-        var children = entity.getChildren();
-        while (children.hasNext()) {
-            this._renderEntity(children.next(), camera);
-        }
-        return true;
-    }
-}
-exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
-
-
-/***/ }),
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const GamePadListener_1 = __webpack_require__(50);
-exports.GamePadListener = GamePadListener_1.GamePadListener;
-const GamePad_1 = __webpack_require__(18);
-exports.GamePad = GamePad_1.GamePad;
-const Keyboard_1 = __webpack_require__(51);
-exports.Keyboard = Keyboard_1.Keyboard;
-exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
-const Mouse_1 = __webpack_require__(52);
-exports.Mouse = Mouse_1.Mouse;
-const Touch_1 = __webpack_require__(19);
-exports.Touch = Touch_1.Touch;
-const TouchListener_1 = __webpack_require__(53);
-exports.TouchListener = TouchListener_1.TouchListener;
+const _1 = __webpack_require__(5);
+const utils_1 = __webpack_require__(0);
+class TwoDimensionalRenderingEngine extends _1.RenderingEngine {
+    constructor() {
+        super(...arguments);
+        this._isometricRendering = false;
+        this._rotation = 0;
+    }
+    _renderEntity(entity, camera) {
+        var renderOrigin = camera.getRenderOrigin();
+        var renderDimension = camera.getRenderDimension();
+        var cameraFOV = camera.getFOV();
+        var entityPosition = this._getEntityCoordinates(entity);
+        var entityAbsolutePosition = entityPosition.inner;
+        var entityAbsoluteOuterPosition = entityPosition.outer;
+        var cameraPosition = camera.getViewPoint();
+        if (this._isometricRendering) {
+            cameraPosition = cameraPosition.toIsometric();
+        }
+        var cameraOuterPosition = new utils_1.Coordinate(cameraPosition.getX() + camera.getFOV().width, cameraPosition.getY() + camera.getFOV().height);
+        if (!this._isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition)) {
+            return false;
+        }
+        var entityClippings = this._calculateEntityClipping(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition);
+        var xModifier = cameraFOV.width / renderDimension.width;
+        var yModifier = cameraFOV.height / renderDimension.height;
+        var zModifier = (xModifier + yModifier) / 2;
+        var cameraRelativeY = (entityAbsolutePosition.getY() - cameraPosition.getY()) / yModifier;
+        if (cameraRelativeY < 0) {
+            cameraRelativeY = 0;
+        }
+        var cameraRelativeX = (entityAbsolutePosition.getX() - cameraPosition.getX()) / xModifier;
+        if (cameraRelativeX < 0) {
+            cameraRelativeX = 0;
+        }
+        var clippedEntityHeight = (entity.getHeight() - entityClippings.topClip - entityClippings.bottomClip);
+        var clippedEntityWidth = (entity.getWidth() - entityClippings.rightClip - entityClippings.leftClip);
+        var x = renderOrigin.getX() + cameraRelativeX;
+        var y = renderOrigin.getY() + cameraRelativeY;
+        var z = entityAbsolutePosition.getZ() / yModifier;
+        var w = clippedEntityWidth / xModifier;
+        var h = clippedEntityHeight / yModifier;
+        if (this._isometricRendering) {
+            w = w * 2;
+            y -= z;
+        }
+        if (entity.getColor()) {
+            var color = entity.getColor();
+            this.getViewPort().getContext().fillStyle = color.toString();
+            this.getViewPort().getContext().fillRect(x, y, w, h);
+        }
+        if (this.debugRegions) {
+            var regions = entity.getRegions();
+            for (var x_i in regions) {
+                for (var y_i in regions[x]) {
+                    if (regions[x_i][y_i].length > 0) {
+                        this.getViewPort().getContext().strokeStyle = "red";
+                        this.getViewPort().getContext().strokeRect(entity.getAbsoluteX() + entity.getRegionDimension().width * parseInt(x_i), entity.getAbsoluteY() + entity.getRegionDimension().height * parseInt(y_i), entity.getRegionDimension().width, entity.getRegionDimension().height);
+                    }
+                }
+            }
+        }
+        if (entity.getTexture()) {
+            var imageData = entity.getTexture().getData();
+            var entityToImageYModifier = imageData.height / entity.getHeight();
+            var entityToImageXModifier = imageData.width / entity.getWidth();
+            var clippedImageHeight = clippedEntityHeight * entityToImageYModifier;
+            var clippedImageWidth = clippedEntityWidth * entityToImageXModifier;
+            this.getViewPort().getContext().drawImage(imageData, entityClippings.leftClip * entityToImageXModifier, entityClippings.topClip * entityToImageYModifier, clippedImageWidth, clippedImageHeight, x, y, w, h);
+        }
+        var index = [];
+        var children = entity.getChildren();
+        while (children.hasNext()) {
+            var child = children.next();
+            var childCoords = this._getEntityCoordinates(child);
+            var inner = childCoords.inner;
+            var outer = childCoords.outer;
+            var added = false;
+            for (var i in index) {
+                var otherChild = index[i];
+                var otherChildCoords = this._getEntityCoordinates(otherChild);
+                if (!added) {
+                    var myTotal = (inner.getZ() + (inner.getX() / 2) + inner.getY());
+                    var theirTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.inner.getX() / 2) + otherChildCoords.inner.getY());
+                    var myOuterTotal = (inner.getZ() + (outer.getX() / 2) + outer.getY());
+                    var theirOuterTotal = (otherChildCoords.inner.getZ() + (otherChildCoords.outer.getX() / 2) + otherChildCoords.outer.getY());
+                    if (myTotal < theirTotal) {
+                        if (myOuterTotal < theirOuterTotal) {
+                            index.splice(i, 0, child);
+                            added = true;
+                        }
+                    }
+                    else if (myTotal === theirTotal && inner.getY() < otherChildCoords.inner.getY()) {
+                        index.splice(i, 0, child);
+                        added = true;
+                    }
+                }
+            }
+            if (!added) {
+                added = true;
+                index.push(child);
+            }
+        }
+        for (var i in index) {
+            this._renderEntity(index[i], camera);
+        }
+        return true;
+    }
+    setIsometricRendering(state) {
+        this._isometricRendering = state;
+    }
+    _getEntityCoordinates(entity) {
+        var entityAbsolutePosition = new utils_1.Coordinate(entity.getAbsoluteX(), entity.getAbsoluteY(), entity.getZ());
+        if (this._isometricRendering && entity.getParent()) {
+        }
+        var entityAbsoluteOuterPosition = new utils_1.Coordinate(entityAbsolutePosition.getX() + entity.getWidth(), entityAbsolutePosition.getY() + entity.getHeight());
+        if (this._isometricRendering) {
+            entityAbsoluteOuterPosition.incrementX(entity.getWidth());
+            entityAbsoluteOuterPosition.incrementY(0 - entity.getHeight());
+            entityAbsolutePosition = entityAbsolutePosition.toIsometric();
+            entityAbsoluteOuterPosition = entityAbsoluteOuterPosition.toIsometric();
+        }
+        return { inner: entityAbsolutePosition, outer: entityAbsoluteOuterPosition };
+    }
+    _isEntityInCamera(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition) {
+        var collidesXAxis = false;
+        var collidesYAxis = false;
+        if ((entityAbsolutePosition.getX() < cameraOuterPosition.getX() && entityAbsoluteOuterPosition.getX() > cameraPosition.getX())
+            || (entityAbsoluteOuterPosition.getX() > cameraPosition.getX() && entityAbsolutePosition.getX() < cameraOuterPosition.getX())) {
+            collidesXAxis = true;
+        }
+        if ((entityAbsolutePosition.getY() < cameraOuterPosition.getY() && entityAbsoluteOuterPosition.getY() > cameraPosition.getY())
+            || (entityAbsoluteOuterPosition.getY() > cameraPosition.getY() && entityAbsolutePosition.getY() < cameraOuterPosition.getY())) {
+            collidesYAxis = true;
+        }
+        return collidesXAxis && collidesYAxis;
+    }
+    _calculateEntityClipping(entityAbsolutePosition, entityAbsoluteOuterPosition, cameraPosition, cameraOuterPosition) {
+        var leftClip = 0;
+        if (entityAbsolutePosition.getX() < cameraPosition.getX()) {
+            leftClip = cameraPosition.getX() - entityAbsolutePosition.getX();
+        }
+        var rightClip = 0;
+        if (entityAbsoluteOuterPosition.getX() > cameraOuterPosition.getX()) {
+            rightClip = entityAbsoluteOuterPosition.getX() - cameraOuterPosition.getX();
+        }
+        if (this._isometricRendering) {
+            leftClip = leftClip / 2;
+            rightClip = rightClip / 2;
+        }
+        var topClip = 0;
+        if ((entityAbsolutePosition.getY()) < cameraPosition.getY()) {
+            topClip = (cameraPosition.getY()) - (entityAbsolutePosition.getY());
+        }
+        var bottomClip = 0;
+        if ((entityAbsoluteOuterPosition.getY()) > cameraOuterPosition.getY()) {
+            bottomClip = (entityAbsoluteOuterPosition.getY()) - cameraOuterPosition.getY();
+        }
+        return { leftClip, rightClip, topClip, bottomClip };
+    }
+    rotate() {
+        this._rotation += 1;
+        if (this._rotation > 3) {
+            this._rotation = 0;
+        }
+    }
+}
+exports.TwoDimensionalRenderingEngine = TwoDimensionalRenderingEngine;
 
 
 /***/ }),
@@ -4270,7 +4368,29 @@ exports.TouchListener = TouchListener_1.TouchListener;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const GamePad_1 = __webpack_require__(18);
+const GamePadListener_1 = __webpack_require__(51);
+exports.GamePadListener = GamePadListener_1.GamePadListener;
+const GamePad_1 = __webpack_require__(19);
+exports.GamePad = GamePad_1.GamePad;
+const Keyboard_1 = __webpack_require__(52);
+exports.Keyboard = Keyboard_1.Keyboard;
+exports.KeyboardKeys = Keyboard_1.KeyboardKeys;
+const Mouse_1 = __webpack_require__(53);
+exports.Mouse = Mouse_1.Mouse;
+const Touch_1 = __webpack_require__(20);
+exports.Touch = Touch_1.Touch;
+const TouchListener_1 = __webpack_require__(54);
+exports.TouchListener = TouchListener_1.TouchListener;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const GamePad_1 = __webpack_require__(19);
 const Events = __webpack_require__(1);
 class GamePadListener extends Events.EventEmitter {
     constructor() {
@@ -4325,7 +4445,7 @@ exports.GamePadListener = GamePadListener;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4499,12 +4619,13 @@ exports.Keyboard = Keyboard;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = __webpack_require__(0);
 const Events = __webpack_require__(1);
 class Mouse extends Events.EventEmitter {
     constructor() {
@@ -4512,7 +4633,7 @@ class Mouse extends Events.EventEmitter {
         this._leftButtonDown = false;
         this._rightButtonDown = false;
         this._scrollWheelDown = false;
-        this._mouseCoords = { x: 0, y: 0 };
+        this._mouseCoords = new utils_1.Coordinate(0, 0, 0);
         window.addEventListener("contextmenu", (e) => {
             e.preventDefault();
         });
@@ -4581,7 +4702,7 @@ class Mouse extends Events.EventEmitter {
             }
         }, true);
         window.addEventListener("mousemove", (e) => {
-            this._mouseCoords = { x: e.clientX, y: e.clientY };
+            this._mouseCoords = new utils_1.Coordinate(e.clientX, e.clientY);
             let event = {
                 type: "MOUSEMOVE",
                 source: this,
@@ -4637,13 +4758,13 @@ exports.Mouse = Mouse;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Touch_1 = __webpack_require__(19);
+const Touch_1 = __webpack_require__(20);
 const Events = __webpack_require__(1);
 class TouchListener extends Events.EventEmitter {
     constructor() {
@@ -4665,25 +4786,25 @@ exports.TouchListener = TouchListener;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QsIASQX0FF1LwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAe0lEQVQ4y62TwQ2EUAhEH5x1O7MAjd3Yii3YgQ256328cDK6uwFfwoUww/8B4ISkRlIvaZG0RSyRa/hGFP2ivxNP+p8p0/nyJRb/+pCjdaAjT+fAWDAYTdIGvJIGb6eIA2tBvzowFwzm+hjNbAeGhHgI7QOr/MgxZc/5ACK/LSOb4tnKAAAAAElFTkSuQmCC"
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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fPNfjo3rb/mV+boVS5cujcMnT48hQ4bEf03918SWO/nqO2LZsmVZ2ebm5uY4ZVa3KCoqiu8de2uM73lsYsu+4X8PjKeef9QPCyBniiIiZRig49lpp53izH0fie4xOO3HPLzih3H7H67M+BuuklRcXBxfPfKLccx+46O4qCjtx9366IK4/fcPbvVCb/BRBg4cGD/4+lExdlCvtB9T39gaF990XyxYsLDd5srh+58UR465IYoz+H1ifayKmY8fYE8HIEAAAICOzzkgAACAAAEAAAQIAACAAAEAAAQIAACAAAEAAAQIAAAgQAAAALZdF0NANqVSrnMJAIWmqKjIIJA19oAAAAACBAAAECAAAABtVhQRDtIHAABywh4QAABAgAAAAAIEAABAgAAAAAIEAABAgAAAAAIEAAAQIAAAAAIEAAAQIAAAAAIEAAAQIAAAgAABAAAQIAAAgAABAAAQIAAAgAABAAAECAAAgAABAAAECAAAgAABAAAECAAAIEAAAAAECAAAIEAAAAAECAAAIEAAAAABAgAAIEAAAAABAgAAIEAAAAABAgAAIEAAAAABAgAACBAAAAABAgAACBAAAAABAgAACBAAAECAAAAACBAAAECAAAAACBAAAECAAAAAAgQAAECAAAAAAgQAAECAAAAAAgQAABAgAAAAAgQAABAgAAAAAgQAABAgAACAAAEAABAgAACAAAEAABAgAACAAAEAABAgAACAAAEAAAQIAACAAAEAAAQIAACAAAEAAAQIAAAgQAAAAAQIAAAgQAAAAAQIAAAgQAAAAAECAAAgQAAAAAECAAAgQAAAAAECAAAIEAAAAAECAAAIEAAAAAECAAAIEAAAQIAAAAAIEAAAQIAAAAAIEAAAQIAAAAAIEAAAQIAAAAACBAAAQIAAAAACBAAAQIAAAAACBAAAECAAAAACBAAAECAAAAACBAAAECAAAIAAAQAAECAAAIAAAQAAECAAAIAAAQAABAgAAIAAAQAABAgAAIAAAQAABAgAACBAAAAABAgAACBAAAAABAgAACBAAAAAAQIAACBAAAAAAQIAACBAAAAAAQIAACBAAAAAAQIAAAgQAAAAAQIAAAgQAAAAAQIAAAgQAABAgAAAAAgQAABAgAAAAAgQAABAgAAAAAIEAABAgAAAAAIEAABAgAAAAAIEAAAQIAAAAAIEAAAQIAAAAAIEAAAQIAAAgAABAAAQIAAAgAABAAAQIAAAgAABAAAQIAAAgAABAAAECAAAgAABAAAECAAAgAABAAAECAAAIEAAAAAECAAAIEAAAAAECAAAIEAAAAABAgAAIEAAAAABAgAAIEAAAAABAgAACBAAAAABAgAACBAAAAABAgAACBAAAECAAAAACBAAAECAAAAACBAAAECAAAAACBAAAECAAAAAAgQAAECAAAAAAgQAAECAAAAAAgQAABAgAAAAAgQAABAgAAAAAgQAABAgAACAAAEAABAgAACAAAEAABAgAACAAAEAAAQIAACAAAEAAAQIAACAAAEAAAQIAAAgQAAAAAQIAAAgQAAAAAQIAAAgQAAAAAECAAAgQAAAAAECAAAgQAAAAAECAAAgQAAAAAECAAAIEAAAAAECAAAIEAAAAAECAAAIEAAAoMPrYggA0rfXXnvFQQcdFBMmTIixY8fGkCFDokePHhERUVdXFytWrIjFixfHU089FQ888EC89NJLBo1NioqK4sADD4zPf/7zsffee8fYsWNju+22i169esXGjRtjw4YNsWLFipg/f348//zzcffdd0dVVZWBAzrWe2FEpAwDUGhSqczeuoqKitq8ruLi4vja174W3/3ud2P8+PEZPXbBggUxY8aMuOWWW6KlpSXjdc+bNy/22GOPbRqr+fPnx+67757YmLa0tERLS0s0NTVFQ0ND1NfXR11dXdTU1ER1dXVUVVXF0qVLY968efHEE09EQ0NDTp/XdJYxfvz4WLRo0TZvQ7qvq9LS0pgyZUqcccYZMWLEiLSX39raGn/84x/jkksuiYcfftjEBzrOz3E3Nze3Qrtlqq3rGT9+fOr5559PbavnnnsutfPOO2e8/g0bNmzzuuvr61NFRUWJj2k6NmzYkLrpppvS/rcn8bym47zzzktkG9L5N+29996pl19+eZvH8v77708NHjzY/Hdzc+sIN4Pg5uYmQD7q9oUvfCGRAHhfTU1Nav/99097/QMGDEhs3aNHj26XAHlfY2Nj6vzzz8+bAHnppZdyEiBf/vKXU++++25i41hdXZ2aMGGC9wA3NzcB4ubm5tbRAmSPPfZI1dbWJv5BfP369aldd901rW3YZ599ElvvoYce2q4B8r5rrrkmLwIklUqlxo0bl9UAOfTQQ1NNTU2Jj2Ftba0IcXNzK+ibb8EC+JCysrK4/fbbo2fPnokvu6KiIubMmROlpaVbve/222+f2Hp32mmnvBjbyZMnx1e+8pW82Jajjz46a8seNmxY3HbbbdGlS/Lf9dKzZ8+47bbbom/fviYrUJAECMCHTJkyJcaNG5e15e+yyy4xadKknAbIjjvumDfje+WVV0ZJSUmHDpDp06dHRUVF1pY/fPjwmDp1qskKCBCAQldSUhJTpkzJ+nrOOeecrX4I74h7QCIiRowYEYcccki7b8cee+wRY8eOTXy5ffv2jaOOOirr2//Nb34zysrKTFpAgAAUsgMOOCAqKyvTvv+TTz4Zo0ePjiFDhsR9992X9uMqKytj//33z1mA5NMekIiIAw88MC+2Ixt7QQ466KCMwuChhx6KoUOHxsiRIzP6qt2KiorYd999TVpAgAAUss997nMZ3f+CCy6IN954I1auXBmXXnppRo/db7/9chYglZWViR8SVFJSEgMHDoyJEydmfLG8fAmibARIOtdc+aCLL744VqxYEcuXL49LLrkko8dOmDDBpAUECEAhy/RCgx+8mN2SJUsSW1dpaWkMHTo0reU0Nja2y4f+1tbWqK6ujt/97ndx1llnZfTYwYMH58Xzveeee8aYMWMSXWamy1u6dOmmPy9btiyrr1cAAQKQZzI5/CoiYu3atZv+XFNTk9iH8FGjRqV9ovbixYvTul82zwN5+umnM7p/nz598uY5T3ovyJAhQzK6/7p16zb9ef369Rk9dvTo0SYtIEAAClmmH4wbGho2/bmpqSmxdWVy+NWCBQvSul82D3t65513Mrp/Nr7iuK2S/lrg/v37t/k1VF9fn9FjBwwYYNICAgSgkPXq1Suj+//1WnR/1dramtiH8EwCZOHChWndL5t7QDZu3JjR/bt165Y3z/knP/nJRPckbMtrqKWlJaPH9uvXz6QFBAhAISsvL8/Zurp3755IgOTDHpBMPzjn29fHJnkYVqYBsi26du1q0gICBKCQ5fI381v68JiNABk7dmwUF+fH2342rhC+LZI8DCuXUeA6IIAAAShwufxAV1paus0B0tjYGEuXLo3m5ua04mrUqFH58cOnOL9+/HzqU5+KkSNHJrKsXF7lPd9CDkCAABToh8d0z0lYs2ZNtLa2bvZtXFuSL1dEz7cAiUjuMKxcvoYABAhAob8p5vCD8cd9UO3Xr1/07t07rWWsXr16s//dmny7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AgAACBAAAAABAgAACBAAAECAAAAACBAAAECAAAAACBAAAECAAAAAAgQAAECAAAAAAgQAAECAAAAAAgQAABAgAAAAAgQAABAgAAAAAgQAABAgAAAAAgQAABAgAACAAAEAABAgAACAAAEAABAgAACAAAEAAAQIAACAAAEAAAQIAACAAAEAAAQIAAAgQAAAAAQIAAAgQAAAAAQIAAAgQAAAAAECAAAgQAAAAAECAAAgQAAAAAECAAAIEAAAAAECAAAIEAAAAAECAAAIEAAAAAECAAAIEAAAQIAAAAAIEAAAQIAAAAAIEAAAQIAAAAACBAAAQIAAAAACBAAAQIAAAAACBAAAECAAAAACBAAAECAAAAACBAAAECAAAIAAAQAAECAAAIAAAQAAECAAAIAAAQAABAgAAIAAAQAABAgAAIAAAQAABAgAACBAAAAABAgAACBAAAAABAgAACBAAAAABAgAACBAAAAAAQIAACBAAAAAAQIAACBAAAAAAQIAAAgQAAAAAQIAAAgQAAAAAQIAAAgQAABAgAAAAAgQAABAgAAAAAgQAABAgAAAAJ3Q/wH6WcjbHHKHuQAAAABJRU5ErkJggg=="
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const Map_1 = __webpack_require__(57);
+const Map_1 = __webpack_require__(58);
 var map = {
     blocks: []
 };
@@ -4704,7 +4825,7 @@ for (var i = 0; i < 10; i++) {
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4727,7 +4848,7 @@ exports.getColor = getColor;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4835,7 +4956,7 @@ exports.Vector2D = Vector2D;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4843,7 +4964,7 @@ exports.Vector2D = Vector2D;
 Object.defineProperty(exports, "__esModule", { value: true });
 const Iterator_1 = __webpack_require__(4);
 const core_1 = __webpack_require__(7);
-const audio_1 = __webpack_require__(10);
+const audio_1 = __webpack_require__(11);
 const utils_1 = __webpack_require__(0);
 class PlayList {
     constructor(name, list) {
