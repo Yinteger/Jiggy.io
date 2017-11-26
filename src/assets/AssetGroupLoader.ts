@@ -1,4 +1,3 @@
-/// <reference path="../../src/core/CodeSplitSupport.d.ts" />
 
 import {Asset} from './Asset';
 import {AssetType} from './AssetType';
