@@ -1,4 +1,5 @@
-import {Event, Coordinate} from "../interfaces";
+import {Event} from "../interfaces";
+import {Coordinate} from '../utils';
 import * as Events from 'events';
 
 export const enum MouseEvents {
@@ -34,7 +35,7 @@ export class Mouse extends Events.EventEmitter {
     private _leftButtonDown : boolean = false;
     private _rightButtonDown : boolean = false;
     private _scrollWheelDown : boolean = false;
-    private _mouseCoords : Coordinate = {x: 0, y: 0};
+    private _mouseCoords : Coordinate = new Coordinate(0,0,0);
 
     private constructor () {
         super();
@@ -112,7 +113,7 @@ export class Mouse extends Events.EventEmitter {
         }, true);
 
         window.addEventListener("mousemove", (e: MouseEvent) => {
-            this._mouseCoords = {x: e.clientX, y: e.clientY};
+            this._mouseCoords = new Coordinate(e.clientX, e.clientY);
             let event: MouseMoveEvent = {
                 type: MouseEvents.MouseMove,
                 source: this,
