@@ -1,4 +1,4 @@
-import { ViewPort, Camera, Color, Coordinate } from "../utils";
+import { ViewPort, Camera, Color, Coordinate, Iterator } from "../utils";
 import { Dimension } from "../interfaces";
 import {Entity} from "../entities";
 
@@ -130,8 +130,8 @@ export abstract class RenderingEngine {
      * @param hudEntity
      */
     protected _renderHUDEntity(hudEntity: Entity): void {
-        var x = hudEntity.getX();
-        var y = hudEntity.getY();
+        var x = hudEntity.getAbsoluteX();
+        var y = hudEntity.getAbsoluteY();
         var w = hudEntity.getWidth();
         var h = hudEntity.getHeight();
 
@@ -146,6 +146,12 @@ export abstract class RenderingEngine {
         if (hudEntity.getTexture()) {
             var imageData = hudEntity.getTexture().getData();
             this.getViewPort().getContext().drawImage(imageData, x, y, w, h)
+        }
+
+        var iter: Iterator<Entity> = hudEntity.getChildren();
+        while (iter.hasNext()) {
+            var child: Entity = iter.next();
+            this._renderHUDEntity(child);
         }
     }
 
