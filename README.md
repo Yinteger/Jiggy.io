@@ -3,5 +3,5 @@ Jiggy.io is a HTML5 2D Game Engine designed to make it quick and easy to build g
 
 Please note this engine is currently under development and is not recommended for use since anything is likely to change drastically, and it still barely functions.    
 
-<a href="https://yuniyasha.github.io/Jiggy.io/" target="_blank">Live Demos Here</a>
-<a href="https://yuniyasha.github.io/Jiggy.io/docs/" target="_blank">Documents here</a>
+<a href="https://yinkai15.github.io/Jiggy.io/" target="_blank">Live Demos Here</a>
+<a href="https://yinkai15.github.io/Jiggy.io/docs/" target="_blank">Documents here</a>
