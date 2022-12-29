@@ -10,6 +10,6 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
-    "url-loader": "^0.6.2"
+    "url-loader": "^4.1.1"
   }
 }
